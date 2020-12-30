@@ -1,0 +1,141 @@
+site_name: Ceramic Developers
+site_url: https://developers.ceramic.network
+site_description: Documentation for the Ceramic Network
+repo_url: https://github.com/ceramicnetwork/docs
+repo_name: ceramicnetwork/docs
+
+# Copyright
+copyright: 'Ceramic is open sourced under MIT and Apache 2'
+
+
+theme:
+  name: material
+  custom_dir: overrides
+  # 404 page
+  static_templates:
+    - 404.html
+  palette:
+    scheme: default
+    primary: deep orange
+    accent: deep orange 
+  logo: images/ceramic-no-shadow.png
+  icon:
+    repo: fontawesome/brands/github-alt
+  favicon: images/favicon.png
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.expand
+    - navigation.sections
+    - header.autohide
+
+nav:
+  - Learn:
+    - Overview: learn/overview.md
+    - Documents: learn/documents/document-model.md
+    - Network:
+      - Nodes: learn/network/nodes.md
+      - Clients: learn/network/clients.md
+      - Anchor Services: learn/network/anchor-services.md
+    - DIDs:
+      - learn/dids/specification.md
+      - learn/dids/methods.md
+      - learn/dids/resolvers.md
+      - learn/dids/providers.md
+      - learn/dids/wallets.md
+  - Build:
+    - Quick Start: build/quick-start.md
+    - Installation: build/installation.md
+    - Authentication: build/authentication.md
+    - Transactions: build/transactions.md
+    - Queries: build/queries.md
+    - Pinning: build/pinning.md
+  - Run:
+    - Running a node: run/running-a-node.md
+    - Running an anchor service: run/running-an-anchor-service.md
+    - Deployment tools: run/deployment-tools.md
+  - Tools:
+    - Networks: tools/networks.md
+    - Clients:
+      - HTTP Client: tools/clients/http.md
+      - Core Client: tools/clients/core.md
+      - CLI: tools/clients/cli.md
+    - DIDs:
+      - 3ID DID Method: tools/dids/3id-did.md
+      - Key DID Method: tools/dids/key-did.md
+    - Doctypes:
+      - Tile: tools/doctypes/tile.md
+      - CAIP-10 Link: tools/doctypes/caip-10-link.md
+    - Identity:
+      - IDX: tools/identity/idx.md
+      - Self.id: tools/identity/self-id.md
+    - Development:
+      - Clayground: tools/development/clayground.md
+    - Hosting:
+      - Community gateway: tools/hosting/community-gateway.md
+      - Community dev node: tools/hosting/community-dev-node.md
+      - Community anchor service: tools/hosting/community-anchor-service.md
+      - Hosting providers: tools/hosting/hosting-providers.md
+  - Reference:
+    - JavaScript:
+      - Protocol:
+        - ceramicnetwork/core: tools/hosting/hosting-providers.md
+        - ceramicnetwork/http-client: tools/hosting/hosting-providers.md
+        - ceramicnetwork/cli: tools/hosting/hosting-providers.md
+        - ceramicnetwork/common: tools/hosting/hosting-providers.md
+      - DID Resolvers:
+        - ceramicnetwork/3id-did-resolver: tools/hosting/hosting-providers.md
+        - ceramicnetwork/key-did-resolver: tools/hosting/hosting-providers.md
+      - Doctypes:
+        - ceramicnetwork/doctype-tile: tools/hosting/hosting-providers.md
+        - ceramicnetwork/doctype-caip-10-link: tools/hosting/hosting-providers.md
+      - Anchor Service: tools/hosting/hosting-providers.md
+  - Chat: 'https://chat.ceramic.network'
+  - Blog: 'https://blog.ceramic.network'
+
+markdown_extensions:
+  - meta
+  - pymdownx.tabbed
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.smartsymbols
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+extra:
+  generator: false
+  # Social icone in footer
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://chat.ceramic.network
+      name: Ceramic community on Discord
+    - icon: fontawesome/brands/github
+      link: https://github.com/ceramicnetwork/ceramic
+      name: Ceramicnetwork on Github
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/ceramicnetwork
+      name: Ceramicnetwork on Twitter
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/ceramicnetwork
+      name: Ceramicnetwork on Youtube
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
+  - javascripts/tables.js
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+    - redirects:
+        redirect_maps:
+            'index.md': 'http://developers.ceramic.network'
+    - search
