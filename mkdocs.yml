@@ -134,8 +134,8 @@ extra_javascript:
 extra_css:
   - stylesheets/extra.css
 
-plugins:
-    - redirects:
-        redirect_maps:
-            'index.md': 'http://developers.ceramic.network'
-    - search
+#plugins:
+#    - redirects:
+#        redirect_maps:
+#            'index.md': 'http://developers.ceramic.network'
+#    - search
