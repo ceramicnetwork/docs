@@ -1,5 +1,5 @@
 site_name: Ceramic Developers
-site_url: https://developers.ceramic.network
+# site_url: https://developers.ceramic.network
 site_description: Documentation for the Ceramic Network
 repo_url: https://github.com/ceramicnetwork/docs
 repo_name: ceramicnetwork/docs
