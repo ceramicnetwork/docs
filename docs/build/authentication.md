@@ -1,98 +1,108 @@
 # Authentication
-How to set up authentication for Ceramic.
-
-??? tip "When to use authentication"
-    Authentication is needed when you want to
-    [write to the network](transactions.md). If you only want to interact with
-    Ceramic in a read-only manner, then you can simply
-    [query the network](queries.md) without authentication.
+This guide will help you add user authentication to your project. Authentication is needed when you want users to [write to the network](transactions.md). If you only want to interact with Ceramic in a read-only manner, then you can simply [query the network](queries.md) without authentication.
 
 ## Prerequisites
 
-Authentication requires having [installed Ceramic](installation.md) in your application.
+Authentication requires having [installed a Ceramic client](installation.md) in your project.
 
 ## Choose your setup
 
 ### DID method
 
-The first step in adding authentication to your application is choosing which
-*DID method* you want to support for user accounts.
+The first step in adding authentication to your project is choosing which
+*DID method* you want to support for user accounts. Due to their mutability and security, it is recommended that you use 3ID DID for users.
 <!--[DID method](../learn/dids/methods.md) you want to support for user accounts.-->
 
 DID Method | Description | Registration | DID Documents | Details |
 | ------ | ----- | ---- | ----- | ----- |
-| 3ID DID | A complete, flexible DID method built on Ceramic that supports key rotations and revocations | Ceramic | Mutable | [Learn](https://github.com/ceramicstudio/js-3id-did-provider){:target="_blank"} |
-| Key DID | A lightweight, inflexible DID method that does not support key rotations | None | Immutable | [Learn](https://github.com/ceramicnetwork/key-did-provider-ed25519){:target="_blank"} |
+| 3ID DID | A complete and flexible DID method built on Ceramic that supports key rotations and revocations | Ceramic | Mutable | [Learn](https://github.com/ceramicstudio/js-3id-did-provider){:target="_blank"} |
+| Key DID | A lightweight but inflexible DID method that does not support key rotations | None | Immutable | [Learn](https://github.com/ceramicnetwork/key-did-provider-ed25519){:target="_blank"} |
 
 ### DID provider or wallet
 
-After deciding on a DID method, you need to install either a
-[provider](../learn/dids/providers.md) or [wallet](../learn/dids/wallets.md) for
-that method. The most commonly used DID providers and wallets can be found below.
+After deciding on a DID method, you need to install either a *wallet* or a *provider* for that method. The most commonly used DID providers and wallets can be found below. For most browser applications, it is recommended that you use 3ID Connect.
 
-| Name      | DID Method | Description | Details |
-| ----------- | ------ | ---- | ----- |
-| `key-did-provider-ed25519` | Key DID | A software library for creating and interacting with Key DIDs. | [Learn](https://github.com/ceramicstudio/js-3id-did-provider){:target="_blank"} |
-| `3id-did-provider` | 3ID DID | A software library for creating and interacting with 3ID DIDs. | [Learn](https://github.com/ceramicnetwork/key-did-provider-ed25519){:target="_blank"} |
-| 3ID Connect | 3ID DID | A hosted wallet and authentication system for browser apps using the 3ID DID method. Allows users to authenticate with their existing blockchain wallets. | [Learn](https://github.com/ceramicstudio/3id-connect){:target="_blank"} |
-
-!!! tip ""
-    When using a provider, applications **are** responsible for key management
-    and security. When using a wallet, applications are **not** responsible for
-    key management since it is handled by the wallet. We recommend using a
-    wallet if possible.
+| Name      | DID Method | Type | Description | Details |
+| ----------- | ------ | ---- | ----- | --- |
+| 3ID Connect | 3ID DID | Wallet | A hosted wallet and authentication system for browser apps using 3ID DIDs. Your application is not responsible for key management, and users can authenticate with their existing blockchain wallets. | [Learn](https://github.com/ceramicstudio/3id-connect){:target="_blank"} |
+| `3id-did-provider` | 3ID DID | Provider | A JavaScript library for creating and interacting with 3ID DIDs. Your application is responsible for key management, and users need to authenticate with a DID seed or an auth secret. | [Learn](https://github.com/ceramicnetwork/js-3id-did-provider){:target="_blank"} |
+| `key-did-provider-ed25519` | Key DID | Provider | A JavaScript library for creating and interacting with Key DIDs. Your application is responsible for key managemet, and users need to authenticate with a DID seed. | [Learn](https://github.com/ceramicstudio/key-did-provider-ed25519){:target="_blank"} |
 
 ## Installation
-Install the DID provider or wallet in your project.
 
-=== "key-did-provider"
-
-    ``` sh
-    $ npm install key-did-provider-ed25519
-    ```
-
-=== "3id-did-provider"
-
-    ``` sh
-    $ npm install 3id-did-provider
-    ```
+Install a DID wallet or provider in your project using npm.
 
 === "3ID Connect"
 
     ```sh
     $ npm install @ceramicstudio/3id-connect
     ```
+    
+=== "3id-did-provider"
+
+    ``` sh
+    $ npm install 3id-did-provider
+    ```
+    
+=== "key-did-provider"
+
+    ``` sh
+    $ npm install key-did-provider-ed25519
+    ```
+
 
 ## Authentication
 
-The authentication process varies depending on which provider or wallet you are using. Closely follow the steps below.
+The authentication process varies depending on which wallet or provider you are using. Closely follow the steps below.
 
-=== "key-did-provider"
+=== "3ID Connect"
 
     #### Import the provider
 
-    Import the Key DID provider into your project.
-
     ``` javascript
-    import { Ed25519Provider } from 'key-did-provider-ed25519'
+    import { ThreeIdConnect,  <BlockchainAuthProvider> } from '@ceramicstudio/3id-connect'
     ```
 
-    #### Get seed for DID
+    Example using an Ethereum wallet:
 
-    Generate a random seed for a new user, or somehow get the existing seed for a returning user. Seeds should be a 32 byte Uint8Array.
+    ``` javascript
+    import { ThreeIdConnect,  EthereumAuthProvider } from '@ceramicstudio/3id-connect'
+    ```
 
-    ??? note "How to generate a seed"
-        Here's how to securely generate a seed in the proper format:
+    ??? note "Understanding `BlockchainAuthProvider`"
+        The `BlockchainAuthProvider` parameter is always required but the name shown here is just a placeholder. In your application, you should substitute in the specific BlockchainAuthProvider you are using. A full list of supported BlockchainAuthProviders can be found [here](https://github.com/ceramicnetwork/js-3id-blockchain-utils/tree/master/src/blockchains).
 
-        ``` javascript
-        import { randomBytes } from '@stablelib/random'
-        const seed = randomBytes(32)
-        ```
-
-    #### Create a provider instance using the seed
+    #### Request the user's blockchain address
 
     ``` js
-    const provider = new Ed25519Provider(seed)
+    const addresses = await <blockchainName>.enable()
+    ```
+
+    Example using an Ethereum wallet:
+
+    ``` js
+    const addresses = await window.ethereum.enable()
+    ```
+
+    #### Request authentication from the user's blockchain wallet
+    This will prompt the user with a 3ID Connect permissions window.
+
+    ``` js
+    const authProvider = new <BlockchainAuthProvider>(<blockchainName>, addresses[0])
+    await threeIdConnect.connect(authProvider)
+    ```
+
+    Example using an Ethereum wallet:
+
+    ``` js
+    const authProvider = new EthereumAuthProvider(window.ethereum, addresses[0])
+    await threeIdConnect.connect(authProvider)
+    ```
+
+    #### Create a provider instance
+
+    ``` js
+    const provider = await threeIdConnect.getDidProvider()
     ```
 
 === "3id-did-provider"
@@ -145,7 +155,7 @@ The authentication process varies depending on which provider or wallet you are 
     const provider = threeId.getDidProvider()
     ```
 
-    ??? note "Understanding the `getPermission` function"
+    ??? note "Understanding `getPermission`"
         The `getPermission` parameter is always required when creating an instance of ThreeIdProvider. It is used to give an application permission to decrypt and sign data. This function should present a dialog to the user in the wallet UI which asks for permission to access the given paths.
 
         The function is called with one parameter which is the request object. It looks like this:
@@ -162,7 +172,7 @@ The authentication process varies depending on which provider or wallet you are 
 
         In the above example the app with origin `https://my.app.origin` is requesting access to /path/1 and /path/2. If the user approves, the function should return the paths array. If they decline, it will return an empty array. Note that a user may approve only some of the requested paths, which would return an array containing only the approved paths.
 
-        The most simple `getPermission` function simply grants all requested permissions (example below).`
+        The most simple `getPermission` function simply grants all requested permissions.
 
         ``` javascript
         const getPermission = async (request) => {
@@ -170,55 +180,32 @@ The authentication process varies depending on which provider or wallet you are 
         }
         ```
 
-
-=== "3ID Connect"
+=== "key-did-provider"
 
     #### Import the provider
 
-    ``` javascript
-    import { ThreeIdConnect,  <BlockchainAuthProvider> } from '@ceramicstudio/3id-connect'
-    ```
-
-    Example using an Ethereum wallet:
+    Import the Key DID provider into your project.
 
     ``` javascript
-    import { ThreeIdConnect,  EthereumAuthProvider } from '@ceramicstudio/3id-connect'
+    import { Ed25519Provider } from 'key-did-provider-ed25519'
     ```
 
-    ??? note "Understanding the `BlockchainAuthProvider`"
-        The `BlockchainAuthProvider` parameter is always required but the name shown here is just a placeholder. In your application, you should substitute in the specific BlockchainAuthProvider you are using. A full list of BlockchainAuthProviders can be found [here]().
+    #### Get seed for DID
 
-    #### Request the user's blockchain address
+    Generate a random seed for a new user, or somehow get the existing seed for a returning user. Seeds should be a 32 byte Uint8Array.
 
-    ``` js
-    const addresses = await <blockchainName>.enable()
-    ```
+    ??? note "How to generate a seed"
+        Here's how to securely generate a seed in the proper format:
 
-    Example using an Ethereum wallet:
+        ``` javascript
+        import { randomBytes } from '@stablelib/random'
+        const seed = randomBytes(32)
+        ```
 
-    ``` js
-    const addresses = await window.ethereum.enable()
-    ```
-
-    #### Request authentication from the user's blockchain wallet
-    This will prompt the user with a 3ID Connect permissions window.
+    #### Create a provider instance using the seed
 
     ``` js
-    const authProvider = new <BlockchainAuthProvider>(<blockchainName>, addresses[0])
-    await threeIdConnect.connect(authProvider)
-    ```
-
-    Example using an Ethereum wallet:
-
-    ``` js
-    const authProvider = new EthereumAuthProvider(window.ethereum, addresses[0])
-    await threeIdConnect.connect(authProvider)
-    ```
-
-    #### Create a provider instance
-
-    ``` js
-    const provider = await threeIdConnect.getDidProvider()
+    const provider = new Ed25519Provider(seed)
     ```
 
 ## Set the provider
@@ -230,7 +217,7 @@ await ceramic.setDIDProvider(provider)
 
 ## Usage
 
-After authenticating, the user will now be able to perform [transactions]() on Ceramic using their DID.
+After authenticating, the user will now be able to perform [transactions](transactions.md) on Ceramic using their DID.
 
 </br>
 </br>
