@@ -80,13 +80,13 @@ nav:
       #- Hosting providers: tools/hosting/hosting-providers.md
   - Reference:
     - JavaScript:
-      - Protocol: reference/protocol.md
-      - DID Resolvers: reference/did-resolvers.md
-      - DID Providers: reference/did-providers.md
+      - Protocol: reference/javascript/protocol.md
+      - DID Resolvers: reference/javascript/did-resolvers.md
+      - DID Providers: reference/javascript/did-providers.md
       #- Doctypes:
         #- ceramicnetwork/doctype-tile: tools/hosting/hosting-providers.md
         #- ceramicnetwork/doctype-caip-10-link: tools/hosting/hosting-providers.md
-      - Anchor Service: reference/anchor-service.md
+      - Anchor Service: reference/javascript/anchor-service.md
       #- Anchor Service: 'https://github.com/ceramicnetwork/ceramic-anchor-service/'
   - Chat: 'https://chat.ceramic.network'
   - Blog: 'https://blog.ceramic.network'
