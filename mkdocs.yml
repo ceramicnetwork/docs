@@ -50,6 +50,7 @@ nav:
     - Transactions: build/transactions.md
     - Queries: build/queries.md
     - Pinning: build/pinning.md
+    - Troubleshooting: build/troubleshooting.md
   #- Run:
     #- Running a node: run/running-a-node.md
     #- Running an anchor service: run/running-an-anchor-service.md
