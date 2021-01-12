@@ -30,19 +30,19 @@ theme:
     - header.autohide
 
 nav:
-  - Learn:
-    - Overview: learn/overview.md
-    - Documents: learn/documents/document-model.md
-    - Network:
-      - Nodes: learn/network/nodes.md
-      - Clients: learn/network/clients.md
-      - Anchor Services: learn/network/anchor-services.md
-    - DIDs:
-      - learn/dids/specification.md
-      - learn/dids/methods.md
-      - learn/dids/resolvers.md
-      - learn/dids/providers.md
-      - learn/dids/wallets.md
+  #- Learn:
+    #- Overview: learn/overview.md
+    #- Documents: learn/documents/document-model.md
+    #- Network:
+      #- Nodes: learn/network/nodes.md
+      #- Clients: learn/network/clients.md
+      #- Anchor Services: learn/network/anchor-services.md
+    #- DIDs:
+      #- learn/dids/specification.md
+      #- learn/dids/methods.md
+      #- learn/dids/resolvers.md
+      #- learn/dids/providers.md
+      #- learn/dids/wallets.md
   - Build:
     - Quick Start: build/quick-start.md
     - Installation: build/installation.md
@@ -50,46 +50,49 @@ nav:
     - Transactions: build/transactions.md
     - Queries: build/queries.md
     - Pinning: build/pinning.md
-  - Run:
-    - Running a node: run/running-a-node.md
-    - Running an anchor service: run/running-an-anchor-service.md
-    - Deployment tools: run/deployment-tools.md
-  - Tools:
-    - Networks: tools/networks.md
-    - Clients:
-      - HTTP Client: tools/clients/http.md
-      - Core Client: tools/clients/core.md
-      - CLI: tools/clients/cli.md
-    - DIDs:
-      - 3ID DID Method: tools/dids/3id-did.md
-      - Key DID Method: tools/dids/key-did.md
-    - Doctypes:
-      - Tile: tools/doctypes/tile.md
-      - CAIP-10 Link: tools/doctypes/caip-10-link.md
-    - Identity:
-      - IDX: tools/identity/idx.md
-      - Self.id: tools/identity/self-id.md
-    - Development:
-      - Clayground: tools/development/clayground.md
-    - Hosting:
-      - Community gateway: tools/hosting/community-gateway.md
-      - Community dev node: tools/hosting/community-dev-node.md
-      - Community anchor service: tools/hosting/community-anchor-service.md
-      - Hosting providers: tools/hosting/hosting-providers.md
+  #- Run:
+    #- Running a node: run/running-a-node.md
+    #- Running an anchor service: run/running-an-anchor-service.md
+    #- Deployment tools: run/deployment-tools.md
+  #- Tools:
+    #- Networks: tools/networks.md
+    #- Clients:
+      #- HTTP Client: tools/clients/http.md
+      #- Core Client: tools/clients/core.md
+      #- CLI: tools/clients/cli.md
+    #- DIDs:
+      #- 3ID DID Method: tools/dids/3id-did.md
+      #- Key DID Method: tools/dids/key-did.md
+    #- Doctypes:
+      #- Tile: tools/doctypes/tile.md
+      #- CAIP-10 Link: tools/doctypes/caip-10-link.md
+    #- Identity:
+      #- IDX: tools/identity/idx.md
+      #- Self.id: tools/identity/self-id.md
+    #- Development:
+      #- Clayground: tools/development/clayground.md
+    #- Hosting:
+      #- Community gateway: tools/hosting/community-gateway.md
+      #- Community dev node: tools/hosting/community-dev-node.md
+      #- Community anchor service: tools/hosting/community-anchor-service.md
+      #- Hosting providers: tools/hosting/hosting-providers.md
   - Reference:
     - JavaScript:
       - Protocol:
-        - ceramicnetwork/core: tools/hosting/hosting-providers.md
-        - ceramicnetwork/http-client: tools/hosting/hosting-providers.md
-        - ceramicnetwork/cli: tools/hosting/hosting-providers.md
-        - ceramicnetwork/common: tools/hosting/hosting-providers.md
+        - ceramicnetwork/core: 'https://developers.ceramic.network/api/javascript/classes/_ceramicnetwork_core.ceramic.html'
+        - ceramicnetwork/http-client: 'https://developers.ceramic.network/api/javascript/classes/_ceramicnetwork_http_client.html'
       - DID Resolvers:
-        - ceramicnetwork/3id-did-resolver: tools/hosting/hosting-providers.md
-        - ceramicnetwork/key-did-resolver: tools/hosting/hosting-providers.md
-      - Doctypes:
-        - ceramicnetwork/doctype-tile: tools/hosting/hosting-providers.md
-        - ceramicnetwork/doctype-caip-10-link: tools/hosting/hosting-providers.md
+        - decentralized-identity/did-resolver: 'https://github.com/decentralized-identity/did-resolver'
+        - ceramicnetwork/3id-did-resolver: 'https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/3id-did-resolver'
+        - ceramicnetwork/key-did-resolver: 'https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/key-did-resolver'
+      - DID Providers:
+        - ceramicstudio/3id-did-provider: 'https://github.com/ceramicstudio/js-3id-did-provider'
+        - ceramicnetwork/key-did-provider: 'https://github.com/ceramicnetwork/key-did-provider-ed25519'
+      #- Doctypes:
+        #- ceramicnetwork/doctype-tile: tools/hosting/hosting-providers.md
+        #- ceramicnetwork/doctype-caip-10-link: tools/hosting/hosting-providers.md
       - Anchor Service: tools/hosting/hosting-providers.md
+      #- Anchor Service: 'https://github.com/ceramicnetwork/ceramic-anchor-service/'
   - Chat: 'https://chat.ceramic.network'
   - Blog: 'https://blog.ceramic.network'
 
@@ -134,8 +137,8 @@ extra_javascript:
 extra_css:
   - stylesheets/extra.css
 
-#plugins:
-#    - redirects:
-#        redirect_maps:
-#            'index.md': 'http://developers.ceramic.network'
-#    - search
+plugins:
+    - redirects:
+        redirect_maps:
+            'index.md': 'build/quick-start.md'
+    - search

@@ -31,7 +31,8 @@ Open your terminal and install a client using [npm]().
     $ npm install -g @ceramicnetwork/cli
     ```
 
-    The CLI requires the use of [Node.js](). Make sure to have an up-to-date version installed on your machine.
+    The CLI requires the use of [Node.js](). Make sure to have an up-to-date
+    version installed on your machine.
 
 ## Setup
 Setup your client within your project.
@@ -45,6 +46,8 @@ Setup your client within your project.
     ```
 
     #### Connect to a node
+    If you are running the `ceramic daemon` command locally you can use
+    localhost and port 7007.
 
     ``` javascript
     const API_URL = "http://localhost:7007"
@@ -53,7 +56,7 @@ Setup your client within your project.
     #### Create an instance
 
     ``` javascript
-    const client = new CeramicClient(API_URL)
+    const ceramic = new CeramicClient(API_URL)
     ```
 
 === "Core"
@@ -65,6 +68,10 @@ Setup your client within your project.
     ```
 
     #### Import IPFS with dag-jose
+    Ceramic utilizes the [dag-jose](https://github.com/ipld/specs/blob/master/block-layer/codecs/dag-jose.md){:target="_blank"}
+    IPLD codec to store signed and encrypted data. In order to create an
+    instance of Cerami core, you first need to create an instance of *js-ipfs*
+    with *dag-jose* enabled.
 
     ``` javascript
     import IPFS from 'ipfs'
@@ -84,13 +91,9 @@ Setup your client within your project.
     })
     ```
 
-    #### Configure your Ceramic node
-
-    ``` javascript
-    const config: CeramicConfig = {}
-    ```
-
     #### Create a Ceramic instance
+    Create an instance of ceramic by passing ipfs and an optional configuration
+    object.
 
     ``` javascript
     const ceramic = await Ceramic.create(ipfs, config)
@@ -111,15 +114,21 @@ Setup your client within your project.
     ```
 
     ??? tip "Node options"
-        By default the CLI will start a Ceramic node on your local machine and connect to it on port 7007, `http://localhost:7007`. If you would like to use another node, the community offers various nodes:
-        
+        By default the CLI will start a Ceramic node on your local machine and
+        connect to it on port 7007, `http://localhost:7007`. If you would like
+        to use another node, the community offers various nodes:
+
         - [Read-only gateway]()
         - [Dev node]()
-        
-        Or you could [run a node]() and connect to it. 
+
+        Or you could [run a node]() and connect to it.
 
 ## Examples
-Your project should look something like this. You may have slight modifications depending on your configuration.
+
+TODO - what do we want to do with these examples?
+
+Your project should look something like this. You may have slight modifications
+depending on your configuration.
 
 === "HTTP"
 
@@ -137,7 +146,7 @@ Your project should look something like this. You may have slight modifications 
 
     ```bash
     ceramic daemon
-    ``` 
+    ```
 
 </br>
 </br>

@@ -1,93 +1,78 @@
 # Transactions
-Transactions are interactions that write to Ceramic documents, such as creating new documents and transforming existing documents.
+Transactions are interactions that write to Ceramic documents, such as creating
+new documents and transforming existing documents. The examples on this page
+describes how to make transactions using the [http]() and [core]() clients.
+You can also use the CLI using the examples on the [Quick Start](quick-start.md)
+page.
 
 ## Prerequisites
-You need an [installed client]() and an [authenticated user]() to perform transactions on the network.
+You need an [installed client](installation.md) and an
+[authenticated user](authentication.md) to perform transactions on the network.
 
 ## Create a document
-Use the `createDocument()` method to create a new document.
+Use the `createDocument()` method to create a new document. By default the
+controller of the document will be the currently authenticated user.
 
-=== "HTTP"
 
-    ``` javascript
-    const doc = await client.createDocument('doctypeName', { content: { foo: bar } })
-    ```
+``` javascript
+const doc = await client.createDocument('tile', {
+  content: { foo: "bar" }
+})
+```
 
-    [:octicons-file-code-16: HTTP reference]()
+[:octicons-file-code-16: API reference]()
 
-=== "JS"
+## Create a document deterministically
+By default the first *genesis commit* of a document is signed. Sometimes it's
+useful to be able to create a document where you can compute the *DocID* using
+only the content of the *genesis commit*. In order to do this we can specify
+the `deterministic` flag. Important to note is that if we want the *genesis
+commit* to not be signed we should not add any `content` property when we create
+the document.
 
-    ``` javascript
-    const doc = await ceramic.createDocument('doctypeName', { content: { foo: bar } })
-    ```
+The `controllers` property defines which DID that is allowed to make updates
+to the document. The `family` property allows you to group similar document into
+*families*.
 
-    [:octicons-file-code-16: JS reference]()
 
-=== "CLI"
-
-    ``` javascript
-    const doc = await client.createDocument('doctypeName', { content: { foo: bar } })
-    ```
-
-    [:octicons-file-code-16: CLI reference]()
+``` javascript
+const doc = ceramic.createDocument('tile', {
+  deterministic: true,
+  metadata: {
+    controllers: ['did:key:z6MkfZ6S4NVVTEuts8o5xFzRMR8eC6Y1bngoBQNnXiCvhH8H'],
+    family: 'example family'
+  },
+  { anchor: false, publish: false }
+})
+```
+[:octicons-file-code-16: API reference]()
 
 ??? tip "Parameters"
-    When creating a document, the `doctype` parameter is always required. Other parameters and content requirements will vary depending on the doctype. If you do not specify a doctype or if your parameters do not meet the doctype's requirements, your transaction will fail. 
-    
+    When creating a document, the first parameter is the `doctype` and is always
+    required. Other parameters and content requirements will vary depending on
+    the doctype. If you do not specify a doctype or if your parameters do not
+    meet the doctype's requirements, your transaction will fail.
+
     Read each doctype's documentation for more information on the required and optional parameters.
 
     - [Tile doctype]()
-    - [CAIP-10 link doctype]() 
+    - [CAIP-10 link doctype]()
 
 ## Update a document
-Use the `applyRecord()` method to apply a new record which will update your document. Any update to a document must conform to the update rules specified by the document's doctype.
+Use the `doc.change()` method to update the content of your document. Any update
+to a document must conform to the update rules specified by the document's
+doctype.
 
-=== "HTTP"
 
-    ``` javascript
-    const doc = await client.createDocument('doctypeName', { content: { foo: bar } })
-    ```
+``` javascript
+await doc.change({ content: { foo: "updated" }})
+```
 
-    [:octicons-file-code-16: HTTP reference]()
+Note that you can also specify updates to the `metadata` property.
 
-=== "JS"
+[:octicons-file-code-16: API reference]()
 
-    ``` javascript
-    const doc = await ceramic.createDocument('doctypeName', { content: { foo: bar } })
-    ```
 
-    [:octicons-file-code-16: JS reference]()
-
-=== "CLI"
-
-    ``` javascript
-    const doc = await client.createDocument('doctypeName', { content: { foo: bar } })
-    ```
-    
-    [:octicons-file-code-16: CLI reference]()
-
-## Delete a document
-Use the `applyRecord()` method to apply a new record which will update your document. Any update to a document must conform to the update rules specified by the document's doctype.
-
-=== "HTTP"
-
-    ``` javascript
-    const doc = await client.createDocument('doctypeName', { content: { foo: bar } })
-    ```
-
-=== "Core"
-
-    ``` javascript
-    const doc = await ceramic.createDocument('doctypeName', { content: { foo: bar } })
-    ```
-
-=== "CLI"
-
-    ``` javascript
-    const doc = await client.createDocument('doctypeName', { content: { foo: bar } })
-    ```
-
-[:octicons-file-code-16: Reference]()
 
 </br>
 </br>

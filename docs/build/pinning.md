@@ -1,51 +1,44 @@
 # Pinning
-Add and remove documents from the cache in your Ceramic node.
+Add and remove documents from the permanent pinset in your Ceramic node.
+
+By default Ceramic will garbage collect any document that has been created or
+loaded after some period of time. In order to prevent this you need to pin the
+documents that you care about. This will make the Ceramic node keep them around
+until they are unpinned again.
 
 ## Prerequisites
 
-Pinning requires having [installed a Ceramic client](clients.md) in your project. 
+Pinning requires having [installed a Ceramic client](installation.md) in your
+project.
 
-## Add to cache
-Add documents to a temporaty cache.
+## Add to pinset
+Add a document to the permanent pinset using the `pin.add()` method.
 
-=== "HTTP"
+``` javascript
+const docid = 'kjzl6cwe1jw14...'
+await ceramic.pin.add(docid)
+```
+[:octicons-file-code-16: API reference]()
 
-    ``` javascript
-    lorem ipsum
-    ```
+## Remove from pinset
+Remove a document from the permanent pinset using the `pin.rm()` method.
 
-=== "Core"
+``` javascript
+const docid = 'kjzl6cwe1jw14...'
+await ceramic.pin.rm(docid)
+```
+[:octicons-file-code-16: API reference]()
 
-    ``` javascript
-    lorem ipsum
-    ```
+## List documents in pinset
+List the documents currently in the permanent pinset using the `pin.ls()`
+method.
 
-=== "CLI"
+``` javascript
+const docIds = await ceramic.pin.ls()
+```
+[:octicons-file-code-16: API reference]()
 
-    ``` javascript
-    lorem ipsum
-    ```
 
-## Add to persistence
-Add documents to a persistence backend.
-
-=== "HTTP"
-
-    ``` javascript
-    lorem ipsum
-    ```
-
-=== "Core"
-
-    ``` javascript
-    lorem ipsum
-    ```
-
-=== "CLI"
-
-    ``` javascript
-    lorem ipsum
-    ```
 
 </br>
 </br>

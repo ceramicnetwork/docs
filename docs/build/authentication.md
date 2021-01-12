@@ -2,35 +2,45 @@
 How to set up authentication for Ceramic.
 
 ??? tip "When to use authentication"
-    Authentication is needed when you want to [write to the network](transactions.md). If you only want to interact with Ceramic in a read-only manner, then you can simply [query the network](queries.md) without authentication.
+    Authentication is needed when you want to
+    [write to the network](transactions.md). If you only want to interact with
+    Ceramic in a read-only manner, then you can simply
+    [query the network](queries.md) without authentication.
 
 ## Prerequisites
 
-Authentication requires having [installed Ceramic](clients.md) in your application. 
+Authentication requires having [installed Ceramic](installation.md) in your application.
 
 ## Choose your setup
 
 ### DID method
 
-The first step in adding authentication to your application is choosing which [DID method](../learn/dids/methods.md) you want to support for user accounts.
+The first step in adding authentication to your application is choosing which
+*DID method* you want to support for user accounts.
+<!--[DID method](../learn/dids/methods.md) you want to support for user accounts.-->
 
 DID Method | Description | Registration | DID Documents | Details |
 | ------ | ----- | ---- | ----- | ----- |
-| 3ID DID | A complete, flexible DID method built on Ceramic that supports key rotations and revocations | Ceramic | Mutable | [Learn]() |
-| Key DID | A lightweight, inflexible DID method that does not support key rotations | None | Immutable | [Learn]() |
+| 3ID DID | A complete, flexible DID method built on Ceramic that supports key rotations and revocations | Ceramic | Mutable | [Learn](https://github.com/ceramicstudio/js-3id-did-provider){:target="_blank"} |
+| Key DID | A lightweight, inflexible DID method that does not support key rotations | None | Immutable | [Learn](https://github.com/ceramicnetwork/key-did-provider-ed25519){:target="_blank"} |
 
 ### DID provider or wallet
 
-After deciding on a DID method, you need to install either a [provider](../learn/dids/providers.md) or [wallet](../learn/dids/wallets.md) for that method. The most commonly used DID providers and wallets can be found below.
+After deciding on a DID method, you need to install either a
+[provider](../learn/dids/providers.md) or [wallet](../learn/dids/wallets.md) for
+that method. The most commonly used DID providers and wallets can be found below.
 
 | Name      | DID Method | Description | Details |
 | ----------- | ------ | ---- | ----- |
-| `key-did-provider-ed25519` | Key DID | A software library for creating and interacting with Key DIDs. | [Learn]() |
-| `3id-did-provider` | 3ID DID | A software library for creating and interacting with 3ID DIDs. | [Learn]() |
-| 3ID Connect | 3ID DID | A hosted wallet and authentication system for browser apps using the 3ID DID method. Allows users to authenticate with their existing blockchain wallets. | [Learn]() |
+| `key-did-provider-ed25519` | Key DID | A software library for creating and interacting with Key DIDs. | [Learn](https://github.com/ceramicstudio/js-3id-did-provider){:target="_blank"} |
+| `3id-did-provider` | 3ID DID | A software library for creating and interacting with 3ID DIDs. | [Learn](https://github.com/ceramicnetwork/key-did-provider-ed25519){:target="_blank"} |
+| 3ID Connect | 3ID DID | A hosted wallet and authentication system for browser apps using the 3ID DID method. Allows users to authenticate with their existing blockchain wallets. | [Learn](https://github.com/ceramicstudio/3id-connect){:target="_blank"} |
 
 !!! tip ""
-    When using a provider, applications **are** responsible for key management and security. When using a wallet, applications are **not** responsible for key management since it is handled by the wallet. We recommend using a wallet if possible.
+    When using a provider, applications **are** responsible for key management
+    and security. When using a wallet, applications are **not** responsible for
+    key management since it is handled by the wallet. We recommend using a
+    wallet if possible.
 
 ## Installation
 Install the DID provider or wallet in your project.
@@ -52,7 +62,7 @@ Install the DID provider or wallet in your project.
     ```sh
     $ npm install @ceramicstudio/3id-connect
     ```
-    
+
 ## Authentication
 
 The authentication process varies depending on which provider or wallet you are using. Closely follow the steps below.
@@ -217,7 +227,6 @@ Set the authenticated provider instance to your Ceramic client in order to perfo
 ``` javascript
 await ceramic.setDIDProvider(provider)
 ```
-    
 
 ## Usage
 
