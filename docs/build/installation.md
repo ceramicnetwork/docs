@@ -1,17 +1,17 @@
 # Installation
-Install a Ceramic client to interact with the network
+Install a client to interact with the Ceramic network.
 
 ## Clients
-Ceramic is available in a variety of clients suited for different use cases.
+Ceramic is available in a variety of clients suited for different use cases. For optimal performance, it is recommended that you use the HTTP Client during runtime.
 
 Client | Description | Usage | Details |
 | ------ | ----- | ---- | --- |
-| HTTP | An API for interacting with a remote Ceramic daemon over HTTP | Application runtime | [Learn]() |
-| Core | An API for interacting with a Ceramic node in a local JavaScript environment, such as directly in-browser | Application runtime | [Learn]() |
-| CLI | A command line interface for interacting with a Ceramic node | Development time | [Learn]() |
+| HTTP | An API for interacting with a remote Ceramic daemon over HTTP | Runtime | [Learn]() |
+| Core | An API for interacting with a Ceramic node in a local JavaScript environment, such as directly in-browser | Runtime | [Learn]() |
+| CLI | A command line interface for interacting with a Ceramic node | Development | [Learn]() |
 
 ## Installation
-Open your terminal and install a client using [npm]().
+Open your terminal and install a client using npm.
 
 === "HTTP"
 
@@ -31,8 +31,7 @@ Open your terminal and install a client using [npm]().
     $ npm install -g @ceramicnetwork/cli
     ```
 
-    The CLI requires the use of [Node.js](). Make sure to have an up-to-date
-    version installed on your machine.
+    The CLI requires the use of Node.js. Make sure to have an up-to-date version installed on your machine.
 
 ## Setup
 Setup your client within your project.
@@ -46,12 +45,18 @@ Setup your client within your project.
     ```
 
     #### Connect to a node
-    If you are running the `ceramic daemon` command locally you can use
-    localhost and port 7007.
 
     ``` javascript
-    const API_URL = "http://localhost:7007"
+    const API_URL = "http://yourceramicnode.com"
     ```
+    
+    !!! note "Node options"
+        When using the HTTP API, you need to connect to a remote Ceramic node by passing its URL. Here are your options for nodes that run on the Clay testnet. Choose the option that best suits your use case:
+        
+        - Community gateway `https://ceramic-clay-gateway.3boxlabs.com`: Provides read-only access to the Clay testnet.
+        - Comunity dev node `https://ceramic-clay-dev.3boxlabs.com`: Provides write and read access to the Clay testnet. This node is periodically wiped and does not guarantee document persistence.
+        - Run your own node `https://yourEndpoint.com`: Provides write and read access to the Clay testnet. Running your own node allows you to persist documents and have full control.
+        - LocalHost `https://localhost:7007`: Provides write and read access to the Clay testnet. Users need to first have a Cermic daemon running locally using the CLI.
 
     #### Create an instance
 
@@ -69,8 +74,8 @@ Setup your client within your project.
 
     #### Import IPFS with dag-jose
     Ceramic utilizes the [dag-jose](https://github.com/ipld/specs/blob/master/block-layer/codecs/dag-jose.md){:target="_blank"}
-    IPLD codec to store signed and encrypted data. In order to create an
-    instance of Cerami core, you first need to create an instance of *js-ipfs*
+    IPLD codec to store signed and encrypted data in IPFS. In order to create an
+    instance of Ceramic core, you first need to create an instance of *js-ipfs*
     with *dag-jose* enabled.
 
     ``` javascript
@@ -92,7 +97,7 @@ Setup your client within your project.
     ```
 
     #### Create a Ceramic instance
-    Create an instance of ceramic by passing ipfs and an optional configuration
+    Create an instance of Ceramic by passing ipfs and an optional configuration
     object.
 
     ``` javascript
@@ -107,21 +112,20 @@ Setup your client within your project.
     ceramic daemon
     ```
 
-    #### Connect to a Ceramic node (optional)
+    #### Connect to a Ceramic node
+    TODO: FIX THIS
 
     ```bash
-    ceramic daemon
+    --API_URL(https://yourceramicnode.com)
     ```
 
-    ??? tip "Node options"
-        By default the CLI will start a Ceramic node on your local machine and
-        connect to it on port 7007, `http://localhost:7007`. If you would like
-        to use another node, the community offers various nodes:
-
-        - [Read-only gateway]()
-        - [Dev node]()
-
-        Or you could [run a node]() and connect to it.
+    !!! note "Node options"
+        When using the CLI, you need to connect to a remote Ceramic node by passing its URL. Here are your options for nodes that run on the Clay testnet. Choose the option that best suits your use case:
+        
+        - LocalHost `https://localhost:7007`: Enabled by default. Provides write and read access to the Clay testnet.
+        - Community gateway `https://ceramic-clay-gateway.3boxlabs.com`: Provides read-only access to the Clay testnet.
+        - Comunity dev node `https://ceramic-clay-dev.3boxlabs.com`: Provides write and read access to the Clay testnet. This node is periodically wiped and does not guarantee document persistence.
+        - Run your own node `https://yourEndpoint.com`: Provides write and read access to the Clay testnet. Running your own node allows you to persist documents and have full control.
 
 ## Examples
 
