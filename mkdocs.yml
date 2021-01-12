@@ -50,6 +50,7 @@ nav:
     - Transactions: build/transactions.md
     - Queries: build/queries.md
     - Pinning: build/pinning.md
+    - Share your work: build/share.md
     - Troubleshooting: build/troubleshooting.md
   #- Run:
     #- Running a node: run/running-a-node.md
