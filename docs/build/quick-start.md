@@ -2,13 +2,13 @@
 Learn the basics by setting up and interacting with the Ceramic CLI.
 
 !!! note ""
-    This tutorial serves as a simple introduction to Ceramic concepts and it
+    This tutorial serves as a simple introduction to Ceramic concepts and
     intentionally simplifies things. See [installation](./installation.md) to
     fully configure your client.
 
 ## Prerequisites
 
-This quick start guide will use a terminal, **Node.js**, and **npm**. Make sure
+This quick start guide will use a terminal, [Node.js](https://nodejs.org/en/), and [npm](https://www.npmjs.com/get-npm). Make sure
 to have these installed on your machine.
 
 ## Install the CLI
@@ -28,14 +28,13 @@ port 7007, `http://localhost:7007`.
 ceramic daemon
 ```
 
-??? note "Network selection"
-    The CLI starts a Ceramic node on the [`clay` testnet]() by default. If you
+??? note "Node configurations"
+    There are multiple options you can configure when you start the ceramic daemon.
+    
+    - **Network**: By default the CLI starts a Ceramic node on the `clay` testnet. If you
     would like to use a different Ceramic network, you can specify this with the
     `--network` option.
-
-There are multiple options you can configure when you start the ceramic deamon.
-
-See `ceramic daemon -h` for more information.
+    - **Additional configurations**: Use the `ceramic daemon -h` command to see additional options.
 
 
 ## Authentication
@@ -47,19 +46,25 @@ use the Ceramic CLI with other DID methods.
 
 
 ## Create a document
-To create a new document you can use the `create` command. In the example below
+Use the `create` command to create a new document. In the example below
 we create a document using the *tile* doctype.
 
-```bash
-$ ceramic create tile --content '{ "Title": "My first document" }'
-DocID(kjzl6cwe1jw14a80400xpbj97sutzdssg9rklbyykj0zdxzbpmww4x9e9w4vcyr)
-{
-  "Title": "My first document"
-}
-```
+=== "Request"
 
-The first line of the output is the *DocID*. This is the persistent identifier
-of our newly created document. Below is the current content of the document.
+    ```bash
+    $ ceramic create tile --content '{ "Foo": "Bar" }'
+    ```
+
+=== "Response"
+
+    ```bash
+    DocID(kjzl6cwe1jw14a80400xpbj97sutzdssg9rklbyykj0zdxzbpmww4x9e9w4vcyr)
+    {
+        "Foo": "Bar"
+    }
+    ```
+
+    The first line of the output is the *DocID*, which is the persistent identifier of our newly created document. This DocID will be different for you, since you created it with your DID. Below the DocID is the current content of the document.
 
 ??? note "More options"
     You can specify the *controller* and *schema* of the document by using the
@@ -67,48 +72,69 @@ of our newly created document. Below is the current content of the document.
     to see all available options.
 
 ## Query a document
-In order to query a document you need to know its *DocID*. Given this we can
-show its current content.
+Use the `show` command to query the current state of a document. You will need to provide its *DocID*.
 
-```bash
-$ ceramic show kjzl6cwe1jw14a80400xpbj97sutzdssg9rklbyykj0zdxzbpmww4x9e9w4vcyr
-{
-  "Title": "My first document"
-}
-```
+=== "Request"
 
-Perhaps more interestingly we can query the entire state of the document.
+    ```bash
+    $ ceramic show kjzl6cwe1jw14a80400xpbj97sutzdssg9rklbyykj0zdxzbpmww4x9e9w4vcyr
+    ```
+    
+    You should use your DocID instead of the DocID included here.
 
-```bash
-$ ceramic state kjzl6cwe1jw14a80400xpbj97sutzdssg9rklbyykj0zdxzbpmww4x9e9w4vcyr
-{
-  "doctype": "tile",
-  "content": {
-    "Title": "My first document"
-  },
-  "metadata": {
-    "schema": null,
-    "controllers": [
-      "did:key:z6MkfZ6S4NVVTEuts8o5xFzRMR8eC6Y1bngoBQNnXiCvhH8H"
-    ]
-  },
-  "signature": 2,
-  "anchorStatus": "PENDING",
-  "log": [
+=== "Response"
+
+    ```bash
     {
-      "cid": "bagcqceray2cbrwx45oa5nesee4s4cggkodmsttzuqfzh32yat3o26iw5m5rq",
-      "type": 0
+        "Foo": "Bar"
     }
-  ],
-  "anchorScheduledFor": "1/11/2021, 11:45:00 AM"
-}
-```
+    ```
 
-Here we can see various information about the document such as *content*,
-*controllers*, and *schema*. We can also see the current *anchorStatus* of our
-document. Above we see that our document has been scheduled to be anchored at
-11:45 on the 11th of January 2021. Once this happens the state will be updated
-with a new entry in the log and *anchorStatus* set to `ANCHORED`.
+
+Use the `state` command to query the entire state of a document.
+
+=== "Request"
+
+    ```bash
+    $ ceramic state kjzl6cwe1jw14a80400xpbj97sutzdssg9rklbyykj0zdxzbpmww4x9e9w4vcyr
+    ```
+    
+    You should use your DocID instead of the DocID included here.
+
+=== "Response"
+
+    {
+      "doctype": "tile",
+      "content": {
+        "Foo": "Bar"
+      },
+      "metadata": {
+        "schema": null,
+        "controllers": [
+          "did:key:z6MkfZ6S4NVVTEuts8o5xFzRMR8eC6Y1bngoBQNnXiCvhH8H"
+        ]
+      },
+      "signature": 2,
+      "anchorStatus": "PENDING",
+      "log": [
+        {
+          "cid": "bagcqceray2cbrwx45oa5nesee4s4cggkodmsttzuqfzh32yat3o26iw5m5rq",
+          "type": 0
+        }
+      ],
+      "anchorScheduledFor": "1/11/2021, 11:45:00 AM"
+    }
+    ```
+    
+    In your response you should see your DID as the controller, instead of the DID we show here.
+
+!!! note ""
+    Here we can see various information about the document such as *content*,
+    *controllers*, and *schema*. We can also see the current *anchorStatus* of our
+    document. Above we see that our document has been scheduled to be anchored at
+    11:45 on the 11th of January 2021. Once this anchor is finalized, the state of the document will be updated
+    with a new entry in the log and *anchorStatus* will be set to `ANCHORED`.
+
 
 ## Update a document
 You can update documents which you are the controller of. In order to do this
@@ -151,9 +177,7 @@ schema is set to the correct DocID.
 ```
 
 # That's it!
-
-Congratulations on completing this tutorial! You're well on your way to becoming a Ceramic developer. Now let's [install Ceramic in a project →]().
-
+Congratulations on completing this tutorial! You're well on your way to becoming a Ceramic developer. Now let's [install Ceramic in your project →](./installation.md).
 </br>
 </br>
 </br>
