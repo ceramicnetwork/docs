@@ -110,20 +110,14 @@ markdown_extensions:
 
 extra:
   generator: false
-  # Social icone in footer
+  # Social icons in footer
   social:
-    - icon: fontawesome/brands/twitter
-      link: https://chat.ceramic.network
-      name: Ceramic community on Discord
     - icon: fontawesome/brands/github
       link: https://github.com/ceramicnetwork/ceramic
       name: Ceramicnetwork on Github
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/ceramicnetwork
       name: Ceramicnetwork on Twitter
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/ceramicnetwork
-      name: Ceramicnetwork on Youtube
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js
