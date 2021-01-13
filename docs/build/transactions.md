@@ -11,8 +11,9 @@ Use the [`createDocument()`](https://developers.ceramic.network/reference/typesc
 const doc = await ceramic.createDocument(doctype, docParams, docOpts)
 ```
 
-### Example:
-In this example we create a document where we set content, schema, controllers, and family.
+**Example**
+
+In this example we create a document where we set `content`, `schema`, `controllers`, and `family`.
 
 ```javascript
 const doc = await ceramic.createDocument('tile', {
