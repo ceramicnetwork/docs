@@ -50,6 +50,8 @@ nav:
     - Transactions: build/transactions.md
     - Queries: build/queries.md
     - Pinning: build/pinning.md
+    - Share your work: build/share.md
+    - Troubleshooting: build/troubleshooting.md
   #- Run:
     #- Running a node: run/running-a-node.md
     #- Running an anchor service: run/running-an-anchor-service.md
@@ -78,13 +80,13 @@ nav:
       #- Hosting providers: tools/hosting/hosting-providers.md
   - Reference:
     - JavaScript:
-      - Protocol: reference/protocol.md
-      - DID Resolvers: reference/did-resolvers.md
-      - DID Providers: reference/did-providers.md
+      - Protocol: reference/javascript/protocol.md
+      - DID Resolvers: reference/javascript/did-resolvers.md
+      - DID Providers: reference/javascript/did-providers.md
       #- Doctypes:
         #- ceramicnetwork/doctype-tile: tools/hosting/hosting-providers.md
         #- ceramicnetwork/doctype-caip-10-link: tools/hosting/hosting-providers.md
-      - Anchor Service: reference/anchor-service.md
+      - Anchor Service: reference/javascript/anchor-service.md
       #- Anchor Service: 'https://github.com/ceramicnetwork/ceramic-anchor-service/'
   - Chat: 'https://chat.ceramic.network'
   - Blog: 'https://blog.ceramic.network'
@@ -108,20 +110,14 @@ markdown_extensions:
 
 extra:
   generator: false
-  # Social icone in footer
+  # Social icons in footer
   social:
-    - icon: fontawesome/brands/twitter
-      link: https://chat.ceramic.network
-      name: Ceramic community on Discord
     - icon: fontawesome/brands/github
       link: https://github.com/ceramicnetwork/ceramic
       name: Ceramicnetwork on Github
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/ceramicnetwork
       name: Ceramicnetwork on Twitter
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/ceramicnetwork
-      name: Ceramicnetwork on Youtube
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js

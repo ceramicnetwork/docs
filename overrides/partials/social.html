@@ -1,0 +1,14 @@
+{% if config.extra.social %}
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="{{ base_url }}/assets/fonts/font-awesome.css">
+    {% for social in config.extra.social %}
+      <a href="{{ social.link }}" target="_blank" class="md-footer-social__link fa fa-{{ social.type }}"></a>
+    {% endfor %}
+      <a href="http://chat.ceramic.network" class="md-footer-social__link fa" target="_blank">
+        <img src="{{ base_url }}/docs/images/icon-discord-white.svg" style="margin-left:10px" width="20px">
+      </a>
+      <a href="https://www.youtube.com/channel/UCgCLq5dx7sX-yUrrEbtYqVw" class="md-footer-social__link fa" target="_blank">
+        <img src="{{ base_url }}/docs/images/icon-youtube-white.svg" style="margin-left:10px" width="20px">
+      </a>
+  </div>
+{% endif %}
