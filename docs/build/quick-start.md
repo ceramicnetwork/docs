@@ -98,7 +98,6 @@ Use the `state` command to query the entire state of a document.
     ```bash
     $ ceramic state kjzl6cwe1jw14a80400xpbj97sutzdssg9rklbyykj0zdxzbpmww4x9e9w4vcyr
     ```
-    
     You should use your DocID instead of the DocID included here.
 
 === "Output"
@@ -141,9 +140,22 @@ Use the `state` command to query the entire state of a document.
 You can update documents which you are the controller of. In order to do this
 you use the `change` command.
 
-```jsx
+=== "Command"
 
-```
+    ```bash
+    $ ceramic change kjzl6cwe1jw145dqtpe73w2sfbn6gz8d0fdvn0etrnflpdyqryltfyem4u1vkok --content '{
+        "title": "My updated document"
+      }'
+    ```
+    You should use your DocID instead of the DocID included here.
+
+=== "Output"
+
+    ```bash
+    {
+      "title": "My updated document"
+    }
+    ```
 
 ??? note "More options"
     Currently you can change *content*, *controllers*, and *schema* using the
@@ -156,26 +168,129 @@ themselves are Ceramic documents where the content is a
 [json-schema](https://json-schema.org/){:target="_blank"}. For example we can create a schema that
 requires a document to have a *title* and a *message*.
 
-```jsx
+=== "Command"
 
-```
+    ```bash
+    $ ceramic create tile --content ' {                                            13:29
+       "$schema": "http://json-schema.org/draft-07/schema#",
+       "title": "Reward",
+       "type": "object",
+       "properties": {
+         "title": { "type": "string" },
+         "message": { "type": "string" }
+       },
+       "required": [
+         "message",
+         "title"
+       ]
+     }'
+    ```
+
+=== "Output"
+
+    ```bash
+    DocID(kjzl6cwe1jw1472as4pj3b3ahqmkokbmwc7jchqcob6pcixcoo4kxq6ls8uuxgb)
+    {
+      "type": "object",
+      "title": "Reward",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "required": [
+        "message",
+        "title"
+      ],
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+    ```
 
 ## Create a document that uses a schema
 To create a document which uses the schema we just created above we simply use
 the `--schema` option to pass the DocID at a specific commit of a schema. In
 order to get the specific commitId we use the `ceramic commits` command.
 
-```jsx
+=== "Command"
 
-```
+    ```bash
+    $ ceramic commits kjzl6cwe1jw1472as4pj3b3ahqmkokbmwc7jchqcob6pcixcoo4kxq6ls8uuxgb
+    ```
+    You should use your DocID instead of the DocID included here.
+
+=== "Output"
+
+    ```bash
+    [
+      "k3y52l7qbv1frxu8co1hjrivem5cj2oiqtytlku3e4vjo92l67fkkvu6ywuzfxvy8"
+    ]
+    ```
+
+!!! note ""
+    If you have multiple commits to a document and you're not sure which one you want, you can use the `ceramic show` command to show the content of the document at the given commit.
+
+Once you retrieve the correct commit you can create a new document that is enforced to conform to this schema using the `ceramic create` command.
+
+=== "Command"
+
+    ```bash
+    $ ceramic ceramic create tile --content '{
+        "title": "My first document with schema",
+        "message": "Hello World"
+      }' --schema k3y52l7qbv1frxu8co1hjrivem5cj2oiqtytlku3e4vjo92l67fkkvu6ywuzfxvy8
+    ```
+    You should use your commit DocID instead of the DocID included here.
+
+=== "Output"
+
+    ```bash
+    DocID(kjzl6cwe1jw149tvfh6otqfzd2hfknkifb1z2lakozkicvau0xldzzdzwfbsztj)
+    {
+      "title": "My first document with schema",
+      "message": "Hello World"
+    }
+    ```
 
 ## Query the document you created
 Now if we look at the state of the document we just created we can see that the
 schema is set to the correct DocID.
 
-```jsx
+=== "Command"
 
-```
+    ```bash
+    $ ceramic state kjzl6cwe1jw14b5sr79heovz7fziz4dxcn8upx3bcesriloqcui137k6rq6g2mn
+    ```
+    You should use your commit DocID instead of the DocID included here.
+
+=== "Output"
+
+    ```bash
+    {
+      "doctype": "tile",
+      "content": {
+        "title": "My first document with schema",
+        "message": "Hello World"
+      },
+      "metadata": {
+        "schema": "k3y52l7qbv1frxu8co1hjrivem5cj2oiqtytlku3e4vjo92l67fkkvu6ywuzfxvy8",
+        "controllers": [
+          "did:key:z6MkfZ6S4NVVTEuts8o5xFzRMR8eC6Y1bngoBQNnXiCvhH8H"
+        ]
+      },
+      "signature": 2,
+      "anchorStatus": "PENDING",
+      "log": [
+        {
+          "cid": "bagcqcera5qxg5zabjjvwpcbia6c3t6vebgo4brgmsagxezdjgk4vxnzwb5hq",
+          "type": 0
+        }
+      ],
+      "anchorScheduledFor": "1/13/2021, 1:45:00 PM"
+    }
+    ```
 
 # That's it!
 Congratulations on completing this tutorial! You're well on your way to becoming a Ceramic developer. Now let's [install Ceramic in your project →](./installation.md).
