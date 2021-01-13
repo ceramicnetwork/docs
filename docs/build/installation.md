@@ -7,7 +7,7 @@ Ceramic is available in a variety of clients suited for different use cases. For
 Client | Description | Usage | Details |
 | ------ | ----- | ---- | --- |
 | HTTP | An API for interacting with a remote Ceramic daemon over HTTP | Runtime | [Learn]() |
-| Core | An API for interacting with a Ceramic node in a local JavaScript environment, such as directly in-browser | Runtime | [Learn]() |
+| Core | An API for running the entire Ceramic protocol in a local JavaScript environment, such as directly in-browser | Runtime | [Learn]() |
 | CLI | A command line interface for interacting with a Ceramic node | Development | [Learn]() |
 
 ## Installation
@@ -107,16 +107,17 @@ Setup your client within your project.
 === "CLI"
 
     #### Start the Ceramic daemon
+    This commands starts a local Ceramic node.
 
     ```bash
-    ceramic daemon
+    $ ceramic daemon
     ```
 
-    #### Connect to a Ceramic node
-    TODO: FIX THIS
+    #### Connect to a remote Ceramic node
+    By default the Ceramic CLI communicates with your local node that you start with the `ceramic daemon` command. It is however possible to use the CLI to communicate with a remote node. In order to do this you have to set the `ceramicHost` variable to the url of the node you wish to use.
 
     ```bash
-    --API_URL(https://yourceramicnode.com)
+    $ ceramic config set ceramicHost 'https://ceramic-clay-gateway.3boxlabs.com'
     ```
 
     !!! note "Node options"
@@ -127,30 +128,6 @@ Setup your client within your project.
         - Comunity dev node `https://ceramic-clay-dev.3boxlabs.com`: Provides write and read access to the Clay testnet. This node is periodically wiped and does not guarantee document persistence.
         - Run your own node `https://yourEndpoint.com`: Provides write and read access to the Clay testnet. Running your own node allows you to persist documents and have full control.
 
-## Examples
-
-TODO - what do we want to do with these examples?
-
-Your project should look something like this. You may have slight modifications
-depending on your configuration.
-
-=== "HTTP"
-
-    ``` javascript
-    import CeramicClient from '@ceramicnetwork/http-client'
-    ```
-
-=== "Core"
-
-    ``` javascript
-    import Ceramic from '@ceramicnetwork/core'
-    ```
-
-=== "CLI"
-
-    ```bash
-    ceramic daemon
-    ```
-
+</br>
 </br>
 </br>

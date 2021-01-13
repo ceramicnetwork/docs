@@ -49,13 +49,13 @@ use the Ceramic CLI with other DID methods.
 Use the `create` command to create a new document. In the example below
 we create a document using the *tile* doctype.
 
-=== "Request"
+=== "Command"
 
     ```bash
     $ ceramic create tile --content '{ "Foo": "Bar" }'
     ```
 
-=== "Response"
+=== "Output"
 
     ```bash
     DocID(kjzl6cwe1jw14a80400xpbj97sutzdssg9rklbyykj0zdxzbpmww4x9e9w4vcyr)
@@ -74,7 +74,7 @@ we create a document using the *tile* doctype.
 ## Query a document
 Use the `show` command to query the current state of a document. You will need to provide its *DocID*.
 
-=== "Request"
+=== "Command"
 
     ```bash
     $ ceramic show kjzl6cwe1jw14a80400xpbj97sutzdssg9rklbyykj0zdxzbpmww4x9e9w4vcyr
@@ -82,7 +82,7 @@ Use the `show` command to query the current state of a document. You will need t
     
     You should use your DocID instead of the DocID included here.
 
-=== "Response"
+=== "Output"
 
     ```bash
     {
@@ -93,7 +93,7 @@ Use the `show` command to query the current state of a document. You will need t
 
 Use the `state` command to query the entire state of a document.
 
-=== "Request"
+=== "Command"
 
     ```bash
     $ ceramic state kjzl6cwe1jw14a80400xpbj97sutzdssg9rklbyykj0zdxzbpmww4x9e9w4vcyr
@@ -101,8 +101,9 @@ Use the `state` command to query the entire state of a document.
     
     You should use your DocID instead of the DocID included here.
 
-=== "Response"
+=== "Output"
 
+    ```bash
     {
       "doctype": "tile",
       "content": {
@@ -125,15 +126,15 @@ Use the `state` command to query the entire state of a document.
       "anchorScheduledFor": "1/11/2021, 11:45:00 AM"
     }
     ```
-    
-    In your response you should see your DID as the controller, instead of the DID we show here.
 
-!!! note ""
-    Here we can see various information about the document such as *content*,
-    *controllers*, and *schema*. We can also see the current *anchorStatus* of our
-    document. Above we see that our document has been scheduled to be anchored at
-    11:45 on the 11th of January 2021. Once this anchor is finalized, the state of the document will be updated
-    with a new entry in the log and *anchorStatus* will be set to `ANCHORED`.
+    In your output you should see your DID as the controller, instead of the DID we show here.
+
+    !!! note ""
+        Here we can see various information about the document such as *content*,
+        *controllers*, and *schema*. We can also see the current *anchorStatus* of our
+        document. Above we see that our document has been scheduled to be anchored at
+        11:45 on the 11th of January 2021. Once this anchor is finalized, the state of the document will be updated
+        with a new entry in the log and *anchorStatus* will be set to `ANCHORED`.
 
 
 ## Update a document

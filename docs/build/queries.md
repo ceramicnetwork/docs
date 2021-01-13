@@ -6,17 +6,17 @@ This guide demonstrates how to query documents on the Ceramic network during run
 You need to have an [installed client](installation.md) to perform queries during runtime.
 
 ## Query a document
-Use the [`loadDocument()`](https://developers.ceramic.network/reference/javascript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#loaddocument) method to load a single document using its *DocID*.
+Use the [`loadDocument()`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#loaddocument){:target="_blank"} method to load a single document using its *DocID*.
 
 ``` javascript
 const docid = 'kjzl6cwe1jw14...'
 const doc = await ceramic.loadDocument(docid)
 ```
 
-[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/javascript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#loaddocument)
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#loaddocument){:target="_blank"}
 
 ## Query a deterministic document
-One the [transactions](transactions.md) page, we discussed how to create a document with the [`deterministic`]() parameter set to true. Since this parameter allows us to generate the exact same DocID if we create two documents with the same [`doctype`]() and [`DocParams`](), it is possible to "query" the document using the same [`createDocument()`]() method that we used to initially create it without needing to know the DocID before performing the query. Note we are setting the [`DocOpts`]() parameters (`anchor` and `publish`) to false so that we are only loading the document and not publishing any changes to the network.
+One the [transactions](transactions.md) page, we discussed how to create a document with the [`deterministic`]() parameter set to true. Since this parameter allows us to generate the exact same DocID if we create two documents with the same [`doctype`]() and [`DocParams`](), it is possible to "query" the document using the same [`createDocument()`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#createdocument){:target="_blank"} method that we used to initially create it without needing to know the DocID before performing the query. Note we are setting the [`DocOpts`]() parameters (`anchor` and `publish`) to false so that we are only loading the document and not publishing any changes to the network.
 
 ``` javascript
 const doc = ceramic.createDocument('tile', {
@@ -29,11 +29,11 @@ const doc = ceramic.createDocument('tile', {
 })
 ```
 
-[:octicons-file-code-16: API reference]()
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#createdocument){:target="_blank"}
 
 
 ## Query multiple documents
-Use the [`multiQuery()`](https://developers.ceramic.network/reference/javascript/interfaces/_ceramicnetwork_common.multiquery-1.html) method to load multiple documents at once. The returned object `docMap` is a map from *DocIDs* to document instances.
+Use the [`multiQuery()`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.multiquery-1.html){:target="_blank"} method to load multiple documents at once. The returned object `docMap` is a map from *DocIDs* to document instances.
 
 ```javascript
 const queries = [{
@@ -44,10 +44,10 @@ const queries = [{
 const docMap = await ceramic.multiQuery(queries)
 ```
 
-[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/javascript/interfaces/_ceramicnetwork_common.multiquery-1.html)
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.multiquery-1.html){:target="_blank"}
 
 ## Query document paths
-Use the [`multiQuery()`](https://developers.ceramic.network/reference/javascript/interfaces/_ceramicnetwork_common.multiquery-1.html) method to load one or more documents using known paths from a root document to its linked documents.
+Use the [`multiQuery()`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.multiquery-1.html){:target="_blank"} method to load one or more documents using known paths from a root document to its linked documents.
 
 Imagine a document `kjzl6cwe1jw...14` whose content contains the DocIDs of two other documents. These DocIDs exist at various levels within a nested JSON structure. 
 
@@ -72,4 +72,4 @@ const queries = [{
 const docMap = await ceramic.multiQuery(queries)
 ```
 
-[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/javascript/interfaces/_ceramicnetwork_common.multiquery-1.html)
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.multiquery-1.html){:target="_blank"}

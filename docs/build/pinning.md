@@ -10,33 +10,33 @@ Pinning requires having [installed a Ceramic client](installation.md) in your
 project.
 
 ## Add to pinset
-Use the [`pin.add()`]() method to add a document to your permanent pinset.
+Use the [`pin.add()`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.pinapi-1.html#add){:target="_blank"} method to add a document to your permanent pinset.
 
 ``` javascript
 const docid = 'kjzl6cwe1jw14...'
 await ceramic.pin.add(docid)
 ```
 
-[:octicons-file-code-16: API reference]()
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.pinapi-1.html#add){:target="_blank"}
 
 ## Remove from pinset
-Use the [`pin.rm()`]() method to remove a document from your permanent pinset.
+Use the [`pin.rm()`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.pinapi-1.html#rm){:target="_blank"} method to remove a document from your permanent pinset.
 
 ``` javascript
 const docid = 'kjzl6cwe1jw14...'
 await ceramic.pin.rm(docid)
 ```
 
-[:octicons-file-code-16: API reference]()
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.pinapi-1.html#rm){:target="_blank"}
 
 ## List documents in pinset
-Use the [`pin.ls()`]() method to list documents currently in your permanent pinset.
+Use the [`pin.ls()`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.pinapi-1.html#ls){:target="_blank"} method to list documents currently in your permanent pinset.
 
 ``` javascript
 const docIds = await ceramic.pin.ls()
 ```
 
-[:octicons-file-code-16: API reference]()
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.pinapi-1.html#ls){:target="_blank"}
 
 </br>
 </br>
