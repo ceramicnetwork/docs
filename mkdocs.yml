@@ -80,7 +80,7 @@ nav:
       #- Hosting providers: tools/hosting/hosting-providers.md
   - Reference:
     - JavaScript:
-      - Protocol: reference/javascript/protocol.md
+      - Clients: reference/javascript/clients.md
       - DID Resolvers: reference/javascript/did-resolvers.md
       - DID Providers: reference/javascript/did-providers.md
       #- Doctypes:
