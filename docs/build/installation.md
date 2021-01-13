@@ -6,9 +6,9 @@ Ceramic is available in a variety of clients suited for different use cases. For
 
 Client | Description | Usage | Details |
 | ------ | ----- | ---- | --- |
-| HTTP | An API for interacting with a remote Ceramic daemon over HTTP | Runtime | [Learn]() |
-| Core | An API for running the entire Ceramic protocol in a local JavaScript environment, such as directly in-browser | Runtime | [Learn]() |
-| CLI | A command line interface for interacting with a Ceramic node | Development | [Learn]() |
+| HTTP | An API for interacting with a remote Ceramic daemon over HTTP | Runtime | [Learn](../reference/javascript/clients.md) |
+| Core | An API for running the entire Ceramic protocol in a local JavaScript environment, such as directly in-browser | Runtime | [Learn](../reference/javascript/clients.md) |
+| CLI | A command line interface for interacting with a Ceramic node | Development | [Learn](../reference/javascript/clients.md) |
 
 ## Installation
 Open your terminal and install a client using npm.

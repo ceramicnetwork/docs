@@ -25,8 +25,8 @@ After deciding on a DID method, you need to install either a *wallet* or a *prov
 | Name      | DID Method | Type | Description | Details |
 | ----------- | ------ | ---- | ----- | --- |
 | 3ID Connect | 3ID DID | Wallet | A hosted wallet and authentication system for browser apps using 3ID DIDs. Your application is not responsible for key management, and users can authenticate with their existing blockchain wallets. | [Learn](https://github.com/ceramicstudio/3id-connect){:target="_blank"} |
-| `3id-did-provider` | 3ID DID | Provider | A JavaScript library for creating and interacting with 3ID DIDs. Your application is responsible for key management, and users need to authenticate with a DID seed or an auth secret. | [Learn](https://github.com/ceramicnetwork/js-3id-did-provider){:target="_blank"} |
-| `key-did-provider-ed25519` | Key DID | Provider | A JavaScript library for creating and interacting with Key DIDs. Your application is responsible for key managemet, and users need to authenticate with a DID seed. | [Learn](https://github.com/ceramicstudio/key-did-provider-ed25519){:target="_blank"} |
+| `3id-did-provider` | 3ID DID | Provider | A JavaScript library for creating and interacting with 3ID DIDs. Your application is responsible for key management, and users need to authenticate with a DID seed or an auth secret. | [Learn](https://github.com/ceramicstudio/js-3id-did-provider){:target="_blank"} |
+| `key-did-provider-ed25519` | Key DID | Provider | A JavaScript library for creating and interacting with Key DIDs. Your application is responsible for key managemet, and users need to authenticate with a DID seed. | [Learn](https://github.com/ceramicnetwork/key-did-provider-ed25519){:target="_blank"} |
 
 ## Installation
 

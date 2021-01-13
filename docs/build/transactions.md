@@ -1,5 +1,5 @@
 # Transactions
-Transactions are interactions that write to Ceramic, such as creating new documents or modifying existing documents. This guide demonstrates how to make transactions during runtime using the [HTTP]() and [core]() clients. To make transactions using the CLI, see [Quick Start](quick-start.md).
+Transactions are interactions that write to Ceramic, such as creating new documents or modifying existing documents. This guide demonstrates how to make transactions during runtime using the [HTTP](../reference/javascript/clients.md) and [core](../reference/javascript/clients.md) clients. To make transactions using the CLI, see [Quick Start](quick-start.md).
 
 ## Prerequisites
 You need an [installed client](installation.md) and an [authenticated user](authentication.md) to perform transactions on the network during runtime.
@@ -28,26 +28,26 @@ const doc = await ceramic.createDocument('tile', {
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#createdocument){:target="_blank"}
 
 ### Parameters
-When creating a document, the first parameter is the [`doctype`](#doctype) and it is always required. Other parameters including [`content`](#content) will vary depending on the *doctype* specification. If you do not specify a *doctype* or if your parameters do not meet the doctype's requirements, your transaction will fail.
+When creating a document, the first parameter is the `doctype` and it is always required. Other parameters including `content` will vary depending on the *doctype* specification. If you do not specify a *doctype* or if your parameters do not meet the doctype's requirements, your transaction will fail.
 
 #### Doctype
 Doctypes are rules that govern the behavior of documents on the Ceramic network.
 
 | Parameter     | Required?   | Value            | Description | Notes |
 | ------------- | ----------- | ---------------- | ----------- | ----- |
-| `doctype`     | required    | string           | Specifies rules for [content](#content), [metadata](#metadata), and conflict resolution |  |
+| `doctype`     | required    | string           | Specifies rules for `content`, `metadata`, and conflict resolution |  |
 
 !!! note "Supported doctypes"
-    Ceramic currently supports two doctypes: [`tile`]() for storing arbitrary JSON content and [`caip-10 link`]() for storing a proof that binds a DID to a blockchain account. Read each doctype's documentation for more information on its parameters below.
+    Ceramic currently supports two doctypes: `tile` for storing arbitrary JSON content and `caip-10 link` for storing a proof that binds a DID to a blockchain account. Read each doctype's documentation for more information on its parameters below.
 
 #### DocParams
-DocParams are specifics related to your document including [`content`](#content), [`metadata`](#metadata), and [`deterministic`](#deterministic). All of these properties are optional.
+DocParams are specifics related to your document including `content`, `metadata`, and `deterministic`. All of these properties are optional.
 
 ##### Content
 
 | Parameter     | Required?   | Value            | Description | Notes |
 | ------------- | ----------- | ---------------- | ----------- | ----- |
-| `content`     | optional    | object           | The content of your document | Must conform to the [`doctype`](#doctype) and `schema` if present |
+| `content`     | optional    | object           | The content of your document | Must conform to the `doctype` and `schema` if present |
 
 !!! note ""
     When `content` is included during document creation, the document's *genesis commit* will be signed by the authenticated user's DID. When `content` is omitted, then the *genesis commit* will not be signed.
@@ -66,10 +66,10 @@ DocParams are specifics related to your document including [`content`](#content)
 
 | Parameter         | Required?   | Value            | Description | Notes |
 | ----------------- | ----------- | ---------------- | ----------- | ----- |
-| `deterministic`   | optional    | boolean          | If false, allows documents with the same [`doctype`](#doctype), [`content`](#content), and [`metadata`](#metadata) to generate unique DocIDs. | If empty, defaults to false. |
+| `deterministic`   | optional    | boolean          | If false, allows documents with the same `doctype`, `content`, and `metadata` to generate unique DocIDs. | If empty, defaults to false. |
 
 !!! note "Using the `deterministic` parameter"
-    For most use cases you will likely want to leave the `deterministic` parameter set to false. However for special circumstances, you may want this to be set to true. For example this should be set to true if you would like to enable [deterministic queries]() for your document. If this is your use case, then it is also important that you omit all [`content`](#content) during document creation. You can proceed to add content to your document by [updating it](#update-a-document).
+    For most use cases you will likely want to leave the `deterministic` parameter set to false. However for special circumstances, you may want this to be set to true. For example this should be set to true if you would like to enable [deterministic queries](queries.md#query-a-deterministic-document) for your document. If this is your use case, then it is also important that you omit all `content` during document creation. You can proceed to add content to your document by [updating it](#update-a-document).
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.docparams-1.html#deterministic){:target="_blank"}
 
@@ -86,7 +86,7 @@ DocOpts are options that can be passed to each operation on a document (create, 
 
 
 ## Update a document
-Use the [`doc.change()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html#change){:target="_blank"} method to update the [`content`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html#content){:target="_blank"} or [`metadata`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html#metadata){:target="_blank"} of your document. Any update to a document must conform to the update rules specified by the document's [`doctype`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html). Note that you can also pass [`DocOpts`](#docopts-optional) parameters to this method if you wish to not use the default behavior of publishing and/or anchoring your change, but this behavior should be reserved for advanced use cases.
+Use the [`doc.change()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html#change){:target="_blank"} method to update the `content` or `metadata` of your document. Any update to a document must conform to the update rules specified by the document's `doctype`. Note that you can also pass `DocOpts` parameters to this method if you wish to not use the default behavior of publishing and/or anchoring your change, but this behavior should be reserved for advanced use cases.
 
 ```javascript
 await doc.change({ content: { foo: "updated" }})
