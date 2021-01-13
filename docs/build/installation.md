@@ -54,7 +54,7 @@ Setup your client within your project.
         When using the HTTP API, you need to connect to a remote Ceramic node by passing its URL. Here are your options for nodes that run on the Clay testnet. Choose the option that best suits your use case:
         
         - Community gateway `https://ceramic-clay-gateway.3boxlabs.com`: Provides read-only access to the Clay testnet.
-        - Comunity dev node `https://ceramic-clay-dev.3boxlabs.com`: Provides write and read access to the Clay testnet. This node is periodically wiped and does not guarantee document persistence.
+        - Comunity dev node `https://ceramic-clay.3boxlabs.com`: Provides write and read access to the Clay testnet. This node is periodically wiped and does not guarantee document persistence.
         - Run your own node `https://yourEndpoint.com`: Provides write and read access to the Clay testnet. Running your own node allows you to persist documents and have full control.
         - LocalHost `https://localhost:7007`: Provides write and read access to the Clay testnet. Users need to first have a Cermic daemon running locally using the CLI.
 
@@ -125,7 +125,7 @@ Setup your client within your project.
         
         - LocalHost `https://localhost:7007`: Enabled by default. Provides write and read access to the Clay testnet.
         - Community gateway `https://ceramic-clay-gateway.3boxlabs.com`: Provides read-only access to the Clay testnet.
-        - Comunity dev node `https://ceramic-clay-dev.3boxlabs.com`: Provides write and read access to the Clay testnet. This node is periodically wiped and does not guarantee document persistence.
+        - Comunity dev node `https://ceramic-clay.3boxlabs.com`: Provides write and read access to the Clay testnet. This node is periodically wiped and does not guarantee document persistence.
         - Run your own node `https://yourEndpoint.com`: Provides write and read access to the Clay testnet. Running your own node allows you to persist documents and have full control.
 
 </br>
