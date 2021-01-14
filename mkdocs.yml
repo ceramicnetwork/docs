@@ -3,6 +3,7 @@ site_name: Ceramic Developers
 site_description: Specs, docs, guides, and APIs for the Ceramic Network.
 repo_url: https://github.com/ceramicnetwork/docs
 repo_name: ceramicnetwork/docs
+edit_uri: https://github.com/ceramicnetwork/docs/edit/main/docs/
 
 # Copyright
 copyright: 'Ceramic is open sourced under MIT and Apache 2'
