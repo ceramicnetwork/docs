@@ -1,10 +1,5 @@
 # Quick start
-Learn the basics by setting up and interacting with the Ceramic CLI.
-
-!!! note ""
-    This tutorial serves as a simple introduction to Ceramic concepts and
-    intentionally simplifies things. See [installation](./installation.md) to
-    fully configure your client.
+Learn the basics by setting up and interacting with the Ceramic CLI. This tutorial serves as a simple introduction to Ceramic concepts and intentionally simplifies things. See [installation](./installation.md) to fully configure your client.
 
 ## Prerequisites
 
@@ -64,7 +59,8 @@ we create a document using the *tile* doctype.
     }
     ```
 
-    The first line of the output is the *DocID*, which is the persistent identifier of our newly created document. This DocID will be different for you, since you created it with your DID. Below the DocID is the current content of the document.
+    !!! note ""
+        The first line of the output is the *DocID*, which is the persistent identifier of our newly created document. This DocID will be different for you, since you created it with your DID. Below the DocID is the current content of the document.
 
 ??? note "More options"
     You can specify the *controller* and *schema* of the document by using the
@@ -80,7 +76,8 @@ Use the `show` command to query the current state of a document. You will need t
     $ ceramic show kjzl6cwe1jw14a80400xpbj97sutzdssg9rklbyykj0zdxzbpmww4x9e9w4vcyr
     ```
     
-    You should use your DocID instead of the DocID included here.
+    !!! note ""
+        You should use your DocID instead of the DocID included here.
 
 === "Output"
 
@@ -98,7 +95,8 @@ Use the `state` command to query the entire state of a document.
     ```bash
     $ ceramic state kjzl6cwe1jw14a80400xpbj97sutzdssg9rklbyykj0zdxzbpmww4x9e9w4vcyr
     ```
-    You should use your DocID instead of the DocID included here.
+    !!! note ""
+        You should use your DocID instead of the DocID included here.
 
 === "Output"
 
@@ -126,19 +124,12 @@ Use the `state` command to query the entire state of a document.
     }
     ```
 
-    In your output you should see your DID as the controller, instead of the DID we show here.
-
     !!! note ""
-        Here we can see various information about the document such as *content*,
-        *controllers*, and *schema*. We can also see the current *anchorStatus* of our
-        document. Above we see that our document has been scheduled to be anchored at
-        11:45 on the 11th of January 2021. Once this anchor is finalized, the state of the document will be updated
-        with a new entry in the log and *anchorStatus* will be set to `ANCHORED`.
+        Here we can see various information about the document such as *content*, *controllers*, and *schema*. In your output you should see your DID as the controller, instead of the DID we show here. We can also see the current *anchorStatus* of our document, and that it has been scheduled to be anchored at 11:45 on the 11th of January 2021. Once this anchor is finalized, the state of the document will automatically be updated with a new entry in the log and *anchorStatus* will be set to `ANCHORED`.
 
 
 ## Update a document
-You can update documents which you are the controller of. In order to do this
-you use the `change` command.
+Use the `change` command to update a document. Your DID must be the controller of the document in order to update it.
 
 === "Command"
 
@@ -147,7 +138,8 @@ you use the `change` command.
         "title": "My updated document"
       }'
     ```
-    You should use your DocID instead of the DocID included here.
+    !!! note ""
+        You should use your DocID instead of the DocID included here.
 
 === "Output"
 
@@ -158,20 +150,16 @@ you use the `change` command.
     ```
 
 ??? note "More options"
-    Currently you can change *content*, *controllers*, and *schema* using the
-    cli. Run `ceramic change -h` for more information.
+    Currently you can change *content*, *controllers*, and *schema* using the CLI. Run `ceramic change -h` for more information.
 
 
 ## Create a schema
-In Ceramic you can enforce that documents follow a specific schema. The schemas
-themselves are Ceramic documents where the content is a
-[json-schema](https://json-schema.org/){:target="_blank"}. For example we can create a schema that
-requires a document to have a *title* and a *message*.
+In Ceramic you can enforce that documents adhere to a specified schema. The schemas themselves are Ceramic documents where the content is a [json-schema](https://json-schema.org/){:target="_blank"}. For example we can create a schema that requires a document to have a *title* and *message*.
 
 === "Command"
 
     ```bash
-    $ ceramic create tile --content ' {                                            13:29
+    $ ceramic create tile --content ' {                                            
        "$schema": "http://json-schema.org/draft-07/schema#",
        "title": "Reward",
        "type": "object",
@@ -210,16 +198,15 @@ requires a document to have a *title* and a *message*.
     ```
 
 ## Create a document that uses a schema
-To create a document which uses the schema we just created above we simply use
-the `--schema` option to pass the DocID at a specific commit of a schema. In
-order to get the specific commitId we use the `ceramic commits` command.
+First, use the `commits` command to list the commitIDs contained in the schema document. When creating a document that uses this schema, we need to use a commitID instead of the DocID to enforce that we are using a specific version of the schema since the schema document is mutable and can be updated.
 
 === "Command"
 
     ```bash
     $ ceramic commits kjzl6cwe1jw1472as4pj3b3ahqmkokbmwc7jchqcob6pcixcoo4kxq6ls8uuxgb
     ```
-    You should use your DocID instead of the DocID included here.
+    !!! note ""
+        You should use your DocID instead of the DocID included here.
 
 === "Output"
 
@@ -230,9 +217,9 @@ order to get the specific commitId we use the `ceramic commits` command.
     ```
 
 !!! note ""
-    If you have multiple commits to a document and you're not sure which one you want, you can use the `ceramic show` command to show the content of the document at the given commit.
+    If a document contains multiple commits and you're not sure which one you want, use the `show` command to show the content of the document at the given commit.
 
-Once you retrieve the correct commit you can create a new document that is enforced to conform to this schema using the `ceramic create` command.
+Once you retrieve the desired commit, you can now create a document that is enforced to conform to this version of the schema. Use the `create` command and pass the `--schema` option along with your commitID.
 
 === "Command"
 
@@ -242,7 +229,9 @@ Once you retrieve the correct commit you can create a new document that is enfor
         "message": "Hello World"
       }' --schema k3y52l7qbv1frxu8co1hjrivem5cj2oiqtytlku3e4vjo92l67fkkvu6ywuzfxvy8
     ```
-    You should use your commit DocID instead of the DocID included here.
+    
+    !!! note ""
+        You should use your commitID instead of the commitID included here.
 
 === "Output"
 
@@ -255,15 +244,15 @@ Once you retrieve the correct commit you can create a new document that is enfor
     ```
 
 ## Query the document you created
-Now if we look at the state of the document we just created we can see that the
-schema is set to the correct DocID.
+Use the `state` command to query the state of the document we just created. We can see that the schema is set to the correct commitID.
 
 === "Command"
 
     ```bash
     $ ceramic state kjzl6cwe1jw14b5sr79heovz7fziz4dxcn8upx3bcesriloqcui137k6rq6g2mn
     ```
-    You should use your commit DocID instead of the DocID included here.
+    !!! note ""
+        You should use your DocID instead of the DocID included here.
 
 === "Output"
 
@@ -293,7 +282,7 @@ schema is set to the correct DocID.
     ```
 
 # That's it!
-Congratulations on completing this tutorial! You're well on your way to becoming a Ceramic developer. Now let's [install Ceramic in your project →](./installation.md).
+Congratulations on completing this tutorial! You're well on your way to becoming a Ceramic developer. Now let's [install Ceramic in your project →](./installation.md)
 </br>
 </br>
 </br>

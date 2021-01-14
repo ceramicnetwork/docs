@@ -1,8 +1,8 @@
 # Installation
-Install a client to interact with the Ceramic network.
+Install a Ceramic client to perform [transactions](./transactions.md) and [queries](./queries.md) on the network.
 
 ## Clients
-Ceramic is available in a variety of clients suited for different use cases. For optimal performance, it is recommended that you use the HTTP Client during runtime.
+Ceramic is available in a variety of clients suited for different use cases. For optimal performance, it is recommended that you use the HTTP Client when building an application.
 
 Client | Description | Usage | Details |
 | ------ | ----- | ---- | --- |
@@ -31,7 +31,7 @@ Open your terminal and install a client using npm.
     $ npm install -g @ceramicnetwork/cli
     ```
 
-    The CLI requires the use of Node.js. Make sure to have an up-to-date version installed on your machine.
+    The CLI requires Node.js. Make sure to have an up-to-date version installed on your machine.
 
 ## Setup
 Setup your client within your project.
@@ -50,7 +50,7 @@ Setup your client within your project.
     const API_URL = "http://yourceramicnode.com"
     ```
     
-    !!! note "Node options"
+    ??? note "Node options"
         When using the HTTP API, you need to connect to a remote Ceramic node by passing its URL. Here are your options for nodes that run on the Clay testnet. Choose the option that best suits your use case:
         
         - Community gateway `https://ceramic-clay-gateway.3boxlabs.com`: Provides read-only access to the Clay testnet.
@@ -114,13 +114,13 @@ Setup your client within your project.
     ```
 
     #### Connect to a remote Ceramic node
-    By default the Ceramic CLI communicates with your local node that you start with the `ceramic daemon` command. It is however possible to use the CLI to communicate with a remote node. In order to do this you have to set the `ceramicHost` variable to the url of the node you wish to use.
+    By default the Ceramic CLI communicates with the local node that you started with the `ceramic daemon` command. However, it is possible to use the CLI to communicate with a remote node. To do this, use the `config set` command to set the `ceramicHost` variable to the URL of the node you wish to use.
 
     ```bash
     $ ceramic config set ceramicHost 'https://ceramic-clay-gateway.3boxlabs.com'
     ```
 
-    !!! note "Node options"
+    ??? note "Node options"
         When using the CLI, you need to connect to a remote Ceramic node by passing its URL. Here are your options for nodes that run on the Clay testnet. Choose the option that best suits your use case:
         
         - LocalHost `https://localhost:7007`: Enabled by default. Provides write and read access to the Clay testnet.
