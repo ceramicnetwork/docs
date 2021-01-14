@@ -1,6 +1,11 @@
 # Installation
 Install a Ceramic client to perform [transactions](./transactions.md) and [queries](./queries.md) on the network.
 
+!!! warning ""
+    
+    **Project status: Clay testnet is now live.**</br>`Clay` is a decentralized public network ready for experimental application development and testing, but you still may encounter a few issues.  It is the last major milestone before `Fire` mainnet, which is under development and will launch in late Q1 2021. Documents published on Clay will *not* be portable to Fire. Please [reach out on Discord](https://chat.ceramic.network) or [create an issue on Githb](https://github.com/ceramicnetwork/js-ceramic/issues) to report any issues.
+
+
 ## Clients
 Ceramic is available in a variety of clients suited for different use cases. For optimal performance, it is recommended that you use the HTTP Client when building an application.
 
