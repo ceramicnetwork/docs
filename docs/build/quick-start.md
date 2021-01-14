@@ -95,6 +95,7 @@ Use the `state` command to query the entire state of a document.
     ```bash
     $ ceramic state kjzl6cwe1jw14a80400xpbj97sutzdssg9rklbyykj0zdxzbpmww4x9e9w4vcyr
     ```
+    
     !!! note ""
         You should use your DocID instead of the DocID included here.
 
@@ -138,6 +139,7 @@ Use the `change` command to update a document. Your DID must be the controller o
         "title": "My updated document"
       }'
     ```
+    
     !!! note ""
         You should use your DocID instead of the DocID included here.
 
@@ -205,6 +207,7 @@ First, use the `commits` command to list the commitIDs contained in the schema d
     ```bash
     $ ceramic commits kjzl6cwe1jw1472as4pj3b3ahqmkokbmwc7jchqcob6pcixcoo4kxq6ls8uuxgb
     ```
+    
     !!! note ""
         You should use your DocID instead of the DocID included here.
 
@@ -251,6 +254,7 @@ Use the `state` command to query the state of the document we just created. We c
     ```bash
     $ ceramic state kjzl6cwe1jw14b5sr79heovz7fziz4dxcn8upx3bcesriloqcui137k6rq6g2mn
     ```
+    
     !!! note ""
         You should use your DocID instead of the DocID included here.
 
