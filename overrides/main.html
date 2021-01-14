@@ -17,15 +17,15 @@
 {% block extrahead %}
   {% set title = config.site_name %}
   {% if page and page.meta and page.meta.title %}
-    {% set title = title ~ " - " ~ page.meta.title %}
+    {% set title = page.meta.title ~ " | " ~ title %}
   {% elif page and page.title and not page.is_homepage %}
-    {% set title = title ~ " - " ~ page.title | striptags %}
+    {% set title = page.title | striptags ~ " | " ~ title %}
   {% endif %}
   <meta property="og:type" content="website" />
   <meta property="og:title" content="{{ title }}" />
   <meta property="og:description" content="{{ config.site_description }}" />
   <meta property="og:url" content="{{ page.canonical_url }}" />
-  <meta property="og:image" content="https://developers.ceramic.network/images/image-ceramic-network-og.png" />
+  <meta property="og:image" content="https://developers.ceramic.network/images/image-ceramic-opengraph.png" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -34,5 +34,5 @@
   <meta name="twitter:creator" content="@ceramicnetwork" />
   <meta name="twitter:title" content="{{ title }}" />
   <meta name="twitter:description" content="{{ config.site_description }}" />
-  <meta name="twitter:image" content="https://developers.ceramic.network/images/image-ceramic-network-og.png" />
+  <meta name="twitter:image" content="https://developers.ceramic.network/images/image-ceramic-opengraph.png" />
 {% endblock %}
