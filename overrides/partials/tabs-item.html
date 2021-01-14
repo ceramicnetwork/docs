@@ -7,7 +7,7 @@
     {% if not page.ancestors | length and nav | selectattr("url", page.url) %}
       {% set class = "md-tabs__link md-tabs__link--active" %}
     {% endif %}
-    <a href="{{ base_url }}" class="{{ class }}">
+    <a href="{{ nav_item.url | url }}" class="{{ class }}">
       {{ nav_item.title }}
     </a>
   </li>
