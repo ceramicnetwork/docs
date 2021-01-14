@@ -1,5 +1,5 @@
 # Authentication
-This guide will help you add user authentication to your project. Authentication is needed when you want users to [write to the network](transactions.md). If you only want to interact with Ceramic in a read-only manner, then you can simply [query the network](queries.md) without authentication.
+This guide will help you add user authentication to your project. Authentication is needed when you want to perform [transactions](transactions.md). If you only want to read documents, you can perform [queries](queries.md) without authentication.
 
 ## Prerequisites
 
