@@ -1,5 +1,5 @@
 # Installation
-Install a Ceramic client to perform [transactions](./transactions.md) and [queries](./queries.md) on the network.
+Install a Ceramic client to perform [writes](./writes.md) and [queries](./queries.md) on the network.
 
 !!! warning ""
     
@@ -55,7 +55,7 @@ Setup your client within your project.
     const API_URL = "http://yourceramicnode.com"
     ```
     
-    ??? warning "Node options"
+    ??? info "Node options"
         When using the HTTP API, you need to connect to a remote Ceramic node by passing its URL. Here are your options for nodes that run on the Clay testnet. Choose the option that best suits your use case:
         
         - Community gateway `https://gateway-clay.ceramic.network`: Provides read-only access to the Clay testnet.
@@ -125,7 +125,7 @@ Setup your client within your project.
     $ ceramic config set ceramicHost 'https://yourceramicnode.com'
     ```
 
-    ??? warning "Node options"
+    ??? info "Node options"
         When using the CLI, you need to connect to a remote Ceramic node by passing its URL. Here are your options for nodes that run on the Clay testnet. Choose the option that best suits your use case:
         
         - LocalHost `https://localhost:7007`: Enabled by default in the CLI. Provides write and read access to the Clay testnet.

@@ -1,5 +1,5 @@
 # Authentication
-This guide will help you add user authentication to your project. Authentication is needed when you want to perform [transactions](transactions.md). If you only want to read documents, you can perform [queries](queries.md) without authentication.
+This guide will help you add user authentication to your project. Authentication is needed when you want to perform [writes](writes.md). If you only want to perform [queries](queries.md), you do not need authentication.
 
 ## Prerequisites
 
@@ -69,7 +69,7 @@ The authentication process varies depending on which wallet or provider you are 
     import { ThreeIdConnect,  EthereumAuthProvider } from '@ceramicstudio/3id-connect'
     ```
 
-    ??? warning "Understanding `BlockchainAuthProvider`"
+    ??? info "Understanding `BlockchainAuthProvider`"
         The `BlockchainAuthProvider` parameter is always required but the name shown here is just a placeholder. In your application, you should substitute in the specific BlockchainAuthProvider you are using. A full list of supported BlockchainAuthProviders can be found [here](https://github.com/ceramicnetwork/js-3id-blockchain-utils/tree/master/src/blockchains).
 
     #### Request the user's blockchain address
@@ -117,7 +117,7 @@ The authentication process varies depending on which wallet or provider you are 
 
     Generate a random seed for a new user, or somehow get the existing seed for a returning user. Seeds should be a 32 byte Uint8Array.
 
-    ??? warning "How to generate a seed"
+    ??? info "How to generate a seed"
         Here's how to securely generate a seed in the proper format:
 
         ``` javascript
@@ -139,7 +139,7 @@ The authentication process varies depending on which wallet or provider you are 
 
     This option is useful if you want to enable multiple secrets (seeds) that are capable of controlling the 3ID DID.
 
-    ??? warning "How to generate an authSecret"
+    ??? info "How to generate an authSecret"
         Here's how to securely generate a seed in the proper format:
 
         ``` javascript
@@ -155,7 +155,7 @@ The authentication process varies depending on which wallet or provider you are 
     const provider = threeId.getDidProvider()
     ```
 
-    ??? warning "Understanding `getPermission`"
+    ??? info "Understanding `getPermission`"
         The `getPermission` parameter is always required when creating an instance of ThreeIdProvider. It is used to give an application permission to decrypt and sign data. This function should present a dialog to the user in the wallet UI which asks for permission to access the given paths.
 
         The function is called with one parameter which is the request object. It looks like this:
@@ -194,7 +194,7 @@ The authentication process varies depending on which wallet or provider you are 
 
     Generate a random seed for a new user, or somehow get the existing seed for a returning user. Seeds should be a 32 byte Uint8Array.
 
-    ??? warning "How to generate a seed"
+    ??? info "How to generate a seed"
         Here's how to securely generate a seed in the proper format:
 
         ``` javascript
@@ -210,14 +210,14 @@ The authentication process varies depending on which wallet or provider you are 
 
 ## Set the provider
 
-Set the authenticated provider instance to your Ceramic client in order to perform transactions.
+Set the authenticated provider instance to your Ceramic client in order to perform writes.
 ``` javascript
 await ceramic.setDIDProvider(provider)
 ```
 
 ## Usage
 
-After authenticating, the user will now be able to perform [transactions](transactions.md) on Ceramic using their DID.
+After authenticating, the user will now be able to perform [writes](writes.md) on Ceramic using their DID.
 
 </br>
 </br>

@@ -46,7 +46,7 @@ nav:
     - Quick Start: build/quick-start.md
     - Installation: build/installation.md
     - Authentication: build/authentication.md
-    - Transactions: build/transactions.md
+    - Writes: build/writes.md
     - Queries: build/queries.md
     - Pinning: build/pinning.md
     - Share your work: build/share.md
