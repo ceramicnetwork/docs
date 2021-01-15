@@ -97,7 +97,7 @@ await doc.change({ content: { foo: "updated" }})
 
 ## Utilities
 
-### Get DocID of a document
+### Get DocID
 Use the [`doc.id`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html#id){:target="_blank"} property to get the unique [`DocID`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_docid.docid.html){:target="_blank"} for this document.
 
 ```javascript
@@ -106,7 +106,7 @@ const docId = doc.id
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html#id){:target="_blank"}
 
-### Check anchor status (OED FIX)
+### Get anchor status (OED FIX)
 Use the [`doc.id`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html#id){:target="_blank"} property to get the unique [`DocID`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_docid.docid.html){:target="_blank"} for this document.
 
 ```javascript
