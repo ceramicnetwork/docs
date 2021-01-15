@@ -16,9 +16,7 @@ theme:
   static_templates:
     - 404.html
   palette:
-    scheme: default
-    primary: deep orange
-    accent: deep orange 
+    scheme: default 
   logo: images/ceramic-no-shadow.png
   icon:
     repo: fontawesome/brands/github-alt
