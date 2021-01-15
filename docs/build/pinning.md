@@ -1,7 +1,7 @@
 # Pinning
 Pinning allows you to add and remove documents from the permanent pinset in your Ceramic node.
 
-!!! note "" 
+!!! warning "" 
     By default Ceramic will garbage collect any document that has been created, modified, or loaded after some period of time. In order to prevent the loss of documents due to garbage collection, you need to pin the documents that you wish to persist. Pinning instructs the Ceramic node to keep them around until they are unpinned.
 
 ## Prerequisites
