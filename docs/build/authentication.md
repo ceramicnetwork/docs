@@ -1,5 +1,5 @@
 # Authentication
-This guide will help you add user authentication to your project. Authentication is needed when you want to perform [writes](writes.md). If you only want to read documents, you can perform [queries](queries.md) without authentication.
+This guide will help you add user authentication to your project. Authentication is needed when you want to perform [writes](writes.md). If you only want to perform [queries](queries.md), you do not need authentication.
 
 ## Prerequisites
 
