@@ -11,6 +11,7 @@
 .md-typeset .note > .admonition-title,
 .md-typeset .note > summary {
   background-color: rgba(255, 79, 0, 0.1);
+  border-color: #FF4F00;
 }
 .md-typeset .note > .admonition-title::before,
 .md-typeset .note > summary::before {
