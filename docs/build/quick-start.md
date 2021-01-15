@@ -27,7 +27,7 @@ port 7007, `http://localhost:7007`.
 ceramic daemon
 ```
 
-??? ceramic "Node configurations"
+??? note "Node configurations"
     There are multiple options you can configure when you start the ceramic daemon.
     
     - **Network**: By default the CLI starts a Ceramic node on the `clay` testnet. If you
@@ -63,10 +63,10 @@ we create a document using the *tile* doctype.
     }
     ```
 
-    !!! ceramic ""
+    !!! note ""
         The first line of the output is the *DocID*, which is the persistent identifier of our newly created document. This DocID will be different for you, since you created it with your DID. Below the DocID is the current content of the document.
 
-??? ceramic "More options"
+??? note "More options"
     You can specify the *controller* and *schema* of the document by using the
     `--controllers` and `--schema` options respectively. Run `ceramic create -h`
     to see all available options.
