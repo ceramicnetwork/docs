@@ -224,8 +224,8 @@ First, use the `commits` command to list the commitIDs contained in the schema d
     ]
     ```
 
-!!! warning ""
-    If a document contains multiple commits and you're not sure which one you want, use the `show` command to show the content of the document at the given commit.
+
+If a document contains multiple commits and you're not sure which one you want, use the `show` command to show the content of the document at the given commit.
 
 Once you retrieve the desired commit, you can now create a document that is enforced to conform to this version of the schema. Use the `create` command and pass the `--schema` option along with your commitID.
 
