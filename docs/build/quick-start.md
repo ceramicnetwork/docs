@@ -1,9 +1,11 @@
-# Quick start
-Learn the basics by setting up and interacting with the Ceramic CLI. This tutorial serves as a simple introduction to Ceramic concepts. See [installation](./installation.md) to fully configure your client and start building applications.
+![](../images/image-ceramic-opengraph.png)
 
 !!! warning ""
     
     **Project status: Clay testnet is now live.**</br>`Clay` is a decentralized public network ready for experimental application development and testing, but you still may encounter a few issues.  It is the last major milestone before `Fire` mainnet, which is under development and will launch in late Q1 2021. Documents published on Clay will *not* be portable to Fire. Please [reach out on Discord](https://chat.ceramic.network) or [create an issue on Githb](https://github.com/ceramicnetwork/js-ceramic/issues) to report any issues.
+
+# Quick start
+Learn the basics by setting up and interacting with the Ceramic CLI. This tutorial serves as a simple introduction to Ceramic concepts. See [installation](./installation.md) to fully configure your client and start building applications.
 
 ## Prerequisites
 
