@@ -95,9 +95,12 @@ await doc.change({ content: { foo: "updated" }})
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html#change){:target="_blank"}
 
-## Utilities
+## Document information
+To get specific information about the document that you created or loaded you can use the accessors on the [`Doctype`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html){:target="_blank"} class. Below are some examples.
 
-### Get DocID
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html){:target="_blank"}
+
+### DocID
 Use the [`doc.id`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html#id){:target="_blank"} property to get the unique [`DocID`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_docid.docid.html){:target="_blank"} for this document.
 
 ```javascript
@@ -106,14 +109,23 @@ const docId = doc.id
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html#id){:target="_blank"}
 
-### Get anchor status (OED FIX)
-Use the [`doc.id`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html#id){:target="_blank"} property to get the unique [`DocID`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_docid.docid.html){:target="_blank"} for this document.
+### Latest CommitID
+Use the [`doc.commitId`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html#commitid){:target="_blank"} property to get latest CommitID of a document.
 
 ```javascript
-const docId = doc.id
+const commitId = doc.commitId
 ```
 
-[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html#id){:target="_blank"}
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html#commitid){:target="_blank"}
+
+### Anchor CommitIDs
+Use the [`doc.anchorCommitIds`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html#anchorcommitids){:target="_blank"} property to get all CommitIDs which are anchor commits for this document.
+
+```javascript
+const anchorCommits = doc.anchorCommitIds
+```
+
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.doctype-1.html#anchorcommitids){:target="_blank"}
 
 
 </br>
