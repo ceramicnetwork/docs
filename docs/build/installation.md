@@ -122,7 +122,7 @@ Setup your client within your project.
     By default the Ceramic CLI communicates with the local node that you started with the `ceramic daemon` command. However, it is possible to use the CLI to communicate with a remote node. To do this, use the `config set` command to set the `ceramicHost` variable to the URL of the node you wish to use.
 
     ```bash
-    $ ceramic config set ceramicHost 'https://ceramic-clay-gateway.3boxlabs.com'
+    $ ceramic config set ceramicHost 'https://yourceramicnode.com'
     ```
 
     ??? warning "Node options"
