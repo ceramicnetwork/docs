@@ -22,3 +22,7 @@
 .admonition {
   border-left: px2rem(4px) solid #FF4F00;
 }
+
+.admonition-title {
+  border-left: px2rem(4px) solid #FF4F00;
+}
