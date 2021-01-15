@@ -6,7 +6,7 @@
 }
 .md-typeset .admonition.note,
 .md-typeset details.note {
-  border-color: rgb(255, 79, 0);
+  border-color: #FF4F00;
 }
 .md-typeset .note > .admonition-title,
 .md-typeset .note > summary {
@@ -14,7 +14,7 @@
 }
 .md-typeset .note > .admonition-title::before,
 .md-typeset .note > summary::before {
-  background-color: rgb(255, 79, 0);
+  background-color: #FF4F00;
   -webkit-mask-image: var(--md-admonition-icon--note);
           mask-image: var(--md-admonition-icon--note);
 }
