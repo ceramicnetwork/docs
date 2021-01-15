@@ -38,7 +38,7 @@ Doctypes are rules that govern the behavior of documents on the Ceramic network.
 | ------------- | ----------- | ---------------- | ----------- |
 | `doctype`     | required    | string           | Specifies rules for `content`, `metadata`, and conflict resolution |
 
-!!! note "Supported doctypes"
+!!! warning "Supported doctypes"
     Ceramic currently supports two doctypes: `tile` for storing arbitrary JSON content and `caip-10 link` for storing a proof that binds a DID to a blockchain account. Read each doctype's documentation for more information on its parameters below.
 
 #### DocParams
@@ -50,7 +50,7 @@ DocParams are specifics related to your document including `content`, `metadata`
 | ------------- | ----------- | ---------------- | ----------- | ----- |
 | `content`     | optional    | object           | The content of your document | Must conform to the `doctype` and `schema` if present |
 
-!!! note ""
+!!! warning ""
     When `content` is included during document creation, the document's *genesis commit* will be signed by the authenticated user's DID. When `content` is omitted, then the *genesis commit* will not be signed.
 
 ##### Metadata
@@ -69,7 +69,7 @@ DocParams are specifics related to your document including `content`, `metadata`
 | ----------------- | ----------- | ---------------- | ----------- | ----- |
 | `deterministic`   | optional    | boolean          | If false, allows documents with the same `doctype`, `content`, and `metadata` to generate unique DocIDs | If empty, defaults to false |
 
-!!! note "Using the `deterministic` parameter"
+!!! warning "Using the `deterministic` parameter"
     For most use cases you will likely want to leave the `deterministic` parameter set to false. However for special circumstances, you may want this to be set to true. For example this should be set to true if you would like to enable [deterministic queries](queries.md#query-a-deterministic-document) for your document. If this is your use case, then it is also important that you omit all `content` during document creation. You can proceed to add content to your document by [updating it](#update-a-document).
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.docparams-1.html#deterministic){:target="_blank"}

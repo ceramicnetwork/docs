@@ -1,7 +1,7 @@
 # Quick start
 Learn the basics by setting up and interacting with the Ceramic CLI. This tutorial serves as a simple introduction to Ceramic concepts. See [installation](./installation.md) to fully configure your client and start building applications.
 
-!!! warning ""
+!!! ceramic ""
     
     **Project status: Clay testnet is now live.**</br>`Clay` is a decentralized public network ready for experimental application development and testing, but you still may encounter a few issues.  It is the last major milestone before `Fire` mainnet, which is under development and will launch in late Q1 2021. Documents published on Clay will *not* be portable to Fire. Please [reach out on Discord](https://chat.ceramic.network) or [create an issue on Githb](https://github.com/ceramicnetwork/js-ceramic/issues) to report any issues.
 
@@ -27,7 +27,7 @@ port 7007, `http://localhost:7007`.
 ceramic daemon
 ```
 
-??? note "Node configurations"
+??? ceramic "Node configurations"
     There are multiple options you can configure when you start the ceramic daemon.
     
     - **Network**: By default the CLI starts a Ceramic node on the `clay` testnet. If you
@@ -63,10 +63,10 @@ we create a document using the *tile* doctype.
     }
     ```
 
-    !!! note ""
+    !!! ceramic ""
         The first line of the output is the *DocID*, which is the persistent identifier of our newly created document. This DocID will be different for you, since you created it with your DID. Below the DocID is the current content of the document.
 
-??? note "More options"
+??? ceramic "More options"
     You can specify the *controller* and *schema* of the document by using the
     `--controllers` and `--schema` options respectively. Run `ceramic create -h`
     to see all available options.
@@ -80,7 +80,7 @@ Use the `show` command to query the current state of a document. You will need t
     $ ceramic show kjzl6cwe1jw14a80400xpbj97sutzdssg9rklbyykj0zdxzbpmww4x9e9w4vcyr
     ```
     
-    !!! note ""
+    !!! ceramic ""
         You should use your DocID instead of the DocID included here.
 
 === "Output"
@@ -100,7 +100,7 @@ Use the `state` command to query the entire state of a document.
     $ ceramic state kjzl6cwe1jw14a80400xpbj97sutzdssg9rklbyykj0zdxzbpmww4x9e9w4vcyr
     ```
     
-    !!! note ""
+    !!! ceramic ""
         You should use your DocID instead of the DocID included here.
 
 === "Output"
@@ -129,7 +129,7 @@ Use the `state` command to query the entire state of a document.
     }
     ```
 
-    !!! note ""
+    !!! ceramic ""
         Here we can see various information about the document such as *content*, *controllers*, and *schema*. In your output you should see your DID as the controller, instead of the DID we show here. We can also see the current *anchorStatus* of our document, and that it has been scheduled to be anchored at 11:45 on the 11th of January 2021. Once this anchor is finalized, the state of the document will automatically be updated with a new entry in the log and *anchorStatus* will be set to `ANCHORED`.
 
 
@@ -144,7 +144,7 @@ Use the `change` command to update a document. Your DID must be the controller o
       }'
     ```
     
-    !!! note ""
+    !!! ceramic ""
         You should use your DocID instead of the DocID included here.
 
 === "Output"
@@ -155,7 +155,7 @@ Use the `change` command to update a document. Your DID must be the controller o
     }
     ```
 
-??? note "More options"
+??? ceramic "More options"
     Currently you can change *content*, *controllers*, and *schema* using the CLI. Run `ceramic change -h` for more information.
 
 
@@ -212,7 +212,7 @@ First, use the `commits` command to list the commitIDs contained in the schema d
     $ ceramic commits kjzl6cwe1jw1472as4pj3b3ahqmkokbmwc7jchqcob6pcixcoo4kxq6ls8uuxgb
     ```
     
-    !!! note ""
+    !!! ceramic ""
         You should use your DocID instead of the DocID included here.
 
 === "Output"
@@ -223,7 +223,7 @@ First, use the `commits` command to list the commitIDs contained in the schema d
     ]
     ```
 
-!!! note ""
+!!! ceramic ""
     If a document contains multiple commits and you're not sure which one you want, use the `show` command to show the content of the document at the given commit.
 
 Once you retrieve the desired commit, you can now create a document that is enforced to conform to this version of the schema. Use the `create` command and pass the `--schema` option along with your commitID.
@@ -237,7 +237,7 @@ Once you retrieve the desired commit, you can now create a document that is enfo
       }' --schema k3y52l7qbv1frxu8co1hjrivem5cj2oiqtytlku3e4vjo92l67fkkvu6ywuzfxvy8
     ```
     
-    !!! note ""
+    !!! ceramic ""
         You should use your commitID instead of the commitID included here.
 
 === "Output"
@@ -259,7 +259,7 @@ Use the `state` command to query the state of the document we just created. We c
     $ ceramic state kjzl6cwe1jw14b5sr79heovz7fziz4dxcn8upx3bcesriloqcui137k6rq6g2mn
     ```
     
-    !!! note ""
+    !!! ceramic ""
         You should use your DocID instead of the DocID included here.
 
 === "Output"
