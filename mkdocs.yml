@@ -86,7 +86,7 @@ nav:
         #- ceramicnetwork/doctype-tile: tools/hosting/hosting-providers.md
         #- ceramicnetwork/doctype-caip-10-link: tools/hosting/hosting-providers.md
       - Anchor Service: reference/javascript/anchor-service.md
-      #- Anchor Service: 'https://github.com/ceramicnetwork/ceramic-anchor-service/'
+    - HTTP API: reference/http-api.md
   - Chat: 'https://chat.ceramic.network'
   - Blog: 'https://blog.ceramic.network'
 
