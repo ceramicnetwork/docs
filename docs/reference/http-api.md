@@ -1,6 +1,6 @@
 # HTTP API
 
-The HTTP API allows you to manually make HTTP requests that create, modify, and query documents on a remote Ceramic node. If you are building an application, you will usually interact with a node using one of the [Ceramic clients](../javascript/clients.md), however this documentation is useful if:
+The HTTP API allows you to manually make HTTP requests that create, modify, and query documents on a remote Ceramic node. If you are building an application, you will usually interact with a node using one of the [Ceramic clients](../javascript/clients), however this documentation is useful if:
 
 - You have a special use case where you directly want to use HTTP requests
 - You want to implement an HTTP client in a new language
@@ -18,6 +18,7 @@ The `documents` endpoint is used to create new documents, load documents from th
 Load the state of a document given its DocID.
 
 === "Request"
+    
     ```
     GET /api/v0/documents/:docid
     ```
@@ -33,11 +34,13 @@ Load the state of a document given its DocID.
 #### Example
 
 === "Request"
+    
     ```bash
     $ curl http://localhost:7007/api/v0/documents/kjzl6cwe1jw147r7878h32yazawcll6bxe5v92348cxitif6cota91qp68grbhm
     ```
 
 === "Response"
+    
     ```bash
     {
       "docId": "kjzl6cwe1jw147r7878h32yazawcll6bxe5v92348cxitif6cota91qp68grbhm",
@@ -67,6 +70,7 @@ Load the state of a document given its DocID.
 Create a new document, or load a document from its genesis content. The genesis content may be signed (a DagJWS for the `tile` doctype), or unsigned in some cases.
 
 === "Request"
+    
     ```bash
     POST /api/v0/documents
     ```
@@ -89,6 +93,7 @@ Create a new document, or load a document from its genesis content. The genesis 
 This example creates a `tile` document from an unsigned genesis commit. Note that if the content is defined for a `tile` genesis commit, it needs to be signed.
 
 === "Request"
+    
     ```bash
     $ curl http://localhost:7007/api/v0/documents -X POST -d '{
         "doctype": "tile",
@@ -102,6 +107,7 @@ This example creates a `tile` document from an unsigned genesis commit. Note tha
     ```
 
 === "Response"
+    
     ```bash
     {
       "docId": "k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl",
@@ -134,6 +140,7 @@ The `multiqueries` endpoint enables querying multiple documents at once, as well
 This endpoint allows you to query multiple DocIDs. Along with each DocID an array of paths can be passed. If any of the paths within the document structure contains a ceramic DocID url (`ceramic://<DocID>`), this linked document will also be returned as part of the response.
 
 === "Request"
+    
     ```bash
     POST /api/v0/multiqueries
     ```
@@ -150,11 +157,13 @@ This endpoint allows you to query multiple DocIDs. Along with each DocID an arra
 First let's create three documents to query using the ceramic cli:
 
 === "Request1"
+    
     ```bash
     $ ceramic create tile --content '{ "Document": "A" }'
     ```
 
 === "Response1"
+    
     ```bash
     DocID(kjzl6cwe1jw149rledowj0zi0icd7epi9y1m5tx4pardt1w6dzcxvr6bohi8ejc)
     {
@@ -163,20 +172,22 @@ First let's create three documents to query using the ceramic cli:
     ```
 
 === "Request2"
+    
     ```bash
     $  ceramic create tile --content '{ "Document": "B" }'
     ```
 
 === "Response2"
+    
     ```bash
     DocID(kjzl6cwe1jw147w3xz3xrcd37chh2rz4dfra3imtnsni385rfyqa3hbx42qwal0)
     {
       "Document": "B"
     }
-
     ```
 
 === "Request3"
+    
     ```bash
     $ ceramic create tile --content '{
         "Document": "C",
@@ -185,6 +196,7 @@ First let's create three documents to query using the ceramic cli:
     ```
 
 === "Response3"
+    
     ```bash
     DocID(kjzl6cwe1jw14b54pb10voc4bqh73qyu8o6cfu66hoi3feidbbj81i5rohh7kgl)
     {
@@ -196,6 +208,7 @@ First let's create three documents to query using the ceramic cli:
 Now let's query them though the multiqueries endpoint:
 
 === "Request"
+    
     ```bash
     $ curl http://localhost:7007/api/v0/multiqueries -X POST -d '{
       "queries": [{
@@ -209,6 +222,7 @@ Now let's query them though the multiqueries endpoint:
     ```
 
 === "Response"
+    
     ```bash
     {
       "kjzl6cwe1jw14b54pb10voc4bqh73qyu8o6cfu66hoi3feidbbj81i5rohh7kgl": {
@@ -278,8 +292,6 @@ Now let's query them though the multiqueries endpoint:
     }
     ```
 
-
-
 ## **Commits**
 
 The `commits` endpoint provides lower level access to the data structure of a Ceramic document. It is also the enpoint that is used in order to update a document, by adding a new commit.
@@ -289,6 +301,7 @@ The `commits` endpoint provides lower level access to the data structure of a Ce
 By calling get on the *commits* endpoint along with a DocID gives you access to all of the commits of the given document. This is useful if you want to inspect the document history, or apply all of the commits to a ceramic node that is not connected to the network.
 
 === "Request"
+    
     ```bash
     GET /api/v0/commits/:docid
     ```
@@ -303,11 +316,13 @@ By calling get on the *commits* endpoint along with a DocID gives you access to 
 #### Example
 
 === "Request"
+    
     ```bash
     $ curl http://localhost:7007/api/v0/commits/kjzl6cwe1jw14ahmwunhk9yjwawac12tb52j1uj3b9a57eohmhycec8778p3syv
     ```
 
 === "Response"
+    
     ```bash
     {
       "docId": "kjzl6cwe1jw14ahmwunhk9yjwawac12tb52j1uj3b9a57eohmhycec8778p3syv",
@@ -355,6 +370,7 @@ By calling get on the *commits* endpoint along with a DocID gives you access to 
 In order to modify a document we apply a commit to its docment log. This commit usually contains a signature over a *json-patch* diff describing a modification to the document contents. The commit also needs to contain pointers to the previous commit and other metadata. You can read more about this in the [Ceramic Specification](https://github.com/ceramicnetwork/ceramic/blob/master/SPECIFICATION.md#document-records){:target="_blank"}. Different document types may have different formats for their commits. If you want to see an example implementation for how to construct a commit you can have a look at the implementation of the TileDoctype.
 
 === "Request"
+    
     ```bash
     POST /api/v0/commits
     ```
@@ -373,6 +389,7 @@ In order to modify a document we apply a commit to its docment log. This commit 
 #### Example
 
 === "Request"
+    
     ```bash
     $ curl http://localhost:7007/api/v0/commits -X POST -d '{
       "docId": "kjzl6cwe1jw14ahmwunhk9yjwawac12tb52j1uj3b9a57eohmhycec8778p3syv",
@@ -393,6 +410,7 @@ In order to modify a document we apply a commit to its docment log. This commit 
     ```
 
 === "Response"
+    
     ```bash
     {
       "docId": "kjzl6cwe1jw14ahmwunhk9yjwawac12tb52j1uj3b9a57eohmhycec8778p3syv",
@@ -446,6 +464,7 @@ This method adds the document with the given DocID to the pinset.
 **:octicons-alert-16: Disabled in gateway mode**
 
 === "Request"
+    
     ```bash
     POST /api/v0/pins/:docid
     ```
@@ -461,11 +480,13 @@ This method adds the document with the given DocID to the pinset.
 #### Example
 
 === "Request"
+    
     ```bash
     $ curl http://localhost:7007/api/v0/pins/k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl -X POST
     ```
 
 === "Response"
+    
     ```bash
     {
       "docId": "k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl"
@@ -478,6 +499,7 @@ This method removes the document with the given DocID from the pinset.
 **:octicons-alert-16: Disabled in gateway mode**
 
 === "Request"
+    
     ```bash
     DELETE /api/v0/pins/:docid
     ```
@@ -493,11 +515,13 @@ This method removes the document with the given DocID from the pinset.
 #### Example
 
 === "Request"
+    
     ```bash
     $ curl http://localhost:7007/api/v0/pins/k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl -X DELETE
     ```
 
 === "Response"
+    
     ```bash
     {
       "docId": "k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl"
@@ -521,11 +545,13 @@ Calling this method allows you to list all of the documents that are in the pins
 #### Example
 
 === "Request"
+    
     ```bash
     $ curl http://localhost:7007/api/v0/pins
     ```
 
 === "Response"
+    
     ```bash
     {
       "pinnedDocIds": [
@@ -556,11 +582,13 @@ This method is used to check if a particular document is in the pinset.
 #### Example
 
 === "Request"
+    
     ```bash
     $ curl http://localhost:7007/api/v0/pins/k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl
     ```
 
 === "Response"
+    
     ```bash
     {
       "pinnedDocIds": ["k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl"]
@@ -589,11 +617,13 @@ Get all of the [CAIP-2](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs
 #### Example
 
 === "Request"
+    
     ```bash
     $ curl http://localhost:7007/api/v0/node/chains
     ```
 
 === "Response"
+    
     ```bash
     {
       "supportedChains": ["eip155:3"]
@@ -617,11 +647,13 @@ Check the health of the node and the machine it's running on. Run `ceramic daemo
 #### Example
 
 === "Request"
+    
     ```bash
     $ curl http://localhost:7007/api/v0/node/healthcheck
     ```
 
 === "Response"
+    
     ```bash
     Alive!
     ```
