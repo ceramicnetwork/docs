@@ -6,7 +6,7 @@ Install a Ceramic client to perform [writes](./writes.md) and [queries](./querie
     **Project status: Clay testnet is now live.**</br>`Clay` is a decentralized public network ready for experimental application development and testing, but you still may encounter a few issues.  It is the last major milestone before `Fire` mainnet, which is under development and will launch in late Q1 2021. Documents published on Clay will *not* be portable to Fire. Please [reach out on Discord](https://chat.ceramic.network) or [create an issue on Githb](https://github.com/ceramicnetwork/js-ceramic/issues) to report any issues.
 
 
-## Clients
+## **Clients**
 Ceramic is available in a variety of clients suited for different use cases. For optimal performance, it is recommended that you use the HTTP Client when building an application.
 
 Client | Description | Usage | Details |
@@ -55,13 +55,13 @@ Setup your client within your project.
     const API_URL = "http://yourceramicnode.com"
     ```
     
-    ??? info "Node options"
+    !!! info "Node options"
         When using the HTTP API, you need to connect to a remote Ceramic node by passing its URL. Here are your options for nodes that run on the Clay testnet. Choose the option that best suits your use case:
         
-        - Community gateway `https://gateway-clay.ceramic.network`: Provides read-only access to the Clay testnet.
-        - Community dev node `https://ceramic-clay.3boxlabs.com`: Provides write and read access to the Clay testnet. This node is periodically wiped and does not guarantee document persistence.
-        - Run your own node `https://yourEndpoint.com`: Provides write and read access to the Clay testnet. Running your own node allows you to persist documents and have full control.
-        - LocalHost `https://localhost:7007`: Provides write and read access to the Clay testnet. Users need to first have a Cermic daemon running locally using the CLI.
+        - Community gateway `https://gateway-clay.ceramic.network`: Provides read-only access to the Clay testnet. (recommended)
+        - Community dev node `https://ceramic-clay.3boxlabs.com`: Provides write and read access to the Clay testnet. This node is occasionally wiped and does not guarantee document persistence. (recommended)
+        - Run your own node `https://yourEndpoint.com`: Provides write and read access to the Clay testnet. Running your own node allows you to persist documents and have full control, however this is process is not yet well documented. If you choose to run your own node, be sure to add your node to the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json) by submitting a pull request. This allows other nodes to discover your node.
+        - LocalHost `https://localhost:7007`: Provides read access to the Clay testnet, but writes made to this local node will not be shared with the rest of the network. Users need to first have a Cermic daemon running locally using the CLI.
 
     #### Create an instance
 
@@ -125,13 +125,13 @@ Setup your client within your project.
     $ ceramic config set ceramicHost 'https://yourceramicnode.com'
     ```
 
-    ??? info "Node options"
+    !!! info "Node options"
         When using the CLI, you need to connect to a remote Ceramic node by passing its URL. Here are your options for nodes that run on the Clay testnet. Choose the option that best suits your use case:
         
-        - LocalHost `https://localhost:7007`: Enabled by default in the CLI. Provides write and read access to the Clay testnet.
+        - LocalHost `https://localhost:7007`: Enabled by default in the CLI. Provides read access to the Clay testnet, but writes made to this local node will not be shared with the rest of the network.
         - Community gateway `https://gateway-clay.ceramic.network`: Provides read-only access to the Clay testnet.
-        - Community dev node `https://ceramic-clay.3boxlabs.com`: Provides write and read access to the Clay testnet. This node is periodically wiped and does not guarantee document persistence.
-        - Run your own node `https://yourEndpoint.com`: Provides write and read access to the Clay testnet. Running your own node allows you to persist documents and have full control.
+        - Community dev node `https://ceramic-clay.3boxlabs.com`: Provides write and read access to the Clay testnet. This node is occasionally wiped and does not guarantee document persistence. (recommended)
+        - Run your own node `https://yourEndpoint.com`: Provides write and read access to the Clay testnet. Running your own node allows you to persist documents and have full control, however this is process is not yet well documented. If you choose to run your own node, be sure to add your node to the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json) by submitting a pull request. This allows other nodes to discover your node.
 
 </br>
 </br>
