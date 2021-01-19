@@ -14,7 +14,7 @@ The core client allows you to run the full Ceramic protocol (API and node) direc
 ## **HTTP client**
 The HTTP clent allows you to interact with a remote Ceramic node from any JavaScript environment. The HTTP client is recommended when building most applications.
 
-[:octicons-download-16: Installation](../../build/installation) | [:octicons-file-code-16: HTTP Client API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_http_client.ceramicclient.html){:target="_blank"}
+[:octicons-download-16: Installation](../../build/installation) | [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_http_client.ceramicclient.html){:target="_blank"}
 
 <br />
 <br />
