@@ -1,19 +1,21 @@
 # HTTP API
 
-The Ceramic HTTP API allows you to create, update, and query documents on a remote Ceramic node. These endpoints allows you to manually make requests to a Ceramic node. This is also a good place to start if you want to build a Ceramic client in a new language. 
+The HTTP API allows you to manually make HTTP requests that create, modify, and query documents on a remote Ceramic node. If you are building an application, you will usually interact with a node using one of the [Ceramic clients](../javascript/clients.md), however this documentation is useful if:
+
+- You have a special use case where you directly want to use HTTP requests
+- You want to implement an HTTP client in a new language
 
 !!! info "Gateway mode"
-    Not all of the methods described here are exposed if the node runs in
-    *gateway mode*. This option can be enabled on a Ceramic node to disable
-    anyone from writing to the node. This is useful when exposing your node to
-    the internet.
+    Not all of the API methods are available if the Ceramic node runs in
+    *gateway mode*. This option disables writes, which is useful when exposing your node to
+    the internet. **Methods disabled in gateway mode will be clearly marked.**
 
-## Documents
+## **Documents**
+
 The `documents` endpoint is used to create new documents, load documents from their DocID or from their genesis content. 
 
 ### Get document state
 Load the state of a document given its DocID.
-
 
 === "Request"
     ```
@@ -125,7 +127,7 @@ This example creates a `tile` document from an unsigned genesis commit. Note tha
     }
     ```
 
-## Multiqueries
+## **Multiqueries**
 The `multiqueries` endpoint enables querying multiple documents at once, as well as querying documents which are linked.
 
 ### Query multiple documents
@@ -278,7 +280,7 @@ Now let's query them though the multiqueries endpoint:
 
 
 
-## Commits
+## **Commits**
 
 The `commits` endpoint provides lower level access to the data structure of a Ceramic document. It is also the enpoint that is used in order to update a document, by adding a new commit.
 
@@ -348,8 +350,7 @@ By calling get on the *commits* endpoint along with a DocID gives you access to 
 
 ### Apply a commit to document
 
-!!! warning "Gateway mode"
-    This method is not available if gateway mode is enabled.
+**:octicons-alert-16: Disabled in gateway mode**
 
 In order to modify a document we apply a commit to its docment log. This commit usually contains a signature over a *json-patch* diff describing a modification to the document contents. The commit also needs to contain pointers to the previous commit and other metadata. You can read more about this in the [Ceramic Specification](https://github.com/ceramicnetwork/ceramic/blob/master/SPECIFICATION.md#document-records){:target="_blank"}. Different document types may have different formats for their commits. If you want to see an example implementation for how to construct a commit you can have a look at the implementation of the TileDoctype.
 
@@ -435,15 +436,14 @@ In order to modify a document we apply a commit to its docment log. This commit 
 
 
 
-## Pins
+## **Pins**
 
 The `pins` api endpoint can be used to manipulate the pinset. The pinset is all of the documents that a node maintains the state of. Any document opened by the node that is not pinned will eventually be garbage collected from the node.
 
 ### Add to pinset
 This method adds the document with the given DocID to the pinset.
 
-!!! warning "Gateway mode"
-    This method is not available if gateway mode is enabled.
+**:octicons-alert-16: Disabled in gateway mode**
 
 === "Request"
     ```bash
@@ -475,8 +475,7 @@ This method adds the document with the given DocID to the pinset.
 ### Remove from pinset
 This method removes the document with the given DocID from the pinset.
 
-!!! warning "Gateway mode"
-    This method is not available if gateway mode is enabled.
+**:octicons-alert-16: Disabled in gateway mode**
 
 === "Request"
     ```bash
@@ -568,7 +567,7 @@ This method is used to check if a particular document is in the pinset.
     }
     ```
 
-## Node Info
+## **Node Info**
 
 The methods under the `/node` path provides more information about this particular node.
 
