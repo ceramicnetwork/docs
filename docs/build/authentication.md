@@ -35,7 +35,7 @@ Install a DID wallet or provider in your project using npm.
 === "3ID Connect"
 
     ```sh
-    $ npm install @ceramicstudio/3id-connect
+    $ npm install 3id-connect@next
     ```
     
 === "3id-did-provider"
@@ -60,13 +60,13 @@ The authentication process varies depending on which wallet or provider you are 
     #### Import the provider
 
     ``` javascript
-    import { ThreeIdConnect,  <BlockchainAuthProvider> } from '@ceramicstudio/3id-connect'
+    import { ThreeIdConnect,  <BlockchainAuthProvider> } from '3id-connect'
     ```
 
     Example using an Ethereum wallet:
 
     ``` javascript
-    import { ThreeIdConnect,  EthereumAuthProvider } from '@ceramicstudio/3id-connect'
+    import { ThreeIdConnect,  EthereumAuthProvider } from '3id-connect'
     ```
 
     ??? info "Understanding `BlockchainAuthProvider`"
