@@ -59,7 +59,7 @@ we create a document using the *tile* doctype.
 === "Output"
 
     ```bash
-    DocID(kjzl6cwe1jw14a80400xpbj97sutzdssg9rklbyykj0zdxzbpmww4x9e9w4vcyr)
+    DocID(kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa)
     {
         "Foo": "Bar"
     }
@@ -80,7 +80,7 @@ Use the `show` command to query the current state of a document. You will need t
 === "Command"
 
     ```bash
-    $ ceramic show kjzl6cwe1jw14a80400xpbj97sutzdssg9rklbyykj0zdxzbpmww4x9e9w4vcyr
+    $ ceramic show kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa
     ```
     
     !!! quote ""
@@ -100,13 +100,13 @@ Use the `state` command to query the entire state of a document.
 === "Command"
 
     ```bash
-    $ ceramic state kjzl6cwe1jw14a80400xpbj97sutzdssg9rklbyykj0zdxzbpmww4x9e9w4vcyr
+    $ ceramic state kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa
     ```
     
     !!! quote ""
         You should use your DocID instead of the DocID included here.
 
-=== "Output"
+=== "Output before anchor"
 
     ```bash
     {
@@ -124,17 +124,56 @@ Use the `state` command to query the entire state of a document.
       "anchorStatus": "PENDING",
       "log": [
         {
-          "cid": "bagcqceray2cbrwx45oa5nesee4s4cggkodmsttzuqfzh32yat3o26iw5m5rq",
+          "cid": "bagcqceranhr345kxf5gb3kwjvvnnefn2krqvhkpnurphqrn3lj773mfszmza",
           "type": 0
         }
       ],
-      "anchorScheduledFor": "1/11/2021, 11:45:00 AM"
+      "anchorScheduledFor": "1/24/2021, 11:45:00 AM"
     }
     ```
 
     !!! quote ""
-        Here we can see various information about the document such as *content*, *controllers*, and *schema*. In your output you should see your DID as the controller, instead of the DID we show here. We can also see the current *anchorStatus* of our document, and that it has been scheduled to be anchored at 11:45 on the 11th of January 2021. Once this anchor is finalized, the state of the document will automatically be updated with a new entry in the log and *anchorStatus* will be set to `ANCHORED`.
+        Here we can see various information about the document such as *content*, *controllers*, and *schema*. In your output you should see your local DID as the controller, instead of the DID we show here. We can also see the current *anchorStatus* of our document, and that it has been scheduled to be anchored at 11:45 on the 24th of January 2021. Once this anchor is finalized, the state of the document will automatically be updated with a new entry in the log and *anchorStatus* will be set to `ANCHORED`.
 
+=== "Output after anchor"
+
+    ```bash
+    {
+      "doctype": "tile",
+      "content": {
+        "Foo": "Bar"
+      },
+      "metadata": {
+        "schema": null,
+        "controllers": [
+          "did:key:z6MkfZ6S4NVVTEuts8o5xFzRMR8eC6Y1bngoBQNnXiCvhH8H"
+        ]
+      },
+      "signature": 2,
+      "anchorStatus": "ANCHORED",
+      "log": [
+        {
+          "cid": "bagcqceranhr345kxf5gb3kwjvvnnefn2krqvhkpnurphqrn3lj773mfszmza",
+          "type": 0
+        },
+        {
+          "cid": "bafyreig6hostufw42cmz2cnn7hpvb6pau67a2n2syhzej7orqxfymdayyq",
+          "type": 2
+        }
+      ],
+      "anchorScheduledFor": null,
+      "anchorProof": {
+        "root": "bagcqceranhr345kxf5gb3kwjvvnnefn2krqvhkpnurphqrn3lj773mfszmza",
+        "txHash": "bagjqcgza4xgkpjodtqtgyu2fx6rdr6fb6mhevd5hy4253tl6pjlssidpwaha",
+        "chainId": "eip155:3",
+        "blockNumber": 9527752,
+        "blockTimestamp": 1611485094
+      }
+    }
+    ```
+
+    !!! quote ""
+        This output was seen after the anchor has been created. The document state has now shifted *anchorStatus* to `ANCHORED`. You can also see that the log contains one more entry.
 
 ## Update a document
 Use the `change` command to update a document. Your DID must be the controller of the document in order to update it.
@@ -142,8 +181,8 @@ Use the `change` command to update a document. Your DID must be the controller o
 === "Command"
 
     ```bash
-    $ ceramic change kjzl6cwe1jw145dqtpe73w2sfbn6gz8d0fdvn0etrnflpdyqryltfyem4u1vkok --content '{
-        "title": "My updated document"
+    $ ceramic change kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa --content '{
+        "Foo": "Baz"
       }'
     ```
     
@@ -154,7 +193,7 @@ Use the `change` command to update a document. Your DID must be the controller o
 
     ```bash
     {
-      "title": "My updated document"
+      "Foo": "Baz"
     }
     ```
 
