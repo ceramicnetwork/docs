@@ -2,15 +2,16 @@
 
 !!! warning ""
     
-    **Project status: Clay testnet is now live.**</br>`Clay` is a decentralized public network ready for experimental application development and testing, but you still may encounter a few issues.  It is the last major milestone before `Fire` mainnet, which is under development and will launch in late Q1 2021. Documents published on Clay will *not* be portable to Fire. Please [reach out on Discord](https://chat.ceramic.network) or [create an issue on Githb](https://github.com/ceramicnetwork/js-ceramic/issues) to report any issues.
+    **Project status: Clay testnet is now live.**</br>`Clay` is a decentralized public network ready for experimental application development and testing, but you still may encounter a few issues.  It is the last major milestone before `Fire` mainnet, which is under development and will launch in late Q1 2021. Documents published on Clay will *not* be portable to Fire. Please [reach out on Discord](https://chat.ceramic.network){:target="_blank"} or [create an issue on Githb](https://github.com/ceramicnetwork/js-ceramic/issues){:target="_blank"} to report any issues.
 
 # Quick start
-Learn the basics by setting up and interacting with the Ceramic CLI. This tutorial serves as a simple introduction to Ceramic concepts. See [installation](./installation.md) to fully configure your client and start building applications.
+Learn the basics by setting up and interacting with the Ceramic CLI. This tutorial serves as a simple introduction to Ceramic concepts. See [installation](./installation.md) to install your client and start building applications.
+
+> **Want an even faster way to try Ceramic?** Visit the [Playground demo app](https://playground.ceramic.dev){:target="_blank"} to test the full stack of Ceramic components in the browser without needing to install anything.
 
 ## Prerequisites
 
-This quick start guide will use a terminal, [Node.js](https://nodejs.org/en/), and [npm](https://www.npmjs.com/get-npm). Make sure
-to have these installed on your machine.
+This quick start guide will use a terminal, [Node.js](https://nodejs.org/en/){:target="_blank"}, and [npm](https://www.npmjs.com/get-npm){:target="_blank"}. Make sure to have these installed on your machine.
 
 ## Install the CLI
 
