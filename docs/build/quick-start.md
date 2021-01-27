@@ -9,11 +9,11 @@ Learn the basics by setting up and interacting with the Ceramic CLI. This tutori
 
 > **Want an even faster way to try Ceramic?** Visit the [Playground demo app](https://playground.ceramic.dev){:target="_blank"} to test the full stack of Ceramic components in the browser without needing to install anything.
 
-## Prerequisites
+## **Prerequisites**
 
 This quick start guide will use a terminal, [Node.js](https://nodejs.org/en/){:target="_blank"}, and [npm](https://www.npmjs.com/get-npm){:target="_blank"}. Make sure to have these installed on your machine.
 
-## Install the CLI
+## **Install the CLI**
 
 Install the Ceramic CLI using your terminal.
 
@@ -21,7 +21,7 @@ Install the Ceramic CLI using your terminal.
 npm install -g @ceramicnetwork/cli
 ```
 
-## Start the daemon
+## **Start the daemon**
 
 Start a Ceramic daemon on your local machine and automatically connect to it on
 port 7007, `http://localhost:7007`.
@@ -39,7 +39,7 @@ ceramic daemon
     - **Additional configurations**: Use the `ceramic daemon -h` command to see additional options.
 
 
-## Authentication
+## **Authentication**
 By default, the Ceramic CLI is authenticated with a
 [Key DID](https://github.com/ceramicnetwork/key-did-provider-ed25519){:target="_blank"}. The seed
 for this DID is stored in `~/.ceramic/config.json`. If this file is not present
@@ -47,7 +47,7 @@ on startup a new DID will be randomly generated. It's currently not possible to
 use the Ceramic CLI with other DID methods.
 
 
-## Create a document
+## **Create a document**
 Use the `create` command to create a new document. In the example below
 we create a document using the *tile* doctype.
 
@@ -75,7 +75,7 @@ we create a document using the *tile* doctype.
     - `--schema`: set the *schema* of the document
     - Run `ceramic create -h` to see all available options
 
-## Query a document
+## **Query a document**
 Use the `show` command to query the current state of a document. You will need to provide its *DocID*.
 
 === "Command"
@@ -176,7 +176,7 @@ Use the `state` command to query the entire state of a document.
     !!! quote ""
         This output was seen after the anchor has been created. The document state has now shifted *anchorStatus* to `ANCHORED`. You can also see that the log contains one more entry.
 
-## Update a document
+## **Update a document**
 Use the `change` command to update a document. Your DID must be the controller of the document in order to update it.
 
 === "Command"
@@ -202,7 +202,7 @@ Use the `change` command to update a document. Your DID must be the controller o
     Currently you can change *content*, *controllers*, and *schema* using the CLI. Run `ceramic change -h` for more information.
 
 
-## Create a schema
+## **Create a schema**
 In Ceramic you can enforce that documents adhere to a specified schema. The schemas themselves are Ceramic documents where the content is a [json-schema](https://json-schema.org/){:target="_blank"}. For example we can create a schema that requires a document to have a *title* and *message*.
 
 === "Command"
@@ -246,7 +246,7 @@ In Ceramic you can enforce that documents adhere to a specified schema. The sche
     }
     ```
 
-## Create a document that uses a schema
+## **Create a document that uses a schema**
 First, use the `commits` command to list the commitIDs contained in the schema document. When creating a document that uses this schema, we need to use a commitID instead of the DocID to enforce that we are using a specific version of the schema since the schema document is mutable and can be updated.
 
 === "Command"
@@ -293,7 +293,7 @@ Once you retrieve the desired commit, you can now create a document that is enfo
     }
     ```
 
-## Query the document you created
+## **Query the document you created**
 Use the `state` command to query the state of the document we just created. We can see that the schema is set to the correct commitID.
 
 === "Command"
@@ -332,7 +332,7 @@ Use the `state` command to query the state of the document we just created. We c
     }
     ```
 
-# That's it!
+# **That's it!**
 Congratulations on completing this tutorial! You're well on your way to becoming a Ceramic developer. Now let's [install Ceramic in your project →](./installation.md)
 </br>
 </br>
