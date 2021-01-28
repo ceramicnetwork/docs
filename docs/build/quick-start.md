@@ -13,7 +13,7 @@ Learn the basics by setting up and interacting with the Ceramic CLI. This tutori
 
 ## **Prerequisites**
 
-This quick start guide will use a terminal, [Node.js](https://nodejs.org/en/){:target="_blank"}, and [npm](https://www.npmjs.com/get-npm){:target="_blank"}. Make sure to have these installed on your machine.
+This quick start guide will use a terminal, [Node.js](https://nodejs.org/en/){:target="_blank"} v14, and [npm](https://www.npmjs.com/get-npm){:target="_blank"} v6. Make sure to have these installed on your machine.
 
 ## **Install the CLI**
 
