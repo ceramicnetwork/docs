@@ -1,6 +1,6 @@
 # Add support for a new blockchain
 
-This document contains a guide on how to add support for a new blockchain to the [`caip10-link`](https://github.com/ceramicnetwork/CIP/blob/master/CIPs/CIP-7/CIP-7.md) doctype, as well as to use for authentication.
+This document contains a guide on how to add support for a new blockchain to the [`caip10-link`](https://github.com/ceramicnetwork/CIP/blob/master/CIPs/CIP-7/CIP-7.md) doctype, and to use it for authentication in Ceramic.
 
 ## Ceramic and blockchain accounts
 
@@ -15,9 +15,9 @@ EOS, Cosmos or something else. Same signature (=same entropy) generates same Cer
 
 ### Linking
 In addition to generating a DID a user could also _link_ additional blockchain accounts to a Ceramic DID.
-It establishes a relation `blockchain account → DID` that allows one to discover DID along with social profile
+It establishes a relation `blockchain account → DID` that allows one to discover a DID (and associated data like a social profile and data)
 based on just a blockchain account. Additionally, a link serves as a proof-of-ownership by DID over the blockchain account.
-This has proven to be useful for dApp personalization: one sees familiar names instead of `0xgibberish`.
+This is useful for dApp personalization and UX: one sees familiar names instead of `0xgibberish`.
 
 Below one additional process is mentioned: validation. It checks if _proof-of-ownership_ in the link is formally correct,
 i.e., a well-known payload is really signed by the account that is declared in the link.
@@ -58,7 +58,8 @@ The `authenticate` function allows a blockchain account to be added as an authen
 The entropy returned by a given *AccountID* must always be the same.
 
 #### `createLink()`
-The `createLink` function allows a blockchain account to create a verifiable link proof that publicly binds the blockchain account to a given DID. In Ceramic, these these link proofs can be used to create CAIP-10 Link Documents which allow anyone to look up the DID linked to your blockchain account, and then resolve any other public info linked to your DID. The DocIDs of your CAIP-10 Link documents can be stored in the IDX Crypto Accounts documents for simple lookup.
+The `createLink` function allows a blockchain account to create a verifiable link proof that publicly binds the blockchain account to a given DID. In Ceramic, these these link proofs can be used to create CAIP-10 Link Documents which allow anyone to look up the DID linked to your blockchain account, and then resolve any other public info linked to your DID. The DocIDs of your CAIP-10 Link documents can be stored in the [IDX Crypto Accounts documents](https://developers.idx.xyz/guides/definitions/default/#crypto-accounts) for simple lookup. 
+
 This function consumes similar arguments as described above. It also consumes the DID string that is being linked. This function is implemented such that when the given AccountID signs a message including the given DID with the given provider, a `LinkProof` is returned.
 
 #### `accountId()`
@@ -85,9 +86,9 @@ The `validateLink` function validates a given LinkProof. This allows anyone to e
 
 Make sure that `validateLink` can validate links created by `AuthProvider#createLink`.
 
-## Supported blockchains
+## Currently supported blockchains
 
-Below you can see a table which lists supported blockchains and their provider objects.
+Below you can see a table which lists supported blockchains and their provider objects. If you add support for a new chain, please make a PR here. 
 
 | Blockchain | CAIP-2 namespace | Supported providers | Notes |
 | -- | -- | -- | -- |
