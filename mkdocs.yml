@@ -82,6 +82,7 @@ nav:
       - Clients: reference/javascript/clients.md
       - DID Resolvers: reference/javascript/did-resolvers.md
       - DID Providers: reference/javascript/did-providers.md
+      - Support new Blockchain: reference/javascript/blockchain.md
       #- Doctypes:
         #- ceramicnetwork/doctype-tile: tools/hosting/hosting-providers.md
         #- ceramicnetwork/doctype-caip-10-link: tools/hosting/hosting-providers.md
