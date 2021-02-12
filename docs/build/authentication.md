@@ -88,6 +88,7 @@ The authentication process varies depending on which wallet or provider you are 
     This will prompt the user with a 3ID Connect permissions window.
 
     ``` js
+    const threeIdConnect = new ThreeIdConnect()
     const authProvider = new <BlockchainAuthProvider>(<blockchainName>, addresses[0])
     await threeIdConnect.connect(authProvider)
     ```
