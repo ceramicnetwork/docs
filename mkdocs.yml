@@ -29,8 +29,10 @@ theme:
     - header.autohide
 
 nav:
-  #- Learn:
-    #- Overview: learn/overview.md
+  - Learn:
+    - Welcome: learn/welcome.md
+    - Overview: learn/overview.md
+    - Glossary: learn/glossary.md
     #- Documents: learn/documents/document-model.md
     #- Network:
       #- Nodes: learn/network/nodes.md
