@@ -276,7 +276,7 @@ Once you retrieve the desired commit, you can now create a document that is enfo
 === "Command"
 
     ```bash
-    $ ceramic ceramic create tile --content '{
+    $ ceramic create tile --content '{
         "title": "My first document with schema",
         "message": "Hello World"
       }' --schema k3y52l7qbv1frxu8co1hjrivem5cj2oiqtytlku3e4vjo92l67fkkvu6ywuzfxvy8
