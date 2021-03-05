@@ -19,8 +19,7 @@ In this example we create a document where we set `doctype`, `content`, `schema`
 const doc = await ceramic.createDocument('tile', {
   content: { foo: "bar" },
   metadata: {
-    schema: "ceramic://kyz123...456",
-    controllers: ["did:3:kyz123...456"],
+    controllers: [ceramic.did.id],
     family: "doc family"
   }
 })
