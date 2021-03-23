@@ -86,19 +86,19 @@ Setup your client within your project.
     ``` javascript
     import IPFS from 'ipfs'
     import dagJose from 'dag-jose'
-    import basicsImport from 'multiformats/cjs/src/basics-import.js'
-    import legacy from 'multiformats/cjs/src/legacy.js'
+    import { sha256 } from 'multiformats/hashes/sha2'
+    import legacy from 'multiformats/legacy'
 
-    basicsImport.multicodec.add(dagJose)
-    const format = legacy(basicsImport, dagJose.name)
+    const hasher = {}
+    hasher[sha256.code] = sha256
+    const dagJoseFormat = legacy(dagJose, {hashes: hasher})
+
     ```
 
     #### Create an IPFS instance
 
     ``` javascript
-    const ipfs = Ipfs.create({
-        ipld: { formats: [format] },
-    })
+    const ipfs = await Ipfs.create({ ipld: { formats: [dagJoseFormat] } })
     ```
 
     #### Create a Ceramic instance
