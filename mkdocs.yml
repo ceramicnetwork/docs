@@ -29,8 +29,8 @@ theme:
     - header.autohide
 
 nav:
-  #- Learn:
-    #- Overview: learn/overview.md
+  - Learn:
+    - Overview: learn/overview.md
     #- Documents: learn/documents/document-model.md
     #- Network:
       #- Nodes: learn/network/nodes.md
@@ -129,5 +129,5 @@ extra_css:
 plugins:
     - redirects:
         redirect_maps:
-            'index.md': 'build/quick-start.md'
+            'index.md': 'learn/overview.md'
     - search
