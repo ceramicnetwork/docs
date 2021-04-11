@@ -83,7 +83,7 @@ In addition to executing stream transactions according to StreamType logic, Cera
 
 Clients provide standard interfaces for performing transactions and queries on streams, and are installed into applications. Clients are also responsible for authenticating users and signing transactions.
 
-Currently there are three JavaScript clients for Ceramic. Additional client implementations can easily be developed in other programming languages:
+Currently there are three clients for Ceramic. Additional client implementations can easily be developed in other programming languages:
 
 - **JS HTTP client:** A lightweight JavaScript client which connects to a remote Ceramic node over HTTP. The JS HTTP client is recommended for application developers.
 - **JS Core client:** A JavaScript client which also includes a full Ceramic node. The JS Core client is for those who want the maximum decentralization of running the full Ceramic protocol directly in a browser application.
