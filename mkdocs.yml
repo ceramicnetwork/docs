@@ -58,8 +58,8 @@ nav:
   - Tools:
     - Authentication:
       - DID methods:
-        - 3ID DID: tools/authentication/did-methods/3id.md
-        - Key DID: tools/authentication/did-methods/key.md
+        - 3ID DID: tools/authentication/dids/3id.md
+        - Key DID: tools/authentication/dids/key.md
     #- Networks: tools/networks.md
     #- Clients:
       #- HTTP Client: tools/clients/http.md
