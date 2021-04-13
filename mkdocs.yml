@@ -55,7 +55,11 @@ nav:
     #- Running a node: run/running-a-node.md
     #- Running an anchor service: run/running-an-anchor-service.md
     #- Deployment tools: run/deployment-tools.md
-  #- Tools:
+  - Tools:
+    - Authentication:
+      - DID methods:
+        - 3ID DID: tools/authentication/did-methods/3id.md
+        - Key DID: tools/authentication/did-methods/key.md
     #- Networks: tools/networks.md
     #- Clients:
       #- HTTP Client: tools/clients/http.md
