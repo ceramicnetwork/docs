@@ -60,6 +60,8 @@ nav:
       - DID methods:
         - 3ID DID: tools/authentication/dids/3id.md
         - Key DID: tools/authentication/dids/key.md
+      - SDKs:
+        - 3ID Connect: tools/authentication/sdk/3id-connect.md
     #- Networks: tools/networks.md
     #- Clients:
       #- HTTP Client: tools/clients/http.md
