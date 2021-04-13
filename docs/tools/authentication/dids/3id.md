@@ -4,6 +4,8 @@
 
 The DID document for a 3ID is stored natively on Ceramic as a Tile Document StreamType, allowing for mutability and enabling it to securely handle key rotations. This is a desireable property particularly for end user DIDs. Additionally since 3ID is native to Ceramic, developers do not need to operate additional infrastructure or rely on other external technologies.
 
+When 3IDs are used in conjunction with IDX and the 3ID Keychain (as is implemented in 3ID Connect), a 3ID can easily be controlled with any number of blockchain accounts from any L1 or L2 network. This provides a way to unify a user's identity across all other platforms.
+
 ## Usage
 
 See the [Authentication](https://developers.ceramic.network/build/authentication/) page to learn how to use the 3ID DID method in your Ceramic project.
