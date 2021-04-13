@@ -1,6 +1,6 @@
 # 3ID DID
 
-3ID is one of a few DID methods supported by Ceramic that can be used to authenticate writes to streams that rely on DIDs for authentication. This includes the two default StreamTypes: Tile Documents and CAIP-10 Links.
+3ID is one of a few DID methods supported by Ceramic that can be used to perform authenticated writes to streams that require DIDs. This includes the two default StreamTypes: Tile Documents and CAIP-10 Links.
 
 The DID document for a 3ID is stored natively on Ceramic as a Tile Document StreamType, allowing for mutability and enabling it to securely handle key rotations. This is a desireable property particularly for end user DIDs. Additionally since 3ID is native to Ceramic, developers do not need to operate additional infrastructure or rely on other external technologies.
 
