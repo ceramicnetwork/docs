@@ -30,18 +30,11 @@ theme:
 
 nav:
   - Learn:
+    #- Welcome: learn/welcome.md
     - Overview: learn/overview.md
-    #- Documents: learn/documents/document-model.md
-    #- Network:
-      #- Nodes: learn/network/nodes.md
-      #- Clients: learn/network/clients.md
-      #- Anchor Services: learn/network/anchor-services.md
-    #- DIDs:
-      #- learn/dids/specification.md
-      #- learn/dids/methods.md
-      #- learn/dids/resolvers.md
-      #- learn/dids/providers.md
-      #- learn/dids/wallets.md
+    #- Clients: learn/clients.md
+    #- Networks: learn/networks.md
+    #- Ecosystem: learn/ecosystem.md
   - Build:
     - Quick Start: build/quick-start.md
     - Installation: build/installation.md
@@ -52,44 +45,41 @@ nav:
     - Share your work: build/share.md
     - Troubleshooting: build/troubleshooting.md
   #- Run:
-    #- Running a node: run/running-a-node.md
-    #- Running an anchor service: run/running-an-anchor-service.md
-    #- Deployment tools: run/deployment-tools.md
+    #- Ceramic node: run/ceramic-node.md
+    #- Anchor service: run/anchor-service.md
   - Tools:
-    - Authentication:
-      - DID methods:
-        - 3ID DID: tools/authentication/dids/3id.md
-        - Key DID: tools/authentication/dids/key.md
-    #- Networks: tools/networks.md
-    #- Clients:
-      #- HTTP Client: tools/clients/http.md
-      #- Core Client: tools/clients/core.md
-      #- CLI: tools/clients/cli.md
-    #- DIDs:
-      #- 3ID DID Method: tools/dids/3id-did.md
-      #- Key DID Method: tools/dids/key-did.md
-    #- Doctypes:
-      #- Tile: tools/doctypes/tile.md
-      #- CAIP-10 Link: tools/doctypes/caip-10-link.md
-    #- Identity:
-      #- IDX: tools/identity/idx.md
-      #- Self.id: tools/identity/self-id.md
-    #- Development:
-      #- Clayground: tools/development/clayground.md
-    #- Hosting:
-      #- Community gateway: tools/hosting/community-gateway.md
-      #- Community dev node: tools/hosting/community-dev-node.md
-      #- Community anchor service: tools/hosting/community-anchor-service.md
-      #- Hosting providers: tools/hosting/hosting-providers.md
+    #- Standards:
+      #- StreamTypes:
+        #- Overview:
+        #- Tile Document:
+        #- CAIP-10 Link:
+      #- Schemas:
+        #- Overview:
+        #- BasicProfile:
+        #- 3ID Keychain:
+        #- Also Known As:
+        #- AppendCollection:
+      #- DIDs:
+        #- Overview: tools/standards/dids/overview.md
+        #- 3ID DID: tools/standards/dids/3id.md
+        #- Key DID: tools/standards/dids/key.md
+    - Dev Tools:
+      - Authentication:
+        - 3ID Connect: tools/dev-tools/authentication/3id-connect.md
+      - Identity:
+        - IDX: tools/dev-tools/identity/idx.md
+        - IdentityLink: tools/dev-tools/identitylink.md
+        - Self.id: tools/dev-tools/identity/self-id.md
+      #- Hosting:
+        #- Community nodes:
+        #- Community anchor services:
+        #- Hosting providers: tools/hosting/hosting-providers.md
   - Reference:
     - JavaScript:
       - Clients: reference/javascript/clients.md
       - DID Resolvers: reference/javascript/did-resolvers.md
       - DID Providers: reference/javascript/did-providers.md
       - Support new Blockchain: reference/javascript/blockchain.md
-      #- Doctypes:
-        #- ceramicnetwork/doctype-tile: tools/hosting/hosting-providers.md
-        #- ceramicnetwork/doctype-caip-10-link: tools/hosting/hosting-providers.md
       - Anchor Service: reference/javascript/anchor-service.md
     - HTTP API: reference/http-api.md
   - Chat: 'https://chat.ceramic.network'
