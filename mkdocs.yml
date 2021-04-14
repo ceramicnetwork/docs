@@ -59,10 +59,10 @@ nav:
         #- 3ID Keychain:
         #- Also Known As:
         #- AppendCollection:
-      #- DIDs:
+      - DIDs:
         #- Overview: tools/standards/dids/overview.md
-        #- 3ID DID: tools/standards/dids/3id.md
-        #- Key DID: tools/standards/dids/key.md
+        - 3ID DID: tools/standards/dids/3id.md
+        - Key DID: tools/standards/dids/key.md
     - Dev Tools:
       - Authentication:
         - 3ID Connect: tools/dev-tools/authentication/3id-connect.md
