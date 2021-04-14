@@ -68,7 +68,7 @@ nav:
         #- 3ID Connect: tools/dev-tools/authentication/3id-connect.md
       - Identity:
         - IDX: tools/dev-tools/identity/idx.md
-        - IdentityLink: tools/dev-tools/identitylink.md
+        - IdentityLink: tools/dev-tools/identity/identitylink.md
         - Self.id: tools/dev-tools/identity/self-id.md
       #- Hosting:
         #- Community nodes:
