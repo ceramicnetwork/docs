@@ -47,33 +47,32 @@ nav:
   #- Run:
     #- Ceramic node: run/ceramic-node.md
     #- Anchor service: run/anchor-service.md
+  - Standards:
+    - StreamTypes:
+      #- Overview:
+      - Tile Document: standards/streamtypes/tile-document.md
+      - CAIP-10 Link: standards/streamtypes/caip-10-link.md
+    #- Schemas:
+      #- Overview:
+      #- BasicProfile:
+      #- 3ID Keychain:
+      #- Also Known As:
+      #- AppendCollection:
+    - DIDs:
+      #- Overview: tools/standards/dids/overview.md
+      - 3ID DID: standards/dids/3id.md
+      - Key DID: standards/dids/key.md
   - Tools:
-    - Standards:
-      - StreamTypes:
-        #- Overview:
-        - Tile Document: tools/standards/streamtypes/tile-document.md
-        - CAIP-10 Link: tools/standards/streamtypes/caip-10-link.md
-      #- Schemas:
-        #- Overview:
-        #- BasicProfile:
-        #- 3ID Keychain:
-        #- Also Known As:
-        #- AppendCollection:
-      - DIDs:
-        #- Overview: tools/standards/dids/overview.md
-        - 3ID DID: tools/standards/dids/3id.md
-        - Key DID: tools/standards/dids/key.md
-    - Dev Tools:
-      - Authentication:
-        - 3ID Connect: tools/dev-tools/authentication/3id-connect.md
-      - Identity:
-        - IDX: tools/dev-tools/identity/idx.md
-        - IdentityLink: tools/dev-tools/identity/identitylink.md
-        - Self.id: tools/dev-tools/identity/self-id.md
-      #- Hosting:
-        #- Community nodes:
-        #- Community anchor services:
-        #- Hosting providers: tools/hosting/hosting-providers.md
+    - Authentication:
+      - 3ID Connect: tools/authentication/3id-connect.md
+    - Identity:
+      - IDX: tools/identity/idx.md
+      - IdentityLink: tools/identity/identitylink.md
+      - Self.id: tools/identity/self-id.md
+    #- Hosting:
+      #- Community nodes:
+      #- Community anchor services:
+      #- Hosting providers: tools/hosting/hosting-providers.md
   - Reference:
     - JavaScript:
       - Clients: reference/javascript/clients.md
