@@ -51,8 +51,8 @@ nav:
     - Standards:
       - StreamTypes:
         #- Overview:
-        - Tile Document:
-        - CAIP-10 Link:
+        - Tile Document: tools/standards/streamtypes/tile-document.md
+        - CAIP-10 Link: tools/standards/streamtypes/caip-10-link.md
       #- Schemas:
         #- Overview:
         #- BasicProfile:
