@@ -48,11 +48,11 @@ nav:
     #- Ceramic node: run/ceramic-node.md
     #- Anchor service: run/anchor-service.md
   - Tools:
-    #- Standards:
-      #- StreamTypes:
+    - Standards:
+      - StreamTypes:
         #- Overview:
-        #- Tile Document:
-        #- CAIP-10 Link:
+        - Tile Document:
+        - CAIP-10 Link:
       #- Schemas:
         #- Overview:
         #- BasicProfile:
