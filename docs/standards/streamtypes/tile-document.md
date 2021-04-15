@@ -20,3 +20,7 @@ Tile Document streams are commonly used as a NoSQL database replacement for:
 - Authetication: DIDs
 - Ordering: Anchor records that rely on blockchain checkponting (via blockheight)
 - Conflict resolution: Earliest anchor wins
+
+</br>
+</br>
+</br>

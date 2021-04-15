@@ -47,3 +47,7 @@ Under the hood 3ID Connect is built on a set of open standards:
 ### Adding new blockchains
 
 Follow this [**tutorial**]() to add support for new blockchains to 3ID Connect.
+
+</br>
+</br>
+</br>
