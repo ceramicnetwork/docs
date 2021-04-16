@@ -34,7 +34,10 @@ nav:
     - Overview: learn/overview.md
     #- Clients: learn/clients.md
     #- Networks: learn/networks.md
-    #- Ecosystem: learn/ecosystem.md
+  - Try:
+    - Explorers: try/explorers.md
+    - Demos: try/demos.md
+    - Projects: try/projects.md
   - Build:
     - Quick Start: build/quick-start.md
     - Installation: build/installation.md
