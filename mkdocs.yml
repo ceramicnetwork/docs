@@ -57,7 +57,7 @@ nav:
       - BasicProfile: standards/schemas/basic-profile.md
       #- 3ID Keychain:
       #- Also Known As:
-      #- AppendCollection:
+      - AppendCollection: standards/schemas/appendcollection.md
     - DIDs:
       #- Overview: tools/standards/dids/overview.md
       - 3ID DID: standards/dids/3id.md
