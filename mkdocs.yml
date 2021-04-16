@@ -30,7 +30,7 @@ theme:
 
 nav:
   - Learn:
-    #- Welcome: learn/welcome.md
+    - Welcome: learn/welcome.md
     - Overview: learn/overview.md
     #- Clients: learn/clients.md
     #- Networks: learn/networks.md
@@ -121,5 +121,5 @@ extra_css:
 plugins:
     - redirects:
         redirect_maps:
-            'index.md': 'learn/overview.md'
+            'index.md': 'learn/welcome.md'
     - search
