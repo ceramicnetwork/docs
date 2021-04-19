@@ -7,7 +7,9 @@ Install pip
 Install mkdocs and related dependencies
 
 > pip3 install mkdocs
+
 > pip3 install mkdocs-material
+
 > pip3 install mkdocs-redirects
 
 Build and run the docs server
