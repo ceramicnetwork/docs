@@ -32,6 +32,7 @@ nav:
   - Learn:
     - Welcome: learn/welcome.md
     - Overview: learn/overview.md
+    - Blog: learn/blog.md
     #- Clients: learn/clients.md
     #- Networks: learn/networks.md
   - Try:
