@@ -47,9 +47,10 @@ on startup a new DID will be randomly generated. It's currently not possible to
 use the Ceramic CLI with other DID methods.
 
 
-## **Create a document**
-Use the `create` command to create a new document. In the example below
-we create a document using the *tile* doctype.
+## **Create a stream**
+Use the `create` command to create a new stream. In the example below
+we create a stream of type *TileDocument*. Note that *TileDocument* is
+the only stream type that can currently be created by the Ceramic CLI.
 
 === "Command"
 
@@ -60,23 +61,23 @@ we create a document using the *tile* doctype.
 === "Output"
 
     ```bash
-    DocID(kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa)
+    StreamID(kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa)
     {
         "Foo": "Bar"
     }
     ```
 
     !!! quote ""
-        The first line of the output is the *DocID*, which is the persistent identifier of our newly created document. This DocID will be different for you, since you created it with your DID. Below the DocID is the current content of the document.
+        The first line of the output is the *StreamID*, which is the persistent identifier of our newly created stream. This StreamID will be different for you, since you created it with your DID. Below the StreamID is the current content of the stream.
 
 ??? info "More options"
     
-    - `--controllers`: set the *controller* of the document
-    - `--schema`: set the *schema* of the document
+    - `--controllers`: set the *controller* of the stream
+    - `--schema`: set the *schema* of the TileDocument
     - Run `ceramic create -h` to see all available options
 
-## **Query a document**
-Use the `show` command to query the current state of a document. You will need to provide its *DocID*.
+## **Query a stream**
+Use the `show` command to query the current state of a stream. You will need to provide its *StreamID*.
 
 === "Command"
 
@@ -85,7 +86,7 @@ Use the `show` command to query the current state of a document. You will need t
     ```
     
     !!! quote ""
-        You should use your DocID instead of the DocID included here.
+        You should use your StreamID instead of the StreamID included here.
 
 === "Output"
 
@@ -96,7 +97,7 @@ Use the `show` command to query the current state of a document. You will need t
     ```
 
 
-Use the `state` command to query the entire state of a document.
+Use the `state` command to query the entire state of a stream.
 
 === "Command"
 
@@ -105,17 +106,18 @@ Use the `state` command to query the entire state of a document.
     ```
     
     !!! quote ""
-        You should use your DocID instead of the DocID included here.
+        You should use your StreamID instead of the StreamID included here.
 
 === "Output before anchor"
 
     ```bash
     {
-      "doctype": "tile",
+      "type": 0,
       "content": {
         "Foo": "Bar"
       },
       "metadata": {
+        "unique": "E4qPslUd0qo98TZX",
         "schema": null,
         "controllers": [
           "did:key:z6MkfZ6S4NVVTEuts8o5xFzRMR8eC6Y1bngoBQNnXiCvhH8H"
@@ -134,17 +136,18 @@ Use the `state` command to query the entire state of a document.
     ```
 
     !!! quote ""
-        Here we can see various information about the document such as *content*, *controllers*, and *schema*. In your output you should see your local DID as the controller, instead of the DID we show here. We can also see the current *anchorStatus* of our document, and that it has been scheduled to be anchored at 11:45 on the 24th of January 2021. Once this anchor is finalized, the state of the document will automatically be updated with a new entry in the log and *anchorStatus* will be set to `ANCHORED`.
+        Here we can see various information about the stream such as *content*, *controllers*, and *schema*. In your output you should see your local DID as the controller, instead of the DID we show here. You will also see a different randomly-generated "unique" string for any TileDocument that was created without the `--deterministic` flag.  We can also see the current *anchorStatus* of our stream, and that it has been scheduled to be anchored at 11:45 on the 24th of January 2021. Once this anchor is finalized, the state of the stream will automatically be updated with a new entry in the log and *anchorStatus* will be set to `ANCHORED`.
 
 === "Output after anchor"
 
     ```bash
     {
-      "doctype": "tile",
+      "type": 0,
       "content": {
         "Foo": "Bar"
       },
       "metadata": {
+        "unique": "E4qPslUd0qo98TZX",
         "schema": null,
         "controllers": [
           "did:key:z6MkfZ6S4NVVTEuts8o5xFzRMR8eC6Y1bngoBQNnXiCvhH8H"
@@ -174,21 +177,22 @@ Use the `state` command to query the entire state of a document.
     ```
 
     !!! quote ""
-        This output was seen after the anchor has been created. The document state has now shifted *anchorStatus* to `ANCHORED`. You can also see that the log contains one more entry.
+        This output was seen after the anchor has been created. The stream state has now shifted *anchorStatus* to `ANCHORED`. You can also see that the log contains one more entry.
 
-## **Update a document**
-Use the `change` command to update a document. Your DID must be the controller of the document in order to update it.
+## **Update a stream**
+Use the `change` command to update a stream. Your DID must be the controller of the stream in order to update it.
+Note that *TileDocument* is the only stream type that can currently be updated by the CLI.
 
 === "Command"
 
     ```bash
-    $ ceramic change kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa --content '{
+    $ ceramic update kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa --content '{
         "Foo": "Baz"
       }'
     ```
     
     !!! quote ""
-        You should use your DocID instead of the DocID included here.
+        You should use your StreamID instead of the StreamID included here.
 
 === "Output"
 
@@ -199,16 +203,16 @@ Use the `change` command to update a document. Your DID must be the controller o
     ```
 
 ??? info "More options"
-    Currently you can change *content*, *controllers*, and *schema* using the CLI. Run `ceramic change -h` for more information.
+    Currently you can change *content*, *controllers*, and *schema* using the CLI. Run `ceramic update -h` for more information.
 
 
 ## **Create a schema**
-In Ceramic you can enforce that documents adhere to a specified schema. The schemas themselves are Ceramic documents where the content is a [json-schema](https://json-schema.org/){:target="_blank"}. For example we can create a schema that requires a document to have a *title* and *message*.
+Ceramic TileDocuments can enforce that their contents adhere to a specified schema. The schemas themselves are Ceramic TileDocuments where the content is a [json-schema](https://json-schema.org/){:target="_blank"}. For example we can create a schema that requires a document to have a *title* and *message*.
 
 === "Command"
 
     ```bash
-    $ ceramic create tile --content ' {                                            
+    $ ceramic create tile --content ' {
        "$schema": "http://json-schema.org/draft-07/schema#",
        "title": "Reward",
        "type": "object",
@@ -226,7 +230,7 @@ In Ceramic you can enforce that documents adhere to a specified schema. The sche
 === "Output"
 
     ```bash
-    DocID(kjzl6cwe1jw1472as4pj3b3ahqmkokbmwc7jchqcob6pcixcoo4kxq6ls8uuxgb)
+    StreamID(kjzl6cwe1jw1472as4pj3b3ahqmkokbmwc7jchqcob6pcixcoo4kxq6ls8uuxgb)
     {
       "type": "object",
       "title": "Reward",
@@ -246,8 +250,8 @@ In Ceramic you can enforce that documents adhere to a specified schema. The sche
     }
     ```
 
-## **Create a document that uses a schema**
-First, use the `commits` command to list the commitIDs contained in the schema document. When creating a document that uses this schema, we need to use a commitID instead of the DocID to enforce that we are using a specific version of the schema since the schema document is mutable and can be updated.
+## **Create a TileDocument that uses a schema**
+First, use the `commits` command to list the commitIDs contained in the schema document. When creating a TileDocument that uses this schema, we need to use a commitID instead of the DocID to enforce that we are using a specific version of the schema since the schema document is mutable and can be updated.
 
 === "Command"
 
@@ -256,7 +260,7 @@ First, use the `commits` command to list the commitIDs contained in the schema d
     ```
     
     !!! quote ""
-        You should use your DocID instead of the DocID included here.
+        You should use your StreamID for the stream containing the json-schema you want to enforce, instead of the StreamID included here.
 
 === "Output"
 
@@ -267,9 +271,9 @@ First, use the `commits` command to list the commitIDs contained in the schema d
     ```
 
 
-If a document contains multiple commits and you're not sure which one you want, use the `show` command to show the content of the document at the given commit.
+If a stream contains multiple commits and you're not sure which one you want, use the `show` command to show the content of the stream at the given commit.
 
-Once you retrieve the desired commit, you can now create a document that is enforced to conform to this version of the schema. Use the `create` command and pass the `--schema` option along with your commitID.
+Once you retrieve the desired commit, you can now create a TileDocument that is enforced to conform to this version of the schema. Use the `create` command and pass the `--schema` option along with your commitID.
 
 === "Command"
 
@@ -286,7 +290,7 @@ Once you retrieve the desired commit, you can now create a document that is enfo
 === "Output"
 
     ```bash
-    DocID(kjzl6cwe1jw149tvfh6otqfzd2hfknkifb1z2lakozkicvau0xldzzdzwfbsztj)
+    StreamID(kjzl6cwe1jw149tvfh6otqfzd2hfknkifb1z2lakozkicvau0xldzzdzwfbsztj)
     {
       "title": "My first document with schema",
       "message": "Hello World"
@@ -294,7 +298,7 @@ Once you retrieve the desired commit, you can now create a document that is enfo
     ```
 
 ## **Query the document you created**
-Use the `state` command to query the state of the document we just created. We can see that the schema is set to the correct commitID.
+Use the `state` command to query the state of the TileDocument we just created. We can see that the schema is set to the correct commitID.
 
 === "Command"
 
@@ -303,18 +307,19 @@ Use the `state` command to query the state of the document we just created. We c
     ```
     
     !!! quote ""
-        You should use your DocID instead of the DocID included here.
+        You should use your StreamID instead of the StreamID included here.
 
 === "Output"
 
     ```bash
     {
-      "doctype": "tile",
+      "type": 0,
       "content": {
         "title": "My first document with schema",
         "message": "Hello World"
       },
       "metadata": {
+        "unique": "GR5tBtHdaw608esV",
         "schema": "k3y52l7qbv1frxu8co1hjrivem5cj2oiqtytlku3e4vjo92l67fkkvu6ywuzfxvy8",
         "controllers": [
           "did:key:z6MkfZ6S4NVVTEuts8o5xFzRMR8eC6Y1bngoBQNnXiCvhH8H"
