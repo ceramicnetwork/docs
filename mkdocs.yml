@@ -50,24 +50,24 @@ nav:
   #- Run:
     #- Ceramic node: run/ceramic-node.md
     #- Anchor service: run/anchor-service.md
-  - Standards:
-    - StreamTypes:
+  - StreamTypes:
       #- Overview:
-      - Tile Document: standards/streamtypes/tile-document.md
-      - CAIP-10 Link: standards/streamtypes/caip-10-link.md
-    - Schemas:
-      #- Overview:
-      - BasicProfile: standards/schemas/basic-profile.md
-      #- 3ID Keychain:
-      #- Also Known As:
-      #- AppendCollection:
-    - DIDs:
+      - Tile Document: streamtypes/tile-document.md
+      - CAIP-10 Link: streamtypes/caip-10-link.md
+      - Schemas:
+        #- Overview:
+        - BasicProfile: streamtypes/schemas/basic-profile.md
+        #- 3ID Keychain:
+        #- Also Known As:
+        #- AppendCollection:
+  - Authentication:
+    - DID Wallets:
+      - 3ID Connect: authentication/wallets/3id-connect.md
+    - DID Methods:
       #- Overview: tools/standards/dids/overview.md
-      - 3ID DID: standards/dids/3id.md
-      - Key DID: standards/dids/key.md
+      - 3ID DID: authentication/dids/3id.md
+      - Key DID: authentication/dids/key.md
   - Tools:
-    - Authentication:
-      - 3ID Connect: tools/authentication/3id-connect.md
     - Identity:
       - IDX: tools/identity/idx.md
       - IdentityLink: tools/identity/identitylink.md
