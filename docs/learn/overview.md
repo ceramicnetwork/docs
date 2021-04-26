@@ -2,7 +2,7 @@
 
 # Overview
 
-Ceramic is a public, permissionless, open source protocol that provides computation, state transformations, and consensus for all types of data structures stored on the decentralized web. Ceramic's real-time stream processing enables developers to build secure, trustless, censorship-resistant applications on top of dynamic information without trusted database servers. 
+Ceramic is a public, permissionless, open source protocol that provides computation, state transformations, and consensus for all types of data structures stored on the decentralized web. Ceramic's stream processing enables developers to build secure, trustless, censorship-resistant applications on top of dynamic information without trusted database servers. 
 
 This overview introduces how:
 
@@ -32,13 +32,13 @@ Advancements in other Web3 protocols have already achieved success in decentrali
 
 ## **Streams**
 
-Ceramic's decentralized content computation network is modeled after various real-time stream processing frameworks found in Web2. In these types of systems, events are ingested, processed in real-time, and the resulting output is applied to a log. When queried and reduced, this log represents the current state of a piece of information. This is an appropriate framework for conceptualizing how dynamic information should be modeled on the decentralized web. Furthermore because the function that processes incoming events on any particular stream can be custom written with logic for any use case, it provides the general-purpose flexibility and extensibility needed to represent the diversity of information that may exist on the web.
+Ceramic's decentralized content computation network is modeled after various stream processing frameworks found in Web2. In these types of systems, events are ingested, processed as they arrive, and the resulting output is applied to a log. When queried and reduced, this log represents the current state of a piece of information. This is an appropriate framework for conceptualizing how dynamic information should be modeled on the decentralized web. Furthermore because the function that processes incoming events on any particular stream can be custom written with logic for any use case, it provides the general-purpose flexibility and extensibility needed to represent the diversity of information that may exist on the web.
 
 On Ceramic, each piece of information is represented as an append-only log of commits, called a **Stream**. Each stream is a DAG stored in IPLD, with an immutable name called a **StreamID**, and a verifiable state called a **StreamState**. Streams are similar in concept to Git trees, and each stream can be thought of as its own blockchain, ledger, or event log.
 
 ### StreamTypes
 
-Each stream must specify a **StreamType**, which is the processing logic used by the particular stream. A StreamType is essentially a function that is executed in real-time by a Ceramic node upon receipt of a new commit to the stream that governs the stream's state transitions and resulting output. StreamTypes are responsible for enforcing all rules and logic for the stream, such as data structure, content format, authentication or access control, and consensus algorithm. If an update does not conform to the logic specified by the StreamType, the update is disregarded. After applying a valid commit to the stream, the resulting StreamState is broadcast out to the rest of the nodes on the Ceramic Network. Each of the other nodes that are also maintaining this stream will update their StreamState to reflect this new transaction.
+Each stream must specify a **StreamType**, which is the processing logic used by the particular stream. A StreamType is essentially a function that is executed by a Ceramic node upon receipt of a new commit to the stream that governs the stream's state transitions and resulting output. StreamTypes are responsible for enforcing all rules and logic for the stream, such as data structure, content format, authentication or access control, and consensus algorithm. If an update does not conform to the logic specified by the StreamType, the update is disregarded. After applying a valid commit to the stream, the resulting StreamState is broadcast out to the rest of the nodes on the Ceramic Network. Each of the other nodes that are also maintaining this stream will update their StreamState to reflect this new transaction.
 
 Ceramic's flexible StreamTypes framework enables developers to deploy any kind of information that conforms to any set of arbitrary rules as a stateful stream of events. Ceramic clients come pre-packaged with a standard set of StreamTypes that cover a wide range of common use cases, making it easy to get started building applications:
 
