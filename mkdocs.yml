@@ -59,7 +59,8 @@ nav:
           #- 3ID Keychain:
           #- Also Known As:
           #- AppendCollection:
-      - CAIP-10 Link: streamtypes/caip-10-link/overview.md
+      - CAIP-10 Link:
+        - Overview: streamtypes/caip-10-link/overview.md
   - Authentication:
     - DID Wallets:
       - 3ID Connect: authentication/wallets/3id-connect.md
