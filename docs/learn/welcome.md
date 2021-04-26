@@ -20,17 +20,17 @@ Welcome to the [Ceramic](https://ceramic.network){:target="_blank"} developer si
 
 ## **Standards and tools**
 
-[**StreamTypes**](../standards/streamtypes/tile-document.md): Various StreamTypes developed by the community
+[**StreamTypes**](../streamtypes/tile-document/overview.md): Various StreamTypes developed by the community
 
-[**Schemas**](../standards/schemas/basic-profile.md): Useful data models to help you get started
+[**Schemas**](../streamtypes/tile-document/schemas/basic-profile.md): Useful data models to help you get started
 
-[**DIDs**](../standards/dids/3id.md): DID methods that can be used for authentication
+[**DIDs**](../authentication/dids/3id.md): DID methods that can be used for authentication
 
 [**IDX**](../tools/identity/idx.md): A protocol and framework for identity-centric data management
 
 [**IdentityLink**](../tools/identity/identitylink.md): A service that issues verifiable claims which link a DID to various Web2 social accounts
 
-[**3ID Connect**](../tools/authentication/3id-connect.md): An SDK that allows users to authenticate their DID with various blockchain wallets
+[**3ID Connect**](../authentication/wallets/3id-connect.md): An SDK that allows users to authenticate their DID with various blockchain wallets
 
 
 ## **Community**
