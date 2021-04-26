@@ -52,7 +52,8 @@ nav:
     #- Anchor service: run/anchor-service.md
   - StreamTypes:
       #- Overview:
-      - Tile Document: streamtypes/tile-document/overview.md
+      - Tile Document:
+        - Overview: streamtypes/tile-document/overview.md
         - Schemas:
           - BasicProfile: streamtypes/tile-document/schemas/basic-profile.md
           #- 3ID Keychain:
