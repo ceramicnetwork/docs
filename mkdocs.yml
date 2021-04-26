@@ -52,14 +52,13 @@ nav:
     #- Anchor service: run/anchor-service.md
   - StreamTypes:
       #- Overview:
-      - Tile Document: streamtypes/tile-document.md
-      - CAIP-10 Link: streamtypes/caip-10-link.md
-      - Schemas:
-        #- Overview:
-        - BasicProfile: streamtypes/schemas/basic-profile.md
-        #- 3ID Keychain:
-        #- Also Known As:
-        #- AppendCollection:
+      - Tile Document: streamtypes/tile-document/overview.md
+        - Schemas:
+          - BasicProfile: streamtypes/tile-document/schemas/basic-profile.md
+          #- 3ID Keychain:
+          #- Also Known As:
+          #- AppendCollection:
+      - CAIP-10 Link: streamtypes/caip-10-link/overview.md
   - Authentication:
     - DID Wallets:
       - 3ID Connect: authentication/wallets/3id-connect.md
