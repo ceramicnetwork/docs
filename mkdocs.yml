@@ -36,7 +36,7 @@ nav:
     #- Networks: learn/networks.md
   - Try:
     - Explorers: try/explorers.md
-    - Demos: try/demos.md
+    - Demos: try/sample-apps.md
     - Projects: try/projects.md
   - Build:
     - Quick Start: build/quick-start.md
