@@ -1,6 +1,6 @@
 # TileDocument API
 
-This guide demonstrates how to create, update, and query TileDocuments on the Ceramic network using the [HTTP](../reference/javascript/clients.md) and [core](../reference/javascript/clients.md) clients.
+This guide demonstrates how to create, update, and query TileDocuments on the Ceramic network using the [HTTP](../reference/javascript/clients.md) and [core](../reference/javascript/clients.md) clients. TileDocuments can also be read and written via the CLI, see [Quick Start](../../../build/quick-start) for more information.
 
 ## Prerequisites
 You need an [installed client](installation.md) and an [authenticated user](authentication.md) to perform writes to TileDocuments on the network during runtime. If you only wish to query existing TileDocuments then you still need an installed client but it doesn't need to be authenticated.
@@ -111,7 +111,7 @@ in the metadata arg will be left with their current value within the document.
 
 
 !!! info "Updating the `deterministic` parameter"
-Please note that the `deterministic` parameter can only be set while creating a document. It cannot be updated once the document exists.
+    Please note that the `deterministic` parameter can only be set while creating a document. It cannot be updated once the document exists.
 
 
 #### opts (optional)

@@ -5,71 +5,91 @@ This guide demonstrates how to query documents on the Ceramic network during run
 ## Prerequisites
 You need to have an [installed client](installation.md) to perform queries during runtime.
 
-## Query a document
-Use the [`loadDocument()`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#loaddocument){:target="_blank"} method to load a single document using its *DocID*.
+## Query a stream
+Use the [`loadStream()`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#loadstream){:target="_blank"} method to load a single stream using its *StreamID*.
 
 ``` javascript
-const docid = 'kjzl6cwe1jw14...'
-const doc = await ceramic.loadDocument(docid)
+const streamId = 'kjzl6cwe1jw14...'
+const stream = await ceramic.loadStream(streamId)
 ```
 
-[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#loaddocument){:target="_blank"}
+!!! info "Loading the proper stream type"
+    By default, `loadStream` returns an object of type `Stream`, which will not have any methods available to perform updates, or any other streamtype-specific methods or accessors.  To be able to perform updates, as well as to access streamtype-specific data or functionality, you need to specialize the `loadStream` method on the StreamType of the Stream being loaded. For example, to load a `TileDocument`, you would say `await ceramic.loadStream<TileDocument>(streamId)`
 
-## Query a deterministic document
-One the [writes](writes.md) page, we discussed how to create a document with the `deterministic` parameter set to true. Since this parameter allows us to generate the exact same DocID if we create two documents with the same `doctype` and `DocParams`, it is possible to "query" the document using the same [`createDocument()`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#createdocument){:target="_blank"} method that we used to initially create it without needing to know the DocID before performing the query. Note we are setting the `DocOpts` parameters (`anchor` and `publish`) to false so that we are only loading the document and not publishing any changes to the network.
-
-``` javascript
-const doc = ceramic.createDocument('tile', {
-  deterministic: true,
-  metadata: {
-    controllers: ['did:key:z6MkfZ6S4NVVTEuts8o5xFzRMR8eC6Y1bngoBQNnXiCvhH8H'],
-    family: 'example family'
-  },
-  { anchor: false, publish: false }
-})
-```
-
-[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#createdocument){:target="_blank"}
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#loadstream){:target="_blank"}
 
 
-## Query multiple documents
-Use the [`multiQuery()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html#multiquery){:target="_blank"} method to load multiple documents at once. The returned object `docMap` is a map from *DocIDs* to document instances.
+## Query multiple streams
+Use the [`multiQuery()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.ceramicapi-1.html#multiquery){:target="_blank"} method to load multiple streams at once. The returned object is a map from *StreamIDs* to stream instances.
 
 ```javascript
 const queries = [{
-  docId: 'kjzl6cwe1jw...14'
+  streamId: 'kjzl6cwe1jw...14'
 }, {
-  docId: 'kjzl6cwe1jw...15'
+  streamId: 'kjzl6cwe1jw...15'
 }]
-const docMap = await ceramic.multiQuery(queries)
+const streamMap = await ceramic.multiQuery(queries)
 ```
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.multiquery-1.html){:target="_blank"}
 
 ## Query document paths
-Use the [`multiQuery()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html#multiquery){:target="_blank"} method to load one or more documents using known paths from a root document to its linked documents.
+Use the [`multiQuery()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.ceramicapi-1.html#multiquery){:target="_blank"} method to load one or more streams using known paths from a root stream to its linked streams.
 
-Imagine a document `kjzl6cwe1jw...14` whose content contains the DocIDs of two other documents. These DocIDs exist at various levels within a nested JSON structure. 
+Imagine a stream `kjzl6cwe1jw...14` whose content contains the StreamIDs of two other streams. These StreamIDs exist at various levels within a nested JSON structure.
 
 ```javascript
 {
   a: 'kjzl6cwe1jw...15',
-  b: { 
+  b: {
     c: 'kjzl6cwe1jw...16'
   }
 }
 ```
 
-In the document above, the path from root document `kjzl6cwe1jw...14` to linked document `kjzl6cwe1jw...15` is `/a` and the path to linked document `kjzl6cwe1jw...16` is `/b/c`. Using the DocID of the root document and the paths outlined here, we use `multiQuery()` to query all three documents at once without needing to explicitly know the DocIDs of the two linked documents.
+In the stream above, the path from root stream `kjzl6cwe1jw...14` to linked stream `kjzl6cwe1jw...15` is `/a` and the path to linked stream `kjzl6cwe1jw...16` is `/b/c`. Using the StreamID of the root stream and the paths outlined here, we use `multiQuery()` to query all three streams at once without needing to explicitly know the StreamIDs of the two linked streams.
 
-The `multiQuery()` below will return a map with all three documents.
+The `multiQuery()` below will return a map with all three streams.
 
 ``` javascript
 const queries = [{
-  docId: 'kjzl6cwe1jw...14'
+  streamId: 'kjzl6cwe1jw...14'
   paths: ['/a', '/b/c']
 }]
-const docMap = await ceramic.multiQuery(queries)
+const streamMap = await ceramic.multiQuery(queries)
 ```
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.multiquery-1.html){:target="_blank"}
+
+
+## Stream information
+To get specific information about the stream that you created or loaded you can use the accessors on the [`Stream`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.stream-1.html){:target="_blank"} class. Below are some examples.
+
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.stream-1.html){:target="_blank"}
+
+### StreamID
+Use the [`stream.id`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.stream-1.html#id){:target="_blank"} property to get the unique [`StreamID`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_streamid.streamid-1.html){:target="_blank"} for this stream.
+
+```javascript
+const streamId = stream.id
+```
+
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.stream-1.html#id){:target="_blank"}
+
+### Latest CommitID
+Use the [`stream.commitId`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.stream-1.html#commitid){:target="_blank"} property to get latest CommitID of a stream.
+
+```javascript
+const commitId = stream.commitId
+```
+
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_streamid.commitid-1.html){:target="_blank"}
+
+### Anchor CommitIDs
+Use the [`stream.anchorCommitIds`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.stream-1.html#anchorcommitids){:target="_blank"} property to get all CommitIDs which are anchor commits for this stream.
+
+```javascript
+const anchorCommits = stream.anchorCommitIds
+```
+
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.stream-1.html#anchorcommitids){:target="_blank"}
