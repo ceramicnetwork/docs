@@ -56,6 +56,7 @@ nav:
       #- Overview:
       - Tile Document:
         - Overview: streamtypes/tile-document/overview.md
+        - API: streamtypes/tile-document/api.md
         - Schemas:
           - BasicProfile: streamtypes/tile-document/schemas/basic-profile.md
           #- 3ID Keychain:
@@ -63,6 +64,7 @@ nav:
           #- AppendCollection:
       - CAIP-10 Link:
         - Overview: streamtypes/caip-10-link/overview.md
+        - API: streamtypes/caip-10-link/api.md
   - Authentication:
     - DID Wallets:
       - 3ID Connect: authentication/wallets/3id-connect.md
