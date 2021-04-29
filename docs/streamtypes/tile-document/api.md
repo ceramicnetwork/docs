@@ -1,9 +1,9 @@
 # TileDocument API
 
-This guide demonstrates how to create, update, and query TileDocuments on the Ceramic network using the [HTTP](../reference/javascript/clients.md) and [core](../reference/javascript/clients.md) clients. TileDocuments can also be read and written via the CLI, see [Quick Start](../../../build/quick-start) for more information.
+This guide demonstrates how to create, update, and query TileDocuments on the Ceramic network using the [HTTP](../../../reference/javascript/clients) and [core](../../../reference/javascript/clients) clients. TileDocuments can also be read and written via the CLI, see [Quick Start](../../../build/quick-start) for more information.
 
 ## Prerequisites
-You need an [installed client](installation.md) and an [authenticated user](authentication.md) to perform writes to TileDocuments on the network during runtime. If you only wish to query existing TileDocuments then you still need an installed client but it doesn't need to be authenticated.
+You need an [installed client](../../build/installation.md) and an [authenticated user](../../build/authentication.md) to perform writes to TileDocuments on the network during runtime. If you only wish to query existing TileDocuments then you still need an installed client but it doesn't need to be authenticated.
 
 ## Create a document
 Use the [`TileDocument.create()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create){:target="_blank"} method to create a new document.
@@ -35,7 +35,7 @@ const doc = await TileDocument.create(ceramic,
 #### ceramic
 
 
-When creating a TileDocument, the first parameter is the `CeramicAPI` used to communicate with the ceramic node and it is always required. It will either be an instance of [`Ceramic`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"} when using the Core client or an instance of [`CeramicClient`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"} when using the HTTP client.
+When creating a TileDocument, the first parameter is the `CeramicAPI` used to communicate with the ceramic node and it is always required. It will either be an instance of [`Ceramic`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"} when using the Core client or an instance of [`CeramicClient`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_http_client.ceramicclient.html){:target="_blank"} when using the HTTP client.
 
 #### content
 
@@ -48,8 +48,8 @@ The content of your document, in the form of a JSON document. If `schema` is set
 
 | Parameter       | Required?   | Value               | Description | Notes |
 | --------------- | ----------- | ------------------- | ----------- | ----- |
-| `schema`        | optional    | string              | CommitID of a Ceramic TileDocument that contains a JSON schema  | If set, schema will be enforced on content |
 | `controllers`   | optional    | array of strings    | Defines the DID that is allowed to modify the document. Currently only one controller is supported per document | If empty, defaults to currently authenticated DID |
+| `schema`        | optional    | string              | CommitID of a Ceramic TileDocument that contains a JSON schema  | If set, schema will be enforced on content |
 | `family`        | optional    | string              | Allows you to group similar documents into *families* | Useful for indexing groups of like documents on the network |
 | `tags`        | optional    | array of strings              | Allows you to tag similar documents | Useful for indexing groups of like documents on the network |
 | `deterministic` | optional    | boolean          | If false, allows TileDocuments with the same `content` and `metadata` to generate unique StreamIDs | If empty, defaults to false |
@@ -58,19 +58,19 @@ The content of your document, in the form of a JSON document. If `schema` is set
 
 
 !!! info "Using the `deterministic` parameter"
-    For most use cases you will likely want to leave the `deterministic` parameter set to false. However for special circumstances, you may want this to be set to true. For example this should be set to true if you would like to enable [deterministic queries](../../../build/queries/#query-a-deterministic-document) for your document. If this is your use case, then it is also important that you think very carefully about what `content` is provided when first creating the document, as that content is what will need to be provided again in order to deterministically query the document. It is recommended that the document be created with the minimal possible content to uniquely identify the document. You can proceed to add additional content to your document by [updating it](#update-a-document).
+    For most use cases you will likely want to leave the `deterministic` parameter set to false. However for special circumstances, you may want this to be set to true. For example this should be set to true if you would like to enable [deterministic queries](#query-a-deterministic-document) for your document. If this is your use case, then it is also important that you think very carefully about what `content` is provided when first creating the document, as that content is what will need to be provided again in order to deterministically query the document. It is recommended that the document be created with the minimal possible content to uniquely identify the document. You can proceed to add additional content to your document by [updating it](#update-a-document).
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_stream_tile.tilemetadataargs-1.html#deterministic){:target="_blank"}
 
 
 #### opts (optional)
-The final argument to `TileDocument.create` is an instance of [`CreateOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html){:target="_blank"}), which are options that control network behaviors performed as part of the operation.  They are not included in the document itself.
+The final argument to `TileDocument.create` is an instance of [`CreateOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html){:target="_blank"}, which are options that control network behaviors performed as part of the operation.  They are not included in the document itself.
 
 | Parameter     | Required?   | Value            | Description | Default value |
 | ------------- | ----------- | ---------------- | ----------- | ----- |
 | `anchor`      | optional    | boolean          | Request an anchor after creating the document | true |
 | `publish`     | optional    | boolean          | Publish the new document to the network | true |
-| `sync`        | optional    | enum             | Controls behavior related to syncing the current document state from the network | SyncOptions.PREFER_CACHE |
+| `sync`        | optional    | enum             | Controls behavior related to syncing the current document state from the network | PREFER_CACHE |
 | `syncTimeoutSeconds` | optional    | number            | How long to wait to hear about the current state of the document from the network | 3 for deterministic documents, 0 otherwise |
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html){:target="_blank"}
@@ -89,7 +89,7 @@ await doc.update(newContent, newMetadata, opts)
 In this example we update a document's content while also giving it a tag.
 
 ```javascript
-const doc = await TileDocument.create(ceramic, { foo: "bar" })
+const doc = await TileDocument.create(ceramic, { foo: "bar" }, { family: 'foo' })
 await doc.update({ foo: 'baz'}, { tags: ['baz'] })
 ```
 
@@ -105,7 +105,7 @@ The new content of your document. This fully replaces any existing content in th
 #### metadata (optional)
 
 Only fields that are provided in the metadata arg will be updated.  Fields not specified
-in the metadata arg will be left with their current value within the document.
+in the metadata arg will be left with their current value.
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_stream_tile.tilemetadataargs-1.html){:target="_blank"}
 
@@ -115,7 +115,7 @@ in the metadata arg will be left with their current value within the document.
 
 
 #### opts (optional)
-The final argument to `TileDocument.update` is an instance of [`UpdateOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.updateopts-1.html){:target="_blank"}), which are options that control network behaviors performed as part of the operation.  They are not included in the document itself.
+The final argument to `TileDocument.update` is an instance of [`UpdateOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.updateopts-1.html){:target="_blank"}, which are options that control network behaviors performed as part of the operation.  They are not included in the document itself.
 
 | Parameter     | Required?   | Value            | Description | Default value |
 | ------------- | ----------- | ---------------- | ----------- | ----- |
@@ -139,7 +139,7 @@ const doc = await TileDocument.load(ceramic, streamId, opts)
 
 #### ceramic
 
-When loading a TileDocument, the first parameter is the `CeramicAPI` used to communicate with the ceramic node and it is always required. It will either be an instance of [`Ceramic`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"} when using the Core client or an instance of [`CeramicClient`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"} when using the HTTP client.
+When loading a TileDocument, the first parameter is the `CeramicAPI` used to communicate with the Ceramic node and it is always required. It will either be an instance of [`Ceramic`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"} when using the Core client or an instance of [`CeramicClient`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"} when using the HTTP client.
 
 
 #### streamId
@@ -148,7 +148,7 @@ The StreamID or CommitID of the TileDocument to be loaded. When providing the do
 
 
 #### opts (optional)
-The final argument to `TileDocument.load` is an instance of [`LoadOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.loadopts-1.html){:target="_blank"}), which are options that control network behaviors performed as part of the operation.
+The final argument to `TileDocument.load` is an instance of [`LoadOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.loadopts-1.html){:target="_blank"}, which are options that control network behaviors performed as part of the operation.
 
 | Parameter     | Required?   | Value            | Description | Default value |
 | ------------- | ----------- | ---------------- | ----------- | ----- |
@@ -157,8 +157,8 @@ The final argument to `TileDocument.load` is an instance of [`LoadOpts`](https:/
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.loadopts-1.html){:target="_blank"}
 
-## Load a deterministic document
-In the [create](api.md#create-a-document) section, we discussed how to create a document with the `deterministic` parameter set to true. Since this parameter allows us to generate the exact same StreamID if we create two documents with the same `content` and `metadata`, it is possible to "query" the document using the same [`TileDocument.create`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create){:target="_blank"} method that we used to initially create it, without needing to know the StreamID before performing the query. Note we are setting the `CreateOpts` parameters (`anchor` and `publish`) to false so that we are only loading the document and not publishing any changes to the network.
+## Query a deterministic document
+In the [create](#create-a-document) section, we discussed how to create a document with the `deterministic` parameter set to true. Since this parameter allows us to generate the exact same StreamID if we create two documents with the same `content` and `metadata`, it is possible to "query" the document using the same [`TileDocument.create`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create){:target="_blank"} method that we used to initially create it, without needing to know the StreamID before performing the query. Note we are setting the `CreateOpts` parameters (`anchor` and `publish`) to false so that we are only loading the document and not publishing any changes to the network.
 
 ``` javascript
 const doc = TileDocument.create(ceramic,

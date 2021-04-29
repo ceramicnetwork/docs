@@ -18,6 +18,9 @@ const stream = await ceramic.loadStream(streamId)
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#loadstream){:target="_blank"}
 
+### Load a stream at a specific commit
+
+If you want to see the contents of a stream as of a specific point in time, it's possible to pass a *CommitID* instead of a *StreamID* to the `loadStream()` method. This will cause the Stream to be loaded at the specified commit, rather than the current commit as loaded from the network. When loading with a CommitID the returned Stream object will be marked as readonly and cannot be used to perform updates. If you wish to perform updates, load a new instance of the Stream using its StreamID.
 
 ## Query multiple streams
 Use the [`multiQuery()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.ceramicapi-1.html#multiquery){:target="_blank"} method to load multiple streams at once. The returned object is a map from *StreamIDs* to stream instances.
