@@ -83,13 +83,17 @@ await link.setDid(did, authProvider, opts)
 In this example we create a Caip10Link for the ethereum mainnet account '0x0544dcf4fce959c6c4f3b7530190cb5e1bd67cb8' and then associate it with the DID 'did:3:k2t6wyfsu4pg0t2n4j8ms3s33xsgqjhtto04mvq8w5a2v5xo48idyz38l7ydki'
 
 ```javascript
-const accountLink = await Caip10Link.fromAccount(
-    ceramic,
-    '0x0544dcf4fce959c6c4f3b7530190cb5e1bd67cb8@eip155:1',
-)
+import { Caip10Link } from '@ceramicnetwork/stream-caip10-link'
+import { EthereumAuthProvider } from '@ceramicnetwork/blockchain-utils-linking'
+
+const ethAuthProvider = new EthereumAuthProvider(
+    ethProvider, '0x0544dcf4fce959c6c4f3b7530190cb5e1bd67cb8',)
+const accountId = await ethAuthProvider.accountId()
+
+const accountLink = await Caip10Link.fromAccount(ceramic, accountId)
 await accountLink.setDid(
     'did:3:k2t6wyfsu4pg0t2n4j8ms3s33xsgqjhtto04mvq8w5a2v5xo48idyz38l7ydki',
-    authProvider)
+    ethAuthProvider)
 ```
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_caip10_link.caip10link-1.html#authProvider){:target="_blank"}
