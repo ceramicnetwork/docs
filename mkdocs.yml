@@ -53,7 +53,7 @@ nav:
     #- Ceramic node: run/ceramic-node.md
     #- Anchor service: run/anchor-service.md
   - StreamTypes:
-      - StreamTypes: streamtypes/streamtypes.md
+      - Overview: streamtypes/overview.md
       - Tile Document:
         - Overview: streamtypes/tile-document/overview.md
         - API: streamtypes/tile-document/api.md

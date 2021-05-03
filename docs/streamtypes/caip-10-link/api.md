@@ -20,12 +20,11 @@ In this example we create a new empty Caip10Link for the account *0x0544dcf4fce9
 const accountLink = await Caip10Link.fromAccount(
     ceramic,
     '0x0544dcf4fce959c6c4f3b7530190cb5e1bd67cb8@eip155:1',
-    { syncTimeoutSeconds: 0 },
 )
 ```
 
 !!! info ""
-    Note that by default `Caip10Link.fromAccount()` will try to query the network for the current Stream state. If you know that this is the first time a Caip10Link has been created for this blockchain address, and you wish to avoid waiting on a response from the network unnecessarily, you can set `syncTimeoutSeconds` to 0 in the `opts` argument, as we do in the above example.
+    Note that by default `Caip10Link.fromAccount()` will try to query the network for the current Stream state. If you know that this is the first time a Caip10Link has been created for this blockchain address, and you wish to avoid waiting on a response from the network unnecessarily, you can set `syncTimeoutSeconds` to 0 in the `opts` argument.
 
 #### Loading an existing link
 
@@ -35,13 +34,12 @@ In this example we load a Caip10Link for the account *0x0544dcf4fce959c6c4f3b753
 const accountLink = await Caip10Link.fromAccount(
     ceramic,
     '0x0544dcf4fce959c6c4f3b7530190cb5e1bd67cb8@eip155:1',
-    { anchor: false, publish: false },
 )
 const linkedDid = accountLink.did
 ```
 
 !!! info ""
-    Note that by default `Caip10Link.fromAccount()` will create a new link Stream for the given blockchain address, if no such link exists already. In the example above we set the `CreateOpts` to `{ anchor: false, publish: false }` to prevent that from happening and force it to only return results if a link already exists.
+    Note that the examples for creating a new link and for loading an existing link look the same. `Caip10Link.fromAccount` will create a new link if one doesn't exist, in which case the returned link will have no linked DID associated with it. If the link already exists, however, then `Caip10Link.fromAccount` will return the current state of the link, which may include a linked DID if one has been set previously.
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_caip10_link.caip10link-1.html#fromAccount){:target="_blank"}
 
@@ -86,7 +84,12 @@ In this example we create a Caip10Link for the ethereum mainnet account *0x0544d
 import { Caip10Link } from '@ceramicnetwork/stream-caip10-link'
 import { EthereumAuthProvider } from '@ceramicnetwork/blockchain-utils-linking'
 
-const ethProvider = // [...] An ethereum provider for communicating with the ethereum blockchain
+// First, get an ethereum provider for communicating with the ethereum blockchain.
+// This example assumes you have an ethereum provider available in `window.ethereum`, provided
+// by the web browser or a browser extension.
+const ethProvider = window.ethereum
+// Next use the ethProvider to make an EthereumAuthProvider which can issue LinkProofs linking
+// addresses on Ethereum to DIDs.
 const ethAuthProvider = new EthereumAuthProvider(
     ethProvider, '0x0544dcf4fce959c6c4f3b7530190cb5e1bd67cb8')
 const accountId = await ethAuthProvider.accountId()

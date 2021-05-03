@@ -58,7 +58,7 @@ The content of your document, in the form of a JSON document. If `schema` is set
 
 
 !!! info "Using the `deterministic` parameter"
-    For most use cases you will likely want to leave the `deterministic` parameter set to false. However for special circumstances, you may want this to be set to true. For example this should be set to true if you would like to enable [deterministic queries](#query-a-deterministic-document) for your document. If this is your use case, then it is also important that you think very carefully about what `content` is provided when first creating the document, as that content is what will need to be provided again in order to deterministically query the document. It is recommended that the document be created with the minimal possible content to uniquely identify the document. You can proceed to add additional content to your document by [updating it](#update-a-document).
+    For most use cases you will likely want to leave the `deterministic` parameter set to false. However for special circumstances, you may want this to be set to true. For example this should be set to true if you would like to enable [deterministic queries](#query-a-deterministic-document) for your document. If this is your use case, then it is also important that you set `content` to `null` during document creation. Deterministic document queries are based entirely on the document's initial metadata. You can proceed to add content to your document by [updating it](#update-a-document).
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_stream_tile.tilemetadataargs-1.html#deterministic){:target="_blank"}
 
@@ -80,7 +80,7 @@ The final argument to `TileDocument.create` is an instance of [`CreateOpts`](htt
 Use the [`doc.update()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#update){:target="_blank"} method to update the `content` or `metadata` of an existing TileDocument.
 
 ```javascript
-const doc = await TileDocument.create(ceramic, content, metadata, opts)
+const doc = await TileDocument.load(ceramic, streamId, opts)
 await doc.update(newContent, newMetadata, opts)
 ```
 
@@ -89,7 +89,8 @@ await doc.update(newContent, newMetadata, opts)
 In this example we update a document's content while also giving it a tag.
 
 ```javascript
-const doc = await TileDocument.create(ceramic, { foo: "bar" }, { family: 'foo' })
+const streamId = 'kjzl6cwe1jw14...' // Replace this with the StreamID of the TileDocument to be updated
+const doc = await TileDocument.load(ceramic, streamId)
 await doc.update({ foo: 'baz'}, { tags: ['baz'] })
 ```
 
@@ -128,7 +129,7 @@ The final argument to `TileDocument.update` is an instance of [`UpdateOpts`](htt
 Use the [`TileDocument.load()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#load){:target="_blank"} method to load a single document using its *StreamID*
 
 ```javascript
-const streamId = 'kjzl6cwe1jw14...'
+const streamId = 'kjzl6cwe1jw14...' // Replace this with the StreamID of the TileDocument to be loaded
 const doc = await TileDocument.load(ceramic, streamId, opts)
 ```
 
@@ -158,11 +159,12 @@ The final argument to `TileDocument.load` is an instance of [`LoadOpts`](https:/
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.loadopts-1.html){:target="_blank"}
 
 ## Query a deterministic document
-In the [create](#create-a-document) section, we discussed how to create a document with the `deterministic` parameter set to true. Since this parameter allows us to generate the exact same StreamID if we create two documents with the same `content` and `metadata`, it is possible to "query" the document using the same [`TileDocument.create`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create){:target="_blank"} method that we used to initially create it, without needing to know the StreamID before performing the query. Note we are setting the `CreateOpts` parameters (`anchor` and `publish`) to false so that we are only loading the document and not publishing any changes to the network.
+In the [create](#create-a-document) section, we discussed how to create a document with the `deterministic` parameter set to true. Since this parameter allows us to generate the exact same StreamID if we create two documents with the same initial `metadata`, it is possible to "query" the document using the same [`TileDocument.create`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create){:target="_blank"} method that we used to initially create it, without needing to know the StreamID before performing the query. Note we are setting the `CreateOpts` parameters (`anchor` and `publish`) to false so that we are only loading the document and not publishing any changes to the network.
 
 ``` javascript
-const doc = TileDocument.create(ceramic,
-  { data: 'this data along with the controller and family uniquely identify this document!' },
+const doc = TileDocument.create(
+  ceramic,
+  null,
   {
     controllers: ['did:key:z6MkfZ6S4NVVTEuts8o5xFzRMR8eC6Y1bngoBQNnXiCvhH8H'],
     family: 'example family',

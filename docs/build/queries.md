@@ -14,7 +14,7 @@ const stream = await ceramic.loadStream(streamId)
 ```
 
 !!! info "Loading the proper stream type"
-    By default, `loadStream` returns an object of type `Stream`, which will not have any methods available to perform updates, or any other streamtype-specific methods or accessors.  To be able to perform updates, as well as to access streamtype-specific data or functionality, you need to specialize the `loadStream` method on the StreamType of the Stream being loaded. For example, to load a `TileDocument`, you would say `await ceramic.loadStream<TileDocument>(streamId)`
+    When using the Typescript APIs, `loadStream` by default returns an object of type `Stream`, which will not have any methods available to perform updates, or any other streamtype-specific methods or accessors.  To be able to perform updates, as well as to access streamtype-specific data or functionality, you need to specialize the `loadStream` method on the StreamType of the Stream being loaded. For example, to load a `TileDocument`, you would say `await ceramic.loadStream<TileDocument>(streamId)`
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#loadstream){:target="_blank"}
 
