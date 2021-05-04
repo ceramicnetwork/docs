@@ -3,7 +3,7 @@
 This guide demonstrates how to create, update, and query Caip10Links on the Ceramic network using the [HTTP](../../../reference/javascript/clients) and [core](../../../reference/javascript/clients) clients.
 
 ## Prerequisites
-You need an [installed client](../../build/installation.md) and an [authenticated user](../../build/authentication.md) to perform writes to Caip10Links on the network during runtime. If you only wish to query existing Caip10Links then you still need an installed client but it doesn't need to be authenticated.
+You need an [installed client](../../build/installation.md) to read or write Caip10Links on the network during runtime.
 
 ## Create or query a link
 Use the [`Caip10Link.fromAccount()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_caip10_link.caip10link-1.html#fromAccount){:target="_blank"} method to create a new Caip10Link for a given Caip10 blockchain address, or to look up an existing link for that address.
