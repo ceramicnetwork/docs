@@ -1,6 +1,6 @@
 # HTTP API
 
-The HTTP API allows you to manually make HTTP requests that create, modify, and query documents on a remote Ceramic node. If you are building an application, you will usually interact with a node using one of the [Ceramic clients](../javascript/clients), however this documentation is useful if:
+The HTTP API allows you to manually make HTTP requests that create, modify, and query streams on a remote Ceramic node. If you are building an application, you will usually interact with a node using one of the [Ceramic clients](../javascript/clients), however this documentation is useful if:
 
 - You have a special use case where you directly want to use HTTP requests
 - You want to implement an HTTP client in a new language
@@ -10,42 +10,42 @@ The HTTP API allows you to manually make HTTP requests that create, modify, and 
     *gateway mode*. This option disables writes, which is useful when exposing your node to
     the internet. **Methods disabled in gateway mode will be clearly marked.**
 
-## **Documents**
+## **Streams**
 
-The `documents` endpoint is used to create new documents, load documents from their DocID or from their genesis content. 
+The `stream` endpoint is used to create new streams and to load streams from their StreamID or from their genesis content.
 
-### Get document state
-Load the state of a document given its DocID.
+### Get stream state
+Load the state of a stream given its StreamID.
 
 === "Request"
-    
+
     ```
-    GET /api/v0/documents/:docid
+    GET /api/v0/streams/:streamid
     ```
 
-    Here, `:docid` should be replaced by the string representation of the DocID of the document that is being requested.
+    Here, `:streamid` should be replaced by the string representation of the StreamID of the stream that is being requested.
 
 === "Response"
     The response body contains the following fields:
 
-    - `docId` - the DocID of the requested document as string
-    - `state` - the state of the requested document as [DocState](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.docstate-1.html){:target="_blank"}
+    - `streamId` - the StreamID of the requested stream as string
+    - `state` - the state of the requested stream as [StreamState](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.streamstate-1.html){:target="_blank"}
 
 #### Example
 
 === "Request"
-    
+
     ```bash
-    $ curl http://localhost:7007/api/v0/documents/kjzl6cwe1jw147r7878h32yazawcll6bxe5v92348cxitif6cota91qp68grbhm
+    $ curl http://localhost:7007/api/v0/streams/kjzl6cwe1jw147r7878h32yazawcll6bxe5v92348cxitif6cota91qp68grbhm
     ```
 
 === "Response"
-    
+
     ```bash
     {
-      "docId": "kjzl6cwe1jw147r7878h32yazawcll6bxe5v92348cxitif6cota91qp68grbhm",
+      "streamId": "kjzl6cwe1jw147r7878h32yazawcll6bxe5v92348cxitif6cota91qp68grbhm",
       "state": {
-        "doctype": "tile",
+        "type": 0,
         "content": {
           "Ceramic": "pottery"
         },
@@ -66,37 +66,40 @@ Load the state of a document given its DocID.
     }
     ```
 
-### Create document
-Create a new document, or load a document from its genesis content. The genesis content may be signed (a DagJWS for the `tile` doctype), or unsigned in some cases.
+### Create stream
+
+**:octicons-alert-16: Disabled in gateway mode**
+
+Create a new stream, or load a stream from its genesis content. The genesis content may be signed (a DagJWS for streams of type TileDocument), or unsigned in some cases.
 
 === "Request"
-    
+
     ```bash
-    POST /api/v0/documents
+    POST /api/v0/streams
     ```
 
     #### Request body fields:
 
-    - `doctype` - the name of the doctype to use (e.g. 'tile'), string
-    - `genesis` - the genesis content of the document (will differ per doctype)
-    - `docOpts` - options for the document creation, [DocOpts](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.docopts-1.html){:target="_blank"} (optional)
+    - `type` - the type code of the streamtype to use (e.g. `0` for TileDocuments). Type codes for the supported stream types can be found [in this table](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-59/tables/streamtypes.csv).
+    - `genesis` - the genesis content of the stream (will differ per streamtype)
+    - `opts` - options for the stream creation, [CreateOpts](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html){:target="_blank"} (optional)
 
 === "Response"
 
     The response body contains the following fields:
 
-    - `docId` - the DocID of the requested document as string
-    - `state` - the state of the requested document as [DocState](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.docstate-1.html){:target="_blank"}
+    - `streamId` - the StreamID of the requested stream as string
+    - `state` - the state of the requested stream as [StreamState](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.streamstate-1.html){:target="_blank"}
 
 #### Example
 
-This example creates a `tile` document from an unsigned genesis commit. Note that if the content is defined for a `tile` genesis commit, it needs to be signed.
+This example creates a `TileDocument` from an unsigned genesis commit. Note that if the content is defined for a `TileDocument` genesis commit, it needs to be signed.
 
 === "Request"
-    
+
     ```bash
-    $ curl http://localhost:7007/api/v0/documents -X POST -d '{
-        "doctype": "tile",
+    $ curl http://localhost:7007/api/v0/streams -X POST -d '{
+        "type": 0,
         "genesis": {
           "header": {
             "family": "test",
@@ -107,12 +110,12 @@ This example creates a `tile` document from an unsigned genesis commit. Note tha
     ```
 
 === "Response"
-    
+
     ```bash
     {
-      "docId": "k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl",
+      "streamId": "k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl",
       "state": {
-        "doctype": "tile",
+        "type": 0,
         "content": {},
         "metadata": {
           "family": "test",
@@ -134,13 +137,13 @@ This example creates a `tile` document from an unsigned genesis commit. Note tha
     ```
 
 ## **Multiqueries**
-The `multiqueries` endpoint enables querying multiple documents at once, as well as querying documents which are linked.
+The `multiqueries` endpoint enables querying multiple streams at once, as well as querying streams which are linked.
 
-### Query multiple documents
-This endpoint allows you to query multiple DocIDs. Along with each DocID an array of paths can be passed. If any of the paths within the document structure contains a ceramic DocID url (`ceramic://<DocID>`), this linked document will also be returned as part of the response.
+### Query multiple streams
+This endpoint allows you to query multiple StreamIDs. Along with each StreamID an array of paths can be passed. If any of the paths within the stream structure contains a Ceramic StreamID url (`ceramic://<StreamID>`), this linked stream will also be returned as part of the response.
 
 === "Request"
-    
+
     ```bash
     POST /api/v0/multiqueries
     ```
@@ -150,44 +153,44 @@ This endpoint allows you to query multiple DocIDs. Along with each DocID an arra
 
 === "Response"
 
-    The response body contains a map from DocID strings to [DocState](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.docstate-1.html){:target="_blank"} objects.
+    The response body contains a map from StreamID strings to [StreamState](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.streamstate-1.html){:target="_blank"} objects.
 
 #### Example
 
-First let's create three documents to query using the ceramic cli:
+First let's create three streams to query using the ceramic cli:
 
 === "Request1"
-    
+
     ```bash
     $ ceramic create tile --content '{ "Document": "A" }'
     ```
 
 === "Response1"
-    
+
     ```bash
-    DocID(kjzl6cwe1jw149rledowj0zi0icd7epi9y1m5tx4pardt1w6dzcxvr6bohi8ejc)
+    StreamID(kjzl6cwe1jw149rledowj0zi0icd7epi9y1m5tx4pardt1w6dzcxvr6bohi8ejc)
     {
       "Document": "A"
     }
     ```
 
 === "Request2"
-    
+
     ```bash
     $  ceramic create tile --content '{ "Document": "B" }'
     ```
 
 === "Response2"
-    
+
     ```bash
-    DocID(kjzl6cwe1jw147w3xz3xrcd37chh2rz4dfra3imtnsni385rfyqa3hbx42qwal0)
+    StreamID(kjzl6cwe1jw147w3xz3xrcd37chh2rz4dfra3imtnsni385rfyqa3hbx42qwal0)
     {
       "Document": "B"
     }
     ```
 
 === "Request3"
-    
+
     ```bash
     $ ceramic create tile --content '{
         "Document": "C",
@@ -196,9 +199,9 @@ First let's create three documents to query using the ceramic cli:
     ```
 
 === "Response3"
-    
+
     ```bash
-    DocID(kjzl6cwe1jw14b54pb10voc4bqh73qyu8o6cfu66hoi3feidbbj81i5rohh7kgl)
+    StreamID(kjzl6cwe1jw14b54pb10voc4bqh73qyu8o6cfu66hoi3feidbbj81i5rohh7kgl)
     {
       "link": "ceramic://kjzl6cwe1jw149rledowj0zi0icd7epi9y1m5tx4pardt1w6dzcxvr6bohi8ejc",
       "Document": "C"
@@ -208,25 +211,25 @@ First let's create three documents to query using the ceramic cli:
 Now let's query them though the multiqueries endpoint:
 
 === "Request"
-    
+
     ```bash
     $ curl http://localhost:7007/api/v0/multiqueries -X POST -d '{
       "queries": [{
-        "docId": "kjzl6cwe1jw14b54pb10voc4bqh73qyu8o6cfu66hoi3feidbbj81i5rohh7kgl",
+        "streamId": "kjzl6cwe1jw14b54pb10voc4bqh73qyu8o6cfu66hoi3feidbbj81i5rohh7kgl",
         "paths": ["link"]
       }, {
-        "docId": "kjzl6cwe1jw147w3xz3xrcd37chh2rz4dfra3imtnsni385rfyqa3hbx42qwal0",
+        "streamId": "kjzl6cwe1jw147w3xz3xrcd37chh2rz4dfra3imtnsni385rfyqa3hbx42qwal0",
         "paths": []
       }]
     }' -H "Content-Type: application/json"
     ```
 
 === "Response"
-    
+
     ```bash
     {
       "kjzl6cwe1jw14b54pb10voc4bqh73qyu8o6cfu66hoi3feidbbj81i5rohh7kgl": {
-        "doctype": "tile",
+        "type": 0,
         "content": {
           "link": "ceramic://kjzl6cwe1jw149rledowj0zi0icd7epi9y1m5tx4pardt1w6dzcxvr6bohi8ejc",
           "Document": "C"
@@ -248,7 +251,7 @@ Now let's query them though the multiqueries endpoint:
         "anchorScheduledFor": "12/30/2020, 1:45:00 PM"
       },
       "kjzl6cwe1jw149rledowj0zi0icd7epi9y1m5tx4pardt1w6dzcxvr6bohi8ejc": {
-        "doctype": "tile",
+        "type": 0,
         "content": {
           "Document": "A"
         },
@@ -269,7 +272,7 @@ Now let's query them though the multiqueries endpoint:
         "anchorScheduledFor": "12/30/2020, 1:45:00 PM"
       },
       "kjzl6cwe1jw147w3xz3xrcd37chh2rz4dfra3imtnsni385rfyqa3hbx42qwal0": {
-        "doctype": "tile",
+        "type": 0,
         "content": {
           "Document": "B"
         },
@@ -294,38 +297,38 @@ Now let's query them though the multiqueries endpoint:
 
 ## **Commits**
 
-The `commits` endpoint provides lower level access to the data structure of a Ceramic document. It is also the enpoint that is used in order to update a document, by adding a new commit.
+The `commits` endpoint provides lower level access to the data structure of a Ceramic stream. It is also the enpoint that is used in order to update a stream, by adding a new commit.
 
-### Get all document commits
+### Get all stream commits
 
-By calling get on the *commits* endpoint along with a DocID gives you access to all of the commits of the given document. This is useful if you want to inspect the document history, or apply all of the commits to a ceramic node that is not connected to the network.
+By calling GET on the *commits* endpoint along with a StreamID gives you access to all of the commits of the given stream. This is useful if you want to inspect the stream history, or apply all of the commits to a Ceramic node that is not connected to the network.
 
 === "Request"
-    
+
     ```bash
-    GET /api/v0/commits/:docid
+    GET /api/v0/commits/:streamid
     ```
 
-    Here, `:docid` should be replaced by the string representation of the DocID of the document that is being requested.
+    Here, `:streamid` should be replaced by the string representation of the StreamID of the stream that is being requested.
 
 === "Response"
 
-    * `docId` - the DocID of the requested document, string
+    * `streamId` - the StreamID of the requested stream, string
     * `commits` - an array of commit objects
 
 #### Example
 
 === "Request"
-    
+
     ```bash
     $ curl http://localhost:7007/api/v0/commits/kjzl6cwe1jw14ahmwunhk9yjwawac12tb52j1uj3b9a57eohmhycec8778p3syv
     ```
 
 === "Response"
-    
+
     ```bash
     {
-      "docId": "kjzl6cwe1jw14ahmwunhk9yjwawac12tb52j1uj3b9a57eohmhycec8778p3syv",
+      "streamId": "kjzl6cwe1jw14ahmwunhk9yjwawac12tb52j1uj3b9a57eohmhycec8778p3syv",
       "commits": [
         {
           "cid": "bagcqcera2faj5vik2giftqxftbngfndkci7x4z5vp3psrf4flcptgkz5xztq",
@@ -363,36 +366,36 @@ By calling get on the *commits* endpoint along with a DocID gives you access to 
     }
     ```
 
-### Apply a commit to document
+### Apply a commit to stream
 
 **:octicons-alert-16: Disabled in gateway mode**
 
-In order to modify a document we apply a commit to its docment log. This commit usually contains a signature over a *json-patch* diff describing a modification to the document contents. The commit also needs to contain pointers to the previous commit and other metadata. You can read more about this in the [Ceramic Specification](https://github.com/ceramicnetwork/ceramic/blob/master/SPECIFICATION.md#document-records){:target="_blank"}. Different document types may have different formats for their commits. If you want to see an example implementation for how to construct a commit you can have a look at the implementation of the TileDoctype.
+In order to modify a stream we apply a commit to its log. This commit usually contains a signature over a *json-patch* diff describing a modification to the stream contents. The commit also needs to contain pointers to the previous commit and other metadata. You can read more about this in the [Ceramic Specification](https://github.com/ceramicnetwork/ceramic/blob/master/SPECIFICATION.md#document-records){:target="_blank"}. Different stream types may have different formats for their commits. If you want to see an example implementation for how to construct a commit you can have a look at the implementation of the TileDocument.
 
 === "Request"
-    
+
     ```bash
     POST /api/v0/commits
     ```
 
     #### Request body fields:
 
-    - `docId` - the name of the doctype to use, string
-    - `commit` - the content of the commit to apply (will differ per doctype)
-    - `docOpts` - options for the document update [DocOpts](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.docopts-1.html){:target="_blank"} (optional)
+    - `streamId` - the StreamID of the stream to apply the commit to, string
+    - `commit` - the content of the commit to apply (will differ per streamtype)
+    - `opts` - options for the stream update [UpdateOpts](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.updateopts-1.html){:target="_blank"} (optional)
 
 === "Response"
 
-    * `docId` - the DocID of the document that was modified
-    * `state` - the new state of the document that was modified, [DocState](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.docstate-1.html){:target="_blank"}
+    * `streamId` - the StreamID of the stream that was modified
+    * `state` - the new state of the stream that was modified, [StreamState](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.streamstate-1.html){:target="_blank"}
 
 #### Example
 
 === "Request"
-    
+
     ```bash
     $ curl http://localhost:7007/api/v0/commits -X POST -d '{
-      "docId": "kjzl6cwe1jw14ahmwunhk9yjwawac12tb52j1uj3b9a57eohmhycec8778p3syv",
+      "streamId": "kjzl6cwe1jw14ahmwunhk9yjwawac12tb52j1uj3b9a57eohmhycec8778p3syv",
       "commit": {
         "jws": {
           "payload": "AXESINm6lI30m3j5H2ausx-ulXj-L9CmFlOTZBZvJ2O734Zt",
@@ -410,12 +413,12 @@ In order to modify a document we apply a commit to its docment log. This commit 
     ```
 
 === "Response"
-    
+
     ```bash
     {
-      "docId": "kjzl6cwe1jw14ahmwunhk9yjwawac12tb52j1uj3b9a57eohmhycec8778p3syv",
+      "streamId": "kjzl6cwe1jw14ahmwunhk9yjwawac12tb52j1uj3b9a57eohmhycec8778p3syv",
       "state": {
-        "doctype": "tile",
+        "type": 0,
         "content": {
           "title": "My first Document"
         },
@@ -456,81 +459,83 @@ In order to modify a document we apply a commit to its docment log. This commit 
 
 ## **Pins**
 
-The `pins` api endpoint can be used to manipulate the pinset. The pinset is all of the documents that a node maintains the state of. Any document opened by the node that is not pinned will eventually be garbage collected from the node.
+The `pins` api endpoint can be used to manipulate the pinset. The pinset is all of the streams that a node maintains the state of. Any stream opened by the node that is not pinned will eventually be garbage collected from the node.
 
 ### Add to pinset
-This method adds the document with the given DocID to the pinset.
 
 **:octicons-alert-16: Disabled in gateway mode**
 
+This method adds the stream with the given StreamID to the pinset.
+
 === "Request"
-    
+
     ```bash
-    POST /api/v0/pins/:docid
+    POST /api/v0/pins/:streamid
     ```
 
-    Here, `:docid` should be replaced by the string representation of the DocID of the document that is being requested.
+    Here, `:streamid` should be replaced by the string representation of the StreamID of the stream that is being requested.
 
 === "Response"
 
     If the operation was sucessful the response will be a 200 OK.
 
-    * `docId` - the DocID of the document which was pinned, string
+    * `streamId` - the StreamID of the stream which was pinned, string
 
 #### Example
 
 === "Request"
-    
+
     ```bash
     $ curl http://localhost:7007/api/v0/pins/k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl -X POST
     ```
 
 === "Response"
-    
+
     ```bash
     {
-      "docId": "k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl"
+      "streamId": "k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl"
     }
     ```
 
 ### Remove from pinset
-This method removes the document with the given DocID from the pinset.
 
 **:octicons-alert-16: Disabled in gateway mode**
 
+This method removes the stream with the given StreamID from the pinset.
+
 === "Request"
-    
+
     ```bash
-    DELETE /api/v0/pins/:docid
+    DELETE /api/v0/pins/:streamid
     ```
 
-    Here, `:docid` should be replaced by the string representation of the DocID of the document that is being requested.
+    Here, `:streamid` should be replaced by the string representation of the StreamID of the stream that is being requested.
 
 === "Response"
 
     If the operation was sucessful the response will be a 200 OK.
 
-    * `docId` - the DocID of the document which was unpinned, string
+    * `streamId` - the StreamID of the stream which was unpinned, string
 
 #### Example
 
 === "Request"
-    
+
     ```bash
     $ curl http://localhost:7007/api/v0/pins/k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl -X DELETE
     ```
 
 === "Response"
-    
+
     ```bash
     {
-      "docId": "k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl"
+      "streamId": "k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl"
     }
     ```
 
-### List documents in pinset
+### List streams in pinset
 
-Calling this method allows you to list all of the documents that are in the pinset on this node.
+Calling this method allows you to list all of the streams that are in the pinset on this node.
 
 === "Request"
 
@@ -540,21 +545,21 @@ Calling this method allows you to list all of the documents that are in the pins
 
 === "Response"
 
-    * `pinnedDocIds` - an array of DocID strings that are in the pinset
+    * `pinnedStreamIds` - an array of StreamID strings that are in the pinset
 
 #### Example
 
 === "Request"
-    
+
     ```bash
     $ curl http://localhost:7007/api/v0/pins
     ```
 
 === "Response"
-    
+
     ```bash
     {
-      "pinnedDocIds": [
+      "pinnedStreamIds": [
         "k2t6wyfsu4pfwqaju0w9nmi53zo6f5bcier7vc951x4b9rydv6t8q4pvzd5w3l",
         "k2t6wyfsu4pfxon8reod8xcyka9bujeg7acpz8hgh0jsyc7p2b334izdyzsdp7",
         "k2t6wyfsu4pfxqseec01fnqywmn8l93p4g2chzyx3sod3hpyovurye9hskcegs",
@@ -563,35 +568,35 @@ Calling this method allows you to list all of the documents that are in the pins
     }
     ```
 
-### Confirm document in pinset
+### Confirm stream in pinset
 
-This method is used to check if a particular document is in the pinset.
+This method is used to check if a particular stream is in the pinset.
 
 === "Request"
 
     ```bash
-    GET /api/v0/pins/:docid
+    GET /api/v0/pins/:streamid
     ```
 
-    Here, `:docid` should be replaced by the string representation of the DocID of the document that is being requested.
+    Here, `:streamid` should be replaced by the string representation of the StreamID of the stream that is being requested.
 
 === "Response"
 
-    * `pinnedDocIds` - an array containing the specified DocID string if that document is pinned, or an empty array if that document is not pinned
+    * `pinnedStreamIds` - an array containing the specified StreamID string if that stream is pinned, or an empty array if that stream is not pinned
 
 #### Example
 
 === "Request"
-    
+
     ```bash
     $ curl http://localhost:7007/api/v0/pins/k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl
     ```
 
 === "Response"
-    
+
     ```bash
     {
-      "pinnedDocIds": ["k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl"]
+      "pinnedStreamIds": ["k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl"]
     }
     ```
 
@@ -617,13 +622,13 @@ Get all of the [CAIP-2](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs
 #### Example
 
 === "Request"
-    
+
     ```bash
     $ curl http://localhost:7007/api/v0/node/chains
     ```
 
 === "Response"
-    
+
     ```bash
     {
       "supportedChains": ["eip155:3"]
@@ -647,13 +652,13 @@ Check the health of the node and the machine it's running on. Run `ceramic daemo
 #### Example
 
 === "Request"
-    
+
     ```bash
     $ curl http://localhost:7007/api/v0/node/healthcheck
     ```
 
 === "Response"
-    
+
     ```bash
     Alive!
     ```
