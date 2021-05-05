@@ -69,9 +69,6 @@ Setup your client within your project.
     const ceramic = new CeramicClient(API_URL)
     ```
 
-    #### Provide a DID instance to the Ceramic client.
-    Ceramic instances need access to a DID instance to use to resolve DIDs and to create and validate cryptographic signatures on Ceramic commits. See the [Configure your DID](configure-did.md) page for more information on how to do this.
-
 === "Core"
 
     #### Import the Core client
@@ -111,9 +108,6 @@ Setup your client within your project.
     ``` javascript
     const ceramic = await Ceramic.create(ipfs, config)
     ```
-
-    #### Provide a DID instance to the Ceramic client.
-    Ceramic instances need access to a DID instance to use to resolve DIDs and to create and validate cryptographic signatures on Ceramic commits. See the [Configure your DID](configure-did.md) page for more information on how to do this.
 
 === "CLI"
 

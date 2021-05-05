@@ -42,7 +42,6 @@ nav:
   - Build:
     - Quick Start: build/quick-start.md
     - Installation: build/installation.md
-    - Configure your DID: build/configure-did.md
     - Authentication: build/authentication.md
     - Writes: build/writes.md
     - Queries: build/queries.md

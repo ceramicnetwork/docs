@@ -3,7 +3,7 @@ This guide will help you add user authentication to your project. Authentication
 
 ## Prerequisites
 
-Authentication requires having [configured a DID](configure-did.md) for your Ceramic client.
+Authentication requires having [installed a Ceramic client](installation.md) in your project.
 
 ## Choose your setup
 
@@ -51,7 +51,7 @@ Install a DID wallet or provider in your project using npm.
     ```
 
 
-## Create the Provider
+## Authentication
 
 The authentication process varies depending on which wallet or provider you are using. Closely follow the steps below.
 
@@ -209,20 +209,12 @@ The authentication process varies depending on which wallet or provider you are 
     const provider = new Ed25519Provider(seed)
     ```
 
-## Set the Provider
+## Set the provider
 
-Set the Provider instance to the DID instance used by your Ceramic client in order to perform writes.
+Set the authenticated provider instance to your Ceramic client in order to perform writes.
 ``` javascript
-ceramic.did.setProvider(provider)
+await ceramic.setDIDProvider(provider)
 ```
-
-## Authenticate the DID
-Now all that's left is to authenticate to the Ceramic client's DID instance using the configured DID Provider. If you're using ThreeIdConnect, this step will cause a pop-up in your browser requesting permission to authenticate the DID.
-
-``` js
-await ceramic.did.authenticate()
-```
-
 
 ## Usage
 
