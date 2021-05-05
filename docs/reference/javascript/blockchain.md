@@ -1,6 +1,6 @@
 # Add support for a new blockchain
 
-This document contains a guide on how to add support for a new blockchain to the [`caip10-link`](https://github.com/ceramicnetwork/CIP/blob/master/CIPs/CIP-7/CIP-7.md) doctype, and to use it for authentication in Ceramic.
+This document contains a guide on how to add support for a new blockchain to the [`caip10-link`](https://github.com/ceramicnetwork/CIP/blob/master/CIPs/CIP-7/CIP-7.md) StreamType, and to use it for authentication in Ceramic.
 
 ## Ceramic and blockchain accounts
 
@@ -58,7 +58,7 @@ The `authenticate` function allows a blockchain account to be added as an authen
 The entropy returned by a given *AccountID* must always be the same.
 
 #### `createLink()`
-The `createLink` function allows a blockchain account to create a verifiable link proof that publicly binds the blockchain account to a given DID. In Ceramic, these these link proofs can be used to create CAIP-10 Link Documents which allow anyone to look up the DID linked to your blockchain account, and then resolve any other public info linked to your DID. The DocIDs of your CAIP-10 Link documents can be stored in the [IDX Crypto Accounts documents](https://developers.idx.xyz/guides/definitions/default/#crypto-accounts) for simple lookup. 
+The `createLink` function allows a blockchain account to create a verifiable link proof that publicly binds the blockchain account to a given DID. In Ceramic, these these link proofs can be used to create `CAIP10Link` streams which allow anyone to look up the DID linked to your blockchain account, and then resolve any other public info linked to your DID. The StreamIDs of your CAIP10Links can be stored in the [IDX Crypto Accounts records](https://developers.idx.xyz/guides/definitions/default/#crypto-accounts) for simple lookup.
 
 This function consumes similar arguments as described above. It also consumes the DID string that is being linked. This function is implemented such that when the given AccountID signs a message including the given DID with the given provider, a `LinkProof` is returned.
 
@@ -82,7 +82,7 @@ To add support for a new blockchain:
 - add the newly created `BlockchainHandler` to the `handlers` list in [index.ts](https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/blockchain-utils-validation/src/index.ts)
 
 #### `validateLink()`
-The `validateLink` function validates a given LinkProof. This allows anyone to easily verify linkProofs and for Ceramic to validate  CAIP-10 Link Documents. The function consumes a LinkProof and returns the LinkProof if valid, otherwise it returns null. Valid typically means that the given signature in the LinkProof is valid over the given message and is created by the given account.
+The `validateLink` function validates a given LinkProof. This allows anyone to easily verify LinkProofs and for Ceramic to validate CAIP10Links. The function consumes a LinkProof and returns the LinkProof if valid, otherwise it returns null. Valid typically means that the given signature in the LinkProof is valid over the given message and is created by the given account.
 
 Make sure that `validateLink` can validate links created by `AuthProvider#createLink`.
 
