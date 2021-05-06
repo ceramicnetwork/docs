@@ -1,5 +1,5 @@
 # DID Providers
-A DID Provider is a library that exposes a json-rpc interface which is consumed by a Ceramic client or other DID compatible software. Usually it is constructed using a *seed* that the user controls. See the [Authentication](.../build/authentication.md) page for details on how to use DID providers.
+A DID Provider is a library that exposes a json-rpc interface which is consumed by a Ceramic client or other DID compatible software. Usually it is constructed using a *seed* that the user controls. See the [Authentication](../../build/authentication.md) page for details on how to use DID providers.
 
 ## 3ID DID Provider
 The 3ID DID Provider allows you to create and manage a 3ID.

@@ -18,6 +18,6 @@ See [CIP-79](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-79/CIP-79.
 ## Other DID methods
 Ceramic supports a few different DID methods for authentication. Below find links to the others:
 
-- Key DID
+- [Key DID](./key.md)
 - NFT DID (coming soon)
 - Safe DID (coming soon)

@@ -1,6 +1,6 @@
 # Add support for a new blockchain
 
-This document contains a guide on how to add support for a new blockchain to the [`caip10-link`](https://github.com/ceramicnetwork/CIP/blob/master/CIPs/CIP-7/CIP-7.md) StreamType, and to use it for authentication in Ceramic.
+This document contains a guide on how to add support for a new blockchain to the [`Caip10Link`](../../../streamtypes/caip-10-link/overview) StreamType, and to use it for authentication in Ceramic.
 
 ## Ceramic and blockchain accounts
 

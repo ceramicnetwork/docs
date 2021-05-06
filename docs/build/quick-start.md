@@ -180,7 +180,7 @@ Use the `state` command to query the entire state of a stream.
         This output was seen after the anchor has been created. The stream state has now shifted *anchorStatus* to `ANCHORED`. You can also see that the log contains one more entry.
 
 ## **Update a stream**
-Use the `change` command to update a stream. Your DID must be the controller of the stream in order to update it.
+Use the `update` command to update a stream. Your DID must be the controller of the stream in order to update it.
 Note that *TileDocument* is the only stream type that can currently be updated by the CLI.
 
 === "Command"
