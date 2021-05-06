@@ -1,6 +1,6 @@
 # TileDocument API
 
-This guide demonstrates how to create, update, and query TileDocuments on the Ceramic network using the [HTTP](../../../reference/javascript/clients) and [core](../../../reference/javascript/clients) clients. TileDocuments can also be read and written via the CLI, see [Quick Start](../../../build/quick-start) for more information.
+This guide demonstrates how to create, update, and query TileDocuments on the Ceramic network using the [HTTP](../../../reference/javascript/clients#http-client) and [core](../../../reference/javascript/clients#core-client) clients. TileDocuments can also be read and written via the CLI, see [Quick Start](../../../build/quick-start) for more information.
 
 ## Prerequisites
 You need an [installed client](../../build/installation.md) and an [authenticated user](../../build/authentication.md) to perform writes to TileDocuments on the network during runtime. If you only wish to query existing TileDocuments then you still need an installed client but it doesn't need to be authenticated.
@@ -140,7 +140,7 @@ const doc = await TileDocument.load(ceramic, streamId, opts)
 
 #### ceramic
 
-When loading a TileDocument, the first parameter is the `CeramicAPI` used to communicate with the Ceramic node and it is always required. It will either be an instance of [`Ceramic`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"} when using the Core client or an instance of [`CeramicClient`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"} when using the HTTP client.
+When loading a TileDocument, the first parameter is the `CeramicAPI` used to communicate with the Ceramic node and it is always required. It will either be an instance of [`Ceramic`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"} when using the Core client or an instance of [`CeramicClient`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_http_client.ceramicclient.html){:target="_blank"} when using the HTTP client.
 
 
 #### streamId
@@ -174,7 +174,7 @@ const doc = TileDocument.create(
 })
 ```
 
-[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#createdocument){:target="_blank"}
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create){:target="_blank"}
 
 
 

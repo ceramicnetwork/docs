@@ -1,12 +1,12 @@
 # Caip10Link API
 
-This guide demonstrates how to create, update, and query Caip10Links on the Ceramic network using the [HTTP](../../../reference/javascript/clients) and [core](../../../reference/javascript/clients) clients.
+This guide demonstrates how to create, update, and query Caip10Links on the Ceramic network using the [HTTP](../../../reference/javascript/clients#http-client) and [core](../../../reference/javascript/clients#core-client) clients.
 
 ## Prerequisites
 You need an [installed client](../../build/installation.md) to read or write Caip10Links on the network during runtime.
 
 ## Create or query a link
-Use the [`Caip10Link.fromAccount()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_caip10_link.caip10link-1.html#fromAccount){:target="_blank"} method to create a new Caip10Link for a given Caip10 blockchain address, or to look up an existing link for that address.
+Use the [`Caip10Link.fromAccount()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_caip10_link.caip10link-1.html#fromaccount){:target="_blank"} method to create a new Caip10Link for a given Caip10 blockchain address, or to look up an existing link for that address.
 
 ```javascript
 const link = await Caip10Link.fromAccount(ceramic, accountId, opts)
@@ -41,7 +41,7 @@ const linkedDid = accountLink.did
 !!! info ""
     Note that the examples for creating a new link and for loading an existing link look the same. `Caip10Link.fromAccount` will create a new link if one doesn't exist, in which case the returned link will have no linked DID associated with it. If the link already exists, however, then `Caip10Link.fromAccount` will return the current state of the link, which may include a linked DID if one has been set previously.
 
-[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_caip10_link.caip10link-1.html#fromAccount){:target="_blank"}
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_caip10_link.caip10link-1.html#fromaccount){:target="_blank"}
 
 
 ### Parameters
