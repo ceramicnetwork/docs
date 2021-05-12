@@ -35,7 +35,7 @@ Install a DID wallet or provider in your project using npm.
 === "3ID Connect"
 
     ```sh
-    $ npm install 3id-connect@next
+    $ npm install @3id/connect
     ```
     
 === "3id-did-provider"
