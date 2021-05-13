@@ -60,13 +60,13 @@ The authentication process varies depending on which wallet or provider you are 
     #### Import the provider
 
     ``` javascript
-    import { ThreeIdConnect,  <BlockchainAuthProvider> } from '3id-connect'
+    import { ThreeIdConnect,  <BlockchainAuthProvider> } from '@3id/connect'
     ```
 
     Example using an Ethereum wallet:
 
     ``` javascript
-    import { ThreeIdConnect,  EthereumAuthProvider } from '3id-connect'
+    import { ThreeIdConnect,  EthereumAuthProvider } from '@3id/connect'
     ```
 
     ??? info "Understanding `BlockchainAuthProvider`"
