@@ -19,10 +19,11 @@ Client | Description | Usage | Details |
 
 This installation guide will use a terminal, [Node.js](https://nodejs.org/en/){:target="_blank"} v14, and [npm](https://www.npmjs.com/get-npm){:target="_blank"} v6. Make sure to have these installed on your machine.
 
-You will also need to have the `node-pre-gyp` package installed globally for node.js:
+If by any chance you use npm v7, you will also need to have the `node-pre-gyp` package installed globally:
 ```bash
 npm install -g node-pre-gyp
 ```
+Note though, we do not support npm v7 out of the box.
 
 ## **Installation**
 Open your terminal and install a client using npm.
