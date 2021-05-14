@@ -23,6 +23,7 @@ If by any chance you use npm v7, you will also need to have the `node-pre-gyp` p
 ```bash
 npm install -g node-pre-gyp
 ```
+This is required till node-webrtc (which IPFS depends on) [is upgraded](https://github.com/node-webrtc/node-webrtc/pull/694).
 Note though, we do not support npm v7 out of the box.
 
 ## **Installation**
