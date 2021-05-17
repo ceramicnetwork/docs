@@ -79,8 +79,8 @@ Setup your client within your project.
     const ceramic = new CeramicClient(API_URL)
     ```
 
-    #### Provide a DID instance to the Ceramic client.
-    Ceramic instances need access to a DID instance to use to resolve DIDs and to create and validate cryptographic signatures on Ceramic commits. See the [Configure your DID](configure-did.md) page for more information on how to do this.
+    #### Authenticate your client to perform writes
+    Ceramic instances need access to a DID instance with a DID Provider to create cryptographic signatures on Ceramic commits. If you only intend to load streams you can skip this step. If you want to be able to create and update streams, however, you'll need to authenticate your client. See the [Authentication](authentication.md) page for more information on how to do this.
 
 === "Core"
 
@@ -124,6 +124,10 @@ Setup your client within your project.
 
     #### Provide a DID instance to the Ceramic client.
     Ceramic instances need access to a DID instance to use to resolve DIDs and to create and validate cryptographic signatures on Ceramic commits. See the [Configure your DID](configure-did.md) page for more information on how to do this.
+
+    #### Authenticate your client to perform writes
+    Ceramic clients need a DID Provider to create cryptographic signatures on Ceramic commits. If you only intend to load streams you can skip this step. If you want to be able to create and update streams, however, you'll need to authenticate your client. See the [Authentication](authentication.md) page for more information on how to do this.
+
 
 === "CLI"
 
