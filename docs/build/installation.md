@@ -15,6 +15,16 @@ Client | Description | Usage | Details |
 | Core | An API for running the entire Ceramic protocol in a local JavaScript environment, such as directly in-browser | Runtime | [Learn](../reference/javascript/clients.md) |
 | CLI | A command line interface for interacting with a Ceramic node | Development | [Learn](../reference/javascript/clients.md) |
 
+## **Prerequisites**
+
+This installation guide will use a terminal, [Node.js](https://nodejs.org/en/){:target="_blank"} v14, and [npm](https://www.npmjs.com/get-npm){:target="_blank"} v6. Make sure to have these installed on your machine.
+
+While npm v7 is not officially supported, you may be able to get it to work anyway, however you will need to have the `node-pre-gyp` package installed globally:
+```bash
+npm install -g node-pre-gyp
+```
+This is required until node-webrtc (which IPFS depends on) [is upgraded](https://github.com/node-webrtc/node-webrtc/pull/694).
+
 ## **Installation**
 Open your terminal and install a client using npm.
 
