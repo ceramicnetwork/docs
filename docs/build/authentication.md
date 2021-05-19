@@ -209,23 +209,15 @@ The authentication process varies depending on which wallet or provider you are 
     const provider = new Ed25519Provider(seed)
     ```
 
-## Ensure you have a DID instance
-If you are using the [core client](../../reference/javascript/clients/#core-client) then you should
-already have a DID installed in your client from following the instructions in the [Configure your DID](configure-did.md) page. If you are using the [http client](../../reference/javascript/clients/#http-client), however, then you will need to set up a DID instance for your client now.
-
-``` javascript
-import { DID } from 'dids'
-
-if (ceramic.did == undefined) {
-  ceramic.did = new DID()
-}
-```
-
 ## Set the Provider
 
 Set the Provider instance to the DID instance used by your Ceramic client in order to perform writes.
 ``` javascript
-ceramic.did.setProvider(provider)
+if (ceramic.did) {
+  ceramic.did.setProvider(provider)
+} else {
+  ceramic.did = new DID({ provider })
+}
 ```
 
 ## Authenticate the DID
