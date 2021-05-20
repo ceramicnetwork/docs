@@ -1,11 +1,5 @@
 # Configure your DID
-This guide will help you set up a DID instance to your Ceramic client so it can function properly. Ceramic [core clients](../../reference/javascript/clients/#core-client) require a DID instance and the DID Resolver(s) contained within to verify proper ownership of Ceramic streams by validating signatures on Ceramic Commits when loading a stream.
-
-!!! info "HTTP Client"
-    If you are using the [http client](../../reference/javascript/clients/#http-client) then you
-    do not need to set up a DID Resolver, and only need to set up a DID instance if you intend
-    to perform writes. If you are using the HTTP client you can skip this page and go straight
-    to the [authentication](authentication.md) section.
+This guide will help you set up a DID instance to your Ceramic client so it can function properly. Ceramic [core clients](../../reference/javascript/clients/#core-client) always require a DID instance and the DID Resolver(s) contained within to verify proper ownership of Ceramic streams by validating signatures on Ceramic Commits when loading a stream. Ceramic [http clients](../../reference/javascript/clients/#http-client) only require a DID instance if they will be used to perform [writes](writes.md) to streams.
 
 ## Prerequisites
 

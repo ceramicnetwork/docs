@@ -3,7 +3,7 @@ This guide will help you add user authentication to your project. Authentication
 
 ## Prerequisites
 
-Authentication requires having [installed a Ceramic client](installation.md) in your project.  If you are using the [core client](../../reference/javascript/clients/#core-client) then you should also have [configured a DID](configure-did.md) with the proper DID Resolvers.
+Authentication requires having [installed a Ceramic client](installation.md) in your project and having [configured a DID](configure-did.md) for that client with the proper DID Resolvers.
 
 ## Choose your setup
 
@@ -213,11 +213,7 @@ The authentication process varies depending on which wallet or provider you are 
 
 Set the Provider instance to the DID instance used by your Ceramic client in order to perform writes.
 ``` javascript
-if (ceramic.did) {
-  ceramic.did.setProvider(provider)
-} else {
-  ceramic.did = new DID({ provider })
-}
+ceramic.did.setProvider(provider)
 ```
 
 ## Authenticate the DID
