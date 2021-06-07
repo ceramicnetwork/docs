@@ -19,36 +19,17 @@ The Ceramic command line interface provides a way to spawn a Ceramic daemon and 
 
 > To install the CLI, see [Installation](../build/installation.md).
 
-### Ceramic Daemon
-The simplest way to run a Ceramic node is to run the `ceramic daemon` command in your console. This command starts a Ceramic node with a standard cofiguration in a few steps. First a properly configured IPFS instance is started, IPFS is then used to create an instance of Ceramic core. Once Ceramic core is running an HTTP server is started that serves the [Ceramic HTTP API](./reference/http-api.md). The node is now ready to accept requests from the local environment or remotely.
-
-By default the daemon runs a bundled IPFS instance. It's also possible to run a separate service for IPFS using the `@ceramicnetwork/ipfs-daemon` npm package. Regardless of how the IPFS instance is managed, if you want your node to be discoverable from the network, make sure the appropriate ports used by IPFS and the Ceramic HTTP API are publicly accessible (for example if you are behind a router you may need to set up port forwarding). Also be sure to add your node to the [peerlist](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json) by submitting a pull request (this is a temporary measure to enhance peer discovery since js-ipfs doesn't support DHT lookups yet).
-
 
 ## **HTTP Client**
 The Ceramic HTTP client is a lighter way of interacting with the Ceramic network. It connects to a remote Ceramic http endpoint to read and write data. This means that state validation happens in the remote node which the client trusts. Important to note however is the user's keys always live client side and all updates are authored on the client and then sent to the remote http endpoint to write the update to the network. The HTTP client also implements the *CeramicApi* so it can be used interchangeably with Core.
 
-The main consideration when using the Ceramic HTTP client is which remote Ceramic node to use. Options include running your own node, or using a node managed by some service provider.
+The main consideration when using the Ceramic HTTP client is which remote Ceramic node to use. Options include [running your own node](../run/nodes.md) or using a node managed by some hosting service.
 
 > To install the HTTP client, see [Installation](../build/installation.md).
 
 ### Self-hosted nodes
-To get started running your own node you can basically just run the `ceramic daemon` command. This will get you started with a simple node setup. When running a node in production there are a variety of factors to consider, but we won't go into details here. After starting your node it should be available on `http://localhost:7007`.
+To run your own node, see [Running a node](../run/nodes.md).
 
 ### Managed nodes
+The Ceramic community offers free hosted nodes for use during development. See [Community Nodes](../tools/hosted-nodes/community-nodes.md) for the HTTP endpoints of these nodes. In the future, there will be third-party services that offer commercial-grade nodes for development. Once available, you can find the list [here](../tools/hosted-nodes/node-providers.md).
 
-#### Community Gateways
-If you only want to read data from the network you can use the community gateway. This is a node hosted by 3Box Labs which has stream writes disabled.
-
-* `https://gateway.ceramic.network` - Gateway for mainnet
-* `https://gateway-clay.ceramic.network` - Gateway for Clay testnet
-
-#### Community Testnet Node
-3Box Labs provides a node that can be used to get started developing on the Clay testnet. This node will run the latest *release candidate* of the Ceramic protocol. The node will be periodically wiped, so don't rely on it for production data (you shouldn't anyway since it's a testnet).
-
-* `https://ceramic-clay.3boxlabs.com`
-
-
-#### Third-party node providers
-
-Submit a PR to this documentation page if you would like to be listed here.
