@@ -47,11 +47,10 @@ nav:
     - Writes: build/writes.md
     - Queries: build/queries.md
     - Pinning: build/pinning.md
-    - Node configuration: build/nodes.md
     - Share your work: build/share.md
     - Troubleshooting: build/troubleshooting.md
-  #- Run:
-    #- Ceramic node: run/ceramic-node.md
+  - Run:
+    - Running a node: run/nodes.md
     #- Anchor service: run/anchor-service.md
   - StreamTypes:
       - Overview: streamtypes/overview.md
