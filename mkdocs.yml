@@ -68,7 +68,6 @@ nav:
   - Authentication:
     - DID Wallets:
       - 3ID Connect: authentication/wallets/3id-connect.md
-      - 3Box Migration: authentication/wallets/3id-connect-migration.md
     - DID Methods:
       #- Overview: tools/standards/dids/overview.md
       - 3ID DID: authentication/dids/3id.md
