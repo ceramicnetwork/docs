@@ -1,5 +1,5 @@
 # Installation
-Install a Ceramic client to perform [writes](./writes.md) and [queries](./queries.md) on the network.
+Install a [Ceramic client](../learn/clients.md) to perform [writes](./writes.md) and [queries](./queries.md) on the network.
 
 !!! warning ""
     
@@ -7,13 +7,13 @@ Install a Ceramic client to perform [writes](./writes.md) and [queries](./querie
 
 
 ## **Clients**
-Ceramic is available in a variety of clients suited for different use cases. For optimal performance, it is recommended that you use the HTTP Client when building an application.
+Ceramic is available in a variety of clients suited for different use cases. For optimal performance, it is recommended that you use the HTTP Client when building an application. For a full overview of the available Ceramic clients and their tradeoffs, see [Clients](../learn/clients.md).
 
 Client | Description | Usage | Details |
 | ------ | ----- | ---- | --- |
-| HTTP | An API for interacting with a remote Ceramic daemon over HTTP | Runtime | [Learn](../reference/javascript/clients.md) |
-| Core | An API for running the entire Ceramic protocol in a JavaScript environment | Runtime | [Learn](../reference/javascript/clients.md) |
-| CLI | A command line interface for interacting with a Ceramic node, also used to spin up a Ceramic daemon | Development, Infrastructure | [Learn](../reference/javascript/clients.md) |
+| HTTP | An API for interacting with a remote Ceramic daemon over HTTP | Runtime | [Learn](../learn/clients.md/#http-client) |
+| Core | An API for running the entire Ceramic protocol in a JavaScript environment | Runtime | [Learn](../learn/clients.md/#core) |
+| CLI | A command line interface for interacting with a Ceramic node, also used to spin up a Ceramic daemon | Development, Infrastructure | [Learn](../learn/clients.md/#cli) |
 
 ## **Prerequisites**
 
