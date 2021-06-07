@@ -79,9 +79,9 @@ nav:
       - IDX: tools/identity/idx.md
       - IdentityLink: tools/identity/identitylink.md
       - Self.id: tools/identity/self-id.md
-    #- Hosting:
-      #- Community nodes: tools/hosting/community-nodes.md
-      #- Services: tools/hosting/services.md
+    - Hosted nodes:
+      - Community nodes: tools/hosted-nodes/community-nodes.md
+      #- Services: tools/hosted-nodes/services.md
   - Reference:
     - JavaScript:
       - Clients: reference/javascript/clients.md
