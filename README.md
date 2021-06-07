@@ -1,16 +1,16 @@
 ## Installation
 
-Install pip
+### Install pip
 
 > sudo apt-get install pip3
 
+Mac with Python3 and Homebrew
+
+> brew install python3
+
 Install mkdocs and related dependencies
 
-> pip3 install mkdocs
-
-> pip3 install mkdocs-material
-
-> pip3 install mkdocs-redirects
+> pip3 install mkdocs mkdocs-material mkdocs-redirects
 
 Build and run the docs server
 
