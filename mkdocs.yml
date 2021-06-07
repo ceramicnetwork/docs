@@ -81,7 +81,7 @@ nav:
       - Self.id: tools/identity/self-id.md
     - Hosted nodes:
       - Community nodes: tools/hosted-nodes/community-nodes.md
-      #- Services: tools/hosted-nodes/services.md
+      - Node Providers: tools/hosted-nodes/node-providers.md
   - Reference:
     - JavaScript:
       - Clients: reference/javascript/clients.md
