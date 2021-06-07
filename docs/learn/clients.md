@@ -23,7 +23,7 @@ The Ceramic command line interface provides a way to spawn a Ceramic daemon and 
 ## **HTTP Client**
 The Ceramic HTTP client is a lighter way of interacting with the Ceramic network. It connects to a remote Ceramic http endpoint to read and write data. This means that state validation happens in the remote node which the client trusts. Important to note however is the user's keys always live client side and all updates are authored on the client and then sent to the remote http endpoint to write the update to the network. The HTTP client also implements the *CeramicApi* so it can be used interchangeably with Core.
 
-The main consideration when using the Ceramic HTTP client is which remote Ceramic node to use. Options include [running your own node](../run/nodes.md) or using a node managed by some hosting service.
+The main consideration when using the Ceramic HTTP client is which remote Ceramic node to use. Options include [running your own node](../run/nodes.md) or using a node managed by some third-party hosting service.
 
 > To install the HTTP client, see [Installation](../build/installation.md).
 
