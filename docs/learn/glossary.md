@@ -32,7 +32,7 @@ A commitID is an immutable identifier for a specific [commit](#commits) in a [st
 State represents the state of a [stream](#streams) at various points in time. When a stream is loaded or queried from the [network](#networks), the current state is returned.
 
 ### Tip
-A tip is the most recent [commit](#commits) of a [stream](#streams).
+A tip is the [CID](#cid) for the most recent [commit(s)](#commits) of a [stream](#streams).
 
 ### Conflict resolution strategy
 A conflict resolution strategy is logic defined by a [StreamType](#streamtypes) that describes how the protocol should handle conflicting updates to a [stream](#streams) that uses this StreamType.
