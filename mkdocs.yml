@@ -32,13 +32,14 @@ nav:
   - Learn:
     - Welcome: learn/welcome.md
     - Overview: learn/overview.md
+    - Glossary: learn/glossary.md
     - Clients: learn/clients.md
-    - Blog: learn/blog.md
     #- Networks: learn/networks.md
+    - Blog: learn/blog.md
   - Explore:
     - Explorers: explore/explorers.md
-    - Sample apps: explore/sample-apps.md
     - Projects: explore/projects.md
+    - Sample apps: explore/sample-apps.md
   - Build:
     - Quick Start: build/quick-start.md
     - Installation: build/installation.md
