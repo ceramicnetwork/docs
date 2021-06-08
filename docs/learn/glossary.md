@@ -23,7 +23,7 @@ A genesis commit is the first [commit](#commit) in a [stream](#streams).
 Signed commits are [commits](#commits) that update the [state](#state) of a [stream](#streams).
 
 ### Anchor commit
-Anchor commits are [commits](#commits) that contain a blockchain timestamp, providing an immutable record of time and ordering to other commits in the [stream](#streams).
+Anchor commits are [commits](#commits) that contain a blockchain timestamp, providing an immutable record of time and ordering to other commits in the [stream](#streams), sometimes known as a *proof-of-publication*.
 
 ### CommitID
 A commitID is an immutable identifier for a specific [commit](#commits) in a [stream](#streams).
