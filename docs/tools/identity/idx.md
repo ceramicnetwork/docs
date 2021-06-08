@@ -23,7 +23,7 @@
 ## **Protocol design**
 Dive into the design and architecture of the IDX protocol, which is implemented by the IDX SDK.
 
-![Image that describes the architecture of IDX]()
+![Image that describes the architecture of IDX](../../images/idx-architecture.png)
 
 ### Index
 The index is a stream controlled by the user's DID which stores entries consisting of [definition](#definitions) (represented by a streamID) to [record](#records) (represented by a streamID) mappings. Every DID has only one global index and its entries represent the entire catalog of data that belongs to the user. An index is similar to a row in a user table, and enables the decentralized association and discovery of streams that belong to a user.
