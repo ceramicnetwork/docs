@@ -8,10 +8,10 @@ This page contains a glossary of terms for Ceramic. Consider this list a work-in
 Streams are DAG-based data structures for storing continuous, mutable streams of content on [IPFS](#ipfs) and tracking [state](#state) in a completely decentralized, peer-to-peer way. When syncing or loading a stream from the [network](#networks), you will always get back the current state.
 
 ### StreamID
-A StreamID is an immutable identifier for a [stream](#stream). StreamIDs enable continuous streams of data to be referenced by a persistent identifier instead of by constantly-changing IPFS [CIDs](#cid). 
+A StreamID is an immutable identifier for a [stream](#stream). StreamIDs enable continuous streams of data to be referenced by a persistent identifier instead of by constantly-changing IPFS [CIDs](#cid).
 
 ### StreamTypes
-StreamTypes are functions used for processing updates to [streams](#streams). StreamTypes handle everything from defining the data structure of the stream, to what can be stored in its [commits](#commits), its state transitition function, [authentication](#authentication) requirements, and [conflict resolution mechanism](#conflict-resolution-mechanism). Every stream must specify a StreamType; and StreamTypes run on Ceramic [nodes](#nodes). Ceramic comes [pre-installed with various StreamTypes](../streamtypes/overview.md), or you can code your own.
+StreamTypes are functions used for processing updates to [streams](#streams). StreamTypes handle everything from defining the data structure of the stream, to what can be stored in its [commits](#commits), its state transitition function, [authentication](#authentication) requirements, and [conflict resolution strategy](#conflict-resolution-strategy). Every stream must specify a StreamType; and StreamTypes run on Ceramic [nodes](#nodes). Ceramic comes [pre-installed with various StreamTypes](../streamtypes/overview.md), or you can code your own.
 
 ### Commits
 Commits are individual [IPFS](#ipfs) records that make up a [stream](#streams). Streams may contain one or more commits.
