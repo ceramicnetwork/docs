@@ -41,7 +41,7 @@ It's also possible to run a separate service for IPFS using the `@ceramicnetwork
 
 ### Expose ports
 
-If you want your node to be discoverable to the rest of the Ceramic Network, make sure the appropriate ports used by IPFS and the Ceramic HTTP API are publicly accessible. For example, if you are behind a router you may need to set up port forwarding. 
+If you want your node to be discoverable to the rest of the Ceramic Network, make sure the appropriate ports used by IPFS and the Ceramic HTTP API (by default this is port 7007) are publicly accessible. For example, if you are behind a router you may need to set up port forwarding. 
 
 ### Enable peer discovery
 
