@@ -68,7 +68,7 @@ Setup your client within your project.
     When using the HTTP API, you need to connect to a remote Ceramic node by passing its URL. For this, you have a few options:
     - [Free community nodes](../tools/hosted-nodes/community-nodes.md)
     - [Third-party hosting services](../tools/hosted-nodes/node-providers.md)
-    - [Run your own node](../run/nodes.md)
+    - [Host your own node](../run/nodes.md)
     - LocalHost: To use the HTTP Client with a Ceramic daemon running on your local machine, first follow the steps on this page for installing the CLI. Once the CLI is installed, you can pass `https://localhost:7007` to the HTTP client. Please note that this setup will allow you to read streams from other nodes connected on the Ceramic network, but writes to your local node will only be available on nodes found on the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json), but will not be available to other nodes on the network.
 
     #### Create an instance
@@ -148,7 +148,7 @@ Setup your client within your project.
     When using the CLI with a remote node, you have a few options:
     - [Free community nodes](../tools/hosted-nodes/community-nodes.md)
     - [Third-party hosting services](../tools/hosted-nodes/node-providers.md)
-    - [Run your own node](../run/nodes.md)
+    - [Host your own node](../run/nodes.md)
 
 </br>
 </br>
