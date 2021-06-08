@@ -99,13 +99,15 @@ Dev Unstable is a Ceramic [network](#networks) used by Ceramic core protocol dev
 [IPFS](https://ipfs.io) is the Interplanetary File System. Simply put, IPFS is a way to address static content using [CIDs](#cid) and to discover this content over a peer-to-peer network of nodes. Ceramic relies on IPFS for storing the [commits](#commits) that make up [streams](#streams) and discovering this data over the [network](#networks).
 
 ### CID
-A CID (content identifier) is an immutable identifier for a discrete piece of static content stored on [IPFS](#ipfs). CIDs are essentially a hash of the content along with metadata that describes how the content is encoded. Ceramic [streams](#streams) consist of multiple CIDs, encoded using [dag-jose](#dag-jose), and linked together using [IPLD](#ipld).
+A CID (content identifier) is an immutable identifier for a discrete piece of static content stored on [IPFS](#ipfs). CIDs are essentially a hash of the content along with metadata that describes how the content is encoded. Ceramic [streams](#streams) consist of multiple CIDs, encoded using [dag-jose](#dag-jose) (and other formats such as DagCBOR), and linked together using [IPLD](#ipld).
 
 ### IPLD
 [IPLD](https://ipld.io) (Interplanetary Linked Data) is the data structures layer of [IPFS](#ipfs). It is used to link multiple [CIDs](#cid) together into higher-level linked-data structures. Ceramic uses IPLD to create the data structures for [streams](#streams).
 
 ### DagJOSE
 Dag-Jose is a codec for [IPLD](#ipld) which stores content in [IPFS](#ipfs) using IETF's JOSE (JSON object signing and encryption) format. Each dag-jose object is actually two [IPLD](#ipld) objects: one to store the metadata and one to store the payload. This makes it safe for encryption without leaking unnecessary metadata.
+
+[DagJOSE](https://specs.ipld.io/block-layer/codecs/dag-jose.html) is a codec for [IPLD](#ipld) which stores content in [IPFS](#ipfs) using IETF's JOSE (JSON object signing and encryption) format.  It supports both *signed* and *encrypted* objects. JWS is used for *signed* objects and it encodes the payload as a [CID](#cid), which means that the actual payload is a separate [IPLD](#ipld) object. JWE is used for *encrypted* objects, and it requires the ciphertext to be a CID in order to not leak the full cleartext. A separate *inline CID* is used to encode the entire cleartext. For more information refer to the [DagJOSE spec](https://specs.ipld.io/block-layer/codecs/dag-jose.html).
 
 ### Libp2p
 [Libp2p](https://libp2p.io) is the peer-to-peer networking protocol that is used by Ceramic. It is included as part of the [IPFS](#ipfs) stack. Ceramic relies on libp2p for discovering data over the [network](#networks) and communicating between [nodes](#nodes). Libp2p is also used by other major decentralized platforms such as [Ethereum (Eth2)](#ethereum) and Polkadot.
