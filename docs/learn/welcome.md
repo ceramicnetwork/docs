@@ -4,13 +4,17 @@ Welcome to the [Ceramic](https://ceramic.network){:target="_blank"} developer si
 
 ## **Learn**
 
-[**Overview**](./overview.md): Learn about Ceramic's decentralized content computation protocol
+[**Overview**](./overview.md): Learn about Ceramic's decentralized data streaming platform
 
-## **Try**
+[**Glossary**](./glossary.md): A glossary of important terms and core concepts
 
-[**Playground**](https://playground.ceramic.dev){:target="_blank"}: A demo application that uses Ceramic with [3ID Connect](../tools/authentication/3id-connect.md) and [IDX](../tools/identity/idx.md) in a web browser
+## **Explore**
 
-[**Tiles**](https://tiles.ceramic.community){:target="_blank"}: A Ceramic network explorer
+[**Explorers**](../explore/explorers.md): Discover and inspect streams on the Ceramic network
+
+[**Projects**](../explore/projects.md): Browse community projects built on Ceramic
+
+[**Sample Apps**](../explore/sample-apps.md): Try Ceramic using a demo or sample application
 
 ## **Build**
 
@@ -20,17 +24,15 @@ Welcome to the [Ceramic](https://ceramic.network){:target="_blank"} developer si
 
 ## **Standards and tools**
 
-[**StreamTypes**](../streamtypes/tile-document/overview.md): Various StreamTypes developed by the community
-
-[**Schemas**](../streamtypes/tile-document/schemas/basic-profile.md): Useful data models to help you get started
+[**StreamTypes**](../streamtypes/overview.md): Various StreamTypes developed by the community
 
 [**DIDs**](../authentication/dids/3id.md): DID methods that can be used for authentication
 
 [**IDX**](../tools/identity/idx.md): A protocol and framework for identity-centric data management
 
-[**IdentityLink**](../tools/identity/identitylink.md): A service that issues verifiable claims which link a DID to various Web2 social accounts
+[**IdentityLink**](../tools/identity/identitylink.md): A hosted service that issues verifiable claims which prove a DID owns various Web2 social accounts
 
-[**3ID Connect**](../authentication/wallets/3id-connect.md): An SDK that allows users to authenticate their DID with various blockchain wallets
+[**3ID Connect**](../authentication/wallets/3id-connect.md): An authentication SDK that allows users to control their DID with various blockchain wallets
 
 
 ## **Community**
@@ -40,6 +42,8 @@ Join the [**Discord**](https://chat.ceramic.network){:target="_blank"} to ask qu
 Follow us on [**Twitter**](https://twitter.com/ceramicnetwork){:target="_blank"} for updates
 
 Read the [**blog**](https://blog.ceramic.network){:target="_blank"} for news, announcements, and tutorials
+
+Watch the [**Youtube channel**](https://www.youtube.com/channel/UCgCLq5dx7sX-yUrrEbtYqVw){:target="_blank"} for videos and presentations
 
 </br>
 </br>
