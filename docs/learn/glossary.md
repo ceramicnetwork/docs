@@ -104,7 +104,7 @@ A CID (content identifier) is an immutable identifier for a discrete piece of st
 ### IPLD
 [IPLD](https://ipld.io) (Interplanetary Linked Data) is the data structures layer of [IPFS](#ipfs). It is used to link multiple [CIDs](#cid) together into higher-level linked-data structures. Ceramic uses IPLD to create the data structures for [streams](#streams).
 
-### Dag-Jose
+### DagJOSE
 Dag-Jose is a codec for [IPLD](#ipld) which stores content in [IPFS](#ipfs) using IETF's JOSE (JSON object signing and encryption) format. Each dag-jose object is actually two [IPLD](#ipld) objects: one to store the metadata and one to store the payload. This makes it safe for encryption without leaking unnecessary metadata.
 
 ### Libp2p
