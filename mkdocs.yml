@@ -32,8 +32,8 @@ nav:
   - Learn:
     - Welcome: learn/welcome.md
     - Overview: learn/overview.md
+    - Clients: learn/clients.md
     - Blog: learn/blog.md
-    #- Clients: learn/clients.md
     #- Networks: learn/networks.md
   - Try:
     - Explorers: try/explorers.md
@@ -47,11 +47,10 @@ nav:
     - Writes: build/writes.md
     - Queries: build/queries.md
     - Pinning: build/pinning.md
-    - Node configuration: build/nodes.md
     - Share your work: build/share.md
     - Troubleshooting: build/troubleshooting.md
-  #- Run:
-    #- Ceramic node: run/ceramic-node.md
+  - Run:
+    - Running a node: run/nodes.md
     #- Anchor service: run/anchor-service.md
   - StreamTypes:
       - Overview: streamtypes/overview.md
@@ -80,9 +79,9 @@ nav:
       - IDX: tools/identity/idx.md
       - IdentityLink: tools/identity/identitylink.md
       - Self.id: tools/identity/self-id.md
-    #- Hosting:
-      #- Community nodes: tools/hosting/community-nodes.md
-      #- Services: tools/hosting/services.md
+    - Hosted nodes:
+      - Community nodes: tools/hosted-nodes/community-nodes.md
+      - Node Providers: tools/hosted-nodes/node-providers.md
   - Reference:
     - JavaScript:
       - Clients: reference/javascript/clients.md

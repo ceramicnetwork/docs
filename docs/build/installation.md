@@ -1,5 +1,5 @@
 # Installation
-Install a Ceramic client to perform [writes](./writes.md) and [queries](./queries.md) on the network.
+Install a [Ceramic client](../learn/clients.md) to perform [writes](./writes.md) and [queries](./queries.md) on the network.
 
 !!! warning ""
     
@@ -7,13 +7,13 @@ Install a Ceramic client to perform [writes](./writes.md) and [queries](./querie
 
 
 ## **Clients**
-Ceramic is available in a variety of clients suited for different use cases. For optimal performance, it is recommended that you use the HTTP Client when building an application.
+Ceramic is available in a variety of clients suited for different use cases. For optimal performance and data availability, it is recommended that you use the HTTP Client when building an application. For a full overview of the available Ceramic clients and their tradeoffs, see [Clients](../learn/clients.md).
 
 Client | Description | Usage | Details |
 | ------ | ----- | ---- | --- |
-| HTTP | An API for interacting with a remote Ceramic daemon over HTTP | Runtime | [Learn](../reference/javascript/clients.md) |
-| Core | An API for running the entire Ceramic protocol in a JavaScript environment | Runtime | [Learn](../reference/javascript/clients.md) |
-| CLI | A command line interface for interacting with a Ceramic node, also used to spin up a Ceramic daemon | Development, Infrastructure | [Learn](../reference/javascript/clients.md) |
+| HTTP | An API for interacting with a remote Ceramic daemon over HTTP | Runtime | [Learn](../learn/clients.md/#http-client) |
+| Core | An API for running the entire Ceramic protocol in a JavaScript environment | Runtime | [Learn](../learn/clients.md/#core) |
+| CLI | A command line interface for interacting with a Ceramic node, also used to spin up a Ceramic daemon | Development, Infrastructure | [Learn](../learn/clients.md/#cli) |
 
 ## **Prerequisites**
 
@@ -65,13 +65,11 @@ Setup your client within your project.
     const API_URL = "http://yourceramicnode.com"
     ```
     
-    !!! info "Node options"
-        When using the HTTP API, you need to connect to a remote Ceramic node by passing its URL. Here are your options for nodes that run on the Clay testnet. Choose the option that best suits your use case:
-        
-        - Community gateway `https://gateway-clay.ceramic.network`: Provides read-only access to the Clay testnet. (recommended)
-        - Community dev node `https://ceramic-clay.3boxlabs.com`: Provides write and read access to the Clay testnet. This node is occasionally wiped and does not guarantee document persistence. (recommended)
-        - Run your own node `https://yourEndpoint.com`: Provides write and read access to the Clay testnet. Running your own node allows you to persist documents and have full control, however this is process is not yet well documented. If you choose to run your own node, be sure to add your node to the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json) by submitting a pull request. This allows other nodes to discover your node.
-        - LocalHost `https://localhost:7007`: Provides read access to the Clay testnet. Writes made to this local node will only be available to nodes in the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json), but will not be available to other nodes on the network. Users need to first have a Ceramic daemon running locally using the CLI.
+    When using the HTTP API, you need to connect to a remote Ceramic node by passing its URL. For this, you have a few options:
+    - [Free community nodes](../tools/hosted-nodes/community-nodes.md)
+    - [Third-party hosting services](../tools/hosted-nodes/node-providers.md)
+    - [Host your own node](../run/nodes.md)
+    - *localhost*: To use the HTTP Client with a Ceramic daemon running on your local machine, first follow the steps on this page for installing the CLI. Once the CLI is installed, you can pass `https://localhost:7007` to the HTTP client. Please note that this setup will allow you to read streams from other nodes connected on the Ceramic network, but writes to your local node will only be available on nodes found on the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json), but will not be available to other nodes on the network (this is a limitation with js-ipfs and will be fixed in the future).
 
     #### Create an instance
 
@@ -132,26 +130,25 @@ Setup your client within your project.
 === "CLI"
 
     #### Start the Ceramic daemon
-    This commands starts a local Ceramic node.
+    This commands starts a local Ceramic node at `https://localhost:7007`. 
 
     ```bash
     $ ceramic daemon
     ```
+    
+    Please note that this setup allows you to read streams from other nodes connected on the Ceramic network, but writes to your local node will only be available on your local node and on nodes found on the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json), but will not be available to every node on the network. For greater connectivity, connect your CLI to a long-lived remote Ceramic node.
 
     #### Connect to a remote Ceramic node
-    By default the Ceramic CLI communicates with the local node that you started with the `ceramic daemon` command. However, it is possible to use the CLI to communicate with a remote node. To do this, use the `config set` command to set the `ceramicHost` variable to the URL of the node you wish to use.
+    It is possible to use the CLI with a remote Ceramic node. To do this, use the `config set` command to set the `ceramicHost` variable to the URL of the node you wish to use.
 
     ```bash
     $ ceramic config set ceramicHost 'https://yourceramicnode.com'
     ```
-
-    !!! info "Node options"
-        When using the CLI, you need to connect to a remote Ceramic node by passing its URL. Here are your options for nodes that run on the Clay testnet. Choose the option that best suits your use case:
-        
-        - LocalHost `https://localhost:7007`: Enabled by default in the CLI. Provides read access to the Clay testnet. Writes made to this local node will only be available to nodes in the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json), but will not be available to other nodes on the network.
-        - Community gateway `https://gateway-clay.ceramic.network`: Provides read-only access to the Clay testnet.
-        - Community dev node `https://ceramic-clay.3boxlabs.com`: Provides write and read access to the Clay testnet. This node is occasionally wiped and does not guarantee document persistence. (recommended)
-        - Run your own node `https://yourEndpoint.com`: Provides write and read access to the Clay testnet. Running your own node allows you to persist documents and have full control, however this is process is not yet well documented. If you choose to run your own node, be sure to add your node to the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json) by submitting a pull request. This allows other nodes to discover your node.
+    
+    When using the CLI with a remote node, you have a few options:
+    - [Free community nodes](../tools/hosted-nodes/community-nodes.md)
+    - [Third-party hosting services](../tools/hosted-nodes/node-providers.md)
+    - [Host your own node](../run/nodes.md)
 
 </br>
 </br>
