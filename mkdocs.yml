@@ -35,10 +35,10 @@ nav:
     - Clients: learn/clients.md
     - Blog: learn/blog.md
     #- Networks: learn/networks.md
-  - Try:
-    - Explorers: try/explorers.md
-    - Demos: try/sample-apps.md
-    - Projects: try/projects.md
+  - Explore:
+    - Explorers: explore/explorers.md
+    - Sample apps: explore/sample-apps.md
+    - Projects: explore/projects.md
   - Build:
     - Quick Start: build/quick-start.md
     - Installation: build/installation.md
@@ -132,4 +132,7 @@ plugins:
     - redirects:
         redirect_maps:
             'index.md': 'learn/welcome.md'
+            'try/explorers.md': 'explore/explorers.md'
+            'try/sample-apps.md': 'explore/sample-apps.md'
+            'try/projects.md': 'explore/projects.md'
     - search
