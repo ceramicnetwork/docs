@@ -87,10 +87,10 @@ Networks are collections of Ceramic [nodes](#nodes) that share specific configur
 Mainnet is the Ceramic [network](#networks) used for production deployments. For more information on mainnet, see the Networks page.
 
 ### Clay Testnet
-Clay Testnet is a Ceramic [network](#networks) used for community testing and development purposes. For more information on Clay Testnet, see the Networks page.
+Clay Testnet is a Ceramic [network](#networks) used by the community for application prototyping, development, and testing purposes. Ceramic core devs also use Clay for testing official protocol release candidates. For more information on Clay Testnet, see the Networks page.
 
 ### Dev Unstable
-Dev Unstable is a Ceramic [network](#networks) used by Ceramic core protocol developers for testing new protocol features and release candidates. It should be considered unstable and highly experimental.
+Dev Unstable is a Ceramic [network](#networks) used by Ceramic core protocol developers for testing new protocol features and the most recent commits on the `develop` branch of js-ceramic. It should be considered unstable and highly experimental.
 
 
 ## Underlying technologies
