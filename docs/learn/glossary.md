@@ -54,7 +54,7 @@ DIDs is the [W3C standard](https://www.w3.org/TR/did-core/) for decentralized id
 DID methods are implementations of the [DID](#dids) specification. DID methods must specify a name for the method in the form of a string (see below), a description of where the [DID document](#did-document) is stored (or how it is statically generated), and a [DID resolver](#did-resolver) which can return a DID document given a URI that conforms to that particular DID method. There are over 40 DID methods on the W3C's official DID registry. Ceramic can support any DID method if needed, and currently supports the [3ID DID method](../authentication/dids/3id.md) and the [Key DID method](../authentication/dids/key.md). DID URIs look like this:
 
 ```
-did:<method-name>:<randomstring>
+did:<method-name>:<method-specific-identifier>
 ```
 
 ### DID document
