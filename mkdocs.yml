@@ -34,8 +34,8 @@ nav:
     - Overview: learn/overview.md
     - Glossary: learn/glossary.md
     - Clients: learn/clients.md
+    - Networks: learn/networks.md
     - Data availability: learn/data-availability.md
-    #- Networks: learn/networks.md
     - Blog: learn/blog.md
   - Explore:
     - Explorers: explore/explorers.md
