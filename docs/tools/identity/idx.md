@@ -1,11 +1,11 @@
 # IDX
-[IDX](https://developers.idx.xyz) is a decentralized identity protocol and JavaScript SDK that provides APIs which make it easy for developers to build applications with user-controlled [streams](../learn/glossary.md#streams) for storing data, as well as to discover and make use of user data created on third-party applications. Building with IDX allows users to control their identities and data in a manner independent from any single application, while allowing developers to build data-rich applications without the liability of custodying user data on a centralized server or the poor user experience of forcing users to recreate the same data on every application.
+[IDX](https://developers.idx.xyz){:target="_blank"} is a decentralized identity protocol and JavaScript SDK that provides APIs which make it easy for developers to build applications with user-controlled [streams](../../learn/glossary.md#streams) for storing data, as well as to discover and make use of user data created on third-party applications. Building with IDX allows users to control their identities and data in a manner independent from any single application, while allowing developers to build data-rich applications without the liability of custodying user data on a centralized server or the poor user experience of forcing users to recreate the same data on every application.
 
 > This page mentions that IDX is intended for storing "user" data as that is its primary use case. However IDX can be used for storing data for other types of subjects represented by DIDs such as businesses, organizations, applications, assets (NFTs), or devices (IoT).
 
 ## **Features**
 
-**DID-compatibility**: IDX does not provide [DIDs](../../learn/glossary.md#dids), but relies on them for decentralized, platform-agnostic identifiers. IDX can work with any DID method that is supported in Ceramic. Various DID methods, such as 3ID, support linking to and authenticating with many different blockchain accounts. This allows DIDs to serve as a universal, cross-chain and platform-agnostic identifier for users.
+**DID-compatibility**: IDX does not provide [DIDs](../../learn/glossary.md#dids), but relies on them for decentralized, platform-agnostic identifiers. IDX can work with any DID method that is supported in Ceramic. Various DID methods, such as [3ID](../authentication/dids/3id.md), support linking to and authenticating with many different blockchain accounts (see [3ID Keychain (CIP-20)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-20/CIP-20.md){:target="_blank"}). This allows DIDs to serve as a universal, cross-chain and platform-agnostic identifier for users.
 
 **Stream-based storage**: Store data for your users or your application in user-controlled streams on Ceramic. Data in streams can be stored in cleartext or encrypted. IDX-created streams enjoy all the benefits of mutability, persistence, replication, and availability provided by the Ceramic network.
 
@@ -17,7 +17,7 @@
 
 **Standard interfaces**: IDX provides standardized read/write APIs for interacting with all data so applications aren't ever forced to integrate one-off APIs.
 
-**Built on open standards**: IDX builds on open standards for decentralized identity shepherded by the Ceramic community via CIPs, and other related identity communities such as [W3C]() and the [Decentralized Identity Foundation (DIF)]().
+**Built on open standards**: IDX builds on open standards for decentralized identity shepherded by the Ceramic community via CIPs, and other related identity communities such as [W3C](https://www.w3.org/){:target="_blank"} and the [Decentralized Identity Foundation (DIF)](https://identity.foundation/){:target="_blank"}.
 
 
 ## **Protocol design**
@@ -26,7 +26,7 @@ Dive into the design and architecture of the IDX protocol, which is implemented 
 ![Image that describes the architecture of IDX]()
 
 ### Index
-The index is a stream controlled by the user's DID which stores entries consisting of definition (represented by a streamID) to record (represented by a streamID) mappings. Every DID has only one global index and its entries represent the entire catalog of data that belongs to the user. An index is similar to a row in a user table, and enables the decentralized association and discovery of streams that belong to a user.
+The index is a stream controlled by the user's DID which stores entries consisting of [definition](#definitions) (represented by a streamID) to [record](#records) (represented by a streamID) mappings. Every DID has only one global index and its entries represent the entire catalog of data that belongs to the user. An index is similar to a row in a user table, and enables the decentralized association and discovery of streams that belong to a user.
 
 Example:
 
@@ -40,7 +40,7 @@ Example:
 ```
 
 ### Definitions
-Definitions are streams created by application developers that store metadata which describes the stream used for data storage. Definitions allow records to be semantically described and queried using their metadata or schema and are similar to a column in a user table. The streamID of the definition is a key in the index.
+Definitions are streams created by application developers that store metadata which describes the stream used for data storage. Definitions allow records to be semantically described and queried using their metadata or [schema](#schemas) and are similar to a column in a user table. The streamID of the definition is a key in the [index](#index).
 
 Example:
 
@@ -53,10 +53,10 @@ Example:
 ```
 
 ### Schemas
-Schemas are streams created by application developers that store a JSON schema. They specify the data schema of a record. Schemas are identified by the streamID of the stream that stores the schema, which is included in the definition as seen above.
+Schemas are streams created by application developers that store a JSON schema. They specify the data schema of a [record](#records). Schemas are identified by the streamID of the stream that stores the schema, which is included in the [definition](#definitions) as seen above.
 
 ### Records
-Records are streams that store information for a DID. They can directly store content, or they can store foreign key references to external datastores outside of Ceramic. A record is similar to a cell in a user table. The streamID of the record is a value in the index.
+Records are streams that store information for a DID. They can directly store content, or they can store foreign key references to external datastores outside of Ceramic. A record is similar to a cell in a user table. The streamID of the record is a value in the [index](#index).
 
 Example:
 
@@ -72,7 +72,7 @@ Example:
 
 ### Storing data with IDX
 1. Application developer creates stream that contains a JSON schema.
-2. Application developer creates a stream that contains a definition and includes the [StreamID](../../learn) of the stream containing the schema.
+2. Application developer creates a stream that contains a definition and includes the StreamID of the stream containing the schema.
 3. User creates a record (a stream) that conforms to the definition as they interact with an application.
 4. IDX automatically adds the definition streamID and the record streamID as an entry in the user's index.
 
@@ -83,26 +83,27 @@ Example:
 
 ## **Sample Use Cases**
 
-**Authentication secrets**: [3ID Connect]() uses IDX to create a DID-controlled stream which stores encrypted authentication secrets that allows the 3ID DID to be authenticated with various blockchain wallets. To achieve this, the 3ID Connect team has created the [3ID Keychain definition (CIP-XX)]().
+**Authentication secrets**: [3ID Connect](../authentication/wallets/3id-connect.md) uses IDX to create a DID-controlled stream which stores encrypted authentication secrets that allows a [3ID DID](../authentication/dids/3id.md) to be authenticated with various blockchain wallets. To achieve this, the 3ID Connect team has created the [3ID Keychain definition (CIP-20)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-20/CIP-20.md){:target="_blank"}.
 
-**Profile information**: [DNS.xyz]() uses IDX to create a DID-controlled stream which stores basic profile information for the DID. To achieve this, the DNS.xyz team uses the [Basic Profile definition (CIP-XX)]().
+**Profile information**: [DNS.xyz](https://dns.xyz){:target="_blank"} uses IDX to create a DID-controlled stream which stores basic profile information for the DID. To achieve this, the DNS.xyz team uses the [Basic Profile definition (CIP-19)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-19/CIP-19.md){:target="_blank"}.
 
-**Web2 social account links**: [Self.ID]() uses IDX to create a DID-controlled stream which stores a list of Web2 accounts controlled by the same user that owns the DID, along with verifiable claims which prove this ownership. To achieve this, the Self.ID team has created the [Also Known As (AKA) definition (CIP-XX)]().
+**Web2 social account links**: [Self.ID](https://self.id){:target="_blank"} uses IDX to create a DID-controlled stream which stores a list of Web2 accounts controlled by the same user that owns the DID, along with verifiable claims which prove this ownership. To achieve this, the Self.ID team has created the [Also Known As (AKA) definition (CIP-23)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-23/CIP-23.md){:target="_blank"}.
 
-**Web3 Crypto account links**: [3ID Connect]() uses IDX to create a DID-controlled stream which stores a list of streamIDs for CAIP10Links that publicly prove the owner of this DID also owns various accounts on Web3/blockchain platforms. To achieve this, the 3ID Connect team has created the [Crypto Accounts definition (CIP-XX)]().
+**Web3 Crypto account links**: [3ID Connect](../authentication/wallets/3id-connect.md) uses IDX to create a DID-controlled stream which stores a list of streamIDs for CAIP10Links that publicly prove the owner of this DID also owns various accounts on Web3/blockchain platforms. To achieve this, the 3ID Connect team has created the [Crypto Accounts definition (CIP-21)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-21/CIP-21.md){:target="_blank"}.
 
 ## **Implementations**
 IDX is available as a JavaScript client library.
 
 ## **Usage**
 
-Visit the [**IDX documentation**](https://developers.idx.xyz) to install and use IDX in your project.
+Visit the [**IDX documentation**](https://developers.idx.xyz){:target="_blank"} to install and use IDX in your project.
 
-## Learn more
+## **Learn more**
 
-- [Website](https://idx.xyz)
-- [Documentation](https://developers.idx.xyz)
-- [Discord community](https://chat.idx.xyz)
+- [Website](https://idx.xyz){:target="_blank"}
+- [Documentation](https://developers.idx.xyz){:target="_blank"}
+- [Full Identity Index (IDX) protocol specification (CIP-11)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-11/CIP-11.md){:target="_blank"}
+- [Discord community](https://chat.idx.xyz){:target="_blank"}
 
 </br>
 </br>
