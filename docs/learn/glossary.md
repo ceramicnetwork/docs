@@ -108,7 +108,7 @@ A CID (content identifier) is an immutable identifier for a discrete piece of st
 Dag-Jose is a codec for [IPLD](#ipld) which stores content in [IPFS](#ipfs) using IETF's JOSE (JSON object signing and encryption) format. Each dag-jose object is actually two [IPLD](#ipld) objects: one to store the metadata and one to store the payload. This makes it safe for encryption without leaking unnecessary metadata.
 
 ### Libp2p
-[Libp2p](https://libp2p.io) is the peer-to-peer networking protocol that is used by Ceramic. It is included as part of the [IPFS](#ipfs) stack. Ceramic relies on libp2p for discovering data over the [network](#networks) and communicating between [nodes](#nodes).
+[Libp2p](https://libp2p.io) is the peer-to-peer networking protocol that is used by Ceramic. It is included as part of the [IPFS](#ipfs) stack. Ceramic relies on libp2p for discovering data over the [network](#networks) and communicating between [nodes](#nodes). Libp2p is also used by other major decentralized platforms such as [Ethereum (Eth2)](#ethereum) and Polkadot.
 
 ### Ethereum
-[Ethereum](https://ethereum.org) is the world's most leading public, permissionless smart contract blockchain platform. Ceramic uses Ethereum for generating the timestamps contained within [anchor commits](#anchor-commit).
+[Ethereum](https://ethereum.org) is the world's leading public, permissionless smart contract blockchain platform. Ceramic uses Ethereum for generating the timestamps contained within [anchor commits](#anchor-commit).
