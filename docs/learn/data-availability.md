@@ -32,4 +32,4 @@ State caching works the same as commit caching.
 State pinning works the same as commit pinning, except state pinning does not occur on IPFS. State pinning simply occurs in a database internal to the Ceramic node.
 
 ### Archiving
-Ceramic is working on a durable, decentralized state store which will be used to persist and guarantee availability for the state of streams. This is on the roadmap. It's not critical to the immediate use of Ceramic, but will serve to make state more resilient and available.
+Ceramic is working on a durable, decentralized state store which will be used to persist and guarantee availability for the state of streams. This is on the roadmap. It's not critical to the immediate use of Ceramic, but will serve to make state more resilient and available. In the meantime, Ceramic supports archiving state to Amazon S3, for an option with more durability and reliability than the local database used by default.
