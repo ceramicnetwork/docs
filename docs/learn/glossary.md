@@ -17,10 +17,10 @@ StreamTypes are functions used for processing updates to [streams](#streams). St
 Commits are individual [IPFS](#ipfs) records that make up a [stream](#streams). Streams may contain one or more commits.
 
 ### Genesis commit
-A genesis commit is the first [commit](#commit) in a [stream](#streams).
+A genesis commit is the first [commit](#commit) in a [stream](#streams). Genesis commits may be signed by a public key, or unsigned.
 
 ### Signed commit
-Signed commits are [commits](#commits) that update the [state](#state) of a [stream](#streams).
+Signed commits are [commits](#commits) that update the [state](#state) of a [stream](#streams). All signed commits need to be cryptographically signed by a public key.
 
 ### Anchor commit
 Anchor commits are [commits](#commits) that contain a blockchain timestamp, providing an immutable record of time and ordering to other commits in the [stream](#streams), sometimes known as a *proof-of-publication*.
