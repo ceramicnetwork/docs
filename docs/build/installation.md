@@ -69,7 +69,7 @@ Setup your client within your project.
     - [Free community nodes](../tools/hosted-nodes/community-nodes.md)
     - [Third-party hosting services](../tools/hosted-nodes/node-providers.md)
     - [Host your own node](../run/nodes.md)
-    - LocalHost: To use the HTTP Client with a Ceramic daemon running on your local machine, first follow the steps on this page for installing the CLI. Once the CLI is installed, you can pass `https://localhost:7007` to the HTTP client. Please note that this setup will allow you to read streams from other nodes connected on the Ceramic network, but writes to your local node will only be available on nodes found on the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json), but will not be available to other nodes on the network.
+    - *localhost*: To use the HTTP Client with a Ceramic daemon running on your local machine, first follow the steps on this page for installing the CLI. Once the CLI is installed, you can pass `https://localhost:7007` to the HTTP client. Please note that this setup will allow you to read streams from other nodes connected on the Ceramic network, but writes to your local node will only be available on nodes found on the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json), but will not be available to other nodes on the network (this is a limitation with js-ipfs and will be fixed in the future).
 
     #### Create an instance
 
