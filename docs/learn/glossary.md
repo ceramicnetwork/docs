@@ -99,7 +99,7 @@ Dev Unstable is a Ceramic [network](#networks) used by Ceramic core protocol dev
 [IPFS](https://ipfs.io) is the Interplanetary File System. Simply put, IPFS is a way to address static content using [CIDs](#cid) and to discover this content over a peer-to-peer network of nodes. Ceramic relies on IPFS for storing the [commits](#commits) that make up [streams](#streams) and discovering this data over the [network](#networks).
 
 ### CID
-A CID (content identifier) is an immutable identifier for a discrete piece of static content stored on [IPFS](#ipfs). CIDs are essentially a hash of the content along with metadata that describes how the content is encoded. Ceramic [streams](#streams) consist of multiple CIDs, encoded using [dag-jose](#dagjose) (and other formats such as DagCBOR), and linked together using [IPLD](#ipld).
+A CID (content identifier) is an immutable identifier for a discrete piece of static content stored on [IPFS](#ipfs). CIDs are essentially a hash of the content along with metadata that describes how the content is encoded. Ceramic [streams](#streams) consist of multiple CIDs, encoded using [dag-jose](#dagjose) (and other formats such as dag-cbor), and linked together using [IPLD](#ipld).
 
 ### IPLD
 [IPLD](https://ipld.io) (Interplanetary Linked Data) is the data structures layer of [IPFS](#ipfs). It is used to link multiple [CIDs](#cid) together into higher-level linked-data structures. Ceramic uses IPLD to create the data structures for [streams](#streams).
