@@ -5,59 +5,69 @@ This page contains a glossary of terms for Ceramic. Consider this list a work-in
 ## Core concepts
 
 ### Streams
-Streams are DAG-based data structures for storing stateful, mutable content on [IPFS](). Streams provide dynamic data objects that allow you to store, edit, add, and update information.
+Streams are DAG-based data structures for storing continuous, mutable streams of content on [IPFS](#ipfs) and tracking [state](#state) in a completely decentralized, peer-to-peer way. When syncing or loading a stream from the [network](#networks), you will always get back the current state.
 
 ### StreamID
-A StreamID is an immutable identifier for a [stream](). StreamIDs enable streams of data to be referenced by a persistent identifier instead of by constantly-changing IPFS hashes (CIDs). When syncing or loading a StreamID from the Ceramic network, you will always get back the most current version.
+A StreamID is an immutable identifier for a [stream](#stream). StreamIDs enable continuous streams of data to be referenced by a persistent identifier instead of by constantly-changing IPFS [CIDs](#cid). 
 
 ### StreamTypes
-StreamTypes are functions that are used to process updates to [streams](). StreamTypes handle everything from defining the data structure of the stream, to what can be stored in its commits, its state transitition function, [authentication]() requirements, and [conflict resolution mechanism](). Every stream must specify a StreamType. StreamTypes run on Ceramic nodes. Ceramic comes [pre-installed with various StreamTypes](), or you can code your own.
+StreamTypes are functions used for processing updates to [streams](#streams). StreamTypes handle everything from defining the data structure of the stream, to what can be stored in its [commits](#commits), its state transitition function, [authentication](#authentication) requirements, and [conflict resolution mechanism](#conflict-resolution-mechanism). Every stream must specify a StreamType; and StreamTypes run on Ceramic [nodes](#nodes). Ceramic comes [pre-installed with various StreamTypes](../streamtypes/overview.md), or you can code your own.
 
 ### Commits
-Commits are individual IPFS records that make up a stream. Streams may contain one or more commits.
+Commits are individual [IPFS](#ipfs) records that make up a [stream](#streams). Streams may contain one or more commits.
 
 ### Genesis commit
-A genesis commit is the first commit in a stream.
+A genesis commit is the first [commit](#commit) in a [stream](#streams).
 
 ### Signed commit
-Signed commits are commits that update the state of a stream.
+Signed commits are [commits](#commits) that update the [state](#state) of a [stream](#streams).
 
 ### Anchor commit
-Anchor commits are commits that contain a blockchain timestamp, providing an immutable record of time and ordering to commits in the stream.
+Anchor commits are [commits](#commits) that contain a blockchain timestamp, providing an immutable record of time and ordering to other commits in the [stream](#streams).
 
 ### CommitID
-A commitID is an immutable identifier for a specific commit in a stream.
+A commitID is an immutable identifier for a specific [commit](#commits) in a [stream](#streams).
 
 ### State
-State represents the state of a stream at various points in time.
+State represents the state of a [stream](#streams) at various points in time. When a stream is loaded or queried from the [network](#networks), the current state is returned.
 
 ### Tip
-A tip is the most recent commit of a stream.
+A tip is the most recent [commit](#commits) of a [stream](#streams).
 
-### Conflict resolution mechanism
-A conflict resolution mechanism is logic defined by a [StreamType]() that describes how the protocol should handle conflicting updates to a [stream]().
+### Conflict resolution strategy
+A conflict resolution strategy is logic defined by a [StreamType](#streamtypes) that describes how the protocol should handle conflicting updates to a [stream](#streams) that uses this StreamType.
 
 ### Controllers
-Controllers are entities allowed to perform updates to a [stream](), by creating new [signed commits](). A given stream may have one or more controllers.
+Controllers are entities allowed to perform updates to a [stream](#streams), by creating new [signed commits](#signed-commit). A given stream may have one or more controllers.
 
 
-## Authentication system
+## Stream authentication
 
 ### Authentication
-Authentication allows a user to perform protected operations on a stream, such as making updates.
+Authentication allows a user to perform protected operations on a stream, such as creating [genesis commits](#genesis-commit), [signed commits](#signed-commit), or decrypting data. Each [StreamType](#streamtypes) implementation is able to specify its own authentication mechanism as long as the signatures can be resolved/validated by Ceramic, but most StreamTypes use [DIDs](#dids).
 
 ### DIDs
-DIDs is the W3C standard for decentralized identifiers. The DID specification outlines a standard for creating persistent decentralized identifiers (DIDs) as well as storing and resolving metadata about that identifier (DID document). DIDs are used as an authentication mechanism by various StreamTypes, such as [TileDocument]() and [CAIP10Link]().
+DIDs is the [W3C standard](https://www.w3.org/TR/did-core/) for decentralized identifiers. The DID specification outlines a standard URI scheme for creating a persistent decentralized identifier (DID) for a given subject as well as resolving metadata about that identifier via a [DID document](#did-document). DIDs are used as an [authentication](#authentication) mechanism by most [StreamTypes](#streamtypes).
+
 
 ### DID methods
-DID methods are implementations of the DID specification. There are over 40 DID methods on the W3C's official DID registry. Ceramic can support any DID method, and currently supports the [3ID DID method](), as well as the [Key DID method](). More DID methods can be added to the protocol if needed.
+DID methods are implementations of the [DID](#dids) specification. DID methods must specify a name for the method in the form of a string (see below), a description of where the [DID document](#did-document) is stored (or how it is statically generated), and a [DID resolver](#did-resolver) which can return a DID document given a URI that conforms to that particular DID method. There are over 40 DID methods on the W3C's official DID registry. Ceramic can support any DID method if needed, and currently supports the [3ID DID method](../authentication/dids/3id.md) and the [Key DID method](../authentication/dids/key.md). DID URIs look like this:
 
-### DID resolvers
-DID resolvers
+```
+did:<method-name>:<randomstring>
+```
+
+### DID document
+DID documents are documents which contain metadata about a given DID. At a minimum they should contain cryptographic key material used for signature verification and encryption/decryption. They may be mutable where their keys and content can be changed/rotated (i.e. [3ID DID method](../authentication/dids/3id.md)) or statically generated where their contents cannot be manually changed (i.e. [Key DID method](../authentication/dids/key.md)).
+
+### DID resolver
+DID resolvers are software libraries responsible for returning a [DID document](#did-document) given a DID string. Each [DID method](#did-methods) has at least one resolver implementation. For all DID methods supported by Ceramic, the corresponding DID resolver must be included in a Ceramic [node](#nodes).
+
+### DID providers
+DID providers are software libraries that allow developers or other programs to create, manage, and use [DIDs](#dids) that conform to a particular [DID method](#did-method). When using Ceramic with [streams](#streams) that require DIDs for [authentication](#authentication), applications either need to integrate a DID provider library, which leaves the responsibility of key management up to the application, or a [DID wallet](#did-wallets), which is a more user-friendly experience.
 
 ### DID wallets
-DID wallets are software that makes it easy to integrate DIDs into your application. [3ID Connect]() is the most popular DID wallet that is compatible with Ceramic, as it supports the 3ID DID method.
-
+DID wallets are software libraries or end-user applications that wrap [DID providers](#did-providers) with additional capabilities. [3ID Connect](../authentication/wallets/3id-connect.md) is the most popular DID wallet SDK that allows users create, manage, and use a 3ID DID method with their existing blockchain wallets, and without needing to install any additional software.
 
 ## Network
 
