@@ -31,6 +31,7 @@ theme:
 nav:
   - Learn:
     - Welcome: learn/welcome.md
+    - Use cases: learn/use-cases.md
     - Overview: learn/overview.md
     - Glossary: learn/glossary.md
     - Clients: learn/clients.md
