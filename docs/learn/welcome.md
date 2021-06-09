@@ -1,12 +1,16 @@
 # Ceramic Developers
 
-Welcome to the [Ceramic](https://ceramic.network){:target="_blank"} developer site. Whether you want to learn how the Ceramic protocol works, explore standards and tooling, or get started building, this site has the resources for you.
+Welcome to the [Ceramic](https://ceramic.network){:target="_blank"} developer site. Ceramic is a decentralized, open source platform for creating, hosting, and sharing streams of data. With Ceramic's permissionless data streaming network, you can store streams of information and ever-changing files directly on the decentralized web – and share updates with anyone in the world. This site has the resources for you whether you want to learn how the Ceramic protocol works, explore standards and tooling, or get started building.
+
+![](../images/image-ceramic-opengraph.png)
 
 ## **Learn**
 
 [**Overview**](./overview.md): Learn about Ceramic's decentralized data streaming platform
 
-[**Glossary**](./glossary.md): A glossary of important terms and core concepts
+[**Features**](./features.md): Explore core features and capabilities
+
+[**Glossary**](./glossary.md): A glossary of important terms and concepts
 
 ## **Explore**
 
@@ -21,6 +25,8 @@ Welcome to the [Ceramic](https://ceramic.network){:target="_blank"} developer si
 [**Quick start**](../build/quick-start.md): Get up to speed on the basics using the CLI
 
 [**Installation**](../build/installation.md): Install Ceramic in your project
+
+[**Run a node**](../run/nodes.md): Set up and run your own Ceramic node
 
 ## **Standards and tools**
 
