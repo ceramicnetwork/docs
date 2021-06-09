@@ -1,52 +1,65 @@
 # Use Cases
 
-Explore the many ways your project or business can leverage Ceramic's data streaming platform. Ceramic is a general-purpose protocol, so this list is definitely non-exhaustive. It's only meant to serve as a starting point for ideation.
+Explore the many ways your project or business can leverage Ceramic's decentralized data streaming platform. Ceramic is a general-purpose protocol, so this list is definitely non-exhaustive; it's meant to serve as a starting point for ideation. The use cases on this list are not mutually exclusive and many Ceramic integrations will make use of more than one. 
 
 ### **Decentralized identity**
-A robust, flexible, and standards-based decentralized identity system is the cornerstone of any application built with Web3 data. Build apps with interoperable, user-controlled data storage. IDX, Ceramic's identity system, supports DIDs for cross-chain IDs, streams for storage, and hubs for linking streams to a user. Identities are based on W3C standards and can be used with wallets from many different blockchains and Web3 platforms.
+Build secure applications using decentralized identities and portable, user-controlled data storage. Ceramic is home to [IDX](../tools/identity/idx.md) which provides a robust, flexible, and standards-based decentralized identity system that can serve as the cornerstone of any Web3 application. Building with IDX allows users to control their identities and data in a manner independent from any single application or platform, while allowing developers to build data-rich applications without the liability of custodying user data on a centralized server or the poor user experience of forcing users to recreate the same data on every application. Identities are based on W3C standards and can be used with wallets from many different blockchains and Web3 platforms.
 
-- Cross-chain identifiers
+- Decentralized identifiers ([DIDs](./glossary.md#dids))
+- Aggregated and cross-chain identities 
+  - Web3: Connect wallets from any L1 or L2 protocol
+  - Web2: Link social accounts from any platform
+- User profiles
+- Social graphs
+- Data storage
 - Reputation systems
-- Multi-app user profiles
-- User-controlled storage
-- Portable social graphs
-
-> Learn more about Ceramic's decentralized identity protocol, [IDX](../tools/identity/idx.md)
 
 ### **Decentralized databases**
-Replace your backend and store/host all of your user data or application data in streams to eliminate centralized database servers, blockchains, or local storage. 
+Replace your database backend or local storage and store/host all of your content in mutable, decentralized streams.
 
-- user-generated content
-- user activity and history
-- application data and state
-- Decentralized, cross-device, user-controlled local storage
+- User data and user-generated content
+- User activity and history
+- Application data
+- Application state and other cookie-like content
+- Cross-device local storage
 
 ### **Evolutionary files**
-Store editable, version-controlled documents, files, and media on IPFS that maintain a transparent and auditable history without needing to keep track of changing [CIDs](./glossary.md#cid).
+Store editable, version-controlled files, documents, and other media on [IPFS](./glossary.md#ipfs) that maintains a tamper-proof and auditable history without needing external services to compute state changes, enforce permissions, or keep track of changing [CIDs](./glossary.md#cid). Also make these files publicly available and discoverable over a global network.
 
-- Mutable NFT storage
-- JSON document storage
-- Metadata
+- Mutable NFT files
+- JSON documents
+- JSON schemas
+- Arbitrary metadata
 - Verifiable credentials
-- Public, mutable JSON schemas (i.e. you could decentralized schema.org)
 
-### **Multi-user applications and community platforms**
+### **Multi-user applications**
+Leverage the unique features and properties of Ceramic to create permissionless social networks where content is decentralized and owned by users instead of platforms.
 
-- Decentralized social media
-- Community and governance forums
-- Portable, user-controlled social graphs
+- Social media
+- Community platforms
+- Governance forums
 
 ### **Decentralized publications**
+Publish and host content on a decentralized, censorship-resistant platform where data can be made globally available, authorship can be verified, links never rot, and each piece of content can be updated by its creator while still maintaining a tamper-proof audit trail of changes.
 
 - Blogging platforms
 - News media and publications
 
 ### **Cross-application data sharing**
-On Ceramic, all data is published to the open web where it's easy to share streams between different organizations and applications without centralized servers or APIs, link multiple streams together to form a graph of relationships.
+On Ceramic, all data is published to the open web where it's easy to share verifiable information between different organizations and applications in real-time without worrying about correctness or dealing with centralized servers and one-off API integrations.
 
-
-- Multi-organizational data
+- Cross-application data
+- Cross-organizational data
 - Enterprise system of record (SOR)
 
+### **Linked data systems**
+Link multiple streams together to form a graph verifiable data that can each individually evolve without breaking the graph.
+
+- Semantic web
+
 ### **Remixable content**
-Fork and remix existing streams into entirely new creations.
+Fork and remix any streams on the network into entirely new creations. No permission needed.
+
+</br>
+</br>
+</br>
