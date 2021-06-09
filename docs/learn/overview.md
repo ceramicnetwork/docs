@@ -1,5 +1,3 @@
-![](../images/image-ceramic-opengraph.png)
-
 # Overview
 
 Ceramic is a public, permissionless, open source protocol that provides computation, state transformations, and consensus for all types of data structures stored on the decentralized web. Ceramic's stream processing enables developers to build secure, trustless, censorship-resistant applications on top of dynamic information without trusted database servers. 
