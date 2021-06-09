@@ -1,12 +1,16 @@
 # Ceramic Developers
 
-Welcome to the [Ceramic](https://ceramic.network){:target="_blank"} developer site. Whether you want to learn how the Ceramic protocol works, explore standards and tooling, or get started building, this site has the resources for you.
+Welcome to the [Ceramic](https://ceramic.network){:target="_blank"} developer site. Ceramic is a decentralized, open source platform for creating, hosting, and sharing streams of data. With Ceramic's permissionless data streaming network, you can store streams of information and ever-changing files directly on the decentralized web – and share updates with anyone in the world. This site has the resources for you whether you want to learn how the Ceramic protocol works, explore standards and tooling, or get started building.
+
+![](../images/image-ceramic-opengraph.png)
 
 ## **Learn**
 
 [**Overview**](./overview.md): Learn about Ceramic's decentralized data streaming platform
 
-[**Glossary**](./glossary.md): A glossary of important terms and core concepts
+[**Features**](./features.md): Explore core features and capabilities
+
+[**Glossary**](./glossary.md): A glossary of important terms and concepts
 
 ## **Explore**
 
@@ -22,17 +26,15 @@ Welcome to the [Ceramic](https://ceramic.network){:target="_blank"} developer si
 
 [**Installation**](../build/installation.md): Install Ceramic in your project
 
+[**Run a node**](../run/nodes.md): Set up and run your own Ceramic node
+
 ## **Standards and tools**
 
-[**StreamTypes**](../streamtypes/overview.md): Various StreamTypes developed by the community
+[**StreamTypes**](../streamtypes/overview.md): StreamTypes developed by the community
 
-[**DIDs**](../authentication/dids/3id.md): DID methods that can be used for authentication
+[**IDX**](../tools/identity/idx.md): Protocol and SDK for building apps with decentralized identity and user-controlled data storage
 
-[**IDX**](../tools/identity/idx.md): A protocol and framework for identity-centric data management
-
-[**IdentityLink**](../tools/identity/identitylink.md): A hosted service that issues verifiable claims which prove a DID owns various Web2 social accounts
-
-[**3ID Connect**](../authentication/wallets/3id-connect.md): An authentication SDK that allows users to control their DID with various blockchain wallets
+[**3ID Connect**](../authentication/wallets/3id-connect.md): Authentication SDK that allows users to interact with Ceramic using various blockchain wallets
 
 
 ## **Community**
