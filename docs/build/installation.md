@@ -1,9 +1,11 @@
 # Installation
 Install a [Ceramic client](../learn/clients.md) to perform [writes](./writes.md) and [queries](./queries.md) on the network.
 
-!!! warning ""
+!!! warning "**MAINNET NOW LIVE!**"
     
-    **Project status: Clay testnet is now live.**</br>`Clay` is a decentralized public network ready for experimental application development and testing, but you still may encounter a few issues.  It is the last major milestone before `Fire` mainnet, which is under development and will launch in late Q1 2021. Documents published on Clay will *not* be portable to Fire. Please [reach out on Discord](https://chat.ceramic.network) or [create an issue on Github](https://github.com/ceramicnetwork/js-ceramic/issues) to report any issues. Read the full announcement [here](https://blog.ceramic.network/ceramic-network-clay-testnet/){:target="_blank"}.
+    We're onboarding the first projects to [Mainnet](./mainnet.md) from the waitlist. If you want to deploy to mainnet in the near future, **[sign up for the Mainnet waitlist](https://blog.ceramic.network/ceramic-mainnet-early-launch-program/)**. 
+
+    While on the waitlist, you can always develop and prototype your integration on the [Clay Testnet](./networks.md#mainnet). Demonstrating a fully-functioning integration that is ready for mainnet is a great way to increase your odds of being seleted from the waitlist. If you have questions or need further prioritization, you can [**join the Discord**](https://chat.ceramic.network) and let us know.
 
 
 ## **Clients**
