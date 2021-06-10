@@ -1,52 +1,138 @@
 # 3ID Connect
 
-3ID Connect is an authentication SDK for web applications that allows a user to control a [3ID DID](../dids/3id.md) using any number of blockchain accounts/wallets.
+3ID Connect is the most widely used [authentication](../../build/authentication.md) provider for Ceramic. The 3ID Connect authentication SDK allows users to use a [3ID DID](../dids/3id.md) with their existing blockchain wallet(s). 3ID Connect was designed for developers building Ceramic-enabled web apps whose users already have a blockchain/crypto wallet. By using 3ID Connect, your users get to rely on the signing and key management capabilities of the crypto wallet(s) they already have instead of needing to install a separate wallet.
 
-3ID Connect allows users to:
-- Create a 3ID
-- Control their 3ID with one or more blockchain wallets
-- 
+**Want to install 3ID Connect?** Visit the [**installation**](#installation) section below.
 
-## **Usage**
+**Want to try 3ID Connect?** Visit [Self.ID](https://self.id) to try it in a live application.
 
-See the [**Authentication**](https://developers.ceramic.network/build/authentication/) page to install 3ID Connect into your Ceramic web application.
+> 3ID Connect is not a substitute for a crypto wallet. It works alongside these wallets.
 
-## **How it works**
+#### Supported blockchains
 
-### Users without a 3ID linked to their wallet account
-
-1. User arrives at your application and signs in with their blockchain wallet
-2. User sees a 3ID Connect account creation prompt asking if they want to create a new 3ID for this account or link to an existing 3ID
-3. If user selects "Create New 3ID", they will be prompted in the wallet to sign two messages: one to add this account as an authentication method for their 3ID, and another to create a CAIP-10 Link which publicly associated their account with their 3ID. If the user selects "Link to Existing 3ID", they will be directed to a page where they can select a 3ID from a list of known 3IDs, then they will need to approve the two messages mentioned previously.
-
-### Users with a 3ID linked to their wallet account
-
-1. User arrives at your application and signs in with their blockchain wallet
-2. User sees a 3ID Connect permissions prompt asking them to grant your application permissions
-3. Once approved, user is authenticated
-
-On future logins, users will not see the permissions prompt again unless they clear local storage for 3ID Connect.
-
-## **Design**
-
-Under the hood 3ID Connect is built on a set of open standards:
-
-- 3ID DID Method
-- IDX
-- 3ID Keychain
-- CAIP-10 Links
-
-## **Supported blockchains**
-
-- Ethereum (and other EVM compatible chains)
-- NEAR
-- EOS
+- Ethereum
+- EVM compatible L1s and L2s (i.e. Avalanche, Moonbeam)
+- NEAR (coming soon)
+- EOS (coming soon)
 - Cosmos (coming soon)
 - Polkadot (coming soon)
 
-### Adding new blockchains
+> Want to add a new blockchain? Follow this [**tutorial**](https://blog.ceramic.network/add-authentication-with-new-blockchains-in-3id-connect/) to make a PR.
 
-Follow this [**tutorial**]() to add support for new blockchains to 3ID Connect.
+## **Benefits**
+
+### For users
+
+- **Nothing to install**: Users don't need to install 3ID Connect. They only need a blockchain wallet.
+- **Same identity across accounts**: Users can use the same DID across many different blockchain accounts.
+- **Same identity across chains**: Users can use the same DID across all L1 and L2 blockchain platforms.
+- **No additional key management**: Users don't need to manage the private key for their DID – just their existing blockchain wallet.
+- **Automatic 3Box profile migration**:
+
+### For developers
+
+- **Easy to install**: See usage section below to add 3ID Connect to your project.
+- **3ID provider**: Access all methods in the 3ID DID provider.
+- **Better user experience**: User-friendly design makes it seamless for your users to use DIDs.
+- **Works with web apps**: Written in JavaScript/TypeScript and hosted in an iFrame.
+
+## **Usage**
+
+Before installing 3ID Connect, you must have [installed a Ceramic client](../../build/installation.md) and [configured a DID](c../../build/onfigure-did.md) for that client. By following the steps below, your users will be able to [perform writes](../../build/writes.md) on Ceramic using a 3ID DID from their blockchain wallet.
+
+
+### 1. Installation
+
+```
+npm install @3id/connect
+```
+
+### 2. Import the provider
+
+```
+import { ThreeIdConnect,  <BlockchainAuthProvider> } from '@3id/connect'
+```
+
+    ??? warning "Understanding `BlockchainAuthProvider`"
+    The `BlockchainAuthProvider` parameter is always required but the name shown here is just a placeholder. In your application, you should substitute in the specific BlockchainAuthProvider you are using. A full list of supported BlockchainAuthProviders can be found [here](https://github.com/ceramicnetwork/js-3id-blockchain-utils/tree/master/src/blockchains).
+
+Example using an Ethereum wallet:
+
+```
+import { ThreeIdConnect,  EthereumAuthProvider } from '@3id/connect'
+```
+
+### 3. Request user's address
+
+```
+const addresses = await <blockchainName>.enable()
+```
+
+Example using an Ethereum wallet:
+
+```
+const addresses = await window.ethereum.enable()
+```
+
+### 4. Request authentication
+
+```
+const threeIdConnect = new ThreeIdConnect()
+const authProvider = new <BlockchainAuthProvider>(<blockchainName>, addresses[0])
+await threeIdConnect.connect(authProvider)
+```
+
+Example using an Ethereum wallet:
+
+```
+const authProvider = new EthereumAuthProvider(window.ethereum, addresses[0])
+await threeIdConnect.connect(authProvider)
+```
+  
+  
+      !!! warning ""
+    This will prompt the user with a 3ID Connect permissions window.
+  
+  
+### 5. Create provider instance
+
+```
+const provider = await threeIdConnect.getDidProvider()
+```
+
+### 6. Set the provider
+Set the Provider instance to the DID instance used by your Ceramic client in order to perform writes.
+
+```
+ceramic.did.setProvider(provider)
+```
+
+### 7. Authenticate the DID
+
+```
+await ceramic.did.authenticate()
+```
+
+      !!! warning ""
+    This will prompt the user with a 3ID Connect permissions window.
+    
+Your users will now be authenticated and can perform writes to streams on Ceramic.
+
+## Underlying technologies
+
+3ID Connect is built on open source technologies and standards. Learn more about the technologies that make 3ID Connect possible.
+
+- [3ID DIDs (CIP-79)](../dids/3id.md): For creating decentralized identifiers and authenticating to Ceramic
+- [IDX (CIP-11)](../../tools/identity/idx.md): Protocol and SDK for storing data streams controlled by the user's 3ID
+- [3ID Keychain (CIP-20)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-20/CIP-20.md): IDX [definition](../../tools/identity/idx.md#definitions) for storing encrypted authentication secrets for each wallet account
+- [Crypto accounts (CIP-21)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-21/CIP-21.md): IDX definition for storing encrypted authentication secrets for each wallet account
+- [CAIP10Link (CIP-7)](../../streamtypes/caip-10-link/overview.md): StreamType for publicly linking a wallet account to a 3ID DID
+    
+## Maintainers
+3ID Connect is maintained by [3Box Labs](https://3boxlabs.com).
+
+## License
+3ID Connect is 100% open source under MIT and Apache 2.
 
 </br>
 </br>
