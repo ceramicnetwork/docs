@@ -75,7 +75,7 @@ nav:
       - Overview: authentication/3id-did/overview.md
       - 3ID DID Provider: authentication/3id-did/provider.md
       - 3ID Connect: authentication/3id-did/3id-connect.md
-      - 3Box migration: authentication/3id-did/3box-to-3id.md
+      - 3Box migration: authentication/3id-did/3box-migration.md
     - Key DID:
       - Overview: authentication/key-did/overview.md
       - Key DID Provider: authentication/key-did/provider.md
