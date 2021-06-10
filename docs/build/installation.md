@@ -3,9 +3,9 @@ Install a [Ceramic client](../learn/clients.md) to perform [writes](./writes.md)
 
 !!! warning "**MAINNET NOW LIVE!**"
     
-    We're onboarding the first projects to [Mainnet](./mainnet.md) from the waitlist. If you want to deploy to mainnet in the near future, **[sign up for the Mainnet waitlist](https://blog.ceramic.network/ceramic-mainnet-early-launch-program/)**. 
+    We're onboarding the first projects to [Mainnet](../learn/mainnet.md) from the waitlist. If you want to deploy to mainnet in the near future, **[sign up for the Mainnet waitlist](https://blog.ceramic.network/ceramic-mainnet-early-launch-program/)**. 
 
-    While on the waitlist, you can always develop and prototype your integration on the [Clay Testnet](./networks.md#mainnet). Demonstrating a fully-functioning integration that is ready for mainnet is a great way to increase your odds of being seleted from the waitlist. If you have questions or need further prioritization, you can [**join the Discord**](https://chat.ceramic.network) and let us know.
+    While on the waitlist, you can always develop and prototype your integration on the [Clay Testnet](../learn/networks.md#mainnet). Demonstrating a fully-functioning integration that is ready for mainnet is a great way to increase your odds of being seleted from the waitlist. If you have questions or need further prioritization, you can [**join the Discord**](https://chat.ceramic.network) and let us know.
 
 
 ## **Clients**
