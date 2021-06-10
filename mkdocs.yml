@@ -31,6 +31,7 @@ theme:
 nav:
   - Learn:
     - Welcome: learn/welcome.md
+    - Mainnet: learn/mainnet.md
     - Features: learn/features.md
     - Use cases: learn/use-cases.md
     - Overview: learn/overview.md
