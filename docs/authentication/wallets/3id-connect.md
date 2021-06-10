@@ -11,10 +11,9 @@
 #### Supported blockchains
 
 - Ethereum
-- EVM compatible L1s and L2s (i.e. Avalanche)
-- NEAR
-- Moonbeam
-- EOS
+- EVM compatible L1s and L2s (i.e. Avalanche, Moonbeam)
+- NEAR (coming soon)
+- EOS (coming soon)
 - Cosmos (coming soon)
 - Polkadot (coming soon)
 
