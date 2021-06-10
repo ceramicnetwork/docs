@@ -2,9 +2,13 @@
 
 Key DID is one of a few DID methods supported by Ceramic that can be used to perform authenticated writes to streams that require DIDs. This includes the two default StreamTypes: Tile Documents and CAIP-10 Links.
 
-## Usage
+## **Usage**
 
 See the [Authentication](https://developers.ceramic.network/build/authentication/) page to learn how to use the Key DID method in your Ceramic project.
+
+## **Benefits**
+
+## **Technical specification**
 
 ## Design
 
