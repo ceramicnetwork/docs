@@ -1,6 +1,8 @@
 # Ceramic Developers
 
-Welcome to the [Ceramic](https://ceramic.network){:target="_blank"} developer site. Ceramic is a decentralized, open source platform for creating, hosting, and sharing streams of data. With Ceramic's permissionless data streaming network, you can store streams of information and ever-changing files directly on the decentralized web – and share updates with anyone in the world. This site has the resources for you whether you want to learn how the Ceramic protocol works, explore standards and tooling, or get started building.
+Ceramic is a decentralized, open source platform for creating, hosting, and sharing streams of data. With Ceramic's permissionless data streaming network, you can store streams of information and ever-changing files directly on the decentralized web – and share updates with anyone in the world. 
+
+Whether you want to learn how the Ceramic protocol works, explore standards and tooling, or get started building – this site has the resources for you.
 
 ![](../images/image-ceramic-opengraph.png)
 
