@@ -1,5 +1,5 @@
 # Authentication
-This guide will help you add user authentication to your project. Authentication is needed when you want to perform [writes](writes.md). If you only want to perform [queries](queries.md), you do not need authentication.
+This guide will help you add authentication to your project. Authentication is needed to perform [writes](writes.md). If you only need to perform [queries](queries.md), you do not need authentication.
 
 ## Prerequisites
 
@@ -57,54 +57,7 @@ The authentication process varies depending on which wallet or provider you are 
 
 === "3ID Connect"
 
-    #### Import the provider
-
-    ``` javascript
-    import { ThreeIdConnect,  <BlockchainAuthProvider> } from '@3id/connect'
-    ```
-
-    Example using an Ethereum wallet:
-
-    ``` javascript
-    import { ThreeIdConnect,  EthereumAuthProvider } from '@3id/connect'
-    ```
-
-    ??? info "Understanding `BlockchainAuthProvider`"
-        The `BlockchainAuthProvider` parameter is always required but the name shown here is just a placeholder. In your application, you should substitute in the specific BlockchainAuthProvider you are using. A full list of supported BlockchainAuthProviders can be found [here](https://github.com/ceramicnetwork/js-3id-blockchain-utils/tree/master/src/blockchains).
-
-    #### Request the user's blockchain address
-
-    ``` js
-    const addresses = await <blockchainName>.enable()
-    ```
-
-    Example using an Ethereum wallet:
-
-    ``` js
-    const addresses = await window.ethereum.enable()
-    ```
-
-    #### Request authentication from the user's blockchain wallet
-    This will prompt the user with a 3ID Connect permissions window.
-
-    ``` js
-    const threeIdConnect = new ThreeIdConnect()
-    const authProvider = new <BlockchainAuthProvider>(<blockchainName>, addresses[0])
-    await threeIdConnect.connect(authProvider)
-    ```
-
-    Example using an Ethereum wallet:
-
-    ``` js
-    const authProvider = new EthereumAuthProvider(window.ethereum, addresses[0])
-    await threeIdConnect.connect(authProvider)
-    ```
-
-    #### Create a provider instance
-
-    ``` js
-    const provider = await threeIdConnect.getDidProvider()
-    ```
+    Visit the [3ID Connect]() page for instructions.
 
 === "3id-did-provider"
 
