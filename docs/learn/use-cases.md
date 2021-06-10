@@ -52,10 +52,8 @@ On Ceramic, all data is published to the open web where it's easy to share verif
 - Cross-organizational data
 - Enterprise system of record (SOR)
 
-### **Linked data systems**
-Link multiple streams together to form a graph verifiable data that can each individually evolve without breaking the graph.
-
-- Semantic web
+### **Semantic web**
+Link multiple streams together to form a graph of relationships between verifiable data objects that can each individually evolve without breaking the graph.
 
 ### **Remixable content**
 Fork and remix any streams on the network into entirely new creations. No permission needed.
