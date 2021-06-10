@@ -12,6 +12,8 @@ Whether you want to learn how the Ceramic protocol works, explore standards and 
 
 [**Features**](./features.md): Explore core features and capabilities
 
+[**Use cases**](./use-cases.md): Dive into common use cases
+
 [**Glossary**](./glossary.md): A glossary of important terms and concepts
 
 ## **Explore**
@@ -20,7 +22,7 @@ Whether you want to learn how the Ceramic protocol works, explore standards and 
 
 [**Projects**](../explore/projects.md): Browse community projects built on Ceramic
 
-[**Sample Apps**](../explore/sample-apps.md): Try Ceramic using a demo or sample application
+[**Samples**](../explore/sample-apps.md): Try Ceramic using a demo or sample application
 
 ## **Build**
 
