@@ -57,7 +57,7 @@ The authentication process varies depending on which wallet or provider you are 
 
 === "3ID Connect"
 
-    Visit the [3ID Connect]() page for instructions.
+    Visit the [3ID Connect](../authentication/wallets/3id-connect.md#installation) page for instructions.
 
 === "3id-did-provider"
 
