@@ -116,7 +116,7 @@ await ceramic.did.authenticate()
     
 Your users will now be authenticated and can perform writes to streams on Ceramic.
 
-## Underlying technologies
+## **Underlying technologies**
 
 3ID Connect is built on open source technologies and standards. Learn more about the technologies that make 3ID Connect possible.
 
@@ -126,10 +126,10 @@ Your users will now be authenticated and can perform writes to streams on Cerami
 - [CAIP10Link (CIP-7)](../../streamtypes/caip-10-link/overview.md): StreamType for publicly linking a wallet account to a 3ID DID
 - [Crypto accounts (CIP-21)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-21/CIP-21.md): IDX definition and schema for using a TileDocument StreamType to store a list of streamIDs for a DID's CAIP10Links
     
-## Maintainers
+## **Maintainers**
 3ID Connect is maintained by [3Box Labs](https://3boxlabs.com).
 
-## License
+## **License**
 3ID Connect is 100% open source under MIT and Apache 2.
 
 </br>
