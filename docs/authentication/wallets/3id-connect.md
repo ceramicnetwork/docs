@@ -12,6 +12,33 @@
 - Cosmos (coming soon)
 - Polkadot (coming soon)
 
+> Want to add a new blockchain? Follow this [**tutorial**](https://blog.ceramic.network/add-authentication-with-new-blockchains-in-3id-connect/).
+
+
+## **User flows**
+You can try the 3ID Connect flows by using [Self.ID](https://self.id).
+
+### New account
+This is the first time the user is using this blockchain account with 3ID Connect, on *any* application. The user's blockchain account isn't already associated with a 3ID. 
+
+1. User arrives at your site
+2. User connects with their blockchain wallet <insert image>
+3. User sees an `identity creation` prompt asking if they want to "Create a new 3ID" or "Use an existing 3ID" <insert image>
+
+    3a. If user selects "Create new 3ID", they will be prompted in the wallet to sign two messages: one to add this account as an authentication method, and another to publicly associated the account with the 3ID <insert image>
+
+    3b. If the user selects "Use an existing 3ID", they will be directed to a page where they can select a 3ID from a list of known 3IDs, then they will need to approve the two messages mentioned previously. 
+
+### Returning account
+This is every other time the user is using this blockchain account with 3ID Connect, on *any* application. The user's blockchain account is already associated with a 3ID.. 
+
+1. User arrives at your site
+2. User connects with their blockchain wallet
+3. User sees a `permission request` from your application <insert image>
+4. Once approved, user is authenticated
+
+> On future logins, users will not see the permissions prompt again unless they clear local storage for 3ID Connect.
+
 ## **Usage**
 
 Before installing 3ID Connect, you must have [installed a Ceramic client](installation.md) and [configured a DID](configure-did.md) for that client. By following the steps below, your users will be able to perform writes on Ceramic using their blockchain wallet.
@@ -92,54 +119,29 @@ await ceramic.did.authenticate()
       !!! warning ""
     This will prompt the user with a 3ID Connect permissions window.
   
-
-## Responsibilities
-
-- 
-- Authenticate to Ceramic
-- Approve application permissions
-
-
-
 ## Technology
 
-[3ID DID](../dids/3id.md)
 
 
+## Advanced topics
+
+### Initializing a DID
+    
+## Key management
+3ID takes care of it for you, and wallets take care of it for us. Describe the key management model in detail.
 
 
-## Responsibilities
+## Underlying technologies
 
+Under the hood 3ID Connect is built on a set of open standards. Learn more about the technologies that make 3ID Connect possible.
 
-
-## **How it works**
-
-### Users without a 3ID linked to their wallet account
-
-1. User arrives at your application and signs in with their blockchain wallet
-2. User sees a 3ID Connect account creation prompt asking if they want to create a new 3ID for this account or link to an existing 3ID
-3. If user selects "Create New 3ID", they will be prompted in the wallet to sign two messages: one to add this account as an authentication method for their 3ID, and another to create a CAIP-10 Link which publicly associated their account with their 3ID. If the user selects "Link to Existing 3ID", they will be directed to a page where they can select a 3ID from a list of known 3IDs, then they will need to approve the two messages mentioned previously.
-
-### Users with a 3ID linked to their wallet account
-
-1. User arrives at your application and signs in with their blockchain wallet
-2. User sees a 3ID Connect permissions prompt asking them to grant your application permissions
-3. Once approved, user is authenticated
-
-On future logins, users will not see the permissions prompt again unless they clear local storage for 3ID Connect.
-
-## **Design**
-
-Under the hood 3ID Connect is built on a set of open standards:
-
-- 3ID DID Method
+- [3ID DIDs](../dids/3id.md)
 - IDX
 - 3ID Keychain
 - CAIP-10 Links 
-
-## Adding new blockchains
-
-Follow this [**tutorial**]() to add support for new blockchains to 3ID Connect.
+    
+## Maintainers
+3Box Labs are the maintainers of 3ID Connect. 3ID Connect is 100% open source under MIT and Apache 2.
 
 </br>
 </br>
