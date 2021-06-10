@@ -19,7 +19,7 @@
 You can try the 3ID Connect flows by using [Self.ID](https://self.id).
 
 ### New account
-This is the first time the user is using this blockchain account with 3ID Connect, on *any* application. The user's blockchain account isn't already associated with a 3ID. 
+This is the flow experienced by a user the first time they use a given blockchain account with 3ID Connect, on *any* application.
 
 1. User arrives at your site
 2. User connects with their blockchain wallet <insert image>
@@ -30,7 +30,7 @@ This is the first time the user is using this blockchain account with 3ID Connec
     3b. If the user selects "Use an existing 3ID", they will be directed to a page where they can select a 3ID from a list of known 3IDs, then they will need to approve the two messages mentioned previously. 
 
 ### Returning account
-This is every other time the user is using this blockchain account with 3ID Connect, on *any* application. The user's blockchain account is already associated with a 3ID.. 
+This is the flow experiences by a user every other time they use a given blockchain account with 3ID Connect, on *any* application – i.e. the user's blockchain account is already associated with a 3ID.
 
 1. User arrives at your site
 2. User connects with their blockchain wallet
@@ -119,26 +119,26 @@ await ceramic.did.authenticate()
       !!! warning ""
     This will prompt the user with a 3ID Connect permissions window.
   
-## Technology
-
-
-
 ## Advanced topics
 
 ### Initializing a DID
     
-## Key management
+### Key management
 3ID takes care of it for you, and wallets take care of it for us. Describe the key management model in detail.
+
+### 3Box DID migration
+3ID Connect handles the migration of DIDs from the 3Box system to Ceramic and IDX.
 
 
 ## Underlying technologies
 
-Under the hood 3ID Connect is built on a set of open standards. Learn more about the technologies that make 3ID Connect possible.
+3ID Connect is built on a set of open standards. Learn more about the technologies that make 3ID Connect possible.
 
-- [3ID DIDs](../dids/3id.md)
-- IDX
-- 3ID Keychain
-- CAIP-10 Links 
+- [3ID DIDs](../dids/3id.md): For creating decentralized identifiers and authenticating to Ceramic
+- [IDX](../../tools/identity/idx.md): Protocol and SDK for storing data streams controlled by the user's [3ID]()
+- [3ID Keychain](): IDX [definition]() for storing encrypted authentication secrets for each wallet account
+- [Crypto accounts](): IDX [definition]() for storing encrypted authentication secrets for each wallet account
+- [CAIP10Link](): StreamType for publicly linking a wallet account to a 3ID DID
     
 ## Maintainers
 3Box Labs are the maintainers of 3ID Connect. 3ID Connect is 100% open source under MIT and Apache 2.
