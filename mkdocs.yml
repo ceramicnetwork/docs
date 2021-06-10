@@ -71,14 +71,14 @@ nav:
         - Overview: streamtypes/caip-10-link/overview.md
         - API: streamtypes/caip-10-link/api.md
   - Authentication:
-    - DID Wallets:
-      - 3ID Connect: authentication/wallets/3id-connect.md
-    - DID Methods:
-      #- Overview: tools/standards/dids/overview.md
-      - 3ID DID: authentication/dids/3id.md
-      - Key DID: authentication/dids/key.md
-    - Legacy:
-       - 3Box Migration: authentication/legacy/3id-connect-migration.md
+    - 3ID DID:
+      - Overview: authentication/3id-did/overview.md
+      - 3ID DID Provider: authentication/3id-did/provider.md
+      - 3ID Connect: authentication/3id-did/3id-connect.md
+      - 3Box migration: authentication/3id-did/3box-to-3id.md
+    - Key DID:
+      - Overview: authentication/key-did/overview.md
+      - Key DID Provider: authentication/key-did/provider.md
   - Tools:
     - Identity:
       - IDX: tools/identity/idx.md
@@ -140,4 +140,8 @@ plugins:
             'try/explorers.md': 'explore/explorers.md'
             'try/sample-apps.md': 'explore/sample-apps.md'
             'try/projects.md': 'explore/projects.md'
+            'authentication/wallets/3id-connect.md': 'authentication/3id-did/3id-connect.md'
+            'authentication/dids/3id.md': 'authentication/3id-did/provider.md'
+            'authentication/dids/key.md': 'authentication/key-did/provider.md'
+            'authentication/legacy/3id-connect-migration.md': 'authentication/3id-did/3box-migration.md'
     - search
