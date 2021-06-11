@@ -36,7 +36,6 @@ nav:
     - Use cases: learn/use-cases.md
     - Overview: learn/overview.md
     - Glossary: learn/glossary.md
-    - Clients: learn/clients.md
     - Networks: learn/networks.md
     - Data availability: learn/data-availability.md
     - Blog: learn/blog.md
@@ -47,7 +46,6 @@ nav:
   - Build:
     - Quick Start: build/quick-start.md
     - Installation: build/installation.md
-    - Configure your DID: build/configure-did.md
     - Authentication: build/authentication.md
     - Writes: build/writes.md
     - Queries: build/queries.md
@@ -145,4 +143,6 @@ plugins:
             'try/explorers.md': 'explore/explorers.md'
             'try/sample-apps.md': 'explore/sample-apps.md'
             'try/projects.md': 'explore/projects.md'
+            'learn/clients.md': 'clients/javascript/http.md'
+            'build/configure-did.md': 'clients/javascript/http.md'
     - search
