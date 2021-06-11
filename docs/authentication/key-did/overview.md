@@ -1,20 +1,35 @@
 # Key DID
 
-Key DID is one of a few DID methods supported by Ceramic that can be used to perform authenticated writes to streams that require DIDs. This includes the two default StreamTypes: Tile Documents and CAIP-10 Links.
+Key DID is a DID method supported by Ceramic which can be used to authenticate to Ceramic and perform [writes]() to streams that rely on DIDs for authentication. Key DIDs are a suitable DID method for advanced users who will only want to ever use one keypair to control their DID, and who have strong key security practices - such as a developer. The DID document for Key DID is immutable and therefore has no ability to rotate keys if it is compromised; it is explicitly tied to a single crypto key. Key DID is on the [W3C's official DID method registry]() and is fully compliant with decentralized identity standards.
 
 ## **Usage**
+Developers have one option for using Key DIDs to authenticate to Ceramic.
 
-See the [Authentication](https://developers.ceramic.network/build/authentication/) page to learn how to use the Key DID method in your Ceramic project.
+- Install the low-level [Key DID Provider]() library
 
 ## **Benefits**
+The primary benefit of the Key DID method is that it is lightweight, but this is also its main drawback.
 
-## **Technical specification**
+## **Tech Specs**
+Below, find a simplified version of the Key DID specification. View [the W3C specification](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-79/CIP-79.md) for the full Key DID method specification.
 
-## Design
+### Method name
+The official method name for the 3ID DID method is `key`.
 
-The DID document for a Key DID is statically generated from any Ed25519 cryptographic key pair. This Ed25519 key is used to control the DID. Key DID is lightweight, but the main drawback is that its DID document is immutable and has no ability to rotate keys if it is compromised; it is explicitly tied to a single crypto key. This makes Key DIDs best suited for users who will only want to ever use one keypair to control their DID, and who have strong key security practices - such as a developer. 
+Example Key DID identifier:
+```
+did:key:<method-specific-identifier>
+```
 
-## **Underlying technologies**
+### DID Document
+Key DID offers an immutable DID document that is statically generated from any cryptographic key pair. The DID document is not actually stored anywhere since it can always be regenerated from the key pair. Due 
+
+### DID Resolver
+Implementation. This Key DID Resolver is included in Ceramic by default.
+
+## **Underlying technology**
+
+- [W3C DID specification]()
 
 ## **License**
-Key DID Provider is fully open sourced under MIT and Apache 2.
+Key DID is fully open sourced under MIT and Apache 2.
