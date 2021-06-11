@@ -1,5 +1,5 @@
-# JavaScript HTTP Client
-The JS HTTP clent allows your JavaScript application to interact with a remote Ceramic node. The JS HTTP client is a lightweight way of interacting with the Ceramic network. It works by connecting to an HTTP endpoint provided by a remote Ceramic node to [read]() and [write]() streams. The main consideration when using the JS HTTP Client is deciding which remote Ceramic node to use.
+# JS HTTP Client
+The JS HTTP clent is a lightweight way of interacting with the Ceramic netwotk. It allows your JavaScript application to interact with a remote Ceramic node over HTTP to [read]() and [write]() streams. The main consideration when using the JS HTTP Client is deciding which remote Ceramic node to use.
 
 The JS HTTP client is recommended when building most applications.
 
@@ -60,6 +60,6 @@ const ceramic = new CeramicClient(API_URL)
 ## **Next steps**
 
 ### Authenticate your client to perform writes
-The JS HTTP Client needs access to a DID instance to create and validate cryptographic signatures on stream [commits](). If you need to perform [writes](), next you'll need to [Configure a DID](configure-did.md) then [Authenticate](authentication.md) it. *If you only need to perform queries, then you can skip these steps and jump directly to [querying streams]().* 
+If you need to perform [writes](), next you'll need to [Configure a DID](configure-did.md) then [Authenticate](authentication.md) it. *If you only need to perform queries, then you can skip these steps and jump directly to [querying streams]().* 
 
 </br></br></br>
