@@ -25,15 +25,18 @@ $ ceramic daemon
 
 This starts a Ceramic node with a standard cofiguration. By default the daemon runs a bundled [IPFS](../learn/glossary.md#ipfs) instance. Behind the scenes a properly configured IPFS instance is started, then IPFS is used to create an instance of the Ceramic [JS Core Client](../clients/javascript). Once Ceramic Core is running, an HTTP server is started that serves the Ceramic HTTP API. The node is now ready to accept requests from the local environment or from a remote [JS HTTP Client](../clients/javascript/http.md) or [CLI](../clients/javascript/cli.md).
 
-#### Using an external IPFS node
+#### Using an external IPFS node (optional)
 
 It's also possible to run a separate service for IPFS using the `@ceramicnetwork/ipfs-daemon` npm package. 
 
-### 3. Expose ports
+### 3. Configure a network (optional)
+By default, the JS CLI starts a node on the [Clay Testnet](../../learn/networks.md#clay-testnet). If you would like to use a different network, you can specify this using the `--network` option. View [available networks](../../learn/networks.md). Note, the CLI can not yet be used with [Mainnet](../../learn/networks.md#mainnet).
+
+### 4. Expose ports
 
 If you want your node and the streams created on it to be discoverable to the rest of the network, make sure the appropriate ports used by IPFS and the Ceramic HTTP API (by default this is port 7007) are publicly accessible. For example, if you are behind a router you may need to set up port forwarding. 
 
-### 4. Enable peer discovery
+### 5. Enable peer discovery
 
 To enable peer discovery, add your node to the appropriate Ceramic [`peerlist`](https://github.com/ceramicnetwork/peerlist) file by submitting a pull request. This is used as a temporary measure to streamline peer discovery until `js-ipfs` supports DHT lookups.
 
