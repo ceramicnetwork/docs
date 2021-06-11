@@ -1,5 +1,5 @@
 # JS CLI Client
-The JS CLI allows you to start a JavaScript Ceramic node and interact with it using the command line. It can be used to
+The JS CLI allows you to start a JavaScript Ceramic node and interact with it using the command line. It can be used to interact with Ceramic from the command line, or simply spin up and configure a Ceramic node which can be used with the JS HTTP Client.
 
 ## **Benefits**
 
@@ -18,8 +18,6 @@ Installing the JS CLI requires a terminal, [Node.js](https://nodejs.org/en/){:ta
     
     *This is required until node-webrtc (which IPFS depends on) [is upgraded](https://github.com/node-webrtc/node-webrtc/pull/694).*
 
-## **Installation**
-
 ### 1. Install the CLI
 Open your terminal and install the JS CLI using npm.
 
@@ -36,7 +34,7 @@ $ ceramic daemon
 
 This localhost setup allows you to read streams from other nodes connected on the Ceramic network, but writes to your local node will only be available on your local node and on nodes found on the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json), but will not be available to every node on the network. For greater connectivity, connect your CLI to a long-lived remote Ceramic node.
 
-### 3. Configure your node URL (optional)
+### 3. Configure a node URL (optional)
 It is possible to use the CLI with a remote Ceramic node over HTTP. To do this, use the `config set` command to set the `ceramicHost` variable to the URL of the node you wish to use.
 
 ```bash
@@ -48,6 +46,9 @@ When using the CLI with a remote node, you have a few options:
 - [Free community nodes](../tools/hosted-nodes/community-nodes.md)
 - [Commercial node providers](../tools/hosted-nodes/node-providers.md)
 - [Host your own node](../run/nodes.md)
+
+## **Authentication**
+The JS CLI comes prepacked with the [Key DID Provider]() for authenticating and writing data to streams. At this time, no other DID Providers can be used with the CLI.
 
 ## **Usage**
 Type `--h` for a full list of CLI commands.
