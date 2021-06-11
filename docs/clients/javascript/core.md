@@ -65,12 +65,41 @@ Create an instance of Ceramic by passing ipfs and an optional configuration obje
 const ceramic = await Ceramic.create(ipfs, config)
 ```
 
-### 6. Provide a DID instance to the Core client
-Ceramic instances need access to a DID instance to use to resolve DIDs and to create and validate cryptographic signatures on Ceramic commits. See the [Configure your DID](configure-did.md) page for more information on how to do this.
+### 6. Import DID resolvers
+Import resolvers for all DID methods that this Core Client will support. This should be inclusive of the DID Method that you will use for [authentication](), but should also include all other DID Methods for which your node could possibly need to verify signatures. Therefore, it is recommended that all Core Clients be able to resolve at least the `did:3` and `did:key` DID methods.
 
+
+``` javascript
+import KeyDidResolver from 'key-did-resolver'
+import ThreeIdResolver from '@ceramicnetwork/3id-did-resolver'
+```
+
+### 7. Create a resolver instance
+This should include all DID resolvers included in the previous step.
+
+``` javascript
+const resolver = { ...KeyDidResolver.getResolver(),
+                   ...ThreeIdResolver.getResolver(ceramic) }
+```
+
+### 8. Create a DID instance
+The DID instance wraps the resolver. Optionally, it also includes a DID Provider if you intend to [authenticate](../../build/authentication.md) DIDs to allow [writes](../../build/writes.md).
+
+``` javascript
+import { DID } from 'dids'
+const did = new DID({ resolver })
+```
+
+### 9. Set DID instance on Core client
+
+``` javascript
+ceramic.setDID(did)
+```
 
 ## **Next steps**
-### Authenticate to perform writes
-If you need to perform [writes](), then you will next need to [Configure a DID]() then [Authenticate](authentication.md). If you only need to query streams, you can skip ahead to [queries]().
+After setting the DID instance on the Core client, your application will now be able to perform [queries](queries.md). If you need to perform writes, proceed to setting up [Authentication](../../build/authentication.md).
 
-</br></br></br>
+
+</br>
+</br>
+</br>
