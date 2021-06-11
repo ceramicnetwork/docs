@@ -53,7 +53,7 @@ nav:
     - Share your work: build/share.md
     - Troubleshooting: build/troubleshooting.md
   - Run:
-    - Running a node: run/nodes.md
+    - Hosting a node: run/nodes.md
     #- Anchor service: run/anchor-service.md
   - Clients:
     - JavaScript:
