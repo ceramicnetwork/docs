@@ -1,13 +1,19 @@
 # JS Core Client
-The JS Core Client allows you to run the full Ceramic protocol (API and node) directly in any JavaScript environment, including directly in-browser. You might use the Core client if you want your project to be maximally decentralized. However, there are tradeoffs such as performance and data availability when using it in browser since this node can come on and offline as the user opens and closes browser windows.
+The JS Core Client allows you to run the full Ceramic protocol (API and node) directly in any JavaScript environment, such as in your tests, directly in-browser, or node.js. Carefully read the [considerations]() below to decide if the JS Core Client is right for your project. Most applications instead use the [JS HTTP Client]().
+
+Ceramic core can be used directly through the JavaScript *CeramicApi*. 
 
 [:octicons-download-16: Installation](#installation) | [:octicons-file-code-16: Full API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"}
 
-## **Benefits**
+## **Considerations**
 
-**Maximal decentralization**:
+**Maximal decentralization**: When running Ceramic core all streams that are created, loaded, or pinned get verified in the local environment, which is great if you need maximal decentralization and resilience in your application. 
+
+**Weak data availability**: Streams created with Ceramic Core will only be available on the network as long as this node remains online. For example, if your setup uses in-browser nodes and your user closes the tab, any stream created by that user will remain unavailable until the user opens the application again. One way to mitigate this is to pin streams on separate long running nodes.
 
 **Strong security**:
+
+**Extra setup complexity**: You will need to configure your own IPFS node which supports *dag-jose* and ensure connectivity to the rest of the Ceramic network
 
 **No external node needed**:
 
