@@ -1,5 +1,5 @@
-# Running a node
-This guide describes how to spin up and run a hosted Ceramic node that can be used as a remote node by the [JS HTTP Client](../clients/javascript/http.md) or the [CLI](../clients/javascript/cli.md). It can also be used for redundant stream pinning and replication from any other node. Currently, it is only possible to run nodes on the [Clay Testnet](../learn/networks.md#clay-testnet). We will add the ability to run nodes on [Mainnet](../learn/networks.md#mainnet) in the near future.
+# Hosting a node
+This guide describes how to spin up and run a hosted Ceramic JS node that can be used as a remote node by the [JS HTTP Client](../clients/javascript/http.md) or the [CLI](../clients/javascript/cli.md). It can also be used for redundant stream pinning and replication from any other node. Currently, it is only possible to run nodes on the [Clay Testnet](../learn/networks.md#clay-testnet). We will add the ability to run nodes on [Mainnet](../learn/networks.md#mainnet) in the near future.
 
 ## **Installation**
 This guide requires the use of a console, [Node.js](https://nodejs.org/en/){:target="_blank"} v14, and [npm](https://www.npmjs.com/get-npm){:target="_blank"} v6. Make sure to have these installed on your machine.
@@ -40,3 +40,4 @@ To enable peer discovery, add your node to the appropriate Ceramic [`peerlist`](
 ## **Next steps**
 Congratulations! You have now set up a hosted Ceramic node that is ready to receive HTTP requests from the [JS HTTP Client](../clients/javascript/http.md) or the [CLI](../clients/javascript/cli.md), or to simply serve as another node for redundant stream pinning and replication.
 
+</br></br></br>
