@@ -33,7 +33,7 @@ This localhost setup allows you to read streams from other nodes connected on th
 By default, the JS CLI starts a node on the [Clay Testnet](../../learn/networks.md#clay-testnet). If you would like to use a different network, you can specify this using the `--network` option. View [available networks](../../learn/networks.md).
 
 ### 4. Configure a node URL (optional)
-It is possible to use the CLI with a remote Ceramic node over HTTP. To do this, use the `config set` command to set the `ceramicHost` variable to the URL of the node you wish to use.
+It is possible to use the CLI with a remote Ceramic node over HTTP, instead of a local node. To do this, use the `config set` command to set the `ceramicHost` variable to the URL of the node you wish to use. You should only do this if you are using the CLI for command line interactions. If you are simply using it to spin up a Ceramic node, then you can ignore this step.
 
 ```bash
 $ ceramic config set ceramicHost 'https://yourceramicnode.com'
