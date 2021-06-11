@@ -17,28 +17,31 @@ The JS HTTP client is recommended when building most applications.
 
 ## **Installation**
 
-This installation guide will use a terminal, [Node.js](https://nodejs.org/en/){:target="_blank"} v14, and [npm](https://www.npmjs.com/get-npm){:target="_blank"} v6. Make sure to have these installed on your machine.
+To install the JS HTTP Client you will need a terminal, [Node.js](https://nodejs.org/en/){:target="_blank"} v14, and [npm](https://www.npmjs.com/get-npm){:target="_blank"} v6. Make sure to have these installed on your machine.
 
-While npm v7 is not officially supported, you may be able to get it to work anyway, however you will need to have the `node-pre-gyp` package installed globally:
-```bash
-npm install -g node-pre-gyp
-```
-This is required until node-webrtc (which IPFS depends on) [is upgraded](https://github.com/node-webrtc/node-webrtc/pull/694).
+    !!! warning ""
+    While npm v7 is not officially supported, you may be able to get it to work anyway. However, you will need to have the `node-pre-gyp` package installed globally:
+    
+    ```bash
+    npm install -g node-pre-gyp
+    ```
+    
+    *This is required until node-webrtc (which IPFS depends on) [is upgraded](https://github.com/node-webrtc/node-webrtc/pull/694).*
 
-### 1. Install the client
+### 1. Install the HTTP client
 Open your terminal and install the JS HTTP Client using npm.
 
 ``` bash
 npm install @ceramicnetwork/http-client
 ```
 
-### 2. Import the client
+### 2. Import the HTTP client
 
 ``` javascript
 import CeramicClient from '@ceramicnetwork/http-client'
 ```
 
-### 3. Connect to a remote node
+### 3. Configure your node URL
 
 ``` javascript
 const API_URL = "http://yourceramicnode.com"
@@ -51,7 +54,7 @@ Available options for your node setup:
 - [Host your own node](../run/nodes.md): Learn how to setup and host your own node
 - *localhost*: To use the JS HTTP Client with a Ceramic node running on your local machine, you will need to first start a local daemon by [installing the CLI](). Once the CLI is installed, you can pass `https://localhost:7007` to the HTTP client. This setup will allow you to read streams from other nodes connected on the Ceramic network, but writes to your local node will only be available on nodes found on the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json), but will not be available to other nodes on the network (this is a limitation with js-ipfs and will be fixed in the future).
 
-### 4. Create an instance
+### 4. Create a Ceramic instance
 
 ``` javascript
 const ceramic = new CeramicClient(API_URL)
@@ -59,7 +62,7 @@ const ceramic = new CeramicClient(API_URL)
 
 ## **Next steps**
 
-### Authenticate your client to perform writes
-If you need to perform [writes](), next you'll need to [Configure a DID](configure-did.md) then [Authenticate](authentication.md) it. *If you only need to perform queries, then you can skip these steps and jump directly to [querying streams]().* 
+### Authenticate to perform writes
+If you need to perform [writes](), next you'll need to [Configure a DID](configure-did.md) then [Authenticate](authentication.md) it. If you only need to perform queries, then you can skip these steps and jump directly to [querying streams]().
 
 </br></br></br>
