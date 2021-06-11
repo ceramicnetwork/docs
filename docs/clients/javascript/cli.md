@@ -1,5 +1,5 @@
 # JS CLI Client
-The JS CLI allows you to start a JavaScript Ceramic node and interact with it using simple commands. It can be used to interact with Ceramic from the command line, or to simply spin up and configure a Ceramic node which can be used with, for example, the [JS HTTP Client](./http.md).
+The JS CLI allows you to start a JavaScript Ceramic node and interact with it using simple commands. It can be used to interact with Ceramic from the command line, or to simply spin up and configure a Ceramic node which can be used with, for example, the [JS HTTP Client](./http.md). If you only want to use the CLI for spinning up a hosted node, instead view [Hosting a node](../../run/nodes.md).
 
 ## **Installation**
 
@@ -30,7 +30,7 @@ $ ceramic daemon
 This localhost setup allows you to read streams from other nodes connected on the same network, but writes to your local node will only be available on your local node and on nodes found on the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json). They will not be available to every node on the network. For greater connectivity, follow the step below to connect your CLI to a remote long-lived Ceramic node.
 
 ### 3. Configure a network (optional)
-By default, the JS CLI starts a node on the [Clay Testnet](../../learn/networks.md#clay-testnet). If you would like to use a different network, you can specify this using the `--network` option. View [available networks](../../learn/networks.md).
+By default, the JS CLI starts a node on the [Clay Testnet](../../learn/networks.md#clay-testnet). If you would like to use a different network, you can specify this using the `--network` option. View [available networks](../../learn/networks.md). Note, the CLI can not be used with [Mainnet](../../learn/networks.md#mainnet).
 
 ### 4. Configure a node URL (optional)
 It is possible to use the CLI with a remote Ceramic node over HTTP, instead of a local node. To do this, use the `config set` command to set the `ceramicHost` variable to the URL of the node you wish to use. You should only do this if you are using the CLI for command line interactions. If you are simply using it to spin up a Ceramic node, then you can ignore this step.
