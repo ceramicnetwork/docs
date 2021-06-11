@@ -1,17 +1,17 @@
 # JS HTTP Client
-The JS HTTP clent is a lightweight way of interacting with the Ceramic netwotk. It allows your JavaScript application to interact with a remote Ceramic node over HTTP to [read]() and [write]() streams. The main consideration when using the JS HTTP Client is deciding which remote Ceramic node to use.
+The JS HTTP Client is a lightweight way of interacting with the Ceramic netwotk. It allows your JavaScript application to connect to a remote Ceramic node over HTTP to [read]() and [write]() streams. The main decision to make when using the JS HTTP Client is which remote Ceramic node to use. The JS HTTP client is recommended when building most applications.
 
-The JS HTTP client is recommended when building most applications.
+The HTTP Client implements the *CeramicApi*.
 
 [:octicons-download-16: Installation](#installation) | [:octicons-file-code-16: Full API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_http_client.ceramicclient.html){:target="_blank"}
 
-## **Benefits**
+## **Considerations**
 
 **Improved performance**: This means that state validation happens in the remote node which the client trusts. 
 
-**More predictable data availability**:
+**Stable data availability**:
 
-**No security tradeoffs**: Important to note however is the user's keys always live client side and all updates are authored on the client and then sent to the remote http endpoint to write the update to the network.
+**Some trust in a remote node**: State validation happens in the remote node which the client trusts. Important to note however is the user's keys always live client side and all updates are authored on the client and then sent to the remote http endpoint to write the update to the network.
 
 **Swap for the JS Core Client anytime**: The HTTP client implements the standard *CeramicApi*, so it can easily be interchanged for the [JS Core Client]() if you decide to switch at a later time.
 
