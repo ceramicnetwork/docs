@@ -1,56 +1,14 @@
 # Quick start
-Learn the basics by setting up and interacting with the Ceramic CLI. This tutorial serves as a simple introduction to Ceramic concepts. See [installation](./installation.md) to install Ceramic in your project and start building applications.
+Learn the basics by setting up and interacting with the [Ceramic CLI](../clients/javascript/cli.md). This tutorial serves as a simple introduction to Ceramic concepts. See [installation](./installation.md) to install Ceramic in your project and start building applications.
 
 > **Want an even faster way to try Ceramic?** Visit the [Playground demo app](https://playground.ceramic.dev){:target="_blank"} to test the full stack of Ceramic components in the browser.
 
-## **Prerequisites**
+## **1. Install the CLI**
 
-This quick start guide will use a terminal, [Node.js](https://nodejs.org/en/){:target="_blank"} v14, and [npm](https://www.npmjs.com/get-npm){:target="_blank"} v6. Make sure to have these installed on your machine.
+Visit the [Ceramic CLI](../clients/javascript/cli.md) page for instructions on how to quickly install the CLI.
 
-While npm v7 is not officially supported, you may be able to get it to work anyway, however you will need to have the `node-pre-gyp` package installed globally:
-```bash
-npm install -g node-pre-gyp
-```
-This is required until node-webrtc (which IPFS depends on) [is upgraded](https://github.com/node-webrtc/node-webrtc/pull/694).
-
-## **Install the CLI**
-
-Install the Ceramic CLI using your terminal.
-
-```bash
-npm install -g @ceramicnetwork/cli
-```
-
-## **Start the daemon**
-
-Start a Ceramic daemon on your local machine and automatically connect to it on
-port 7007, `http://localhost:7007`.
-
-```bash
-ceramic daemon
-```
-
-??? info "Node configurations"
-    There are multiple options you can configure when you start the ceramic daemon.
-    
-    - **Network**: By default the CLI starts a Ceramic node on the `clay` testnet. If you
-    would like to use a different Ceramic network, you can specify this with the
-    `--network` option.
-    - **Additional configurations**: Use the `ceramic daemon -h` command to see additional options.
-
-
-## **Authentication**
-By default, the Ceramic CLI is authenticated with a
-[Key DID](https://github.com/ceramicnetwork/key-did-provider-ed25519){:target="_blank"}. The seed
-for this DID is stored in `~/.ceramic/config.json`. If this file is not present
-on startup a new DID will be randomly generated. It's currently not possible to
-use the Ceramic CLI with other DID methods.
-
-
-## **Create a stream**
-Use the `create` command to create a new stream. In the example below
-we create a stream of type *TileDocument*. Note that *TileDocument* is
-the only stream type that can currently be created by the Ceramic CLI.
+## **2. Create a stream**
+Use the `create` command to create a new [stream](../learn/glossary.md#streams). In the example below we create a stream that uses the [TileDocument StreamType](../streamtypes/tile-document/overview.md). Note that *TileDocument* is the only [StreamType](../learn/glossary.md#streamtypes) that can currently be created by the Ceramic CLI.
 
 === "Command"
 
@@ -68,7 +26,7 @@ the only stream type that can currently be created by the Ceramic CLI.
     ```
 
     !!! quote ""
-        The first line of the output is the *StreamID*, which is the persistent identifier of our newly created stream. This StreamID will be different for you, since you created it with your DID. Below the StreamID is the current content of the stream.
+        The first line of the output is the [StreamID](../learn/glossary.md#streamid), which is the persistent identifier of our newly created stream. This StreamID will be different for you, since you created it with your DID. Below the StreamID is the current content of the stream.
 
 ??? info "More options"
     
@@ -76,8 +34,8 @@ the only stream type that can currently be created by the Ceramic CLI.
     - `--schema`: set the *schema* of the TileDocument
     - Run `ceramic create -h` to see all available options
 
-## **Query a stream**
-Use the `show` command to query the current state of a stream. You will need to provide its *StreamID*.
+## **3. Query a stream**
+Use the `show` command to query the current [state](../learn/glossary.md#state) of a stream. You will need to provide its *StreamID*.
 
 === "Command"
 
@@ -179,9 +137,8 @@ Use the `state` command to query the entire state of a stream.
     !!! quote ""
         This output was seen after the anchor has been created. The stream state has now shifted *anchorStatus* to `ANCHORED`. You can also see that the log contains one more entry.
 
-## **Update a stream**
-Use the `update` command to update a stream. Your DID must be the controller of the stream in order to update it.
-Note that *TileDocument* is the only stream type that can currently be updated by the CLI.
+## **4. Update a stream**
+Use the `update` command to update a stream. Your [DID](../learn/glossary.md#dids) must be the [controller](../learn/glossary.md#controllers) of the stream in order to update it. Note that *TileDocument* is the only StreamType that can currently be updated by the CLI.
 
 === "Command"
 
@@ -206,8 +163,8 @@ Note that *TileDocument* is the only stream type that can currently be updated b
     Currently you can change *content*, *controllers*, and *schema* using the CLI. Run `ceramic update -h` for more information.
 
 
-## **Create a schema**
-Ceramic TileDocuments can enforce that their contents adhere to a specified schema. The schemas themselves are Ceramic TileDocuments where the content is a [json-schema](https://json-schema.org/){:target="_blank"}. For example we can create a schema that requires a document to have a *title* and *message*.
+## **5. Create a schema**
+TileDocuments can enforce that their contents adhere to a specified schema. The schemas themselves are TileDocuments where the content is a [json-schema](https://json-schema.org/){:target="_blank"}. For example we can create a schema that requires a TileDocument to have a *title* and *message*.
 
 === "Command"
 
@@ -250,8 +207,8 @@ Ceramic TileDocuments can enforce that their contents adhere to a specified sche
     }
     ```
 
-## **Create a TileDocument that uses a schema**
-First, use the `commits` command to list the commitIDs contained in the schema document. When creating a TileDocument that uses this schema, we need to use a commitID instead of the DocID to enforce that we are using a specific version of the schema since the schema document is mutable and can be updated.
+## **6. Create a TileDocument stream that uses a schema**
+First, use the `commits` command to list the [commitIDs](../learn/glossary.md#commitid) contained in the schema stream. When creating a TileDocument that uses this schema, we need to use a commitID instead of the StreamID to enforce that we are using a specific version of the schema since the schema stream is mutable and can be updated.
 
 === "Command"
 
@@ -297,7 +254,7 @@ Once you retrieve the desired commit, you can now create a TileDocument that is 
     }
     ```
 
-## **Query the document you created**
+## **7. Query the stream you created**
 Use the `state` command to query the state of the TileDocument we just created. We can see that the schema is set to the correct commitID.
 
 === "Command"
