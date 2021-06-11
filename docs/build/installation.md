@@ -13,9 +13,9 @@ Ceramic is available in a variety of clients suited for different use cases.
 
 | Language | Client | Description | Details |
 | ----- | ------ | ----- | --- |
-| JavaScript | HTTP Client | Allows your project to interact with a remote Ceramic node over HTTP (*recommended*) | [Install](../learn/clients.md/#http-client) |
-| JavaScript | Core Client | Allows your project to run the full Ceramic protocol (API and node) in any JS environment | [Install](../learn/clients.md/#core) |
-| JavaScript | CLI | Allows developers to spin up a Ceramic node and/or interact with Ceramic from the command line | [Install](../learn/clients.md/#cli) |
+| JavaScript | HTTP Client | Allows your project to interact with a remote Ceramic node over HTTP (*recommended*) | [Learn and install](../learn/clients.md/#http-client) |
+| JavaScript | Core Client | Allows your project to run the full Ceramic protocol (API and node) in any JS environment | [Learn and install](../learn/clients.md/#core) |
+| JavaScript | CLI | Allows developers to spin up a Ceramic node and/or interact with Ceramic from the command line | [Learn and install](../learn/clients.md/#cli) |
 
 > For optimal performance and data availability, it is recommended that you use the HTTP Client when building an application.
 
