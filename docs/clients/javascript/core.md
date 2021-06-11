@@ -1,5 +1,5 @@
 # JS Core Client
-The JS Core Client allows you to run the full Ceramic protocol (API and node) directly in any JavaScript environment, such as in your tests, directly in-browser, or node.js. Carefully read the [considerations]() below to decide if the JS Core Client is right for your project. Most applications instead use the [JS HTTP Client]().
+The JS Core Client allows you to run the full Ceramic protocol (API and node) directly in any JavaScript environment, such as in your tests, directly in-browser, or node.js. Carefully read the [considerations](#considerations) below to decide if the JS Core Client is right for your project. Most applications instead use the [JS HTTP Client](./http.md).
 
 Ceramic core can be used directly through the JavaScript *CeramicApi*. 
 
@@ -7,18 +7,16 @@ Ceramic core can be used directly through the JavaScript *CeramicApi*.
 
 ## **Considerations**
 
-**Maximal decentralization**: When running Ceramic core all streams that are created, loaded, or pinned get verified in the local environment, which is great if you need maximal decentralization and resilience in your application. 
+**Maximal security and decentralization**: The Ceramic Core client does not have trusted relationships with any external nodes. With Ceramic Core, streams that are [written](../../build/writes.md), [queried](../../build/queries.md), or [pinned](../../build/pinning.md) are verified in the local environment which is great if you need maximal security and decentralization in your application. 
 
-**Weak data availability**: Streams created with Ceramic Core will only be available on the network as long as this node remains online. For example, if your setup uses in-browser nodes and your user closes the tab, any stream created by that user will remain unavailable until the user opens the application again. One way to mitigate this is to pin streams on separate long running nodes.
+**Transitory data availability**: Streams created with Ceramic Core will only be available on the network as long as this node remains online. For example for setups that use the Core Client directly in-browser, when your user closes the tab any stream created by that user will become unavailable  on the network until the user opens the application again. For more resilient data availability you can always replicate and pin streams on secondary long-running nodes, or instead use the [JS HTTP Client](./http.md) which relies on a remote node more likely to always be online.
 
-**Strong security**:
+**Setup complexity**: You will need to configure an [IPFS](../../learn/glossary.md#ipfs) node which supports the [*dag-jose*](../../learn/glossary.md#dagjose) data format and ensure connectivity to the rest of the Ceramic network. See [installation](#installation) below for instructions on how to do this.
 
-**Extra setup complexity**: You will need to configure your own IPFS node which supports *dag-jose* and ensure connectivity to the rest of the Ceramic network
-
-**No external node needed**:
+**Swap for JS HTTP Client at any time**: The JS Core Client and the [JS HTTP Client](./http.md) implement the same JavaScript *CeramicApi*, so swapping between clients is seamless and doesn't require changing your application logic; it only requires changing your setup.
 
 ## **Installation**
-Installing the JS Core Client requires a terminal, [Node.js](https://nodejs.org/en/){:target="_blank"} v14, and [npm](https://www.npmjs.com/get-npm){:target="_blank"} v6. Make sure to have these installed on your machine.
+Installing the JS Core Client requires a console, [Node.js](https://nodejs.org/en/){:target="_blank"} v14, and [npm](https://www.npmjs.com/get-npm){:target="_blank"} v6. Make sure to have these installed on your machine.
 
     !!! warning ""
     While npm v7 is not officially supported, you may be able to get it to work anyway, however you will need to have the `node-pre-gyp` package installed globally:
@@ -30,7 +28,7 @@ Installing the JS Core Client requires a terminal, [Node.js](https://nodejs.org/
     *This is required until node-webrtc (which IPFS depends on) [is upgraded](https://github.com/node-webrtc/node-webrtc/pull/694).*
 
 ### 1. Install the Core client
-Open your terminal and install the JS Core Client using npm.
+Open your console and install the JS Core Client using npm.
 
 ``` bash
 npm install @ceramicnetwork/core
@@ -43,7 +41,7 @@ import Ceramic from '@ceramicnetwork/core'
 ```
 
 ### 3. Import IPFS with dag-jose
-Ceramic utilizes the [dag-jose](https://github.com/ipld/specs/blob/master/block-layer/codecs/dag-jose.md){:target="_blank"} IPLD codec to store data in IPFS.
+Ceramic utilizes the [dag-jose](../../learn/glossary.md#dagjose) IPLD codec to format and store data in IPFS.
 
 ``` javascript
 import IPFS from 'ipfs'
@@ -72,7 +70,7 @@ const ceramic = await Ceramic.create(ipfs, config)
 ```
 
 ### 6. Import DID resolvers
-Import resolvers for all DID methods that this Core Client will support. This should be inclusive of the DID Method that you will use for [authentication](), but should also include all other DID Methods for which your node could possibly need to verify signatures. Therefore, it is recommended that all Core Clients be able to resolve at least the `did:3` and `did:key` DID methods.
+Import resolvers for all DID methods that this Core Client will support. This should be inclusive of the DID Method that you will use for [authentication](../../build/authentication.md), but should also include all other DID Methods for which your node could possibly need to verify signatures. Therefore, it is recommended that all Core Clients be able to resolve at least the `did:3` and `did:key` DID methods.
 
 
 ``` javascript
@@ -81,7 +79,7 @@ import ThreeIdResolver from '@ceramicnetwork/3id-did-resolver'
 ```
 
 ### 7. Create a resolver instance
-This should include all DID resolvers included in the previous step.
+This should include all DID resolvers from the previous step.
 
 ``` javascript
 const resolver = { ...KeyDidResolver.getResolver(),
@@ -89,7 +87,7 @@ const resolver = { ...KeyDidResolver.getResolver(),
 ```
 
 ### 8. Create a DID instance
-The DID instance wraps the resolver. Optionally, it also includes a DID Provider if you intend to [authenticate](../../build/authentication.md) DIDs to allow [writes](../../build/writes.md).
+Create a DID instance which wraps the resolver. Optionally, it also includes a DID Provider if you intend to [authenticate](../../build/authentication.md) DIDs to allow [writes](../../build/writes.md) to the network during runtime.
 
 ``` javascript
 import { DID } from 'dids'
@@ -103,7 +101,7 @@ ceramic.setDID(did)
 ```
 
 ## **Next steps**
-After setting the DID instance on the Core client, your application will now be able to perform [queries](queries.md). If you need to perform writes, proceed to setting up [authentication](../../build/authentication.md).
+After setting the DID instance on the Core client, your application will now be able to perform [queries](../../build/queries.md). If you need to perform writes, proceed to setting up [authentication](../../build/authentication.md).
 
 
 </br>
