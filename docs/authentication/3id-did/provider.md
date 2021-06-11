@@ -1,5 +1,5 @@
-## 3ID DID Provider
-3ID DID Provider is a low-level JavaScript library that provides interfaces for creating and authenticating 3IDs. For most applications it is recommended that you instead use a 3ID Wallet, such as [3ID Connect](), if you are looking for a more complete and user-friendly 3ID authentication system that easily works with a user's other blockchain wallets.
+# 3ID DID Provider
+3ID DID Provider is a low-level JavaScript library that provides interfaces for creating and authenticating 3IDs. For most applications it is recommended that you instead use a 3ID authentication SDK, such as [3ID Connect](), if you are looking for a more complete and user-friendly 3ID-based authentication system that easily works with a user's other blockchain wallets.
 
 ## **Installation**
 Before installing 3ID DID Provider, you must have [installed a Ceramic client](../../build/installation.md) and [configured a DID](c../../build/onfigure-did.md) for that client. By following the steps below, users will be able to [perform writes](../../build/writes.md) on Ceramic using a 3ID DID.
