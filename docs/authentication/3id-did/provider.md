@@ -98,6 +98,9 @@ await ceramic.did.authenticate()
 ## **Usage**
 After authenticating with 3ID DID Provider, the user will now be able to perform [writes](writes.md) on Ceramic.
 
+## **Underlying technologies**
+- [3ID DIDs (CIP-79)](../dids/3id.md): For creating decentralized identifiers and authenticating to Ceramic
+
 ## License
 3ID DID Provider is fully open sourced under MIT and Apache 2.
 
