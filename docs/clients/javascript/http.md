@@ -60,9 +60,40 @@ Available options for your node setup:
 const ceramic = new CeramicClient(API_URL)
 ```
 
+### 5. Import DID resolvers
+Import resolvers for all DID methods that will perform [writes]() using this HTTP Client. This should include all DID Methods that your app will use for [authentication](). If your HTTP Client will only perform queries, then jump over to the [queries]() page.
+
+``` javascript
+import KeyDidResolver from 'key-did-resolver'
+import ThreeIdResolver from '@ceramicnetwork/3id-did-resolver'
+```
+
+### 6. Create a resolver instance
+This should include all DID resolvers included in the previous step.
+
+``` javascript
+const resolver = { ...KeyDidResolver.getResolver(),
+                   ...ThreeIdResolver.getResolver(ceramic) }
+```
+
+### 7. Create a DID instance
+The DID instance wraps the resolver and also should include the DID Provider for the DID Method your users will use to [authenticate]() to perform [writes]().
+
+``` javascript
+import { DID } from 'dids'
+const did = new DID({ resolver })
+```
+
+### 8. Set DID instance on HTTP client
+
+``` javascript
+ceramic.setDID(did)
+```
+
 ## **Next steps**
+After setting the DID instance on the HTTP client, your application will be capable of performing writes. Proceed to [setting up authentication]() so users can authenticate to perform these writes. If your app only needs to perform queries, then jump ahead to [queries]().
 
-### Authenticate to perform writes
-If you need to perform [writes](), next you'll need to [Configure a DID](configure-did.md) then [Authenticate](authentication.md) it. If you only need to perform queries, then you can skip these steps and jump directly to [querying streams]().
 
-</br></br></br>
+</br>
+</br>
+</br>
