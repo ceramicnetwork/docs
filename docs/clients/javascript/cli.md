@@ -1,5 +1,5 @@
 # JS CLI Client
-The JS CLI allows you to start a JavaScript Ceramic node and interact with it using the command line.
+The JS CLI allows you to start a JavaScript Ceramic node and interact with it using the command line. It can be used to
 
 ## **Benefits**
 
@@ -27,8 +27,8 @@ Open your terminal and install the JS CLI using npm.
 npm install -g @ceramicnetwork/cli
 ```
 
-### 2. Start the Ceramic daemon
-This commands starts a local Ceramic node at `https://localhost:7007`. 
+### 2. Start the Ceramic node
+This command starts a local Ceramic node at `https://localhost:7007`. 
 
 ```bash
 $ ceramic daemon
