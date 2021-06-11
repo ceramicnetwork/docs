@@ -1,5 +1,5 @@
 # Installation
-Install a [Ceramic client](../learn/clients.md) to perform [writes](./writes.md) and [queries](./queries.md) on the network. There are multiple ways to setup, run, and use Ceramic. This page describes the options.
+Install a [Ceramic client](../learn/glossary.md#clients) to perform [writes](./writes.md) and [queries](./queries.md) on the network. There are multiple ways to setup, run, and use Ceramic. This page describes the options.
 
 !!! warning "**MAINNET NOW LIVE!**"
     
@@ -11,11 +11,11 @@ Install a [Ceramic client](../learn/clients.md) to perform [writes](./writes.md)
 ## **Install a client**
 Ceramic is available in a variety of clients suited for different use cases. 
 
-| Language | Client | Description | Details |
-| ----- | ------ | ----- | --- |
-| JavaScript | HTTP Client | Allows your project to interact with a remote Ceramic node over HTTP (*recommended*) | [Learn and install](../learn/clients.md/#http-client) |
-| JavaScript | Core Client | Allows your project to run the full Ceramic protocol (API and node) in any JS environment | [Learn and install](../learn/clients.md/#core) |
-| JavaScript | CLI | Allows developers to spin up a Ceramic node and/or interact with Ceramic from the command line | [Learn and install](../learn/clients.md/#cli) |
+| Language | Client | Description | Usage | Details |
+| ----- | ------ | ----- | --- | --- |
+| JavaScript | HTTP | Allows your project to interact with a remote Ceramic node over HTTP | Most apps (*recommended*) | [Learn and install](../clients/javascript/http.md) |
+| JavaScript | Core | Allows your project to run the full Ceramic protocol (API and node) in any JS environment | Tests, fully client side apps, node.js | [Learn and install](../clients/javascript/core.md) |
+| JavaScript | CLI | Allows developers to spin up a Ceramic node and/or interact with Ceramic from the command line | Command line, hosting a node | [Learn and install](../clients/javascript/cli.md) |
 
 > For optimal performance and data availability, it is recommended that you use the HTTP Client when building an application.
 
