@@ -97,7 +97,7 @@ ceramic.setDID(did)
 ```
 
 ## **Next steps**
-After setting the DID instance on the Core client, your application will now be able to perform [queries](queries.md). If you need to perform writes, proceed to setting up [Authentication](../../build/authentication.md).
+After setting the DID instance on the Core client, your application will now be able to perform [queries](queries.md). If you need to perform writes, proceed to setting up [authentication](../../build/authentication.md).
 
 
 </br>
