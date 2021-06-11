@@ -97,15 +97,11 @@ Setup your client within your project.
     with *dag-jose* enabled.
 
     ``` javascript
-    import IPFS from 'ipfs'
+    import IPFS from 'ipfs-core'
     import dagJose from 'dag-jose'
-    import { sha256 } from 'multiformats/hashes/sha2'
-    import legacy from 'multiformats/legacy'
+    import { convert } from 'blockcodec-to-ipld-format'
 
-    const hasher = {}
-    hasher[sha256.code] = sha256
-    const dagJoseFormat = legacy(dagJose, {hashes: hasher})
-
+    const dagJoseFormat = convert(dagJose)
     ```
 
     #### Create an IPFS instance
