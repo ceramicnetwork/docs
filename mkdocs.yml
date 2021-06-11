@@ -57,6 +57,11 @@ nav:
   - Run:
     - Running a node: run/nodes.md
     #- Anchor service: run/anchor-service.md
+  - Clients:
+    - JavaScript:
+      - HTTP Client: clients/javascript/http.md
+      - Core Client: clients/javascript/core.md
+      - CLI: clients/javascript/cli.md
   - StreamTypes:
       - Overview: streamtypes/overview.md
       - Tile Document:
