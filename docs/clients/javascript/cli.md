@@ -1,5 +1,5 @@
 # JS CLI Client
-The JS CLI allows you to start a JavaScript Ceramic node and interact with it from the command line. It can be used to interact with Ceramic from the command line, or to simply spin up and configure a Ceramic node which can be used with, for example, the [JS HTTP Client](./http.md). If you only want to use the CLI for spinning up a hosted node, instead view [Hosting a node](../../run/nodes.md).
+The JS CLI allows you to start a JavaScript Ceramic node and interact with it from the command line. This page describes how to use the CLI for command line interactions. If you are looking to spin up a hosted node for other use cases such as for use with the [JS HTTP Client](./http.md) or as a secondary node for redundant stream pinning and replication, see [Hosting a node](../../run/nodes.md).
 
 ## **Installation**
 
@@ -27,13 +27,13 @@ This starts a local Ceramic node on the [Clay Testnet](../../learn/networks.md#c
 $ ceramic daemon
 ```
 
-This localhost setup allows you to read streams from other nodes connected on the same network, but writes to your local node will only be available on your local node and on nodes found on the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json). They will not be available to every node on the network. For greater connectivity, follow the step below to connect your CLI to a remote long-lived Ceramic node.
+This `localhost` setup allows you to read streams from other nodes connected on the same [network](../../learn/networks.md), but writes to your local node will only be available on your local node and on other nodes found on the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json). They will not be available to every node on the network. For greater connectivity, you might want to connect your CLI to a remote long-lived Ceramic node.
 
 ### 3. Configure a network (optional)
-By default, the JS CLI starts a node on the [Clay Testnet](../../learn/networks.md#clay-testnet). If you would like to use a different network, you can specify this using the `--network` option. View [available networks](../../learn/networks.md). Note, the CLI can not be used with [Mainnet](../../learn/networks.md#mainnet).
+By default, the JS CLI starts a node on the [Clay Testnet](../../learn/networks.md#clay-testnet). If you would like to use a different network, you can specify this using the `--network` option. View [available networks](../../learn/networks.md). Note, the CLI can not yet be used with [Mainnet](../../learn/networks.md#mainnet).
 
 ### 4. Configure a node URL (optional)
-It is possible to use the CLI with a remote Ceramic node over HTTP, instead of a local node. To do this, use the `config set` command to set the `ceramicHost` variable to the URL of the node you wish to use. You should only do this if you are using the CLI for command line interactions. If you are simply using it to spin up a Ceramic node, then you can ignore this step.
+It is possible to use the CLI with a remote Ceramic node over HTTP, instead of a local node. To do this, use the `config set` command to set the `ceramicHost` variable to the URL of the node you wish to use.
 
 ```bash
 $ ceramic config set ceramicHost 'https://yourceramicnode.com'
@@ -49,7 +49,40 @@ When using the CLI with a remote node, you have a few options:
 By default, the CLI is authenticated using the [Key DID Provider](https://github.com/ceramicnetwork/key-did-provider-ed25519){:target="_blank"}. The seed for this DID is stored in `~/.ceramic/config.json`. If this file is not present on startup a new DID will be randomly generated. It's currently not possible to use the Ceramic CLI with other DID methods.
 
 ## **Usage**
-Use the `ceramic daemon -h` command to see additional commands and options. To try basic functionality using the CLI, visit the [Quick Start](../../build/quick-start.md) guide.
+Walk through core functionalities using the CLI with the **[Quick Start](../../build/quick-start.md) guide**.
 
+### All commands
+Use the `ceramic daemon -h` command to see a full list of commands and options. 
+
+### Common commands
+
+#### Create a stream
+Use the `create` command to create a new stream. In the example below we create a [TileDocument StreamType](../../streamtypes/tile-document/overview.md). *TileDocument* is the only StreamType that can currently be created using the CLI. Run `ceramic create -h` to see all available options.
+
+```bash
+$ ceramic create tile --content '{ "Foo": "Bar" }'
+```
+
+#### Query a stream
+Use the `show` command to query the current [state](../../learn/glossary.md#state) of a stream. You will need to provide a [StreamID](../../learn/glossary.md#streamid).
+
+```bash
+$ ceramic show kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa
+```
+
+Use the `state` command to query the entire state of a stream. You will need to provide a StreamID.
+
+```bash
+$ ceramic state kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa
+```
+
+#### Update a stream
+Use the `update` command to update a stream. Your [DID](../../learn/glossary.md#dids) must be the [controller](../../learn/glossary.md#controllers) of the stream in order to update it. *TileDocument* is the only StreamType that can currently be updated using the CLI. Run `ceramic update -h` to see all available options.
+
+```bash
+$ ceramic update kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa --content '{
+    "Foo": "Baz"
+  }'
+```
 
 </br></br></br>
