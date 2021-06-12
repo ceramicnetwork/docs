@@ -72,13 +72,15 @@ nav:
         - API: streamtypes/caip-10-link/api.md
   - Authentication:
     - 3ID DID:
-      - Overview: authentication/3id-did/overview.md
-      - 3ID DID Provider: authentication/3id-did/provider.md
+      - Method: authentication/3id-did/method.md
+      - Provider: authentication/3id-did/provider.md
+      - Resolver: authentication/3id-did/resolver.md
       - 3ID Connect: authentication/3id-did/3id-connect.md
       - 3Box migration: authentication/3id-did/3box-migration.md
     - Key DID:
-      - Overview: authentication/key-did/overview.md
-      - Key DID Provider: authentication/key-did/provider.md
+      - Method: authentication/key-did/method.md
+      - Provider: authentication/key-did/provider.md
+      - Resolver: authentication/key-did/resolver.md
   - Tools:
     - Identity:
       - IDX: tools/identity/idx.md
