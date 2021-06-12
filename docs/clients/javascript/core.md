@@ -1,7 +1,5 @@
 # JS Core Client
-The JS Core Client allows you to run the full Ceramic protocol (API and node) directly in any JavaScript environment, such as in your tests, directly in-browser, or node.js. Carefully read the [considerations](#considerations) below to decide if the JS Core Client is right for your project. Most applications instead use the [JS HTTP Client](./http.md).
-
-Ceramic core can be used directly through the JavaScript *CeramicApi*. 
+The JS Core Client allows you to run the full Ceramic protocol (API and node) directly in any JavaScript environment, such as in your tests, in fully client-side browser applications, or in node.js. Carefully read the [considerations](#considerations) below to decide if the JS Core Client is right for your project. Most applications instead use the [JS HTTP Client](./http.md).
 
 [:octicons-download-16: Installation](#installation) | [:octicons-file-code-16: Full API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"}
 
@@ -13,7 +11,7 @@ Ceramic core can be used directly through the JavaScript *CeramicApi*.
 
 **Setup complexity**: You will need to configure an [IPFS](../../learn/glossary.md#ipfs) node which supports the [*dag-jose*](../../learn/glossary.md#dagjose) data format and ensure connectivity to the rest of the Ceramic network. See [installation](#installation) below for instructions on how to do this.
 
-**Swap for JS HTTP Client at any time**: The JS Core Client and the [JS HTTP Client](./http.md) implement the same JavaScript *CeramicApi*, so swapping between clients is seamless and doesn't require changing your application logic; it only requires changing your setup.
+**Swap for JS HTTP Client at any time**: The JS Core Client and the [JS HTTP Client](./http.md) implement the same [CeramicApi](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html){:target="_blank"} TypeScript interface, so swapping between clients is seamless and doesn't require changing your application logic; it only requires changing your setup.
 
 ## **Installation**
 Installing the JS Core Client requires a console, [Node.js](https://nodejs.org/en/){:target="_blank"} v14, and [npm](https://www.npmjs.com/get-npm){:target="_blank"} v6. Make sure to have these installed on your machine.
