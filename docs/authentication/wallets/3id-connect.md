@@ -51,7 +51,8 @@ npm install @3id/connect
 import { ThreeIdConnect,  <BlockchainAuthProvider> } from '@3id/connect'
 ```
 
-    ??? warning "Understanding `BlockchainAuthProvider`"
+??? warning "Understanding `BlockchainAuthProvider`"
+
     The `BlockchainAuthProvider` parameter is always required but the name shown here is just a placeholder. In your application, you should substitute in the specific BlockchainAuthProvider you are using. A full list of supported BlockchainAuthProviders can be found [here](https://github.com/ceramicnetwork/js-3id-blockchain-utils/tree/master/src/blockchains).
 
 Example using an Ethereum wallet:
@@ -88,7 +89,8 @@ await threeIdConnect.connect(authProvider)
 ```
   
   
-      !!! warning ""
+!!! warning ""
+
     This will prompt the user with a 3ID Connect permissions window.
   
   
@@ -111,7 +113,8 @@ ceramic.did.setProvider(provider)
 await ceramic.did.authenticate()
 ```
 
-      !!! warning ""
+!!! warning ""
+
     This will prompt the user with a 3ID Connect permissions window.
     
 Your users will now be authenticated and can perform writes to streams on Ceramic.
