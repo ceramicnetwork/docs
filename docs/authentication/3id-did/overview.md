@@ -1,4 +1,4 @@
-# 3ID DID
+# 3ID DID Method
 
 3ID DID (CIP-79) is a DID method supported by Ceramic which can be used to authenticate to Ceramic and perform [writes]() to streams that rely on DIDs for authentication. 3IDs are the most suitable DID method for end users, but can also be used for any subject such as orgs, businesses, apps, devices, etc. 3ID is on the [W3C's official DID method registry]() and is fully compliant with decentralized identity standards.
 
