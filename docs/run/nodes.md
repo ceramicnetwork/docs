@@ -24,10 +24,10 @@ This starts a Ceramic node with a standard configuration on the [Clay Testnet](.
 $ ceramic daemon
 ```
 
-### 3. Use an external IPFS node (optional)
+### 3. Use an external IPFS node
 By default the JS CLI starts a node with a bundled IPFS instance. If you would like to instead run a separate service for IPFS, use the `@ceramicnetwork/ipfs-daemon` npm package. 
 
-### 4. Configure a network (optional)
+### 4. Configure a network
 By default the JS CLI starts a node on the Clay Testnet. If you would like to use a different network, you can specify this using the `--network` option. Currently, it is only possible to host nodes on the Clay Testnet. We will add the ability to run nodes on [Mainnet](../learn/networks.md#mainnet) in the near future.
 
 ### 5. Expose endpoints
