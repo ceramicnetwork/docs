@@ -1,5 +1,9 @@
 # Key DID Provider
-Key DID Provider is a low-level JavaScript interface for creating and interacting with a Key DID. View [Overview]() for a more general description of the Key DID Method.
+Key DID Provider is a [DID Provider](../../learn/glossary.md#did-provider) for the [Key DID Method](./method.md). It allows you to create and use Key DIDs within your application.
+
+## Available key types
+
+ED25519: Here you can find a reference implementation of the `ed25519` Key DID. [ceramicnetwork/key-did-provider-ed25519](https://github.com/ceramicnetwork/key-did-provider-ed25519){:target="_blank"}
 
 ## **Installation**
 
