@@ -1,9 +1,10 @@
 # Key DID Provider
 Key DID Provider is a [DID Provider](../../learn/glossary.md#did-provider) for the [Key DID Method](./method.md). It allows you to create and use Key DIDs within your application.
 
-## Available key types
+## Supported key types
+Key DID Provider implementations are specific to the type of cryptographic key pair that you are using, however they can all use the same [Key DID Resolver](./resolver.md). Below find a list of supported key types, and their respective providers.
 
-ED25519: Here you can find a reference implementation of the `ed25519` Key DID. [ceramicnetwork/key-did-provider-ed25519](https://github.com/ceramicnetwork/key-did-provider-ed25519){:target="_blank"}
+- **ED25519 Key DID Provider**: Works with Ed25519 cryptographic key pairs. You can find the JavaScript implementation at [`ceramicnetwork/key-did-provider-ed25519`](https://github.com/ceramicnetwork/key-did-provider-ed25519){:target="_blank"}.
 
 ## **Installation**
 
