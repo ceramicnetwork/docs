@@ -1,4 +1,4 @@
-# Key DID
+# Key DID Method
 
 Key DID is a DID method supported by Ceramic which can be used to authenticate to Ceramic and perform [writes]() to streams that rely on DIDs for authentication. Key DIDs are a suitable DID method for advanced users who will only want to ever use one keypair to control their DID, and who have strong key security practices - such as a developer. The DID document for Key DID is immutable and therefore has no ability to rotate keys if it is compromised; it is explicitly tied to a single crypto key. Key DID is on the [W3C's official DID method registry]() and is fully compliant with decentralized identity standards.
 
