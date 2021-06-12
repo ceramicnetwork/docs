@@ -18,7 +18,7 @@ $ npm install -g @ceramicnetwork/cli
 ```
 
 ### 2. Start the Ceramic node
-This starts a Ceramic node with a standard configuration. Behind the scenes a properly configured [IPFS](../learn/glossary.md#ipfs) instance is started, then IPFS is used to create an instance of the Ceramic [JS Core Client](../clients/javascript) connected to the [Clay Testnet](../learn/networks.md#clay-testnet). Once Ceramic Core is running, an HTTP server is started that serves the Ceramic [HTTP API](../reference/http-api.md).
+This starts a Ceramic node with a standard configuration on the [Clay Testnet](../learn/networks.md#clay-testnet) at `https://localhost:7007`. Behind the scenes a properly configured [IPFS](../learn/glossary.md#ipfs) instance is started, then IPFS is used to create an instance of the Ceramic [JS Core Client](../clients/javascript) connected to the [Clay Testnet](../learn/networks.md#clay-testnet). Once Ceramic Core is running, an HTTP server is started that serves the Ceramic [HTTP API](../reference/http-api.md).
 
 ```bash
 $ ceramic daemon
