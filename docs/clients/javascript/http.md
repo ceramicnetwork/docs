@@ -11,7 +11,7 @@ The JS HTTP Client is a lightweight way of interacting with the Ceramic netwotk.
 
 **Some trust in a remote node**: Stream processing and state validation happens on a remote node which the JS HTTP Client trusts. However, it is important to note that user's keys always live client-side and all updates are signed on the JS HTTP Client and then sent to the HTTP endpoint for processing.
 
-**Swap for the JS Core Client at anytime**: The JS HTTP Client and the [JS Core Client](./core.md) implement the same [JavaScript *CeramicApi*](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html){:target="_blank"}, so swapping between clients is seamless and doesn't require changing your application logic; it only requires changing your setup.
+**Swap for the JS Core Client at anytime**: The JS HTTP Client and the [JS Core Client](./core.md) implement the same [CeramicApi](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html){:target="_blank"} TypeScript interface, so swapping between clients is seamless and doesn't require changing your application logic; it only requires changing your setup.
 
 ## **Installation**
 
