@@ -36,6 +36,9 @@ If you want your node and the streams created on it to be discoverable to the re
 ### 6. Enable peer discovery
 To enable peer discovery, add your node to the appropriate Ceramic [`peerlist`](https://github.com/ceramicnetwork/peerlist) file by submitting a pull request. This is used as a temporary measure to streamline peer discovery until `js-ipfs` supports DHT lookups.
 
+### 7. Gateway mode
+To setup your node with read-only capabilities, enable gateway mode. Users of this node will only be able to read data from the network, but writes will be disabled.
+
 ## **Next steps**
 Congratulations! You have now set up a hosted Ceramic node that is ready to receive HTTP requests from the local environment, the [JS HTTP Client](../clients/javascript/http.md), the [CLI](../clients/javascript/cli.md), or to simply serve as another node for redundant stream pinning and replication.
 
