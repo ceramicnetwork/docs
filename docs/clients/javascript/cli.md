@@ -1,5 +1,5 @@
 # JS CLI Client
-The JS CLI allows you to start a JavaScript Ceramic node and interact with it using simple commands. It can be used to interact with Ceramic from the command line, or to simply spin up and configure a Ceramic node which can be used with, for example, the [JS HTTP Client](./http.md). If you only want to use the CLI for spinning up a hosted node, instead view [Hosting a node](../../run/nodes.md).
+The JS CLI allows you to start a JavaScript Ceramic node and interact with it from the command line. It can be used to interact with Ceramic from the command line, or to simply spin up and configure a Ceramic node which can be used with, for example, the [JS HTTP Client](./http.md). If you only want to use the CLI for spinning up a hosted node, instead view [Hosting a node](../../run/nodes.md).
 
 ## **Installation**
 
