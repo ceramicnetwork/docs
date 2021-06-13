@@ -29,7 +29,7 @@ After deciding on a DID method, you need to install either a *wallet* or a *prov
 
 
 ## **Usage**
-After authenticating, the user will now be able to perform [writes](writes.md) on Ceramic using their DID.
+After setting up authentication, users will now be able to perform [writes](writes.md) to streams using their DID.
 
 </br>
 </br>
