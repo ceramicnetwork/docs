@@ -1,15 +1,11 @@
 # Authentication
-This guide will help you add authentication to your project. Authentication is needed to perform [writes](./writes.md). If you only need to perform [queries](queries.md), you do not need authentication.
+This guide will help you add authentication to your project. Authentication is needed to perform [writes](./writes.md). You do not need authentication if you only need to perform [queries](queries.md).
 
-
-## **Prerequisites**
-Authentication requires having [installed a Ceramic client](./installation.md) in your project and having [configured a DID](/.configure-did.md) for that client with the proper DID Resolvers.
-
-
-## Adding authentication
+## **Setup**
+Authentication requires having [installed a Ceramic client](./installation.md). When setting up your client be sure to include the proper [DID Resolver(s)](../learn/glossary.md#did-resolver) for the DID methods supported by your application.
 
 ### 1. Choose a DID method
-The first step in adding authentication to your project is choosing which [DID method](../learn/glossary.md#did-methods) to support for accounts.
+The first step in adding authentication to your project is choosing which [DID method](../learn/glossary.md#did-methods) to support for accounts. It is recommended that most applications use the [3ID DID Method](../authentication/3id-did/method.md)
 
 [**3ID DID Method**](../authentication/3id-did/method.md) (recommended): A powerful DID method built on Ceramic that supports key rotations and revocations
 
@@ -17,7 +13,7 @@ The first step in adding authentication to your project is choosing which [DID m
 
 
 ### 2. Install a DID Provider
-After choosing a DID method, install a [DID provider](../learn/glossary.md#did-providers) for that method. For most browser applications, it is recommended that you use [3ID Connect](../authentication/3id-did/3id-connect.md).
+After choosing a DID method, install a [DID provider](../learn/glossary.md#did-providers) for that method. It is recommended that most browser applications use [3ID Connect](../authentication/3id-did/3id-connect.md).
 
 #### 3ID DID Providers
 
