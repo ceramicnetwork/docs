@@ -9,26 +9,28 @@ Key DID is a [DID method](../../learn/glossary.md#did-methods) supported by Cera
 **For advanced users**: For the reasons above, the Key DID Method is only suitable for advanced users who will only want to ever use one keypair to control their DID, and who have strong key security practices - such as a developer. 
 
 ## **Usage**
-Developers have one option for using Key DIDs to authenticate to Ceramic.
+There is one available Key DID Provider for use with Ceramic clients:
 
-- Install the low-level [Key DID Provider]() library
+- [Key DID Provider Ed25519](./provider.md)
 
-## **Tech Specs**
-Below, find a simplified version of the Key DID specification. View [the W3C specification](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-79/CIP-79.md) for the full Key DID method specification.
+## **Specification**
+Below, find a simplified version of the Key DID specification. View the [complete W3C specification](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-79/CIP-79.md).
 
 ### Method name
-The official method name for the 3ID DID method is `key`.
+The official method name for the Key DID method is `key`.
 
-Example Key DID identifier:
+### DID string
+The DID string for the Key DID Method simply encodes the public key. Example Key DID identifier:
+
 ```
-did:key:<method-specific-identifier>
+did:key:<public-key>
 ```
 
 ### DID Document
-Key DID offers an immutable DID document that is statically generated from any cryptographic key pair. The DID document is not actually stored anywhere since it can always be regenerated from the key pair. Due 
+Key DID offers an immutable DID document that is statically generated from any cryptographic key pair. The DID document is not actually stored anywhere since it can always be regenerated from the key pair.
 
 ### DID Resolver
-Implementation. This Key DID Resolver is included in Ceramic by default.
+The [Key DID Resolver](./reslover.md) takes a Key DID string and returns a DID Document that includes the key pair.
 
 ## **Underlying technology**
 
