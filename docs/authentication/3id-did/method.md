@@ -2,22 +2,24 @@
 
 3ID DID (CIP-79) is a DID method supported by Ceramic which can be used to authenticate to Ceramic and perform [writes]() to streams that rely on DIDs for authentication. 3IDs are the most suitable DID method for end users, but can also be used for any subject such as orgs, businesses, apps, devices, etc. 3ID is on the [W3C's official DID method registry]() and is fully compliant with decentralized identity standards.
 
+## **Considerations**
+The primary benefit of the 3ID DID method is that it has a **mutable DID document**. This is particularly important since it enables 3ID DIDs to handle secure key rotations and the addition and removal or arbitrary data.
+
 ## **Usage**
 Developers have two options for using 3ID DIDs to authenticate to Ceramic.
 
 - Install an authentication SDK that supports 3ID DIDs, such as [3ID Connect]() (recommended)
 - Install the low-level [3ID DID Provider]() library
 
-## **Benefits**
-The primary benefit of the 3ID DID method is that it has a **mutable DID document**. This is particularly important since it enables 3ID DIDs to handle secure key rotations and the addition and removal or arbitrary data.
-
-## **Tech Specs**
+## **Specification**
 Below, find a simplified version of the 3ID specification. View [CIP-79](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-79/CIP-79.md) for the full 3ID DID method specification.
 
 ### Method name
 The official method name for the 3ID DID method is `3`.
 
+### DID string
 Example 3ID DID identifier:
+
 ```
 did:3:<method-specific-identifier>
 ```
