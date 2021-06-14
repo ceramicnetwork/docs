@@ -1,5 +1,5 @@
 # Installation
-Install a [Ceramic client](../learn/glossary.md#clients) to perform [writes](./writes.md) and [queries](./queries.md) on the network. There are multiple ways to setup, run, and use Ceramic. This page describes the options.
+Install a client to perform [writes](./writes.md) and [queries](./queries.md). There are multiple ways to setup, run, and use Ceramic. This page describes the options.
 
 !!! warning "**MAINNET NOW LIVE!**"
     
