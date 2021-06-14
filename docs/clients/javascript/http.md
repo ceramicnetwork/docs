@@ -17,7 +17,8 @@ The JS HTTP Client is a lightweight way of interacting with the Ceramic network.
 
 Installing the JS HTTP Client requires a console, [Node.js](https://nodejs.org/en/){:target="_blank"} v14, and [npm](https://www.npmjs.com/get-npm){:target="_blank"} v6. Make sure to have these installed on your machine.
 
-    !!! warning ""
+!!! warning ""
+
     While npm v7 is not officially supported, you may still be able to get it to work. However you will need to install the `node-pre-gyp` package globally. This is required until `node-webrtc`, which [IPFS](../../learn/glossary.md#ipfs) depends on, [is upgraded](https://github.com/node-webrtc/node-webrtc/pull/694){:target="_blank"}.
     
     ```bash
@@ -57,30 +58,24 @@ const ceramic = new CeramicClient(API_URL)
 ```
 
 ### 5. Import DID resolvers
-Import resolvers for all DID methods that will perform [writes](../../build/writes.md) using this HTTP Client. This should include all DID Methods that your app will use for [authentication](../../build/authentication.md). If your HTTP Client will only perform queries, then jump ahead to the [queries](../../build/queries.md) page.
+Import the DID resolvers for all DID methods that will need to [authenticate](../../build/authentication.md) to perform [writes](../../build/writes.md) using this HTTP Client. If your HTTP Client will only perform queries, then jump ahead to the [queries](../../build/queries.md) page.
 
 ``` javascript
 import KeyDidResolver from 'key-did-resolver'
 import ThreeIdResolver from '@ceramicnetwork/3id-did-resolver'
 ```
 
-### 6. Create a resolver instance
-This should include all DID resolvers included in the previous step.
-
-``` javascript
-const resolver = { ...KeyDidResolver.getResolver(),
-                   ...ThreeIdResolver.getResolver(ceramic) }
-```
-
-### 7. Create a DID instance
-The DID instance wraps the resolver and also should include the DID Provider for the DID Method your users will use to [authenticate](../../build/authentication.md) to perform [writes](../../build/writes.md).
+### 6. Create a DID instance
+Create a DID instance which wraps an instance of a DID resolver that includes all individual DID resolvers from the previous step. It should also include a DID Provider for the DID Method you are using for [authentication](../../build/authentication.md).
 
 ``` javascript
 import { DID } from 'dids'
+const resolver = { ...KeyDidResolver.getResolver(),
+                   ...ThreeIdResolver.getResolver(ceramic) }
 const did = new DID({ resolver })
 ```
 
-### 8. Set DID instance on HTTP client
+### 7. Set DID instance on HTTP client
 
 ``` javascript
 ceramic.did = did
