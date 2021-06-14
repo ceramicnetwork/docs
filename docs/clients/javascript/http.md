@@ -7,7 +7,7 @@ The JS HTTP Client is a lightweight way of interacting with the Ceramic netwotk.
 
 **Improved performance**: When using the JS HTTP Client, stream processing and validation happens on a remote Ceramic node running on a server, which usually results in improved performance compared to running the full protocol in-browser with the [JS Core Client](./core.md).
 
-**Predictable data availability**: Streams created using the JS HTTP Client are pinned and made available on a remote Ceramic node which has more uptime and predictable data availability guarantees than, say, running the [JS Core Client](./core.md) directly in-browser where users can open and close tabs causing their streams to come on and offline at unpredictable intervals.
+**Predictable data availability**: Streams created using the JS HTTP Client can be pinned and made available on a remote Ceramic node which has more uptime and predictable data availability guarantees than, say, running the [JS Core Client](./core.md) directly in-browser where users can open and close tabs causing their streams to come on and offline at unpredictable intervals.
 
 **Some trust in a remote node**: Stream processing and state validation happens on a remote node which the JS HTTP Client trusts. However, it is important to note that user's keys always live client-side and all updates are signed on the JS HTTP Client and then sent to the HTTP endpoint for processing.
 
