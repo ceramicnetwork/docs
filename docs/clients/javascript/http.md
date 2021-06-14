@@ -57,7 +57,7 @@ const ceramic = new CeramicClient(API_URL)
 ```
 
 ### 5. Import DID resolvers
-Import resolvers for all DID methods that will perform [writes](../../build/writes.md) using this HTTP Client. This should include all DID Methods that your app will use for [authentication](../../build/authentication.md). If your HTTP Client will only perform queries, then jump straight to the [queries](../../build/queries.md) page.
+Import resolvers for all DID methods that will perform [writes](../../build/writes.md) using this HTTP Client. This should include all DID Methods that your app will use for [authentication](../../build/authentication.md). If your HTTP Client will only perform queries, then jump ahead to the [queries](../../build/queries.md) page.
 
 ``` javascript
 import KeyDidResolver from 'key-did-resolver'
@@ -87,7 +87,7 @@ ceramic.did = did
 ```
 
 ## **Next steps**
-After setting the DID instance on the HTTP client, your application will be able to support writes. Proceed to [setting up authentication](../../build/authentication.md) so users can authenticate to perform these writes. If your app only needs to perform queries, then jump ahead to [queries](../../build/queries.md).
+If your application needs to perform writes, proceed to [setting up authentication](../../build/authentication.md) so users can perform writes using a DID. If your app only needs to perform queries, then jump ahead to [queries](../../build/queries.md).
 
 
 </br>
