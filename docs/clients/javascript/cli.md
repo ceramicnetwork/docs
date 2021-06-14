@@ -51,38 +51,4 @@ By default, the CLI is authenticated using the [Key DID Provider](https://github
 ## **Usage**
 Walk through core functionalities using the CLI with the **[Quick Start](../../build/quick-start.md) guide**.
 
-### All commands
-Use the `ceramic daemon -h` command to see a full list of commands and options. 
-
-### Common commands
-
-#### Create a stream
-Use the `create` command to create a new stream. In the example below we create a [TileDocument StreamType](../../streamtypes/tile-document/overview.md). *TileDocument* is the only StreamType that can currently be created using the CLI. Run `ceramic create -h` to see all available options.
-
-```bash
-$ ceramic create tile --content '{ "Foo": "Bar" }'
-```
-
-#### Query a stream
-Use the `show` command to query the current [state](../../learn/glossary.md#state) of a stream. You will need to provide a [StreamID](../../learn/glossary.md#streamid).
-
-```bash
-$ ceramic show kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa
-```
-
-Use the `state` command to query the entire state of a stream. You will need to provide a StreamID.
-
-```bash
-$ ceramic state kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa
-```
-
-#### Update a stream
-Use the `update` command to update a stream. Your [DID](../../learn/glossary.md#dids) must be the [controller](../../learn/glossary.md#controllers) of the stream in order to update it. *TileDocument* is the only StreamType that can currently be updated using the CLI. Run `ceramic update -h` to see all available options.
-
-```bash
-$ ceramic update kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa --content '{
-    "Foo": "Baz"
-  }'
-```
-
 </br></br></br>
