@@ -95,7 +95,7 @@ const did = new DID({ resolver })
 ### 9. Set DID instance on Core client
 
 ``` javascript
-ceramic.setDID(did)
+ceramic.did = did
 ```
 
 ## **Next steps**
