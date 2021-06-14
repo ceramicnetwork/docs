@@ -3,7 +3,7 @@ This guide will help you add authentication to your project. Authentication is n
 
 ## Prerequisites
 
-Authentication requires having [installed a Ceramic client](installation.md) in your project and having [configured a DID](configure-did.md) for that client with the proper DID Resolvers.
+Authentication requires having [installed a Ceramic client](installation.md) in your project.
 
 ## Choose your setup
 
