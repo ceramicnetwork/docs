@@ -83,7 +83,7 @@ const did = new DID({ resolver })
 ### 8. Set DID instance on HTTP client
 
 ``` javascript
-ceramic.setDID(did)
+ceramic.did = did
 ```
 
 ## **Next steps**
