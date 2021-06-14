@@ -76,23 +76,17 @@ import KeyDidResolver from 'key-did-resolver'
 import ThreeIdResolver from '@ceramicnetwork/3id-did-resolver'
 ```
 
-### 7. Create a resolver instance
-This should include all DID resolvers from the previous step.
-
-``` javascript
-const resolver = { ...KeyDidResolver.getResolver(),
-                   ...ThreeIdResolver.getResolver(ceramic) }
-```
-
-### 8. Create a DID instance
-Create a DID instance which wraps the resolver. Optionally, it also includes a DID Provider if you intend to [authenticate](../../build/authentication.md) DIDs to allow [writes](../../build/writes.md) to the network during runtime.
+### 7. Create a DID instance
+Create a DID instance which wraps an instance of a DID resolver that includes all individual DID resolvers from the previous step. Optionally, it also includes a DID Provider if you intend to [authenticate](../../build/authentication.md) DIDs to allow [writes](../../build/writes.md) to the network during runtime.
 
 ``` javascript
 import { DID } from 'dids'
+const resolver = { ...KeyDidResolver.getResolver(),
+                   ...ThreeIdResolver.getResolver(ceramic) }
 const did = new DID({ resolver })
 ```
 
-### 9. Set DID instance on Core client
+### 8. Set DID instance on Core client
 
 ``` javascript
 ceramic.did = did
