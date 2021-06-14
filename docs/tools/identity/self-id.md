@@ -21,6 +21,10 @@ Self.ID is a web application that provides users with basic identity features fo
 
 **Link Web2 accounts**: Self.ID allows users to link many different Web2 accounts to their 3ID. To achieve this, Self.ID integrates with the [IDX SDK]() to create and query [IDX records]() that conform to the [Also Known As (AKA) definition and schema (CIP-XX)](). Each user's AKA record in IDX contains a list of Web2 accounts and their corresponding proofs, which are verifiable claims issued by an [IdentityLink]() service.
 
+## **Infrastructure**
+
+Self.ID is built using the Ceramic [JS HTTP Client](), [3ID Connect](), [IDX SDK](), and [IdentityLink](). All Ceramic nodes and IdentityLink services used for this application are hosted by 3Box Labs.
+
 ## **Maintainers**
 
 Self.ID is maintained by [3Box Labs](https://3boxlabs.com).
