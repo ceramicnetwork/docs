@@ -81,6 +81,10 @@ nav:
       - Method: authentication/key-did/method.md
       - Provider: authentication/key-did/provider.md
       - Resolver: authentication/key-did/resolver.md
+    - NFT DID:
+      - Method: authentication/nft-did/method.md
+    - Safe DID:
+      - Method: authentication/safe-did/method.md
   - Tools:
     - Identity:
       - IDX: tools/identity/idx.md
