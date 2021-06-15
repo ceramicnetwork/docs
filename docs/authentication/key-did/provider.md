@@ -1,12 +1,9 @@
-# Key DID Provider
-Key DID Provider is a [DID Provider](../../learn/glossary.md#did-provider) for the [Key DID Method](./method.md). It allows you to create and use Key DIDs within your application.
-
-## Supported key types
-Key DID Provider implementations are specific to the type of cryptographic key pair that you are using, however they can all use the same [Key DID Resolver](./resolver.md). Below find a list of supported key types, and their respective providers.
-
-- **ED25519 Key DID Provider**: Works with Ed25519 cryptographic key pairs. You can find the JavaScript implementation at [`ceramicnetwork/key-did-provider-ed25519`](https://github.com/ceramicnetwork/key-did-provider-ed25519){:target="_blank"}.
+# Key DID Provider Ed25519
+Key DID Provider Ed25519 is a [DID Provider](../../learn/glossary.md#did-provider) for the [Key DID Method](./method.md) that works with `Ed25519` key pairs. It allows you to create and use Key DIDs within your application.
 
 ## **Installation**
+Before installing Key DID Provider Ed25519, you must have [installed a Ceramic client](../../build/installation.md). By following the steps below, users will be able to [perform writes](../../build/writes.md) on Ceramic using a Key DID.
+
 
 ### 1. Install from npm
 
@@ -48,8 +45,10 @@ Now all that's left is to authenticate to the Ceramic client's DID instance usin
 await ceramic.did.authenticate()
 ```
 
-## **Usage**
-After authenticating, the user will now be able to perform [writes](writes.md) on Ceramic using their DID.
+## **Next steps: Writes**
+
+After authenticating with the 3ID DID Provider, users will now be able to perform [writes](writes.md).
+
 
 ## **License**
 Key DID Provides is fully open sourced under MIT and Apache 2.
