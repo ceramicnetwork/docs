@@ -6,6 +6,8 @@ This guide demonstrates how to create, update, and query Caip10Links using the [
 
 You need an [installed client](../../build/installation.md) to read or write Caip10Links.
 
+You need an [installed client](../../build/installation.md), [authenticated user](../../build/authentication.md), and a third-party blockchain provider (i.e. wallet) to perform writes to Caip10Links. If you only wish to query Caip10Links then you do not need authentication.
+
 ## **Write API**
 
 ### **Create new Caip10Link**
