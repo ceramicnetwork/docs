@@ -80,7 +80,7 @@ const streamId = stream.id
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.stream-1.html#id){:target="_blank"}
 
 ### Latest CommitID
-Use the [`stream.commitId`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.stream-1.html#commitid){:target="_blank"} property to get latest CommitID of a stream.
+Use the [`stream.commitId`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.stream-1.html#commitid){:target="_blank"} property to get latest [CommitID](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_streamid.commitid-1.html) of a stream.
 
 ```javascript
 const commitId = stream.commitId
