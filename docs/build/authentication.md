@@ -27,6 +27,8 @@ After choosing a DID method, install a [DID provider](../learn/glossary.md#did-p
 
 [**3ID Connect**](../authentication/3id-did/3id-connect.md): The most popular 3ID DID Provider for Ceramic web apps. The 3ID Connect SDK allows users to control their 3ID DID from their existing blockchain wallets without needing to install any additional software. Developers do not need to worry about DID key management for their users.
 
+> [**Install 3ID Connect**](../authentication/3id-did/3id-connect.md)
+
 !!! warning ""
 
     It is recommended that most browser applications use [3ID Connect](../authentication/3id-did/3id-connect.md).
@@ -34,9 +36,13 @@ After choosing a DID method, install a [DID provider](../learn/glossary.md#did-p
     
 [**3ID DID Provider**](../authentication/3id-did/provider.md): A low-level JavaScript 3ID DID Provider. Your application is responsible for key management, and users need to authenticate with a DID seed or an auth secret.
 
+> [**Install 3ID DID Provider**](../authentication/3id-did/provider.md)
+
 #### Key DID Providers
 
-[**Key DID Provider Ed25519**](../authentication/3id-did/provider.md): A low-level JavaScript Key DID Provider for use with `Ed25519` key pairs. Your application is responsible for key managemet, and users need to authenticate with a DID seed.
+[**Key DID Provider Ed25519**](../authentication/key-did/provider.md): A low-level JavaScript Key DID Provider for use with `Ed25519` key pairs. Your application is responsible for key managemet, and users need to authenticate with a DID seed.
+
+> [**Install Key DID Provider Ed25519**](../authentication/key-did/provider.md)
 
 
 ## **Next step: Writes**
