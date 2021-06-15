@@ -84,9 +84,7 @@ const doc = await TileDocument.load(ceramic, streamId, opts)
 await doc.update(newContent, newMetadata, opts)
 ```
 
-**Example**
-
-In this example we update a document's content while also giving it a tag.
+In this example we update a TileDocument's content while also giving it a tag.
 
 ```javascript
 const streamId = 'kjzl6cwe1jw14...' // Replace this with the StreamID of the TileDocument to be updated
