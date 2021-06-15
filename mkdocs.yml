@@ -53,8 +53,10 @@ nav:
     - Share your work: build/share.md
     - Troubleshooting: build/troubleshooting.md
   - Run:
-    - Hosting a node: run/nodes.md
-    #- Anchor service: run/anchor-service.md
+    - Nodes:
+      - Hosting a node: run/nodes/nodes.md
+    - Anchor service:
+      - Hosting a CAS: run/anchor-service/cas.md
   - Clients:
     - JavaScript:
       - HTTP Client: clients/javascript/http.md
@@ -144,4 +146,5 @@ plugins:
             'try/projects.md': 'explore/projects.md'
             'learn/clients.md': 'clients/javascript/http.md'
             'build/configure-did.md': 'clients/javascript/http.md'
+            'run/nodes.md': 'run/nodes/nodes.md'
     - search
