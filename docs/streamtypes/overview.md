@@ -1,5 +1,5 @@
 # StreamTypes
-Each [stream](../learn/glossary.md#streams) on Ceramic must be created using a specific [StreamType](../learn/glossary.md#streamtypes). Different StreamTypes have different APIs for performing [writes](../build/writes.md). To create and/or update streams, see the API page for the respective StreamTypes below.
+Each [stream](../learn/glossary.md#streams) on Ceramic must be created using a specific [StreamType](../learn/glossary.md#streamtypes). Different StreamTypes have different APIs for performing [writes](../build/writes.md), and some also have particular methods for performing reads. To perform operations on streams, see the API page for the respective StreamTypes below.
 
 ## **Responsibilities**
 StreamTypes are programmable functions responsible for processing all updates to the stream and enforcing logic such as data structure, requirements for [authentication](../learn/glossary.md#authentication), the content of the stream's [commits](../learn/glossary.md#commits), and its [conflict resolution strategy](../learn/glossary.md#conflict-resolution-strategy). 
