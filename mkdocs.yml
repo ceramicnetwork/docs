@@ -97,7 +97,6 @@ nav:
       - DID Resolvers: reference/javascript/did-resolvers.md
       - DID Providers: reference/javascript/did-providers.md
       - Support new Blockchain: reference/javascript/blockchain.md
-      - Anchor Service: reference/javascript/anchor-service.md
     - HTTP API: reference/http-api.md
   - Chat: 'https://chat.ceramic.network'
   - Blog: 'https://blog.ceramic.network'
@@ -147,4 +146,5 @@ plugins:
             'learn/clients.md': 'clients/javascript/http.md'
             'build/configure-did.md': 'clients/javascript/http.md'
             'run/nodes.md': 'run/nodes/nodes.md'
+            'reference/javascript/anchor-service.md': 'run/anchor-service/cas.md'
     - search
