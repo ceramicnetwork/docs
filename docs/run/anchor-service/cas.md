@@ -1,23 +1,26 @@
 # Hosting an anchor service
 
-This guide describes how to spin up and run a hosted [Ceramic Anchor Service (CAS)](../../learn/glossary.md#anchor-service) in JavaScript that can be used to generate [anchor commits](../../learn/glossary.md#anchor-commit) for streams from a Ceramic node.
+This guide describes how to spin up and run a hosted [Ceramic Anchor Service (CAS)](../../learn/glossary.md#anchor-service) in JavaScript that generates [anchor commits](../../learn/glossary.md#anchor-commit) for streams in batches. You can find the JavaScript CAS implementation [here](https://github.com/ceramicnetwork/ceramic-anchor-service){:target="_blank"}.
 
 !!! warning ""
 
-    It is currently not possible to run your own anchor service. See hosted options below.
+    It is currently not possible to run your own CAS. Once Ceramic opens mainnet to the public, this will be possible.
     
-## **Hosted options**
+## **Usage**
+
+By default, every Ceramic node automatically uses a CAS provided by the community based on the node's network configuration. You do not need any additional setup. In the future, nodes will be able to specify which CAS they use.
+
+
+## **Community CAS**
+Free CAS services are offered by [3Box Labs](https://3boxlabs.com) for Ceramic developers.
 
 ### Mainnet
+For nodes connected to [Mainnet](../../learn/networks.md#mainnet), they will use a Mainnet CAS which performs anchors on the Ethereum Mainnet blockchain (`eip155:1`) and communicates over the `/ceramic/mainnet` libp2p topic.
 
 ### Clay Testnet
-    
-Ceramic network has few separate networks: `dev-unstable`, `testnet-clay`, and `mainnet`. 3Box Labs hosts an instance of Ceramic Service for each network.
-`dev-unstable` and `testnet-clay` use Ethereum Rinkeby or Ethereum Ropsten for anchoring. Transactions are free here, so the anchor services are freely available.
-`mainnet` anchor service on the other hand uses main Ethereum network. For some time the mainnet anchor service is only available to early-launch partners because of DoS concerns.
-When Ceramic network operates in a _fully_ decentralized way, one could run own mainnet anchor service.
-For now one should rely on the hosted anchor services only.
+For nodes connected to [Clay Testnet](../../learn/networks.md#clay-testnet), they will use a Clay Testnet CAS which performs anchors on the Ethereum Rinkeby or Ropsten blockchains and communicates over the `/ceramic/testnet-clay` libp2p topic.
 
-For more details about the JavaScript CAS implementation, refer to its repo:
+### Dev Unstable
+For nodes connected to [Dev Unstable](../../learn/networks.md#dev-unstable), they will use a Dev Unstable CAS which performs anchors on the Ethereum Rinkeby or Ropsten blockchains and communicates over the `/ceramic/dev-unstable` libp2p topic.
 
-[:octicons-file-code-16: Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service){:target="_blank"}
+</br></br></br>
