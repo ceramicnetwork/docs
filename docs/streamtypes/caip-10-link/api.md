@@ -122,7 +122,9 @@ const accountLink = await Caip10Link.fromAccount(
 const linkedDid = accountLink.did
 ```
 
-The examples for [creating a new Caip10Link](#create-new-caip10link) and loading an existing Caip10Link look the same. `Caip10Link.fromAccount` will create a new link if one doesn't exist, in which case the returned link will have no linked DID associated with it. If the link already exists, however, then `Caip10Link.fromAccount` will return the current state of the link, which may include a linked DID if one has been set previously.
+!!! warning ""
+
+        The examples for [creating a new Caip10Link](#create-new-caip10link) and loading an existing Caip10Link look the same. `Caip10Link.fromAccount` will create a new link if one doesn't exist, in which case the returned link will have no linked DID associated with it. If the link already exists, however, then `Caip10Link.fromAccount` will return the current state of the link, which may include a linked DID if one has been set previously.
 
 #### Parameters
 
