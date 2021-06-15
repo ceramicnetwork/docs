@@ -29,8 +29,8 @@ TileDocuments are commonly used for storing:
 - Schemas
 - Identity metadata and information
 - User-generated content (i.e. blog posts, social media, etc)
-- Lists of other [streamIDs](../../learn/glossary.md#streamid) to form collections
-- [DID Documents](../../learn/glossary.md#did-document) (i.e. 3ID DID Method)
+- Lists of other [streamIDs](../../learn/glossary.md#streamid) to form collections (i.e. [IDX](../../tools/identity/idx.md))
+- [DID Documents](../../learn/glossary.md#did-document) (i.e. [3ID DID Method](../../authentication/3id-did/method.md))
 - Verifiable claims
 - and more
 
