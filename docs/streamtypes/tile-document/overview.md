@@ -32,7 +32,7 @@ TileDocuments are commonly used for storing:
 - Lists of other [streamIDs](../../learn/glossary.md#streamid) to form collections
 - [DID Documents](../../learn/glossary.md#did-document) (i.e. 3ID DID Method)
 - Verifiable claims
-- ...
+- and more
 
 
 </br>
