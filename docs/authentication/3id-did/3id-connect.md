@@ -114,6 +114,11 @@ await ceramic.did.authenticate()
     
 Your users will now be authenticated and can perform [writes](../../build/writes.md) to streams on Ceramic.
 
+## **Next steps: Writes**
+
+After authenticating with 3ID Connect, users will now be able to perform [writes](../../build/writes.md).
+
+
 ## **Underlying technologies**
 
 3ID Connect is built on open source technologies and standards. Learn more about the technologies that make 3ID Connect possible.
