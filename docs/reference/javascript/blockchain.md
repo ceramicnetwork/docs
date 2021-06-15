@@ -1,21 +1,37 @@
 # Support new blockchains
-This guide demonstrates how to add support for new blockchains to the [3ID DID Provider](). Once implemented, users will be able to authenticate their 3ID DID using an account/wallet from that blockchain, and also publicly link this blockchain account to a 3ID DID using a [Caip10Link](../../streamtypes/caip-10-link/overview.md).
+This guide describes how to add support for new blockchains to the [3ID DID Provider](). Once implemented, users will be able to authenticate their 3ID DID using an account/wallet from that blockchain, and also publicly link this blockchain account to a 3ID DID using a [Caip10Link](../../streamtypes/caip-10-link/overview.md).
+
+Something about the 3ID DID Provider, and also 3ID Connect.
 
 ## **Supported blockchains**
 
-- v
-- v
-- v
-- v
+| Blockchain | CAIP-2 namespace | Supported providers | Notes |
+| -- | -- | -- | -- |
+| Cosmos     | [cosmos](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-5.md)    | cosmos provider | The Cosmos wallet provider interface is still being standardized and is subject to change. |
+| Ethereum   | [eip155](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-3.md)    | metamask-like ethereum provider |
+| Filecoin   | [fil](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-23.md)              | [Filecoin Wallet Provider](https://github.com/openworklabs/filecoin-wallet-provider) |
+| EOS        | [eosio](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-7.md)              | [@smontero/eosio-local-provider](https://github.com/sebastianmontero/eosio-local-provider#readme) |
+| Polkadot   | [polkadot](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-13.md)              | [@polkadot{.js} extention api](https://polkadot.js.org/) | Doesn't support the `authenticate` method yet. |
 
 ## **Requirements**
 Ensure your blockchain is represented by a Caip2 
 We use [CAIP-10](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-10.md) to represent accounts in a blockchain agnostic way. If the blockchain you want to add isn't already part of the CAIP standards you should make sure to add it there.
 
-## 1. Create an AuthProvider
+## 1. Implement AuthProvider
+The first step in adding a new blockchain is to create a new [`AuthProvider`](https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/blockchain-utils-linking/src/auth-provider.ts) class in the [`@ceramicnetwork/blockchain-utils-linking`](https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/blockchain-utils-linking) package that implements the [`authenticate()`](#authenticate), [`createLink()`](#createlink), [`accountId()`](#accountid), and [`withAccount()`](#withaccount) functions for your blockchain. After creating the class, add it to the package and export it.
 
-## 2. authenticate()
-The `authenticate()` function allows a blockchain account to be added as an authentication method (`authMethod`) for a [3ID DID]() by signing a simple message in their blockchain wallet. When the user signs the same message again with their blockchain account, they will be able to decrypt and use the seed for their 3ID DID. Note, the encrypted seeds for each authMethod are stored in the 3ID's [IDX record]() for the [3ID Keychain definition]().
+!!! warning ""
+
+    The `AuthProvider` wraps your blockchain provider and is consumed by a [3ID DID Provider]().
+
+### authenticate()
+The `authenticate()` function allows a blockchain account to be added as an authentication method (`authMethod`) for a [3ID DID]() by signing a simple message in their blockchain wallet. Behind the scenes, entropy is deterministically generated when the user signs a message with their blockchain account. The seed for the 3ID is encrypted by the `authMethod` and stored in the 3ID's [3ID Keychain]() stream in their [IDX](). When the user signs the same message again with their `AccountID`, they will be able to decrypt and use the seed for their 3ID DID.
+
+Example showing a standard Ethereum Provider (i.e. MetaMask):
+
+``` javascript
+.
+```
 
 #### Parameters
 
@@ -31,78 +47,74 @@ The `authenticate()` function allows a blockchain account to be added as an auth
 
     The `entropy` returned when a given `AccountID` signs a given `message` will always be the same.
 
-## 3. createLink()
+### createLink()
+The `createLink()` function enables a blockchain account to generate a verifiable `linkProof` object that binds its AccountID to a 3ID DID. In Ceramic, these `linkProof` objects are stored in [Caip10Link]() streams which allow anyone to look up the 3ID linked to your blockchain account and then resolve any other public information also linked to your DID. 
+
+!!! warning ""
+
+    3ID DID Providers which expose this functionality may optionally store the [streamIDs]() of the Caip10Link streams that belong to a 3ID DID in their [Crypto Accounts](https://developers.idx.xyz/guides/definitions/default/#crypto-accounts) record in [IDX]() for simple lookup.
+
+Example showing a standard Ethereum Provider:
+``` javascript
+.
+```
+
+#### Parameters
+
+This function consumes similar arguments as the [`authenticate()`](#authenticate) function described above. It also consumes the 3ID's [DID string]() that is being linked. This function is implemented such that when a given `AccountID` signs a `message` including a given DID string with the given `provider`, a verifiable `LinkProof` is returned.
 
 
+### accountId()
+The AuthProvider is expected to know which blockchain account it is currently serving. The `accountId()` method should return the user's blockchain account in a CAIP-10 format.
 
-## 4. validateLink()
+Example showing a standard Ethereum Provider:
+``` javascript
+.
+```
 
+### withAccount()
+The `withAccount()` method should return a new instance of the `authProvider` in order to serve a new blockchain account. This allows apps to reuse the same internal settings, such as a connection to a blockchain provider, but with a different account.
 
-## 1. Implement an AuthProvider
-The AuthProvider wraps a blockchain provider and is consumed by a 3ID DID Provider (or 3ID Connect). In case of Ethereum, it might be MetaMask. It is responsible mainly for:
+Example showing a standard Ethereum Provider:
+``` javascript
+.
+```
 
-- authentication (`#authenticate`): provide deterministic entropy
-- creating link (`#createLink`): create a LinkProof object which associates the specified AccountID with a DID
+## 2. Implement validation
+After implementing the AuthProvider, you need to implement validation. Validation checks if _proof-of-ownership_ in the link is formally correct,
+i.e. that a well-known payload is actually signed by the account declared in the linkProof.
 
-The auth provider is expected to know which blockchain account it currently serves. It reports it via `#accountId`.
-To reuse the same internal settings, e.g. a connection to a blockchain provider, but with a different account,
-the auth provider should have a `#withAddress` method.
-
-Let's look at each method required to be implemented by the **AuthProvider** interface:
-
-
-### `createLink`
-The `createLink()` function allows a blockchain account to create a verifiable link proof that publicly binds the blockchain account to a given DID. In Ceramic, these these link proofs can be used to create `CAIP10Link` streams which allow anyone to look up the DID linked to your blockchain account, and then resolve any other public info linked to your DID. The StreamIDs of your CAIP10Links can be stored in the [IDX Crypto Accounts records](https://developers.idx.xyz/guides/definitions/default/#crypto-accounts) for simple lookup.
-
-This function consumes similar arguments as described above. It also consumes the DID string that is being linked. This function is implemented such that when the given AccountID signs a message including the given DID with the given provider, a `LinkProof` is returned.
-
-### `accountId`
-The `accountId()` method should return currently used account in the CAIP-10 format.
-
-### `withAccount`
-The `withAccount()` method should return a new instance of the auth provider that serves a new account.
+To implement validation, implement the `BlockchainHandler` interface for your blockchain. It should include a CAIP-2 `namespace` for your blockchain and a `validateLink()` function. When complete, add the newly created `BlockchainHandler` to the `handlers` list in `index.ts` of the [`@ceramicnetwork/blockchain-utils-validation`](https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/blockchain-utils-validation/src/index.ts) library.
 
 
-## Validation
+### validateLink()
+The `validateLink()` function checks if the signature contained in a `LinkProof` corresponds to the declared account in order to validate a given `LinkProof`. This allows anyone to easily verify `LinkProofs` and for Ceramic to validate [Caip10Links](), which include a `LinkProof`. This function consumes a LinkProof and returns the LinkProof if valid, otherwise it returns null. Valid typically means that the given signature in the LinkProof is valid over the given message and is created by the given account.
 
-Validation is the counterpart of [linking](#linking) that checks if the signature contained in a `LinkProof` corresponds to the declared account.
+Example showing a standard Ethereum Provider:
+``` javascript
+.
+```
 
-To add support for a new blockchain:
+!!! warning ""
 
-- add a new file named after your blockchain to `@ceramicnetwork/blockchain-utils-validation` package
-- this file should expose an implementation of the `BlockchainHandler` interface, having:
-    - [CAIP-2](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-2.md) `namespace` for your blockchain
-    - a `validateLink` function that checks if the linking signature was created by the account declared in the `LinkProof` argument
-- add the newly created `BlockchainHandler` to the `handlers` list in [index.ts](https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/blockchain-utils-validation/src/index.ts)
+    Before proceeding, ensure that the `validateLink()` function can validate linkProofs created by the [`createLink()`](#createlink) function.
 
-#### `validateLink()`
-The `validateLink` function validates a given LinkProof. This allows anyone to easily verify LinkProofs and for Ceramic to validate CAIP10Links. The function consumes a LinkProof and returns the LinkProof if valid, otherwise it returns null. Valid typically means that the given signature in the LinkProof is valid over the given message and is created by the given account.
+## 3. Add your blockchain to the proper places
 
-Make sure that `validateLink` can validate links created by `AuthProvider#createLink`.
+### Multiauth UI
+Allow users to see in providers that expose this interface, such as 3ID Connect.
 
-
-
-
-
-### Add to 3ID Connect
-
-
-
-
-
-
-
-
-
+### This page
+Supported blockchain list above by making a PR to this page. You can click the edit button found at the top right of this page.
 
 
 
 
+---
 
 
-## Ceramic and blockchain accounts
 
-Ceramic interacts with blockchain accounts in two ways: *authentication* and *linking*.
+
 
 ### Authentication
 3ID Connect (using `3id-did-provider`) creates `3id` (Ceramic flavour of DID) private keys
@@ -117,79 +129,9 @@ It establishes a relation `blockchain account → DID` that allows one to discov
 based on just a blockchain account. Additionally, a link serves as a proof-of-ownership by DID over the blockchain account.
 This is useful for dApp personalization and UX: one sees familiar names instead of `0xgibberish`.
 
-Below one additional process is mentioned: validation. It checks if _proof-of-ownership_ in the link is formally correct,
-i.e., a well-known payload is really signed by the account that is declared in the link.
 
 
 
-### Linking
-
-To add a new blockchain, one has to implement a new class implementing [AuthProvider](https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/blockchain-utils-linking/src/auth-provider.ts), put it
-into the [`@ceramicnetwork/blockchain-utils-linking`](https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/blockchain-utils-linking) package and export it.
-The auth provider sits between 3id-connect (or 3ID DID Provider) and your blockchain account provider. In case of Ethereum, it might be MetaMask. It is responsible mainly for:
-
-- authentication (`#authenticate`): provide deterministic entropy
-- creating link (`#createLink`): create a LinkProof object which associates the specified AccountID with a DID
-
-The auth provider is expected to know which blockchain account it currently serves. It reports it via `#accountId`.
-To reuse the same internal settings, e.g. a connection to a blockchain provider, but with a different account,
-the auth provider should have a `#withAddress` method.
-
-Let's look at each method required to be implemented by the **AuthProvider** interface:
-
-#### `authenticate()`
-The `authenticate` function allows a blockchain account to be added as an authentication method (authMethod) to a 3ID. This means using your blockchain account you will always be able to access that 3ID and derive its 3ID Keychain for use, for example in 3ID Connect.
-
-##### Parameters
-
-- `message`: string, can be any string
-- `AccountID`: an instance of a CAIP-10 AccountID
-- `provider`: specific to your blockchain. This is any standard signer or provider defined for your blockchain. Ideally your ecosystem has a widely-accepted standard interface so that this module can support signing by most accounts.
-
-##### Returns
-
-- `entropy`: a hex string representing 32 bytes of entropy, prefixed by `0x`
-
-The entropy returned by a given *AccountID* must always be the same.
-
-#### `createLink()`
-The `createLink` function allows a blockchain account to create a verifiable link proof that publicly binds the blockchain account to a given DID. In Ceramic, these these link proofs can be used to create `CAIP10Link` streams which allow anyone to look up the DID linked to your blockchain account, and then resolve any other public info linked to your DID. The StreamIDs of your CAIP10Links can be stored in the [IDX Crypto Accounts records](https://developers.idx.xyz/guides/definitions/default/#crypto-accounts) for simple lookup.
-
-This function consumes similar arguments as described above. It also consumes the DID string that is being linked. This function is implemented such that when the given AccountID signs a message including the given DID with the given provider, a `LinkProof` is returned.
-
-#### `accountId()`
-The `accountId` method should return currently used account in the CAIP-10 format.
-
-#### `withAccount()`
-The `withAccount` method should return a new instance of the auth provider that serves a new account.
 
 
-### Validation
-
-Validation is the counterpart of [linking](#linking) that checks if the signature contained in a `LinkProof` corresponds to the declared account.
-
-To add support for a new blockchain:
-
-- add a new file named after your blockchain to `@ceramicnetwork/blockchain-utils-validation` package
-- this file should expose an implementation of the `BlockchainHandler` interface, having:
-    - [CAIP-2](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-2.md) `namespace` for your blockchain
-    - a `validateLink` function that checks if the linking signature was created by the account declared in the `LinkProof` argument
-- add the newly created `BlockchainHandler` to the `handlers` list in [index.ts](https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/blockchain-utils-validation/src/index.ts)
-
-#### `validateLink()`
-The `validateLink` function validates a given LinkProof. This allows anyone to easily verify LinkProofs and for Ceramic to validate CAIP10Links. The function consumes a LinkProof and returns the LinkProof if valid, otherwise it returns null. Valid typically means that the given signature in the LinkProof is valid over the given message and is created by the given account.
-
-Make sure that `validateLink` can validate links created by `AuthProvider#createLink`.
-
-## Currently supported blockchains
-
-Below you can see a table which lists supported blockchains and their provider objects. If you add support for a new chain, please make a PR here. 
-
-| Blockchain | CAIP-2 namespace | Supported providers | Notes |
-| -- | -- | -- | -- |
-| Cosmos     | [cosmos](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-5.md)    | cosmos provider | The Cosmos wallet provider interface is still being standardized and is subject to change. |
-| Ethereum   | [eip155](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-3.md)    | metamask-like ethereum provider |
-| Filecoin   | [fil](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-23.md)              | [Filecoin Wallet Provider](https://github.com/openworklabs/filecoin-wallet-provider) |
-| EOS        | [eosio](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-7.md)              | [@smontero/eosio-local-provider](https://github.com/sebastianmontero/eosio-local-provider#readme) |
-| Polkadot   | [polkadot](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-13.md)              | [@polkadot{.js} extention api](https://polkadot.js.org/) | Doesn't support the `authenticate` method yet. |
 
