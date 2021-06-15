@@ -16,14 +16,13 @@ The JS Core Client allows you to run the full Ceramic protocol (API and node) di
 ## **Installation**
 Installing the JS Core Client requires a console, [Node.js](https://nodejs.org/en/){:target="_blank"} v14, and [npm](https://www.npmjs.com/get-npm){:target="_blank"} v6. Make sure to have these installed on your machine.
 
-    !!! warning ""
-    While npm v7 is not officially supported, you may be able to get it to work anyway, however you will need to have the `node-pre-gyp` package installed globally:
+!!! warning ""
+    
+    While npm v7 is not officially supported, you may still be able to get it to work. Try installing the `node-pre-gyp` package globally. This is required until `node-webrtc`, which IPFS depends on, [is upgraded](https://github.com/node-webrtc/node-webrtc/pull/694).
     
     ```bash
     npm install -g node-pre-gyp
     ```
-    
-    *This is required until node-webrtc (which IPFS depends on) [is upgraded](https://github.com/node-webrtc/node-webrtc/pull/694).*
 
 ### 1. Install the Core client
 Open your console and install the JS Core Client using npm.
