@@ -92,7 +92,6 @@ nav:
       - Node Providers: tools/hosted-nodes/node-providers.md
   - Reference:
     - JavaScript:
-      - Clients: reference/javascript/clients.md
       - DID Resolvers: reference/javascript/did-resolvers.md
       - DID Providers: reference/javascript/did-providers.md
       - Support new Blockchain: reference/javascript/blockchain.md
