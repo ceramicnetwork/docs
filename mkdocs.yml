@@ -79,8 +79,8 @@ nav:
     - 3ID DID:
       - Method: authentication/3id-did/method.md
       - Provider: authentication/3id-did/provider.md
-      - Resolver: authentication/3id-did/resolver.md
       - 3ID Connect: authentication/3id-did/3id-connect.md
+      - Resolver: authentication/3id-did/resolver.md
       - 3Box migration: authentication/3id-did/3box-migration.md
     - Key DID:
       - Method: authentication/key-did/method.md
