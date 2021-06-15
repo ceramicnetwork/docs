@@ -1,8 +1,8 @@
 # 3ID DID Provider
-3ID DID Provider is a low-level JavaScript library that provides interfaces for creating and authenticating 3IDs. For most applications it is recommended that you instead use a 3ID authentication SDK, such as [3ID Connect](), if you are looking for a more complete and user-friendly 3ID-based authentication system that easily works with a user's other blockchain wallets.
+3ID DID Provider is a low-level JavaScript library that provides interfaces for creating and authenticating 3IDs. For most applications seeking a more complete and user-friendly 3ID DID Provider, it is recommended that you instead use a higher-level library, such as [3ID Connect](./3id-connect.md).
 
 ## **Installation**
-Before installing 3ID DID Provider, you must have [installed a Ceramic client](../../build/installation.md) and [configured a DID](c../../build/onfigure-did.md) for that client. By following the steps below, users will be able to [perform writes](../../build/writes.md) on Ceramic using a 3ID DID.
+Before installing 3ID DID Provider, you must have [installed a Ceramic client](../../build/installation.md). By following the steps below, users will be able to [perform writes](../../build/writes.md) on Ceramic using a 3ID DID.
 
 ### 1. Install from npm
 
@@ -37,7 +37,7 @@ const provider = threeId.getDidProvider()
 
 #### Option 2: Using an external auth method
 
-This option enables one or more secrets (seeds) to control the 3ID DID. It is useful, for example, if you want to control a 3ID DID using one or more blockchain wallets. This flow is what is implemented by the [3ID Connect SDK]().
+This option enables one or more secrets (seeds) to control the 3ID DID. It is useful, for example, if you want to control a 3ID DID using one or more blockchain wallets. This flow is what is implemented by [3ID Connect](./3id-connect.md).
 
 ``` js
 const authId = 'myAuthenticationMethod' // a name of the auth method
@@ -82,7 +82,8 @@ const getPermission = async (request) => {
 
 ### 5. Set the instance to Ceramic
 
-Set the 3ID DID Provider instance to the DID instance used by your Ceramic client in order to perform writes.
+Set the 3ID DID Provider instance to the DID instance used by your Ceramic client.
+
 ``` javascript
 ceramic.did.setProvider(provider)
 ```
@@ -94,12 +95,9 @@ Now all that's left is to authenticate to the Ceramic client's DID instance usin
 await ceramic.did.authenticate()
 ```
 
+## **Next steps: Writes**
 
-## **Usage**
-After authenticating with 3ID DID Provider, the user will now be able to perform [writes](writes.md) on Ceramic.
-
-## **Underlying technologies**
-- [3ID DIDs (CIP-79)](../dids/3id.md): For creating decentralized identifiers and authenticating to Ceramic
+After authenticating with the 3ID DID Provider, users will now be able to perform [writes](writes.md).
 
 ## License
 3ID DID Provider is fully open sourced under MIT and Apache 2.
