@@ -47,7 +47,7 @@ await ceramic.did.authenticate()
 
 ## **Next steps: Writes**
 
-After authenticating with the 3ID DID Provider, users will now be able to perform [writes](writes.md).
+After authenticating with the 3ID DID Provider, users will now be able to perform [writes](../../build/writes.md).
 
 
 ## **License**
