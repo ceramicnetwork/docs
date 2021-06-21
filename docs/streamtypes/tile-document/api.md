@@ -16,6 +16,8 @@ Use the [`TileDocument.create()`](https://developers.ceramic.network/reference/t
 import { TileDocument } from '@ceramicnetwork/stream-tile'
 
 const doc = await TileDocument.create(ceramic, content, metadata, opts)
+
+const streamId = doc.id.toString()
 ```
 
 In this example we create a TileDocument where we set `content`, `schema`, `controllers`, and `family`.
