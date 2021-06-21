@@ -4,12 +4,17 @@ This guide describes how to create, update, and query [TileDocuments](./overview
 ## **Requirements**
 You need an [installed client](../../build/installation.md) and an [authenticated user](../../build/authentication.md) to perform writes to TileDocuments. If you only wish to query TileDocuments then you do not need authentication.
 
+## **Installation**
+`npm install @ceramicnetwork/stream-tile`
+
 ## **Write APIs**
 
 ### **Create a TileDocument**
 Use the [`TileDocument.create()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create){:target="_blank"} method to create a new TileDocument.
 
 ```javascript
+import { TileDocument } from '@ceramicnetwork/stream-tile'
+
 const doc = await TileDocument.create(ceramic, content, metadata, opts)
 ```
 
