@@ -6,6 +6,9 @@ This guide demonstrates how to create, update, and query Caip10Links using the [
 
 You need an [installed client](../../build/installation.md), [authenticated user](../../build/authentication.md), and a third-party blockchain provider (i.e. wallet) to perform writes to Caip10Links. If you only wish to query Caip10Links then you only need an installed client.
 
+## **Installation**
+`npm install @ceramicnetwork/stream-caip10-link`
+
 ## **Write API**
 
 ### **Create new Caip10Link**
@@ -13,7 +16,11 @@ You need an [installed client](../../build/installation.md), [authenticated user
 Use the [`Caip10Link.fromAccount()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_caip10_link.caip10link-1.html#fromaccount){:target="_blank"} method to create a new Caip10Link for a given Caip10-formatted blockchain address. The newly created Caip10Link will *not* have any DID associated with it at first.
 
 ```javascript
+import { Caip10Link } from '@ceramicnetwork/stream-caip10-link'
+
 const link = await Caip10Link.fromAccount(ceramic, accountId, opts)
+
+const streamId = link.id.toString()
 ```
 
 In this example we create a new empty Caip10Link for the account `0x054...7cb8` on the Ethereum mainnet blockchain (`eip155:1`).
