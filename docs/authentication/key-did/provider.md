@@ -34,13 +34,15 @@ const provider = new Ed25519Provider(seed)
 
 ### 5. Set the Provider to Ceramic
 
-Set the Provider instance to the DID instance used by your Ceramic client in order to perform writes.
+Set the Provider instance to the DID instance used by your Ceramic client in order to perform writes. You should have configured the DID instance when you [installed your client](../../build/installation.md).
+
 ``` javascript
 ceramic.did.setProvider(provider)
 ```
 
 ### 6. Authenticate the Key DID
 Now all that's left is to authenticate to the Ceramic client's DID instance using the configured Key DID Provider.
+
 ``` js
 await ceramic.did.authenticate()
 ```
@@ -51,7 +53,7 @@ After authenticating with the 3ID DID Provider, users will now be able to perfor
 
 
 ## **License**
-Key DID Provides is fully open sourced under MIT and Apache 2.
+Key DID Provider is open source under MIT and Apache 2.
 
 </br>
 </br>
