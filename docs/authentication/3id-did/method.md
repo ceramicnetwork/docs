@@ -6,9 +6,9 @@ The [3ID DID Method (CIP-79)](https://github.com/ceramicnetwork/CIP/blob/main/CI
 
 **Secure key rotations**: Because the [DID Document](../../learn/glossary.md#did-document) for the 3ID DID Method is implemented using a [TileDocument StreamType](../../streamtypes/tile-document/overview.md) on Ceramic, it is fully mutable and can support the secure addition and removal (rotation) of keys and other arbitrary data. This enables 3ID DIDs to handle multiple keys simultaneously and to remove keys when needed.
 
-**Aggregated identities**: 3ID DIDs can serve as a cross-chain identifier which can be controlled by all of a user's blockchain and Web3 accounts from any L1 or L2 protocol. This provides a way to unify a user's identity across all other platforms.
-
 **Seamless integration with blockchain wallets**: When 3ID DIDs are used in conjunction with [IDX (CIP-11)](../../tools/identity/idx.md) (using the [3ID Keychain definition (CIP-20)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-20/CIP-20.md)), a 3ID DID can be controlled from a user's existing blockchain wallets. This functionality is implemented by [3ID Connect](./3id-connect.md).
+
+**Aggregated identities**: 3ID DIDs can serve as a cross-chain identifier which can be controlled by all of a user's blockchain and Web3 accounts from any L1 or L2 protocol. This provides a way to unify a user's identity across all other platforms.
 
 **Great for end users**: Due to all of the reasons above.
 
