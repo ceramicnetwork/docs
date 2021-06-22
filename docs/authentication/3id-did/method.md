@@ -4,7 +4,7 @@ The [3ID DID Method (CIP-79)](https://github.com/ceramicnetwork/CIP/blob/main/CI
 
 ## **Considerations**
 
-**Mutable DID document**: The 3ID DID Method is fully implemented on top of Ceramic. The primary benefit of the 3ID DID method is that it has a **mutable DID document**. The DID Document for 3ID DIDs is stored in a [TileDocument StreamType](../../streamtypes/tile-document/overview.md). This is enables 3ID DIDs to handle multiple keys, secure key rotations, and the addition and removal or arbitrary data.
+**Secure key rotations**: Because the [DID Document](../../learn/glossary.md#did-document) for the 3ID DID Method is implemented using a [TileDocument StreamType](../../streamtypes/tile-document/overview.md) on Ceramic, it is fully mutable and can support the secure addition and removal (rotation) of keys and other arbitrary data. This enables 3ID DIDs to handle multiple keys simultaneously and to remove keys when needed.
 
 **Aggregated identities**: 3ID DIDs can serve as a cross-chain identifier which can be controlled by all of a user's blockchain and Web3 accounts from any L1 or L2 protocol. This provides a way to unify a user's identity across all other platforms.
 
@@ -27,7 +27,7 @@ A low-level JavaScript 3ID DID Provider. Your application is responsible for key
 > [**Install 3ID DID Provider**](./provider.md)
 
 ## **Specification**
-Below, find a simplified version of the 3ID DID Method specification. For the full specification, view [3ID DID Method (CIP-79)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-79/CIP-79.md).
+The 3ID DID Method is fully implemented on top of Ceramic. Below, find a simplified version of the 3ID DID Method specification. For the full specification, view [3ID DID Method (CIP-79)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-79/CIP-79.md).
 
 ### Method name
 The official method name for the 3ID DID method is `3`.
