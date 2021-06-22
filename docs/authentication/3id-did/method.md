@@ -48,6 +48,7 @@ did:3:<StreamID of the Ceramic TileDocument which contains the DID Document>
 
 ## **Underlying technology**
 
+- [3ID DID Method specification](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-79/CIP-79.md)
 - [W3C DID specification](https://www.w3.org/TR/did-core/)
 - [TileDocument StreamType](../../streamtypes/tile-document/overview.md)
 
