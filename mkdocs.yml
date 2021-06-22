@@ -60,8 +60,6 @@ nav:
   - Run:
     - Nodes:
       - Running a node: run/nodes.md
-    #- Anchor service: run/anchor-service.md
-    - Anchor service:
   - StreamTypes:
       - Overview: streamtypes/overview.md
       - Tile Document:
