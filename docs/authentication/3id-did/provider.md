@@ -18,7 +18,9 @@ import ThreeIdProvider from '3id-did-provider'
 
 ### 3. Get a seed phrase
 
-Generate a random seed for a new user, or somehow get the existing seed for a returning user. Seeds should be a 32 byte Uint8Array. Here's how to securely generate a `seed` in the proper format:
+Generate a random seed for a new user, or somehow get the existing seed for a returning user. Seeds should be a 32 byte Uint8Array. 
+
+How to securely generate a new `seed` in the proper format:
 
 ``` javascript
 import { randomBytes } from '@stablelib/random'
@@ -27,17 +29,9 @@ const seed = randomBytes(32)
 
 ### 4. Create a 3ID Provider instance
 
-#### Option 1: Using the seed
+#### Option 1: Using an external auth method (recommended)
 
-``` js
-const threeId = await ThreeIdProvider.create({ getPermission, seed })
-const provider = threeId.getDidProvider()
-
-```
-
-#### Option 2: Using an external auth method
-
-This option enables one or more secrets (seeds) to control the 3ID DID. It is useful, for example, if you want to control a 3ID DID using one or more blockchain wallets. This flow is what is implemented by [3ID Connect](./3id-connect.md).
+This option enables one or more external `authSecrets` (seeds or private keys) to encrypt/decrypt the seed of the 3ID DID. It is useful, for example, if you want to control a 3ID DID using one or more blockchain wallets. This flow is what is implemented by [3ID Connect](./3id-connect.md).
 
 ``` js
 const authId = 'myAuthenticationMethod' // a name of the auth method
@@ -80,7 +74,15 @@ const getPermission = async (request) => {
 }
 ```
 
-### 5. Set the instance to Ceramic
+#### Option 2: Using only the 3ID's seed
+
+``` js
+const threeId = await ThreeIdProvider.create({ getPermission, seed })
+const provider = threeId.getDidProvider()
+
+```
+
+### 5. Set the 3ID Provider instance to Ceramic
 
 Set the 3ID DID Provider instance to the DID instance used by your Ceramic client.
 
@@ -100,6 +102,6 @@ await ceramic.did.authenticate()
 After authenticating with the 3ID DID Provider, users will now be able to perform [writes](../../build/writes.md).
 
 ## License
-3ID DID Provider is fully open sourced under MIT and Apache 2.
+3ID DID Provider is open sourced under MIT and Apache 2.
 
 </br></br></br>
