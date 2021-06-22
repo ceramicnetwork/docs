@@ -6,7 +6,7 @@ The Key DID Method is a [DID method](../../learn/glossary.md#did-methods) which 
 
 **One key only**: The DID Document for a Key DID is explicitly tied to a single crypto key. It can not support multiple keys in the DID document nor can it support key rotation, which means only one key can ever control the DID and it can never be changed in case it is compromised.
 
-**For advanced users**: For the reasons above, the Key DID Method is only suitable for advanced users who will only want to ever use one keypair to control their DID, and who have strong key security practices - such as a developer. 
+**For advanced users**: For the reasons above, the Key DID Method is only suitable for advanced users who will only want to ever use one keypair to control their DID, and who have strong key security practices - such as a developer - and so generally will not be appropriate for identities for non-technical end users.
 
 ## **Installation**
 To use the Key DID Method for authentication in your project, install one of the [Key DID Providers](./provider.md) below and be sure to include the [Key DID Resolver](./resolver.md) in your project during [installation](../../build/installation.md).
