@@ -36,7 +36,7 @@ The official method name for the 3ID DID method is `3`.
 Example 3ID DID identifier:
 
 ```
-did:3:<method-specific-identifier>
+did:3:<StreamID of the Ceramic TileDocument which contains the DID Document>
 ```
 
 ### DID Document
