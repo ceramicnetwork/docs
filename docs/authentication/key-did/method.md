@@ -1,6 +1,6 @@
 # Key DID Method
 
-The Key DID Method is a [DID method](../../learn/glossary.md#did-methods) which can be used to [authenticate](../../build/authentication.md) to a Ceramic client to perform [writes]() to streams that rely on DIDs for authentication. The Key DID Method is the most simple DID method. It simply encodes a public key in the DID string, and when resolved converts this public key into a [DID Document](../../learn/glossary.md#did-document). Key DID is on the W3C's official DID method registry and is fully compliant with decentralized identity standards. Carefully read the considerations below before deciding to use the Key DID Method in your project.
+The Key DID Method is a [DID method](../../learn/glossary.md#did-methods) which can be used to [authenticate](../../build/authentication.md) to a Ceramic client to perform [writes](../../build/writes.md) to streams that rely on DIDs for authentication. The Key DID Method is the most simple DID method. It simply encodes a public key in the DID string, and when resolved converts this public key into a [DID Document](../../learn/glossary.md#did-document). Key DID is on the W3C's official DID method registry and is fully compliant with decentralized identity standards. Carefully read the considerations below before deciding to use the Key DID Method in your project.
 
 ## **Considerations**
 
