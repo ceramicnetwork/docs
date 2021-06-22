@@ -97,7 +97,7 @@ const provider = await threeIdConnect.getDidProvider()
 ```
 
 ### 6. Set the provider to Ceramic
-Set the Provider instance to the DID instance used by your Ceramic client in order to perform writes.
+Set the Provider instance to the DID instance used by your Ceramic client in order to perform writes. You should have configured the DID instance when you [installed your client](../../build/installation.md).
 
 ```
 ceramic.did.setProvider(provider)
