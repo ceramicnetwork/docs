@@ -6,7 +6,7 @@ After over a year of development, we're excited to announce that the first proje
 
 ### **GeoWeb**
 
-**Mutable files for NFTs**: [GeoWeb](https://geoweb.network) is creating a fair and open augmented reality (AR) metaverse where digital land is represented by NFTs and content for the land is represented by one or more streams on Ceramic. GeoWeb uses Ceramic with the NFT DID method to store mutable files for NFTs that can only be updated by the asset's current owner. When the assets transfers ownership on-chain, so do the write permissions automatically.
+**Mutable files for NFTs**: [GeoWeb](https://geoweb.network) is creating a fair and open augmented reality (AR) metaverse where digital land is represented by NFTs and content for the land is stored in one or more streams on Ceramic.
 
 ## About Mainnet
 
