@@ -84,7 +84,7 @@ const provider = threeId.getDidProvider()
 
 ### 5. Set the 3ID Provider instance to Ceramic
 
-Set the 3ID DID Provider instance to the DID instance used by your Ceramic client.
+Set the 3ID DID Provider instance to the DID instance used by your Ceramic client. You should have configured the DID instance when you [installed your client](../../build/installation.md).
 
 ``` javascript
 ceramic.did.setProvider(provider)
