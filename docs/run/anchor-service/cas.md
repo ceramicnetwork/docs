@@ -15,12 +15,12 @@ By default, every Ceramic node automatically uses a CAS provided by the communit
 Free CAS services are offered by [3Box Labs](https://3boxlabs.com) for Ceramic developers.
 
 ### Mainnet
-For nodes connected to [Mainnet](../../learn/networks.md#mainnet), they will use a Mainnet CAS which performs anchors on the Ethereum Mainnet blockchain (`eip155:1`) and communicates over the `/ceramic/mainnet` libp2p topic.
+For nodes connected to [Mainnet](../../learn/networks.md#mainnet), they will use a Mainnet CAS which generates anchor records using the Ethereum Mainnet blockchain (`eip155:1`) and communicates over the `/ceramic/mainnet` libp2p topic.
 
 ### Clay Testnet
-For nodes connected to [Clay Testnet](../../learn/networks.md#clay-testnet), they will use a Clay Testnet CAS which performs anchors on the Ethereum Rinkeby or Ropsten blockchains and communicates over the `/ceramic/testnet-clay` libp2p topic.
+For nodes connected to [Clay Testnet](../../learn/networks.md#clay-testnet), they will use a Clay Testnet CAS which generates anchor records using the Ethereum Rinkeby or Ropsten blockchains and communicates over the `/ceramic/testnet-clay` libp2p topic.
 
 ### Dev Unstable
-For nodes connected to [Dev Unstable](../../learn/networks.md#dev-unstable), they will use a Dev Unstable CAS which performs anchors on the Ethereum Rinkeby or Ropsten blockchains and communicates over the `/ceramic/dev-unstable` libp2p topic.
+For nodes connected to [Dev Unstable](../../learn/networks.md#dev-unstable), they will use a Dev Unstable CAS which generates anchor records using the Ethereum Rinkeby or Ropsten blockchains and communicates over the `/ceramic/dev-unstable` libp2p topic.
 
 </br></br></br>
