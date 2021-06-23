@@ -2,7 +2,7 @@
 3ID DID Provider is a low-level JavaScript library that provides interfaces for creating and authenticating 3IDs. For most applications seeking a more complete and user-friendly 3ID DID Provider, it is recommended that you instead use a higher-level library, such as [3ID Connect](./3id-connect.md).
 
 ## **Installation**
-Before installing 3ID DID Provider, you must have [installed a Ceramic client](../../build/installation.md). By following the steps below, users will be able to [perform writes](../../build/writes.md) on Ceramic using a 3ID DID.
+Before installing 3ID DID Provider, you must have [installed a Ceramic client](../../build/javascript/installation.md). By following the steps below, users will be able to [perform writes](../../build/javascript/writes.md) on Ceramic using a 3ID DID.
 
 ### 1. Install from npm
 
@@ -84,7 +84,7 @@ const provider = threeId.getDidProvider()
 
 ### 5. Set the 3ID Provider instance to Ceramic
 
-Set the 3ID DID Provider instance to the DID instance used by your Ceramic client. You should have configured the DID instance when you [installed your client](../../build/installation.md).
+Set the 3ID DID Provider instance to the DID instance used by your Ceramic client. You should have configured the DID instance when you [installed your client](../../build/javascript/installation.md).
 
 ``` javascript
 ceramic.did.setProvider(provider)
@@ -99,9 +99,7 @@ await ceramic.did.authenticate()
 
 ## **Next steps: Writes**
 
-After authenticating with the 3ID DID Provider, users will now be able to perform [writes](../../build/writes.md).
+After authenticating with the 3ID DID Provider, users will now be able to perform [writes](../../build/javascript/writes.md).
 
-## License
-3ID DID Provider is open sourced under MIT and Apache 2.
 
 </br></br></br>
