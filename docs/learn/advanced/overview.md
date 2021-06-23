@@ -8,7 +8,7 @@ This overview introduces how:
 - Stream processing provides an appropriate framework for dynamic, decentralized content
 - You can use Ceramic to replace your database with a truly decentralized alternative
 
-> To skip ahead and get started building, try the [**Playground**](https://playground.ceramic.dev){:target="_blank"} to demo Ceramic in a browser application, the [**Quick Start**](../../build/quick-start.md) guide to learn the basics using the Ceramic CLI, or follow the [**Installation**](../../build/installation.md) page to integrate Ceramic into your project.
+> To skip ahead and get started building, try the [**Playground**](https://playground.ceramic.dev){:target="_blank"} to demo Ceramic in a browser application, the [**Quick Start**](../../build/quick-start.md) guide to learn the basics using the Ceramic CLI, or follow the [**Installation**](../../build/javascript/installation.md) page to integrate Ceramic into your project.
 
 ## **The internet of open source information**
 
@@ -95,7 +95,7 @@ To experience how Ceramic works in a browser application, try the [**Playground*
 
 ### Installation
 
-Getting started with Ceramic is simple. Visit the [**Quick Start**](../../build/quick-start.md){:target="_blank"} guide to learn the basics using the Ceramic CLI or follow the [**Installation**](../../build/installation.md){:target="_blank"} page to integrate Ceramic into your project.
+Getting started with Ceramic is simple. Visit the [**Quick Start**](../../build/quick-start.md){:target="_blank"} guide to learn the basics using the Ceramic CLI or follow the [**Installation**](../../build/javascript/installation.md){:target="_blank"} page to integrate Ceramic into your project.
 
 ### Tools and services
 
