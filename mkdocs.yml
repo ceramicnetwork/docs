@@ -46,16 +46,20 @@ nav:
     - Sample apps: explore/sample-apps.md
   - Build:
     - Quick Start: build/quick-start.md
-    - Installation: build/installation.md
-    - Authentication: build/authentication.md
-    - Writes: build/writes.md
-    - Queries: build/queries.md
-    - Pinning: build/pinning.md
-    - Share your work: build/share.md
-    - Troubleshooting: build/troubleshooting.md
+    - JavaScript:
+      - Installation:
+        - Choose a client: build/javascript/installation.md
+        - HTTP Client: build/javascript/http.md
+        - Core Client: build/javascript/core.md
+      - Authentication: build/javascript/authentication.md
+      - Writes: build/javascript/writes.md
+      - Queries: build/javascript/queries.md
+      - Pinning: build/javascript/pinning.md
     - Command line (CLI):
       - Installation: build/cli/installation.md
       - API: build/cli/api.md
+    - Share your work: build/share.md
+    - Troubleshooting: build/troubleshooting.md
   - Run:
     - Nodes:
       - Hosting a node: run/nodes/nodes.md
@@ -158,11 +162,17 @@ plugins:
             'reference/javascript/did-resolvers.md': 'authentication/3id-did/resolver.md'
             'reference/javascript/did-providers.md': 'authentication/3id-did/provider.md'
             'learn/clients.md': 'clients/javascript/http.md'
-            'learn/clients.md': 'clients/javascript/http.md'
             'build/configure-did.md': 'clients/javascript/http.md'
             'run/nodes.md': 'run/nodes/nodes.md'
             'reference/javascript/anchor-service.md': 'run/cas/cas.md'
             'learn/data-availability.md': 'learn/advanced/data-availability.md'
             'learn/overview.md': 'learn/advanced/overview.md'
             'clients/javascript/cli.md': 'build/cli/installation.md'
+            'build/installation.md': 'build/javascript/installation.md'
+            'clients/javascript/http.md': 'build/javascript/http.md'
+            'clients/javascript/core.md': 'build/javascript/core.md'
+            'build/authentication.md': 'build/javascript/authentication.md'
+            'build/writes.md': 'build/javascript/writes.md'
+            'build/queries.md': 'build/javascript/queries.md'
+            'build/pinning.md': 'build/javascript/pinning.md'
     - search
