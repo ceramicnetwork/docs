@@ -1,7 +1,7 @@
 # JS Core Client
 The JS Core Client allows you to run the full Ceramic protocol (API and node) directly in any JavaScript environment, such as in your tests, in fully client-side browser applications, or in node.js. Carefully read the [considerations](#considerations) below to decide if the JS Core Client is right for your project. Most applications instead use the [JS HTTP Client](./http.md).
 
-[:octicons-download-16: Installation](#installation) | [:octicons-file-code-16: Full API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"}
+[:octicons-download-16: Installation](#installation){: .md-button .md-button--primary } [:octicons-file-code-16: Full API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"}
 
 ## **Considerations**
 
