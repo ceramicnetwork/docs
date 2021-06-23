@@ -1,10 +1,10 @@
 # Caip10Link API
 
-This guide demonstrates how to create, update, and query Caip10Links using the [JS HTTP Client](../../clients/javascript/http.md) and [JS Core Client](../../clients/javascript/core.md).
+This guide demonstrates how to create, update, and query Caip10Links using the [JS HTTP Client](../../build/javascript/installation.md#js-http-client) and [JS Core Client](../../build/javascript/installation.md#js-core-client).
 
 ## **Requirements**
 
-You need an [installed client](../../build/installation.md), [authenticated user](../../build/authentication.md), and a third-party blockchain provider (i.e. wallet) to perform writes to Caip10Links. If you only wish to query Caip10Links then you only need an installed client.
+You need an [installed client](../../build/javascript/installation.md), [authenticated user](../../build/javascript/authentication.md), and a third-party blockchain provider (i.e. wallet) to perform writes to Caip10Links. If you only wish to query Caip10Links then you only need an installed client.
 
 ## **Installation**
 `npm install @ceramicnetwork/stream-caip10-link`
