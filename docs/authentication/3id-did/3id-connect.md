@@ -23,7 +23,7 @@
 - **Same identity across accounts**: Users can use the same DID across many different blockchain accounts.
 - **Same identity across chains**: Users can use the same DID across all L1 and L2 blockchain platforms.
 - **No additional key management**: Users don't need to manage the private key for their DID – just their existing blockchain wallet.
-- **Automatic 3Box profile migration**: Users' 3Box profiles will automatically be migrated by 3ID Connect the first time they use 3ID Connect via an application deployed on Ceramic Mainnet. Learn more about the 3Box profiles migration [here](./3id-did/3box-migration.md).
+- **Automatic 3Box profile migration**: Users' 3Box profiles will automatically be migrated by 3ID Connect the first time they use 3ID Connect via an application deployed on Ceramic Mainnet. Learn more about the 3Box profiles migration [here](./3box-migration.md).
 
 ### Developer experience
 
@@ -34,7 +34,7 @@
 
 ## **Installation**
 
-Before installing 3ID Connect, you must have [installed a Ceramic client](../../build/installation.md). By following the steps below, your users will be able to [perform writes](../../build/writes.md) on Ceramic using a 3ID DID with their blockchain wallet.
+Before installing 3ID Connect, you must have [installed a Ceramic client](../../build/javascript/installation.md). By following the steps below, your users will be able to [perform writes](../../build/javascript/writes.md) on Ceramic using a 3ID DID with their blockchain wallet.
 
 
 ### 1. Install from npm
@@ -99,7 +99,7 @@ const provider = await threeIdConnect.getDidProvider()
 ```
 
 ### 6. Set the provider to Ceramic
-Set the Provider instance to the DID instance used by your Ceramic client in order to perform writes. You should have configured the DID instance when you [installed your client](../../build/installation.md).
+Set the Provider instance to the DID instance used by your Ceramic client in order to perform writes. You should have configured the DID instance when you [installed your client](../../build/javascript/installation.md).
 
 ```
 ceramic.did.setProvider(provider)
@@ -115,11 +115,11 @@ await ceramic.did.authenticate()
 
     This will prompt the user with a 3ID Connect permissions window.
     
-Your users will now be authenticated and can perform [writes](../../build/writes.md) to streams on Ceramic.
+Your users will now be authenticated and can perform [writes](../../build/javascript/writes.md) to streams on Ceramic.
 
 ## **Next steps: Writes**
 
-After authenticating with 3ID Connect, users will now be able to perform [writes](../../build/writes.md).
+After authenticating with 3ID Connect, users will now be able to perform [writes](../../build/javascript/writes.md).
 
 
 ## **Underlying technologies**
@@ -135,8 +135,6 @@ After authenticating with 3ID Connect, users will now be able to perform [writes
 ## **Maintainers**
 3ID Connect is maintained by [3Box Labs](https://3boxlabs.com).
 
-## **License**
-3ID Connect is 100% open source under MIT and Apache 2.
 
 </br>
 </br>
