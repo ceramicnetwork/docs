@@ -87,6 +87,27 @@ const did = new DID({ resolver })
 ceramic.did = did
 ```
 
+## **Example**
+Once you have completed installing and configuring the Core Client, your project's setup should look something like this.
+
+``` javascript
+import Ceramic from '@ceramicnetwork/core'
+import IPFS from 'ipfs-core'
+import dagJose from 'dag-jose'
+import { convert } from 'blockcodec-to-ipld-format'
+import KeyDidResolver from 'key-did-resolver'
+import ThreeIdResolver from '@ceramicnetwork/3id-did-resolver'
+import { DID } from 'dids'
+
+const dagJoseFormat = convert(dagJose)
+const ipfs = await Ipfs.create({ ipld: { formats: [dagJoseFormat] } })
+const resolver = { ...KeyDidResolver.getResolver(),
+                   ...ThreeIdResolver.getResolver(ceramic) }
+const did = new DID({ resolver })
+
+ceramic.did = did
+```
+
 ## **Next steps**
 After setting the DID instance on the Core client, your application will now be able to perform [queries](../../build/queries.md). If you need to perform writes, proceed to setting up [authentication](../../build/authentication.md).
 
