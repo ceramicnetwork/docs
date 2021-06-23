@@ -3,7 +3,7 @@ The CLI provides a way to start a JavaScript Ceramic node and interact with it f
 
 !!! warning ""
 
-    If you are looking to spin up a hosted node for other use cases such as for use with the [JS HTTP Client](../../clients/javascript/http.md) or as a secondary node for redundant stream pinning and replication, see [Hosting a node](../../run/nodes.md).
+    If you are looking to spin up a hosted node for other use cases such as for use with the [JS HTTP Client](../javascript/http.md) or as a secondary node for redundant stream pinning and replication, see [Hosting a node](../../run/nodes/nodes.md).
 
 ## **Requirements**
 
@@ -47,10 +47,10 @@ When using the CLI with a remote node, you have a few options:
 
 - [Free community nodes](../../tools/hosted-nodes/community-nodes.md)
 - [Commercial node providers](../../tools/hosted-nodes/node-providers.md)
-- [Host your own node](../../run/nodes.md)
+- [Host your own node](../../run/nodes/nodes.md)
 
 ## **Authentication**
-By default, the CLI is authenticated using the [Key DID Provider](https://github.com/ceramicnetwork/key-did-provider-ed25519){:target="_blank"}. The seed for this DID is stored in `~/.ceramic/config.json`. If this file is not present on startup a new DID will be randomly generated. It's currently not possible to use the Ceramic CLI with other DID methods.
+By default, the CLI is authenticated using the [Key DID Provider](../../authentication/key-did/provider.md). The seed for this DID is stored in `~/.ceramic/config.json`. If this file is not present on startup a new DID will be randomly generated. It's currently not possible to use the Ceramic CLI with other DID methods.
 
 
 </br></br></br>
