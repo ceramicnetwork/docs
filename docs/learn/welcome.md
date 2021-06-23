@@ -15,7 +15,7 @@ Whether you want to learn how the Ceramic protocol works, explore standards and 
 
 ## **Learn**
 
-[**Overview**](./overview.md): Learn about Ceramic's decentralized data streaming platform
+[**Overview**](./advanced/overview.md): Learn about Ceramic's decentralized data streaming platform
 
 [**Features**](./features.md): Explore core features and capabilities
 
@@ -35,9 +35,9 @@ Whether you want to learn how the Ceramic protocol works, explore standards and 
 
 [**Quick start**](../build/quick-start.md): Get up to speed on the basics using the CLI
 
-[**Installation**](../build/installation.md): Install Ceramic in your project
+[**Installation**](../build/javascript/installation.md): Install Ceramic in your project
 
-[**Run a node**](../run/nodes.md): Set up and run your own Ceramic node
+[**Run a node**](../run/nodes/nodes.md): Set up and run your own Ceramic node
 
 ## **Standards and tools**
 
@@ -45,7 +45,7 @@ Whether you want to learn how the Ceramic protocol works, explore standards and 
 
 [**IDX**](../tools/identity/idx.md): Protocol and SDK for building apps with decentralized identity and user-controlled data storage
 
-[**3ID Connect**](../authentication/wallets/3id-connect.md): Authentication SDK that allows users to interact with Ceramic using various blockchain wallets
+[**3ID Connect**](../authentication/3id-did/3id-connect.md): Authentication SDK that allows users to interact with Ceramic using various blockchain wallets
 
 
 ## **Community**
