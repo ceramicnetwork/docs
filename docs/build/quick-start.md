@@ -295,7 +295,7 @@ Use the `state` command to query the state of the TileDocument we just created. 
     ```
 
 # **That's it!**
-Congratulations on completing this tutorial! You're well on your way to becoming a Ceramic developer. Now let's [install Ceramic in your project →](./installation.md)
+Congratulations on completing this tutorial! You're well on your way to becoming a Ceramic developer. Now let's [install Ceramic in your project →](./javascript/installation.md)
 </br>
 </br>
 </br>
