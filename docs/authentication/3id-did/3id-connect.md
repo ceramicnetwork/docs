@@ -2,7 +2,7 @@
 
 3ID Connect is the most widely used DID provider for the [3ID DID Method](./method.md). The 3ID Connect authentication SDK allows users to use a 3ID DID with their existing blockchain wallet(s). 3ID Connect was designed for developers building Ceramic-enabled web apps whose users already have a blockchain/crypto wallet. By using 3ID Connect, your users get to rely on the signing and key management capabilities of the crypto wallet(s) they already have instead of needing to install a separate wallet. *3ID Connect is not a substitute for a crypto wallet. It works alongside these wallets.*
 
-[**Installation**](#installation)  |  [**Demo**](https://self.id)
+[**Installation**](#installation){: .md-button .md-button--primary }   [Demo](https://self.id)
 
 #### Supported blockchains
 
