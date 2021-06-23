@@ -1,11 +1,11 @@
 # Quick start
-Learn the basics by setting up and interacting with the [Ceramic CLI](../clients/javascript/cli.md). This tutorial serves as a simple introduction to Ceramic concepts. See [installation](./installation.md) to install Ceramic in your project and start building applications.
+Learn the basics by setting up and interacting with the [Ceramic CLI](./cli/installation.md). This tutorial serves as a simple introduction to Ceramic concepts.
 
 > **Want an even faster way to try Ceramic?** Visit the [Playground demo app](https://playground.ceramic.dev){:target="_blank"} to test the full stack of Ceramic components in the browser.
 
 ## **1. Install the CLI**
 
-Visit the [Ceramic CLI](../clients/javascript/cli.md) page for instructions on how to quickly install the CLI.
+Visit the [Ceramic CLI](./cli/installation.md) page for instructions on how to quickly install the CLI.
 
 ## **2. Create a stream**
 Use the `create` command to create a new [stream](../learn/glossary.md#streams). In the example below we create a stream that uses the [TileDocument StreamType](../streamtypes/tile-document/overview.md). Note that *TileDocument* is the only [StreamType](../learn/glossary.md#streamtypes) that can currently be created by the Ceramic CLI.
