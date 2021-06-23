@@ -42,7 +42,7 @@ The JS Core Client allows you to run the full Ceramic protocol (client and node)
 
 **Transitory data availability**: Streams created with Ceramic Core will only be available on the network as long as this node remains online. For example for setups that use the Core Client directly in-browser, when your user closes the tab any stream created by that user will become unavailable  on the network until the user opens the application again. For more resilient data availability you can always replicate and pin streams on secondary long-running nodes, or instead use the [JS HTTP Client](#js-http-client) which relies on a remote node more likely to always be online.
 
-**Setup complexity**: You will need to configure an [IPFS](../../learn/glossary.md#ipfs) node which supports the [dag-jose](../../learn/glossary.md#dagjose) data format and ensure connectivity to the rest of the Ceramic network. See [installation](#installation) below for instructions on how to do this.
+**Setup complexity**: You will need to configure an [IPFS](../../learn/glossary.md#ipfs) node which supports the [dag-jose](../../learn/glossary.md#dagjose) data format and ensure connectivity to the rest of the Ceramic network.
 
 **Swap for JS HTTP Client at any time**: The JS Core Client and the [JS HTTP Client](#js-http-client) implement the same [CeramicApi](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html){:target="_blank"} TypeScript interface, so swapping between clients is seamless and doesn't require changing your application logic; it only requires changing your setup.
 
