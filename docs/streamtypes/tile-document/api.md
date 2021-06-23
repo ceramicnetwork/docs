@@ -1,20 +1,26 @@
 # TileDocument API
+This guide describes how to create, update, and query [TileDocuments](./overview.md) using the [JS HTTP Client](../../clients/http.md) and the [Core Client](../../clients/core.md). You can also interact with TileDocuments from the [CLI](../../clients/cli.md); see the [Quick Start](../../../build/quick-start) guide for more information.
 
-This guide demonstrates how to create, update, and query TileDocuments on the Ceramic network using the [HTTP](../../../reference/javascript/clients#http-client) and [core](../../../reference/javascript/clients#core-client) clients. TileDocuments can also be read and written via the CLI, see [Quick Start](../../../build/quick-start) for more information.
+## **Requirements**
+You need an [installed client](../../build/installation.md) and an [authenticated user](../../build/authentication.md) to perform writes to TileDocuments. If you only wish to query TileDocuments then you do not need authentication.
 
-## Prerequisites
-You need an [installed client](../../build/installation.md) and an [authenticated user](../../build/authentication.md) to perform writes to TileDocuments on the network during runtime. If you only wish to query existing TileDocuments then you still need an installed client but it doesn't need to be authenticated.
+## **Installation**
+`npm install @ceramicnetwork/stream-tile`
 
-## Create a document
-Use the [`TileDocument.create()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create){:target="_blank"} method to create a new document.
+## **Write APIs**
+
+### **Create a TileDocument**
+Use the [`TileDocument.create()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create){:target="_blank"} method to create a new TileDocument.
 
 ```javascript
+import { TileDocument } from '@ceramicnetwork/stream-tile'
+
 const doc = await TileDocument.create(ceramic, content, metadata, opts)
+
+const streamId = doc.id.toString()
 ```
 
-**Example**
-
-In this example we create a document where we set `content`, `schema`, `controllers`, and `family`.
+In this example we create a TileDocument where we set `content`, `schema`, `controllers`, and `family`.
 
 ```javascript
 const doc = await TileDocument.create(ceramic,
@@ -30,21 +36,21 @@ const doc = await TileDocument.create(ceramic,
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create){:target="_blank"}
 
 
-### Parameters
+#### Parameters
 
-#### ceramic
-
+##### ceramic
 
 When creating a TileDocument, the first parameter is the `CeramicAPI` used to communicate with the ceramic node and it is always required. It will either be an instance of [`Ceramic`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"} when using the Core client or an instance of [`CeramicClient`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_http_client.ceramicclient.html){:target="_blank"} when using the HTTP client.
 
-#### content
+##### content
 
-The content of your document, in the form of a JSON document. If `schema` is set in the metadata, then the content must conform to the specified schema.
+The content of your TileDocument, in the form of a JSON document. If `schema` is set in the metadata, then the content must conform to the specified schema.
 
-!!! info ""
+!!! warning ""
+    
     When `content` is included during document creation, the document's *genesis commit* will be signed by the authenticated user's DID. When `content` is omitted (set as `null` or `undefined`), then the *genesis commit* will not be signed.
 
-#### metadata (optional)
+##### metadata (optional)
 
 | Parameter       | Required?   | Value               | Description | Notes |
 | --------------- | ----------- | ------------------- | ----------- | ----- |
@@ -57,13 +63,14 @@ The content of your document, in the form of a JSON document. If `schema` is set
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_stream_tile.tilemetadataargs-1.html){:target="_blank"}
 
 
-!!! info "Using the `deterministic` parameter"
-    For most use cases you will likely want to leave the `deterministic` parameter set to false. However for special circumstances, you may want this to be set to true. For example this should be set to true if you would like to enable [deterministic queries](#query-a-deterministic-document) for your document. If this is your use case, then it is also important that you set `content` to `null` during document creation. Deterministic document queries are based entirely on the document's initial metadata. You can proceed to add content to your document by [updating it](#update-a-document).
+!!! warning "Using the `deterministic` parameter"
+    
+    For most use cases you will likely want to leave the `deterministic` parameter set to false. However for special circumstances, you may want this to be set to true. For example this should be set to true if you would like to enable [deterministic queries](#query-a-deterministic-tiledocument) for your TileDocument. If this is your use case, then it is also important that you set `content` to `null` during document creation. Deterministic document queries are based entirely on the document's initial metadata. You can proceed to add content to your document by [updating it](#update-a-tiledocument).
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_stream_tile.tilemetadataargs-1.html#deterministic){:target="_blank"}
 
 
-#### opts (optional)
+##### opts (optional)
 The final argument to `TileDocument.create` is an instance of [`CreateOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html){:target="_blank"}, which are options that control network behaviors performed as part of the operation.  They are not included in the document itself.
 
 | Parameter     | Required?   | Value            | Description | Default value |
@@ -76,7 +83,7 @@ The final argument to `TileDocument.create` is an instance of [`CreateOpts`](htt
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html){:target="_blank"}
 
 
-## Update a document
+### **Update a TileDocument**
 Use the [`doc.update()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#update){:target="_blank"} method to update the `content` or `metadata` of an existing TileDocument.
 
 ```javascript
@@ -84,9 +91,7 @@ const doc = await TileDocument.load(ceramic, streamId, opts)
 await doc.update(newContent, newMetadata, opts)
 ```
 
-**Example**
-
-In this example we update a document's content while also giving it a tag.
+In this example we update a TileDocument's content while also giving it a tag.
 
 ```javascript
 const streamId = 'kjzl6cwe1jw14...' // Replace this with the StreamID of the TileDocument to be updated
@@ -97,13 +102,13 @@ await doc.update({ foo: 'baz'}, { tags: ['baz'] })
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#update){:target="_blank"}
 
 
-### Parameters
+#### Parameters
 
-#### content
+##### content
 
 The new content of your document. This fully replaces any existing content in the document.
 
-#### metadata (optional)
+##### metadata (optional)
 
 Only fields that are provided in the metadata arg will be updated.  Fields not specified
 in the metadata arg will be left with their current value.
@@ -111,11 +116,12 @@ in the metadata arg will be left with their current value.
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_stream_tile.tilemetadataargs-1.html){:target="_blank"}
 
 
-!!! info "Updating the `deterministic` parameter"
+!!! warning "Updating the `deterministic` parameter"
+    
     Please note that the `deterministic` parameter can only be set while creating a document. It cannot be updated once the document exists.
 
 
-#### opts (optional)
+##### opts (optional)
 The final argument to `TileDocument.update` is an instance of [`UpdateOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.updateopts-1.html){:target="_blank"}, which are options that control network behaviors performed as part of the operation.  They are not included in the document itself.
 
 | Parameter     | Required?   | Value            | Description | Default value |
@@ -125,7 +131,9 @@ The final argument to `TileDocument.update` is an instance of [`UpdateOpts`](htt
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.updateopts-1.html){:target="_blank"}
 
-## Load a document
+## **Read APIs**
+
+### **Load a TileDocument**
 Use the [`TileDocument.load()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#load){:target="_blank"} method to load a single document using its *StreamID*
 
 ```javascript
@@ -136,19 +144,19 @@ const doc = await TileDocument.load(ceramic, streamId, opts)
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#load){:target="_blank"}
 
 
-### Parameters
+#### Parameters
 
-#### ceramic
+##### ceramic
 
 When loading a TileDocument, the first parameter is the `CeramicAPI` used to communicate with the Ceramic node and it is always required. It will either be an instance of [`Ceramic`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"} when using the Core client or an instance of [`CeramicClient`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_http_client.ceramicclient.html){:target="_blank"} when using the HTTP client.
 
 
-#### streamId
+##### streamId
 
 The StreamID or CommitID of the TileDocument to be loaded. When providing the document's StreamID, Ceramic will attempt to load the most recent version of the document from the network. If a CommitID is provided instead, Ceramic will load the document with the version of the contents and metadata from the specific commit specified. The returned TileDocument object will also be marked readonly and cannot be used to perform updates.
 
 
-#### opts (optional)
+##### opts (optional)
 The final argument to `TileDocument.load` is an instance of [`LoadOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.loadopts-1.html){:target="_blank"}, which are options that control network behaviors performed as part of the operation.
 
 | Parameter     | Required?   | Value            | Description | Default value |
@@ -158,7 +166,7 @@ The final argument to `TileDocument.load` is an instance of [`LoadOpts`](https:/
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.loadopts-1.html){:target="_blank"}
 
-## Query a deterministic document
+### **Query a deterministic TileDocument**
 In the [create](#create-a-document) section, we discussed how to create a document with the `deterministic` parameter set to true. Since this parameter allows us to generate the exact same StreamID if we create two documents with the same initial `metadata`, it is possible to "query" the document using the same [`TileDocument.create`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create){:target="_blank"} method that we used to initially create it, without needing to know the StreamID before performing the query. Note we are setting the `CreateOpts` parameters (`anchor` and `publish`) to false so that we are only loading the document and not publishing any changes to the network.
 
 ``` javascript

@@ -1,20 +1,29 @@
 # Caip10Link API
 
-This guide demonstrates how to create, update, and query Caip10Links on the Ceramic network using the [HTTP](../../../reference/javascript/clients#http-client) and [core](../../../reference/javascript/clients#core-client) clients.
+This guide demonstrates how to create, update, and query Caip10Links using the [JS HTTP Client](../../clients/javascript/http.md) and [JS Core Client](../../clients/javascript/core.md).
 
-## Prerequisites
-You need an [installed client](../../build/installation.md) to read or write Caip10Links on the network during runtime.
+## **Requirements**
 
-## Create or query a link
-Use the [`Caip10Link.fromAccount()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_caip10_link.caip10link-1.html#fromaccount){:target="_blank"} method to create a new Caip10Link for a given Caip10 blockchain address, or to look up an existing link for that address.
+You need an [installed client](../../build/installation.md), [authenticated user](../../build/authentication.md), and a third-party blockchain provider (i.e. wallet) to perform writes to Caip10Links. If you only wish to query Caip10Links then you only need an installed client.
+
+## **Installation**
+`npm install @ceramicnetwork/stream-caip10-link`
+
+## **Write API**
+
+### **Create new Caip10Link**
+
+Use the [`Caip10Link.fromAccount()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_caip10_link.caip10link-1.html#fromaccount){:target="_blank"} method to create a new Caip10Link for a given Caip10-formatted blockchain address. The newly created Caip10Link will *not* have any DID associated with it at first.
 
 ```javascript
+import { Caip10Link } from '@ceramicnetwork/stream-caip10-link'
+
 const link = await Caip10Link.fromAccount(ceramic, accountId, opts)
+
+const streamId = link.id.toString()
 ```
 
-#### Creating a new link
-
-In this example we create a new empty Caip10Link for the account *0x0544dcf4fce959c6c4f3b7530190cb5e1bd67cb8* on the Ethereum mainnet blockchain. The newly created Caip10Link will not have any DID associated with it at first.
+In this example we create a new empty Caip10Link for the account `0x054...7cb8` on the Ethereum mainnet blockchain (`eip155:1`).
 
 ```javascript
 const accountLink = await Caip10Link.fromAccount(
@@ -23,40 +32,19 @@ const accountLink = await Caip10Link.fromAccount(
 )
 ```
 
-!!! info ""
-    Note that by default `Caip10Link.fromAccount()` will try to query the network for the current Stream state. If you know that this is the first time a Caip10Link has been created for this blockchain address, and you wish to avoid waiting on a response from the network unnecessarily, you can set `syncTimeoutSeconds` to 0 in the `opts` argument.
+#### Parameters
 
-#### Loading an existing link
+##### `ceramic`
 
-In this example we load a Caip10Link for the account *0x0544dcf4fce959c6c4f3b7530190cb5e1bd67cb8* on the Ethereum mainnet blockchain.
+When creating a Caip10Link, the first parameter is the `CeramicAPI` used to communicate with the ceramic node and it is always required. It will either be an instance of [`Ceramic`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"} when using the JS Core client or an instance of [`CeramicClient`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_http_client.ceramicclient.html){:target="_blank"} when using the JS HTTP client.
 
-```javascript
-const accountLink = await Caip10Link.fromAccount(
-    ceramic,
-    '0x0544dcf4fce959c6c4f3b7530190cb5e1bd67cb8@eip155:1',
-)
-const linkedDid = accountLink.did
-```
+##### `accountId`
 
-!!! info ""
-    Note that the examples for creating a new link and for loading an existing link look the same. `Caip10Link.fromAccount` will create a new link if one doesn't exist, in which case the returned link will have no linked DID associated with it. If the link already exists, however, then `Caip10Link.fromAccount` will return the current state of the link, which may include a linked DID if one has been set previously.
+The account ID in Caip10 format of the blockchain account being linked.
 
-[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_caip10_link.caip10link-1.html#fromaccount){:target="_blank"}
+##### `opts`  |  optional
 
-
-### Parameters
-
-#### ceramic
-
-
-When creating or querying a Caip10Link, the first parameter is the `CeramicAPI` used to communicate with the ceramic node and it is always required. It will either be an instance of [`Ceramic`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"} when using the Core client or an instance of [`CeramicClient`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_http_client.ceramicclient.html){:target="_blank"} when using the HTTP client.
-
-#### accountId
-
-The blockchain account ID - in Caip10 format - of the blockchain account being linked.
-
-#### opts (optional)
-The final argument to `Caip10Link.fromAccount` is an instance of [`CreateOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html){:target="_blank"}, which are options that control network behaviors performed as part of the operation.  They are not included in the link itself.
+The final argument is an instance of [`CreateOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html){:target="_blank"}, which are options that control network behaviors performed as part of the operation.  They are not included in the link itself.
 
 | Parameter     | Required?   | Value            | Description | Default value |
 | ------------- | ----------- | ---------------- | ----------- | ----- |
@@ -65,20 +53,21 @@ The final argument to `Caip10Link.fromAccount` is an instance of [`CreateOpts`](
 | `sync`        | optional    | enum             | Controls behavior related to syncing the current link state from the network | SyncOptions.PREFER_CACHE |
 | `syncTimeoutSeconds` | optional    | number            | How long to wait to hear about the current state of the link from the network | 3 |
 
-[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html){:target="_blank"}
+!!! warning ""
+
+    By default `Caip10Link.fromAccount()` will try to query the network for the current stream state. If you know that this is the first time a Caip10Link has been created for this blockchain address, and you wish to avoid waiting on a response from the network unnecessarily, you can set `syncTimeoutSeconds` to 0 in the `opts` argument.
 
 
-## Associate a DID with a Caip10Link
-Use the [`link.setDid()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_caip10_link.caip10link-1.html#setdid){:target="_blank"} method to update the DID associated with a given Caip10Link
+### **Set DID to Caip10Link**
+
+Use the [`link.setDid()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_caip10_link.caip10link-1.html#setdid){:target="_blank"} method to set or update the DID associated with a given Caip10Link.
 
 ```javascript
 const link = await Caip10Link.fromAccount(ceramic, accountId, opts)
 await link.setDid(did, authProvider, opts)
 ```
 
-**Example**
-
-In this example we create a Caip10Link for the ethereum mainnet account *0x0544dcf4fce959c6c4f3b7530190cb5e1bd67cb8* and then associate it with the DID *did:3:k2t6wyfsu4pg0t2n4j8ms3s33xsgqjhtto04mvq8w5a2v5xo48idyz38l7ydki*
+In this example we create a Caip10Link for the account `0x054...7cb8` on the Ethereum mainnet blockchain (`eip155:1`) and then associate it with the DID `did:3:k2t6...ydki`.
 
 ```javascript
 import { Caip10Link } from '@ceramicnetwork/stream-caip10-link'
@@ -100,29 +89,53 @@ await accountLink.setDid(
     ethAuthProvider)
 ```
 
-[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_caip10_link.caip10link-1.html#setdid){:target="_blank"}
+#### Parameters
 
-### Parameters
-
-#### did
+##### `did`
 
 The DID to associate with the caip10 blockchain account represented by this Caip10Link.
 
-#### authProvider
+##### `authProvider`
 
-An instance of the [`AuthProvider`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_blockchain_utils_linking.authprovider-1.html) interface that can create link proofs for the blockchain network that the account this Caip10Link represents lives on.
+An instance of the [`AuthProvider`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_blockchain_utils_linking.authprovider-1.html) interface that can create link proofs for the blockchain network that the Caip10 account lives on.
 
 
-#### opts (optional)
-The final argument to `Caip10Link.setDid` is an instance of [`UpdateOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.updateopts-1.html){:target="_blank"}, which are options that control network behaviors performed as part of the operation.
+##### `opts`  |  optional
+The final argument is an instance of [`UpdateOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.updateopts-1.html){:target="_blank"}, which are options that control network behaviors performed as part of the operation.
 
 | Parameter     | Required?   | Value            | Description | Default value |
 | ------------- | ----------- | ---------------- | ----------- | ----- |
 | `anchor`      | optional    | boolean          | Request an anchor after updating the link | true |
 | `publish`     | optional    | boolean          | Publish the update to the network | true |
 
-[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.updateopts-1.html){:target="_blank"}
 
+## **Read API**
+
+### **Load a Caip10Link**
+
+Use the [`Caip10Link.fromAccount()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_caip10_link.caip10link-1.html#fromaccount){:target="_blank"} method to look up a Caip10Link for a given Caip10 blockchain address.
+
+```javascript
+const link = await Caip10Link.fromAccount(ceramic, accountId, opts)
+```
+
+In this example we load a Caip10Link for the account `0x054...7cb8` on the Ethereum mainnet blockchain (`eip155:1`).
+
+```javascript
+const accountLink = await Caip10Link.fromAccount(
+    ceramic,
+    '0x0544dcf4fce959c6c4f3b7530190cb5e1bd67cb8@eip155:1',
+)
+const linkedDid = accountLink.did
+```
+
+!!! warning ""
+
+    The examples for [creating a new Caip10Link](#create-new-caip10link) and loading an existing Caip10Link look the same. `Caip10Link.fromAccount` will create a new link if one doesn't exist, in which case the returned link will have no linked DID associated with it. If the link already exists, however, then `Caip10Link.fromAccount` will return the current state of the link, which may include a linked DID if one has been set previously.
+
+#### Parameters
+
+The parameters for loading a Caip10Link are the same as those for [creating a new Caip10Link](#create-new-caip10link).
 
 </br>
 </br>

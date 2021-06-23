@@ -6,8 +6,10 @@ This page contains a list of community projects built on Ceramic.
 ### Boardroom (coming soon)
 **Governance forums**: [BoardRoom](https://boardroom.info) uses Ceramic, [IDX](../tools/identity/idx.md), and [3ID Connect](../authentication/wallets/3id-connect.md) to store proposals, comments, votes, and other user-generated content for their decentralized governance application.
 
-### GeoWeb (coming soon)
-**Mutable NFT files**: [GeoWeb](https://geoweb.network) uses Ceramic with the NFT DID method to store editable NFT files that can only be updated by the asset's current owner. When the assets transfers ownership on-chain, so do the write permissions automatically.
+### GeoWeb
+**Mutable files for NFTs**: [GeoWeb](https://geoweb.network) is creating a fair and open augmented reality (AR) metaverse where digital land is represented by NFTs and content for the land is represented by one or more streams on Ceramic. 
+
+> Learn more about GeoWeb and how they're using Ceramic in the [GeoWeb Spotlight](https://blog.ceramic.network/geo-web-is-connecting-digital-content-to-the-physical-world-with-nfts-and-ceramic/).
 
 ### MetaGame (coming soon)
 **Multi-app user profiles**: [MetaGame](https://metagame.wtf) uses Ceramic, [IDX](../tools/identity/idx.md), and [3ID Connect](../authentication/wallets/3id-connect.md) to store profile data for Ethereum users that can be consumed, added to, or extended by any app in the Web3 metaverse.

@@ -2,10 +2,10 @@
 This guide demonstrates how to query documents on the Ceramic network during runtime using the [HTTP](../reference/javascript/clients.md) and [core](../reference/javascript/clients.md) clients. You can also use the CLI to query documents as shown in the [Quick Start](quick-start.md) guide.
 
 
-## Prerequisites
+## **Prerequisites**
 You need to have an [installed client](installation.md) to perform queries during runtime.
 
-## Query a stream
+## **Query a stream**
 Use the [`loadStream()`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#loadstream){:target="_blank"} method to load a single stream using its *StreamID*.
 
 ``` javascript
@@ -18,11 +18,11 @@ const stream = await ceramic.loadStream(streamId)
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#loadstream){:target="_blank"}
 
-### Load a stream at a specific commit
+## **Query a stream at a specific commit**
 
-If you want to see the contents of a stream as of a specific point in time, it's possible to pass a *CommitID* instead of a *StreamID* to the `loadStream()` method. This will cause the Stream to be loaded at the specified commit, rather than the current commit as loaded from the network. When loading with a CommitID the returned Stream object will be marked as readonly and cannot be used to perform updates. If you wish to perform updates, load a new instance of the Stream using its StreamID.
+If you want to see the contents of a stream as of a specific point in time, it's possible to pass a *CommitID* instead of a *StreamID* to the `loadStream()` method described above. This will cause the Stream to be loaded at the specified commit, rather than the current commit as loaded from the network. When loading with a CommitID, the returned Stream object will be marked as readonly and cannot be used to perform updates. If you wish to perform updates, load a new instance of the Stream using its StreamID.
 
-## Query multiple streams
+## **Query multiple streams**
 Use the [`multiQuery()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.ceramicapi-1.html#multiquery){:target="_blank"} method to load multiple streams at once. The returned object is a map from *StreamIDs* to stream instances.
 
 ```javascript
@@ -36,7 +36,7 @@ const streamMap = await ceramic.multiQuery(queries)
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.multiquery-1.html){:target="_blank"}
 
-## Query document paths
+## **Query a stream using paths**
 Use the [`multiQuery()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.ceramicapi-1.html#multiquery){:target="_blank"} method to load one or more streams using known paths from a root stream to its linked streams.
 
 Imagine a stream `kjzl6cwe1jw...14` whose content contains the StreamIDs of two other streams. These StreamIDs exist at various levels within a nested JSON structure.
@@ -65,12 +65,12 @@ const streamMap = await ceramic.multiQuery(queries)
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.multiquery-1.html){:target="_blank"}
 
 
-## Stream information
+## **Helper methods**
 To get specific information about the stream that you created or loaded you can use the accessors on the [`Stream`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.stream-1.html){:target="_blank"} class. Below are some examples.
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.stream-1.html){:target="_blank"}
 
-### StreamID
+### Get StreamID
 Use the [`stream.id`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.stream-1.html#id){:target="_blank"} property to get the unique [`StreamID`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_streamid.streamid-1.html){:target="_blank"} for this stream.
 
 ```javascript
@@ -79,8 +79,8 @@ const streamId = stream.id
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.stream-1.html#id){:target="_blank"}
 
-### Latest CommitID
-Use the [`stream.commitId`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.stream-1.html#commitid){:target="_blank"} property to get latest CommitID of a stream.
+### Get latest commit
+Use the [`stream.commitId`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.stream-1.html#commitid){:target="_blank"} property to get latest [CommitID](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_streamid.commitid-1.html) of a stream.
 
 ```javascript
 const commitId = stream.commitId
@@ -88,7 +88,7 @@ const commitId = stream.commitId
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_streamid.commitid-1.html){:target="_blank"}
 
-### Anchor CommitIDs
+### Get all anchor commits
 Use the [`stream.anchorCommitIds`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.stream-1.html#anchorcommitids){:target="_blank"} property to get all CommitIDs which are anchor commits for this stream.
 
 ```javascript
