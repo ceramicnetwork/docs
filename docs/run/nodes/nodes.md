@@ -1,5 +1,5 @@
 # Hosting a node
-This guide describes how to spin up and run a hosted Ceramic node in JavaScript that can be used as a remote node by the [JS HTTP Client](../../build/javascript/installation.md#js-http-client) or the [CLI](../../build/cli/installation.md). It can also be used to replicate and pin streams from any other nodes to improve data redundancy and availability.
+This guide describes how to spin up and run a hosted Ceramic node in JavaScript that can be used as a remote node by the [JS HTTP Client](../../build/javascript/installation.md#js-http-client) or the [CLI](../../build/cli/installation.md#4-configure-a-node-url). It can also be used to replicate and pin streams from any other nodes to improve data redundancy and availability.
 
 ## **Installation**
 This guide requires the use of a console, [Node.js](https://nodejs.org/en/){:target="_blank"} v14, and [npm](https://www.npmjs.com/get-npm){:target="_blank"} v6. Make sure to have these installed on your machine.
@@ -42,7 +42,7 @@ To enable peer discovery, add your node to the appropriate Ceramic [`peerlist`](
 To setup your node with read-only capabilities, enable gateway mode. Users of this node will only be able to read data from the network, but writes will be disabled.
 
 ## **Next steps**
-Congratulations! You have now set up a hosted Ceramic node that is ready to receive HTTP requests from the local environment, the [JS HTTP Client](../../build/javascript/installation.md#js-http-client), the [CLI](../../build/cli/installation.md), or to simply serve as another node to replicate and pin streams.
+Congratulations! You have now set up a hosted Ceramic node that is ready to receive HTTP requests from the local environment, the [JS HTTP Client](../../build/javascript/installation.md#js-http-client), the [CLI](../../build/cli/installation.md#4-configure-a-node-url), or to simply serve as another node to replicate and pin streams.
 
 </br></br></br>
 
