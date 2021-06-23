@@ -13,7 +13,7 @@
 
 ## **Features**
 
-**Login and connect blockchain wallets**: Self.ID integrates with the [3ID Connect SDK](../../authentication/3id-did/3id-connect.md) for [authentication](../../learn/build/authentication.md) to allow users to create and use a [3ID DID](../../authentication/3id-did/method.md) from one or more existing blockchain wallets.
+**Login and connect blockchain wallets**: Self.ID integrates with the [3ID Connect SDK](../../authentication/3id-did/3id-connect.md) for [authentication](../../build/javascript/authentication.md) to allow users to create and use a [3ID DID](../../authentication/3id-did/method.md) from one or more existing blockchain wallets.
 
 **Basic profiles**: Self.ID allows users to create and/or edit a basic profile for their 3ID DID. To achieve this, Self.ID integrates with the [IDX SDK](./idx.md) to create and query [IDX records](./idx.md#records) that conform to the [Basic Profile definition and schema (CIP-19)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-19/CIP-19.md).
 
@@ -23,7 +23,7 @@
 
 ## **Infrastructure**
 
-Self.ID is built using the Ceramic [JS HTTP Client](../../clients/javascript/http.md), [3ID Connect](../../authentication/3id-did/3id-connect.md), [IDX SDK](./idx.md), and [IdentityLink](./identitylink.md). All Ceramic nodes and IdentityLink services used for Self.ID are hosted by 3Box Labs.
+Self.ID is built using the Ceramic [JS HTTP Client](../../build/javascript/installation.md#js-http-client), [3ID Connect](../../authentication/3id-did/3id-connect.md), [IDX SDK](./idx.md), and [IdentityLink](./identitylink.md). All Ceramic nodes and IdentityLink services used for Self.ID are hosted by 3Box Labs.
 
 ## **Maintainers**
 
