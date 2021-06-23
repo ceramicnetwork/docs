@@ -1,6 +1,6 @@
 # HTTP API
 
-The HTTP API allows you to manually make HTTP requests that create, modify, and query streams on a remote Ceramic node. If you are building an application, you will usually interact with a node using one of the [Ceramic clients](../javascript/clients), however this documentation is useful if:
+The HTTP API allows you to manually make HTTP requests that create, modify, and query streams on a remote Ceramic node. If you are building an application, you will usually interact with a node using one of the [Ceramic clients](../build/javascript/installation.md), however this documentation is useful if:
 
 - You have a special use case where you directly want to use HTTP requests
 - You want to implement an HTTP client in a new language
