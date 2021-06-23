@@ -1,6 +1,6 @@
 # 3ID DID Method
 
-The [3ID DID Method (CIP-79)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-79/CIP-79.md) is a [DID method](../../learn/glossary.md#did-methods) which can be used to [authenticate](../../build/authentication.md) to Ceramic and perform [writes](../../build/writes.md) to streams that rely on DIDs. 3ID DID is a powerful DID method that supports multiple keys, key rotations, and revocations. The 3ID DID Method is on the W3C's official DID method registry and is fully compliant with decentralized identity standards.
+The [3ID DID Method (CIP-79)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-79/CIP-79.md) is a [DID method](../../learn/glossary.md#did-methods) which can be used to [authenticate](../../build/javascript/authentication.md) to Ceramic and perform [writes](../../build/javascript/writes.md) to streams that rely on DIDs. 3ID DID is a powerful DID method that supports multiple keys, key rotations, and revocations. The 3ID DID Method is on the W3C's official DID method registry and is fully compliant with decentralized identity standards.
 
 ## **Considerations**
 
@@ -14,17 +14,17 @@ The [3ID DID Method (CIP-79)](https://github.com/ceramicnetwork/CIP/blob/main/CI
 
 
 ## **Installation**
-To use the 3ID DID Method for authentication in your project, install one of the 3ID DID Providers below and be sure to include the 3ID DID Resolver in your project during [installation](../../build/installation.md).
+To use the 3ID DID Method for authentication in your project, install one of the 3ID DID Providers below and be sure to include the 3ID DID Resolver in your project during [installation](../../build/javascript/installation.md).
 
 ### 3ID Connect
 The most popular 3ID DID Provider for Ceramic web apps. The 3ID Connect SDK allows users to control their 3ID DID from their existing blockchain wallets without needing to install any additional software. Developers do not need to worry about DID key management for their users.
 
-> [**Install 3ID Connect**](./3id-connect.md) (recommended)
+[Install](./3id-connect.md){: .md-button .md-button--primary }  (recommended)
 
 ### 3ID DID Provider
 A low-level JavaScript 3ID DID Provider. Your application is responsible for key management, and users need to authenticate with a DID seed or an auth secret.
 
-> [**Install 3ID DID Provider**](./provider.md)
+[Install](./provider.md){: .md-button .md-button--primary }
 
 ## **Specification**
 The 3ID DID Method is fully implemented on top of Ceramic. Below, find a simplified version of the 3ID DID Method specification. For the full specification, view [3ID DID Method (CIP-79)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-79/CIP-79.md).
