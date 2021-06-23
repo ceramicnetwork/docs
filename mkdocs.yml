@@ -62,9 +62,6 @@ nav:
       - JS HTTP Client: clients/javascript/http.md
       - JS Core Client: clients/javascript/core.md
       - CLI: clients/javascript/cli.md
-  - Run:
-    - Nodes:
-      - Running a node: run/nodes.md
   - StreamTypes:
       - Overview: streamtypes/overview.md
       - Tile Document:
