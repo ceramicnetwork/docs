@@ -4,7 +4,7 @@ TileDocument is a StreamType that stores a mutable JSON document, providing simi
 
 ## **Usage**
 
-See [TileDocument API](./api.md) for instructions on how to create and update TileDocument streams. You can query TileDocuments using Ceramic's standard [queries API](../../build/queries.md).
+See [TileDocument API](./api.md) for instructions on how to create and update TileDocument streams. You can query TileDocuments using Ceramic's standard [queries API](../../build/javascript/queries.md).
 
 ## **Specification**
 
