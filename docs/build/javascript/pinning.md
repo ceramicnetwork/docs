@@ -4,7 +4,7 @@ Pinning allows you to persist and make streams available on a Ceramic node beyon
 
 ## **Overview**
 
-By default Ceramic will garbage collect any stream that has been [written](./writes.md) or [queried](./queries.md) on your node after some period of time. In order to prevent the loss of streams due to garbage collection, you need to explicitly pin the streams that you wish to persist. Pinning instructs the node to keep them around in persistent storage until they are explicitly unpinned. To learn more about Ceramic's data persistence and availability model, see [Data Availability](../../learn/data-availability.md).
+By default Ceramic will garbage collect any stream that has been [written](./writes.md) or [queried](./queries.md) on your node after some period of time. In order to prevent the loss of streams due to garbage collection, you need to explicitly pin the streams that you wish to persist. Pinning instructs the node to keep them around in persistent storage until they are explicitly unpinned. To learn more about Ceramic's data persistence and availability model, see [Data Availability](../../learn/advanced/data-availability.md).
 
 ## **Add to pinset**
 Use the [`pin.add()`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.pinapi-1.html#add){:target="_blank"} method to add a stream to your permanent pinset.
