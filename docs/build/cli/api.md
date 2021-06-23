@@ -15,7 +15,7 @@ Use the `create` command to create a new [stream](../../learn/glossary.md#stream
 $ ceramic create tile --content '{ "Foo": "Bar" }'
 ```
 
-The first line of your output will be the [StreamID](../learn/glossary.md#streamid) of your stream. Below the StreamID, you will see it's content.
+The first line of your output will be the [StreamID](../../learn/glossary.md#streamid) of your stream. Below the StreamID, you will see it's content.
 
 **Create options:**
 
@@ -27,7 +27,7 @@ Run `ceramic create -h` to see all available create options. Some common options
 
 ### **Update a stream**
 
-Use the `update` command to update a stream. You will need to provide a *StreamID*. Your [DID](../learn/glossary.md#dids) must be the [controller](../learn/glossary.md#controllers) of the stream in order to update it. Note that *TileDocument* is the only StreamType that can currently be updated by the CLI.
+Use the `update` command to update a stream. You will need to provide a *StreamID*. Your [DID](../../learn/glossary.md#dids) must be the [controller](../../learn/glossary.md#controllers) of the stream in order to update it. Note that *TileDocument* is the only StreamType that can currently be updated by the CLI.
 
 ```bash
 $ ceramic update kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa --content '{
@@ -48,7 +48,7 @@ Run `ceramic update -h` to see all available update options. Some common options
 
 ### **Query a stream's current state**
 
-Use the `show` command to query the current [state](../learn/glossary.md#state) of a stream. You will need to provide a *StreamID*.
+Use the `show` command to query the current [state](../../learn/glossary.md#state) of a stream. You will need to provide a *StreamID*.
 
 ```bash
 $ ceramic show kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa
