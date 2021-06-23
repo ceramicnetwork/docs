@@ -1,7 +1,7 @@
 # JS HTTP Client
 The JS HTTP Client is a lightweight way of interacting with Ceramic. It allows your JavaScript application to connect to a remote Ceramic node over HTTP to [read](../../build/queries.md), [write](../../build/writes.md), and [pin](../../build/pinning.md) streams. The main decision to make when using the JS HTTP Client is which remote Ceramic node to use. The JS HTTP client is recommended when building most applications.
 
-[:octicons-download-16: Installation](#installation){: .md-button .md-button--primary } [:octicons-file-code-16: Full API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_http_client.ceramicclient.html){:target="_blank"}{: .md-button }
+[:octicons-download-16: Installation](#installation){: .md-button .md-button--primary } [:octicons-file-code-16: Full API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_http_client.ceramicclient.html){:target="_blank"}
 
 ## **Considerations**
 
