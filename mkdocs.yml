@@ -52,6 +52,11 @@ nav:
     - Pinning: build/pinning.md
     - Share your work: build/share.md
     - Troubleshooting: build/troubleshooting.md
+  - Run:
+    - Nodes:
+      - Hosting a node: run/nodes/nodes.md
+    - Anchor service:
+      - Hosting a CAS: run/cas/cas.md
   - Clients:
     - JavaScript:
       - JS HTTP Client: clients/javascript/http.md
@@ -99,7 +104,6 @@ nav:
   - Reference:
     - JavaScript:
       - Support new Blockchain: reference/javascript/blockchain.md
-      - Anchor Service: reference/javascript/anchor-service.md
     - HTTP API: reference/http-api.md
   - Chat: 'https://chat.ceramic.network'
   - Blog: 'https://blog.ceramic.network'
@@ -156,4 +160,6 @@ plugins:
             'learn/clients.md': 'clients/javascript/http.md'
             'learn/clients.md': 'clients/javascript/http.md'
             'build/configure-did.md': 'clients/javascript/http.md'
+            'run/nodes.md': 'run/nodes/nodes.md'
+            'reference/javascript/anchor-service.md': 'run/cas/cas.md'
     - search

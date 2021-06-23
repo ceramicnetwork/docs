@@ -23,7 +23,7 @@ A genesis commit is the first [commit](#commit) in a [stream](#streams). Genesis
 Signed commits are [commits](#commits) that update the [state](#state) of a [stream](#streams). All signed commits need to be cryptographically signed by a public key.
 
 ### Anchor commit
-Anchor commits are [commits](#commits) that contain a blockchain timestamp, providing an immutable record of time and ordering to other commits in the [stream](#streams), sometimes known as a *proof-of-publication*.
+Anchor commits are [commits](#commits) that contain a blockchain timestamp, providing an immutable record of time and ordering to other commits in the [stream](#streams), sometimes known as a *proof-of-publication*. Anchor commits are needed since vanilla [merkle DAGs](https://docs.ipfs.io/concepts/merkle-dag/) have no notion of absolute time needed to build consensus.
 
 ### CommitID
 A commitID is an immutable identifier for a specific [commit](#commits) in a [stream](#streams).
@@ -80,7 +80,7 @@ Clients are software libraries that provide developer interfaces to a Ceramic [n
 Nodes are software libraries that provide core protocol functionality for the Ceramic [network](#networks). Nodes are responsible for processing [stream](#streams) updates (in the form of [signed commits](#signed-commit) from [clients](#clients)), storing [state](#state) for the streams that it cares about, responding to queries, networking with other nodes, replicating streams across the network, and sending valid signed commits to an external [anchor service](#anchor-service) for generating [anchor commits](#anchor-commit).
 
 ### Anchor service
-Anchor services are hosted "layer-2" services for Ceramic that generate [anchor commits](#anchor-commit) for many different [streams](#streams) in a scalable, low cost manner by batching many different stream transactions into a merkle tree, and including the merkle root into a transaction on a blockchain platform (currently [Ethereum](#ethereum)). This eliminates the need for each stream transaction to have its own corresponding blockchain transaction, which would be slower and more expensive.
+A Ceramic Anchor Service (CAS) is a hosted "layer-2" solution for generating [anchor commits](#anchor-commit) for many different [stream](#streams) transactions in a scalable, low cost manner. Ceramic [nodes](#nodes) are responsible for sending anchor requests containing a [StreamID](#streamid) and a [CommitID](#commitid) to a CAS, which then batches these transactions into a merkle tree, and includes the merkle root into a blockchain platform in a single transaction (currently [Ethereum](#ethereum)). After the transaction makes its way onto a blockchain, a Ceramic node creates an anchor commit which includes a reference to the blockchain transaction for every anchored stream. A CAS eliminates the need for each stream transaction to have its own corresponding blockchain transaction, which would be slower and more expensive. 
 
 ### Networks
 Networks are collections of Ceramic [nodes](#nodes) that share specific configurations and communicate over a dedicated [libp2p](#libp2p) topic. Networks are discrete from one another. [Streams](#streams) that exist on one network are not discoverable on or portable to another. Currently, Ceramic has three primary networks: [mainnet](#mainnet), [Clay Testnet](#clay-testnet), and [dev unstable](#dev-unstable).
