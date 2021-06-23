@@ -1,9 +1,9 @@
 # Queries
-This guide demonstrates how to query documents on the Ceramic network during runtime using the [HTTP](../reference/javascript/clients.md) and [core](../reference/javascript/clients.md) clients. You can also use the CLI to query documents as shown in the [Quick Start](quick-start.md) guide.
 
+This guide demonstrates how to query streams during runtime using the [JS HTTP](./installation.md#js-http-client) and [JS Core](./installation.md#js-core-client) clients.
 
-## **Prerequisites**
-You need to have an [installed client](installation.md) to perform queries during runtime.
+## **Requirements**
+You need to have an [installed client](./installation.md) to perform queries during runtime.
 
 ## **Query a stream**
 Use the [`loadStream()`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#loadstream){:target="_blank"} method to load a single stream using its *StreamID*.
@@ -13,7 +13,8 @@ const streamId = 'kjzl6cwe1jw14...'
 const stream = await ceramic.loadStream(streamId)
 ```
 
-!!! info "Loading the proper stream type"
+!!! warning "Loading the proper stream type"
+    
     When using the Typescript APIs, `loadStream` by default returns an object of type `Stream`, which will not have any methods available to perform updates, or any other streamtype-specific methods or accessors.  To be able to perform updates, as well as to access streamtype-specific data or functionality, you need to specialize the `loadStream` method on the StreamType of the Stream being loaded. For example, to load a `TileDocument`, you would say `await ceramic.loadStream<TileDocument>(streamId)`
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#loadstream){:target="_blank"}
@@ -23,6 +24,7 @@ const stream = await ceramic.loadStream(streamId)
 If you want to see the contents of a stream as of a specific point in time, it's possible to pass a *CommitID* instead of a *StreamID* to the `loadStream()` method described above. This will cause the Stream to be loaded at the specified commit, rather than the current commit as loaded from the network. When loading with a CommitID, the returned Stream object will be marked as readonly and cannot be used to perform updates. If you wish to perform updates, load a new instance of the Stream using its StreamID.
 
 ## **Query multiple streams**
+
 Use the [`multiQuery()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.ceramicapi-1.html#multiquery){:target="_blank"} method to load multiple streams at once. The returned object is a map from *StreamIDs* to stream instances.
 
 ```javascript
@@ -96,3 +98,4 @@ const anchorCommits = stream.anchorCommitIds
 ```
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.stream-1.html#anchorcommitids){:target="_blank"}
+
