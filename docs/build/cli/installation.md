@@ -7,7 +7,7 @@ The CLI provides a way to start a JavaScript Ceramic node and interact with it f
 
 ## **Requirements**
 
-Installing the JS CLI requires a console, [Node.js](https://nodejs.org/en/){:target="_blank"} v14, and [npm](https://www.npmjs.com/get-npm){:target="_blank"} v6. Make sure to have these installed on your machine.
+Installing the CLI requires a console, [Node.js](https://nodejs.org/en/){:target="_blank"} v14, and [npm](https://www.npmjs.com/get-npm){:target="_blank"} v6. Make sure to have these installed on your machine.
 
 !!! warning ""
 
@@ -18,7 +18,7 @@ Installing the JS CLI requires a console, [Node.js](https://nodejs.org/en/){:tar
     ```
 
 ## **1. Install the CLI**
-Open your console and install the JS CLI using npm.
+Open your console and install the CLI using npm.
 
 ``` bash
 npm install -g @ceramicnetwork/cli
