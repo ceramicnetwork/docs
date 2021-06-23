@@ -1,7 +1,9 @@
 # Quick start
 Learn the basics by setting up and interacting with the [Ceramic CLI](./cli/installation.md). This tutorial serves as a simple introduction to Ceramic concepts.
 
-> **Want an even faster way to try Ceramic?** Visit the [Playground demo app](https://playground.ceramic.dev){:target="_blank"} to test the full stack of Ceramic components in the browser.
+!!! warning ""
+
+    **Want an even faster way to try Ceramic?** Visit the [Playground demo app](https://playground.ceramic.dev){:target="_blank"} to test the full stack of Ceramic components in the browser.
 
 ## **1. Install the CLI**
 
