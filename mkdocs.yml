@@ -65,7 +65,6 @@ nav:
     - JavaScript:
       - JS HTTP Client: clients/javascript/http.md
       - JS Core Client: clients/javascript/core.md
-      - CLI: clients/javascript/cli.md
   - StreamTypes:
       - Overview: streamtypes/overview.md
       - Tile Document:
@@ -165,4 +164,5 @@ plugins:
             'reference/javascript/anchor-service.md': 'run/cas/cas.md'
             'learn/data-availability.md': 'learn/advanced/data-availability.md'
             'learn/overview.md': 'learn/advanced/overview.md'
+            'clients/javascript/cli.md': 'build/cli/installation.md'
     - search
