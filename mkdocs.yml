@@ -53,6 +53,9 @@ nav:
     - Pinning: build/pinning.md
     - Share your work: build/share.md
     - Troubleshooting: build/troubleshooting.md
+    - Command line (CLI):
+      - Installation: build/cli/installation.md
+      - API: build/cli/api.md
   - Run:
     - Nodes:
       - Hosting a node: run/nodes/nodes.md
