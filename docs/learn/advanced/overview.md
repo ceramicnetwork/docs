@@ -8,7 +8,7 @@ This overview introduces how:
 - Stream processing provides an appropriate framework for dynamic, decentralized content
 - You can use Ceramic to replace your database with a truly decentralized alternative
 
-> To skip ahead and get started building, try the [**Playground**](https://playground.ceramic.dev){:target="_blank"} to demo Ceramic in a browser application, the [**Quick Start**](../build/quick-start.md) guide to learn the basics using the Ceramic CLI, or follow the [**Installation**](../build/installation.md) page to integrate Ceramic into your project.
+> To skip ahead and get started building, try the [**Playground**](https://playground.ceramic.dev){:target="_blank"} to demo Ceramic in a browser application, the [**Quick Start**](../../build/quick-start.md) guide to learn the basics using the Ceramic CLI, or follow the [**Installation**](../../build/installation.md) page to integrate Ceramic into your project.
 
 ## **The internet of open source information**
 
@@ -50,10 +50,10 @@ StreamTypes are able to specify their authentication requirements for how new da
 
 DIDs provide a way to go from a globally-unique, platform-agnostic string identifier to a DID document containing public keys for signature verification and encryption. Ceramic is capable of supporting any DID method implementation. Below, find the DID methods that are currently supported by Ceramic:
 
-- **3ID DID Method**: A DID method that uses Ceramic's Tile Document StreamType to represent a mutable DID document. 3IDs are typically used for end-user accounts. When 3IDs are used in conjunction with [IDX](https://idx.xyz){:target="_blank"} and the [3ID Keychain](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-20/CIP-20.md){:target="_blank"} (as is implemented in [3ID Connect](https://github.com/ceramicstudio/3id-connect){:target="_blank"}), a 3ID can easily be controlled with any number of blockchain accounts from any L1 or L2 network. This provides a way to unify a user's identity across all other platforms.
-- **Key DID Method**: A DID method statically generated from any Ed25519 key pair. Key DIDs are typically used for developer accounts. Key DID is lightweight, but the drawback is that its DID document is immutable and has no ability to rotate keys if it is compromised.
-- **NFT DID Method (coming soon)**: A DID method for any NFT on any blockchain. The DID document is statically generated from on-chain data. The DID associated to the blockchain account of the asset's current owner (using CAIP-10 Links) is the only entity authorized to act on behalf of the NFT DID, authenticate in DID-based systems, and make updates to streams or other data owned by the NFT DID. When owenership of the NFT changes, so does the controller permissions.
-- **Safe DID Method (coming soon)**: A DID method for a Gnosis Safe smart contract on any blockchain. Typically used for organizations, DAOs, and other multi-sig entities.
+- **[3ID DID Method](../../authentication/3id-did/method.md)**: A DID method that uses Ceramic's Tile Document StreamType to represent a mutable DID document. 3IDs are typically used for end-user accounts. When 3IDs are used in conjunction with [IDX](https://idx.xyz){:target="_blank"} and the [3ID Keychain](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-20/CIP-20.md){:target="_blank"} (as is implemented in [3ID Connect](../../authentication/3id-did/3id-connect.md)), a 3ID can easily be controlled with any number of blockchain accounts from any L1 or L2 network. This provides a way to unify a user's identity across all other platforms.
+- **[Key DID Method](../../authentication/key-did/method.md)**: A DID method statically generated from any Ed25519 key pair. Key DIDs are typically used for developer accounts. Key DID is lightweight, but the drawback is that its DID document is immutable and has no ability to rotate keys if it is compromised.
+- **[NFT DID Method](../../authentication/nft-did/method.md) (coming soon)**: A DID method for any NFT on any blockchain. The DID document is statically generated from on-chain data. The DID associated to the blockchain account of the asset's current owner (using CAIP-10 Links) is the only entity authorized to act on behalf of the NFT DID, authenticate in DID-based systems, and make updates to streams or other data owned by the NFT DID. When owenership of the NFT changes, so does the controller permissions.
+- **[Safe DID Method](../../authentication/safe-did/method.md) (coming soon)**: A DID method for a Gnosis Safe smart contract on any blockchain. Typically used for organizations, DAOs, and other multi-sig entities.
 
 ## **Ceramic Network**
 
@@ -95,15 +95,15 @@ To experience how Ceramic works in a browser application, try the [**Playground*
 
 ### Installation
 
-Getting started with Ceramic is simple. Visit the [**Quick Start**](../build/quick-start.md){:target="_blank"} guide to learn the basics using the Ceramic CLI or follow the [**Installation**](../build/installation.md){:target="_blank"} page to integrate Ceramic into your project.
+Getting started with Ceramic is simple. Visit the [**Quick Start**](../../build/quick-start.md){:target="_blank"} guide to learn the basics using the Ceramic CLI or follow the [**Installation**](../../build/installation.md){:target="_blank"} page to integrate Ceramic into your project.
 
 ### Tools and services
 
 In addition to various standards referenced throughout this document, the Ceramic community has already begun delevoping many different open source protocols, tools, and services that simplify the experience of developing on Ceramic. Here are a few notable examples:
 
-- [**3ID Connect:**](https://github.com/ceramicstudio/3id-connect){:target="_blank"} A authentication SDK for browser-based applications that allows your users to transact with Ceramic using their blockchain wallet.
-- [**IDX:**](https://idx.xyz){:target="_blank"} A protocol for decentralized identity that allows a DID to aggregate an index of all their data from across all apps in one place. IDX enables user-centric data storage, discovery, and interoperability. It is effectively a decentralized, cross-platform user table. IDX can reference all data source types, including Ceramic streams and other peer-to-peer databases and files.
-- [**IdentityLink:**](https://github.com/ceramicstudio/identitylink-services){:target="_blank"} A service that issues verifiable claims which prove a DID owns various other Web2 social accounts such as Twitter, Github, Discord, Discourse, Telegram, Instagram, etc. Once issued, claims are stored in the DID's IDX.
+- [**3ID Connect:**](../../authentication/3id-did/3id-connect.md) A authentication SDK for browser-based applications that allows your users to transact with Ceramic using their blockchain wallet.
+- [**IDX:**](../../tools/identity/idx.md) A protocol for decentralized identity that allows a DID to aggregate an index of all their data from across all apps in one place. IDX enables user-centric data storage, discovery, and interoperability. It is effectively a decentralized, cross-platform user table. IDX can reference all data source types, including Ceramic streams and other peer-to-peer databases and files.
+- [**IdentityLink:**](../../tools/identity/identitylink.md) A service that issues verifiable claims which prove a DID owns various other Web2 social accounts such as Twitter, Github, Discord, Discourse, Telegram, Instagram, etc. Once issued, claims are stored in the DID's IDX.
 - [**Documint:**](http://documint.net/){:target="_blank"} A browser-based IDE for creating and editing streams.
 - [**Tiles:**](https://tiles.ceramic.community/){:target="_blank"} An explorer for the Ceramic Network.
 

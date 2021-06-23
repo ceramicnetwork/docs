@@ -34,11 +34,12 @@ nav:
     - Mainnet: learn/mainnet.md
     - Features: learn/features.md
     - Use cases: learn/use-cases.md
-    - Overview: learn/overview.md
     - Glossary: learn/glossary.md
     - Networks: learn/networks.md
-    - Data availability: learn/data-availability.md
     - Blog: learn/blog.md
+    - Advanced:
+      - Overview: learn/advanced/overview.md
+      - Data availability: learn/advanced/data-availability.md
   - Explore:
     - Explorers: explore/explorers.md
     - Projects: explore/projects.md
@@ -159,4 +160,6 @@ plugins:
             'build/configure-did.md': 'clients/javascript/http.md'
             'run/nodes.md': 'run/nodes/nodes.md'
             'reference/javascript/anchor-service.md': 'run/cas/cas.md'
+            'learn/data-availability.md': 'learn/advanced/data-availability.md'
+            'learn/overview.md': 'learn/advanced/overview.md'
     - search
