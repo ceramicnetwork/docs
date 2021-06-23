@@ -92,7 +92,7 @@ nav:
     - Identity:
       - IDX: tools/identity/idx.md
       - IdentityLink: tools/identity/identitylink.md
-      - Self.id: tools/identity/self-id.md
+      - Self.ID: tools/identity/self-id.md
     - Hosted nodes:
       - Community nodes: tools/hosted-nodes/community-nodes.md
       - Node Providers: tools/hosted-nodes/node-providers.md
