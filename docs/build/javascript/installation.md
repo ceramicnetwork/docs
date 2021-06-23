@@ -32,12 +32,11 @@ The JS HTTP Client is a lightweight way of interacting with Ceramic. It allows y
 
 ## **JS Core Client**
 
-# JS Core Client
-The JS Core Client allows you to run the full Ceramic protocol (API and node) directly in any JavaScript environment, such as in your tests, in fully client-side browser applications, or in node.js. Carefully read the [considerations](#considerations) below to decide if the JS Core Client is right for your project. Most applications instead use the [JS HTTP Client](./http.md).
+The JS Core Client allows you to run the full Ceramic protocol (client and node) directly in any JavaScript environment, such as in your tests, in fully client-side browser applications, or in node.js. Most applications instead use the JS HTTP Client.
 
-[:octicons-download-16: Installation](#installation){: .md-button .md-button--primary } [:octicons-file-code-16: Full API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="_blank"}
+[:octicons-download-16: Installation](#installation){: .md-button .md-button--primary }
 
-## **Considerations**
+### Considerations
 
 **Maximal security and decentralization**: The Ceramic Core client does not have trusted relationships with any external nodes. With Ceramic Core, streams that are [written](../../build/writes.md), [queried](../../build/queries.md), or [pinned](../../build/pinning.md) are verified in the local environment which is great if you need maximal security and decentralization in your application. 
 
@@ -46,36 +45,6 @@ The JS Core Client allows you to run the full Ceramic protocol (API and node) di
 **Setup complexity**: You will need to configure an [IPFS](../../learn/glossary.md#ipfs) node which supports the [dag-jose](../../learn/glossary.md#dagjose) data format and ensure connectivity to the rest of the Ceramic network. See [installation](#installation) below for instructions on how to do this.
 
 **Swap for JS HTTP Client at any time**: The JS Core Client and the [JS HTTP Client](./http.md) implement the same [CeramicApi](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html){:target="_blank"} TypeScript interface, so swapping between clients is seamless and doesn't require changing your application logic; it only requires changing your setup.
-
-</br>
-</br>
-</br>
-
-
-
-
-
-
-
-
-
-
-## **JS Core Client**
-
-
-
-
-
-
-
-
-| Language | Client | Description | Usage | Details |
-| ----- | ------ | ----- | --- | --- |
-| JavaScript | HTTP | Allows your project to interact with a remote Ceramic node over HTTP | Most apps (*recommended*) | [Learn and install](../clients/javascript/http.md) |
-| JavaScript | Core | Allows your project to run the full Ceramic protocol (API and node) in any JS environment | Tests, fully client side apps, node.js | [Learn and install](../clients/javascript/core.md) |
-| JavaScript | CLI | Allows developers to spin up a Ceramic node and/or interact with Ceramic from the command line | Command line, hosting a node | [Learn and install](../clients/javascript/cli.md) |
-
-> For optimal performance and data availability, it is recommended that you use the HTTP Client when building an application.
 
 </br>
 </br>
