@@ -1,8 +1,8 @@
 # TileDocument API
-This guide describes how to create, update, and query [TileDocuments](./overview.md) using the [JS HTTP Client](../../clients/http.md) and the [Core Client](../../clients/core.md). You can also interact with TileDocuments from the [CLI](../../clients/cli.md); see the [Quick Start](../../../build/quick-start) guide for more information.
+This guide describes how to create, update, and query [TileDocuments](./overview.md) using the [JS HTTP Client](../../build/javascript/installation.md#js-http-client) and the [Core Client](../../build/javascript/installation.md#js-core-client). You can also interact with TileDocuments from the [CLI](../../build/cli/installation.md); see the [Quick Start](../../build/quick-start.md) guide for more information.
 
 ## **Requirements**
-You need an [installed client](../../build/installation.md) and an [authenticated user](../../build/authentication.md) to perform writes to TileDocuments. If you only wish to query TileDocuments then you do not need authentication.
+You need an [installed client](../../build/javascript/installation.md) and an [authenticated user](../../build/javascript/authentication.md) to perform writes to TileDocuments. If you only wish to query TileDocuments then you do not need authentication.
 
 ## **Installation**
 `npm install @ceramicnetwork/stream-tile`
@@ -167,7 +167,7 @@ The final argument to `TileDocument.load` is an instance of [`LoadOpts`](https:/
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.loadopts-1.html){:target="_blank"}
 
 ### **Query a deterministic TileDocument**
-In the [create](#create-a-document) section, we discussed how to create a document with the `deterministic` parameter set to true. Since this parameter allows us to generate the exact same StreamID if we create two documents with the same initial `metadata`, it is possible to "query" the document using the same [`TileDocument.create`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create){:target="_blank"} method that we used to initially create it, without needing to know the StreamID before performing the query. Note we are setting the `CreateOpts` parameters (`anchor` and `publish`) to false so that we are only loading the document and not publishing any changes to the network.
+In the [create](#create-a-tiledocument) section, we discussed how to create a document with the `deterministic` parameter set to true. Since this parameter allows us to generate the exact same StreamID if we create two documents with the same initial `metadata`, it is possible to "query" the document using the same [`TileDocument.create`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create){:target="_blank"} method that we used to initially create it, without needing to know the StreamID before performing the query. Note we are setting the `CreateOpts` parameters (`anchor` and `publish`) to false so that we are only loading the document and not publishing any changes to the network.
 
 ``` javascript
 const doc = TileDocument.create(
