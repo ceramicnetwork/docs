@@ -61,10 +61,12 @@ did:<method-name>:<method-specific-identifier>
 DID documents are documents which contain metadata about a given DID. At a minimum they should contain cryptographic key material used for signature verification and encryption/decryption. They may be mutable where their keys and content can be changed/rotated (i.e. [3ID DID method](../authentication/dids/3id.md)) or statically generated where their contents cannot be manually changed (i.e. [Key DID method](../authentication/dids/key.md)).
 
 ### DID resolver
-DID resolvers are software libraries responsible for returning a [DID document](#did-document) given a DID string. Each [DID method](#did-methods) has at least one resolver implementation. For all DID methods supported by Ceramic, the corresponding DID resolver must be included in a Ceramic [node](#nodes).
+DID resolvers are software libraries responsible for returning a [DID document](#did-document) given a DID string. Each [DID method](#did-methods) has at least one resolver implementation. For all DID methods supported by Ceramic, the corresponding DID resolver must be included in a Ceramic [node](#nodes). Ceramic uses DID resolvers to verify [stream](#streams) transactions by comparing the signature on the transaction to the [controller](#controllers) of the stream. For the transaction to be successfully processed, a public key corresponding to the transaction signature must be present in the DID Document of the [DID](#dids) listed as a controller.
 
 ### DID providers
-DID providers are software libraries that allow developers or other programs to create, manage, and use [DIDs](#dids) that conform to a particular [DID method](#did-method). When using Ceramic with [streams](#streams) that require DIDs for [authentication](#authentication), applications either need to integrate a DID provider library, which leaves the responsibility of key management up to the application, or a [DID wallet](#did-wallets), which is a more user-friendly experience.
+DID providers are software libraries that expose a json-rpc interface which allows for the creation and usage of a [DID](#dids) that conforms to a particular [DID method](#did-method). Usually a DID provider is constructed using a *seed* that the user controls. When using Ceramic with [streams](#streams) that require DIDs for [authentication](#authentication), applications either need to integrate a DID provider library, which leaves the responsibility of key management up to the application, or a [DID wallet](#did-wallets), which is a more user-friendly experience.
+
+
 
 ### DID wallets
 DID wallets are software libraries or end-user applications that wrap [DID providers](#did-providers) with additional capabilities. [3ID Connect](../authentication/wallets/3id-connect.md) is the most popular DID wallet SDK that allows users create, manage, and use a 3ID DID method with their existing blockchain wallets, and without needing to install any additional software.
