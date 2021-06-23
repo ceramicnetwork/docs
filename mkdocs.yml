@@ -146,7 +146,6 @@ plugins:
             'try/explorers.md': 'explore/explorers.md'
             'try/sample-apps.md': 'explore/sample-apps.md'
             'try/projects.md': 'explore/projects.md'
-<<<<<<< HEAD
             'authentication/wallets/3id-connect.md': 'authentication/3id-did/3id-connect.md'
             'authentication/dids/3id.md': 'authentication/3id-did/provider.md'
             'authentication/dids/key.md': 'authentication/key-did/provider.md'
@@ -155,8 +154,6 @@ plugins:
             'reference/javascript/did-resolvers.md': 'authentication/3id-did/resolver.md'
             'reference/javascript/did-providers.md': 'authentication/3id-did/provider.md'
             'learn/clients.md': 'clients/javascript/http.md'
-=======
             'learn/clients.md': 'clients/javascript/http.md'
             'build/configure-did.md': 'clients/javascript/http.md'
->>>>>>> main
     - search
