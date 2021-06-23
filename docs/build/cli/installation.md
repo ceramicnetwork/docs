@@ -3,7 +3,7 @@ The CLI provides a way to start a JavaScript Ceramic node and interact with it f
 
 !!! warning ""
 
-    If you are looking to spin up a hosted node for other use cases such as for use with the [JS HTTP Client](./http.md) or as a secondary node for redundant stream pinning and replication, see [Hosting a node](../../run/nodes.md).
+    If you are looking to spin up a hosted node for other use cases such as for use with the [JS HTTP Client](../../clients/javascript/http.md) or as a secondary node for redundant stream pinning and replication, see [Hosting a node](../../run/nodes.md).
 
 ## **Requirements**
 
