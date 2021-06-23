@@ -1,7 +1,7 @@
 # Community projects
 This page contains a list of community projects built on Ceramic.
 
-## Featured projects
+## **Featured projects**
 
 ### Boardroom (coming soon)
 **Governance forums**: [BoardRoom](https://boardroom.info) uses Ceramic, [IDX](../tools/identity/idx.md), and [3ID Connect](../authentication/wallets/3id-connect.md) to store proposals, comments, votes, and other user-generated content for their decentralized governance application.
@@ -24,6 +24,8 @@ This page contains a list of community projects built on Ceramic.
 **Cross-chain identity and reputation**: [RabbitHole](https://rabbithole.gg) uses Ceramic, [IDX](../tools/identity/idx.md), and [3ID Connect](../authentication/wallets/3id-connect.md) to link multiple Web3 wallets and Web2 accounts to a unified, cross-chain DID. After calculating an aggregate reputation score for this DID, they issue and store a verifiable credential in the user's IDX so it's usable on any other Web3 application.
 
 
-## More projects
+## **More projects**
 
 See [Awesome Ceramic](https://github.com/ceramicnetwork/awesome) for a list of community projects built on Ceramic.
+
+</br></br></br>
