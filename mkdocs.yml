@@ -53,6 +53,9 @@ nav:
     - Pinning: build/pinning.md
     - Share your work: build/share.md
     - Troubleshooting: build/troubleshooting.md
+    - Command line (CLI):
+      - Installation: build/cli/installation.md
+      - API: build/cli/api.md
   - Run:
     - Nodes:
       - Hosting a node: run/nodes/nodes.md
@@ -62,7 +65,6 @@ nav:
     - JavaScript:
       - JS HTTP Client: clients/javascript/http.md
       - JS Core Client: clients/javascript/core.md
-      - CLI: clients/javascript/cli.md
   - StreamTypes:
       - Overview: streamtypes/overview.md
       - Tile Document:
@@ -162,4 +164,5 @@ plugins:
             'reference/javascript/anchor-service.md': 'run/cas/cas.md'
             'learn/data-availability.md': 'learn/advanced/data-availability.md'
             'learn/overview.md': 'learn/advanced/overview.md'
+            'clients/javascript/cli.md': 'build/cli/installation.md'
     - search
