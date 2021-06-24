@@ -60,8 +60,9 @@ nav:
       - API: build/cli/api.md
     - HTTP API:
       - API: build/http/api.md
-    - Share your work: build/share.md
-    - Troubleshooting: build/troubleshooting.md
+    - More:
+      - Share your work: build/share.md
+      - Troubleshooting: build/troubleshooting.md
   - Run:
     - Nodes:
       - Hosting a node: run/nodes/nodes.md
