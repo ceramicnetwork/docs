@@ -71,7 +71,7 @@ Load the state of a stream given its StreamID.
 
 **:octicons-alert-16: Disabled in gateway mode**
 
-Create a new stream, or load a stream from its genesis content. The genesis content may be signed (i.e. DagJWS for the [TileDocument StreamType](../../streamtypes/tile-document/overview.md)), or unsigned in some cases.
+Create a new stream, or load a stream from its genesis content. The genesis content may be signed (e.g. DagJWS for the [TileDocument StreamType](../../streamtypes/tile-document/overview.md)), or unsigned in some cases.
 
 === "Request"
 
