@@ -71,3 +71,5 @@ ceramic.did = did
 
 ## **Next steps**
 If your application needs to perform writes, proceed to [setting up authentication](./authentication.md). If your app only needs to perform queries, then jump ahead to [queries](./queries.md).
+
+</br></br></br>
