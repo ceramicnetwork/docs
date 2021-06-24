@@ -58,6 +58,8 @@ nav:
     - Command line (CLI):
       - Installation: build/cli/installation.md
       - API: build/cli/api.md
+    - HTTP API:
+      - API: build/http/api.md
     - Share your work: build/share.md
     - Troubleshooting: build/troubleshooting.md
   - Run:
