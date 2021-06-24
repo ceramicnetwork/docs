@@ -1,4 +1,4 @@
-# Install the JS HTTP Client
+# Installing the JS HTTP Client
 This guide descibes how to install the [JS HTTP Client](./installation.md#js-http-client) so your JavaScript application can perform [writes](./writes.md), [queries](./queries.md), or [pins](./pinning.md) on a remote Ceramic node during runtime.
 
 ## **Requirements**
