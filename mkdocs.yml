@@ -38,7 +38,7 @@ nav:
     - Networks: learn/networks.md
     - Blog: learn/blog.md
     - Advanced:
-      - Overview: learn/advanced/overview.md
+      - Tech overview: learn/advanced/overview.md
       - Data availability: learn/advanced/data-availability.md
   - Explore:
     - Explorers: explore/explorers.md
