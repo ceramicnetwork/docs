@@ -1,4 +1,4 @@
-# Install the JS Core Client
+# Installing the JS Core Client
 
 This guide describes how to install the [JS Core Client](./installation.md#js-core-client) in your JavaScript project.
 
