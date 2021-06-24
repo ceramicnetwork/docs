@@ -26,24 +26,29 @@ After choosing a DID method, install a [DID provider](../../learn/glossary.md#di
 
 ### 3ID DID Providers
 
-[**3ID Connect**](../../authentication/3id-did/3id-connect.md): The most popular 3ID DID Provider for Ceramic web apps. The 3ID Connect SDK allows users to authenticate a 3ID DID using their existing blockchain wallets without needing to install any additional software. Developers do not need to worry about DID key management for their users.
+#### 3ID Connect
 
-[Install 3ID Connect](../../authentication/3id-did/3id-connect.md#installation){: .md-button }
+[**3ID Connect**](../../authentication/3id-did/3id-connect.md) is the most popular 3ID DID Provider for Ceramic web apps. The 3ID Connect SDK allows users to authenticate a 3ID DID using their existing blockchain wallets without needing to install any additional software. Developers do not need to worry about DID key management for their users.
+
+[:octicons-download-16: Installation](../../authentication/3id-did/3id-connect.md#installation){: .md-button .md-button--primary }
 
 !!! warning ""
 
-    It is recommended that most browser applications use [3ID Connect](../../authentication/3id-did/3id-connect.md).
+    **Recommended for most browser applications.**
     
-    
-[**3ID DID Provider**](../../authentication/3id-did/provider.md): A low-level JavaScript 3ID DID Provider. Your application is responsible for key management, and users need to authenticate with a DID seed or an auth secret.
+#### 3ID DID Provider
 
-[Install 3ID DID Provider](../../authentication/3id-did/provider.md#installation){: .md-button }
+[**3ID DID Provider**](../../authentication/3id-did/provider.md) is a low-level JavaScript 3ID DID Provider. Your application is responsible for key management, and users need to authenticate with a DID seed or an auth secret.
+
+[:octicons-download-16: Installation](../../authentication/3id-did/provider.md#installation){: .md-button .md-button--primary }
 
 ### Key DID Providers
 
-[**Key DID Provider Ed25519**](../../authentication/key-did/provider.md): A low-level JavaScript Key DID Provider for use with `Ed25519` key pairs. Your application is responsible for key managemet, and users need to authenticate with a DID seed.
+#### Key DID Provider Ed25519
 
-[Install Key DID Provider Ed25519](../../authentication/key-did/provider.md#installation){: .md-button }
+[**Key DID Provider Ed25519**](../../authentication/key-did/provider.md) is a low-level JavaScript Key DID Provider for use with `Ed25519` key pairs. Your application is responsible for key managemet, and users need to authenticate with a DID seed.
+
+[:octicons-download-16: Installation](../../authentication/key-did/provider.md#installation){: .md-button .md-button--primary }
 
 
 </br>
