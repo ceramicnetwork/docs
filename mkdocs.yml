@@ -107,8 +107,8 @@ nav:
       - Community nodes: tools/hosted-nodes/community-nodes.md
       - Node Providers: tools/hosted-nodes/node-providers.md
   - Reference:
-    - JavaScript:
-      - Support new Blockchain: reference/javascript/blockchain.md
+    - JavaScript: reference/javascript/packages.md
+    - Support a new blockchain: reference/javascript/blockchain.md
   - Chat: 'https://chat.ceramic.network'
   - Blog: 'https://blog.ceramic.network'
 
