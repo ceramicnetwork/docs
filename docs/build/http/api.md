@@ -9,7 +9,7 @@ However the HTTP API is useful if:
 
 !!! warning "Gateway mode"
     
-    Not all of the HTTP API methods are available if the Ceramic node runs in *gateway mode*. This option disables writes, which is useful when exposing your node to the internet. **Methods disabled in gateway mode will be clearly marked.**
+    Some HTTP API methods will not be available if the Ceramic node you are using runs in *gateway mode*. This option disables writes, which is useful when exposing your node to the internet. **API methods that are disabled when running in gateway mode will be clearly marked.** For examples of gateways, see [Community Nodes: Gateways](../../tools/hosted-nodes/community-nodes.md#gateways).
 
 ## **Streams**
 
