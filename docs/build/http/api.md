@@ -1,14 +1,15 @@
 # HTTP API
 
-The HTTP API allows you to manually make HTTP requests that create, modify, and query streams on a remote Ceramic node. If you are building an application, you will usually interact with a node using one of the [Ceramic clients](../build/javascript/installation.md), however this documentation is useful if:
+The HTTP API allows you to manually make REST HTTP requests to write, query, and pin streams on a remote Ceramic node. If you are building an application, you will usually interact with Ceramic using a client, such as the [**JS HTTP Client**](../javascript/installation.md#js-http-client) or the [**JS Core Client**](../javascript/installation.md#js-core-client). 
 
-- You have a special use case where you directly want to use HTTP requests
+However the HTTP API is useful if:
+
+- You have a special use case where you directly want to make manual HTTP requests
 - You want to implement an HTTP client in a new language
 
-!!! info "Gateway mode"
-    Not all of the API methods are available if the Ceramic node runs in
-    *gateway mode*. This option disables writes, which is useful when exposing your node to
-    the internet. **Methods disabled in gateway mode will be clearly marked.**
+!!! warning "Gateway mode"
+    
+    Some HTTP API methods will not be available if the Ceramic node you are using runs in *gateway mode*. This option disables writes, which is useful when exposing your node to the internet. **API methods that are disabled when running in gateway mode will be clearly marked.** For examples of gateways, see [Community Nodes: Gateways](../../tools/hosted-nodes/community-nodes.md#gateways).
 
 ## **Streams**
 
@@ -23,7 +24,7 @@ Load the state of a stream given its StreamID.
     GET /api/v0/streams/:streamid
     ```
 
-    Here, `:streamid` should be replaced by the string representation of the StreamID of the stream that is being requested.
+    Here, `:streamid` should be replaced by the StreamID of the stream that is being requested.
 
 === "Response"
     The response body contains the following fields:
@@ -70,7 +71,7 @@ Load the state of a stream given its StreamID.
 
 **:octicons-alert-16: Disabled in gateway mode**
 
-Create a new stream, or load a stream from its genesis content. The genesis content may be signed (a DagJWS for streams of type TileDocument), or unsigned in some cases.
+Create a new stream, or load a stream from its genesis content. The genesis content may be signed (e.g. DagJWS for the [TileDocument StreamType](../../streamtypes/tile-document/overview.md)), or unsigned in some cases.
 
 === "Request"
 
@@ -80,8 +81,8 @@ Create a new stream, or load a stream from its genesis content. The genesis cont
 
     #### Request body fields:
 
-    - `type` - the type code of the streamtype to use (e.g. `0` for TileDocuments). Type codes for the supported stream types can be found [in this table](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-59/tables/streamtypes.csv).
-    - `genesis` - the genesis content of the stream (will differ per streamtype)
+    - `type` - the type code of the StreamType to use (e.g. `0` for TileDocuments). Type codes for the supported stream types can be found [in this table](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-59/tables/streamtypes.csv).
+    - `genesis` - the genesis content of the stream (will differ per StreamType)
     - `opts` - options for the stream creation, [CreateOpts](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html){:target="_blank"} (optional)
 
 === "Response"

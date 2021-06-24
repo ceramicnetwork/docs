@@ -58,6 +58,8 @@ nav:
     - Command line (CLI):
       - Installation: build/cli/installation.md
       - API: build/cli/api.md
+    - HTTP API:
+      - API: build/http/api.md
     - More:
       - Share your work: build/share.md
       - Troubleshooting: build/troubleshooting.md
@@ -105,7 +107,6 @@ nav:
   - Reference:
     - JavaScript:
       - Support new Blockchain: reference/javascript/blockchain.md
-    - HTTP API: reference/http-api.md
   - Chat: 'https://chat.ceramic.network'
   - Blog: 'https://blog.ceramic.network'
 
@@ -172,4 +173,5 @@ plugins:
             'build/writes.md': 'build/javascript/writes.md'
             'build/queries.md': 'build/javascript/queries.md'
             'build/pinning.md': 'build/javascript/pinning.md'
+            'reference/http-api.md': 'build/http/api.md'
     - search
