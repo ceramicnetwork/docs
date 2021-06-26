@@ -37,13 +37,13 @@ nav:
     - Glossary: learn/glossary.md
     - Networks: learn/networks.md
     - Blog: learn/blog.md
+    - Explore:
+      - Explorers: explore/explorers.md
+      - Projects: explore/projects.md
+      - Sample apps: explore/sample-apps.md
     - Advanced:
       - Tech overview: learn/advanced/overview.md
       - Data availability: learn/advanced/data-availability.md
-  - Explore:
-    - Explorers: explore/explorers.md
-    - Projects: explore/projects.md
-    - Sample apps: explore/sample-apps.md
   - Build:
     - Quick Start: build/quick-start.md
     - JavaScript:
@@ -68,7 +68,7 @@ nav:
       - Hosting a node: run/nodes/nodes.md
     - Anchor service:
       - Hosting a CAS: run/cas/cas.md
-  - Authentication:
+  - Auth:
     - 3ID DID:
       - Method: authentication/3id-did/method.md
       - Providers: 
