@@ -40,6 +40,8 @@ nav:
     - Advanced:
       - Overview: learn/advanced/overview.md
       - Data availability: learn/advanced/data-availability.md
+      - Security: learn/advanced/security.md
+      - Privacy: learn/advanced/privacy.md
   - Explore:
     - Explorers: explore/explorers.md
     - Projects: explore/projects.md
