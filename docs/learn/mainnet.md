@@ -8,6 +8,10 @@ After over a year of development, we're excited to announce that the first proje
 
 **Mutable files for NFTs**: [GeoWeb](https://geoweb.network) is creating a fair and open augmented reality (AR) metaverse where digital land is represented by NFTs and content for the land is stored in one or more streams on Ceramic.
 
+### **Tiles**
+
+**Stream browser**: [Tiles](https://tiles.ceramic.community) is a browser-based explorer where you can see a feed of all streams created on mainnet, and dive into the details of any particular stream.
+
 ## About Mainnet
 
 ### **Rollout plan**

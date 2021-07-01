@@ -37,15 +37,15 @@ nav:
     - Glossary: learn/glossary.md
     - Networks: learn/networks.md
     - Blog: learn/blog.md
+    - Explore:
+      - Explorers: explore/explorers.md
+      - Projects: explore/projects.md
+      - Sample apps: explore/sample-apps.md
     - Advanced:
-      - Overview: learn/advanced/overview.md
+      - Tech overview: learn/advanced/overview.md
       - Data availability: learn/advanced/data-availability.md
       - Security: learn/advanced/security.md
       - Privacy: learn/advanced/privacy.md
-  - Explore:
-    - Explorers: explore/explorers.md
-    - Projects: explore/projects.md
-    - Sample apps: explore/sample-apps.md
   - Build:
     - Quick Start: build/quick-start.md
     - JavaScript:
@@ -70,7 +70,7 @@ nav:
       - Hosting a node: run/nodes/nodes.md
     - Anchor service:
       - Hosting a CAS: run/cas/cas.md
-  - Authentication:
+  - Auth:
     - 3ID DID:
       - Method: authentication/3id-did/method.md
       - Providers: 
@@ -109,8 +109,8 @@ nav:
       - Community nodes: tools/hosted-nodes/community-nodes.md
       - Node Providers: tools/hosted-nodes/node-providers.md
   - Reference:
-    - JavaScript:
-      - Support new Blockchain: reference/javascript/blockchain.md
+    - JavaScript: reference/javascript/packages.md
+    - Support a new blockchain: reference/javascript/blockchain.md
   - Chat: 'https://chat.ceramic.network'
   - Blog: 'https://blog.ceramic.network'
 
