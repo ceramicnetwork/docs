@@ -1,27 +1,27 @@
 # 3ID Lifecycle
 
-This page describes the complete lifecycle of a new 3ID, how the DID document is created, how keys are managed, and how 3ID connect uses these building blocks. Most of the logic described here is implemented in the [3id-did-provider](https://github.com/ceramicstudio/js-3id-did-provider) package.
+This page describes the complete lifecycle of a [3ID DID](./method.md), including how the DID document is created, how keys are managed, and how [3ID Connect](./3id-connect.md) uses these building blocks. Most of the logic described here is implemented in the [3id-did-provider](./provider.md) package.
 
-The two core components to the 3ID lifecycle is the [3ID DID method](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-79/CIP-79.md) and the [3ID Keychain](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-20/CIP-20.md) which is an IDX definition for storing encrypted key material.
+The two core components to the 3ID lifecycle are the [3ID DID method](./method.md) and the [3ID Keychain](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-20/CIP-20.md) which is a standard for storing encrypted key material in a DID's [IDX](../../tools/identity/idx.md).
 
 ## 3ID DID provider lifecycle
 
-![asdf](../../images/3id-lifecycle.png)
+![3ID DID Provider Lifecycle Diagram](../../images/3id-lifecycle.png)
 
 ### Creating a 3ID
 To create a 3ID the *3id-did-provider* accepts an `authSecret` and an `authId`. It roughly follows the following algorithm.
 
-1. We have an `authSecret A` that is used to create `did:key:A` using the [`key-did-provider-ed25519`](https://github.com/ceramicnetwork/key-did-provider-ed25519) provider
-1. A deterministic TileDocument, referred to as *AuthLink*, is created. If this is a new `authSerect` the loaded *AuthLink* will be empty
+1. We have an `authSecret A` that is used to create `did:key:A` using the [`key-did-provider-ed25519`](../key-did/provider.md) provider
+1. A deterministic TileDocument, referred to as *AuthLink*, is created. If this is a new `authSecret` the loaded *AuthLink* will be empty
 1. A seed for the 3ID is randomly generated, three keys (`controller`, `signing`, and `encryption`) are derived from the seed, and the stream for the 3ID DID document is created
 1. The seed is encrypted to `did:key:A`
 1. The encrypted seed is put into the 3ID Keychain, which is an IDX record associated with the 3ID from step 3
-1. The *AuthLink* document is updated to contain the 3ID from step 2.
+1. The *AuthLink* document is updated to contain the 3ID from step 3.
 
 ### Loading an existing 3ID
 If an `authSecret` has already been associated with a 3ID then this 3ID will be loaded instead of a new one created.
 
-1. `authSecret A` is used to create `did:key:A` using the [`key-did-provider-ed25519`](https://github.com/ceramicnetwork/key-did-provider-ed25519) provider.
+1. `authSecret A` is used to create `did:key:A` using the [`key-did-provider-ed25519`](../key-did/provider.md) provider.
 1. A deterministic TileDocument, referred to as *AuthLink*, is created. If this is an existing `authSerect` the loaded *AuthLink* contain a 3ID
 1. Using the 3ID from the previous step we can deterministically load the 3ID keychain
 1. Decrypt the seed in the 3ID Keychain that was encrypted to `did:key:A`
