@@ -14,7 +14,7 @@ To create a 3ID the *3id-did-provider* accepts an `authSecret` and an `authId`. 
 
 1. We have an `authSecret A` that is used to create `did:key:A` using the [`key-did-provider-ed25519`](../key-did/provider.md) provider
 1. A deterministic TileDocument, referred to as *AuthLink*, is created. If this is a new `authSecret` the loaded *AuthLink* will be empty
-1. A seed for the 3ID is randomly generated; two keys (`signing`, and `encryption`), and a `did:key:management-1` are derived from the seed. A stream for the 3ID DID document is created with `did:key:management-1` as the *controller*, the `signing` and `encryption` keys are stored in the streams content
+1. A seed for the 3ID is randomly generated; two asymmetric keys (`signing`, and `encryption`), and a `did:key:management-1` are derived from the seed. A stream for the 3ID DID document is created with `did:key:management-1` as the *controller*, the `signing` and `encryption` public keys are stored in the streams content
 1. The seed is encrypted to `did:key:A`
 1. The encrypted seed is put into the 3ID Keychain, which is an IDX record associated with the 3ID from step 3
 1. The *AuthLink* document is updated to contain the 3ID from step 3.
@@ -38,7 +38,7 @@ We can add a new `authSecret` with two simple steps.
 Assume that we have `authSecret A` and `authSecret B` associated to our 3ID, and we want to revoke `authSecret A`. Lets refer to the current seed as `seed 1`. Note that you should always end up with at least one `authSecret` in the end. It doesn't make sense to revoke all *authSecrets* as there no longer would be a way to authenticate to this 3ID.
 
 1. Randomly generate a new seed, `seed 2`
-1. Two keys (`signing`, and `encryption`), and a `did:key:management-2` are derived from `seed 2`. The 3ID stream for the 3ID DID document is updated with `did:key:management-2` as the *controller* and the `signing` and `encryption` keys in the content
+1. Two asymmetric keys (`signing`, and `encryption`), and a `did:key:management-2` are derived from `seed 2`. The 3ID stream for the 3ID DID document is updated with `did:key:management-2` as the *controller*, the `signing` and `encryption` public keys in the content
 1. The `seed 1` is encrypted to `seed 2` and stored in the 3ID Keychain, so that we can use it to decrypt any message encrypted to the previous version of the 3ID document
 1. `seed 2` is encrypted to `authSecret B` but **not** to `authSecret A`
 1. The encrypted `seed 2` is stored in the 3ID keychain
