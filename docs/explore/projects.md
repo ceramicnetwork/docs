@@ -23,6 +23,12 @@ This page contains a list of community projects built on Ceramic.
 ### RabbitHole (coming soon)
 **Cross-chain identity and reputation**: [RabbitHole](https://rabbithole.gg) uses Ceramic, [IDX](../tools/identity/idx.md), and [3ID Connect](../authentication/wallets/3id-connect.md) to link multiple Web3 wallets and Web2 accounts to a unified, cross-chain DID. After calculating an aggregate reputation score for this DID, they issue and store a verifiable credential in the user's IDX so it's usable on any other Web3 application.
 
+### The Convo Space (coming soon)
+
+
+### DNS.XYZ (coming soon)
+**Web3 profiles**: [DNS.XYZ](https://dns.xyz) uses Ceramic and [IDX](../tools/identity/idx.md) to allow users to create and manage a universal multi-account profile for the Web3 metaverse.
+
 
 ## **More projects**
 
