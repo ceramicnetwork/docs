@@ -32,18 +32,3 @@ A malicious node can spam the pubsub topic by sending a lot of messages. This ma
 
 #### False log attack
 A malicious node can spam nodes that pin specific streams by sending faulty commit logs. The unsuspecting node would sync the log of the stream and when it validates it the stream would get invalidated and removed from the local node. However, if the false log is long and the malicious node send multiple of these it may cause a significant amount of overhead. The most simple countermeasure to this is to simply stop accepting tips from nodes which have proven to not be reliable. A more significant approach would be to build a StreamType that includes a recursive zero-knowledge proof that the log is indeed correctly associated with the given streamid.
-
-
-## 3ID Connect
-
-3ID Connect is a key management system for the 3ID DID method. It allows blockchain accounts to be used as an authentication method to the keys used in the users 3ID. In order to authenticate a user signs a message with their wallet. The entropy is used to generate a [Key DID](../../authentication/key-did/method.md) which in turn is used to decrypt the seed used for the 3ID.
-
-The main security concern here is that the seed used for the 3ID is stored within the 3ID iframe. While this restricts the app using 3ID Connect to do whatever it want's with the seed, a malicious browser plugin could easily pick up the seed from the web browser and take full control over the users 3ID. While are multiple paths that can be used to mitigate this issue, it's currently considered to be a fair tradeoff to improve UX for users. In contrast to a users crypto wallet, the 3ID doesn't actually hold or control any cryptocurrency; it only controls data read/writes. This means that the incentive for a hacker to execute an attack is much smaller since there is no immediate financial reward. Also note that this security issue is not inherent to 3ID itself, it's just related to how 3ID is used within 3ID connect.
-
-### Possible security improvements
-
-#### External 3ID controller
-The 3ID did document has different public keys used for writing and controlling the DID document itself. One possible mitigation strategy is to store the controller key in a more secure manner. This would make it possible to recover if the day to day writing public keys are compromised. An example solution here could be to store the controller key in a MetaMask Snap.
-
-#### Don't store keys in web context
-The long term solution is of course to not store any keys of the 3ID in the web browser context. This could be achieved though wallets supporting 3ID directly, or an Object-based capability system rooted in blockchain accounts which would allow applications to request specific permissions from wallets.
