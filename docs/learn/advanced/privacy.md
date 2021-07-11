@@ -15,6 +15,6 @@ A StreamType without history like [DIDPublish](https://github.com/ceramicnetwork
 ### Private streams
 A fully private stream would mean that all of the data is encrypted.
 
-One approach to this is the one taken by [Textile ThreadsDB](https://textile.io/) which separates the notion of a *follow key* and a *content key*. This allows certain nodes to read the metadata and pin the stream while other nodes can't see anything at all into the stream. So essentially streams are still only confidential to the trusted set of peers that have the *follow key*.
+One approach to this is the one taken by [Textile ThreadsDB](https://textile.io/) which separates the notion of a *follow key* and a *content key*. This allows certain nodes to read the metadata and pin the stream, but without seeing the content, while other nodes can't see anything at all into the stream. So essentially streams are still only confidential to the trusted set of peers that have the *follow key*.
 
 A better approach could be to use some sort of zero-knowledge proof system to keep track of the tip of a set of streams anonymously. This is still a completely open research topic but would likely add some overhead to the party reading the stream. One upside here would be that this system could operate completely trustlessly as opposed to Textile ThreadsDB.
