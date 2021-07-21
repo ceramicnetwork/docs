@@ -1,5 +1,5 @@
 # Quickstart
-Learn the basics by setting up and interacting with the [Ceramic Javascript Client](./javascript/installation.md)
+Learn the basics by setting up and interacting with the [Ceramic CLI](./cli/installation.md)
 
 !!! warning ""
     **Want an even faster way to try Ceramic? Visit the [Playground Demo App](https://playground.ceramic.dev){:target="_blank"} to test the full stack of Ceramic Components in the browser.
@@ -9,14 +9,25 @@ Learn the basics by setting up and interacting with the [Ceramic Javascript Clie
 Visit the [Ceramic Client](./javascript/installation.md) page for instructions on how to quickly install the Client.
 
 ## **2. Create a stream**
-Creating streams is dependent on the StreamType of the record. More details can be found in our [StreamTypes Overview](../streamtypes/overview.md). A basic sample using the [TileDocument StreamType](../streamtypes/tile-document/overview.md) can be found below.
+Creating streams is dependent on the StreamType of the record. More details can be found in our [StreamTypes Overview](../streamtypes/overview.md). A basic sample can be found below.
 
 === "Command"
 
     ```JavaScript
     import { TileDocument } from '@ceramicnetwork/stream-tile'
 
-    const doc = await TileDocument.create(ceramic, content, metadata, opts)
+    const schemaId = 'k3y52l7qbv1fry1fp4s0nwdarh0vahusarpposgevy0pemiykymd2ord6swtharcw' // this is our Basic Profile Schema.
+    
+    const content = {
+      foo: 'bar'
+    }
+    const metadata = {
+      controllers: [ceramic.did.id],
+      family: 'Document Family',
+      schema: schemaId
+    }
+
+    const doc = await TileDocument.create(ceramic, content, metadata)
 
     const streamId = doc.id.toString()
     ```
@@ -27,10 +38,6 @@ Use the `loadStream()` function to query the current [state](../learn/glossary.m
 === "Command"
 
     ```JavaScript
-    import CeramicClient from '@ceramicnetwork/http-client'
-
-    const ceramic = new CeramicClient("https://gateway-clay.ceramic.network")
-
     const streamId = "kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa"
     const stream = await ceramic.loadStream(streamId)
     ```
@@ -46,7 +53,6 @@ Use the `update`  command to update a stream. your [DID](../learn/glossary.md#di
     
     await doc.update(newContent, newMeta, opts)
     ```
-<!-- API Reference here -->
 
 
 In the following example we update a TileDocuments' content while also giving it a tag.

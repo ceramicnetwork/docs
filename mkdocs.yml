@@ -58,7 +58,7 @@ nav:
           - Installation: build/cli/installation.md
           - API: build/cli/api.md
       - HTTP API:
-          - Quickstart: build/quick-start.md
+          - Quickstart: build/javascript/quick-start.md
           - API: build/http/api.md
       - More:
           - Share your work: build/share.md
