@@ -9,7 +9,7 @@ Learn the basics by setting up and interacting with the [Ceramic Javascript Clie
 Visit the [Ceramic Client](./javascript/installation.md) page for instructions on how to quickly install the Client.
 
 ## **2. Create a stream**
-Creating streams is dependent on the StreamType of the record. More details can be found in our [StreamTypes Overview](../streamtypes/overview.md). A basic sample can be found below.
+Creating streams is dependent on the StreamType of the record. More details can be found in our [StreamTypes Overview](../streamtypes/overview.md). A basic sample using the [TileDocument StreamType](../streamtypes/tile-document/overview.md) can be found below.
 
 === "Command"
 
