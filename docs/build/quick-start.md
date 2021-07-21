@@ -1,5 +1,5 @@
 # Quickstart
-Learn the basics by setting up and interacting with the [Ceramic CLI](./cli/installation.md)
+Learn the basics by setting up and interacting with the [Ceramic Javascript Client](./javascript/installation.md)
 
 !!! warning ""
     **Want an even faster way to try Ceramic? Visit the [Playground Demo App](https://playground.ceramic.dev){:target="_blank"} to test the full stack of Ceramic Components in the browser.
