@@ -44,7 +44,6 @@ nav:
           - Tech overview: learn/advanced/overview.md
           - Data availability: learn/advanced/data-availability.md
   - Build:
-      - Quickstart: build/quick-start.md
       - JavaScript:
           - Installation:
               - Choose a client: build/javascript/installation.md
@@ -59,6 +58,7 @@ nav:
           - Installation: build/cli/installation.md
           - API: build/cli/api.md
       - HTTP API:
+          - Quickstart: build/quick-start.md
           - API: build/http/api.md
       - More:
           - Share your work: build/share.md
