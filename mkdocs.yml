@@ -64,7 +64,13 @@ nav:
           - Share your work: build/share.md
           - Troubleshooting: build/troubleshooting.md
   - Run:
+      # - Nodes:
+      #     - Hosting a node: run/nodes/nodes.md
+      # - Anchor service:
+      #     - Hosting a CAS: run/cas/cas.md
       - Nodes:
+          - Community nodes: run/nodes/community-nodes.md
+          - Node Providers: run/nodes/node-providers.md
           - Hosting a node: run/nodes/nodes.md
       - Anchor service:
           - Hosting a CAS: run/cas/cas.md
@@ -100,13 +106,19 @@ nav:
           - Overview: streamtypes/caip-10-link/overview.md
           - API: streamtypes/caip-10-link/api.md
   - Tools:
-      - Identity:
-          - IDX: tools/identity/idx.md
-          - IdentityLink: tools/identity/identitylink.md
-          - Self.ID: tools/identity/self-id.md
-      - Hosted nodes:
-          - Community nodes: tools/hosted-nodes/community-nodes.md
-          - Node Providers: tools/hosted-nodes/node-providers.md
+      # - Identity:
+      #     - IDX: tools/identity/idx.md
+      #     - IdentityLink: tools/identity/identitylink.md
+      #     - Self.ID: tools/identity/self-id.md
+      # - Hosted nodes:
+      #     - Community nodes: tools/hosted-nodes/community-nodes.md
+      #     - Node Providers: tools/hosted-nodes/node-providers.md
+      - IDX:
+          - Overview: tools/idx/overview.md
+      - IdentityLink:
+          - IdentityLink: tools/identitylink/overview.md
+      - Self.ID:
+          - Self.ID: tools/self-id/overview.md
   - Reference:
       - JavaScript: reference/javascript/packages.md
       - Support a new blockchain: reference/javascript/blockchain.md
@@ -149,6 +161,35 @@ extra_css:
   - stylesheets/extra.css
 
 plugins:
+  # - redirects:
+  #     redirect_maps:
+  #       "index.md": "learn/welcome.md"
+  #       "try/explorers.md": "explore/explorers.md"
+  #       "try/sample-apps.md": "explore/sample-apps.md"
+  #       "try/projects.md": "explore/projects.md"
+  #       "authentication/wallets/3id-connect.md": "authentication/3id-did/3id-connect.md"
+  #       "authentication/dids/3id.md": "authentication/3id-did/provider.md"
+  #       "authentication/dids/key.md": "authentication/key-did/provider.md"
+  #       "authentication/legacy/3id-connect-migration.md": "authentication/3id-did/3box-migration.md"
+  #       "reference/javascript/clients.md": "clients/http.md"
+  #       "reference/javascript/did-resolvers.md": "authentication/3id-did/resolver.md"
+  #       "reference/javascript/did-providers.md": "authentication/3id-did/provider.md"
+  #       "learn/clients.md": "clients/javascript/http.md"
+  #       "build/configure-did.md": "clients/javascript/http.md"
+  #       "run/nodes.md": "run/nodes/nodes.md"
+  #       "reference/javascript/anchor-service.md": "run/cas/cas.md"
+  #       "learn/data-availability.md": "learn/advanced/data-availability.md"
+  #       "learn/overview.md": "learn/advanced/overview.md"
+  #       "clients/javascript/cli.md": "build/cli/installation.md"
+  #       "build/installation.md": "build/javascript/installation.md"
+  #       "clients/javascript/http.md": "build/javascript/installation.md#js-http-client"
+  #       "clients/javascript/core.md": "build/javascript/installation.md#js-core-client"
+  #       "build/authentication.md": "build/javascript/authentication.md"
+  #       "build/writes.md": "build/javascript/writes.md"
+  #       "build/queries.md": "build/javascript/queries.md"
+  #       "build/pinning.md": "build/javascript/pinning.md"
+  #       "reference/http-api.md": "build/http/api.md"
+  # - search
   - redirects:
       redirect_maps:
         "index.md": "learn/welcome.md"
@@ -177,4 +218,9 @@ plugins:
         "build/queries.md": "build/javascript/queries.md"
         "build/pinning.md": "build/javascript/pinning.md"
         "reference/http-api.md": "build/http/api.md"
+        "tools/hosted-nodes/community-nodes.md": "run/nodes/community-nodes.md"
+        "tools/hosted-nodes/node-providers.md": "run/nodes/node-providers.md"
+        "tools/identity/idx.md": "tools/idx/overview.md"
+        "tools/identity/identitylink.md": "tools/identitylink/overview.md"
+        "tools/identity/self-id.md": "tools/self-id/overview.md"
   - search

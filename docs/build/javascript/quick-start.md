@@ -140,7 +140,7 @@ Use `reward.state` to query the state of the TileDocument we just created. We ca
     ```
 
 # **That's it!**
-Congratulations on completing this tutorial! You're well on your way to becoming a Ceramic developer. Now let's [install Ceramic in your project →](./javascript/installation.md)
+Congratulations on completing this tutorial! You're well on your way to becoming a Ceramic developer. Now let's [install Ceramic in your project](./javascript/installation.md) or take a look at [IDX](../../tools/idx/overview.md) a framework for interacting with Streams.
 </br>
 </br>
 </br>
