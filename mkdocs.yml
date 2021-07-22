@@ -65,6 +65,8 @@ nav:
       - Troubleshooting: build/troubleshooting.md
   - Run:
     - Nodes:
+      - Community nodes: run/nodes/community-nodes.md
+      - Node Providers: run/nodes/node-providers.md
       - Hosting a node: run/nodes/nodes.md
     - Anchor service:
       - Hosting a CAS: run/cas/cas.md
@@ -100,13 +102,12 @@ nav:
         - Overview: streamtypes/caip-10-link/overview.md
         - API: streamtypes/caip-10-link/api.md
   - Tools:
-    - Identity:
-      - IDX: tools/identity/idx.md
-      - IdentityLink: tools/identity/identitylink.md
-      - Self.ID: tools/identity/self-id.md
-    - Hosted nodes:
-      - Community nodes: tools/hosted-nodes/community-nodes.md
-      - Node Providers: tools/hosted-nodes/node-providers.md
+    - IDX:
+      - Overview: tools/idx/overview.md
+    - IdentityLink:
+      - IdentityLink: tools/identitylink/overview.md
+    - Self.ID:
+      - Self.ID: tools/self-id/overview.md
   - Reference:
     - JavaScript: reference/javascript/packages.md
     - Support a new blockchain: reference/javascript/blockchain.md
@@ -177,4 +178,9 @@ plugins:
             'build/queries.md': 'build/javascript/queries.md'
             'build/pinning.md': 'build/javascript/pinning.md'
             'reference/http-api.md': 'build/http/api.md'
+            'tools/hosted-nodes/community-nodes.md': 'run/nodes/community-nodes.md'
+            'tools/hosted-nodes/node-providers.md': 'run/nodes/node-providers.md'
+            'tools/identity/idx.md': 'tools/idx/overview.md'
+            'tools/identity/identitylink.md': 'tools/identitylink/overview.md'
+            'tools/identity/self-id.md': 'tools/self-id/overview.md'
     - search
