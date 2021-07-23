@@ -111,7 +111,7 @@ First, use the `rewardSchema.commitId.toString()` to get the current [CommitID](
     ```
 
 ## **7. Inspect the state of the stream you created**
-Use `reward.state` to query the state of the TileDocument we just created. We can see that the schema is set to the correctID.
+Use `reward.state` to query the state of the TileDocument we just created. We can see that the schema is set to the correct CommitID.
 
 === "Command"
 
