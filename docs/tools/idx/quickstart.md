@@ -11,9 +11,7 @@ Get started exploring what's possible with IDX using the [IDX SDK](../reference/
 
 ## **Prerequisites**
 
-The IDX SDK requires [Node.js](https://nodejs.org/){:target="_blank"} v14+ and npm v6+ (usually installed with Node.js). Make sure both are installed.
-
-On Linux you will also need the `libsecret` library to be installed, as [instructed here](https://github.com/atom/node-keytar#on-linux).
+The IDX SDK requires [Node.js](https://nodejs.org/){:target="_blank"} v14 and npm v6 (usually installed with Node.js). Make sure both are installed.
 
 ## **Step 1: Install the IDX SDK**
 
@@ -29,10 +27,13 @@ You will need to connect to a Ceramic node. The following is an example of conne
 
     ```JavaScript
     import CeramicClient from '@ceramicnetwork/http-client'
+    import { IDX } from '@ceramicstuido/idx'
 
     const API_URL = 'https://gateway-clay.ceramic.network'
 
     const ceramic = new CeramicClient(API_URL)
+
+    const idx = new IDX({ceramic})
     ```
 
 ## **Step 2: Query a Record**
@@ -84,7 +85,7 @@ Use the `idx.get()` to query your newly created basic profile record.
 
 === "Output"
 
-    ```JSON
+    ```JavaScript
     {
       name: "<Your Name>" 
     }
