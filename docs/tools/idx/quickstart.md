@@ -23,7 +23,7 @@ On Linux you will also need the `libsecret` library to be installed, as [instruc
     npm i @ceramicstudio/idx @ceramicnetwork/http-client
     ```
 
-You will need to connect to a Ceramic node. The following is an example of connecting to a our Clay TestNet.
+You will need to connect to a Ceramic node. The following is an example of connecting to the Clay Testnet via the public gateway node hosted by 3BoxLabs.
 
 === "Command"
 
