@@ -16,7 +16,7 @@ Creating streams is dependent on the StreamType. More details can be found in ou
     ```JavaScript
     import { TileDocument } from '@ceramicnetwork/stream-tile'
 
-    const schemaId = 'k3y52l7qbv1fry1fp4s0nwdarh0vahusarpposgevy0pemiykymd2ord6swtharcw' // this is our Basic Profile Schema.
+    const schemaId = 'k3y52l7qbv1fry1fp4s0nwdarh0vahusarpposgevy0pemiykymd2ord6swtharcw' // this is the IDX Basic Profile Schema.
     
     const content = {
       name: 'Your Name',
