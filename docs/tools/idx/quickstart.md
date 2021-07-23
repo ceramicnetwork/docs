@@ -1,6 +1,6 @@
 # Quickstart
 
-Get started exploring what's possible with IDX using the [IDX SDK](../reference/idx.md). For usage in a Command Interface, you will need to [install the IDX CLI](../reference/cli.md).
+Get started exploring what's possible with IDX using the [IDX SDK](../reference/idx.md). For usage in a Command Line Interface, you will need to [install the IDX CLI](../reference/cli.md).
 
 !!! warning ""
 
@@ -21,7 +21,7 @@ The IDX SDK requires [Node.js](https://nodejs.org/){:target="_blank"} v14 and np
     npm i @ceramicstudio/idx @ceramicnetwork/http-client
     ```
 
-You will need to connect to a Ceramic node. The following is an example of connecting to a our Clay TestNet.
+You will need to connect to a Ceramic node. The following is an example of connecting to the Clay Testnet via the public gateway node hosted by 3BoxLabs.
 
 === "Command"
 
@@ -59,7 +59,7 @@ Let's query a [record](../../learn/glossary.md#record) that stores a [basic prof
     ```
 
 ## **Step 3: Create a DID**
-The IDX SDK does not support DID Creation, however we've built [3ID-Connect](../../authentication/3id-did/3id-connect.md) to allow web apps to create a DID based off of your wallet.
+The IDX SDK does not support DID Creation, however we've built [3ID-Connect](../../authentication/3id-did/3id-connect.md) to allow web apps to create a DID based off of the user's blockchain wallet.
 
 ## **Step 4: Create a Record**
 
