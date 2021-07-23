@@ -45,7 +45,7 @@ nav:
       - Tech overview: learn/advanced/overview.md
       - Data availability: learn/advanced/data-availability.md
   - Build:
-    - Quick Start: build/quick-start.md
+    # - Quick Start: build/quick-start.md
     - JavaScript:
       - Installation:
         - Choose a client: build/javascript/installation.md
