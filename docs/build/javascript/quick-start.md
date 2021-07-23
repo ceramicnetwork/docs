@@ -95,7 +95,7 @@ TileDocuments can enforce that their contents adhere to a specified schema. The 
     ```
 
 ## **6. Create a TileDocument stream that uses a schema**
-First, use the `rewardSchema.commitId.toString()` to get the current [commitIDs](../learn/glossary.md#commitid) of the schema stream. When creating a TileDocument that uses this schema need to use a commitID instead of the StreamID. This is to enforce that we are using a specific version of the schema since the schema stream is mutable and can be updated.
+First, use the `rewardSchema.commitId.toString()` to get the current [CommitID](../learn/glossary.md#commitid) of the schema stream. When creating a TileDocument that uses this schema you need to use a CommitID instead of the StreamID. This is to enforce that we are using a specific version of the schema since the schema stream is mutable and can be updated.
 
 === "Command"
 
