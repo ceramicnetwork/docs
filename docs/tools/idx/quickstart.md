@@ -1,6 +1,6 @@
 # Quickstart
 
-Get started exploring what's possible with IDX using the [IDX SDK](../reference/idx.md). For usage in a Command Interface, you will need to [install the IDX CLI](../reference/cli.md).
+Get started exploring what's possible with IDX using the [IDX SDK](../reference/idx.md). For usage in a Command Line Interface, you will need to [install the IDX CLI](../reference/cli.md).
 
 !!! warning ""
 
