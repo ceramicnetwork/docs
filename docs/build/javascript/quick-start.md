@@ -15,25 +15,18 @@ Creating streams is dependent on the StreamType. More details can be found in ou
 
     ```JavaScript
     import { TileDocument } from '@ceramicnetwork/stream-tile'
-    
+
+    const schemaId = 'k3y52l7qbv1fry1fp4s0nwdarh0vahusarpposgevy0pemiykymd2ord6swtharcw' // this is the IDX Basic Profile Schema.
+
     const content = {
-      foo: 'bar'
-    }
-    const helloSchema = {
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "title": "Hello World",
-      "type": "object",
-      "properties": {
-        "hello": { "type": "string" },
-      },
-      "required": [
-        "hello",
-      ]
+      name: 'Your Name',
+      emoji: '✌🏻',
+      description: 'Something about yourself'
     }
     const metadata = {
       controllers: [ceramic.did.id],
       family: 'Basic Profile',
-      schema: helloSchema
+      schema: schemaId
     }
 
     const doc = await TileDocument.create(ceramic, content, metadata)
