@@ -45,7 +45,7 @@ HTTP Endpoint:
 https://cas-dev.3boxlabs.com
 ```
 
-ETH Ropsten Address:
+ETH Rinkeby Address:
 
 ```
 0x41Ee0C359D95970A83229D8e9801cc2672390217
