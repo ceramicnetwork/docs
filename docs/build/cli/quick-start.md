@@ -1,4 +1,4 @@
-# Quick start
+# Quickstart
 Learn the basics by setting up and interacting with the [Ceramic CLI](./cli/installation.md). This tutorial serves as a simple introduction to Ceramic concepts.
 
 !!! warning ""
