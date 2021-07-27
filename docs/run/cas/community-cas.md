@@ -22,7 +22,7 @@ ETH Mainnet Address:
 ```
 
 ## **Clay Testnet CAS**
-Nodes connected to [Clay Testnet](../../learn/networks.md#clay-testnet) will automatically use this CAS which generates [anchor commits](../../learn/glossary.md#anchor-commit) using the Ethereum Rinkeby or Ropsten blockchains and communicates over the `/ceramic/testnet-clay` libp2p topic.
+Nodes connected to [Clay Testnet](../../learn/networks.md#clay-testnet) will automatically use this CAS which generates [anchor commits](../../learn/glossary.md#anchor-commit) using the Ethereum Ropsten blockchain and communicates over the `/ceramic/testnet-clay` libp2p topic.
 
 HTTP Endpoint:
 
