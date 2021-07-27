@@ -37,7 +37,7 @@ ETH Ropsten Address:
 ```
 
 ## **Dev Unstable CAS**
-Nodes connected to the [Dev Unstable](../../learn/networks.md#dev-unstable) network will use this CAS which generates [anchor commits](../../learn/glossary.md#anchor-commit) using the Ethereum Rinkeby or Ropsten blockchains and communicates over the `/ceramic/dev-unstable` libp2p topic.
+Nodes connected to the [Dev Unstable](../../learn/networks.md#dev-unstable) network will use this CAS which generates [anchor commits](../../learn/glossary.md#anchor-commit) using the Ethereum Rinkeby blockchain and communicates over the `/ceramic/dev-unstable` libp2p topic.
 
 HTTP Endpoint:
 
