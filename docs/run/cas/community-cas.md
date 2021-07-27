@@ -1,5 +1,5 @@
 # Community CAS
-This page contains a list of free [Ceramic Anchor Services (CAS)](../../learn/glossary.md#anchor-service) hosted by [3Box Labs](https://3boxlabs.com) and made available for the community. The CAS referenced below are included by default in every [Ceramic node](../../learn/glossary.md#nodes) and no additional setup is needed. At this time it is not possible to run your own CAS, however this functionality will be available in the near future.
+This page contains a list of free [Ceramic Anchor Services (CAS)](../../learn/glossary.md#anchor-service) hosted by [3Box Labs](https://3boxlabs.com) and made available for the community. The CAS referenced below are included by default in every [Ceramic node](../../learn/glossary.md#nodes) and will be automatically used depending on the node's network configuration; no additional setup is needed. At this time it is not possible to run your own CAS, however this functionality will be available in the near future.
 
 ## **Mainnet CAS**
 Nodes connected to [Mainnet](../../learn/networks.md#mainnet) will automatically use this CAS which generates [anchor commits](../../learn/glossary.md#anchor-commit) using the Ethereum Mainnet blockchain (`eip155:1`) and communicates over the `/ceramic/mainnet` libp2p topic. 
