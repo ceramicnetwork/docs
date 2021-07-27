@@ -8,7 +8,6 @@ edit_uri: https://github.com/ceramicnetwork/docs/edit/main/docs/
 # Copyright
 copyright: 'Ceramic is open sourced under MIT and Apache 2'
 
-
 theme:
   name: material
   custom_dir: overrides
@@ -104,6 +103,7 @@ nav:
   - Tools:
     - IDX:
       - Overview: tools/idx/overview.md
+      - Quickstart: tools/idx/quickstart.md
     - IdentityLink:
       - IdentityLink: tools/identitylink/overview.md
     - Self.ID:
