@@ -18,7 +18,17 @@ Creating streams is dependent on the StreamType. More details can be found in ou
 
     const doc = await TileDocument.create(ceramic, {hello: 'world'})
 
+    console.log(doc.content)
+
     const streamId = doc.id.toString()
+    ```
+
+=== "Output"
+
+    ```JavaScript
+    {
+      hello: 'world'
+    }
     ```
 
 ## **3. Query a stream**
@@ -27,8 +37,15 @@ Use the `load()` function to query the current [state](../learn/glossary.md#stat
 === "Command"
 
     ```JavaScript
-    const streamId = "kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa"
-    const stream = await TileDocument.load(streamId)
+    const streamId = "kjzl...g8qa"
+    const doc = await TileDocument.load(ceramic, streamId)
+
+    console.log(doc.content)
+    ```
+
+=== "Output"
+
+    ```JavaScript
     ```
 
 ## **4. Update a stream**
@@ -37,10 +54,10 @@ Use the `update`  command to update a stream. your [DID](../learn/glossary.md#di
 === "Command"
 
     ```JavaScript
-    const streamId = "kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa"
-    const doc = await TileDocument.load(ceramic, streamId, opts)
+    const streamId = "kjzl...g8qa"
+    const doc = await TileDocument.load(ceramic, streamId)
     
-    await doc.update(newContent, newMeta, opts)
+    await doc.update(newContent, newMeta)
     ```
 
 
@@ -49,12 +66,11 @@ In the following example we update a TileDocuments' content while also giving it
 === "Command"
 
     ```JavaScript
-    const streamId = "kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa"
+    const streamId = "kjzl...g8qa"
     const doc = await TileDocument.load(ceramic, streamId)
 
     await doc.update({foo: 'baz'}, {tags: ['baz']})
     ```
-<!-- API Reference here -->
 
 ## **5. Create a schema**
 TileDocuments can enforce that their contents adhere to a specified schema. The schemas themselves are TileDocuments where the content is a [json-schema](https://json-schema.org){:target="_blank"}. For example we can create a schema that requires a TileDocument to have a *title* and a *message*.
