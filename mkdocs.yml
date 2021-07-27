@@ -89,6 +89,11 @@ nav:
       - Method: authentication/nft-did/method.md
     - Safe DID:
       - Method: authentication/safe-did/method.md
+    - Ethr DID:
+      - Method: authentication/ethr-did/method.md
+      - Providers: 
+        - JS Ethr DID Provider: authentication/ethr-did/provider.md
+      - Resolver: authentication/ethr-did/resolver.md
   - StreamTypes:
       - Overview: streamtypes/overview.md
       - Tile Document:
