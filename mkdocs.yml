@@ -70,6 +70,7 @@ nav:
       - Node Providers: run/nodes/node-providers.md
       - Hosting a node: run/nodes/nodes.md
     - Anchor service:
+      - Community CAS: run/cas/community-cas.md
       - Hosting a CAS: run/cas/cas.md
   - Auth:
     - 3ID DID:
@@ -106,9 +107,9 @@ nav:
     - IDX:
       - Overview: tools/idx/overview.md
     - IdentityLink:
-      - IdentityLink: tools/identitylink/overview.md
+      - Overview: tools/identitylink/overview.md
     - Self.ID:
-      - Self.ID: tools/self-id/overview.md
+      - Overview: tools/self-id/overview.md
   - Reference:
     - JavaScript: reference/javascript/packages.md
     - Support a new blockchain: reference/javascript/blockchain.md
