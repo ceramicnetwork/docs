@@ -15,6 +15,9 @@ The IDX SDK requires [Node.js](https://nodejs.org/){:target="_blank"} v14 and np
 
 ## **Step 1: Install the IDX SDK**
 
+!!! warning "Authentication"
+    :octicons-alert-16: If you're using this quickstart anywhere but the Ceramic Playground you'll need to authenticate your Ceramic instance. This is a process that's dependent on your setup so we recommend taking a look at our [authentication section](../../build/javascript/authentication.md){:target="_blank"} to ensure you don't have any issues following along.
+
 === "Command"
 
     ```bash
