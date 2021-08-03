@@ -2,9 +2,12 @@
 Learn the basics by setting up and interacting with the [Ceramic Javascript Client](./javascript/installation.md).
 
 !!! warning ""
-    **Want an even faster way to try Ceramic? Visit the [Playground Demo App](https://playground.ceramic.dev){:target="_blank"} to test the full stack of Ceramic components in the browser.
+    **Want an even faster way to try Ceramic?** Visit the [Playground Demo App](https://playground.ceramic.dev){:target="_blank"} to test the full stack of Ceramic components in the browser.
 
 ## **1. Install the Client**
+
+!!! warning "Authentication"
+    :octicons-alert-16: If you're using this quickstart anywhere but the Ceramic Playground you'll need to authenticate your Ceramic instance. This is a process that's dependent on your setup so we recommend taking a look at our [authentication section](../../build/javascript/authentication.md){:target="_blank"} to ensure you don't have any issues following along.
 
 Visit the [Ceramic Client](./javascript/installation.md) page for instructions on how to quickly install the Client.
 
