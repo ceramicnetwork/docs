@@ -185,4 +185,5 @@ plugins:
             'tools/identity/idx.md': 'tools/idx/overview.md'
             'tools/identity/identitylink.md': 'tools/identitylink/overview.md'
             'tools/identity/self-id.md': 'tools/self-id/overview.md'
+            'build/quick-start': 'build/cli/quick-start.md'
     - search
