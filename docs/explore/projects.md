@@ -29,6 +29,8 @@ This page contains a list of community projects built on Ceramic.
 ### DNS.XYZ (coming soon)
 **Web3 profiles**: [DNS.XYZ](https://dns.xyz) uses Ceramic and [IDX](../tools/identity/idx.md) to allow users to create and manage a universal multi-account profile for the Web3 metaverse.
 
+### FungyProof (coming soon)
+**NFT grading and enrichments**: [FungyProof](https://fungyproof.com) uses Ceramic to store a cross-chain, aggregate view of NFTs and their associated data including: grade/quality, digital cases, events/press, achievements, and more. NFT Owners can improve their NFTs by adding enrichments and modify the NFTs public profile to highlight the characteristics they choose.
 
 ## **More projects**
 
