@@ -1,5 +1,5 @@
 # Quickstart
-Learn the basics by setting up and interacting with the [Ceramic Javascript Client](./javascript/installation.md).
+Learn the basics by setting up and interacting with the [Ceramic Javascript Client](./installation.md).
 
 !!! warning ""
     **Want an even faster way to try Ceramic?** Visit the [Playground Demo App](https://playground.ceramic.dev){:target="_blank"} to test the full stack of Ceramic components in the browser.
@@ -7,12 +7,12 @@ Learn the basics by setting up and interacting with the [Ceramic Javascript Clie
 ## **1. Install the Client**
 
 !!! warning "Authentication"
-    :octicons-alert-16: If you're using this quickstart anywhere but the Ceramic Playground you'll need to authenticate your Ceramic instance. This is a process that's dependent on your setup so we recommend taking a look at our [authentication section](../../build/javascript/authentication.md){:target="_blank"} to ensure you don't have any issues following along.
+    :octicons-alert-16: If you're using this quickstart anywhere but the Ceramic Playground you'll need to authenticate your Ceramic instance. This is a process that's dependent on your setup so we recommend taking a look at our [authentication section](./authentication.md){:target="_blank"} to ensure you don't have any issues following along.
 
-Visit the [Ceramic Client](./javascript/installation.md) page for instructions on how to quickly install the Client.
+Visit the [Ceramic Client](./installation.md) page for instructions on how to quickly install the Client.
 
 ## **2. Create a stream**
-Creating streams is dependent on the StreamType. More details can be found in our [StreamTypes Overview](../streamtypes/overview.md). A basic sample using the [TileDocument StreamType](../streamtypes/tile-document/overview.md) can be found below.
+Creating streams is dependent on the StreamType. More details can be found in our [StreamTypes Overview](../../streamtypes/overview.md). A basic sample using the [TileDocument StreamType](../../streamtypes/tile-document/overview.md) can be found below.
 
 === "Command"
 
@@ -35,7 +35,7 @@ Creating streams is dependent on the StreamType. More details can be found in ou
     ```
 
 ## **3. Query a stream**
-Use the `load()` function to query the current [state](../learn/glossary.md#state) of a stream. You will need to provide it's *StreamID*.
+Use the `load()` function to query the current [state](../../learn/glossary.md#state) of a stream. You will need to provide it's *StreamID*.
 
 === "Command"
 
@@ -52,7 +52,7 @@ Use the `load()` function to query the current [state](../learn/glossary.md#stat
     ```
 
 ## **4. Update a stream**
-Use the `update`  command to update a stream. your [DID](../learn/glossary.md#dids) must be in the [controller](../learn/glossary.md#controllers) of the stream in order to update it. 
+Use the `update`  command to update a stream. your [DID](../../learn/glossary.md#dids) must be in the [controller](../../learn/glossary.md#controllers) of the stream in order to update it. 
 
 === "Command"
 
@@ -101,7 +101,7 @@ TileDocuments can enforce that their contents adhere to a specified schema. The 
     ```
 
 ## **6. Create a TileDocument stream that uses a schema**
-First, use the `rewardSchema.commitId.toString()` to get the current [CommitID](../learn/glossary.md#commitid) of the schema stream. When creating a TileDocument that uses this schema you need to use a CommitID instead of the StreamID. This is to enforce that we are using a specific version of the schema since the schema stream is mutable and can be updated.
+First, use the `rewardSchema.commitId.toString()` to get the current [CommitID](../../learn/glossary.md#commitid) of the schema stream. When creating a TileDocument that uses this schema you need to use a CommitID instead of the StreamID. This is to enforce that we are using a specific version of the schema since the schema stream is mutable and can be updated.
 
 === "Command"
 
@@ -146,7 +146,7 @@ Use `reward.state` to query the state of the TileDocument we just created. We ca
     ```
 
 # **That's it!**
-Congratulations on completing this tutorial! You're well on your way to becoming a Ceramic developer. Now let's [install Ceramic in your project](./javascript/installation.md) or take a look at [IDX](../../tools/idx/overview.md) a framework for interacting with Streams.
+Congratulations on completing this tutorial! You're well on your way to becoming a Ceramic developer. Now let's [install Ceramic in your project](./installation.md) or take a look at [IDX](../../tools/idx/overview.md) a framework for interacting with Streams.
 </br>
 </br>
 </br>
