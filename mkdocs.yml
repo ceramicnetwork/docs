@@ -50,6 +50,7 @@ nav:
         - Choose a client: build/javascript/installation.md
         - HTTP Client: build/javascript/http.md
         - Core Client: build/javascript/core.md
+      - Quickstart: build/javascript/quick-start.md
       - Authentication: build/javascript/authentication.md
       - Writes: build/javascript/writes.md
       - Queries: build/javascript/queries.md
@@ -59,7 +60,6 @@ nav:
         - Installation: build/cli/installation.md
         - API: build/cli/api.md
     - HTTP API:
-        - Quickstart: build/javascript/quick-start.md
         - API: build/http/api.md
     - More:
       - Share your work: build/share.md
@@ -185,4 +185,5 @@ plugins:
             'tools/identity/idx.md': 'tools/idx/overview.md'
             'tools/identity/identitylink.md': 'tools/identitylink/overview.md'
             'tools/identity/self-id.md': 'tools/self-id/overview.md'
+            'build/quick-start': 'build/cli/quick-start.md'
     - search
