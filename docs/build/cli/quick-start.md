@@ -7,10 +7,10 @@ Learn the basics by setting up and interacting with the [Ceramic CLI](./installa
 
 ## **1. Install the CLI**
 
-Visit the [Ceramic CLI](./cli/installation.md) page for instructions on how to quickly install the CLI.
+Visit the [Ceramic CLI](./installation.md) page for instructions on how to quickly install the CLI.
 
 ## **2. Create a stream**
-Use the `create` command to create a new [stream](../learn/glossary.md#streams). In the example below we create a stream that uses the [TileDocument StreamType](../streamtypes/tile-document/overview.md). Note that *TileDocument* is the only [StreamType](../learn/glossary.md#streamtypes) that can currently be created by the Ceramic CLI.
+Use the `create` command to create a new [stream](../../learn/glossary.md#streams). In the example below we create a stream that uses the [TileDocument StreamType](../../streamtypes/tile-document/overview.md). Note that *TileDocument* is the only [StreamType](../../learn/glossary.md#streamtypes) that can currently be created by the Ceramic CLI.
 
 === "Command"
 
@@ -28,7 +28,7 @@ Use the `create` command to create a new [stream](../learn/glossary.md#streams).
     ```
 
     !!! quote ""
-        The first line of the output is the [StreamID](../learn/glossary.md#streamid), which is the persistent identifier of our newly created stream. This StreamID will be different for you, since you created it with your DID. Below the StreamID is the current content of the stream.
+        The first line of the output is the [StreamID](../../learn/glossary.md#streamid), which is the persistent identifier of our newly created stream. This StreamID will be different for you, since you created it with your DID. Below the StreamID is the current content of the stream.
 
 ??? info "More options"
     
@@ -37,7 +37,7 @@ Use the `create` command to create a new [stream](../learn/glossary.md#streams).
     - Run `ceramic create -h` to see all available options
 
 ## **3. Query a stream**
-Use the `show` command to query the current [state](../learn/glossary.md#state) of a stream. You will need to provide its *StreamID*.
+Use the `show` command to query the current [state](../../learn/glossary.md#state) of a stream. You will need to provide its *StreamID*.
 
 === "Command"
 
@@ -140,7 +140,7 @@ Use the `state` command to query the entire state of a stream.
         This output was seen after the anchor has been created. The stream state has now shifted *anchorStatus* to `ANCHORED`. You can also see that the log contains one more entry.
 
 ## **4. Update a stream**
-Use the `update` command to update a stream. Your [DID](../learn/glossary.md#dids) must be the [controller](../learn/glossary.md#controllers) of the stream in order to update it. Note that *TileDocument* is the only StreamType that can currently be updated by the CLI.
+Use the `update` command to update a stream. Your [DID](../../learn/glossary.md#dids) must be the [controller](../../learn/glossary.md#controllers) of the stream in order to update it. Note that *TileDocument* is the only StreamType that can currently be updated by the CLI.
 
 === "Command"
 
@@ -210,7 +210,7 @@ TileDocuments can enforce that their contents adhere to a specified schema. The 
     ```
 
 ## **6. Create a TileDocument stream that uses a schema**
-First, use the `commits` command to list the [commitIDs](../learn/glossary.md#commitid) contained in the schema stream. When creating a TileDocument that uses this schema, we need to use a commitID instead of the StreamID to enforce that we are using a specific version of the schema since the schema stream is mutable and can be updated.
+First, use the `commits` command to list the [commitIDs](../../learn/glossary.md#commitid) contained in the schema stream. When creating a TileDocument that uses this schema, we need to use a commitID instead of the StreamID to enforce that we are using a specific version of the schema since the schema stream is mutable and can be updated.
 
 === "Command"
 
@@ -297,7 +297,7 @@ Use the `state` command to query the state of the TileDocument we just created. 
     ```
 
 # **That's it!**
-Congratulations on completing this tutorial! You're well on your way to becoming a Ceramic developer. Now let's [install Ceramic in your project →](./javascript/installation.md)
+Congratulations on completing this tutorial! You're well on your way to becoming a Ceramic developer. Now let's [install Ceramic in your project →](../javascript/installation.md)
 </br>
 </br>
 </br>
