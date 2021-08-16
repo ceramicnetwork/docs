@@ -12,6 +12,12 @@ The DevTools library exports the `ModelManager` class, that can be used in scrip
 npm install --dev @glazed/devtools
 ```
 
+### Usage
+
+The `ModelManager` class is exported by the `@glazed/devtools` package.
+
+[API reference](../../reference/glaze/classes/devtools.ModelManager.md){: .md-button .md-button .md-button--primary }
+
 ### Creation and edition
 
 The `ModelManager` constructor requires a Ceramic instance, that must be authenticated when calling the creation methods (`createSchema()`, `createDefinition()` and `createTile()`).
@@ -70,6 +76,10 @@ npm install --global @glazed/cli
 ```
 
 The CLI is then accessible as `glaze`.
+
+### Usage
+
+Run `glaze help` to list the available commands. The commands for some common flows are described below.
 
 ### Creation and edition
 

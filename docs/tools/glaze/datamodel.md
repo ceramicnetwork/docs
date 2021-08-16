@@ -118,6 +118,8 @@ You can see these two options being used in the [example page](example.md#4-depl
 
 ### Runtime interactions
 
-[Example usage](example.md#5-runtime-usage){: .md-button }
+The `@glazed/datamodel` package exports the `DataModel` class to interact with a model at runtime.
+
+[API reference](../../reference/glaze/classes/datamodel.DataModel.md){: .md-button .md-button .md-button--primary } [Example usage](example.md#5-runtime-usage){: .md-button }
 
 <br /><br /><br />
