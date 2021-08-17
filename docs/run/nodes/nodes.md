@@ -35,7 +35,7 @@ The js-ceramic node is run as a daemon using Docker or Node.js. By default, Cera
 
 **IPFS Out-of-process**
 
-IPFS can also be in a different process than Ceramic which we refer to as "out-of-process". Running IPFS out-of-process is helpful for more controlled resource allocation, maintenance, debugging, and observability. This is highly recommended if you are planning to be an infrastructure provider for other Ceramic applications.
+The Ceramic daemon can start its own IPFS node internally or it can connect to an externally running IPFS node over HTTP. We refer to the latter as running IPFS "out-of-process". Running IPFS out-of-process is helpful for more controlled resource allocation, maintenance, debugging, and observability. This is highly recommended, especially if you are planning to be an infrastructure provider for other Ceramic applications.
 
 To run IPFS out-of-process, use the [@ceramicnetwork/ipfs-daemon package](https://www.npmjs.com/package/@ceramicnetwork/ipfs-daemon), which is a wrapper around js-ipfs configured specifically for use with Ceramic. Configuration options for the IPFS daemon can be viewed here [https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/ipfs-daemon](https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/ipfs-daemon) and in the source code here [https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/ipfs-daemon/src/ipfs-daemon.ts](https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/ipfs-daemon/src/ipfs-daemon.ts).
 
