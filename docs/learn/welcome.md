@@ -58,6 +58,8 @@ Read the [**blog**](https://blog.ceramic.network){:target="_blank"} for news, an
 
 Watch the [**Youtube channel**](https://www.youtube.com/channel/UCgCLq5dx7sX-yUrrEbtYqVw){:target="_blank"} for videos and presentations
 
+Add the [**Community calendar**](https://calendar.google.com/calendar/b/3?cid=Y2VyYW1pYy5uZXR3b3JrX3JsNzFrcXZtNzE4ZGY4aWk2cDZzanNmbDdjQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20) to join community calls and events
+
 </br>
 </br>
 </br>
