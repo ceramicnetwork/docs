@@ -11,7 +11,7 @@ The following is an overview of the steps you must take to run a Ceramic node. D
 
 1. Running the Daemon
 
-    Determine if you want to run IPFS in-process or out-of-process.
+    Determine if you want to run IPFS in-process or [out-of-process](#ipfs-out-of-process).
 
 2. Data Persistence
 
@@ -33,7 +33,7 @@ The following is an overview of the steps you must take to run a Ceramic node. D
 
 The js-ceramic node is run as a daemon using Docker or Node.js. By default, Ceramic will run an in-process IPFS node on start and will connect to the Clay testnet. Configuration options for the Ceramic daemon can be viewed from the Ceramic CLI with `ceramic daemon --help` and from the js-ceramic source code here [https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/cli/src/bin/ceramic.ts](https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/cli/src/bin/ceramic.ts).
 
-**IPFS Out-of-process**
+#### IPFS Out-of-process
 
 The Ceramic daemon by default will start its own IPFS node internally, but it can also be configured to connect to an externally running IPFS node over HTTP. We refer to the latter as running IPFS "out-of-process". Running IPFS out-of-process is helpful for more controlled resource allocation, maintenance, debugging, and observability. This is highly recommended, especially if you are planning to be an infrastructure provider for other Ceramic applications.
 
