@@ -1,11 +1,11 @@
 # NFT DID Method
 
 !!! warning ""
-    
+
     **NFT DID is alpha.** Please reach out in [Discord](https://chat.ceramic.network) to express a feedback.
 
 The [NFT DID Method (CIP-94)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-94/CIP-94.md) is a [DID method](../../learn/glossary.md#did-methods)
-that can be used to [authenticate](../../build/javascript/authentication.md) to Ceramic to perform [writes](../../build/javascriptwrites.md)
+that can be used to [authenticate](../../build/javascript/authentication.md) to Ceramic to perform [writes](../../build/javascript/writes.md)
 to [streams](../../learn/glossary.md#streams) that rely on DIDs for authentication.
 NFT DID is a lightweight DID method with permissions that change based on on-chain NFT asset ownership.
 
@@ -76,10 +76,8 @@ We support Rinkeby, Etherem mainnet and Polygon networks by default. If you need
 and update configuration of your Ceramic node. There you can find parameters required for a new network.
 Namely, it needs three [subgraphs](https://thegraph.com): for blocks, for erc721 and erc1155 tokens, and a "skew", which is a typical block time.
 
-
 ## **Specification**
+
 Read the [NFT DID Method (CIP-94) Specification](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-94/CIP-94.md).
 
 NFT DID is on the W3C's official DID method registry and is fully compliant with decentralized identity standards.
-
-</br></br></br>

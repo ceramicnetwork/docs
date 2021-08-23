@@ -8,7 +8,6 @@ edit_uri: https://github.com/ceramicnetwork/docs/edit/main/docs/
 # Copyright
 copyright: 'Ceramic is open sourced under MIT and Apache 2'
 
-
 theme:
   name: material
   custom_dir: overrides
@@ -16,7 +15,7 @@ theme:
   static_templates:
     - 404.html
   palette:
-    scheme: default 
+    scheme: default
   logo: images/ceramic-no-shadow.png
   icon:
     repo: fontawesome/brands/github-alt
@@ -30,89 +29,89 @@ theme:
 
 nav:
   - Learn:
-    - Welcome: learn/welcome.md
-    - Mainnet: learn/mainnet.md
-    - Features: learn/features.md
-    - Use cases: learn/use-cases.md
-    - Glossary: learn/glossary.md
-    - Networks: learn/networks.md
-    - Blog: learn/blog.md
-    - Explore:
-      - Explorers: explore/explorers.md
-      - Projects: explore/projects.md
-      - Sample apps: explore/sample-apps.md
-    - Advanced:
-      - Tech overview: learn/advanced/overview.md
-      - Data availability: learn/advanced/data-availability.md
+      - Welcome: learn/welcome.md
+      - Mainnet: learn/mainnet.md
+      - Features: learn/features.md
+      - Use cases: learn/use-cases.md
+      - Glossary: learn/glossary.md
+      - Networks: learn/networks.md
+      - Blog: learn/blog.md
+      - Explore:
+          - Explorers: explore/explorers.md
+          - Projects: explore/projects.md
+          - Sample apps: explore/sample-apps.md
+      - Advanced:
+          - Tech overview: learn/advanced/overview.md
+          - Data availability: learn/advanced/data-availability.md
   - Build:
-    - JavaScript:
-      - Installation:
-        - Choose a client: build/javascript/installation.md
-        - HTTP Client: build/javascript/http.md
-        - Core Client: build/javascript/core.md
-      - Quickstart: build/javascript/quick-start.md
-      - Authentication: build/javascript/authentication.md
-      - Writes: build/javascript/writes.md
-      - Queries: build/javascript/queries.md
-      - Pinning: build/javascript/pinning.md
-    - Command line (CLI):
-        - Quickstart: build/cli/quick-start.md
-        - Installation: build/cli/installation.md
-        - API: build/cli/api.md
-    - HTTP API:
-        - API: build/http/api.md
-    - More:
-      - Share your work: build/share.md
-      - Troubleshooting: build/troubleshooting.md
+      - JavaScript:
+          - Installation:
+              - Choose a client: build/javascript/installation.md
+              - HTTP Client: build/javascript/http.md
+              - Core Client: build/javascript/core.md
+          - Quickstart: build/javascript/quick-start.md
+          - Authentication: build/javascript/authentication.md
+          - Writes: build/javascript/writes.md
+          - Queries: build/javascript/queries.md
+          - Pinning: build/javascript/pinning.md
+      - Command line (CLI):
+          - Quickstart: build/cli/quick-start.md
+          - Installation: build/cli/installation.md
+          - API: build/cli/api.md
+      - HTTP API:
+          - API: build/http/api.md
+      - More:
+          - Share your work: build/share.md
+          - Troubleshooting: build/troubleshooting.md
   - Run:
-    - Nodes:
-      - Community nodes: run/nodes/community-nodes.md
-      - Node Providers: run/nodes/node-providers.md
-      - Hosting a node: run/nodes/nodes.md
-    - Anchor service:
-      - Community CAS: run/cas/community-cas.md
-      - Hosting a CAS: run/cas/cas.md
+      - Nodes:
+          - Community nodes: run/nodes/community-nodes.md
+          - Node Providers: run/nodes/node-providers.md
+          - Hosting a node: run/nodes/nodes.md
+      - Anchor service:
+          - Community CAS: run/cas/community-cas.md
+          - Hosting a CAS: run/cas/cas.md
   - Auth:
-    - 3ID DID:
-      - Method: authentication/3id-did/method.md
-      - Providers: 
-        - 3ID Connect: authentication/3id-did/3id-connect.md
-        - JS 3ID DID Provider: authentication/3id-did/provider.md
-      - Resolver: authentication/3id-did/resolver.md
-      - 3ID Lifecycle: authentication/3id-did/lifecycle.md
-      - 3Box migration: authentication/3id-did/3box-migration.md
-    - Key DID:
-      - Method: authentication/key-did/method.md
-      - Providers: 
-        - JS Key DID Provider Ed25519: authentication/key-did/provider.md
-      - Resolver: authentication/key-did/resolver.md
-    - NFT DID:
-      - Method: authentication/nft-did/method.md
-    - Safe DID:
-      - Method: authentication/safe-did/method.md
+      - 3ID DID:
+          - Method: authentication/3id-did/method.md
+          - Providers:
+              - 3ID Connect: authentication/3id-did/3id-connect.md
+              - JS 3ID DID Provider: authentication/3id-did/provider.md
+          - Resolver: authentication/3id-did/resolver.md
+          - 3ID Lifecycle: authentication/3id-did/lifecycle.md
+          - 3Box migration: authentication/3id-did/3box-migration.md
+      - Key DID:
+          - Method: authentication/key-did/method.md
+          - Providers:
+              - JS Key DID Provider Ed25519: authentication/key-did/provider.md
+          - Resolver: authentication/key-did/resolver.md
+      - NFT DID:
+          - Method: authentication/nft-did/method.md
+      - Safe DID:
+          - Method: authentication/safe-did/method.md
   - StreamTypes:
       - Overview: streamtypes/overview.md
       - Tile Document:
-        - Overview: streamtypes/tile-document/overview.md
-        - API: streamtypes/tile-document/api.md
-        - Schemas:
-          - BasicProfile: streamtypes/tile-document/schemas/basic-profile.md
-          #- 3ID Keychain:
-          #- Also Known As:
-          #- AppendCollection:
+          - Overview: streamtypes/tile-document/overview.md
+          - API: streamtypes/tile-document/api.md
+          - Schemas:
+              - BasicProfile: streamtypes/tile-document/schemas/basic-profile.md
+            #- 3ID Keychain:
+            #- Also Known As:
+            #- AppendCollection:
       - CAIP-10 Link:
-        - Overview: streamtypes/caip-10-link/overview.md
-        - API: streamtypes/caip-10-link/api.md
+          - Overview: streamtypes/caip-10-link/overview.md
+          - API: streamtypes/caip-10-link/api.md
   - Tools:
-    - IDX:
-      - Overview: tools/idx/overview.md
-    - IdentityLink:
-      - Overview: tools/identitylink/overview.md
-    - Self.ID:
-      - Overview: tools/self-id/overview.md
+      - IDX:
+          - Overview: tools/idx/overview.md
+      - IdentityLink:
+          - Overview: tools/identitylink/overview.md
+      - Self.ID:
+          - Overview: tools/self-id/overview.md
   - Reference:
-    - JavaScript: reference/javascript/packages.md
-    - Support a new blockchain: reference/javascript/blockchain.md
+      - JavaScript: reference/javascript/packages.md
+      - Support a new blockchain: reference/javascript/blockchain.md
   - Chat: 'https://chat.ceramic.network'
   - Blog: 'https://blog.ceramic.network'
 
@@ -152,38 +151,38 @@ extra_css:
   - stylesheets/extra.css
 
 plugins:
-    - redirects:
-        redirect_maps:
-            'index.md': 'learn/welcome.md'
-            'try/explorers.md': 'explore/explorers.md'
-            'try/sample-apps.md': 'explore/sample-apps.md'
-            'try/projects.md': 'explore/projects.md'
-            'authentication/wallets/3id-connect.md': 'authentication/3id-did/3id-connect.md'
-            'authentication/dids/3id.md': 'authentication/3id-did/provider.md'
-            'authentication/dids/key.md': 'authentication/key-did/provider.md'
-            'authentication/legacy/3id-connect-migration.md': 'authentication/3id-did/3box-migration.md'
-            'reference/javascript/clients.md': 'clients/http.md'
-            'reference/javascript/did-resolvers.md': 'authentication/3id-did/resolver.md'
-            'reference/javascript/did-providers.md': 'authentication/3id-did/provider.md'
-            'learn/clients.md': 'clients/javascript/http.md'
-            'build/configure-did.md': 'clients/javascript/http.md'
-            'run/nodes.md': 'run/nodes/nodes.md'
-            'reference/javascript/anchor-service.md': 'run/cas/cas.md'
-            'learn/data-availability.md': 'learn/advanced/data-availability.md'
-            'learn/overview.md': 'learn/advanced/overview.md'
-            'clients/javascript/cli.md': 'build/cli/installation.md'
-            'build/installation.md': 'build/javascript/installation.md'
-            'clients/javascript/http.md': 'build/javascript/installation.md#js-http-client'
-            'clients/javascript/core.md': 'build/javascript/installation.md#js-core-client'
-            'build/authentication.md': 'build/javascript/authentication.md'
-            'build/writes.md': 'build/javascript/writes.md'
-            'build/queries.md': 'build/javascript/queries.md'
-            'build/pinning.md': 'build/javascript/pinning.md'
-            'reference/http-api.md': 'build/http/api.md'
-            'tools/hosted-nodes/community-nodes.md': 'run/nodes/community-nodes.md'
-            'tools/hosted-nodes/node-providers.md': 'run/nodes/node-providers.md'
-            'tools/identity/idx.md': 'tools/idx/overview.md'
-            'tools/identity/identitylink.md': 'tools/identitylink/overview.md'
-            'tools/identity/self-id.md': 'tools/self-id/overview.md'
-            'build/quick-start': 'build/cli/quick-start.md'
-    - search
+  - redirects:
+      redirect_maps:
+        'index.md': 'learn/welcome.md'
+        'try/explorers.md': 'explore/explorers.md'
+        'try/sample-apps.md': 'explore/sample-apps.md'
+        'try/projects.md': 'explore/projects.md'
+        'authentication/wallets/3id-connect.md': 'authentication/3id-did/3id-connect.md'
+        'authentication/dids/3id.md': 'authentication/3id-did/provider.md'
+        'authentication/dids/key.md': 'authentication/key-did/provider.md'
+        'authentication/legacy/3id-connect-migration.md': 'authentication/3id-did/3box-migration.md'
+        'reference/javascript/clients.md': 'build/javascript/http.md'
+        'reference/javascript/did-resolvers.md': 'authentication/3id-did/resolver.md'
+        'reference/javascript/did-providers.md': 'authentication/3id-did/provider.md'
+        'learn/clients.md': 'build/javascript/http.md'
+        'build/configure-did.md': 'build/javascript/http.md'
+        'run/nodes.md': 'run/nodes/nodes.md'
+        'reference/javascript/anchor-service.md': 'run/cas/cas.md'
+        'learn/data-availability.md': 'learn/advanced/data-availability.md'
+        'learn/overview.md': 'learn/advanced/overview.md'
+        'clients/javascript/cli.md': 'build/cli/installation.md'
+        'build/installation.md': 'build/javascript/installation.md'
+        'clients/javascript/http.md': 'build/javascript/http.md'
+        'clients/javascript/core.md': 'build/javascript/core.md'
+        'build/authentication.md': 'build/javascript/authentication.md'
+        'build/writes.md': 'build/javascript/writes.md'
+        'build/queries.md': 'build/javascript/queries.md'
+        'build/pinning.md': 'build/javascript/pinning.md'
+        'reference/http-api.md': 'build/http/api.md'
+        'tools/hosted-nodes/community-nodes.md': 'run/nodes/community-nodes.md'
+        'tools/hosted-nodes/node-providers.md': 'run/nodes/node-providers.md'
+        'tools/identity/idx.md': 'tools/idx/overview.md'
+        'tools/identity/identitylink.md': 'tools/identitylink/overview.md'
+        'tools/identity/self-id.md': 'tools/self-id/overview.md'
+        'build/quick-start.md': 'build/cli/quick-start.md'
+  - search

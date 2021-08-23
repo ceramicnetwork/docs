@@ -28,7 +28,3 @@ Self.ID is built using the Ceramic [JS HTTP Client](../../build/javascript/insta
 ## **Maintainers**
 
 Self.ID is maintained by [3Box Labs](https://3boxlabs.com).
-
-</br>
-</br>
-</br>

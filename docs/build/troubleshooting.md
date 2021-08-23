@@ -2,7 +2,7 @@
 
 ## Known Issues
 
-If you encounter an issue, see if it's already known with a recommended work around or currently under investigation in [this document](https://www.notion.so/threebox/Known-Issues-16ae23c495f74b44af050555bc02d270). Leave feedback or notes in the comment if something is unclear or out of date. 
+If you encounter an issue, see if it's already known with a recommended work around or currently under investigation in [this document](https://www.notion.so/threebox/Known-Issues-16ae23c495f74b44af050555bc02d270). Leave feedback or notes in the comment if something is unclear or out of date.
 
 ## Developer Chat
 

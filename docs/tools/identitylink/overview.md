@@ -42,7 +42,3 @@ Point to the relevant instructions on how to run it yourself.
 ## Learn more
 
 Visit the [IdentityLink repository](https://github.com/ceramicstudio/identitylink-services) on Github for full documentation.
-
-</br>
-</br>
-</br>
