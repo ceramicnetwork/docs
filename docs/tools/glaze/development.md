@@ -67,6 +67,32 @@ The model can be deployed to the Ceramic node attached to the manager by calling
 const publishedModel = await manager.toPublished()
 ```
 
+### Example: using IDX models
+
+In this example, we will import and publish the datamodels defined by the [CIP-19 "Basic Profile"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-19/CIP-19.md), [CIP-21 "Crypto Accounts"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-21/CIP-21.md) and [CIP-23 "Also Known As"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-23/CIP-23.md) specifications.
+
+First, we need to install these datamodels using npm:
+
+```sh
+npm install --dev @datamodels/identity-profile-basic @datamodels/identity-accounts-crypto @datamodels/identity-accounts-web
+```
+
+We can then use them in a script, following the steps decribed above:
+
+```ts
+import { ModelManager } from '@glazed/devtools'
+import { model as basicProfileModel } from '@datamodels/identity-profile-basic'
+import { model as cryptoAccountsModel } from '@datamodels/identity-accounts-crypto'
+import { model as webAccountsModel } from '@datamodels/identity-accounts-web'
+
+const manager = new ModelManager(ceramic)
+manager.addJSONModel(basicProfileModel)
+manager.addJSONModel(cryptoAccountsModel)
+manager.addJSONModel(webAccountsModel)
+
+const published = await manager.toPublished()
+```
+
 ## CLI
 
 ### Installation
@@ -162,5 +188,25 @@ glaze model:publish my-model ./published-model.json
 ```
 
 This output file can then be used by the [DataModel runtime](datamodel.md#datamodel-runtime).
+
+### Example: using IDX models
+
+In this example, we will import and publish the datamodels defined by the [CIP-19 "Basic Profile"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-19/CIP-19.md), [CIP-21 "Crypto Accounts"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-21/CIP-21.md) and [CIP-23 "Also Known As"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-23/CIP-23.md) specifications.
+
+First, we need to install these datamodels using npm:
+
+```sh
+npm install --dev @datamodels/identity-profile-basic @datamodels/identity-accounts-crypto @datamodels/identity-accounts-web
+```
+
+We can then import them when using the CLI in a folder where these npm packages can be resolved from, using the steps described above:
+
+```sh
+glaze model:create idx
+glaze model:import idx @datamodels/identity-profile-basic
+glaze model:import idx @datamodels/identity-accounts-crypto
+glaze model:import idx @datamodels/identity-accounts-web
+glaze model:publish idx
+```
 
 <br /><br /><br />
