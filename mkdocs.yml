@@ -130,6 +130,22 @@ nav:
       - DevTools:
         - Module: reference/glaze/modules/devtools.md
         - ModelManager class: reference/glaze/classes/devtools.ModelManager.md
+    - Self.ID:
+      - Overview: reference/self-id/overview.md
+      - Core:
+        - Module: reference/self-id/modules/core.md
+        - Core class: reference/self-id/classes/core.Core.md
+        - PublicID class: reference/self-id/classes/core.PublicID.md
+      - Web:
+        - Module: reference/self-id/modules/web.md
+        - WebClient class: reference/self-id/classes/web.WebClient.md
+        - SelfID class: reference/self-id/classes/web.SelfID.md
+      - Image utilities:
+        - Module: reference/self-id/modules/image_utils.md
+        - ImageMetadata interface: reference/self-id/interfaces/image_utils.ImageMetadata.md
+        - ImageSources interface: reference/self-id/interfaces/image_utils.ImageSources.md
+      - 3Box Legacy:
+        - Module: reference/self-id/modules/3box_legacy.md
   - Guides:
       - Support a new blockchain: reference/javascript/blockchain.md
   - Chat: 'https://chat.ceramic.network'
