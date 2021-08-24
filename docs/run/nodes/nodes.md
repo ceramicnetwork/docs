@@ -250,34 +250,6 @@ The ipfs-daemon designed for use with Ceramic has the IPFS node discovery mechan
 
 Once you have fully configured your Ceramic node with this guide and have a way to persist its configuration and state, submit a pull request to the peerlist with your Ceramic IPFS node multiaddress. Once your multiaddress is added, you will be able to stay connected to other nodes in the network.
 
-#### Network Traffic
-
-Even with a peerlist we have seen some issues with js-ipfs nodes staying connected. This can be mitigated by ensuring that your node is creating regular pubsub traffic in the network to prevent the websocket connections to other nodes from being dropped. Below is an example of generating this pubsub traffic in a simple bash script. This script should be run at regular intervals (we recommend every 2 minutes) and can be used in AWS Lambda, Google Cloud Functions or a [crontab](https://cronitor.io/cron-reference?):
-
-```bash
-#!/bin/bash
-
-# This script can be used in AWS Lambda, Google Cloud Functions, or a crontab
-
-HOST_URL="https://your.ceramic.node.api.address"
-
-function handler () {
-    DATA_PART_1='{"type": 0, "genesis": {"header": {"family": "test-'
-    TS=$(date +%s) # Unix timestamp
-    DATA_PART_2='","controllers": ["your_did_key"]}},"opts": { "anchor": false, "publish": true, "syncTimeoutSeconds": 0 }}'
-
-    RESPONSE=$(
-        curl $HOST_URL/api/v0/streams \
-        -X POST \
-        -d "$DATA_PART_1$TS$DATA_PART_2" \
-        -H 'Content-Type: application/json'
-    )
-    echo $RESPONSE
-}
-
-handler
-```
-
 ## Observability
 
 Ceramic has a debug mode that you can enable using the `--debug` flag. This will allow you to see all logs printed to your console, including debug logs, API requests, events, and errors.
