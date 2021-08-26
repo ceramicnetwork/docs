@@ -1,6 +1,6 @@
 # HTTP API
 
-The HTTP API allows you to manually make REST HTTP requests to write, query, and pin streams on a remote Ceramic node. If you are building an application, you will usually interact with Ceramic using a client, such as the [**JS HTTP Client**](../javascript/installation.md#js-http-client) or the [**JS Core Client**](../javascript/installation.md#js-core-client). 
+The HTTP API allows you to manually make REST HTTP requests to write, query, and pin streams on a remote Ceramic node. If you are building an application, you will usually interact with Ceramic using a client, such as the [**JS HTTP Client**](../javascript/installation.md#js-http-client) or the [**JS Core Client**](../javascript/installation.md#js-core-client).
 
 However the HTTP API is useful if:
 
@@ -8,14 +8,15 @@ However the HTTP API is useful if:
 - You want to implement an HTTP client in a new language
 
 !!! warning "Gateway mode"
-    
-    Some HTTP API methods will not be available if the Ceramic node you are using runs in *gateway mode*. This option disables writes, which is useful when exposing your node to the internet. **API methods that are disabled when running in gateway mode will be clearly marked.** For examples of gateways, see [Community Nodes: Gateways](../../tools/hosted-nodes/community-nodes.md#gateways).
+
+    Some HTTP API methods will not be available if the Ceramic node you are using runs in *gateway mode*. This option disables writes, which is useful when exposing your node to the internet. **API methods that are disabled when running in gateway mode will be clearly marked.** For examples of gateways, see [Community Nodes: Gateways](../../run/nodes/community-nodes.md#gateways).
 
 ## **Streams**
 
 The `stream` endpoint is used to create new streams and to load streams from their StreamID or from their genesis content.
 
 ### Get stream state
+
 Load the state of a stream given its StreamID.
 
 === "Request"
@@ -27,7 +28,7 @@ Load the state of a stream given its StreamID.
     Here, `:streamid` should be replaced by the StreamID of the stream that is being requested.
 
 === "Response"
-    The response body contains the following fields:
+The response body contains the following fields:
 
     - `streamId` - the StreamID of the requested stream as string
     - `state` - the state of the requested stream as [StreamState](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.streamstate-1.html){:target="_blank"}
@@ -138,9 +139,11 @@ This example creates a `TileDocument` from an unsigned genesis commit. Note that
     ```
 
 ## **Multiqueries**
+
 The `multiqueries` endpoint enables querying multiple streams at once, as well as querying streams which are linked.
 
 ### Query multiple streams
+
 This endpoint allows you to query multiple StreamIDs. Along with each StreamID an array of paths can be passed. If any of the paths within the stream structure contains a Ceramic StreamID url (`ceramic://<StreamID>`), this linked stream will also be returned as part of the response.
 
 === "Request"
@@ -302,7 +305,7 @@ The `commits` endpoint provides lower level access to the data structure of a Ce
 
 ### Get all stream commits
 
-By calling GET on the *commits* endpoint along with a StreamID gives you access to all of the commits of the given stream. This is useful if you want to inspect the stream history, or apply all of the commits to a Ceramic node that is not connected to the network.
+By calling GET on the _commits_ endpoint along with a StreamID gives you access to all of the commits of the given stream. This is useful if you want to inspect the stream history, or apply all of the commits to a Ceramic node that is not connected to the network.
 
 === "Request"
 
@@ -371,7 +374,7 @@ By calling GET on the *commits* endpoint along with a StreamID gives you access 
 
 **:octicons-alert-16: Disabled in gateway mode**
 
-In order to modify a stream we apply a commit to its log. This commit usually contains a signature over a *json-patch* diff describing a modification to the stream contents. The commit also needs to contain pointers to the previous commit and other metadata. You can read more about this in the [Ceramic Specification](https://github.com/ceramicnetwork/ceramic/blob/master/SPECIFICATION.md#document-records){:target="_blank"}. Different stream types may have different formats for their commits. If you want to see an example implementation for how to construct a commit you can have a look at the implementation of the TileDocument.
+In order to modify a stream we apply a commit to its log. This commit usually contains a signature over a _json-patch_ diff describing a modification to the stream contents. The commit also needs to contain pointers to the previous commit and other metadata. You can read more about this in the [Ceramic Specification](https://github.com/ceramicnetwork/ceramic/blob/master/SPECIFICATION.md#document-records){:target="\_blank"}. Different stream types may have different formats for their commits. If you want to see an example implementation for how to construct a commit you can have a look at the implementation of the TileDocument.
 
 === "Request"
 
@@ -455,8 +458,6 @@ In order to modify a stream we apply a commit to its log. This commit usually co
       }
     }
     ```
-
-
 
 ## **Pins**
 
@@ -606,7 +607,8 @@ This method is used to check if a particular stream is in the pinset.
 The methods under the `/node` path provides more information about this particular node.
 
 ### Supported blockchains for anchoring
-Get all of the [CAIP-2](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-2.md) *chainIds* supported by this node.
+
+Get all of the [CAIP-2](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-2.md) _chainIds_ supported by this node.
 
 === "Request"
 
@@ -663,7 +665,3 @@ Check the health of the node and the machine it's running on. Run `ceramic daemo
     ```bash
     Alive!
     ```
-
-</br>
-</br>
-</br>

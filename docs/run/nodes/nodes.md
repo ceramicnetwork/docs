@@ -1,4 +1,5 @@
 # Hosting a node
+
 This guide describes how to run a Ceramic node that can be used as a remote node by the [JS HTTP Client](../../build/javascript/installation.md#js-http-client) or the [CLI](../../build/cli/installation.md#4-configure-a-node-url). It is best to start by connecting to the Clay testnet, however, you do not need to run your own node to use testnet. You can get started with Ceramic right away by using a community node: [https://developers.ceramic.network/run/nodes/community-nodes/](https://developers.ceramic.network/run/nodes/community-nodes/)
 
 When you are ready to get on mainnet, reach out to the 3Box team on Discord: [https://discord.gg/tsQXsG8Sde](https://discord.gg/tsQXsG8Sde). For now, mainnet is currently limited to early partners.
@@ -9,11 +10,11 @@ When you are ready to get on mainnet, reach out to the 3Box team on Discord: [ht
 
 The following is an overview of the steps you must take to run a Ceramic node. Details for each step are described in this document.
 
-1. Running the Daemon
+1.  Running the Daemon
 
     Determine if you want to run IPFS in-process or [out-of-process](#ipfs-out-of-process).
 
-2. Data Persistence
+2.  Data Persistence
 
     Determine your mechanism for data persistence and ensuring your IPFS multiaddress will not change.
 
@@ -21,11 +22,11 @@ The following is an overview of the steps you must take to run a Ceramic node. D
 
         Data persistence is the most critical step to properly run a Ceramic node.
 
-3. Resource Allocation and Networking
+3.  Resource Allocation and Networking
 
     Run your Ceramic node and IPFS with data persistence and networking configured.
 
-4. Staying Connected
+4.  Staying Connected
 
     Submit a pull request to the [Ceramic peerlist](https://github.com/ceramicnetwork/peerlist) with the multiaddress of your IPFS node. Once your pull request is merged in, restart your Ceramic node.
 
@@ -37,7 +38,7 @@ The js-ceramic node is run as a daemon using Docker or Node.js. By default, Cera
 
 The Ceramic daemon by default will start its own IPFS node internally, but it can also be configured to connect to an externally running IPFS node over HTTP. We refer to the latter as running IPFS "out-of-process". Running IPFS out-of-process is helpful for more controlled resource allocation, maintenance, debugging, and observability. This is highly recommended, especially if you are planning to be an infrastructure provider for other Ceramic applications.
 
-When connecting to an out-of-process IPFS node, it is important that the IPFS node be configured with support for the dagJose plugin that Ceramic relies on.  DagJose support is not included in IPFS by default, so we have provided the [@ceramicnetwork/ipfs-daemon package](https://www.npmjs.com/package/@ceramicnetwork/ipfs-daemon), which is a wrapper around js-ipfs configured with dagJose support specifically for use with Ceramic. Configuration options for the IPFS daemon can be viewed here [https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/ipfs-daemon](https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/ipfs-daemon) and in the source code here [https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/ipfs-daemon/src/ipfs-daemon.ts](https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/ipfs-daemon/src/ipfs-daemon.ts).
+When connecting to an out-of-process IPFS node, it is important that the IPFS node be configured with support for the dagJose plugin that Ceramic relies on. DagJose support is not included in IPFS by default, so we have provided the [@ceramicnetwork/ipfs-daemon package](https://www.npmjs.com/package/@ceramicnetwork/ipfs-daemon), which is a wrapper around js-ipfs configured with dagJose support specifically for use with Ceramic. Configuration options for the IPFS daemon can be viewed here [https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/ipfs-daemon](https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/ipfs-daemon) and in the source code here [https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/ipfs-daemon/src/ipfs-daemon.ts](https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/ipfs-daemon/src/ipfs-daemon.ts).
 
 The rest of this guide assumes you are running IPFS out-of-process.
 
@@ -102,7 +103,7 @@ ceramic daemon \
 
 To run a Ceramic node in production, it is critical to persist the IPFS repo and the Ceramic state store. The form of storage you choose should also be configured for disaster recovery with data redundancy, some form of snapshotting and/or backups.
 !!! warning ""
-    **Loss of this data can result in permanent loss of Ceramic streams and will cause your node to be in a corrupt state.**
+**Loss of this data can result in permanent loss of Ceramic streams and will cause your node to be in a corrupt state.**
 
 The IPFS repo and the Ceramic state store are stored on your machine's filesystem by default. The IPFS repo defaults to a directory called `ipfs` located wherever you run the `ceramic daemon` command (or the `ipfs-daemon` process when running IPFS out-of-process). The Ceramic state store defaults to `~/.ceramic/statestore`.
 
@@ -115,10 +116,10 @@ You can also use AWS S3 for data storage which is supported for both Ceramic and
 The IPFS repo holds configuration settings and all the raw IPFS data for the Ceramic streams used by your node. It is essential to keep the file names `config` generated by IPFS so that your node can stay connected to the Ceramic network. This file is located at the root of the IPFS repo directory.
 
 !!! info ""
-    The IPFS config file holds your node's private key which is used to generate your node's peerId and multiaddress. If this file is deleted it will be re-created on start with a different key, peerId and multiaddress. This will result in your node and the rest of the network not being able to connect to each other.
+The IPFS config file holds your node's private key which is used to generate your node's peerId and multiaddress. If this file is deleted it will be re-created on start with a different key, peerId and multiaddress. This will result in your node and the rest of the network not being able to connect to each other.
 
 !!! warning ""
-    Environment variables should be written to your profile file, or otherwise injected into your environment on start so that they persist between reboots.
+Environment variables should be written to your profile file, or otherwise injected into your environment on start so that they persist between reboots.
 
 #### **Option A. Volume Storage**
 
@@ -156,10 +157,7 @@ export IPFS_BACKEND_DATASTORE="s3"
         "s3:DeleteObject"
       ],
       "Effect": "Allow",
-      "Resource": [
-          "ipfs_bucket_arn",
-          "ipfs_bucket_arn/*"
-      ]
+      "Resource": ["ipfs_bucket_arn", "ipfs_bucket_arn/*"]
     }
   ]
 }
@@ -196,10 +194,7 @@ ceramic daemon --state-store-s3-bucket bucket_name ...
         "s3:DeleteObject"
       ],
       "Effect": "Allow",
-      "Resource": [
-          "state_store_bucket_arn",
-          "state_store_bucket_arn/*"
-      ]
+      "Resource": ["state_store_bucket_arn", "state_store_bucket_arn/*"]
     }
   ]
 }
@@ -226,17 +221,17 @@ The IPFS node uses less than 30% of CPU at any given time and requires about 2.5
 The Ceramic daemon serves an API that you will use to interact with your Ceramic node. The default API port is `7007`. Make sure this port is available to whatever clients you plan to use.
 
 !!! info ""
-    Healthchecks can be run against the API endpoint `/api/v0/node/healthcheck`.
+Healthchecks can be run against the API endpoint `/api/v0/node/healthcheck`.
 
 ### IPFS
 
 Your Ceramic node connects to the Ceramic network by using IPFS. IPFS nodes connect to each other using a Libp2p module called "switch" (aka "swarm"). This module operates over a websocket, on port `4011` by default. The websocket port must be accessible by the internet so your Ceramic node can be connected to the network.
 
 !!! info ""
-    We recommend using SSL for a secure websocket (port `4012` by default).
+We recommend using SSL for a secure websocket (port `4012` by default).
 
 !!! info ""
-    Healthchecks can be run against the `HEALTHCHECK_PORT` (port `8011` by default) when `HEALTHCHECK_ENABLED` is `true`.
+Healthchecks can be run against the `HEALTHCHECK_PORT` (port `8011` by default) when `HEALTHCHECK_ENABLED` is `true`.
 
 #### **Out-of-process**
 
@@ -287,7 +282,5 @@ For observability, it is best to have these logs written to files to debug any i
 Request and event logs are written in [logfmt](https://brandur.org/logfmt). This makes them easy to import into [Grafana](https://grafana.com/) dashboards using a log scraping agent like [Promtail](https://grafana.com/docs/loki/latest/clients/promtail/) and a log aggregator like [Loki](https://grafana.com/docs/loki/latest/), which can be used as a data source for Grafana. An example of such a setup can be found here: [https://github.com/3box/ceramic-stats](https://github.com/3box/ceramic-stats)
 
 ## **Next steps**
+
 Congratulations! You have now set up a hosted Ceramic node that is ready to receive HTTP requests from the local environment, the [JS HTTP Client](../../build/javascript/installation.md#js-http-client), the [CLI](../../build/cli/installation.md#4-configure-a-node-url), or to simply serve as another node to replicate and pin streams.
-
-</br></br></br>
-
