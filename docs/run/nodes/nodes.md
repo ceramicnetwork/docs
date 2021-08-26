@@ -35,7 +35,8 @@ The following is an overview of the steps you must take to run a Ceramic node. D
 The js-ceramic node is run as a daemon using Docker or Node.js. By default, Ceramic will run an in-process IPFS node on start and will connect to the Clay testnet.
 
 **Configuration**
-Configuration options for the Ceramic daemon can be viewed from the Ceramic CLI with `ceramic daemon --help` and from the [js-ceramic source code](https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/cli/src/bin/ceramic.ts). The daemon can be configured with a JSON file which is created on start and located at `$HOME/.ceramic/daemon.config.json`. You may also use command line flags, but note that they are deprecated.
+The Ceramic daemon can be configured with a JSON file which is created on start and located at `$HOME/.ceramic/daemon.config.json`. Configuration options can be viewed in the [reference documentation for the DaemonConfig class](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_cli.daemonconfig.html).
+You may also set these options with command line flags which can be viewed from the Ceramic CLI with `ceramic daemon --help`, but note that these CLI flags are deprecated.
 
 #### IPFS Out-of-process
 
