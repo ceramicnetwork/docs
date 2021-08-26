@@ -49,7 +49,7 @@ There are currently three Ceramic networks: `mainnet`, `testnet-clay`, and `dev-
 
 **Restarting the process**
 
-Ceramic and IPFS will not automatically restart if they crash. You should configure your own restart mechanism and you must ensure data persistence between restarts. If the multiaddress changes for any reason (your node goes down or restarts without pulling in an existing config file), you will need to submit another a new pull request to the peerlist with the updated multiaddress. If your multiaddress is not persisted, your node will regenerate this file upon restarting with a new address and all other nodes on the network will lose connection to you. 
+Ceramic and IPFS will not automatically restart if they crash. You should configure your own restart mechanism and you must ensure data persistence between restarts. If the multiaddress changes for any reason (your node goes down or restarts without pulling in an existing config file), your node will regenerate this file upon restarting with a new address and all other nodes on the network will lose connection to you. 
 
 ### Terraform
 
