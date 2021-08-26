@@ -14,7 +14,7 @@ The first step in adding authentication to your project is choosing which DID me
 
 [**Key DID Method**](../../authentication/key-did/method.md): A lightweight DID method that only supports one key and cannot handle rotations
 
-[**NFT DID Method**](../../authentication/nft-did/method.md) _coming soon_: A lightweight DID method with permissions that change based on on-chain NFT asset ownership
+[**NFT DID Method**](../../authentication/nft-did/method.md): A lightweight DID method with permissions that change based on on-chain NFT asset ownership
 
 [**Safe DID Method**](../../authentication/safe-did/method.md) _coming soon_: A lightweight DID method with permissions that change based on on-chain [Gnosis Safe](https://gnosis-safe.io/) contract permissions
 
