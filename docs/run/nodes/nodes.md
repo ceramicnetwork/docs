@@ -103,7 +103,6 @@ ceramic daemon \
 ## Data Persistence
 
 To run a Ceramic node in production, it is critical to persist the multiaddress, IPFS repo and the Ceramic state store. The form of storage you choose should also be configured for disaster recovery with data redundancy, some form of snapshotting and/or backups.
-    !!! warning ""
 
 **Loss of this data can result in permanent loss of Ceramic streams and will cause your node to be in a corrupt state.**
 
