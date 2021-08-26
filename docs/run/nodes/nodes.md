@@ -77,7 +77,7 @@ docker inspect -f \
 docker pull ceramicnetwork/js-ceramic:latest
 ```
 
-Run Ceramic configured via JSON file
+#### Option A. Run Ceramic configured via JSON file
 ```
 docker run -d \
   -p 7007:7007 \
@@ -87,36 +87,9 @@ docker run -d \
   --name js-ceramic \
   ceramicnetwork/js-ceramic:latest
 ```
-```json
-{
-    "anchor": {
-        "ethereum-rpc-url": "https://eg_infura_endpoint" // Replace with an Ethereum RPC endpoint to avoid rate limiting
-    },
-    "http-api": {
-        "cors-allowed-origins": [
-            ".*"
-        ]
-    },
-    "ipfs": {
-        "mode": "remote", // Use "remote" for IPFS out-of-process or "bundled" for in-process
-        "host": "http://ipfs_ip_address_from_above:5011"
-    },
-    "logger": {
-        "log-level": 2, // 0 is most verbose
-        "log-to-files": true
-    },
-    "network": {
-        "name": "mainnet", // Connect to mainnet, testnet-clay, or dev-unstable
-    },
-    "node": {},
-    "state-store": {
-        "mode": "fs",
-        "local-directory": "/path_for_ceramic_statestore" // Defaults to $HOME/.ceramic/statestore
-    }
-}
-```
+See: [Example daemon.config.json](#example-daemonconfigjson)
 
-Run Ceramic configured via CLI flags
+#### Option B. Run Ceramic configured via CLI flags
 ```
 docker run -d \
   -p 7007:7007 \
@@ -144,10 +117,22 @@ ipfs-daemon
 npm install -g @ceramicnetwork/cli
 ```
 
-Run Ceramic configured via JSON file
+#### Option A. Run Ceramic configured via JSON file
 ```bash
 ceramic daemon
 ```
+See: Example [daemon.config.json](#example-daemonconfigjson)
+
+#### Option B. Run Ceramic configured via CLI flags
+```
+ceramic daemon \
+  --network mainnet \
+  --ethereum-rpc https://eg_infura_endpoint \
+  --log-to-files \
+  --ipfs-api http://localhost:5011 # Remove this line to run IPFS in-process
+```
+
+### Example daemon.config.json
 ```json
 {
     "anchor": {
@@ -160,7 +145,7 @@ ceramic daemon
     },
     "ipfs": {
         "mode": "remote", // Use "remote" for IPFS out-of-process or "bundled" for in-process
-        "host": "http://localhost:5011"
+        "host": "http://ipfs_ip_address:5011"
     },
     "logger": {
         "log-level": 2, // 0 is most verbose
@@ -175,15 +160,6 @@ ceramic daemon
         "local-directory": "/path_for_ceramic_statestore" // Defaults to $HOME/.ceramic/statestore
     }
 }
-```
-
-Run Ceramic configured via CLI flags
-```
-ceramic daemon \
-  --network mainnet \
-  --ethereum-rpc https://eg_infura_endpoint \
-  --log-to-files \
-  --ipfs-api http://localhost:5011 # Remove this line to run IPFS in-process
 ```
 
 ## Data Persistence
