@@ -28,7 +28,7 @@ The following is an overview of the steps you must take to run a Ceramic node. D
 
 4.  Staying Connected
 
-    Submit a pull request to the [Ceramic peerlist](https://github.com/ceramicnetwork/peerlist) with the multiaddress of your IPFS node and, for mainnet nodes, a description of the data persistence setup for the multiaddress, Ceramic State Store and IPFS Repo. 
+    Submit a pull request to the [Ceramic peerlist](https://github.com/ceramicnetwork/peerlist) with the multiaddress of your IPFS node, the IP address for your Ceramic node, and a description of the data persistence setup for the multiaddress, Ceramic State Store and IPFS Repo. Once your pull request is merged in you will be connected to the Ceramic network and the Ceramic Anchor Service.
 
 
 ## Running the Daemon
