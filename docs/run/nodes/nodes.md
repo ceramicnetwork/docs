@@ -244,7 +244,8 @@ The ipfs-daemon designed for use with Ceramic has the IPFS node discovery mechan
 
 #### Peerlist
 
-Once you have fully configured your Ceramic node with this guide and have a way to persist its configuration and state, submit a pull request to the peerlist with your Ceramic IPFS node multiaddress and a brief description of your data persistence setup. When a pull request is submitted, it triggers a connectivity test to ensure the node can successfully connect to the network. If this fails, the 3Box Labs team will reach out to you directly to triage the issue. Make sure there are no firewalls blocking your instance and that your port is properly exposed. Once your multiaddress is added, you will be able to stay connected to other nodes in the network.
+Once you have fully configured your Ceramic node with this guide and have a way to persist its configuration and state, submit a pull request to the peerlist with the multiaddress of your IPFS node, the IP address for your Ceramic node, and a brief description of your data persistence setup for the Ceramic State Store and IPFS Repo. When a pull request is submitted, it triggers a connectivity test to ensure the node can successfully connect to the network. If this fails, the 3Box Labs team will reach out to you directly to triage the issue. Make sure there are no firewalls blocking your instance and that your port is properly exposed. Once your multiaddress is added, you will be able to stay connected to other nodes in the network.
+
 
 #### Network Traffic
 
