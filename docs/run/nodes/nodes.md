@@ -20,7 +20,7 @@ The following is an overview of the steps you must take to run a Ceramic node. D
 
     !!! warning ""
 
-        Data persistence is the most critical step to properly run a Ceramic node.
+        Data persistence is the most critical step to properly run a Ceramic node. It is critical to persist the multiaddress for network connectivity, and the Ceramic State Store and IPFS Repo to persist stream data, as there are currently no guarantees that another node is keeping a copy of the data. 
 
 3.  Resource Allocation and Networking
 
@@ -28,7 +28,8 @@ The following is an overview of the steps you must take to run a Ceramic node. D
 
 4.  Staying Connected
 
-    Submit a pull request to the [Ceramic peerlist](https://github.com/ceramicnetwork/peerlist) with the multiaddress of your IPFS node. Once your pull request is merged in, restart your Ceramic node.
+    Submit a pull request to the [Ceramic peerlist](https://github.com/ceramicnetwork/peerlist) with the multiaddress of your IPFS node, the IP address for your Ceramic node, and a description of the data persistence setup for the multiaddress, Ceramic State Store and IPFS Repo. Once your pull request is merged in you will be connected to the Ceramic network and the Ceramic Anchor Service.
+
 
 ## Running the Daemon
 
@@ -48,7 +49,7 @@ There are currently three Ceramic networks: `mainnet`, `testnet-clay`, and `dev-
 
 **Restarting the process**
 
-Ceramic and IPFS will not automatically restart if they crash. You should configure your own restart mechanism and you must ensure data persistence between restarts.
+Ceramic and IPFS will not automatically restart if they crash. You should configure your own restart mechanism and you must ensure data persistence between restarts. If the multiaddress changes for any reason (your node goes down or restarts without pulling in an existing config file), your node will regenerate this file upon restarting with a new address and all other nodes on the network will lose connection to you. 
 
 ### Terraform
 
@@ -101,7 +102,7 @@ ceramic daemon \
 
 ## Data Persistence
 
-To run a Ceramic node in production, it is critical to persist the IPFS repo and the Ceramic state store. The form of storage you choose should also be configured for disaster recovery with data redundancy, some form of snapshotting and/or backups.
+To run a Ceramic node in production, it is critical to persist the multiaddress, IPFS repo and the Ceramic state store. The form of storage you choose should also be configured for disaster recovery with data redundancy, some form of snapshotting and/or backups.
 !!! warning ""
 **Loss of this data can result in permanent loss of Ceramic streams and will cause your node to be in a corrupt state.**
 
@@ -243,7 +244,7 @@ The ipfs-daemon designed for use with Ceramic has the IPFS node discovery mechan
 
 #### Peerlist
 
-Once you have fully configured your Ceramic node with this guide and have a way to persist its configuration and state, submit a pull request to the peerlist with your Ceramic IPFS node multiaddress. Once your multiaddress is added, you will be able to stay connected to other nodes in the network.
+Once you have fully configured your Ceramic node with this guide and have a way to persist its configuration and state, submit a pull request to the peerlist with your Ceramic IPFS node multiaddress and a brief description of your data persistence setup. When a pull request is submitted, it triggers a connectivity test to ensure the node can successfully connect to the network. If this fails, the 3Box Labs team will reach out to you directly to triage the issue. Make sure there are no firewalls blocking your instance and that your port is properly exposed. Once your multiaddress is added, you will be able to stay connected to other nodes in the network.
 
 #### Network Traffic
 
@@ -283,4 +284,4 @@ Request and event logs are written in [logfmt](https://brandur.org/logfmt). This
 
 ## **Next steps**
 
-Congratulations! You have now set up a hosted Ceramic node that is ready to receive HTTP requests from the local environment, the [JS HTTP Client](../../build/javascript/installation.md#js-http-client), the [CLI](../../build/cli/installation.md#4-configure-a-node-url), or to simply serve as another node to replicate and pin streams.
+Congratulations! You have now set up a hosted Ceramic node that is ready to receive HTTP requests from the local environment, the [JS HTTP Client](../../build/javascript/installation.md#js-http-client), the [CLI](../../build/cli/installation.md#4-configure-a-node-url), or to simply serve as another node to replicate and pin streams. Please report any bugs as issues at https://github.com/ceramicnetwork/js-ceramic.
