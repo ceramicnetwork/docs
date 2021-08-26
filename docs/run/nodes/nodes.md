@@ -33,13 +33,18 @@ The following is an overview of the steps you must take to run a Ceramic node. D
 
 ## Running the Daemon
 
-The js-ceramic node is run as a daemon using Docker or Node.js. By default, Ceramic will run an in-process IPFS node on start and will connect to the Clay testnet. Configuration options for the Ceramic daemon can be viewed from the Ceramic CLI with `ceramic daemon --help` and from the js-ceramic source code here [https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/cli/src/bin/ceramic.ts](https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/cli/src/bin/ceramic.ts).
+The js-ceramic node is run as a daemon using Docker or Node.js. By default, Ceramic will run an in-process IPFS node on start and will connect to the Clay testnet.
+
+**Configuration**
+
+The Ceramic daemon can be configured with a JSON file which is created on start and located at `$HOME/.ceramic/daemon.config.json`. Configuration options can be viewed in the [reference documentation for the DaemonConfig class](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_cli.daemonconfig.html).
+You may also set these options with command line flags which can be viewed from the Ceramic CLI with `ceramic daemon --help`, but note that these CLI flags are deprecated.
 
 #### IPFS Out-of-process
 
 The Ceramic daemon by default will start its own IPFS node internally, but it can also be configured to connect to an externally running IPFS node over HTTP. We refer to the latter as running IPFS "out-of-process". Running IPFS out-of-process is helpful for more controlled resource allocation, maintenance, debugging, and observability. This is highly recommended, especially if you are planning to be an infrastructure provider for other Ceramic applications.
 
-When connecting to an out-of-process IPFS node, it is important that the IPFS node be configured with support for the dagJose plugin that Ceramic relies on. DagJose support is not included in IPFS by default, so we have provided the [@ceramicnetwork/ipfs-daemon package](https://www.npmjs.com/package/@ceramicnetwork/ipfs-daemon), which is a wrapper around js-ipfs configured with dagJose support specifically for use with Ceramic. Configuration options for the IPFS daemon can be viewed here [https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/ipfs-daemon](https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/ipfs-daemon) and in the source code here [https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/ipfs-daemon/src/ipfs-daemon.ts](https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/ipfs-daemon/src/ipfs-daemon.ts).
+When connecting to an out-of-process IPFS node, it is important that the IPFS node be configured with support for the dagJose plugin that Ceramic relies on. DagJose support is not included in IPFS by default, so we have provided the [@ceramicnetwork/ipfs-daemon package](https://www.npmjs.com/package/@ceramicnetwork/ipfs-daemon), which is a wrapper around js-ipfs configured with dagJose support specifically for use with Ceramic. Configuration options for the IPFS daemon can be viewed in the [ipfs-daemon README](https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/ipfs-daemon) and in the [ipfs-daemon source code](https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/ipfs-daemon/src/ipfs-daemon.ts).
 
 The rest of this guide assumes you are running IPFS out-of-process.
 
@@ -47,7 +52,7 @@ The rest of this guide assumes you are running IPFS out-of-process.
 
 There are currently three Ceramic networks: `mainnet`, `testnet-clay`, and `dev-unstable`. Learn more about each network here: [https://developers.ceramic.network/learn/networks/](https://developers.ceramic.network/learn/networks/)
 
-**Restarting the process**
+**Process Management**
 
 Ceramic and IPFS will not automatically restart if they crash. You should configure your own restart mechanism and you must ensure data persistence between restarts. If the multiaddress changes for any reason (your node goes down or restarts without pulling in an existing config file), your node will regenerate this file upon restarting with a new address and all other nodes on the network will lose connection to you. 
 
@@ -59,7 +64,7 @@ We highly encourage others to create Terraform modules for other infrastructure 
 
 ### Docker
 
-The js-ceramic repo builds Docker images that run the Ceramic daemon from the source code of the master branch. These images are tagged with "latest" and the git commit hash of the source code that the image was built from. You can view the image builds on DockerHub here: [https://hub.docker.com/r/ceramicnetwork/js-ceramic](https://hub.docker.com/r/ceramicnetwork/js-ceramic) Use the ipfs-daemon image to run IPFS: [https://hub.docker.com/r/ceramicnetwork/ipfs-daemon](https://hub.docker.com/r/ceramicnetwork/ipfs-daemon)
+The js-ceramic repo builds Docker images that run the Ceramic daemon and IPFS from the source code of the master branch. These images are tagged with "latest" and the git commit hash of the source code that the image was built from. You can view the image builds of [js-ceramic on DockerHub](https://hub.docker.com/r/ceramicnetwork/js-ceramic) and compatible builds of IPFS with the image builds of [ipfs-daemon on DockerHub](https://hub.docker.com/r/ceramicnetwork/ipfs-daemon).
 
 ```bash
 docker pull ceramicnetwork/ipfs-daemon:latest
@@ -72,12 +77,32 @@ docker inspect -f \
   ipfs-daemon
 
 docker pull ceramicnetwork/js-ceramic:latest
+```
 
-docker run -d -p 7007:7007 -v /path_for_ceramic_logs:/root/.ceramic/logs --name js-ceramic ceramicnetwork/js-ceramic:latest \
-  --network mainnet \ # Connect to mainnet, testnet-clay, or dev-unstable
-  --ethereum-rpc https://e_g_infura_endpoint \ # Use your own Ethereum RPC endpoint to avoid rate limiting
-  --log-to-files \ # Write logs to files. Defaults to ~/.ceramic/logs
-  --ipfs-api http://ip_address_from_above:5011 # Configure Ceramic to use IPFS out-of-process
+#### Option A. Run Ceramic configured via JSON file
+```
+docker run -d \
+  -p 7007:7007 \
+  -v /path_for_daemon_config:/root/.ceramic/daemon.config.json \
+  -v /path_for_ceramic_logs:/root/.ceramic/logs \
+  -v /path_for_ceramic_statestore:/root/.ceramic/statestore \
+  --name js-ceramic \
+  ceramicnetwork/js-ceramic:latest
+```
+See: [Example daemon.config.json](#example-daemonconfigjson)
+
+#### Option B. Run Ceramic configured via CLI flags
+```
+docker run -d \
+  -p 7007:7007 \
+  -v /path_for_ceramic_logs:/root/.ceramic/logs \
+  -v /path_for_ceramic_statestore:/root/.ceramic/statestore \
+  --name js-ceramic \
+  ceramicnetwork/js-ceramic:latest \
+  --network mainnet \
+  --ethereum-rpc https://eg_infura_endpoint \
+  --log-to-files \
+  --ipfs-api http://ipfs_ip_address_from_above:5011
 ```
 
 ### NPM
@@ -92,12 +117,51 @@ ipfs-daemon
 # In a new shell, configure Ceramic to use IPFS
 
 npm install -g @ceramicnetwork/cli
+```
 
+#### Option A. Run Ceramic configured via JSON file
+```bash
+ceramic daemon
+```
+See: Example [daemon.config.json](#example-daemonconfigjson)
+
+#### Option B. Run Ceramic configured via CLI flags
+```
 ceramic daemon \
-  --network mainnet \ # Connect to mainnet, testnet-clay, or dev-unstable
-  --ethereum-rpc https://e_g_infura_endpoint \ # Use your own Ethereum RPC endpoint to avoid rate limiting
-  --log-to-files \ # Write logs to files. Defaults to ~/.ceramic/logs
-  --ipfs-api http://localhost:5011 # Remove this line to run IPFS in process
+  --network mainnet \
+  --ethereum-rpc https://eg_infura_endpoint \
+  --log-to-files \
+  --ipfs-api http://localhost:5011 # Remove this line to run IPFS in-process
+```
+
+### Example daemon.config.json
+```json
+{
+    "anchor": {
+        "ethereum-rpc-url": "https://eg_infura_endpoint" // Replace with an Ethereum RPC endpoint to avoid rate limiting
+    },
+    "http-api": {
+        "cors-allowed-origins": [
+            ".*"
+        ]
+    },
+    "ipfs": {
+        "mode": "remote", // Use "remote" for IPFS out-of-process or "bundled" for in-process
+        "host": "http://ipfs_ip_address:5011"
+    },
+    "logger": {
+        "log-level": 2, // 0 is most verbose
+        "log-to-files": true
+    },
+    "network": {
+        "name": "mainnet", // Connect to mainnet, testnet-clay, or dev-unstable
+    },
+    "node": {},
+    "state-store": {
+        "mode": "fs",
+        "local-directory": "/path_for_ceramic_statestore" // Defaults to $HOME/.ceramic/statestore
+    }
+}
 ```
 
 ## Data Persistence
@@ -170,20 +234,38 @@ The Ceramic state store holds commits for pinned streams and the acts as a cache
 
 #### **Option A. Volume Storage**
 
+Using `daemon.config.json`
+```json
+    "state-store": {
+        "mode": "fs",
+        "local-directory": "/mnt_volume_path_for_statestore",
+    },
+```
+
+Using CLI flags
 ```bash
 # CLI flag to use a mounted volume for Ceramic state store persistence
-ceramic daemon --state-store-directory /mnt/volume/path/for/statestore ...
+ceramic daemon --state-store-directory /mnt_volume_path_for_statestore
 ```
 
 #### **Option B. AWS S3**
 
-```bash
-# CLI flag to use S3 for Ceramic state store persistence
-ceramic daemon --state-store-s3-bucket bucket_name ...
+Using `daemon.config.json`
+```json
+    "state-store": {
+        "mode": "s3",
+        "s3-bucket": "bucket_name"
+    },
 ```
 
+Using CLI flags
+```bash
+# CLI flag to use S3 for Ceramic state store persistence
+ceramic daemon --state-store-s3-bucket bucket_name
+```
+
+Ceramic state store AWS S3 policy for the access key
 ```json
-// Ceramic state store AWS S3 policy for the access key
 {
   "Version": "2012-10-17",
   "Statement": [
