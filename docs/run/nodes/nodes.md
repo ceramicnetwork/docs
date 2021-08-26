@@ -35,6 +35,7 @@ The following is an overview of the steps you must take to run a Ceramic node. D
 The js-ceramic node is run as a daemon using Docker or Node.js. By default, Ceramic will run an in-process IPFS node on start and will connect to the Clay testnet.
 
 **Configuration**
+
 The Ceramic daemon can be configured with a JSON file which is created on start and located at `$HOME/.ceramic/daemon.config.json`. Configuration options can be viewed in the [reference documentation for the DaemonConfig class](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_cli.daemonconfig.html).
 You may also set these options with command line flags which can be viewed from the Ceramic CLI with `ceramic daemon --help`, but note that these CLI flags are deprecated.
 
@@ -42,7 +43,7 @@ You may also set these options with command line flags which can be viewed from 
 
 The Ceramic daemon by default will start its own IPFS node internally, but it can also be configured to connect to an externally running IPFS node over HTTP. We refer to the latter as running IPFS "out-of-process". Running IPFS out-of-process is helpful for more controlled resource allocation, maintenance, debugging, and observability. This is highly recommended, especially if you are planning to be an infrastructure provider for other Ceramic applications.
 
-When connecting to an out-of-process IPFS node, it is important that the IPFS node be configured with support for the dagJose plugin that Ceramic relies on. DagJose support is not included in IPFS by default, so we have provided the [@ceramicnetwork/ipfs-daemon package](https://www.npmjs.com/package/@ceramicnetwork/ipfs-daemon), which is a wrapper around js-ipfs configured with dagJose support specifically for use with Ceramic. Configuration options for the IPFS daemon can be viewed here [https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/ipfs-daemon](https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/ipfs-daemon) and in the source code here [https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/ipfs-daemon/src/ipfs-daemon.ts](https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/ipfs-daemon/src/ipfs-daemon.ts).
+When connecting to an out-of-process IPFS node, it is important that the IPFS node be configured with support for the dagJose plugin that Ceramic relies on. DagJose support is not included in IPFS by default, so we have provided the [@ceramicnetwork/ipfs-daemon package](https://www.npmjs.com/package/@ceramicnetwork/ipfs-daemon), which is a wrapper around js-ipfs configured with dagJose support specifically for use with Ceramic. Configuration options for the IPFS daemon can be viewed in the [ipfs-daemon README](https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/ipfs-daemon) and in the [ipfs-daemon source code](https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/ipfs-daemon/src/ipfs-daemon.ts).
 
 The rest of this guide assumes you are running IPFS out-of-process.
 
@@ -50,7 +51,7 @@ The rest of this guide assumes you are running IPFS out-of-process.
 
 There are currently three Ceramic networks: `mainnet`, `testnet-clay`, and `dev-unstable`. Learn more about each network here: [https://developers.ceramic.network/learn/networks/](https://developers.ceramic.network/learn/networks/)
 
-**Restarting the process**
+**Process Management**
 
 Ceramic and IPFS will not automatically restart if they crash. You should configure your own restart mechanism and you must ensure data persistence between restarts.
 
