@@ -269,5 +269,3 @@ await store.set('myNote', { text: 'This is my note' })
 
 await store.get('myNote') // { text: 'This is my note' }
 ```
-
-<br /><br /><br />

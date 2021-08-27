@@ -25,5 +25,3 @@ A TileDocument matching the IdentityIndex spec from [CIP-11](https://github.com/
 ## Record
 
 Data associated to a DID for a given [Definition](#definition) in the DID DataStore. All records are validated using the [Schema](#schemas) declared in the record's [Definition](#definition).
-
-<br /><br /><br />
