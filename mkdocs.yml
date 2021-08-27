@@ -103,6 +103,13 @@ nav:
           - Overview: streamtypes/caip-10-link/overview.md
           - API: streamtypes/caip-10-link/api.md
   - Tools:
+      - Glaze:
+          - Overview: tools/glaze/overview.md
+          - Glossary: tools/glaze/glossary.md
+          - DataModel: tools/glaze/datamodel.md
+          - DID DataStore: tools/glaze/did-datastore.md
+          - Development: tools/glaze/development.md
+          - Example: tools/glaze/example.md
       - IDX:
           - Overview: tools/idx/overview.md
       - IdentityLink:
@@ -110,8 +117,21 @@ nav:
       - Self.ID:
           - Overview: tools/self-id/overview.md
   - Reference:
-      - JavaScript: reference/javascript/packages.md
-      - Support a new blockchain: reference/javascript/blockchain.md
+      - Ceramic:
+          - JavaScript: reference/javascript/packages.md
+      - Glaze:
+          - Overview: reference/glaze/overview.md
+          - DataModel:
+              - Module: reference/glaze/modules/datamodel.md
+              - DataModel class: reference/glaze/classes/datamodel.DataModel.md
+          - DID DataStore:
+              - Module: reference/glaze/modules/did_datastore.md
+              - DIDDataStore class: reference/glaze/classes/did_datastore.DIDDataStore.md
+          - DevTools:
+              - Module: reference/glaze/modules/devtools.md
+              - ModelManager class: reference/glaze/classes/devtools.ModelManager.md
+      - Guides:
+          - Support a new blockchain: reference/javascript/blockchain.md
   - Chat: 'https://chat.ceramic.network'
   - Blog: 'https://blog.ceramic.network'
 
