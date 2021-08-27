@@ -103,12 +103,6 @@ nav:
       - Overview: streamtypes/caip-10-link/overview.md
       - API: streamtypes/caip-10-link/api.md
   - Tools:
-    - IDX:
-      - Overview: tools/idx/overview.md
-    - IdentityLink:
-      - Overview: tools/identitylink/overview.md
-    - Self.ID:
-      - Overview: tools/self-id/overview.md
     - Glaze:
       - Overview: tools/glaze/overview.md
       - Glossary: tools/glaze/glossary.md
@@ -116,6 +110,16 @@ nav:
       - DID DataStore: tools/glaze/did-datastore.md
       - Development: tools/glaze/development.md
       - Example: tools/glaze/example.md
+    - Self.ID:
+      - Overview: tools/self-id/overview.md
+      - Configuration: tools/self-id/configuration.md
+      - Read-only interactions: tools/self-id/read.md
+      - Authentication and writes: tools/self-id/write.md
+      - Utilities: tools/self-id/utilities.md
+    - IDX:
+      - Overview: tools/idx/overview.md
+    - IdentityLink:
+      - Overview: tools/identitylink/overview.md
   - Reference:
     - Ceramic:
       - JavaScript: reference/javascript/packages.md
@@ -140,12 +144,9 @@ nav:
         - Module: reference/self-id/modules/web.md
         - WebClient class: reference/self-id/classes/web.WebClient.md
         - SelfID class: reference/self-id/classes/web.SelfID.md
-      - Image utilities:
-        - Module: reference/self-id/modules/image_utils.md
-        - ImageMetadata interface: reference/self-id/interfaces/image_utils.ImageMetadata.md
-        - ImageSources interface: reference/self-id/interfaces/image_utils.ImageSources.md
-      - 3Box Legacy:
-        - Module: reference/self-id/modules/3box_legacy.md
+      - Utilities:
+        - Image utilities: reference/self-id/modules/image_utils.md
+        - 3Box legacy: reference/self-id/modules/3box_legacy.md
   - Guides:
       - Support a new blockchain: reference/javascript/blockchain.md
   - Chat: 'https://chat.ceramic.network'
