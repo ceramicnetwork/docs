@@ -35,5 +35,3 @@ The DevTools library provides APIs to help with the management of DataModels, no
 The Glaze CLI provide commands for common interactions with DataModels and DID DataStores to help support development flows.
 
 [CLI documentation](development.md#cli){: .md-button }
-
-<br /><br /><br />

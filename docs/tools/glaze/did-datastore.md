@@ -112,5 +112,3 @@ await dataStore.get('myDefinition') // { record: 'content' }
 ```
 
 [API reference](../../reference/glaze/classes/did_datastore.DIDDataStore.md){: .md-button .md-button .md-button--primary }
-
-<br /><br /><br />

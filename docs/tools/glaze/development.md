@@ -208,5 +208,3 @@ glaze model:import idx @datamodels/identity-accounts-crypto
 glaze model:import idx @datamodels/identity-accounts-web
 glaze model:publish idx
 ```
-
-<br /><br /><br />
