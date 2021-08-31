@@ -32,7 +32,7 @@ The following is an overview of the steps you must take to run a Ceramic node. D
     
     !!! info ""
 
-        Mainnet nodes will not run immediately after start up until your IP address is added to the allow list for the 3Box hosted anchor service and your PR is merged.
+        Mainnet nodes will not run immediately after start up until your IP address is added to the allow list for the 3Box hosted anchor service and your PR to the peerlist is merged.
 
 
 ## Running the Daemon
