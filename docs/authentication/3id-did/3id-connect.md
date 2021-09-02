@@ -1,6 +1,6 @@
 # 3ID Connect
 
-3ID Connect is the most widely used DID provider for the [3ID DID Method](./method.md). The 3ID Connect authentication SDK allows users to use a 3ID DID with their existing blockchain wallet(s). 3ID Connect was designed for developers building Ceramic-enabled web apps whose users already have a blockchain/crypto wallet. By using 3ID Connect, your users get to rely on the signing and key management capabilities of the crypto wallet(s) they already have instead of needing to install a separate wallet. *3ID Connect is not a substitute for a crypto wallet. It works alongside these wallets.*
+3ID Connect is the most widely used DID provider for the [3ID DID Method](./method.md). The 3ID Connect authentication SDK allows users to use a 3ID DID with their existing blockchain wallet(s). 3ID Connect was designed for developers building Ceramic-enabled web apps whose users already have a blockchain/crypto wallet. By using 3ID Connect, your users get to rely on the signing and key management capabilities of the crypto wallet(s) they already have instead of needing to install a separate wallet. _3ID Connect is not a substitute for a crypto wallet. It works alongside these wallets._
 
 [**Installation**](#installation){: .md-button .md-button--primary } [Demo](https://self.id){: .md-button }
 
@@ -35,7 +35,6 @@
 ## **Installation**
 
 Before installing 3ID Connect, you must have [installed a Ceramic client](../../build/javascript/installation.md). By following the steps below, your users will be able to [perform writes](../../build/javascript/writes.md) on Ceramic using a 3ID DID with their blockchain wallet.
-
 
 ### 1. Install from npm
 
@@ -85,13 +84,11 @@ Example using an Ethereum wallet:
 const authProvider = new EthereumAuthProvider(window.ethereum, addresses[0])
 await threeIdConnect.connect(authProvider)
 ```
-  
-  
+
 !!! warning ""
 
     This will prompt the user with a 3ID Connect permissions window.
-  
-  
+
 ### 5. Create provider instance
 
 ```
@@ -99,6 +96,7 @@ const provider = await threeIdConnect.getDidProvider()
 ```
 
 ### 6. Set the provider to Ceramic
+
 Set the Provider instance to the DID instance used by your Ceramic client in order to perform writes. You should have configured the DID instance when you [installed your client](../../build/javascript/installation.md).
 
 ```
@@ -114,28 +112,23 @@ await ceramic.did.authenticate()
 !!! warning ""
 
     This will prompt the user with a 3ID Connect permissions window.
-    
+
 Your users will now be authenticated and can perform [writes](../../build/javascript/writes.md) to streams on Ceramic.
 
 ## **Next steps: Writes**
 
 After authenticating with 3ID Connect, users will now be able to perform [writes](../../build/javascript/writes.md).
 
-
 ## **Underlying technologies**
 
 3ID Connect is built on open source technologies and standards. Learn more about the technologies that make 3ID Connect possible.
 
 - [3ID DID Provider](./provider.md): For creating decentralized identifiers and authenticating to Ceramic
-- [IDX (CIP-11)](../../tools/identity/idx.md): Protocol and SDK for storing data streams controlled by the user's 3ID
-- [3ID Keychain (CIP-20)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-20/CIP-20.md): IDX [definition](../../tools/identity/idx.md#definitions) and schema for using a [TileDocument StreamType](../../streamtypes/tile-document/overview.md) to store a list of encrypted authentication secrets for each wallet account
+- [IDX (CIP-11)](../../tools/idx/overview.md): Protocol and SDK for storing data streams controlled by the user's 3ID
+- [3ID Keychain (CIP-20)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-20/CIP-20.md): IDX [definition](../../tools/idx/overview.md#definitions) and schema for using a [TileDocument StreamType](../../streamtypes/tile-document/overview.md) to store a list of encrypted authentication secrets for each wallet account
 - [CAIP10Link (CIP-7)](../../streamtypes/caip-10-link/overview.md): StreamType for publicly linking a wallet account to a 3ID DID
 - [Crypto accounts (CIP-21)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-21/CIP-21.md): IDX definition and schema for using a TileDocument StreamType to store a list of streamIDs for a DID's CAIP10Links
-    
+
 ## **Maintainers**
+
 3ID Connect is maintained by [3Box Labs](https://3boxlabs.com).
-
-
-</br>
-</br>
-</br>

@@ -1,5 +1,8 @@
 :root {
-  --md-primary-fg-color: #F87236;
-  --md-accent-fg-color: #FF4F00;
+  --md-primary-fg-color: #f87236;
+  --md-accent-fg-color: #ff4f00;
 }
 
+article.md-content__inner {
+  padding-bottom: 90px;
+}

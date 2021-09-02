@@ -23,7 +23,3 @@ To stress-test network stability and performance in production, Ceramic Mainnet 
 If you want to deploy to mainnet in the near future, **[sign up for the Mainnet waitlist](https://blog.ceramic.network/ceramic-mainnet-early-launch-program/)**.
 
 While on the waitlist, you can always develop and prototype your integration on the [Clay testnet](./networks.md#mainnet). Demonstrating a fully-functioning integration that is ready for mainnet is a great way to increase your odds of being seleted from the waitlist. If you have questions or need further prioritization, you can [**join the Discord**](https://chat.ceramic.network) and let us know.
-
-</br>
-</br>
-</br>
