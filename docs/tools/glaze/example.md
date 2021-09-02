@@ -35,11 +35,11 @@ The following steps will present two ways of going through the development flow:
 
     ```js
     import { writeFile } from 'node:fs/promises'
-    import Ceramic from '@ceramicnetwork/http-client'
+    import { CeramicClient } from '@ceramicnetwork/http-client'
     import { ModelManager } from '@glazed/devtools'
     import { DID } from 'dids'
     import { Ed25519Provider } from 'key-did-provider-ed25519'
-    import KeyResolver from 'key-did-resolver'
+    import { getResolver } from 'key-did-resolver'
     import { fromString } from 'uint8arrays'
 
     // The key must be provided as an environment variable
@@ -47,12 +47,12 @@ The following steps will present two ways of going through the development flow:
     // Create and authenticate the DID
     const did = new DID({
       provider: new Ed25519Provider(key),
-      resolver: KeyResolver.default.getResolver(),
+      resolver: getResolver(),
     })
     await did.authenticate()
 
     // Connect to the local Ceramic node
-    const ceramic = new Ceramic.default('http://localhost:7007')
+    const ceramic = new CeramicClient('http://localhost:7007')
     ceramic.did = did
 
     // Create a manager for the model
@@ -213,12 +213,12 @@ The published model is then written to the `model.json` file, that will simply c
 Let's create a `run.mjs` file containing the following code:
 
 ```js
-import Ceramic from '@ceramicnetwork/http-client'
+import { CeramicClient } from '@ceramicnetwork/http-client'
 import { DataModel } from '@glazed/datamodel'
 import { DIDDataStore } from '@glazed/did-datastore'
 import { DID } from 'dids'
 import { Ed25519Provider } from 'key-did-provider-ed25519'
-import KeyResolver from 'key-did-resolver'
+import { getResolver } from 'key-did-resolver'
 import { fromString } from 'uint8arrays'
 
 // Import the model aliases created during development time
@@ -229,12 +229,12 @@ const key = fromString(process.env.DID_KEY, 'base16')
 // Create and authenticate the DID
 const did = new DID({
   provider: new Ed25519Provider(key),
-  resolver: KeyResolver.getResolver(),
+  resolver: getResolver(),
 })
 await did.authenticate()
 
 // Create the Ceramic instance and inject the DID
-const ceramic = new Ceramic('http://localhost:7007')
+const ceramic = new CeramicClient('http://localhost:7007')
 ceramic.did = did
 
 // Create the model and store
