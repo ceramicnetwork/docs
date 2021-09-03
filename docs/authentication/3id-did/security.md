@@ -7,7 +7,9 @@ The main security concern here is that the seed used for the 3ID is stored withi
 ## Possible security improvements
 
 ### External 3ID controller
-The 3ID DID document has different public keys used for writing and controlling the DID document itself. Currently however, these keys are generated from the same seed. This means that if someone gets access to this seed and rotates keys using the controller key they will own the 3ID forever. One possible mitigation strategy is to store the controller key separately in a more secure manner. This would make it possible to recover from a scenario where the day-to-day writing public keys are compromised because the controller key would still be in control of the user. An example solution here could be to store the controller key in a MetaMask Snap.
+The 3ID DID document has different public keys used for writing and controlling the DID document itself. Currently however, these keys are generated from the same seed. This means that if someone gets access to this seed and rotates keys using the controller key they will own the 3ID forever.
+
+One possible mitigation strategy is to generate the day-to-day public keys and the controller public key from different seeds, and then make sure to store the controller key separately in a more secure manner. This would make it possible to recover from a scenario where the day-to-day writing public keys are compromised because the controller key would still be in control of the user. An example solution here could be to store the controller key in a MetaMask Snap.
 
 ### Don't store keys in web context
 The long term solution is of course to not store any keys of the 3ID in the web browser context. This could be achieved though wallets supporting 3ID directly, or an Object-based capability system rooted in blockchain accounts which would allow applications to request specific permissions from wallets.
