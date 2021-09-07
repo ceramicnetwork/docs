@@ -104,6 +104,11 @@ await doc.update({ foo: 'baz' }, { tags: ['baz'] })
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#update){:target="\_blank"}
 
+!!! warning "Persisting updates"
+
+    Please note that if you want updates to a Stream to persist you need to ensure that the stream is pinned by at least one node on the network. See the [pinning](../../build/javascript/pinning.md) page for more information.
+
+
 #### Parameters
 
 ##### content

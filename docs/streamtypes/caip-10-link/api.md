@@ -92,6 +92,10 @@ await accountLink.setDid(
 )
 ```
 
+!!! warning "Persisting updates"
+
+    Please note that if you want updates to a Stream to persist you need to ensure that the stream is pinned by at least one node on the network. See the [pinning](../../build/javascript/pinning.md) page for more information.
+
 #### Parameters
 
 ##### `did`
