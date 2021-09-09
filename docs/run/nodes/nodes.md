@@ -31,6 +31,7 @@ The following is an overview of the steps you must take to run a Ceramic node. D
     Submit a pull request to the [Ceramic peerlist](https://github.com/ceramicnetwork/peerlist) with the multiaddress of your IPFS node, the IP address for your Ceramic node, and a description of the data persistence setup for the multiaddress, Ceramic State Store and IPFS Repo. Once your pull request is merged in you will be connected to the Ceramic network and the [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service).
     
     !!! info ""
+ 
 
         Mainnet nodes will not run immediately after start up until your IP address is added to the allow list for the 3Box hosted anchor service and your PR to the peerlist is merged.
 
@@ -332,6 +333,7 @@ The ipfs-daemon designed for use with Ceramic has the IPFS node discovery mechan
 
 Once you have fully configured your Ceramic node with this guide and have a way to persist its configuration and state, submit a pull request to the peerlist with the multiaddress of your IPFS node, the IP address for your Ceramic node, and a brief description of your data persistence setup for the Ceramic State Store and IPFS Repo. When a pull request is submitted, it triggers a connectivity test to ensure the node can successfully connect to the network. If this fails, the 3Box Labs team will reach out to you directly to triage the issue. Make sure there are no firewalls blocking your instance and that your port is properly exposed. Once your multiaddress is added, you will be able to stay connected to other nodes in the network.
 
+Once you are on the peerlist, you should monitor your IPFS node and alert our team on Discord in the case of any planned or unexpected downtime. Please make your best effort to come back online within 24 hours. If we can not connect to your IPFS node for over 24 hours, we will remove it from the peerlist and you can resubmit your multiaddress in a new PR once your node becomes stable again. If the connectivity test in your PR to the peerlist fails and it is due to a node other than your own, we will update the peerlist and re-run the tests for you.
 
 ## Observability
 
