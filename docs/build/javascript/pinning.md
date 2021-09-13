@@ -8,7 +8,7 @@ By default Ceramic will garbage collect any stream that has been [written](./wri
 
 ## **Pin a stream while creating it**
 
-Most StreamTypes will allow you to request that a Stream be pinned at the same time that you create the Stream. An example using the TileDocument Streamtype is below:
+Most StreamTypes will allow you to request that a Stream be pinned at the same time that you create the Stream. An example using the [TileDocument Streamtype](../../../streamtypes/tile-document/api/#create-a-tiledocument) is below:
 
 ```javascript
 await TileDocument.create(ceramic, content, null, { pin: true })
