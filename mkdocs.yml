@@ -43,6 +43,8 @@ nav:
       - Advanced:
           - Tech overview: learn/advanced/overview.md
           - Data availability: learn/advanced/data-availability.md
+          - Security: learn/advanced/security.md
+          - Privacy: learn/advanced/privacy.md
   - Build:
       - JavaScript:
           - Installation:
@@ -79,6 +81,7 @@ nav:
               - JS 3ID DID Provider: authentication/3id-did/provider.md
           - Resolver: authentication/3id-did/resolver.md
           - 3ID Lifecycle: authentication/3id-did/lifecycle.md
+          - Security: authentication/3id-did/security.md
           - 3Box migration: authentication/3id-did/3box-migration.md
       - Key DID:
           - Method: authentication/key-did/method.md
