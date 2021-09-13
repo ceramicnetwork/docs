@@ -6,9 +6,18 @@ Pinning allows you to persist and make streams available on a Ceramic node beyon
 
 By default Ceramic will garbage collect any stream that has been [written](./writes.md) or [queried](./queries.md) on your node after some period of time. In order to prevent the loss of streams due to garbage collection, you need to explicitly pin the streams that you wish to persist. Pinning instructs the node to keep them around in persistent storage until they are explicitly unpinned. To learn more about Ceramic's data persistence and availability model, see [Data Availability](../../learn/advanced/data-availability.md).
 
+## **Pin a stream while creating it**
+
+Most StreamTypes will allow you to request that a Stream be pinned at the same time that you create the Stream. An example using the TileDocument Streamtype is below:
+
+```javascript
+await TileDocument.create(ceramic, content, null, { pin: true })
+```
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html#pin){:target="\_blank"}
+
 ## **Add to pinset**
 
-Use the [`pin.add()`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.pinapi-1.html#add){:target="\_blank"} method to add a stream to your permanent pinset.
+Use the [`pin.add()`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.pinapi-1.html#add){:target="\_blank"} method to add an existing stream to your permanent pinset.
 
 ```javascript
 const streamId = 'kjzl6cwe1jw14...'
