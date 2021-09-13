@@ -43,6 +43,7 @@ nav:
       - Advanced:
           - Tech overview: learn/advanced/overview.md
           - Data availability: learn/advanced/data-availability.md
+          - Consensus: learn/advanced/consensus.md
           - Security: learn/advanced/security.md
           - Privacy: learn/advanced/privacy.md
   - Build:
