@@ -106,6 +106,7 @@ nav:
           - Overview: streamtypes/caip-10-link/overview.md
           - API: streamtypes/caip-10-link/api.md
   - Tools:
+      - Overview: tools/overview.md
       - Glaze:
           - Overview: tools/glaze/overview.md
           - Glossary: tools/glaze/glossary.md

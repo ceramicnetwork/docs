@@ -100,7 +100,14 @@ model.getSchemaURL('MySchema') // 'ceramic://mySchemaURL'
 
 - The DataModel tools and libraries are new and will likely go through breaking changes before stable versions are released.
 - Only Streams having all commits controlled by a Key DID (using the `did:key` method) are currently supported in DataModels.
+- Only Streams having no anchor commit are currently supported in DataModels in order to ensure portability across networks.
 - There is no update mechanims for Schema and Definitions yet, but this is something the tools should support over time.
+
+## Discovery
+
+There is currently no decentralized registry for DataModels, but it is a longer-term goal to make one available to help discovery and reusability.
+
+In the meantime, we encourage developers to share and discuss ideas for DataModels in the [DataModels registry available on GitHub](https://github.com/ceramicstudio/datamodels).
 
 ## Lifecycle
 
