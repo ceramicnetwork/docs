@@ -4,6 +4,7 @@ site_description: Specs, docs, guides, and APIs for the Ceramic Network.
 repo_url: https://github.com/ceramicnetwork/js-ceramic
 repo_name: ceramicnetwork/js-ceramic
 edit_uri: https://github.com/ceramicnetwork/docs/edit/main/docs/
+strict: true
 
 # Copyright
 copyright: 'Ceramic is open sourced under MIT and Apache 2'
