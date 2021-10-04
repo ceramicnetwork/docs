@@ -4,6 +4,8 @@ The [**Ceramic Blog**](https://blog.ceramic.network){:target="\_blank"} contains
 
 ## Featured posts
 
+[**The next architecture for building Web3 data apps**](https://blog.ceramic.network/the-next-architecture-for-building-web3-data-applications/){:target="\_blank"}: We're replacing the popular IDX runtime with a more powerful set of tools for building applications on Ceramic including DID DataStore, DataModels, and Self.ID. 
+
 [**What is Ceramic**](https://blog.ceramic.network/what-is-ceramic/){:target="\_blank"}: Ceramic is a decentralized content computation network for a world of open source information.
 
 [**Ceramic Mainnet Early Launch Program**](https://blog.ceramic.network/ceramic-mainnet-early-launch-program/){:target="\_blank"}: Sign up today to deploy your project on the Ceramic Mainnet before it's open to the general public.
