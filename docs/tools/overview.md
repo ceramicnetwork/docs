@@ -18,7 +18,7 @@ Self.ID is both a **reference application** and a **SDK** providing higher-level
 
 IDX refers to both the [Identity Index specification](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-11/CIP-11.md) and a set of tools (libraries and CLI).
 
-While the specification is still current, the IDX tools are now **deprecated** in favor of Glaze and Self.ID presented above.
+While the specification is still actively used, the IDX SDK and tools are now **deprecated** in favor of Glaze and Self.ID presented above.
 
 [IDX overview](idx/overview.md){: .md-button }
 
