@@ -1,5 +1,10 @@
 # IDX
 
+!!! warning "Deprecation notice"
+
+    :octicons-stop-16: The reference implementation for the Identity Index (IDX) specification is now provided by the [DID DataStore library](../glaze/did-datastore.md), notably used in the [Self.ID SDK](../self-id/overview.md).
+    The IDX libraries and CLI are deprecated in favor of these projects.
+
 [IDX](https://developers.idx.xyz){:target="\_blank"} is a decentralized identity protocol and JavaScript SDK that provides APIs which make it easy for developers to build applications with user-controlled [streams](../../learn/glossary.md#streams) for storing data, as well as to discover and make use of user data created on third-party applications. Building with IDX allows users to control their identities and data in a manner independent from any single application, while allowing developers to build data-rich applications without the liability of custodying user data on a centralized server or the poor user experience of forcing users to recreate the same data on every application.
 
 > This page mentions that IDX is intended for storing "user" data as that is its primary use case. However IDX can be used for storing data for other types of subjects represented by DIDs such as businesses, organizations, applications, assets (NFTs), or devices (IoT).
