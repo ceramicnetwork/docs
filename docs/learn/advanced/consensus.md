@@ -29,7 +29,7 @@ Whatever the reason for the diverging logs for a single Stream, it is important 
 
 #### Earliest Anchor Wins
 
-Updates to Ceramic Streams are periodically [anchored](../glossary.md#anchor-commit) onto a blockchain (currently Ethereum). This immutable proof-of-publication is used to get a trusted timestamp for when the update occurred.  This allows us to safely compare the timestamps associated with different branches of a Stream's log to determine which update happened first.  When there are conflicting histories for a Stream log and one branch was anchored earlier than the other, the branch that was anchored earlier wins. If one branch was anchored and the other not, then the branch that was anchored is prefered.
+Updates to Ceramic Streams are periodically [anchored](../glossary.md#anchor-commit) onto a blockchain (currently Ethereum). This immutable proof-of-publication is used to get a trustless timestamp for when the update occurred.  This allows us to safely compare the timestamps associated with different branches of a Stream's log to determine which update happened first.  When there are conflicting histories for a Stream log and one branch was anchored earlier than the other, the branch that was anchored earlier wins. If one branch was anchored and the other not, then the branch that was anchored is prefered.
 
 
 #### Longest update chain
