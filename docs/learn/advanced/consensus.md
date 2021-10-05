@@ -44,7 +44,8 @@ Ceramic Streams today are updated using a read-modify-write approach.  This mean
 const streamId = '<...>' // A StreamID for an existing Ceramic Stream
 const doc = await TileDocument.load(ceramic, streamId)
 // doc's content contains a 'friends' array field with the value ['mohsin', 'liz']
-doc.content.friends.push('sergey')
+const content = doc.content
+content.friends.push('sergey')
 await doc.update(content)
 ```
 
