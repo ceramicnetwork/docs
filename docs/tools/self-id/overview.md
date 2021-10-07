@@ -15,14 +15,6 @@ Self.ID is a SDK for building user-centric Web applications using Ceramic and re
 
 **Built on open standards**: Self.ID is entirely built on open standards developed by the Ceramic community and the broader decentralized identity ecosystem. All Self.ID functionality can be recreated in any other application, and all data can be queried by any application.
 
-## **Infrastructure**
-
-Self.ID is built using the Ceramic [JS HTTP Client](../../build/javascript/installation.md#js-http-client), [3ID Connect](../../authentication/3id-did/3id-connect.md), [DID DataStore](../glaze/did-datastore.md), and [IdentityLink](../identitylink/overview.md). All Ceramic nodes and IdentityLink services used for Self.ID are hosted by 3Box Labs.
-
-## **Maintainers**
-
-Self.ID is maintained by [3Box Labs](https://3boxlabs.com).
-
 ## **SDK**
 
 Many functionalities implemented in the Self.ID application are exposed by the Self.ID SDK, made of the following packages:
