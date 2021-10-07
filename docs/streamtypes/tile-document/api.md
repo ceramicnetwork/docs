@@ -44,7 +44,7 @@ const doc = await TileDocument.create(
 
 ##### ceramic
 
-When creating a TileDocument, the first parameter is the `CeramicAPI` used to communicate with the ceramic node and it is always required. It will either be an instance of [`Ceramic`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="\_blank"} when using the Core client or an instance of [`CeramicClient`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_http_client.ceramicclient.html){:target="\_blank"} when using the HTTP client.
+When creating a TileDocument, the first parameter is the `CeramicAPI` used to communicate with the ceramic node and it is always required. It will either be an instance of [`Ceramic`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic-1.html){:target="\_blank"} when using the Core client or an instance of [`CeramicClient`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_http_client.ceramicclient.html){:target="\_blank"} when using the HTTP client.
 
 ##### content
 
@@ -154,7 +154,7 @@ const doc = await TileDocument.load(ceramic, streamId, opts)
 
 ##### ceramic
 
-When loading a TileDocument, the first parameter is the `CeramicAPI` used to communicate with the Ceramic node and it is always required. It will either be an instance of [`Ceramic`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic.html){:target="\_blank"} when using the Core client or an instance of [`CeramicClient`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_http_client.ceramicclient.html){:target="\_blank"} when using the HTTP client.
+When loading a TileDocument, the first parameter is the `CeramicAPI` used to communicate with the Ceramic node and it is always required. It will either be an instance of [`Ceramic`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic-1.html){:target="\_blank"} when using the Core client or an instance of [`CeramicClient`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_http_client.ceramicclient.html){:target="\_blank"} when using the HTTP client.
 
 ##### streamId
 

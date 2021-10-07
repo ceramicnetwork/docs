@@ -42,7 +42,7 @@ The js-ceramic node is run as a daemon using Docker or Node.js. By default, Cera
 
 **Configuration**
 
-The Ceramic daemon can be configured with a JSON file which is created on start and located at `$HOME/.ceramic/daemon.config.json`. Configuration options can be viewed in the [reference documentation for the DaemonConfig class](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_cli.daemonconfig.html).
+The Ceramic daemon can be configured with a JSON file which is created on start and located at `$HOME/.ceramic/daemon.config.json`. Configuration options can be viewed in the [reference documentation for the DaemonConfig class](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_cli.daemonconfig-1.html).
 You may also set these options with command line flags which can be viewed from the Ceramic CLI with `ceramic daemon --help`, but note that these CLI flags are deprecated.
 
 #### IPFS Out-of-process
