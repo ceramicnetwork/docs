@@ -31,7 +31,7 @@ npm install -g @ceramicnetwork/cli
 This starts a local JavaScript Ceramic node on the [Clay Testnet](../../learn/networks.md#clay-testnet) at `https://localhost:7007`.
 
 ```bash
-$ ceramic daemon
+ceramic daemon
 ```
 
 This `localhost` setup allows you to read streams from other nodes connected on the same [network](../../learn/networks.md), but writes to your local node will only be available on your local node and on other nodes found on the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json). They will not be available to every node on the network. For greater connectivity, you might want to connect your CLI to a remote long-lived Ceramic node.
@@ -45,7 +45,7 @@ This `localhost` setup allows you to read streams from other nodes connected on 
 (Optional) It is possible to use the CLI with a remote Ceramic node over HTTP, instead of a local node. To do this, use the `config set` command to set the `ceramicHost` variable to the URL of the node you wish to use.
 
 ```bash
-$ ceramic config set ceramicHost 'https://yourceramicnode.com'
+ceramic config set ceramicHost 'https://yourceramicnode.com'
 ```
 
 When using the CLI with a remote node, you have a few options:

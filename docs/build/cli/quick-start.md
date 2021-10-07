@@ -17,7 +17,7 @@ Use the `create` command to create a new [stream](../../learn/glossary.md#stream
 === "Command"
 
     ```bash
-    $ ceramic create tile --content '{ "Foo": "Bar" }'
+    ceramic create tile --content '{ "Foo": "Bar" }'
     ```
 
 === "Output"
@@ -45,7 +45,7 @@ Use the `show` command to query the current [state](../../learn/glossary.md#stat
 === "Command"
 
     ```bash
-    $ ceramic show kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa
+    ceramic show kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa
     ```
 
     !!! quote ""
@@ -64,7 +64,7 @@ Use the `state` command to query the entire state of a stream.
 === "Command"
 
     ```bash
-    $ ceramic state kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa
+    ceramic state kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa
     ```
 
     !!! quote ""
@@ -148,7 +148,7 @@ Use the `update` command to update a stream. Your [DID](../../learn/glossary.md#
 === "Command"
 
     ```bash
-    $ ceramic update kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa --content '{
+    ceramic update kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa --content '{
         "Foo": "Baz"
       }'
     ```
@@ -175,7 +175,7 @@ TileDocuments can enforce that their contents adhere to a specified schema. The 
 === "Command"
 
     ```bash
-    $ ceramic create tile --content ' {
+    ceramic create tile --content ' {
        "$schema": "http://json-schema.org/draft-07/schema#",
        "title": "Reward",
        "type": "object",
@@ -220,7 +220,7 @@ First, use the `commits` command to list the [commitIDs](../../learn/glossary.md
 === "Command"
 
     ```bash
-    $ ceramic commits kjzl6cwe1jw1472as4pj3b3ahqmkokbmwc7jchqcob6pcixcoo4kxq6ls8uuxgb
+    ceramic commits kjzl6cwe1jw1472as4pj3b3ahqmkokbmwc7jchqcob6pcixcoo4kxq6ls8uuxgb
     ```
 
     !!! quote ""
@@ -241,7 +241,7 @@ Once you retrieve the desired commit, you can now create a TileDocument that is 
 === "Command"
 
     ```bash
-    $ ceramic create tile --content '{
+    ceramic create tile --content '{
         "title": "My first document with schema",
         "message": "Hello World"
       }' --schema k3y52l7qbv1frxu8co1hjrivem5cj2oiqtytlku3e4vjo92l67fkkvu6ywuzfxvy8
@@ -267,7 +267,7 @@ Use the `state` command to query the state of the TileDocument we just created. 
 === "Command"
 
     ```bash
-    $ ceramic state kjzl6cwe1jw14b5sr79heovz7fziz4dxcn8upx3bcesriloqcui137k6rq6g2mn
+    ceramic state kjzl6cwe1jw14b5sr79heovz7fziz4dxcn8upx3bcesriloqcui137k6rq6g2mn
     ```
 
     !!! quote ""

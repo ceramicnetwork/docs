@@ -33,7 +33,7 @@ import Ceramic from '@ceramicnetwork/core'
 Ceramic utilizes the [dag-jose](../../learn/glossary.md#dagjose) IPLD codec to format and store data in IPFS.
 
 ```javascript
-import IPFS from 'ipfs-core'
+import Ipfs from 'ipfs-core'
 import dagJose from 'dag-jose'
 import { convert } from 'blockcodec-to-ipld-format'
 
