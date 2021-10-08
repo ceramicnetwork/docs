@@ -14,11 +14,11 @@ Ceramic maintains consensus for individual data [streams](../glossary.md#streams
 
 ## **Existing consensus model**
 
-Most of the [existing StreamTypes today](../../../streamtypes/overview.md) use diffs encoded with json-patch to represent state transitions, and use the Earliest Anchor Wins rule for conflict resolution.
+Most of the [existing StreamTypes today](../../streamtypes/overview.md) use diffs encoded with json-patch to represent state transitions, and use the Earliest Anchor Wins rule for conflict resolution.
 
 ### Json-patch diffs
 
-In the existing [TileDocument](../../../streamtypes/tile-document/overview.md) StreamType, updates to the document's contents are encoded using [json-patch](http://jsonpatch.com/). The resulting diff goes into a [Ceramic Commit](../glossary.md#commits) and can be used to transform the stream's contents from a previous state to a new state.  Syncing a TileDocument involves getting the initial state from the [genesis commit](../glossary.md#genesis-commit), then applying the json-patch diffs from each subsequent commit to the content, one at a time, until the end of the stream's commit log, at which point you have the current state of the content.
+In the existing [TileDocument](../../streamtypes/tile-document/overview.md) StreamType, updates to the document's contents are encoded using [json-patch](http://jsonpatch.com/). The resulting diff goes into a [Ceramic Commit](../glossary.md#commits) and can be used to transform the stream's contents from a previous state to a new state.  Syncing a TileDocument involves getting the initial state from the [genesis commit](../glossary.md#genesis-commit), then applying the json-patch diffs from each subsequent commit to the content, one at a time, until the end of the stream's commit log, at which point you have the current state of the content.
 
 ### Write conflicts
 
@@ -38,7 +38,7 @@ The Earliest Anchor Wins rule can solve many problems related to coming to conse
 
 #### Simultaneous updates
 
-Ceramic Streams today are updated using a read-modify-write approach.  This means that write conflicts can result in writes being lost in some specific scenarios.  Consider an app that wants to add a new entry to an array contained within a [TileDocument](../../../streamtypes/tile-document/overview.md) stream.  The app loads a stream, gets the current contents of the Stream (including the current value of the array to be updated), adds an element into the array locally, then issues an update to Ceramic with the new contents. The code for this may look something like:
+Ceramic Streams today are updated using a read-modify-write approach.  This means that write conflicts can result in writes being lost in some specific scenarios.  Consider an app that wants to add a new entry to an array contained within a [TileDocument](../../streamtypes/tile-document/overview.md) stream.  The app loads a stream, gets the current contents of the Stream (including the current value of the array to be updated), adds an element into the array locally, then issues an update to Ceramic with the new contents. The code for this may look something like:
 
 ```javascript
 const streamId = '<...>' // A StreamID for an existing Ceramic Stream
