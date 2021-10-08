@@ -82,6 +82,7 @@ The final argument to `TileDocument.create` is an instance of [`CreateOpts`](htt
 | `publish`            | optional  | boolean | Publish the new document to the network                                           | true                                       |
 | `sync`               | optional  | enum    | Controls behavior related to syncing the current document state from the network  | PREFER_CACHE                               |
 | `syncTimeoutSeconds` | optional  | number  | How long to wait to hear about the current state of the document from the network | 3 for deterministic documents, 0 otherwise |
+| `pin`                | optional  | boolean | Whether to immediately pin the stream upon creation on the connected node         | false                                      |
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html){:target="\_blank"}
 

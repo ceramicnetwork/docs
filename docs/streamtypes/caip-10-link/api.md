@@ -47,12 +47,13 @@ The account ID in Caip10 format of the blockchain account being linked.
 
 The final argument is an instance of [`CreateOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html){:target="\_blank"}, which are options that control network behaviors performed as part of the operation. They are not included in the link itself.
 
-| Parameter            | Required? | Value   | Description                                                                   | Default value            |
-| -------------------- | --------- | ------- | ----------------------------------------------------------------------------- | ------------------------ |
-| `anchor`             | optional  | boolean | Request an anchor after creating the link                                     | true                     |
-| `publish`            | optional  | boolean | Publish the new link to the network                                           | true                     |
-| `sync`               | optional  | enum    | Controls behavior related to syncing the current link state from the network  | SyncOptions.PREFER_CACHE |
-| `syncTimeoutSeconds` | optional  | number  | How long to wait to hear about the current state of the link from the network | 3                        |
+| Parameter            | Required? | Value   | Description                                                                    | Default value            |
+| -------------------- | --------- | ------- | ------------------------------------------------------------------------------ | ------------------------ |
+| `anchor`             | optional  | boolean | Request an anchor after creating the link                                      | true                     |
+| `publish`            | optional  | boolean | Publish the new link to the network                                            | true                     |
+| `sync`               | optional  | enum    | Controls behavior related to syncing the current link state from the network   | SyncOptions.PREFER_CACHE |
+| `syncTimeoutSeconds` | optional  | number  | How long to wait to hear about the current state of the link from the network  | 3                        |
+| `pin`                | optional  | boolean | Whether to immediately pin the stream upon creation on the connected node      | false                    |
 
 !!! warning ""
 
