@@ -38,7 +38,7 @@ The response body contains the following fields:
 === "Request"
 
     ```bash
-    $ curl http://localhost:7007/api/v0/streams/kjzl6cwe1jw147r7878h32yazawcll6bxe5v92348cxitif6cota91qp68grbhm
+    curl http://localhost:7007/api/v0/streams/kjzl6cwe1jw147r7878h32yazawcll6bxe5v92348cxitif6cota91qp68grbhm
     ```
 
 === "Response"
@@ -100,7 +100,7 @@ This example creates a `TileDocument` from an unsigned genesis commit. Note that
 === "Request"
 
     ```bash
-    $ curl http://localhost:7007/api/v0/streams -X POST -d '{
+    curl http://localhost:7007/api/v0/streams -X POST -d '{
         "type": 0,
         "genesis": {
           "header": {
@@ -166,7 +166,7 @@ First let's create three streams to query using the ceramic cli:
 === "Request1"
 
     ```bash
-    $ ceramic create tile --content '{ "Document": "A" }'
+    ceramic create tile --content '{ "Document": "A" }'
     ```
 
 === "Response1"
@@ -181,7 +181,7 @@ First let's create three streams to query using the ceramic cli:
 === "Request2"
 
     ```bash
-    $  ceramic create tile --content '{ "Document": "B" }'
+    ceramic create tile --content '{ "Document": "B" }'
     ```
 
 === "Response2"
@@ -196,10 +196,10 @@ First let's create three streams to query using the ceramic cli:
 === "Request3"
 
     ```bash
-    $ ceramic create tile --content '{
+    ceramic create tile --content '{
         "Document": "C",
         "link": "ceramic://kjzl6cwe1jw149rledowj0zi0icd7epi9y1m5tx4pardt1w6dzcxvr6bohi8ejc"
-      }'
+    }'
     ```
 
 === "Response3"
@@ -217,7 +217,7 @@ Now let's query them though the multiqueries endpoint:
 === "Request"
 
     ```bash
-    $ curl http://localhost:7007/api/v0/multiqueries -X POST -d '{
+    curl http://localhost:7007/api/v0/multiqueries -X POST -d '{
       "queries": [{
         "streamId": "kjzl6cwe1jw14b54pb10voc4bqh73qyu8o6cfu66hoi3feidbbj81i5rohh7kgl",
         "paths": ["link"]
@@ -325,7 +325,7 @@ By calling GET on the _commits_ endpoint along with a StreamID gives you access 
 === "Request"
 
     ```bash
-    $ curl http://localhost:7007/api/v0/commits/kjzl6cwe1jw14ahmwunhk9yjwawac12tb52j1uj3b9a57eohmhycec8778p3syv
+    curl http://localhost:7007/api/v0/commits/kjzl6cwe1jw14ahmwunhk9yjwawac12tb52j1uj3b9a57eohmhycec8778p3syv
     ```
 
 === "Response"
@@ -398,7 +398,7 @@ In order to modify a stream we apply a commit to its log. This commit usually co
 === "Request"
 
     ```bash
-    $ curl http://localhost:7007/api/v0/commits -X POST -d '{
+    curl http://localhost:7007/api/v0/commits -X POST -d '{
       "streamId": "kjzl6cwe1jw14ahmwunhk9yjwawac12tb52j1uj3b9a57eohmhycec8778p3syv",
       "commit": {
         "jws": {
@@ -488,7 +488,7 @@ This method adds the stream with the given StreamID to the pinset.
 === "Request"
 
     ```bash
-    $ curl http://localhost:7007/api/v0/pins/k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl -X POST
+    curl http://localhost:7007/api/v0/pins/k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl -X POST
     ```
 
 === "Response"
@@ -524,7 +524,7 @@ This method removes the stream with the given StreamID from the pinset.
 === "Request"
 
     ```bash
-    $ curl http://localhost:7007/api/v0/pins/k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl -X DELETE
+    curl http://localhost:7007/api/v0/pins/k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl -X DELETE
     ```
 
 === "Response"
@@ -554,7 +554,7 @@ Calling this method allows you to list all of the streams that are in the pinset
 === "Request"
 
     ```bash
-    $ curl http://localhost:7007/api/v0/pins
+    curl http://localhost:7007/api/v0/pins
     ```
 
 === "Response"
@@ -591,7 +591,7 @@ This method is used to check if a particular stream is in the pinset.
 === "Request"
 
     ```bash
-    $ curl http://localhost:7007/api/v0/pins/k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl
+    curl http://localhost:7007/api/v0/pins/k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl
     ```
 
 === "Response"
@@ -627,7 +627,7 @@ Get all of the [CAIP-2](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs
 === "Request"
 
     ```bash
-    $ curl http://localhost:7007/api/v0/node/chains
+    curl http://localhost:7007/api/v0/node/chains
     ```
 
 === "Response"
@@ -657,7 +657,7 @@ Check the health of the node and the machine it's running on. Run `ceramic daemo
 === "Request"
 
     ```bash
-    $ curl http://localhost:7007/api/v0/node/healthcheck
+    curl http://localhost:7007/api/v0/node/healthcheck
     ```
 
 === "Response"

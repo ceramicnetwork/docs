@@ -9,7 +9,7 @@ Before installing Key DID Provider Ed25519, you must have [installed a Ceramic c
 ### 1. Install from npm
 
 ```sh
-$ npm install key-did-provider-ed25519
+npm install key-did-provider-ed25519
 ```
 
 ### 2. Import the Provider

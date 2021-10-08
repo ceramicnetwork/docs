@@ -1,6 +1,6 @@
 # Add support for a new blockchain
 
-This document contains a guide on how to add support for a new blockchain to the [`Caip10Link`](../../../streamtypes/caip-10-link/overview) StreamType, and to use it for authentication in Ceramic.
+This document contains a guide on how to add support for a new blockchain to the [`CAIP10Link`](../../../streamtypes/caip-10-link/overview) StreamType, and to use it for authentication in Ceramic.
 
 ## Ceramic and blockchain accounts
 
@@ -98,8 +98,10 @@ Below you can see a table which lists supported blockchains and their provider o
 
 | Blockchain | CAIP-2 namespace                                                                | Supported providers                                                                               | Notes                                                                                      |
 | ---------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Cosmos     | [cosmos](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-5.md)    | cosmos provider                                                                                   | The Cosmos wallet provider interface is still being standardized and is subject to change. |
-| Ethereum   | [eip155](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-3.md)    | metamask-like ethereum provider                                                                   |
-| Filecoin   | [fil](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-23.md)      | [Filecoin Wallet Provider](https://github.com/openworklabs/filecoin-wallet-provider)              |
-| EOS        | [eosio](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-7.md)     | [@smontero/eosio-local-provider](https://github.com/sebastianmontero/eosio-local-provider#readme) |
+| Cosmos     | [cosmos](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-5.md)    | [@tendermint/sig](https://github.com/tendermint/sig)                                              | The Cosmos wallet provider interface is still being standardized and is subject to change. |
+| Ethereum   | [eip155](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-3.md)    | MetaMask-like Ethereum provider                                                                   |                                                                                            |
+| Filecoin   | [fil](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-23.md)      | [Filecoin Wallet Provider](https://www.npmjs.com/package/@glif/filecoin-wallet-providerr)         |                                                                                            |
+| EOS        | [eosio](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-7.md)     | [@smontero/eosio-local-provider](https://github.com/sebastianmontero/eosio-local-provider#readme) |                                                                                            |
 | Polkadot   | [polkadot](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-13.md) | [@polkadot{.js} extention api](https://polkadot.js.org/)                                          | Doesn't support the `authenticate` method yet.                                             |
+| Tezos      | [tezos](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-26.md)    | [@taquito/taquito](https://tezostaquito.io/typedoc/interfaces/_taquito_taquito.tzprovider.html)   |                                                                                            |
+| Near       | [near](https://github.com/ChainAgnostic/CAIPs/pull/43)                          | [@near/near-api-js](https://near.github.io/near-api-js/)                                          | CAIP in draft form.                                                                        |

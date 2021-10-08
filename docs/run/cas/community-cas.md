@@ -12,7 +12,7 @@ Nodes connected to [Mainnet](../../learn/networks.md#mainnet) will automatically
 
     **Mainnet usage is currently restricted to projects in the Early Launch program (ELP).** Sign up for the ELP waitlist [here](https://blog.ceramic.network/ceramic-mainnet-early-launch-program/).
 
-ETH Mainnet Address:
+[ETH Mainnet Address](https://etherscan.io/):
 
 ```
 0xaf65E45F4C0BD388F91EeB23cFCd52F4fCdd6Ee2
@@ -24,7 +24,7 @@ To view Mainnet CAS transactions, see [Etherscan](https://etherscan.io/address/0
 
 Nodes connected to [Clay Testnet](../../learn/networks.md#clay-testnet) will automatically use this CAS which generates [anchor commits](../../learn/glossary.md#anchor-commit) using the Ethereum Ropsten blockchain and communicates over the `/ceramic/testnet-clay` libp2p topic.
 
-ETH Ropsten Address:
+[ETH Ropsten Address](https://ropsten.etherscan.io/):
 
 ```
 0x1C124c86f7fc22e67974337E889a513b16a5703f
@@ -36,7 +36,7 @@ To view Clay Testnet CAS transactions, see [Etherscan](https://ropsten.etherscan
 
 Nodes connected to the [Dev Unstable](../../learn/networks.md#dev-unstable) network will use this CAS which generates [anchor commits](../../learn/glossary.md#anchor-commit) using the Ethereum Rinkeby blockchain and communicates over the `/ceramic/dev-unstable` libp2p topic.
 
-ETH Rinkeby Address:
+[ETH Rinkeby Address](https://rinkeby.etherscan.io/):
 
 ```
 0x41Ee0C359D95970A83229D8e9801cc2672390217

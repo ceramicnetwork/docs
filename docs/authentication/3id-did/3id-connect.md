@@ -6,12 +6,15 @@
 
 #### Supported blockchains
 
+For more information on supported blockchains [**see this page**](../../reference/javascript/blockchain.md#currently-supported-blockchains).
+
 - Ethereum
 - EVM compatible L1s and L2s (i.e. Avalanche, Moonbeam)
-- NEAR (coming soon)
-- EOS (coming soon)
-- Cosmos (coming soon)
-- Polkadot (coming soon)
+- NEAR
+- EOS
+- Cosmos
+- Polkadot
+- Tezos
 
 > Want to add a new blockchain? Follow this [**tutorial**](https://blog.ceramic.network/add-authentication-with-new-blockchains-in-3id-connect/) to make a PR.
 

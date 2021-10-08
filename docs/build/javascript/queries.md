@@ -41,7 +41,7 @@ const queries = [
 const streamMap = await ceramic.multiQuery(queries)
 ```
 
-[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.multiquery-1.html){:target="\_blank"}
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#multiquery){:target="\_blank"}
 
 ## **Query a stream using paths**
 
