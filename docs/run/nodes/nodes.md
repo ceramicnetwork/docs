@@ -345,4 +345,4 @@ Request and event logs are written in [logfmt](https://brandur.org/logfmt). This
 
 ## **Next steps**
 
-Congratulations! You have now set up a hosted Ceramic node that is ready to receive HTTP requests from the local environment, the [JS HTTP Client](../../build/javascript/installation.md#js-http-client), the [CLI](../../build/cli/installation.md#4-configure-a-node-url), or to simply serve as another node to replicate and pin streams. Please report any bugs as issues at https://github.com/ceramicnetwork/js-ceramic.
+Congratulations! You have now set up a hosted Ceramic node that is ready to receive HTTP requests from the local environment, the [JS HTTP Client](../../build/javascript/installation.md#js-http-client), the [CLI](../../build/cli/installation.md#4-configure-a-node-url), or to simply serve as another node to replicate and pin streams. Please report any bugs as issues at [https://github.com/ceramicnetwork/js-ceramic](https://github.com/ceramicnetwork/js-ceramic).
