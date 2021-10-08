@@ -1,5 +1,7 @@
 # Sample Apps
 
-Simple demo applications to give you a sense of what's possible with Ceramic.
+This page contains links to simple applications that give you a sense of what's possible with Ceramic.
 
-[**Playground**](https://playground.ceramic.dev): A minimal browser application that integrates the Ceramic JS HTTP client, [3ID Connect](../tools/authentication/3id-connect.md), and [IDX](../tools/identity/idx.md).
+### **Playground**
+
+[**Playground**](https://playground.ceramic.dev) is a minimal browser application that integrates the [JS HTTP Client](../build/javascript/http.md), [3ID Connect](../authentication/3id-did/3id-connect.md), and [IDX](../tools/idx/overview.md).

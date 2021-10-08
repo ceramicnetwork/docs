@@ -11,7 +11,3 @@ A DID can have an unlimited number of CAIP-10 Links that publicly bind it to man
 - Authentication: DIDs
 - Ordering: Anchor records checkpointed into a blockchain (via blockheight)
 - Conflict resolution: Earliest anchor wins (EAW)
-
-</br>
-</br>
-</br>

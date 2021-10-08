@@ -4,7 +4,7 @@ TileDocument is a StreamType that stores a mutable JSON document, providing simi
 
 ## **Usage**
 
-See [TileDocument API](./api.md) for instructions on how to create and update TileDocument streams. You can query TileDocuments using Ceramic's standard [queries API](../../build/queries.md).
+See [TileDocument API](./api.md) for instructions on how to create and update TileDocument streams. You can query TileDocuments using Ceramic's standard [queries API](../../build/javascript/queries.md).
 
 ## **Specification**
 
@@ -20,7 +20,7 @@ TileDocuments rely on [anchor commits](../../learn/glossary.md#anchor-commit) fo
 
 ### Authentication
 
-TileDocuments rely on [DIDs](../../learn/glossary.md#dids) for [authentication](../../learn/glossary.md#authentication). Only the DID(s) assigned as the [controller](../../learn/glossary.md#controllers) of the stream are allowed to perform writes. 
+TileDocuments rely on [DIDs](../../learn/glossary.md#dids) for [authentication](../../learn/glossary.md#authentication). Only the DID(s) assigned as the [controller](../../learn/glossary.md#controllers) of the stream are allowed to perform writes.
 
 ## **Sample use cases**
 
@@ -29,12 +29,7 @@ TileDocuments are commonly used for storing:
 - Schemas
 - Identity metadata and information
 - User-generated content (i.e. blog posts, social media, etc)
-- Lists of other [streamIDs](../../learn/glossary.md#streamid) to form collections (i.e. [IDX](../../tools/identity/idx.md))
+- Lists of other [streamIDs](../../learn/glossary.md#streamid) to form collections (i.e. [IDX](../../tools/idx/overview.md))
 - [DID Documents](../../learn/glossary.md#did-document) (i.e. [3ID DID Method](../../authentication/3id-did/method.md))
 - Verifiable claims
 - and more
-
-
-</br>
-</br>
-</br>
