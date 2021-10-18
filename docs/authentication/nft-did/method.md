@@ -2,7 +2,7 @@
 
 !!! warning ""
 
-    **NFT DID is alpha.** Please reach out in [Discord](https://chat.ceramic.network) to express a feedback.
+    **NFT DID is alpha.** Please reach out in [Discord](https://chat.ceramic.network) to provide feedback.
 
 The [NFT DID Method (CIP-94)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-94/CIP-94.md) is a [DID method](../../learn/glossary.md#did-methods)
 that can be used to [authenticate](../../build/javascript/authentication.md) to Ceramic to perform [writes](../../build/javascript/writes.md)
@@ -33,26 +33,32 @@ If the NFT gets transferred, the rights move to a new owner. We heard of the fol
 To use an NFT as a Ceramic stream controller, one has to include [nft-did-resolver](https://www.npmjs.com/package/nft-did-resolver) in Ceramic node.
 Ceramic upstream includes it by default. Until a new version is released, one has to build your own node from our GitHub repository though.
 
-One creates an NFT-controlled stream by setting a stream controller to `did:nft` DID URL. For example,
+One creates an NFT-controlled stream by setting a stream controller to `did:nft` DID URL. For example:
 
 ```
 const didNFT =
     "did:nft:eip155:4_erc721:0xe2a6a2da2408e1c944c045162852ef2056e235ab_1";
 const tile = await TileDocument.create(ceramic, {foo: "blah"}, {controllers: [didNFT]})
 ```
+Now the Tile Document we have just created can only be controlled by the NFT owner.
 
-Now that tile we just created can only be controlled by an NFT owner.
+!!! note ""
+
+    The Ethereum address used to reference the NFT must be lowercase.
+
 
 Here `didNFT` string is a DID URL that references ERC721 token `1` on contract `0xe2a6a2da2408e1c944c045162852ef2056e235ab` deployed to Rinkeby (`eip155:4`). This should reference your NFT.
 We provide a helper function `createNftDidUrl` to create such a string.
 
 ```
 import { createNftDidUrl } from 'nft-did-resolver'
+// "did:nft:eip155:4_erc721:0xe2a6a2da2408e1c944c045162852ef2056e235ab_1"
 const didNFT = createNftDidUrl({
   chainId: 'eip155:1',
-  namespace: 'erc721:0x1234567891234567891234567891234596351156',
+  namespace: 'erc721',
+  contract: '0x1234567891234567891234567891234596351156',
   tokenId: '1',
-}) // "did:nft:eip155:4_erc721:0xe2a6a2da2408e1c944c045162852ef2056e235ab_1"
+})
 ```
 
 ## **Under the hood**

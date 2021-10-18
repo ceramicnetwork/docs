@@ -186,7 +186,7 @@ const doc = TileDocument.create(
     deterministic: true,
   },
   { anchor: false, publish: false }
-})
+)
 ```
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create){:target="\_blank"}
