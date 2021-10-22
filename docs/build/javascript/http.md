@@ -25,7 +25,7 @@ npm install @ceramicnetwork/http-client
 ## **2. Import the HTTP client**
 
 ```javascript
-import CeramicClient from '@ceramicnetwork/http-client'
+import { CeramicClient } from '@ceramicnetwork/http-client'
 ```
 
 ## **3. Configure your node URL**
@@ -81,7 +81,7 @@ Once you have completed installing and configuring the HTTP Client, your project
 ### Write and read
 
 ``` javascript
-import CeramicClient from '@ceramicnetwork/http-client'
+import { CeramicClient } from '@ceramicnetwork/http-client'
 import KeyDidResolver from 'key-did-resolver'
 import ThreeIdResolver from '@ceramicnetwork/3id-did-resolver'
 import { DID } from 'dids'
