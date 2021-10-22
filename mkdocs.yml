@@ -150,6 +150,13 @@ nav:
               - Module: reference/self-id/modules/web.md
               - WebClient class: reference/self-id/classes/web.WebClient.md
               - SelfID class: reference/self-id/classes/web.SelfID.md
+          - React:
+              - Module: reference/self-id/modules/react.md
+              - RequestClient class: reference/self-id/classes/react.RequestClient.md
+          - Framework:
+              - Module: reference/self-id/modules/framework.md
+              - UI components: reference/self-id/modules/ui.md
+              - Multiauth hook: reference/self-id/modules/multiauth.md
           - Utilities:
               - Image utilities: reference/self-id/modules/image_utils.md
               - 3Box legacy: reference/self-id/modules/3box_legacy.md

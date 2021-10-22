@@ -109,7 +109,7 @@ Run `glaze help` to list the available commands. The commands for some common fl
 
 ### Creation and edition
 
-In order to create streams, we need a Key DID. If you don't already have one, you can use the `did:create` command:
+In order to create streams, we need a Key DID. If you don't already have one, you can use the `did:create` command. It will output a random hexademical `seed` that can be used as the `DID_KEY` environment variable or as the `--key` flag in the following commands.
 
 ```sh
 glaze did:create

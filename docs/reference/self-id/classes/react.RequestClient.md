@@ -1,11 +1,11 @@
-# Class: WebClient<ModelTypes\>
+# Class: RequestClient<ModelTypes, Alias\>
 
-[web](../modules/web.md).WebClient
+[react](../modules/react.md).RequestClient
 
 Extends [`core.Core`](core.Core.md)
 
 ```sh
-import { WebClient } from '@self.id/web'
+import { RequestClient } from '@self.id/react'
 ```
 
 ## Type parameters
@@ -13,30 +13,32 @@ import { WebClient } from '@self.id/web'
 | Name | Type |
 | :------ | :------ |
 | `ModelTypes` | extends `CoreModelTypes``CoreModelTypes` |
+| `Alias` | extends keyof `ModelTypes`[``"definitions"``]keyof `ModelTypes`[``"definitions"``] |
 
 ## Hierarchy
 
 - `Core`<`ModelTypes`\>
 
-  ↳ **`WebClient`**
+  ↳ **`RequestClient`**
 
 ## Constructors
 
 ### constructor
 
-• **new WebClient**<`ModelTypes`\>(`params`)
+• **new RequestClient**<`ModelTypes`, `Alias`\>(`params`)
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
 | `ModelTypes` | extends `ModelTypes``ModelTypes` |
+| `Alias` | extends `string` \| `number` \| `symbol`keyof `ModelTypes`[``"definitions"``] |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `params` | [`WebClientParams`](../modules/web.md#webclientparams)<`ModelTypes`\> |
+| `params` | [`RequestClientParams`](../modules/react.md#requestclientparams)<`ModelTypes`\> |
 
 #### Overrides
 
@@ -84,48 +86,15 @@ ___
 
 ___
 
-### threeId
+### viewerID
 
-• `get` **threeId**(): `ThreeIdConnect`
+• `get` **viewerID**(): ``null`` \| `string`
 
 #### Returns
 
-`ThreeIdConnect`
+``null`` \| `string`
 
 ## Methods
-
-### authenticate
-
-▸ **authenticate**(`authProvider`, `attachToCeramic?`): `Promise`<`DID`\>
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `authProvider` | `EthereumAuthProvider` | `undefined` |
-| `attachToCeramic` | `boolean` | `true` |
-
-#### Returns
-
-`Promise`<`DID`\>
-
-___
-
-### connect
-
-▸ **connect**(`authProvider`): `Promise`<`DID`\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `authProvider` | `EthereumAuthProvider` |
-
-#### Returns
-
-`Promise`<`DID`\>
-
-___
 
 ### get
 
@@ -172,6 +141,39 @@ ___
 #### Inherited from
 
 Core.getAccountDID
+
+___
+
+### getState
+
+▸ **getState**(): [`RequestState`](../modules/react.md#requeststate)
+
+#### Returns
+
+[`RequestState`](../modules/react.md#requeststate)
+
+___
+
+### prefetch
+
+▸ **prefetch**<`Key`\>(`key`, `id?`): `Promise`<`boolean`\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Key` | extends `string` \| `number` \| `symbol` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `key` | `Key` |
+| `id` | ``null`` \| `string` |
+
+#### Returns
+
+`Promise`<`boolean`\>
 
 ___
 
