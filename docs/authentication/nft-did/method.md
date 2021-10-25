@@ -75,6 +75,12 @@ If you are a dApp developer who wishes to use NFT-DID, you have to make sure tha
 have that connection via [CAIP10Link (CIP-7)](../../streamtypes/caip-10-link/overview.md).
 If a user authenticates via 3id-connect, as usually is the case, such a connection is created automatically.
 
+!!! note ""
+
+    In practice, it might happen that your 3id-connect is on different network than your application.
+    This results in a mismatch between DIDs linked to the same blockchain account. Please, make sure,
+    a DID from caip10link in your application corresponds to a DID you get from 3id-connect.
+
 ## **Constraints**
 
 We support only [ERC721](https://eips.ethereum.org/EIPS/eip-721) and [ERC1155](https://eips.ethereum.org/EIPS/eip-1155) tokens for now.
