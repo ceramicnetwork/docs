@@ -82,6 +82,13 @@ We support Rinkeby, Etherem mainnet and Polygon networks by default. If you need
 and update configuration of your Ceramic node. There you can find parameters required for a new network.
 Namely, it needs three [subgraphs](https://thegraph.com): for blocks, for erc721 and erc1155 tokens, and a "skew", which is a typical block time.
 
+!!! note ""
+
+    A subgraph might be lagging behind a blockchain network. If etherscan reports the latest block number as 1000,
+    a subgraph might still index block number 995. This could result in an error like "invalid_jws: not a valid verificationMethod for issuer".
+    Please, make sure to repeat an operation after some time, enough for the subgraph to catch up with the blockchain.
+    In general, it is a good practice to accommodate for the condition.
+
 ## **Specification**
 
 Read the [NFT DID Method (CIP-94) Specification](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-94/CIP-94.md).
