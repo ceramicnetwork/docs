@@ -78,8 +78,9 @@ If a user authenticates via 3id-connect, as usually is the case, such a connecti
 !!! note ""
 
     In practice, it might happen that your 3id-connect is on different Ceramic network than your application.
-    This results in a mismatch between DIDs linked to the same blockchain account. Please, make sure,
-    a DID from caip10link in your application corresponds to a DID you get from 3id-connect.
+    This can manifest as a mismatch between DIDs linked to the same blockchain account, or unavailability of stream
+    containing data models.
+    Please, make sure, a DID from caip10link in your application corresponds to a DID you get from 3id-connect.
 
 ## **Constraints**
 
