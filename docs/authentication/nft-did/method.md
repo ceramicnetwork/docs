@@ -75,12 +75,26 @@ If you are a dApp developer who wishes to use NFT-DID, you have to make sure tha
 have that connection via [CAIP10Link (CIP-7)](../../streamtypes/caip-10-link/overview.md).
 If a user authenticates via 3id-connect, as usually is the case, such a connection is created automatically.
 
+!!! note ""
+
+    In practice, it might happen that your 3id-connect is on a different Ceramic network than your application.
+    This can manifest as a mismatch between DIDs linked to the same blockchain account (on testnet `0xethereum`→DID-A, on devnet for the same account `0xethereum`→DID-B),
+    or unavailability of a record within the DID's DIDDataStore.
+    Please make sure that the DID from a Caip10Link in your application corresponds to the DID you get from 3id-connect.
+
 ## **Constraints**
 
 We support only [ERC721](https://eips.ethereum.org/EIPS/eip-721) and [ERC1155](https://eips.ethereum.org/EIPS/eip-1155) tokens for now.
 We support Rinkeby, Etherem mainnet and Polygon networks by default. If you need other networks, please, consult with [nft-did-resolver](https://github.com/ceramicnetwork/nft-did-resolver) README,
 and update configuration of your Ceramic node. There you can find parameters required for a new network.
 Namely, it needs three [subgraphs](https://thegraph.com): for blocks, for erc721 and erc1155 tokens, and a "skew", which is a typical block time.
+
+!!! note ""
+
+    A subgraph might be lagging behind a blockchain network. If etherscan reports the latest block number as 1000,
+    a subgraph might still index block number 995. This could result in an error like "invalid_jws: not a valid verificationMethod for issuer".
+    Please, make sure to repeat an operation after some time, enough for the subgraph to catch up with the blockchain.
+    In general, it is a good practice to accommodate for the condition.
 
 ## **Specification**
 
