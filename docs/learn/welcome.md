@@ -1,4 +1,4 @@
-# Ceramic Developers
+# Armando Lopez Jr 
 
 !!! warning "**MAINNET NOW LIVE!**"
 
