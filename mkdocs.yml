@@ -121,6 +121,7 @@ nav:
           - Configuration: tools/self-id/configuration.md
           - Read-only interactions: tools/self-id/read.md
           - Authentication and writes: tools/self-id/write.md
+          - Framework: tools/self-id/framework.md
           - Utilities: tools/self-id/utilities.md
       - IDX:
           - Overview: tools/idx/overview.md

@@ -2,7 +2,7 @@
 
 Performing writes (creating and updating streams) in Ceramic requires an authenticated DID.
 
-The Self.ID SDK leverages [3ID Connect](../../authentication/3id-did/3id-connect.md) to provide browser-based authentication in the `@self.id/web` package via the [`EthereumAuthProvider`](https://developers.ceramic.network/authentication/3id-did/3id-connect/#2-import-the-provider)
+The Self.ID SDK leverages [3ID Connect](../../authentication/3id-did/3id-connect.md) to provide browser-based authentication in the `@self.id/web` package via the [`EthereumAuthProvider`](https://developers.ceramic.network/authentication/3id-did/3id-connect/#2-import-the-provider).
 
 ## Using the WebClient class
 
