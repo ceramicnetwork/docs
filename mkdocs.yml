@@ -112,6 +112,7 @@ nav:
       - Glaze:
           - Overview: tools/glaze/overview.md
           - Glossary: tools/glaze/glossary.md
+          - Tile Loader: tools/glaze/tile-loader.md
           - DataModel: tools/glaze/datamodel.md
           - DID DataStore: tools/glaze/did-datastore.md
           - Development: tools/glaze/development.md
@@ -132,6 +133,9 @@ nav:
           - JavaScript: reference/javascript/packages.md
       - Glaze:
           - Overview: reference/glaze/overview.md
+          - Tile Loader:
+              - Module: reference/glaze/modules/tile_loader.md
+              - TileLoader class: reference/glaze/classes/tile_loader.TileLoader.md
           - DataModel:
               - Module: reference/glaze/modules/datamodel.md
               - DataModel class: reference/glaze/classes/datamodel.DataModel.md

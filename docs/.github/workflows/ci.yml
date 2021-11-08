@@ -2,7 +2,6 @@ name: ci
 on:
   push:
     branches:
-      - master
       - main
 jobs:
   deploy:
@@ -20,7 +19,7 @@ name: build and deploy mkdocs to github pages
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   deploy:
     runs-on: ubuntu-latest
