@@ -6,3 +6,10 @@
 article.md-content__inner {
   padding-bottom: 90px;
 }
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-weight: bold;
+  color: #242526;
+}
