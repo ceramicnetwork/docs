@@ -17,11 +17,11 @@ You need an [installed client](../../build/javascript/installation.md) and an [a
 Use the [`TileDocument.create()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create){:target="\_blank"} method to create a new TileDocument.
 
 ```javascript
-import { TileDocument } from '@ceramicnetwork/stream-tile'
+import { TileDocument } from '@ceramicnetwork/stream-tile';
 
-const doc = await TileDocument.create(ceramic, content, metadata, opts)
+const doc = await TileDocument.create(ceramic, content, metadata, opts);
 
-const streamId = doc.id.toString()
+const streamId = doc.id.toString();
 ```
 
 In this example we create a TileDocument where we set `content`, `schema`, `controllers`, and `family`.
@@ -34,8 +34,8 @@ const doc = await TileDocument.create(
     controllers: [ceramic.did.id],
     family: 'doc family',
     schema: schemaDoc.commitId,
-  },
-)
+  }
+);
 ```
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create){:target="\_blank"}
@@ -56,21 +56,15 @@ The content of your TileDocument, in the form of a JSON document. If `schema` is
 
 ##### metadata (optional)
 
-| Parameter       | Required? | Value            | Description                                                                                                     | Notes                                                       |
-| --------------- | --------- | ---------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| `controllers`   | optional  | array of strings | Defines the DID that is allowed to modify the document. Currently only one controller is supported per document | If empty, defaults to currently authenticated DID           |
-| `schema`        | optional  | string           | CommitID of a Ceramic TileDocument that contains a JSON schema                                                  | If set, schema will be enforced on content                  |
-| `family`        | optional  | string           | Allows you to group similar documents into _families_                                                           | Useful for indexing groups of like documents on the network |
-| `tags`          | optional  | array of strings | Allows you to tag similar documents                                                                             | Useful for indexing groups of like documents on the network |
-| `deterministic` | optional  | boolean          | If false, allows TileDocuments with the same `content` and `metadata` to generate unique StreamIDs              | If empty, defaults to false                                 |
+| Parameter                        | Required? | Value            | Description                                                                                                                                                                                                    | Notes                                                       |
+| -------------------------------- | --------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| `controllers`                    | optional  | array of strings | Defines the DID that is allowed to modify the document. Currently only one controller is supported per document                                                                                                | If empty, defaults to currently authenticated DID           |
+| `schema`                         | optional  | string           | CommitID of a Ceramic TileDocument that contains a JSON schema                                                                                                                                                 | If set, schema will be enforced on content                  |
+| `family`                         | optional  | string           | Allows you to group similar documents into _families_                                                                                                                                                          | Useful for indexing groups of like documents on the network |
+| `tags`                           | optional  | array of strings | Allows you to tag similar documents                                                                                                                                                                            | Useful for indexing groups of like documents on the network |
+| `deterministic` **(deprecated)** | optional  | boolean          | **Deprecated - Please use [`TileDocument.deterministic()`](#create-a-deterministic-tiledocument) instead.** If false, allows TileDocuments with the same `content` and `metadata` to generate unique StreamIDs | If empty, defaults to false                                 |
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_stream_tile.tilemetadataargs-1.html){:target="\_blank"}
-
-!!! warning "Using the `deterministic` parameter"
-
-    For most use cases you will likely want to leave the `deterministic` parameter set to false. However for special circumstances, you may want this to be set to true. For example this should be set to true if you would like to enable [deterministic queries](#query-a-deterministic-tiledocument) for your TileDocument. If this is your use case, then it is also important that you set `content` to `null` during document creation. Deterministic document queries are based entirely on the document's initial metadata. You can proceed to add content to your document by [updating it](#update-a-tiledocument).
-
-[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_stream_tile.tilemetadataargs-1.html#deterministic){:target="\_blank"}
 
 ##### opts (optional)
 
@@ -86,21 +80,72 @@ The final argument to `TileDocument.create` is an instance of [`CreateOpts`](htt
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html){:target="\_blank"}
 
+### **Create a Deterministic TileDocument**
+
+Use the [`TileDocument.deterministic()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#deterministic){:target="\_blank"} method to create a new deterministic TileDocument or to query an existing deterministic TileDocument (see the [Query A Deterministic TileDocument](#query-a-deterministic-tiledocument) section).
+
+```javascript
+import { TileDocument } from '@ceramicnetwork/stream-tile';
+
+const doc = await TileDocument.deterministic(ceramic, metadata, opts);
+
+const streamId = doc.id.toString();
+```
+
+In this example we create a deterministic TileDocument where we set `tags`, and `family` in the metadata. We then can retrieve that same tile document using `TileDocument.deterministic` as long as we use the same metadata.
+
+```javascript
+const doc = await TileDocument.create(ceramic, {
+  family: 'doc family',
+  tags: ['tag1'],
+});
+
+const retrievedDoc = await TileDocument.deterministic(
+  ceramic,
+  { family: 'doc family', tags: ['tag1'] },
+  { anchor: false, publish: false }
+);
+
+console.log(doc.id.toString() === retrievedDoc.id.toString()); // true
+```
+
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#deterministic){:target="\_blank"}
+
+!!! warning "Using the `deterministic` function"
+
+    For most use cases you will likely want to use [`TileDocument.create()`](#create-a-tiledocument). However for special circumstances, you may want to use [`TileDocument.deterministic()`](#create-a-deterministic-tiledocument) . For example you should use [`TileDocument.deterministic()`](#create-a-deterministic-tiledocument)  if you would like to enable [deterministic queries](#query-a-deterministic-tiledocument) for your TileDocument. If this is your use case, then it is also important that you provide initial metadata as deterministic document queries are based entirely on the document's initial metadata. You can proceed to add content to your document by [updating it](#update-a-tiledocument).
+
+#### Parameters
+
+##### ceramic
+
+See the [`ceramic`](#ceramic) parameter in [`TileDocument.create`](#create-a-tiledocument).
+
+##### metadata
+
+Metadata is required when creating TileDocuments using [`TileDocument.deterministic`](#create-a-deterministic-tiledocument). Specifically the `family` and/or `tag` parameters are required.
+
+For more information see the [`metadata`](#metadata-optional) parameter in [`TileDocument.create`](#create-a-tiledocument).
+
+##### opts (optional)
+
+See the [`opts`](#opts-optional) parameter in [`TileDocument.create`](#create-a-tiledocument).
+
 ### **Update a TileDocument**
 
 Use the [`doc.update()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#update){:target="\_blank"} method to update the `content` or `metadata` of an existing TileDocument.
 
 ```javascript
-const doc = await TileDocument.load(ceramic, streamId, opts)
-await doc.update(newContent, newMetadata, opts)
+const doc = await TileDocument.load(ceramic, streamId, opts);
+await doc.update(newContent, newMetadata, opts);
 ```
 
 In this example we update a TileDocument's content while also giving it a tag.
 
 ```javascript
-const streamId = 'kjzl6cwe1jw14...' // Replace this with the StreamID of the TileDocument to be updated
-const doc = await TileDocument.load(ceramic, streamId)
-await doc.update({ foo: 'baz' }, { tags: ['baz'] })
+const streamId = 'kjzl6cwe1jw14...'; // Replace this with the StreamID of the TileDocument to be updated
+const doc = await TileDocument.load(ceramic, streamId);
+await doc.update({ foo: 'baz' }, { tags: ['baz'] });
 ```
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#update){:target="\_blank"}
@@ -108,7 +153,6 @@ await doc.update({ foo: 'baz' }, { tags: ['baz'] })
 !!! warning "Persisting updates"
 
     Please note that if you want updates to a Stream to persist you need to ensure that the stream is pinned by at least one node on the network. See the [pinning](../../build/javascript/pinning.md) page for more information.
-
 
 #### Parameters
 
@@ -145,8 +189,8 @@ The final argument to `TileDocument.update` is an instance of [`UpdateOpts`](htt
 Use the [`TileDocument.load()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#load){:target="\_blank"} method to load a single document using its _StreamID_
 
 ```javascript
-const streamId = 'kjzl6cwe1jw14...' // Replace this with the StreamID of the TileDocument to be loaded
-const doc = await TileDocument.load(ceramic, streamId, opts)
+const streamId = 'kjzl6cwe1jw14...'; // Replace this with the StreamID of the TileDocument to be loaded
+const doc = await TileDocument.load(ceramic, streamId, opts);
 ```
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#load){:target="\_blank"}
@@ -174,19 +218,17 @@ The final argument to `TileDocument.load` is an instance of [`LoadOpts`](https:/
 
 ### **Query a deterministic TileDocument**
 
-In the [create](#create-a-tiledocument) section, we discussed how to create a document with the `deterministic` parameter set to true. Since this parameter allows us to generate the exact same StreamID if we create two documents with the same initial `metadata`, it is possible to "query" the document using the same [`TileDocument.create`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create){:target="\_blank"} method that we used to initially create it, without needing to know the StreamID before performing the query. Note we are setting the `CreateOpts` parameters (`anchor` and `publish`) to false so that we are only loading the document and not publishing any changes to the network.
+In the [deterministic](#create-a-deterministic-tiledocument) section, we discussed how to create a deterministic document. Since this function allows us to generate the exact same StreamID if we use it to create two documents with the same initial `metadata`, it is possible to "query" the document using the same [`TileDocument.deterministic`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#deterministic){:target="\_blank"} method that we used to initially create it, without needing to know the StreamID before performing the query. Note we are setting the `CreateOpts` parameters (`anchor` and `publish`) to false so that we are only loading the document and not publishing any changes to the network.
 
 ```javascript
-const doc = TileDocument.create(
+const doc = TileDocument.deterministic(
   ceramic,
-  null,
   {
     controllers: ['did:key:z6MkfZ6S4NVVTEuts8o5xFzRMR8eC6Y1bngoBQNnXiCvhH8H'],
     family: 'example family',
-    deterministic: true,
   },
   { anchor: false, publish: false }
-)
+);
 ```
 
-[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#create){:target="\_blank"}
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#deterministic){:target="\_blank"}
