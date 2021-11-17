@@ -36,7 +36,7 @@ Write custom functions for processing updates to your stream's [state](./glossar
 
 ### **Scalable consensus**
 
-Unlike blockchains or other DLT systems which have scalability limitations due to reliances on a single execution environment and global state, Ceramic takea a different approach to network scalability. On Ceramic, every stream maintains its own state and nodes independently process stream transactions, allowing for unbounded parallelization. This enables Ceramic to operate at worldwide data scale, which is orders of magnitude greater than the scale needed for decentralized finance.
+Unlike blockchains or other DLT systems which have scalability limitations due to reliances on a single execution environment and global state, Ceramic takes a different approach to network scalability. On Ceramic, every stream maintains its own state and nodes independently process stream transactions, allowing for unbounded parallelization. This enables Ceramic to operate at worldwide data scale, which is orders of magnitude greater than the scale needed for decentralized finance.
 
 ### **Archive anywhere**
 
