@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: 3.x
       - name: Install MkDocs Material Insiders
-        run: pip install git+https://${INSIDERS_GITHUB_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
+        run: pip install git+https://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@github.com/squidfunk/mkdocs-material-insiders.git
       - name: Deploy docs
         run: mkdocs gh-deploy --force
 env:
