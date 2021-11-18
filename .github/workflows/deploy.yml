@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - feat/insiders-setup # temporary for testing action
 
 # Setup from https://squidfunk.github.io/mkdocs-material/publishing-your-site/#with-github-actions
 jobs:
