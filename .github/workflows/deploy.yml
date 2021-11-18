@@ -21,9 +21,7 @@ jobs:
       - name: Install MkDocs Material Insiders
         run: pip install git+https://${INSIDERS_GITHUB_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
       - name: Install plugins
-        run:
-          - pip install mkdocs-minify-plugin
-          - pip install mkdocs-redirects
+        run: pip install mkdocs-minify-plugin mkdocs-redirects
       - name: Deploy docs
         run: mkdocs gh-deploy --force
 env:
