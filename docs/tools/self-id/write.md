@@ -2,7 +2,7 @@
 
 Performing writes (creating and updating streams) in Ceramic requires an authenticated DID.
 
-The Self.ID SDK leverages [3ID Connect](../../authentication/3id-did/3id-connect.md) to provide browser-based authentication in the `@self.id/web` package via the [`EthereumAuthProvider`](https://developers.ceramic.network/authentication/3id-did/3id-connect/#2-import-the-provider)
+The Self.ID SDK leverages [3ID Connect](../../authentication/3id-did/3id-connect.md) to provide browser-based authentication in the `@self.id/web` package via the [`EthereumAuthProvider`](https://developers.ceramic.network/authentication/3id-did/3id-connect/#2-import-the-provider).
 
 ## Using the WebClient class
 
@@ -12,17 +12,22 @@ The `WebClient` class extends `Core` from the `@self.id/core` package with the a
 import { EthereumAuthProvider, SelfID, WebClient } from '@self.id/web'
 
 // The following assumes there is an injected `window.ethereum` provider
-const addresses = await window.ethereum.enable()
+const addresses = await window.ethereum.request({
+  method: 'eth_requestAccounts',
+})
 const authProvider = new EthereumAuthProvider(window.ethereum, addresses[0])
 
 // The following configuration assumes your local node is connected to the Clay testnet
-const client = new WebClient({ ceramic: 'local', connectNetwork: 'testnet-clay' })
+const client = new WebClient({
+  ceramic: 'local',
+  connectNetwork: 'testnet-clay',
+})
 
-// If authentication is successful, a DID instance is returned
-const did = await client.authenticate(authProvider)
+// If authentication is successful, a DID instance is attached to the Ceramic instance
+await client.authenticate(authProvider)
 
-// A SelfID instance can only be created with an authenticated DID
-const self = new SelfID({ client, did })
+// A SelfID instance can only be created with an authenticated Ceramic instance
+const self = new SelfID({ client })
 
 await self.set('basicProfile', { name: 'Alice' })
 ```
@@ -37,7 +42,9 @@ The process of creating a `WebClient`, `DID` and `SelfID` instances can be reduc
 import { EthereumAuthProvider, SelfID } from '@self.id/web'
 
 // The following assumes there is an injected `window.ethereum` provider
-const addresses = await window.ethereum.enable()
+const addresses = await window.ethereum.request({
+  method: 'eth_requestAccounts',
+})
 
 // The following configuration assumes your local node is connected to the Clay testnet
 const self = await SelfID.authenticate({

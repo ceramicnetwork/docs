@@ -21,29 +21,40 @@ npm install @self.id/web
 
 | Name | Type |
 | :------ | :------ |
-| `ModelTypes` | extends `CoreModelTypes``CoreModelTypes` |
+| `ModelTypes` | extends `ModelTypeAliases` = `CoreModelTypes` |
+
+___
+
+### ConnectNetwork
+
+Ƭ **ConnectNetwork**: ``"dev-unstable"`` \| ``"mainnet"`` \| ``"testnet-clay"``
 
 ___
 
 ### SelfIDParams
 
-Ƭ **SelfIDParams**: `Object`
-
-#### Type declaration
-
-| Name | Type |
-| :------ | :------ |
-| `client` | [`WebClient`](../classes/web.WebClient.md) |
-| `did` | `DID` |
-
-___
-
-### WebClientParams
-
-Ƭ **WebClientParams**<`ModelTypes`\>: `CoreParams`<`ModelTypes`\> & { `connectNetwork?`: `CeramicNetwork`  }
+Ƭ **SelfIDParams**<`ModelTypes`\>: `Object`
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `ModelTypes` | extends `CoreModelTypes``CoreModelTypes` |
+| `ModelTypes` | extends `ModelTypeAliases` = `CoreModelTypes` |
+
+#### Type declaration
+
+| Name | Type |
+| :------ | :------ |
+| `client` | [`WebClient`](../classes/web.WebClient.md)<`ModelTypes`\> |
+
+___
+
+### WebClientParams
+
+Ƭ **WebClientParams**<`ModelTypes`\>: `CoreParams`<`ModelTypes`\> & { `connectNetwork?`: [`ConnectNetwork`](web.md#connectnetwork)  }
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `ModelTypes` | extends `ModelTypeAliases` = `CoreModelTypes` |

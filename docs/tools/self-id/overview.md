@@ -31,6 +31,12 @@ The Web package can be used to authenticate and write records in browser environ
 
 [Web API reference](../../reference/self-id/modules/web.md){: .md-button .md-button }
 
+### Framework
+
+A React-based framework combines many of the SDK packages to provide a high-level abstraction for applications to get started using Self.ID.
+
+[Framework documentation](framework.md){: .md-button .md-button }
+
 ### Utility packages
 
 Additional [utility packages](utilities.md) are provided by the SDK to help support more specific use-cases.

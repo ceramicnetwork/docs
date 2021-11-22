@@ -122,6 +122,7 @@ nav:
           - Configuration: tools/self-id/configuration.md
           - Read-only interactions: tools/self-id/read.md
           - Authentication and writes: tools/self-id/write.md
+          - Framework: tools/self-id/framework.md
           - Utilities: tools/self-id/utilities.md
       - IDX:
           - Overview: tools/idx/overview.md
@@ -154,6 +155,13 @@ nav:
               - Module: reference/self-id/modules/web.md
               - WebClient class: reference/self-id/classes/web.WebClient.md
               - SelfID class: reference/self-id/classes/web.SelfID.md
+          - React:
+              - Module: reference/self-id/modules/react.md
+              - RequestClient class: reference/self-id/classes/react.RequestClient.md
+          - Framework:
+              - Module: reference/self-id/modules/framework.md
+              - UI components: reference/self-id/modules/ui.md
+              - Multiauth hook: reference/self-id/modules/multiauth.md
           - Utilities:
               - Image utilities: reference/self-id/modules/image_utils.md
               - 3Box legacy: reference/self-id/modules/3box_legacy.md
