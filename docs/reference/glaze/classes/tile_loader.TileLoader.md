@@ -28,6 +28,24 @@ DataLoader&lt;TileKey, TileDocument\&gt;.constructor
 
 ## Methods
 
+### cache
+
+▸ **cache**(`stream`): `boolean`
+
+Add a TileDocument to the local cache if enabled.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `stream` | `TileDocument`<`Record`<`string`, `any`\>\> |
+
+#### Returns
+
+`boolean`
+
+___
+
 ### create
 
 ▸ **create**<`T`\>(`content`, `metadata?`, `options?`): `Promise`<`TileDocument`<`T`\>\>
@@ -38,7 +56,7 @@ Create a new TileDocument and add it to the cache if enabled.
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `Record`<`string`, `any`\>`Record`<`string`, `any`\> |
+| `T` | extends `Record`<`string`, `any`\> = `Record`<`string`, `any`\> |
 
 #### Parameters
 
@@ -56,7 +74,7 @@ ___
 
 ### deterministic
 
-▸ **deterministic**<`T`\>(`metadata`): `Promise`<`TileDocument`<`undefined` \| ``null`` \| `T`\>\>
+▸ **deterministic**<`T`\>(`metadata`, `options?`): `Promise`<`TileDocument`<`undefined` \| ``null`` \| `T`\>\>
 
 Create or load a deterministic TileDocument based on its metadata.
 
@@ -64,13 +82,14 @@ Create or load a deterministic TileDocument based on its metadata.
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `Record`<`string`, `any`\>`Record`<`string`, `any`\> |
+| `T` | extends `Record`<`string`, `any`\> = `Record`<`string`, `any`\> |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
 | `metadata` | `TileMetadataArgs` |
+| `options?` | `CreateOpts` |
 
 #### Returns
 
@@ -88,7 +107,7 @@ Load a TileDocument from the cache (if enabled) or remotely.
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends `Record`<`string`, `any`\>`Record`<`string`, `any`\> |
+| `T` | extends `Record`<`string`, `any`\> = `Record`<`string`, `any`\> |
 
 #### Parameters
 

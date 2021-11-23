@@ -1,36 +1,48 @@
-# Class: Core<ModelTypes, Alias\>
+# Class: RequestClient<ModelTypes, Alias\>
 
-[core](../modules/core.md).Core
+[react](../modules/react.md).RequestClient
+
+Extends [`core.Core`](core.Core.md)
 
 ```sh
-import { Core } from '@self.id/core'
+import { RequestClient } from '@self.id/react'
 ```
 
 ## Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `ModelTypes` | extends `ModelTypeAliases` = [`CoreModelTypes`](../modules/core.md#coremodeltypes) |
+| `ModelTypes` | extends `ModelTypeAliases` = `CoreModelTypes` |
 | `Alias` | extends keyof `ModelTypes`[``"definitions"``] = keyof `ModelTypes`[``"definitions"``] |
+
+## Hierarchy
+
+- `Core`<`ModelTypes`\>
+
+  ↳ **`RequestClient`**
 
 ## Constructors
 
 ### constructor
 
-• **new Core**<`ModelTypes`, `Alias`\>(`params`)
+• **new RequestClient**<`ModelTypes`, `Alias`\>(`params`)
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `ModelTypes` | extends `ModelTypeAliases`<`Record`<`string`, `any`\>, `Record`<`string`, `string`\>, `Record`<`string`, `string`\>\> = [`CoreModelTypes`](../modules/core.md#coremodeltypes) |
+| `ModelTypes` | extends `ModelTypeAliases`<`Record`<`string`, `any`\>, `Record`<`string`, `string`\>, `Record`<`string`, `string`\>\> = `ModelTypes` |
 | `Alias` | extends `string` \| `number` \| `symbol` = keyof `ModelTypes`[``"definitions"``] |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `params` | [`CoreParams`](../modules/core.md#coreparams)<`ModelTypes`\> |
+| `params` | [`RequestClientParams`](../modules/react.md#requestclientparams)<`ModelTypes`\> |
+
+#### Overrides
+
+Core&lt;ModelTypes\&gt;.constructor
 
 ## Accessors
 
@@ -42,6 +54,10 @@ import { Core } from '@self.id/core'
 
 `CeramicClient`
 
+#### Inherited from
+
+Core.ceramic
+
 ___
 
 ### dataModel
@@ -51,6 +67,10 @@ ___
 #### Returns
 
 `DataModel`<`ModelTypes`, `ModelTypesToAliases`<`ModelTypes`\>\>
+
+#### Inherited from
+
+Core.dataModel
 
 ___
 
@@ -62,6 +82,10 @@ ___
 
 `DIDDataStore`<`ModelTypes`, keyof `ModelTypes`[``"definitions"``]\>
 
+#### Inherited from
+
+Core.dataStore
+
 ___
 
 ### resolver
@@ -72,6 +96,10 @@ ___
 
 `Resolver`
 
+#### Inherited from
+
+Core.resolver
+
 ___
 
 ### tileLoader
@@ -81,6 +109,20 @@ ___
 #### Returns
 
 `TileLoader`
+
+#### Inherited from
+
+Core.tileLoader
+
+___
+
+### viewerID
+
+• `get` **viewerID**(): ``null`` \| `string`
+
+#### Returns
+
+``null`` \| `string`
 
 ## Methods
 
@@ -106,6 +148,10 @@ ___
 
 `Promise`<``null`` \| `ContentType`\>
 
+#### Inherited from
+
+Core.get
+
 ___
 
 ### getAccountDID
@@ -122,6 +168,43 @@ ___
 
 `Promise`<`string`\>
 
+#### Inherited from
+
+Core.getAccountDID
+
+___
+
+### getState
+
+▸ **getState**(): [`RequestState`](../modules/react.md#requeststate)
+
+#### Returns
+
+[`RequestState`](../modules/react.md#requeststate)
+
+___
+
+### prefetch
+
+▸ **prefetch**<`Key`\>(`key`, `id?`): `Promise`<`boolean`\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `Key` | extends `string` \| `number` \| `symbol` |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `key` | `Key` |
+| `id` | ``null`` \| `string` |
+
+#### Returns
+
+`Promise`<`boolean`\>
+
 ___
 
 ### toDID
@@ -137,3 +220,7 @@ ___
 #### Returns
 
 `Promise`<`string`\>
+
+#### Inherited from
+
+Core.toDID

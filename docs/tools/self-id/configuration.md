@@ -12,7 +12,7 @@ import { Core } from '@self.id/core'
 // connect to a known URL
 const core = new Core({ ceramic: 'http://localhost:7007' })
 // or use one of the preconfigured option
-const core = new Core({ ceramic: 'testnet-clay' }) 
+const core = new Core({ ceramic: 'testnet-clay' })
 ```
 
 This endpoint can be the URL of a known node (`http://localhost:7007` for example), or one of the following preconfigured options:
@@ -54,7 +54,7 @@ By default, the Self.ID SDK supports interacting with the following models witho
 - `alsoKnownAs`, specified in [CIP-23](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-23/CIP-23.md)
 - `basicProfile`, specified in [CIP-19](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-19/CIP-19.md)
 - `cryptoAccounts`, specified in [CIP-21](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-21/CIP-21.md)
- 
+
 ```ts
 import { Core } from '@self.id/core'
 
@@ -63,7 +63,7 @@ const core = new Core({ ceramic: 'testnet-clay' })
 const profile = await core.get('basicProfile', id)
 ```
 
-It is possible to provide an alternative model to use in the `Core` instance:
+It is possible to provide an alternative model to use in the `Core` (or any extending) instance:
 
 ```ts
 import { Core } from '@self.id/core'
@@ -73,7 +73,8 @@ const model = {
     profile: 'kjzl6cwe1jw145cjbeko9kil8g9bxszjhyde21ob8epxuxkaon1izyqsu8wgcic',
   },
   schemas: {
-    Profile: 'ceramic://k3y52l7qbv1frxt706gqfzmq6cbqdkptzk8uudaryhlkf6ly9vx21hqu4r6k1jqio',
+    Profile:
+      'ceramic://k3y52l7qbv1frxt706gqfzmq6cbqdkptzk8uudaryhlkf6ly9vx21hqu4r6k1jqio',
   },
   tiles: {},
 }
@@ -83,4 +84,4 @@ const core = new Core({ ceramic: 'testnet-clay', model })
 const profile = await core.get('profile', id)
 ```
 
-You can [learn more about creating and using DataModels in the dedicated page](../glaze/datamodel.md). 
+You can [learn more about creating and using DataModels in the dedicated page](../glaze/datamodel.md).
