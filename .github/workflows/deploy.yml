@@ -4,16 +4,24 @@ on:
     branches:
       - main
 
+# Setup from https://squidfunk.github.io/mkdocs-material/publishing-your-site/#with-github-actions
 jobs:
-  build:
+  deploy:
     name: Deploy documentation
     runs-on: ubuntu-latest
+    if: github.event.repository.fork == false
     steps:
       - name: Checkout main
-        uses: actions/checkout@v1
-
+        uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - name: Install MkDocs Material Insiders
+        run: pip install git+https://${INSIDERS_GITHUB_TOKEN}@github.com/squidfunk/mkdocs-material-insiders.git
+      - name: Install plugins
+        run: pip install mkdocs-minify-plugin mkdocs-redirects
       - name: Deploy docs
-        uses: mhausenblas/mkdocs-deploy-gh-pages@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CUSTOM_DOMAIN: developers.ceramic.network
+        run: mkdocs gh-deploy --config-file mkdocs.insiders.yml --force
+env:
+  INSIDERS_GITHUB_TOKEN: ${{ secrets.INSIDERS_GITHUB_TOKEN }}
