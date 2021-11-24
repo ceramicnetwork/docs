@@ -22,15 +22,3 @@
   <meta name="twitter:description" content="{{ config.site_description }}" />
   <meta name="twitter:image" content="https://developers.ceramic.network/images/image-ceramic-opengraph.png" />
 {% endblock %}
-
-{% block analytics %}
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MP8QDL3LWK"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'G-MP8QDL3LWK');
-</script>
-{% endblock %}
