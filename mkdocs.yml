@@ -30,7 +30,7 @@ theme:
     - navigation.tabs
     - navigation.indexes
     - content.code.annotate
-    - toc.integrate
+    # - toc.integrate
 
 nav:
   - Home: index.md
@@ -209,15 +209,22 @@ nav:
       - Productivity and Colaboration: ecosystem/productivity-and-collaboration.md
   - REFERENCE:
       - tools/index.md
-      - Ceramic.js: docs/ceramic-js.md
-      - DID.js: docs/did-js.md
-      - TileDocument.js: docs/tile-document-js.md
-      - CAIP10Link.js: docs/caip10-link-js.md
-      - IDX Protocol (CIP-11):
-          - Overview: tools/idx/overview.md
-      - IdentityLink:
-          - Overview: tools/identitylink/overview.md
-          - JavaScript: reference/javascript/packages.md
+      - Core clients:
+          - Ceramic HTTP client: docs/ceramic-js.md
+          - DID JSON-RPC client: docs/did-js.md
+      - Accounts:
+          - Key DID: docs/ceramic-js.md
+          - 3ID DID: docs/ceramic-js.md
+          - NFT DID: docs/ceramic-js.md
+          - Safe DID: docs/ceramic-js.md
+      - Stream programs:
+          - Tile Document: docs/tile-document-js.md
+          - CAIP-10 Link: docs/caip10-link-js.md
+      #   - IDX Protocol (CIP-11):
+      #       - Overview: tools/idx/overview.md
+      #   - IdentityLink:
+      #       - Overview: tools/identitylink/overview.md
+      #       - JavaScript: reference/javascript/packages.md
       - Glaze Suite:
           - docs/glaze-suite/index.md
           - DevTools.js:
@@ -239,31 +246,27 @@ nav:
               - Installation and Usage: reference/glaze/modules/tile_loader.md
               - TileLoader class: reference/glaze/classes/tile_loader.TileLoader.md
           - Glaze Example: tools/glaze/example.md
-      - Self.ID Framework:
-          - tools/self-id/index.md
-          - Self.ID Core SDK:
-              - tools/self-id/core-sdk/index.md
-              - Installation: tools/self-id/configuration.md
-          - Self.ID Web SDK: index.md
-          - Self.ID React SDK: index.md
-          - Self.ID Next SDK: index.md
-          - Self.ID Connect SDK: index.md
-          - Home: index.md
-          - Read-only interactions: tools/self-id/read.md
-          - Authentication and writes: tools/self-id/write.md
-          - Self.ID Utilities: tools/self-id/utilities.md
-          - Overview: reference/self-id/overview.md
-          - Core:
-              - Module: reference/self-id/modules/core.md
+      - Self.ID SDK:
+          - reference/self-id/index.md
+          # - Configuration: tools/self-id/configuration.md
+          # - Read-only interactions: tools/self-id/read.md
+          # - Authentication and writes: tools/self-id/write.md
+          # - Utilities: tools/self-id/utilities.md
+          - Framework module: reference/self-id/modules/framework.md
+          - React module: reference/self-id/modules/react.md
+          - Web module: reference/self-id/modules/web.md
+          - Core module: reference/self-id/modules/core.md
+          - Other modules:
+              - UI components module: reference/self-id/modules/ui.md
+              - Multiauth module: reference/self-id/modules/multiauth.md
+              - Image utilities module: reference/self-id/modules/image_utils.md
+              - 3Box utilities module: reference/self-id/modules/3box_legacy.md
+          - Self.ID API reference:
               - Core class: reference/self-id/classes/core.Core.md
+              - WebClient class: reference/self-id/classes/web.WebClient.md
+              - RequestClient class: reference/self-id/classes/react.RequestClient.md
               - PublicID class: reference/self-id/classes/core.PublicID.md
-              - Web:
-                  - Module: reference/self-id/modules/web.md
-                  - WebClient class: reference/self-id/classes/web.WebClient.md
-                  - SelfID class: reference/self-id/classes/web.SelfID.md
-              - Utilities:
-                  - Image utilities: reference/self-id/modules/image_utils.md
-                  - 3Box legacy: reference/self-id/modules/3box_legacy.md
+              - SelfID class: reference/self-id/classes/web.SelfID.md
       - Guides:
           - Support a new blockchain: reference/javascript/blockchain.md
       - Glossary: reference/glossary.md
@@ -286,7 +289,7 @@ markdown_extensions:
   - pymdownx.smartsymbols
   - toc:
       permalink: true
-      toc_depth: 2
+      toc_depth: 3
 
 extra:
   analytics:
