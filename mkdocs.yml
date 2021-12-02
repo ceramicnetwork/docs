@@ -226,26 +226,18 @@ nav:
       #       - Overview: tools/identitylink/overview.md
       #       - JavaScript: reference/javascript/packages.md
       - Glaze Suite:
-          - docs/glaze-suite/index.md
-          - DevTools.js:
-              - tools/glaze-suite/devtools/index.md
-              - Installation and Usage: reference/glaze/modules/devtools.md
-              - ModelManager API: reference/glaze/classes/devtools.ModelManager.md
-          - DataModel.js:
-              - tools/glaze-suite/datamodel/index.md
-              - DataModel.js: tools/glaze/datamodel.md
-              - Installation and Usage: reference/glaze/modules/datamodel.md
-              - DataModel API: reference/glaze/classes/datamodel.DataModel.md
-          - DID DataStore.js:
-              - tools/glaze-suite/did-datastore/index.md
-              - DID DataStore.js: tools/glaze/did-datastore.md
-              - Installation and Usage: reference/glaze/modules/did_datastore.md
-              - DIDDataStore API: reference/glaze/classes/did_datastore.DIDDataStore.md
-          - TileLoader.js:
-              - TileLoader.js: tools/glaze/tile-loader.md
-              - Installation and Usage: reference/glaze/modules/tile_loader.md
+          - reference/glaze/index.md
+          - Tile loader: reference/glaze/modules/tile_loader.md
+          - DataModel runtime: reference/glaze/modules/datamodel.md
+          - DID DataStore: reference/glaze/modules/did_datastore.md
+          - Developer tools:
+              - DevTools library: reference/glaze/modules/devtools.md
+              - CLI: reference/glaze/cli.md
+          - Glaze API reference:
               - TileLoader class: reference/glaze/classes/tile_loader.TileLoader.md
-          - Glaze Example: tools/glaze/example.md
+              - DataModel class: reference/glaze/classes/datamodel.DataModel.md
+              - DIDDataStore class: reference/glaze/classes/did_datastore.DIDDataStore.md
+              - ModelManager class: reference/glaze/classes/devtools.ModelManager.md
       - Self.ID SDK:
           - reference/self-id/index.md
           # - Configuration: tools/self-id/configuration.md
