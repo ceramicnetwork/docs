@@ -210,16 +210,16 @@ nav:
   - REFERENCE:
       - tools/index.md
       - Core clients:
-          - Ceramic HTTP client: docs/ceramic-js.md
-          - DID JSON-RPC client: docs/did-js.md
+          - Ceramic HTTP client: reference/core-clients/ceramic-http.md
+          - DID JSON-RPC client: reference/core-clients/did-jsonrpc.md
       - Accounts:
-          - Key DID: docs/ceramic-js.md
-          - 3ID DID: docs/ceramic-js.md
-          - NFT DID: docs/ceramic-js.md
-          - Safe DID: docs/ceramic-js.md
+          - Key DID: reference/accounts/key-did.md
+          - 3ID DID: reference/accounts/3id-did.md
+          - NFT DID: reference/accounts/nft-did.md
+          - Safe DID: reference/accounts/safe-did.md
       - Stream programs:
-          - Tile Document: docs/tile-document-js.md
-          - CAIP-10 Link: docs/caip10-link-js.md
+          - Tile Document: reference/stream-programs/tile-document.md
+          - CAIP-10 Link: reference/stream-programs/caip10-link.md
       #   - IDX Protocol (CIP-11):
       #       - Overview: tools/idx/overview.md
       #   - IdentityLink:

@@ -17,13 +17,13 @@ CAIP-10 Link is a StreamType that stores a cryptographically verifiable proof th
 
 ---
 
-> **REQUIREMENTS** 
+> **REQUIREMENTS**
 >
 > You need an [installed client](../../build/javascript/installation.md), [authenticated user](../../build/javascript/authentication.md), and a third-party blockchain provider (i.e. wallet) to perform writes to Caip10Links. If you only wish to query Caip10Links then you only need an installed client.
 
 First, install CAIP10Link.js from npm:
 
-``` sh
+```sh
 npm install @ceramicnetwork/stream-caip10-link
 ```
 
@@ -41,7 +41,7 @@ import { Caip10Link } from '@ceramicnetwork/stream-caip10-link'
 
 Use the `Caip10Link.fromAccount()` method to create a new Caip10Link for a given Caip10-formatted blockchain address. The newly created Caip10Link will _not_ have any DID associated with it at first.
 
-``` ts
+```ts
 await Caip10Link.fromAccount(ceramic, accountId, opts)
 ```
 
@@ -51,15 +51,15 @@ await Caip10Link.fromAccount(ceramic, accountId, opts)
 
 `accountID` – The blockchain account being linked, in CAIP10 format.
 
-[`createOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html){:target="\_blank"} (*Optional*)– Instructions for what actions a Ceramic node should take after receiving the transaction from your client. Note, these options are not included in the link itself.
+[`createOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html){:target="\_blank"} (_Optional_)– Instructions for what actions a Ceramic node should take after receiving the transaction from your client. Note, these options are not included in the link itself.
 
-| Parameter            | Required? | Value   | Description                                                                    | Default value            |
-| -------------------- | --------- | ------- | ------------------------------------------------------------------------------ | ------------------------ |
-| `anchor`             | optional  | boolean | Request an anchor after creating the link                                      | true                     |
-| `publish`            | optional  | boolean | Publish the new link to the network                                            | true                     |
-| `sync`               | optional  | enum    | Controls behavior related to syncing the current link state from the network   | SyncOptions.PREFER_CACHE |
-| `syncTimeoutSeconds` | optional  | number  | How long to wait to hear about the current state of the link from the network  | 3                        |
-| `pin`                | optional  | boolean | Whether to immediately pin the stream upon creation on the connected node      | false                    |
+| Parameter            | Required? | Value   | Description                                                                   | Default value            |
+| -------------------- | --------- | ------- | ----------------------------------------------------------------------------- | ------------------------ |
+| `anchor`             | optional  | boolean | Request an anchor after creating the link                                     | true                     |
+| `publish`            | optional  | boolean | Publish the new link to the network                                           | true                     |
+| `sync`               | optional  | enum    | Controls behavior related to syncing the current link state from the network  | SyncOptions.PREFER_CACHE |
+| `syncTimeoutSeconds` | optional  | number  | How long to wait to hear about the current state of the link from the network | 3                        |
+| `pin`                | optional  | boolean | Whether to immediately pin the stream upon creation on the connected node     | false                    |
 
 !!! warning ""
 
@@ -98,7 +98,7 @@ await link.setDid(did, authProvider, opts)
 
 Use the `Caip10Link.fromAccount()` method to look up a link for a given CAIP10 blockchain address.
 
-``` ts
+```ts
 await Caip10Link.fromAccount(ceramic, accountId, opts)
 ```
 
@@ -110,15 +110,15 @@ await Caip10Link.fromAccount(ceramic, accountId, opts)
 
 The parameters for loading a link are the same as those for creating a new link, as described above.
 
-
 ## Examples
 
 ---
 
 ### Create a Link
+
 Here we create a new empty Caip10Link for the account `0x054...7cb8` on the Ethereum mainnet blockchain (`eip155:1`).
 
-``` ts
+```ts
 const accountLink = await Caip10Link.fromAccount(
   ceramic,
   '0x0544dcf4fce959c6c4f3b7530190cb5e1bd67cb8@eip155:1',
@@ -127,7 +127,7 @@ const accountLink = await Caip10Link.fromAccount(
 
 Here we can see the full flow of getting a user's Ethereum address, creating a link, and adding the users' DID account. In this example we create a Caip10Link for the account `0x054...7cb8` on the Ethereum mainnet blockchain (`eip155:1`) and then associate it with the DID `did:3:k2t6...ydki`.
 
-``` ts
+```ts
 import { Caip10Link } from '@ceramicnetwork/stream-caip10-link'
 import { EthereumAuthProvider } from '@ceramicnetwork/blockchain-utils-linking'
 
@@ -154,7 +154,7 @@ await accountLink.setDid(
 
 In this example we load a Caip10Link for the account `0x054...7cb8` on the Ethereum mainnet blockchain (`eip155:1`).
 
-``` ts
+```ts
 const accountLink = await Caip10Link.fromAccount(
   ceramic,
   '0x0544dcf4fce959c6c4f3b7530190cb5e1bd67cb8@eip155:1',

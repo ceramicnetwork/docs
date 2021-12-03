@@ -14,9 +14,9 @@ TileDocument.js is a library used to interact. TileDocument is a StreamType that
 
 ---
 
-> **REQUIREMENTS** 
+> **REQUIREMENTS**
 >
->You need an [installed client](../../build/javascript/installation.md) and an [authenticated user](../../build/javascript/authentication.md) to perform writes to TileDocuments. If you only wish to query TileDocuments then you do not need authentication.
+> You need an [installed client](../../build/javascript/installation.md) and an [authenticated user](../../build/javascript/authentication.md) to perform writes to TileDocuments. If you only wish to query TileDocuments then you do not need authentication.
 
 First, install TileDocument.js from npm:
 
@@ -46,26 +46,26 @@ await TileDocument.create(ceramic, content, metadata, opts)
 
 `ceramic`: When creating a TileDocument, the first parameter is the `CeramicAPI` used to communicate with the ceramic node and it is always required. It will either be an instance of [`Ceramic`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_core.ceramic-1.html){:target="\_blank"} when using the Core client or an instance of [`CeramicClient`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_http_client.ceramicclient.html){:target="\_blank"} when using the HTTP client.
 
-`content`: The content of your TileDocument, in the form of a JSON document. If `schema` is set in the metadata, then the content must conform to the specified schema. When `content` is included during document creation, the document's *genesis commit* will be signed by the authenticated user's DID. When `content` is omitted (set as `null` or `undefined`), then the *genesis commit* will not be signed.
+`content`: The content of your TileDocument, in the form of a JSON document. If `schema` is set in the metadata, then the content must conform to the specified schema. When `content` is included during document creation, the document's _genesis commit_ will be signed by the authenticated user's DID. When `content` is omitted (set as `null` or `undefined`), then the _genesis commit_ will not be signed.
 
-[`metadata`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_stream_tile.tilemetadataargs-1.html){:target="\_blank"} – An object that specifies various metadata values for the Tile. *Optional*
+[`metadata`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_stream_tile.tilemetadataargs-1.html){:target="\_blank"} – An object that specifies various metadata values for the Tile. _Optional_
 
-| Parameter                        | Required? | Value            | Description                                                                                                                                                                                                    | Notes                                                       |
-| -------------------------------- | --------- | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| `controllers`                    | optional  | array of strings | Defines the DID that is allowed to modify the document. Currently only one controller is supported per document                                                                                                | If empty, defaults to currently authenticated DID           |
-| `schema`                         | optional  | string           | CommitID of a Ceramic TileDocument that contains a JSON schema                                                                                                                                                 | If set, schema will be enforced on content                  |
-| `family`                         | optional  | string           | Allows you to group similar documents into _families_                                                                                                                                                          | Useful for indexing groups of like documents on the network |
-| `tags`                           | optional  | array of strings | Allows you to tag similar documents                                                                                                                                                                            | Useful for indexing groups of like documents on the network |
+| Parameter     | Required? | Value            | Description                                                                                                     | Notes                                                       |
+| ------------- | --------- | ---------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| `controllers` | optional  | array of strings | Defines the DID that is allowed to modify the document. Currently only one controller is supported per document | If empty, defaults to currently authenticated DID           |
+| `schema`      | optional  | string           | CommitID of a Ceramic TileDocument that contains a JSON schema                                                  | If set, schema will be enforced on content                  |
+| `family`      | optional  | string           | Allows you to group similar documents into _families_                                                           | Useful for indexing groups of like documents on the network |
+| `tags`        | optional  | array of strings | Allows you to tag similar documents                                                                             | Useful for indexing groups of like documents on the network |
 
-[`createOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html){:target="\_blank"} – Instructions for what actions a Ceramic node should take after receiving the transaction from your client. Note, these options are not included in the tile itself. *Optional*
+[`createOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html){:target="\_blank"} – Instructions for what actions a Ceramic node should take after receiving the transaction from your client. Note, these options are not included in the tile itself. _Optional_
 
-| Parameter            | Required? | Value   | Description                                                                       | Default value                              |
-| -------------------- | --------- | ------- | --------------------------------------------------------------------------------- | ------------------------------------------ |
-| `anchor`             | optional  | boolean | Request an anchor after creating the tile                                     | true                                       |
-| `publish`            | optional  | boolean | Publish the new tile to the network                                           | true                                       |
-| `sync`               | optional  | enum    | Controls behavior related to syncing the tile's current state from the network  | PREFER_CACHE                               |
-| `syncTimeoutSeconds` | optional  | number  | How long to wait to hear about the current state of the document from the network | 0 |
-| `pin`                | optional  | boolean | Immediately pin the tile upon creation on the Ceramic node         | false                                      |
+| Parameter            | Required? | Value   | Description                                                                       | Default value |
+| -------------------- | --------- | ------- | --------------------------------------------------------------------------------- | ------------- |
+| `anchor`             | optional  | boolean | Request an anchor after creating the tile                                         | true          |
+| `publish`            | optional  | boolean | Publish the new tile to the network                                               | true          |
+| `sync`               | optional  | enum    | Controls behavior related to syncing the tile's current state from the network    | PREFER_CACHE  |
+| `syncTimeoutSeconds` | optional  | number  | How long to wait to hear about the current state of the document from the network | 0             |
+| `pin`                | optional  | boolean | Immediately pin the tile upon creation on the Ceramic node                        | false         |
 
 ---
 
@@ -95,9 +95,9 @@ await TileDocument.deterministic(ceramic, metadata, opts)
 
 Use the `doc.update()`method to update the `content` or `metadata` of an existing tile. Note, it's best practice to load the tile prior to performing updates. This ensures you're operating on the most current version of the tile.
 
-``` ts
-const doc = await TileDocument.load(ceramic, streamId, opts);
-await doc.update(newContent, newMetadata, opts);
+```ts
+const doc = await TileDocument.load(ceramic, streamId, opts)
+await doc.update(newContent, newMetadata, opts)
 ```
 
 !!! warning "Persisting updates"
@@ -106,11 +106,11 @@ await doc.update(newContent, newMetadata, opts);
 
 ##### Parameters
 
-[`content`]() – the new content of your tile. This operation *fully replaces* any existing content in the tile.
+[`content`]() – the new content of your tile. This operation _fully replaces_ any existing content in the tile.
 
 [`metadata`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_stream_tile.tilemetadataargs-1.html){:target="\_blank"} – Only specified fields will be updated; fields not specified are unaffected.
 
-[`updateOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.updateopts-1.html){:target="\_blank"} – Instructions for what actions a Ceramic node should take after receiving the transaction from your client. Note, these options are not included in the tile itself. *Optional*
+[`updateOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.updateopts-1.html){:target="\_blank"} – Instructions for what actions a Ceramic node should take after receiving the transaction from your client. Note, these options are not included in the tile itself. _Optional_
 
 | Parameter | Required? | Value   | Description                                   | Default value |
 | --------- | --------- | ------- | --------------------------------------------- | ------------- |
@@ -123,9 +123,9 @@ await doc.update(newContent, newMetadata, opts);
 
 Use the [`TileDocument.load()`] method to load a single document using its _StreamID_.
 
-``` ts
-const streamId = 'kjzl6cwe1jw14...'; // Replace with StreamID of the Tile to be loaded
-const doc = await TileDocument.load(ceramic, streamId, opts);
+```ts
+const streamId = 'kjzl6cwe1jw14...' // Replace with StreamID of the Tile to be loaded
+const doc = await TileDocument.load(ceramic, streamId, opts)
 ```
 
 ##### Parameters
@@ -134,7 +134,7 @@ const doc = await TileDocument.load(ceramic, streamId, opts);
 
 [`streamID`]() - The StreamID or CommitID of the Tile to be loaded. When providing the document's StreamID, Ceramic will attempt to load the most recent version of the document from the network. If a CommitID is provided instead, Ceramic will load the document with the version of the contents and metadata from the specific commit specified. The returned TileDocument object will also be marked readonly and cannot be used to perform updates.
 
-[`loadOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.loadopts-1.html){:target="\_blank"} – 
+[`loadOpts`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.loadopts-1.html){:target="\_blank"} –
 Options that control network behaviors performed as part of the operation.
 
 | Parameter            | Required? | Value  | Description                                                                       | Default value            |
@@ -148,18 +148,17 @@ Options that control network behaviors performed as part of the operation.
 
 In the [deterministic](#create-a-deterministic-tiledocument) section, we discussed how to create a deterministic document. Since this function allows us to generate the exact same StreamID if we use it to create two documents with the same initial `metadata`, it is possible to "query" the document using the same [`TileDocument.deterministic`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#deterministic){:target="\_blank"} method that we used to initially create it, without needing to know the StreamID before performing the query. Note we are setting the `CreateOpts` parameters (`anchor` and `publish`) to false so that we are only loading the document and not publishing any changes to the network. See the [example below]().
 
-
 > See [TileDocument API](./api.md) for instructions on how to create and update TileDocument streams. You can query TileDocuments using Ceramic's standard [queries API](../../build/javascript/queries.md).
-
 
 ## Examples
 
 ---
 
 ### Create a Tile that stores a JSON schema
+
 In this example we create a TileDocument where we set `content`, `schema`, `controllers`, and `family`.
 
-``` ts
+```ts
 const doc = await TileDocument.create(
   ceramic,
   { foo: 'bar' },
@@ -167,13 +166,13 @@ const doc = await TileDocument.create(
     controllers: [ceramic.did.id],
     family: 'doc family',
     schema: schemaDoc.commitId,
-  }
-);
+  },
+)
 ```
 
 ### Create a Tile that uses a JSON schema
 
-``` ts
+```ts
 .
 ```
 
@@ -181,22 +180,23 @@ const doc = await TileDocument.create(
 
 In this example we create a deterministic TileDocument where we set `tags`, and `family` in the metadata. We then can retrieve that same tile document using `TileDocument.deterministic` as long as we use the same metadata.
 
-``` ts
+```ts
 // create a new Tile
 const doc = await TileDocument.create(ceramic, {
   family: 'doc family',
   tags: ['tag1'],
-});
+})
 
 // load a Tile deterministically
 // all content and metadata need to be exactly the same
-const retrievedDoc = await TileDocument.deterministic(ceramic,
+const retrievedDoc = await TileDocument.deterministic(
+  ceramic,
   { family: 'doc family', tags: ['tag1'] },
-  { anchor: false, publish: false }
-);
+  { anchor: false, publish: false },
+)
 
 // proof that the two responses are equal
-console.log(doc.id.toString() === retrievedDoc.id.toString());
+console.log(doc.id.toString() === retrievedDoc.id.toString())
 
 // true
 ```
@@ -205,27 +205,27 @@ console.log(doc.id.toString() === retrievedDoc.id.toString());
 
 Here we update a Tile's content while also adding a tag to its metadata.
 
-``` ts
+```ts
 // streamID of the Tile to update
-const streamId = 'kjzl6cwe1jw14...';
+const streamId = 'kjzl6cwe1jw14...'
 
 // load Tile from the network
-const doc = await TileDocument.load(ceramic, streamId);
+const doc = await TileDocument.load(ceramic, streamId)
 
 // perform update
-await doc.update({ foo: 'baz' }, { tags: ['baz'] });
+await doc.update({ foo: 'baz' }, { tags: ['baz'] })
 ```
 
 ### Load a Tile
 
 Here we load the current state of a Tile from the network using its StreamID.
 
-``` ts
+```ts
 // streamID of the tile you want to load
-const streamId = 'kjzl6cwe1jw14...'; 
+const streamId = 'kjzl6cwe1jw14...'
 
 // load the current state from the network
-const doc = await TileDocument.load(ceramic, streamId, opts);
+const doc = await TileDocument.load(ceramic, streamId, opts)
 ```
 
 ## Additional Resources
