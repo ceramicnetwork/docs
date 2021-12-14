@@ -57,15 +57,14 @@ nav:
               - Data model libraries: index.md
               - Deploying data models: index.md
               - Composability: docs/ceramic-stack/data-models/composability.md
-          - Client APIs:
-              - docs/ceramic-stack/client-apis/index.md
-              - Ceramic APIs:
-                  - docs/ceramic-stack/client-apis/ceramic/index.md
-                  - Ceramic JavaScript APIs: docs/ceramic-stack/client-apis/ceramic/javascript.md
-                  - Ceramic HTTP API: docs/ceramic-stack/client-apis/ceramic/http-api.md
-              - Account APIs:
-                  - docs/ceramic-stack/client-apis/accounts/index.md
-                  - Account JavaScript APIs: docs/ceramic-stack/client-apis/accounts/javascript.md
+          - Client protocols:
+              - docs/ceramic-stack/client-protocols/index.md
+              - Ceramic:
+                  - docs/ceramic-stack/client-protocols/ceramic/index.md
+                  - HTTP protocol: docs/ceramic-stack/client-protocols/ceramic/http-protocol.md
+              - Accounts:
+                  - docs/ceramic-stack/client-protocols/accounts/index.md
+                  - JSON-RPC protocol: docs/ceramic-stack/client-protocols/accounts/jsonrpc-protocol.md
           - Development frameworks: docs/ceramic-stack/development-frameworks.md
       - Advanced:
           - index.md

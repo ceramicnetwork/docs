@@ -1,1 +1,0 @@
-# Ceramic HTTP API

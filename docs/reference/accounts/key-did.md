@@ -8,13 +8,13 @@ The Key DID libraries include the [resolver](#key-did-resolver) and [multiple pr
 
 The `key-did-resolver` module is needed to resolve DID documents using the `did:key` method.
 
-### Installation
+#### Installation
 
 ```sh
 npm install key-did-resolver
 ```
 
-### Usage
+#### Usage
 
 ```ts
 import { DID } from 'dids'

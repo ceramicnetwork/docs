@@ -1,37 +1,29 @@
-# DID.js
+# DID JSON-RPC client
 
 Simple JS API for interacting with Ceramic accounts.
 
 ![](../../images/verse.png)
 
-Ceramic relies on the decentralized identifiers (DID) protocol for user accounts, which means there might be some new things to get familiar with. There are many benefits to using the DIDs protocol, namely interoperability of data and the flexibility of different access and authentication paterns. Also DIDs don't have to live on Ceramic to be Ceramic accounts. Any plain key pair can also be a DID, but so can NFTs and DAOs/Organizations. Also because Ceramic doesn't force it's own account system, you can use any key with Ceramic and reuse identities. But more, you can aggregate MACC.
-
-##### Things to know about DIDs, Ceramic's account system
+## Things to know
 
 - Provides the DID object, which must be authenticated, then mounted on the Ceramic object to perform transactions.
-- For Ceramic nodes, DID.js serves as a way to verify transaction signatures
-- For Ceramic clients, DID.js serves as a way to create account, authenticate, sign, encrypt
+- For Ceramic nodes, the DID client serves as a way to verify transaction signatures
+- For Ceramic clients, the DID client serves as a way to create account, authenticate, sign, encrypt
 - If your project requires transactions, you **need** to install this package, or one that offers similar EIP-2844 API support.
-- DID.js can be used in both browser and Node.js environments.
+- The DID client library can be used in both browser and Node.js environments.
 - It supports any DID wallet provider that adheres to the [EIP-2844]() interface.
 - Communicating between a Ceramic client and any account provider.
-- Ceramic does not work without DID.js, as it is how all participants are identified and how transactions and messages are signed and verified.
+- Ceramic does not work without a DID client, as it is how all participants are identified and how transactions and messages are signed and verified.
 
-## Install the API
+## Installation
 
----
-
-Install DID.js from npm:
-
-```bash
+```sh
 npm install dids
 ```
 
-DID.js provides the interface on top of underlying account libraries. The next step is to set up your account system, which requires you to make some important decisisions about your account model and approach to key management. This process consists of three steps: choosing your account types, installing a provider, and installing resolver(s).
+The `DID` class provides the interface on top of underlying account libraries. The next step is to set up your account system, which requires you to make some important decisisions about your account model and approach to key management. This process consists of three steps: choosing your account types, installing a provider, and installing resolver(s).
 
 ## Choose your account types
-
----
 
 Choosing an account type can have a big impact on the interoperability of your users' identity and data. For example some account types are fixed to a single public key (Key DID, PHK DID) so the data is siloed to that key, while others (3ID DID) have mutable key management schemes that can support multiple authorized signing keys and works cross-chain with blockchain wallets. Visit each account to learn more about its capabilities.
 
@@ -65,8 +57,6 @@ Choosing an account type can have a big impact on the interoperability of your u
 </div>
 
 ## Install account resolvers
-
----
 
 The next step is to install resolver libraries for all of the account types which you may need to read and verify data (signatures). This includes _at least_ the resolver for the provider or wallet chosen in the previous step. However, most projects install all reslovers to be safe:
 
@@ -109,200 +99,40 @@ Note that NFT DID and Safe DID do not have a signer because they are compatible 
 
 ## Setup your project
 
----
-
 By now you should have installed DID.js and set up your account system, including authentication to perform transactions. When you include everything in your project it should look something like this. Note that exact code will vary by your setup including provider and wallet. Consult your provider's documentation for authentication specifics.
 
 ```ts
-// Add DID.js
+// Import DID client
 import { DID } from 'dids'
 
 // Add account system
-import Ed25519Provider from 'key-did-provider-ed25519'
-import KeyResolver from 'key-did-resolver'
+import { Ed25519Provider } from 'key-did-provider-ed25519'
+import { getResolver } from 'key-did-resolver'
 
 // Connect to a Ceramic node
 const API_URL = 'https://your-ceramic-node.com'
 
-// ↑ With this setup you can perform read-only queries.
-// ↓ Continue to authenticate the account and perform transactions.
-
-// Activate the account by somehow getting its seed.
-// See further down this page for more details on
-// seed format, generation, and key management.
-const seed = '4ysq...71xk'
-
 // Create the Ceramic object
 const ceramic = new CeramicClient(API_URL)
 
-// Create the DID object
-const ceramic = new CeramicClient(API_URL)
+// ↑ With this setup you can perform read-only queries.
+// ↓ Continue to authenticate the account and perform transactions.
 
-// Mount the DID object to your Ceramic object
-ceramic.did = did
+async function authenticateCeramic(seed) {
+  // Activate the account by somehow getting its seed.
+  // See further down this page for more details on
+  // seed format, generation, and key management.
+  const provider = new Ed25519Provider(seed)
+  // Create the DID object
+  const did = new DID({ provider, resolver: getResolver() })
+  // Authenticate with the provider
+  await did.authenticate()
+  // Mount the DID object to your Ceramic object
+  ceramic.did = did
+}
 ```
 
-## Explore the API
-
----
-
-### [Set account provider →]()
-
-Set the DID provider of this instance. Only callable if provider not already set.
-
-```ts
-setProvider(provider: DIDProvider)
-```
-
-Returns: `void`
-
----
-
-### [Set account resolver →]()
-
-Set the resolver(s) used by the DID object.
-
-```ts
-setResolver(resolver: Resolver | ResolverRegistry, resolverOptions?: ResolverOptions)
-```
-
-Returns: `void`
-
----
-
-### [Authenticate →]()
-
-```ts
-authenticate(__namedParameters?: AuthenticateOptions)
-```
-
-Returns: `Promise<string>`
-
----
-
-### [Check authentication →]()
-
-Check if user is authenticated.
-
-```ts
-get authenticated()
-```
-
-Returns: `boolean`
-
----
-
-### [Get user DID →]()
-
-Get account identifier of the currently-authenticated user.
-
-```ts
-get id()
-```
-
-Returns: `string`
-
----
-
-### [Sign data with DagJWS →]()
-
-```ts
-createDagJWS(payload: Record<string, any>, options?: CreateJWSOptions)
-```
-
-Returns: `Promise<DagJWSResult>`
-
----
-
-### [Sign data with JWS →]()
-
-Create a JWS-encoded signature over a payload. Will be signed by the currently authenticated DID.
-
-```ts
-createJWS<T>(payload: T, options?: CreateJWSOptions)
-```
-
-Returns: `Promise<DagJWS>`
-
----
-
-### [Verify signed data →]()
-
-Verify a JWS. Uses the 'kid' in the header as the way to resolve the author public key.
-
-```ts
-verifyJWS(jws: string | DagJWS, options?: VerifyJWSOptions)
-```
-
-Returns: `Promise<VerifyJWSResult>`
-
----
-
-### [Encrypt data with DagJWE →]()
-
-Create an IPFS compatibe DagJWE encrypted to the given recipients.
-
-```ts
-createDagJWE(cleartext: Record<string, any>, recipients: string[], options?: CreateJWEOptions)
-```
-
-Returns: `Promise<JWE>`
-
----
-
-### [Encrypt data with JWE →]()
-
-Create a JWE encrypted to the given recipients.
-
-```ts
-createJWE(cleartext: Uint8Array, recipients: string[], options?: CreateJWEOptions)
-```
-
-Returns: `Promise<JWE>`
-
----
-
-### [Decrypt a DagJWE →]()
-
-Try to decrypt the given DagJWE with the currently authenticated user.
-
-```ts
-decryptDagJWE(jwe: JWE)
-```
-
-Returns: `Promise<Record<string, any>>`
-
----
-
-### [Decrypt a JWE →]()
-
-Try to decrypt the given JWE with the currently authenticated user.
-
-```ts
-decryptJWE(jwe: JWE, options?: DecryptJWEOptions)
-```
-
-Returns: `Promise<Uint8Array>`
-
----
-
-### [Resolve an account →]()
-
-Resolve the DID Document of the given DID.
-
-```ts
-resolve(didUrl: string)
-```
-
-Returns: `Promise<DIDResolutionResult>`
-
----
-
-> View all available API methods in the [Ceramic.js Reference :octicons-link-external-16:]().
-
-## Examples
-
----
+## Common use-cases
 
 ### Authenticate the user
 
@@ -311,30 +141,57 @@ Returns: `Promise<DIDResolutionResult>`
     This will flow will vary slightly depending on which account provider library you use. Please see the documentation specific to your provider library.
 
 ```ts
+import { CeramicClient } from '@ceramicnetwork/http-client'
 import { DID } from 'dids'
-import Ed25519Provider from 'key-did-provider-ed25519' // (1)
-import KeyResolver from 'key-did-resolver' // (1)
+import { Ed25519Provider } from 'key-did-provider-ed25519'
+import { getResolver } from 'key-did-resolver'
 
-const seed =  // (2)
-const provider = new Ed25519Provider(seed)
-const did = new DID({ provider, resolver: KeyResolver.getResolver() })
-
-// Authenticate the account provider
-await did.authenticate()
-
-// Read the DID string
-// Will throw if DID object is not authenticated
-const aliceDID = did.id
-
-// Create a JWS
-// This will throw an error if the DID instance is not authenticated
-const jws = await did.createJWS({ hello: 'world' })
+// `seed` must be a 32-byte long Uint8Array
+async function createJWS(seed) {
+  const provider = new Ed25519Provider(seed)
+  const did = new DID({ provider, resolver: getResolver() })
+  // Authenticate the DID with the provider
+  await did.authenticate()
+  // This will throw an error if the DID instance is not authenticated
+  const jws = await did.createJWS({ hello: 'world' })
+}
 ```
 
-1. Application is using the Key DID account type.
-2. Requires 32 bytes of entropy, Uint8Array.
+### Enable Ceramic transactions
 
-### Store signed data on Ceramic using DagJWS
+```ts
+import { CeramicClient } from '@ceramicnetwork/http-client'
+import { DID } from 'dids'
+import { Ed25519Provider } from 'key-did-provider-ed25519'
+import { getResolver } from 'key-did-resolver'
+
+const ceramic = new CeramicClient()
+
+// `seed` must be a 32-byte long Uint8Array
+async function authenticateCeramic(seed) {
+  const provider = new Ed25519Provider(seed)
+  const did = new DID({ provider, resolver: getResolver() })
+  // Authenticate the DID with the provider
+  await did.authenticate()
+  // The Ceramic client can create and update streams using the authenticated DID
+  ceramic.did = did
+}
+```
+
+### Resolve a DID document
+
+```ts
+import { DID } from 'dids'
+import { getResolver } from 'key-did-resolver'
+
+// See https://github.com/decentralized-identity/did-resolver
+const did = new DID({ resolver: getResolver() })
+
+// Resolve a DID document
+await did.resolve('did:key:...')
+```
+
+### Store signed data on IPFS using DagJWS
 
 The DagJWS functionality of the DID library can be used in conjunction with IPFS.
 
@@ -382,7 +239,7 @@ console.log((await ipfs.dag.get(jwsCid)).value)
 
 As can be observed above the createDagJWS method takes the payload, encodes it using dag-cbor and computes it's CID. It then uses this CID as the payload of the JWS that is then signed. The JWS that was just created can be put into ipfs using the dag-jose codec. Returned is also the encoded block of the payload. This can be put into ipfs using ipfs.block.put. Alternatively ipfs.dag.put(payload) would have the same effect.
 
-### Store encrypted data on Ceramic with DagJWE
+### Store encrypted data on IPFS with DagJWE
 
 The DagJWE functionality allows us to encrypt IPLD data to one or multiple DIDs. The resulting JWE object can then be put into ipfs using the dag-jose codec. A user that is authenticated can at a later point decrypt this object.
 
@@ -406,19 +263,6 @@ const dagJWE = await ipfs.dag.get(jweCid)
 console.log(await did.decryptDagJWE(dagJWE))
 // output:
 // > { some: 'data' }
-```
-
-### Resolve a DID account
-
-```ts
-import { DID } from 'dids'
-import KeyResolver from 'key-did-resolver'
-
-// See https://github.com/decentralized-identity/did-resolver
-const did = new DID({ resolver: KeyResolver.getResolver() })
-
-// Resolve a DID document
-await did.resolve('did:key:...')
 ```
 
 ## A Note on Wallets
