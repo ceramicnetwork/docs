@@ -119,170 +119,203 @@ nav:
     - ~~~:
       - Networks: learn/networks.md
       - Advanced:
-        - Security: learn/advanced/security.md
-        - Privacy: learn/advanced/privacy.md
-        - Data availability: learn/advanced/data-availability.md
-        - Consensus: learn/advanced/consensus.md
-      - Queries:
-        - Load the current state: index.md
-        - Load a previous state: index.md
-        - Load multiple streams: index.md
-        - Query Retries: index.md
-        - GraphQL for Ceramic: index.md
-        - Indexing Strategies: index.md
-        - Aggregation: index.md
-      - Subscriptions:
-        - Change Events: index.md
-        - Production Recommendations: index.md
-  - RUN CERAMIC: 
-    - run/index.md
-    - JS Ceramic:
-      - run/graphite/index.md
-      - Running in the cloud: run/graphite/running-in-the-cloud.md
-      - Local installation: run/graphite/installation.md
-      - Switch networks: run/graphite/switch-networks.md
-      - Data storage: run/graphite/stream-management.md
-      - Upgrades: run/graphite/upgrades.md
-      - Backup and Restore: run/graphite/backup-and-restore.md
-      - Advanced Options: run/graphite/configuration-and-advanced-usage.md
-      - Troubleshooting: run/graphite/troubleshooting.md
-    - Explore the network: run/explore-the-network.md
-    - ~~~:
-      - Deploying on the cloud: run/nodes/nodes.md
-      - Anchor service:
-        - Community CAS: run/cas/community-cas.md
-        - Hosting a CAS: run/cas/cas.md
+          - index.md
+          - Standards:
+              - docs/advanced/standards/index.md
+              - Stream program standards:
+                  - docs/advanced/standards/stream-programs/index.md
+                  - CIP-3 JSON Storage (TileDocument): index.md
+                  - CIP-17 Crypto Account Links (CAIP10Link): index.md
+              - Application standards:
+                  - docs/advanced/standards/application-protocols/index.md
+                  - CIP-11 Account-based indexing (IDX): docs/advanced/standards/application-protocols/cip-11-account-based-stream-indexing.md
+              - Data model standards:
+                  - docs/advanced/standards/data-models/index.md
+                  - Data model universe: index.md
+                  - Data model examples and patterns: index.md
+              - Account standards:
+                  - CIP-4 3ID DID: authentication/3id-did/method.md
+                  - PKH DID: index.md
+                  - Key DID: authentication/key-did/method.md
+                  - CIP-40 NFT DID: authentication/nft-did/method.md
+                  - CIP-50 Safe DID: authentication/safe-did/method.md
+          - Indexing: docs/advanced/indexing.md
+          - Storage and backup: docs/advanced/storage-and-backup.md
+          - Privacy and access control: docs/advanced/privacy-and-access-control.md
+      - FAQs: docs/frequently-asked-questions.md
+      - RELEASE NOTES: docs/release-notes.md
+      - PROJECT:
+          - docs/project/index.md
+          - Roadmap: docs/project/roadmap.md
+          - Governance: docs/project/governance.md
+          - Code of Conduct: docs/project/code-of-conduct.md
+          - Security Issues: docs/project/security-issues.md
+      - COMMUNITY:
+          - docs/community/index.md
+          - Ways to contribute: docs/community/how-to-contribute.md
+          - Chat & discussion forums: docs/community/chat-and-discussion-forums.md
+          - Social media: docs/community/social-media.md
+      - ~~~:
+          - Networks: learn/networks.md
+          - Advanced:
+              - Security: learn/advanced/security.md
+              - Privacy: learn/advanced/privacy.md
+              - Data availability: learn/advanced/data-availability.md
+              - Consensus: learn/advanced/consensus.md
+          - Queries:
+              - Load the current state: index.md
+              - Load a previous state: index.md
+              - Load multiple streams: index.md
+              - Query Retries: index.md
+              - GraphQL for Ceramic: index.md
+              - Indexing Strategies: index.md
+              - Aggregation: index.md
+          - Subscriptions:
+              - Change Events: index.md
+              - Production Recommendations: index.md
+  - RUN CERAMIC:
+      - run/index.md
+      - JS Ceramic:
+          - run/graphite/index.md
+          - Running in the cloud: run/graphite/running-in-the-cloud.md
+          - Local installation: run/graphite/installation.md
+          - Switch networks: run/graphite/switch-networks.md
+          - Data storage: run/graphite/stream-management.md
+          - Upgrades: run/graphite/upgrades.md
+          - Backup and Restore: run/graphite/backup-and-restore.md
+          - Advanced Options: run/graphite/configuration-and-advanced-usage.md
+          - Troubleshooting: run/graphite/troubleshooting.md
+      - Explore the network: run/explore-the-network.md
+      - ~~~:
+          - Deploying on the cloud: run/nodes/nodes.md
+          - Anchor service:
+              - Community CAS: run/cas/community-cas.md
+              - Hosting a CAS: run/cas/cas.md
   - BUILD APPS:
-    - Develop Apps on Ceramic: build-applications/index.md
-    - Ceramic Clients: build-applications/clients.md
-    - Storage Programs: build-applications/storage/storage-programs.md
-    - Storage Protocols:
-      - Account-based storage: build-applications/storage-protocols/account-based-storage.md
-    - Storage Data Models:
-      - streamtypes/data-models/index.md
-      - DataModels Specification: streamtypes/data-models/specification.md
-      - DataModels Registry: streamtypes/data-models/registry.md
-      - BasicProfile: streamtypes/storage-programs/tile-document/schemas/basic-profile.md
-    - Development Frameworks:
-      - build-applications/frameworks/index.md
-      - Self.ID Framework: build-applications/frameworks/self-id-framework.md
-    - Hosted Ceramic nodes: run/nodes/community-nodes.md
-    - Samples: build-applications/samples.md
-    - Guides: build-applications/guides.md
-    - ~~~: 
-      - Overview: streamtypes/storage-programs/tile-document/overview.md
-      - Tiles.js API: streamtypes/storage-programs/tile-document/api.md
-      - Overview: streamtypes/storage-programs/caip-10-link/overview.md
-      - CAIP10Link.js API: streamtypes/storage-programs/caip-10-link/api.md
-      - Setting up accounts: build/javascript/authentication.md
-      - Using the Ceramic API:
-        - Writes: build/javascript/writes.md
-        - Queries: build/javascript/queries.md
-        - Pinning: build/javascript/pinning.md
-        - Overview: tools/glaze/overview.md
-        - Glossary: tools/glaze/glossary.md
-        - Development: tools/glaze/development.md
-        - HTTP API Reference: build/http/api.md
-      - Share your work: build/share.md
-      - Ceramic.js: build/javascript/http.md
-      - Ceramic Core: build/javascript/core.md
-      - Quickstart: build/javascript/quick-start.md
-      - Build back in: build/javascript/installation.md 
-      - Account Libraries: build-applications/account-libraries.md
+      - Develop Apps on Ceramic: build-applications/index.md
+      - Ceramic Clients: build-applications/clients.md
+      - Storage Programs: build-applications/storage/storage-programs.md
+      - Storage Protocols:
+          - Account-based storage: build-applications/storage-protocols/account-based-storage.md
+      - Storage Data Models:
+          - streamtypes/data-models/index.md
+          - DataModels Specification: streamtypes/data-models/specification.md
+          - DataModels Registry: streamtypes/data-models/registry.md
+          - BasicProfile: streamtypes/storage-programs/tile-document/schemas/basic-profile.md
+      - Development Frameworks:
+          - build-applications/frameworks/index.md
+          - Self.ID Framework: build-applications/frameworks/self-id-framework.md
+      - Hosted Ceramic nodes: run/nodes/community-nodes.md
+      - Samples: build-applications/samples.md
+      - Guides: build-applications/guides.md
+      - ~~~:
+          - Overview: streamtypes/storage-programs/tile-document/overview.md
+          - Tiles.js API: streamtypes/storage-programs/tile-document/api.md
+          - Overview: streamtypes/storage-programs/caip-10-link/overview.md
+          - CAIP10Link.js API: streamtypes/storage-programs/caip-10-link/api.md
+          - Setting up accounts: build/javascript/authentication.md
+          - Using the Ceramic API:
+              - Writes: build/javascript/writes.md
+              - Queries: build/javascript/queries.md
+              - Pinning: build/javascript/pinning.md
+              - Overview: tools/glaze/overview.md
+              - Glossary: tools/glaze/glossary.md
+              - Development: tools/glaze/development.md
+              - HTTP API Reference: build/http/api.md
+          - Share your work: build/share.md
+          - Ceramic.js: build/javascript/http.md
+          - Ceramic Core: build/javascript/core.md
+          - Quickstart: build/javascript/quick-start.md
+          - Build back in: build/javascript/installation.md
+          - Account Libraries: build-applications/account-libraries.md
   - TUTORIALS:
-    - tutorials/index.md
-    - ~~~:
-      - DID Clients: authentication/did-api-libraries.md
-      - DID API Methods: 
-        - authentication/did-api-methods/index.md
-        - Authentication: authentication/api-methods/authentication.md
-        - Signatures: authentication/api-methods/signatures.md
-        - Encryption: authentication/api-methods/encryption.md
-      - 3ID DID:
-        - authentication/3id-did/index.md
-        - Providers:
-          - 3ID Connect: authentication/3id-did/3id-connect.md
-          - JS 3ID DID Provider: authentication/3id-did/provider.md
-        - Resolver: authentication/3id-did/resolver.md
-        - 3ID Lifecycle: authentication/3id-did/lifecycle.md
-        - Security: authentication/3id-did/security.md
-        - 3Box migration: authentication/3id-did/3box-migration.md
-    - Key DID:
-      - authentication/key-did/index.md
-      - Providers:
-        - JS Key DID Provider Ed25519: authentication/key-did/provider.md
-      - Resolver: authentication/key-did/resolver.md
-  - USE CERAMIC: 
-    - ecosystem/index.md
-    - NFTs: ecosystem/nfts.md
-    - DeFi: ecosystem/defi.md
-    - Social: ecosystem/social.md
-    - DAOs: ecosystem/daos.md
-    - Productivity and Colaboration: ecosystem/productivity-and-collaboration.md
+      - tutorials/index.md
+      - ~~~:
+          - DID Clients: authentication/did-api-libraries.md
+          - DID API Methods:
+              - authentication/did-api-methods/index.md
+              - Authentication: authentication/api-methods/authentication.md
+              - Signatures: authentication/api-methods/signatures.md
+              - Encryption: authentication/api-methods/encryption.md
+          - 3ID DID:
+              - authentication/3id-did/index.md
+              - Providers:
+                  - 3ID Connect: authentication/3id-did/3id-connect.md
+                  - JS 3ID DID Provider: authentication/3id-did/provider.md
+              - Resolver: authentication/3id-did/resolver.md
+              - 3ID Lifecycle: authentication/3id-did/lifecycle.md
+              - Security: authentication/3id-did/security.md
+              - 3Box migration: authentication/3id-did/3box-migration.md
+      - Key DID:
+          - authentication/key-did/index.md
+          - Providers:
+              - JS Key DID Provider Ed25519: authentication/key-did/provider.md
+          - Resolver: authentication/key-did/resolver.md
+  - USE CERAMIC:
+      - ecosystem/index.md
+      - NFTs: ecosystem/nfts.md
+      - DeFi: ecosystem/defi.md
+      - Social: ecosystem/social.md
+      - DAOs: ecosystem/daos.md
+      - Productivity and Colaboration: ecosystem/productivity-and-collaboration.md
   - REFERENCE:
-    - tools/index.md
-    - Ceramic.js: docs/ceramic-js.md
-    - DID.js: docs/did-js.md
-    - TileDocument.js: docs/tile-document-js.md
-    - CAIP10Link.js: docs/caip10-link-js.md
-    - IDX Protocol (CIP-11):
-      - Overview: tools/idx/overview.md
-    - IdentityLink:
-      - Overview: tools/identitylink/overview.md
-      - JavaScript: reference/javascript/packages.md
-    - Glaze Suite:
-      - docs/glaze-suite/index.md
-      - DevTools.js: 
-        - tools/glaze-suite/devtools/index.md
-        - Installation and Usage: reference/glaze/modules/devtools.md
-        - ModelManager API: reference/glaze/classes/devtools.ModelManager.md
-      - DataModel.js:
-        - tools/glaze-suite/datamodel/index.md
-        - DataModel.js: tools/glaze/datamodel.md
-        - Installation and Usage: reference/glaze/modules/datamodel.md
-        - DataModel API: reference/glaze/classes/datamodel.DataModel.md
-      - DID DataStore.js:
-        - tools/glaze-suite/did-datastore/index.md
-        - DID DataStore.js: tools/glaze/did-datastore.md
-        - Installation and Usage: reference/glaze/modules/did_datastore.md
-        - DIDDataStore API: reference/glaze/classes/did_datastore.DIDDataStore.md
-      - TileLoader.js:
-        - TileLoader.js: tools/glaze/tile-loader.md
-        - Installation and Usage: reference/glaze/modules/tile_loader.md
-        - TileLoader class: reference/glaze/classes/tile_loader.TileLoader.md
-      - Glaze Example: tools/glaze/example.md
-    - Self.ID Framework:
-      - tools/self-id/index.md
-      - Self.ID Core SDK: 
-        - tools/self-id/core-sdk/index.md
-        - Installation: tools/self-id/configuration.md
-      - Self.ID Web SDK: index.md
-      - Self.ID React SDK: index.md
-      - Self.ID Next SDK: index.md
-      - Self.ID Connect SDK: index.md
-      - Home: index.md
-      - Read-only interactions: tools/self-id/read.md
-      - Authentication and writes: tools/self-id/write.md
-      - Self.ID Utilities: tools/self-id/utilities.md
-      - Overview: reference/self-id/overview.md
-      - Core:
-        - Module: reference/self-id/modules/core.md
-        - Core class: reference/self-id/classes/core.Core.md
-        - PublicID class: reference/self-id/classes/core.PublicID.md
-        - Web:
-          - Module: reference/self-id/modules/web.md
-          - WebClient class: reference/self-id/classes/web.WebClient.md
-          - SelfID class: reference/self-id/classes/web.SelfID.md
-        - Utilities:
-          - Image utilities: reference/self-id/modules/image_utils.md
-          - 3Box legacy: reference/self-id/modules/3box_legacy.md
-    - Guides:
-      - Support a new blockchain: reference/javascript/blockchain.md
-    - Glossary: reference/glossary.md
-    - ~~~:
-      - Overview: reference/glaze/overview.md
-      - Overview: tools/overview.md
-
+      - tools/index.md
+      - Core clients:
+          - Ceramic HTTP client: reference/core-clients/ceramic-http.md
+          - DID JSON-RPC client: reference/core-clients/did-jsonrpc.md
+      - Accounts:
+          - Key DID: reference/accounts/key-did.md
+          - 3ID DID: reference/accounts/3id-did.md
+          - NFT DID: reference/accounts/nft-did.md
+          - Safe DID: reference/accounts/safe-did.md
+      - Stream programs:
+          - Tile Document: reference/stream-programs/tile-document.md
+          - CAIP-10 Link: reference/stream-programs/caip10-link.md
+      #   - IDX Protocol (CIP-11):
+      #       - Overview: tools/idx/overview.md
+      #   - IdentityLink:
+      #       - Overview: tools/identitylink/overview.md
+      #       - JavaScript: reference/javascript/packages.md
+      - Glaze Suite:
+          - reference/glaze/index.md
+          - Tile loader: reference/glaze/modules/tile_loader.md
+          - DataModel runtime: reference/glaze/modules/datamodel.md
+          - DID DataStore: reference/glaze/modules/did_datastore.md
+          - Developer tools:
+              - DevTools library: reference/glaze/modules/devtools.md
+              - CLI: reference/glaze/cli.md
+          - Glaze API reference:
+              - TileLoader class: reference/glaze/classes/tile_loader.TileLoader.md
+              - DataModel class: reference/glaze/classes/datamodel.DataModel.md
+              - DIDDataStore class: reference/glaze/classes/did_datastore.DIDDataStore.md
+              - ModelManager class: reference/glaze/classes/devtools.ModelManager.md
+      - Self.ID SDK:
+          - reference/self-id/index.md
+          # - Configuration: tools/self-id/configuration.md
+          # - Read-only interactions: tools/self-id/read.md
+          # - Authentication and writes: tools/self-id/write.md
+          # - Utilities: tools/self-id/utilities.md
+          - Framework module: reference/self-id/modules/framework.md
+          - React module: reference/self-id/modules/react.md
+          - Web module: reference/self-id/modules/web.md
+          - Core module: reference/self-id/modules/core.md
+          - Other modules:
+              - UI components module: reference/self-id/modules/ui.md
+              - Multiauth module: reference/self-id/modules/multiauth.md
+              - Image utilities module: reference/self-id/modules/image_utils.md
+              - 3Box utilities module: reference/self-id/modules/3box_legacy.md
+          - Self.ID API reference:
+              - Core class: reference/self-id/classes/core.Core.md
+              - WebClient class: reference/self-id/classes/web.WebClient.md
+              - RequestClient class: reference/self-id/classes/react.RequestClient.md
+              - PublicID class: reference/self-id/classes/core.PublicID.md
+              - SelfID class: reference/self-id/classes/web.SelfID.md
+      - Guides:
+          - Support a new blockchain: reference/javascript/blockchain.md
+      - Glossary: reference/glossary.md
+      - ~~~:
+          - Overview: reference/glaze/overview.md
+          - Overview: tools/overview.md
 
 markdown_extensions:
   - meta
@@ -302,6 +335,30 @@ markdown_extensions:
       toc_depth: 3
 
 extra:
+  analytics:
+    provider: google
+    property: G-MP8QDL3LWK
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback! Help us improve this page by
+            <a href="https://chat.ceramic.network/">contacting us on our chat!</a>.
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
   generator: false
   # Social icons in footer
   #social:

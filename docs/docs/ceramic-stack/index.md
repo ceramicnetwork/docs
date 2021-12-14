@@ -16,7 +16,7 @@ As with any virtual machine, the EVM creates a level of abstraction between the 
 
 Under the hood, the EVM uses a set of opcode instructions to execute specific tasks. These (140 unique) opcodes allow the EVM to be Turing-complete, which means the EVM is able to compute just about anything, given enough resources.
 
-As a dapp developer, you don't need to know much about the EVM other than it exists and that it reliably powers all applications on Ethereum without downtime.
+As a dapp developer, you don't need to know much about the Ceramic network other than it exists and that it reliably connects all applications on Ceramic without downtime.
 
 ### Level 2: Ceramic nodes
 
@@ -74,7 +74,7 @@ Clients
 
 ---
 
-### Level 1: Ceramic client APIs
+### Level 1: Ceramic APIs
 
 Many convenience libraries, built and maintained by Ceramic's open source community) allow your applications to connect to and communicate with the Ceramic blockchain.
 
@@ -86,9 +86,9 @@ While these APIs are not a necessary piece of the tech stack, they abstract away
 Stream program client APIs
 
 
-### Level 2: Stream program client APIs
+### Level 2: Stream program APIs
 
-### Level 3: Decentralized identity client APIs
+### Level 3: Decentralized identity APIs
 
 ### Level 6: End-user applications
 

@@ -92,14 +92,18 @@ const doc = await TileDocument.deterministic(ceramic, metadata, opts);
 const streamId = doc.id.toString();
 ```
 
-In this example we create a deterministic TileDocument where we set `tags`, and `family` in the metadata. We then can retrieve that same tile document using `TileDocument.deterministic` as long as we use the same metadata.
+In this example we create a deterministic TileDocument where we set `tags`, and `family` in the metadata. Then we update the document to add contents.  We then can retrieve that same tile document using the original metadata, even without knowing the document's StreamID.
 
 ```javascript
-const doc = await TileDocument.create(ceramic, {
-  family: 'doc family',
-  tags: ['tag1'],
-});
+// If the document doesn't already exist, TileDocument.deterministic creates it
+const doc = await TileDocument.deterministic(
+  ceramic,
+  { family: 'doc family', tags: ['tag1'] }
+);
 
+await doc.update({ foo: "Adding some content!" });
+
+// If the document does already exist, TileDocument.deterministic loads its current state
 const retrievedDoc = await TileDocument.deterministic(
   ceramic,
   { family: 'doc family', tags: ['tag1'] },
@@ -107,6 +111,7 @@ const retrievedDoc = await TileDocument.deterministic(
 );
 
 console.log(doc.id.toString() === retrievedDoc.id.toString()); // true
+console.log(doc.content.foo === retrievedDoc.content.foo); // true
 ```
 
 [:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_stream_tile.tiledocument-1.html#deterministic){:target="\_blank"}

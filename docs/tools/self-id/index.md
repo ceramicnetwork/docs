@@ -1,4 +1,4 @@
-# Self.ID Framework
+# Self.ID
 
 Self.ID is a SDK for building user-centric Web applications using Ceramic and related decentralized technologies, along with a reference application to show and edit profiles.
 
@@ -30,6 +30,12 @@ The Core package can be used to read public records in Node and browser environm
 The Web package can be used to authenticate and write records in browser environments. You can read more about [authentication and writes](write.md) in the following pages if these docs.
 
 [Web API reference](../../reference/self-id/modules/web.md){: .md-button .md-button }
+
+### Framework
+
+A React-based framework combines many of the SDK packages to provide a high-level abstraction for applications to get started using Self.ID.
+
+[Framework documentation](framework.md){: .md-button .md-button }
 
 ### Utility packages
 

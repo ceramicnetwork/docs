@@ -2,7 +2,7 @@
 
 !!! warning ""
 
-    **NFT DID is alpha.** Please reach out in [Discord](https://chat.ceramic.network) to provide feedback.
+    **NFT DID is experimental.** Please reach out in [Discord](https://chat.ceramic.network) to provide feedback.
 
 The [NFT DID Method (CIP-94)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-94/CIP-94.md) is a [DID method](../../learn/glossary.md#did-methods)
 that can be used to [authenticate](../../build/javascript/authentication.md) to Ceramic to perform [writes](../../build/javascript/writes.md)

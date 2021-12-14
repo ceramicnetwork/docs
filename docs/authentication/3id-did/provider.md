@@ -62,11 +62,11 @@ The function is called with one parameter which is the request object. It looks 
 
 ```js
 {
-    type: 'authenticate',
-    origin: 'https://my.app.origin',
-    payload: {
-        paths: ['/path/1', '/path/2']
-    }
+  type: 'authenticate',
+  origin: 'https://my.app.origin',
+  payload: {
+    paths: ['/path/1', '/path/2']
+  }
 }
 ```
 
