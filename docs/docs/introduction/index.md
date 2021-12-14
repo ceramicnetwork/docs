@@ -5,9 +5,11 @@ hide:
 
 # Introduction to Ceramic
 
-Ceramic is a high-performance protocol for building decentralized data applications. 
+Ceramic is a high-performance protocol for decentralized data applications. 
 
-With Ceramic, developers can build and deploy applications which rely completely on decentralized, open-source protocols for storing, manipulating, and retrieving data in a censorship-free, permissionless, and self-sovereign manner. We cou With Ceramic, developers can build and deploy applications which rely completely on decentralized, open-source protocols for storing, manipulating, and retrieving data in a censorship-free, permissionless, and self-sovereign manner. 
+With Ceramic, developers can build applications that store, manipulate, and retrieve data from a highly-scalable, decentralized network.
+
+is permissionless, composable, and self-sovereign. We cou 
 
 We cou With Ceramic, developers can build and deploy applications which rely completely on decentralized, open-source protocols for storing, manipulating, and retrieving data in a censorship-free, permissionless, and self-sovereign manner. We cou With Ceramic, developers can build and deploy applications which rely completely on decentralized, open-source protocols for storing, manipulating, and retrieving data in a censorship-free, permissionless, and self-sovereign manner. We cou
 

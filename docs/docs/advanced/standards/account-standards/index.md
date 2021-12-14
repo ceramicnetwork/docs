@@ -1,4 +1,4 @@
-# Stream program standards
+# Account standards
 
 ## Introduction
 
@@ -21,9 +21,11 @@ Here are some of the most popular stream program standards on Ceramic:
 
 | CIP | NAME | DESCRIPTION |
 | ---- | ----- | ----------- |
-| CIP-7 | TileDocument | A standard interface for fungible (interchangeable) tokens, like voting tokens, staking tokens or virtual currencies. |
-| CIP-9 | CAIP10-Link | A standard interface for fungible (interchangeable) tokens, like voting tokens, staking tokens or virtual currencies. |
-| CIP-53 | DID-Publish | A standard interface for fungible (interchangeable) tokens, like voting tokens, staking tokens or virtual currencies. |
+| CIP-79 | 3ID DID | A standard interface for fungible (interchangeable) tokens, like voting tokens, staking tokens or virtual currencies. |
+| N/A | PKH DID | A standard interface for fungible (interchangeable) tokens, like voting tokens, staking tokens or virtual currencies. |
+| N/A | KEY DID | A standard interface for fungible (interchangeable) tokens, like voting tokens, staking tokens or virtual currencies. |
+| CIP-94 | NFT DID | A standard interface for fungible (interchangeable) tokens, like voting tokens, staking tokens or virtual currencies. |
+| CIP-101 | Safe DID | A standard interface for fungible (interchangeable) tokens, like voting tokens, staking tokens or virtual currencies. |
 
 
 ## Further reading

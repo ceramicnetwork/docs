@@ -1,4 +1,4 @@
-# Ceramic HTTP API
+# Accounts JSON-RPC
 
 In order for a software application to interact with the Ceramic network (by reading data and/or sending transactions to the network), it must connect to a Ceramic node.
 

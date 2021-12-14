@@ -30,7 +30,7 @@ theme:
     - navigation.tabs
     - navigation.indexes
     - content.code.annotate
-    - toc.integrate
+    #- toc.integrate
 
 
 nav:
@@ -49,15 +49,20 @@ nav:
       - Related technologies: docs/foundational-topics/additional-technologies.md
       - Ceramic compared to...: docs/introduction/comparisons.md
     - Ceramic Stack:
-      - Intro to the stack: docs/ceramic-stack/introduction-to-the-stack.md
+      - docs/ceramic-stack/index.md
       - Stream programs:
         - docs/ceramic-stack/stream-programs/index.md
-        - Stream program libraries: index.md
+        - Stream program languages: docs/ceramic-stack/stream-programs/stream-program-languages.md
+        - Stream program anatomy: docs/ceramic-stack/stream-programs/stream-program-anatomy.md
+        - Stream program libraries: docs/ceramic-stack/stream-programs/stream-program-libraries.md
       - Data models:
         - docs/ceramic-stack/data-models/index.md
-        - Data model libraries: index.md
-        - Deploying data models: index.md
+        - Data model libraries: docs/ceramic-stack/data-models/data-model-libraries.md
+        - Deploying data models: docs/ceramic-stack/data-models/deploying-data-models.md
+        - Data model examples and patterns: docs/ceramic-stack/data-models/data-model-examples-patterns.md
         - Composability: docs/ceramic-stack/data-models/composability.md
+      - Development networks: docs/ceramic-stack/development-networks.md
+      - Development frameworks: docs/ceramic-stack/development-frameworks.md
       - Client APIs:
         - docs/ceramic-stack/client-apis/index.md
         - Ceramic APIs:
@@ -67,40 +72,46 @@ nav:
         - Account APIs: 
           - docs/ceramic-stack/client-apis/accounts/index.md
           - Account JavaScript APIs: docs/ceramic-stack/client-apis/accounts/javascript.md
-      - Development frameworks: docs/ceramic-stack/development-frameworks.md
+          - Account JSON-RPC: docs/ceramic-stack/client-apis/accounts/json-rpc.md
+      - Data and analytics: docs/ceramic-stack/data-analytics.md
+      - Smart contracts, tokens, value: docs/ceramic-stack/contracts-tokens-value.md
     - Advanced:
       - index.md
       - Standards: 
         - docs/advanced/standards/index.md
         - Stream program standards:
           - docs/advanced/standards/stream-programs/index.md
-          - CIP-3 JSON Storage (TileDocument): index.md
-          - CIP-17 Crypto Account Links (CAIP10Link): index.md
-        - Application standards:
-          - docs/advanced/standards/application-protocols/index.md
-          - CIP-11 Account-based indexing (IDX): docs/advanced/standards/application-protocols/cip-11-account-based-stream-indexing.md
+          - CIP-8 TileDocument: docs/advanced/standards/stream-programs/cip-8.md
+          - CIP-7 CAIP10-Link: docs/advanced/standards/stream-programs/cip-7.md
+        #- Application standards:
+          #- docs/advanced/standards/application-protocols/index.md
+          #- CIP-11 Account-based indexing: docs/advanced/standards/application-protocols/cip-11.md
         - Data model standards:
           - docs/advanced/standards/data-models/index.md
-          - Data model universe: index.md
-          - Data model examples and patterns: index.md
+          - Data Model Universe: docs/advanced/standards/data-models/data-model-universe.md
+          - CIP-11 Identity Index: docs/advanced/standards/data-models/cip-11.md
+          - CIP-19 Basic Profile: docs/advanced/standards/data-models/cip-19.md
+          - CIP-21 Crypto Accounts: docs/advanced/standards/data-models/cip-21.md
+          - CIP-23 Also Known As: docs/advanced/standards/data-models/cip-23.md
+          - CIP-20 3ID Keychain: docs/advanced/standards/data-models/cip-20.md
         - Account standards:
-          - CIP-4 3ID DID: authentication/3id-did/method.md
-          - PKH DID: index.md
-          - Key DID: authentication/key-did/method.md
-          - CIP-40 NFT DID: authentication/nft-did/method.md
-          - CIP-50 Safe DID: authentication/safe-did/method.md
+          - docs/advanced/standards/account-standards/index.md
+          - CIP-79 3ID DID: docs/advanced/standards/account-standards/cip-79.md
+          - PKH DID: docs/advanced/standards/account-standards/pkh-did.md
+          - Key DID: docs/advanced/standards/account-standards/key-did.md
+          - CIP-94 NFT DID: docs/advanced/standards/account-standards/cip-94.md
+          - CIP-101 Safe DID: docs/advanced/standards/account-standards/cip-101.md
       - Indexing: docs/advanced/indexing.md
       - Storage and backup: docs/advanced/storage-and-backup.md
       - Privacy and access control: docs/advanced/privacy-and-access-control.md
     - FAQs: docs/frequently-asked-questions.md
-    - RELEASE NOTES: docs/release-notes.md
-    - PROJECT:
+    - Project:
       - docs/project/index.md
       - Roadmap: docs/project/roadmap.md
       - Governance: docs/project/governance.md
       - Code of Conduct: docs/project/code-of-conduct.md
       - Security Issues: docs/project/security-issues.md
-    - COMMUNITY:
+    - Community:
       - docs/community/index.md
       - Ways to contribute: docs/community/how-to-contribute.md
       - Chat & discussion forums: docs/community/chat-and-discussion-forums.md
@@ -288,7 +299,7 @@ markdown_extensions:
   - pymdownx.smartsymbols
   - toc:
       permalink: true
-      toc_depth: 2
+      toc_depth: 3
 
 extra:
   generator: false

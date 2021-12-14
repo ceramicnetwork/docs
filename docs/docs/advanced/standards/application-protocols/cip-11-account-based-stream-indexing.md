@@ -1,1 +1,0 @@
-# CIP-11: Account-Based Stream Index
