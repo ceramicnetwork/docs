@@ -20,8 +20,8 @@ TileDocument is a StreamType that stores a mutable JSON document, providing simi
 ### Limitations
 
 - Single controller
-- No indexing
-- Growing log
+- No indexing, but metadata will be used, follow conventions
+- Growing log, not adapted to frequent updates
 
 ## Structure
 
@@ -35,6 +35,8 @@ TileDocument is a StreamType that stores a mutable JSON document, providing simi
 - `controllers` array but single entry
 - `schema` stream or commit ID for validation
 - `family` and `tags` for determinism and indexing (future)
+  - `family` for network-wide identification ("collection")
+  - `tags` for apps/protocols-specific indexing
 - `deterministic` flag
 
 ## Reference

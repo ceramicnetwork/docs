@@ -32,125 +32,85 @@ theme:
     - content.code.annotate
     #- toc.integrate
 
-
 nav:
   - Home: index.md
-  - Docs: 
-    - docs/index.md
-    - Intro to Ceramic:
-      - docs/introduction/index.md
-      - Hello world: docs/introduction/getting-started.md
-      - Networks: docs/foundational-topics/networks.md
-      - Streams: docs/foundational-topics/streams.md
-      - Accounts: docs/foundational-topics/accounts.md
-      - Transactions: docs/foundational-topics/transactions.md
-      - Nodes and clients: docs/foundational-topics/nodes-and-clients.md
-      - Consensus: docs/foundational-topics/consensus.md
-      - Related technologies: docs/foundational-topics/additional-technologies.md
-      - Ceramic compared to...: docs/introduction/comparisons.md
-    - Ceramic Stack:
-      - docs/ceramic-stack/index.md
-      - Stream programs:
-        - docs/ceramic-stack/stream-programs/index.md
-        - Stream program languages: docs/ceramic-stack/stream-programs/stream-program-languages.md
-        - Stream program anatomy: docs/ceramic-stack/stream-programs/stream-program-anatomy.md
-        - Stream program libraries: docs/ceramic-stack/stream-programs/stream-program-libraries.md
-      - Data models:
-        - docs/ceramic-stack/data-models/index.md
-        - Data model libraries: docs/ceramic-stack/data-models/data-model-libraries.md
-        - Deploying data models: docs/ceramic-stack/data-models/deploying-data-models.md
-        - Data model examples and patterns: docs/ceramic-stack/data-models/data-model-examples-patterns.md
-        - Composability: docs/ceramic-stack/data-models/composability.md
-      - Development networks: docs/ceramic-stack/development-networks.md
-      - Development frameworks: docs/ceramic-stack/development-frameworks.md
-      - Client APIs:
-        - docs/ceramic-stack/client-apis/index.md
-        - Ceramic APIs:
-          - docs/ceramic-stack/client-apis/ceramic/index.md
-          - Ceramic JavaScript APIs: docs/ceramic-stack/client-apis/ceramic/javascript.md
-          - Ceramic HTTP API: docs/ceramic-stack/client-apis/ceramic/http-api.md
-        - Account APIs: 
-          - docs/ceramic-stack/client-apis/accounts/index.md
-          - Account JavaScript APIs: docs/ceramic-stack/client-apis/accounts/javascript.md
-          - Account JSON-RPC: docs/ceramic-stack/client-apis/accounts/json-rpc.md
-      - Data and analytics: docs/ceramic-stack/data-analytics.md
-      - Smart contracts, tokens, value: docs/ceramic-stack/contracts-tokens-value.md
-    - Advanced:
-      - index.md
-      - Standards: 
-        - docs/advanced/standards/index.md
-        - Stream program standards:
-          - docs/advanced/standards/stream-programs/index.md
-          - CIP-8 TileDocument: docs/advanced/standards/stream-programs/cip-8.md
-          - CIP-7 CAIP10-Link: docs/advanced/standards/stream-programs/cip-7.md
-        #- Application standards:
-          #- docs/advanced/standards/application-protocols/index.md
-          #- CIP-11 Account-based indexing: docs/advanced/standards/application-protocols/cip-11.md
-        - Data model standards:
-          - docs/advanced/standards/data-models/index.md
-          - Data Model Universe: docs/advanced/standards/data-models/data-model-universe.md
-          - CIP-11 Identity Index: docs/advanced/standards/data-models/cip-11.md
-          - CIP-19 Basic Profile: docs/advanced/standards/data-models/cip-19.md
-          - CIP-21 Crypto Accounts: docs/advanced/standards/data-models/cip-21.md
-          - CIP-23 Also Known As: docs/advanced/standards/data-models/cip-23.md
-          - CIP-20 3ID Keychain: docs/advanced/standards/data-models/cip-20.md
-        - Account standards:
-          - docs/advanced/standards/account-standards/index.md
-          - CIP-79 3ID DID: docs/advanced/standards/account-standards/cip-79.md
-          - PKH DID: docs/advanced/standards/account-standards/pkh-did.md
-          - Key DID: docs/advanced/standards/account-standards/key-did.md
-          - CIP-94 NFT DID: docs/advanced/standards/account-standards/cip-94.md
-          - CIP-101 Safe DID: docs/advanced/standards/account-standards/cip-101.md
-      - Indexing: docs/advanced/indexing.md
-      - Storage and backup: docs/advanced/storage-and-backup.md
-      - Privacy and access control: docs/advanced/privacy-and-access-control.md
-    - FAQs: docs/frequently-asked-questions.md
-    - Project:
-      - docs/project/index.md
-      - Roadmap: docs/project/roadmap.md
-      - Governance: docs/project/governance.md
-      - Code of Conduct: docs/project/code-of-conduct.md
-      - Security Issues: docs/project/security-issues.md
-    - Community:
-      - docs/community/index.md
-      - Ways to contribute: docs/community/how-to-contribute.md
-      - Chat & discussion forums: docs/community/chat-and-discussion-forums.md
-      - Social media: docs/community/social-media.md
-    - ~~~:
-      - Networks: learn/networks.md
+  - Docs:
+      - docs/index.md
+      - Intro to Ceramic:
+          - docs/introduction/index.md
+          - Hello world: docs/introduction/getting-started.md
+          - Networks: docs/foundational-topics/networks.md
+          - Streams: docs/foundational-topics/streams.md
+          - Accounts: docs/foundational-topics/accounts.md
+          - Transactions: docs/foundational-topics/transactions.md
+          - Nodes and clients: docs/foundational-topics/nodes-and-clients.md
+          - Consensus: docs/foundational-topics/consensus.md
+          - Related technologies: docs/foundational-topics/additional-technologies.md
+          - Ceramic compared to...: docs/introduction/comparisons.md
+      - Ceramic Stack:
+          - docs/ceramic-stack/index.md
+          - Stream programs:
+              - docs/ceramic-stack/stream-programs/index.md
+              - Stream program languages: docs/ceramic-stack/stream-programs/stream-program-languages.md
+              - Stream program anatomy: docs/ceramic-stack/stream-programs/stream-program-anatomy.md
+              - Stream program libraries: docs/ceramic-stack/stream-programs/stream-program-libraries.md
+          - Data models:
+              - docs/ceramic-stack/data-models/index.md
+              - Data model libraries: docs/ceramic-stack/data-models/data-model-libraries.md
+              - Deploying data models: docs/ceramic-stack/data-models/deploying-data-models.md
+              - Data model examples and patterns: docs/ceramic-stack/data-models/data-model-examples-patterns.md
+              - Composability: docs/ceramic-stack/data-models/composability.md
+          - Development networks: docs/ceramic-stack/development-networks.md
+          - Development frameworks: docs/ceramic-stack/development-frameworks.md
+          - Client APIs:
+              - docs/ceramic-stack/client-apis/index.md
+              - Ceramic APIs:
+                  - docs/ceramic-stack/client-apis/ceramic/index.md
+                  - Ceramic JavaScript APIs: docs/ceramic-stack/client-apis/ceramic/javascript.md
+                  - Ceramic HTTP API: docs/ceramic-stack/client-apis/ceramic/http-api.md
+              - Account APIs:
+                  - docs/ceramic-stack/client-apis/accounts/index.md
+                  - Account JavaScript APIs: docs/ceramic-stack/client-apis/accounts/javascript.md
+                  - Account JSON-RPC: docs/ceramic-stack/client-apis/accounts/json-rpc.md
+          - Data and analytics: docs/ceramic-stack/data-analytics.md
+          - Smart contracts, tokens, value: docs/ceramic-stack/contracts-tokens-value.md
       - Advanced:
           - index.md
           - Standards:
               - docs/advanced/standards/index.md
               - Stream program standards:
                   - docs/advanced/standards/stream-programs/index.md
-                  - CIP-3 JSON Storage (TileDocument): index.md
-                  - CIP-17 Crypto Account Links (CAIP10Link): index.md
-              - Application standards:
-                  - docs/advanced/standards/application-protocols/index.md
-                  - CIP-11 Account-based indexing (IDX): docs/advanced/standards/application-protocols/cip-11-account-based-stream-indexing.md
+                  - CIP-7 CAIP-10 Link: docs/advanced/standards/stream-programs/cip7-caip10-link.md
+                  - CIP-9 Tile Document: docs/advanced/standards/stream-programs/cip9-tile-document.md
+              #- Application standards:
+              #- docs/advanced/standards/application-protocols/index.md
+              #- CIP-11 Account-based indexing: docs/advanced/standards/application-protocols/cip-11.md
               - Data model standards:
                   - docs/advanced/standards/data-models/index.md
-                  - Data model universe: index.md
-                  - Data model examples and patterns: index.md
+                  - Data Model Universe: docs/advanced/standards/data-models/data-model-universe.md
+                  - CIP-11 Identity Index: docs/advanced/standards/data-models/cip-11.md
+                  - CIP-19 Basic Profile: docs/advanced/standards/data-models/cip-19.md
+                  - CIP-21 Crypto Accounts: docs/advanced/standards/data-models/cip-21.md
+                  - CIP-23 Also Known As: docs/advanced/standards/data-models/cip-23.md
+                  - CIP-20 3ID Keychain: docs/advanced/standards/data-models/cip-20.md
               - Account standards:
-                  - CIP-4 3ID DID: authentication/3id-did/method.md
-                  - PKH DID: index.md
-                  - Key DID: authentication/key-did/method.md
-                  - CIP-40 NFT DID: authentication/nft-did/method.md
-                  - CIP-50 Safe DID: authentication/safe-did/method.md
+                  - docs/advanced/standards/account-standards/index.md
+                  - CIP-79 3ID DID: docs/advanced/standards/account-standards/cip-79.md
+                  - PKH DID: docs/advanced/standards/account-standards/pkh-did.md
+                  - Key DID: docs/advanced/standards/account-standards/key-did.md
+                  - CIP-94 NFT DID: docs/advanced/standards/account-standards/cip-94.md
+                  - CIP-101 Safe DID: docs/advanced/standards/account-standards/cip-101.md
           - Indexing: docs/advanced/indexing.md
           - Storage and backup: docs/advanced/storage-and-backup.md
           - Privacy and access control: docs/advanced/privacy-and-access-control.md
       - FAQs: docs/frequently-asked-questions.md
-      - RELEASE NOTES: docs/release-notes.md
-      - PROJECT:
+      - Project:
           - docs/project/index.md
           - Roadmap: docs/project/roadmap.md
           - Governance: docs/project/governance.md
           - Code of Conduct: docs/project/code-of-conduct.md
           - Security Issues: docs/project/security-issues.md
-      - COMMUNITY:
+      - Community:
           - docs/community/index.md
           - Ways to contribute: docs/community/how-to-contribute.md
           - Chat & discussion forums: docs/community/chat-and-discussion-forums.md
@@ -158,21 +118,60 @@ nav:
       - ~~~:
           - Networks: learn/networks.md
           - Advanced:
-              - Security: learn/advanced/security.md
-              - Privacy: learn/advanced/privacy.md
-              - Data availability: learn/advanced/data-availability.md
-              - Consensus: learn/advanced/consensus.md
-          - Queries:
-              - Load the current state: index.md
-              - Load a previous state: index.md
-              - Load multiple streams: index.md
-              - Query Retries: index.md
-              - GraphQL for Ceramic: index.md
-              - Indexing Strategies: index.md
-              - Aggregation: index.md
-          - Subscriptions:
-              - Change Events: index.md
-              - Production Recommendations: index.md
+              - index.md
+              - Standards:
+                  - docs/advanced/standards/index.md
+                  - Stream program standards:
+                      - docs/advanced/standards/stream-programs/index.md
+                      - CIP-3 JSON Storage (TileDocument): index.md
+                      - CIP-17 Crypto Account Links (CAIP10Link): index.md
+                  - Application standards:
+                      - docs/advanced/standards/application-protocols/index.md
+                      - CIP-11 Account-based indexing (IDX): docs/advanced/standards/application-protocols/cip-11-account-based-stream-indexing.md
+                  - Data model standards:
+                      - docs/advanced/standards/data-models/index.md
+                      - Data model universe: index.md
+                      - Data model examples and patterns: index.md
+                  - Account standards:
+                      - CIP-4 3ID DID: authentication/3id-did/method.md
+                      - PKH DID: index.md
+                      - Key DID: authentication/key-did/method.md
+                      - CIP-40 NFT DID: authentication/nft-did/method.md
+                      - CIP-50 Safe DID: authentication/safe-did/method.md
+              - Indexing: docs/advanced/indexing.md
+              - Storage and backup: docs/advanced/storage-and-backup.md
+              - Privacy and access control: docs/advanced/privacy-and-access-control.md
+          - FAQs: docs/frequently-asked-questions.md
+          - RELEASE NOTES: docs/release-notes.md
+          - PROJECT:
+              - docs/project/index.md
+              - Roadmap: docs/project/roadmap.md
+              - Governance: docs/project/governance.md
+              - Code of Conduct: docs/project/code-of-conduct.md
+              - Security Issues: docs/project/security-issues.md
+          - COMMUNITY:
+              - docs/community/index.md
+              - Ways to contribute: docs/community/how-to-contribute.md
+              - Chat & discussion forums: docs/community/chat-and-discussion-forums.md
+              - Social media: docs/community/social-media.md
+          - ~~~:
+              - Networks: learn/networks.md
+              - Advanced:
+                  - Security: learn/advanced/security.md
+                  - Privacy: learn/advanced/privacy.md
+                  - Data availability: learn/advanced/data-availability.md
+                  - Consensus: learn/advanced/consensus.md
+              - Queries:
+                  - Load the current state: index.md
+                  - Load a previous state: index.md
+                  - Load multiple streams: index.md
+                  - Query Retries: index.md
+                  - GraphQL for Ceramic: index.md
+                  - Indexing Strategies: index.md
+                  - Aggregation: index.md
+              - Subscriptions:
+                  - Change Events: index.md
+                  - Production Recommendations: index.md
   - RUN CERAMIC:
       - run/index.md
       - JS Ceramic:
