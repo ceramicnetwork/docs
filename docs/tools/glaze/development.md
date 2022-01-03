@@ -189,6 +189,63 @@ glaze model:publish my-model ./published-model.json
 
 This output file can then be used by the [DataModel runtime](datamodel.md#datamodel-runtime).
 
+### Creating, Updating and Querying Tiles
+
+Using the `tile:*` commands you can interact with any of the tile commands:
+
+=== "Create"
+    ```sh
+    glaze tile:create -b '{"foo":"bar"}'
+    ```
+
+=== "Create Deterministic"
+    ```sh
+    glaze tile:deterministic '{"family": "CLI"}'
+    ```
+
+=== "Updates"
+    ```sh
+    glaze tile:update <STREAMID> -b '{"foo":"baz"}'
+    ```
+
+=== "Query"
+    ```sh
+    glaze tile:content <STREAMID>
+    ```
+
+### Stream Interactions
+
+The `stream:*` commands are used to interact with the history of your tiles. 
+
+=== "Commits"
+    ```sh
+    glaze stream:commits <STREAMID>
+    ```
+
+=== "State"
+    ```sh
+    glaze stream:state <STREAMID>
+    ```
+
+### Pinning Streams
+
+Pinning a stream is used to persist the data that you're creating, the `pin:*` commands are used to add, remove or list pins.
+
+=== "Add"
+    ```sh
+    glaze pin:add <STREAMID>
+    ```
+
+=== "Remove"
+    ```sh
+    glaze pin:rm <STREAMID>
+    ```
+
+=== "List"
+    ```sh
+    glaze pin:ls
+    ```
+
 ### Example: using IDX models
 
 In this example, we will import and publish the datamodels defined by the [CIP-19 "Basic Profile"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-19/CIP-19.md), [CIP-21 "Crypto Accounts"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-21/CIP-21.md) and [CIP-23 "Also Known As"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-23/CIP-23.md) specifications.

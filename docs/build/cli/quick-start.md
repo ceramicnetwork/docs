@@ -6,6 +6,10 @@ Learn the basics by setting up and interacting with the [Ceramic CLI](./installa
 
     **Want an even faster way to try Ceramic?** Visit the [Playground demo app](https://playground.ceramic.dev){:target="_blank"} to test the full stack of Ceramic components in the browser.
 
+!!! warning "Depreciation Notice:"
+
+    Interactions with Streams and TileDocuments have been moved to our [Glaze CLI](../../../tools/glaze/development#cli). If you encounter any errors with the commands below please retry using the Glaze CLI first.
+
 ## **1. Install the CLI**
 
 Visit the [Ceramic CLI](./installation.md) page for instructions on how to quickly install the CLI.
