@@ -56,4 +56,4 @@ Read the [**blog**](https://blog.ceramic.network){:target="\_blank"} for news, a
 
 Watch the [**Youtube channel**](https://www.youtube.com/channel/UCgCLq5dx7sX-yUrrEbtYqVw){:target="\_blank"} for videos and presentations
 
-Work on Ceramic through open roles at [**3Box Labs**](https://www.keyvalues.com/3box-labs}
+Work on Ceramic through open roles at [**3Box Labs**](https://www.keyvalues.com/3box-labs)
