@@ -28,12 +28,12 @@ The following is an overview of the steps you must take to run a Ceramic node. D
 
 4.  Staying Connected
 
-    Submit a pull request to the [Ceramic peerlist](https://github.com/ceramicnetwork/peerlist) with the multiaddress of your IPFS node, the IP address for your Ceramic node, and a description of the data persistence setup for the multiaddress, Ceramic State Store and IPFS Repo. Once your pull request is merged in you will be connected to the Ceramic network and the [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service).
+    Submit a [placeholder] with the static public IP address for your Ceramic node and a description of the data persistence setup for the Ceramic State Store and IPFS Repo. Once your [placeholder] is reviewed, you will be connected to the Ceramic network and the [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service).
     
     !!! info ""
  
 
-        Mainnet nodes will not run immediately after start up until your IP address is added to the allow list for the 3Box hosted anchor service and your PR to the peerlist is merged.
+        Mainnet nodes will not run immediately after start up until your [placeholder] is reviewed and your IP address is added to the allow list for the 3Box hosted anchor service.
 
 
 ## Running the Daemon
@@ -48,8 +48,6 @@ You may also set these options with command line flags which can be viewed from 
 #### IPFS Out-of-process
 
 The Ceramic daemon by default will start its own IPFS node internally, but it can also be configured to connect to an externally running IPFS node over HTTP. We refer to the latter as running IPFS "out-of-process". Running IPFS out-of-process is helpful for more controlled resource allocation, maintenance, debugging, and observability. This is highly recommended, especially if you are planning to be an infrastructure provider for other Ceramic applications.
-
-When connecting to an out-of-process IPFS node, it is important that the IPFS node be configured with support for the dagJose plugin that Ceramic relies on. DagJose support is not included in IPFS by default, so we have provided the [@ceramicnetwork/ipfs-daemon package](https://www.npmjs.com/package/@ceramicnetwork/ipfs-daemon), which is a wrapper around js-ipfs configured with dagJose support specifically for use with Ceramic. Configuration options for the IPFS daemon can be viewed in the [ipfs-daemon README](https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/ipfs-daemon) and in the [ipfs-daemon source code](https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/ipfs-daemon/src/ipfs-daemon.ts).
 
 The rest of this guide assumes you are running IPFS out-of-process.
 
@@ -325,15 +323,11 @@ Healthchecks can be run against the `HEALTHCHECK_PORT` (port `8011` by default) 
 
 When running IPFS out-of-process, its API port must be accessible by the Ceramic node. The default API port is `5011`. The IPFS node address will then be passed to Ceramic with a CLI flag `--ipfs-api <ipfs_api_url>`.
 
-## Staying Connected
-
-The ipfs-daemon designed for use with Ceramic has the IPFS node discovery mechanism, Libp2p DHT, turned off. We have configured this by default because the JavaScript implementation of the DHT is not yet reliable. With node discovery turned off, we must manually create a connected network of peers by sharing known addresses and dialing them explicitly. The ipfs-daemon package handles this logic and requires that every node that wants to be in the network be in a "peerlist" which is maintained here: [https://github.com/ceramicnetwork/peerlist](https://github.com/ceramicnetwork/peerlist)
-
 #### Peerlist
 
-Once you have fully configured your Ceramic node with this guide and have a way to persist its configuration and state, submit a pull request to the peerlist with the multiaddress of your IPFS node, the IP address for your Ceramic node, and a brief description of your data persistence setup for the Ceramic State Store and IPFS Repo. When a pull request is submitted, it triggers a connectivity test to ensure the node can successfully connect to the network. If this fails, the 3Box Labs team will reach out to you directly to triage the issue. Make sure there are no firewalls blocking your instance and that your port is properly exposed. Once your multiaddress is added, you will be able to stay connected to other nodes in the network.
+Once you have fully configured your Ceramic node with this guide and have a way to persist its configuration and state, submit a [placeholder] with the public, static IP address for your Ceramic node, and a brief description of your data persistence setup for the Ceramic State Store and IPFS Repo. Make sure there are no firewalls blocking your instance and that your port is properly exposed.
 
-Once you are on the peerlist, you should monitor your IPFS node and alert our team on Discord in the case of any planned or unexpected downtime. Please make your best effort to come back online within 24 hours. If we can not connect to your IPFS node for over 24 hours, we will remove it from the peerlist and you can resubmit your multiaddress in a new PR once your node becomes stable again. If the connectivity test in your PR to the peerlist fails and it is due to a node other than your own, we will update the peerlist and re-run the tests for you.
+Once your [placeholder] is approved, you should monitor your IPFS node and alert our team on Discord in the case of any planned or unexpected downtime.
 
 ## Observability
 
