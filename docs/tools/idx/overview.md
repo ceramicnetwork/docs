@@ -11,7 +11,7 @@
 
 ## **Features**
 
-**DID-compatibility**: IDX does not provide [DIDs](../../learn/glossary.md#dids), but relies on them for decentralized, platform-agnostic identifiers. IDX can work with any DID method that is supported in Ceramic. Various DID methods, such as [3ID](../../authentication/3id-did/method.md), support linking to and authenticating with many different blockchain accounts (see [3ID Keychain (CIP-20)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-20/CIP-20.md){:target="\_blank"}). This allows DIDs to serve as a universal, cross-chain and platform-agnostic identifier for users.
+**DID-compatibility**: IDX does not provide [DIDs](../../learn/glossary.md#dids), but relies on them for decentralized, platform-agnostic identifiers. IDX can work with any DID method that is supported in Ceramic. Various DID methods, such as [3ID](../../docs/advanced/standards/account-standards/cip79-3id-did.md), support linking to and authenticating with many different blockchain accounts (see [3ID Keychain (CIP-20)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-20/CIP-20.md){:target="\_blank"}). This allows DIDs to serve as a universal, cross-chain and platform-agnostic identifier for users.
 
 **Stream-based storage**: Store data for your users or your application in user-controlled streams on Ceramic. Data in streams can be stored in cleartext or encrypted. IDX-created streams enjoy all the benefits of mutability, persistence, replication, and availability provided by the Ceramic network.
 
@@ -94,13 +94,13 @@ Example:
 
 ## **Sample Use Cases**
 
-**Authentication secrets**: [3ID Connect](../../authentication/3id-did/3id-connect.md) uses IDX to create a DID-controlled stream which stores encrypted authentication secrets that allows a [3ID DID](../../authentication/3id-did/method.md) to be authenticated with various blockchain wallets. To achieve this, the 3ID Connect team has created the [3ID Keychain definition (CIP-20)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-20/CIP-20.md){:target="\_blank"}.
+**Authentication secrets**: [3ID Connect](../../docs/advanced/standards/account-standards/cip79-3id-did.md#3id-connect) uses IDX to create a DID-controlled stream which stores encrypted authentication secrets that allows a [3ID DID](../../docs/advanced/standards/account-standards/cip79-3id-did.md) to be authenticated with various blockchain wallets. To achieve this, the 3ID Connect team has created the [3ID Keychain definition (CIP-20)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-20/CIP-20.md){:target="\_blank"}.
 
 **Profile information**: [DNS.xyz](https://dns.xyz){:target="\_blank"} uses IDX to create a DID-controlled stream which stores basic profile information for the DID. To achieve this, the DNS.xyz team uses the [Basic Profile definition (CIP-19)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-19/CIP-19.md){:target="\_blank"}.
 
 **Web2 social account links**: [Self.ID](https://self.id){:target="\_blank"} uses IDX to create a DID-controlled stream which stores a list of Web2 accounts controlled by the same user that owns the DID, along with verifiable claims which prove this ownership. To achieve this, the Self.ID team has created the [Also Known As (AKA) definition (CIP-23)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-23/CIP-23.md){:target="\_blank"}.
 
-**Web3 Crypto account links**: [3ID Connect](../../authentication/3id-did/3id-connect.md) uses IDX to create a DID-controlled stream which stores a list of streamIDs for CAIP10Links that publicly prove the owner of this DID also owns various accounts on Web3/blockchain platforms. To achieve this, the 3ID Connect team has created the [Crypto Accounts definition (CIP-21)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-21/CIP-21.md){:target="\_blank"}.
+**Web3 Crypto account links**: [3ID Connect](../../docs/advanced/standards/account-standards/cip79-3id-did.md#3id-connect) uses IDX to create a DID-controlled stream which stores a list of streamIDs for CAIP10Links that publicly prove the owner of this DID also owns various accounts on Web3/blockchain platforms. To achieve this, the 3ID Connect team has created the [Crypto Accounts definition (CIP-21)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-21/CIP-21.md){:target="\_blank"}.
 
 ## **Implementations**
 

@@ -10,17 +10,17 @@ Authentication requires having [installed a Ceramic client](./installation.md). 
 
 The first step in adding authentication to your project is choosing which DID method to use for authentication.
 
-[**3ID DID Method**](../../authentication/3id-did/method.md): A powerful DID method that supports multiple keys, key rotations, and revocations
+[**3ID DID Method**](../../docs/advanced/standards/account-standards/cip79-3id-did.md): A powerful DID method that supports multiple keys, key rotations, and revocations
 
-[**Key DID Method**](../../authentication/key-did/method.md): A lightweight DID method that only supports one key and cannot handle rotations
+[**Key DID Method**](../../docs/advanced/standards/account-standards/key-did.md): A lightweight DID method that only supports one key and cannot handle rotations
 
-[**NFT DID Method**](../../authentication/nft-did/method.md): A lightweight DID method with permissions that change based on on-chain NFT asset ownership
+[**NFT DID Method**](../../docs/advanced/standards/account-standards/cip94-nft-did.md): A lightweight DID method with permissions that change based on on-chain NFT asset ownership
 
-[**Safe DID Method**](../../authentication/safe-did/method.md) _coming soon_: A lightweight DID method with permissions that change based on on-chain [Gnosis Safe](https://gnosis-safe.io/) contract permissions
+[**Safe DID Method**](../../docs/advanced/standards/account-standards/cip101-safe-did.md) _coming soon_: A lightweight DID method with permissions that change based on on-chain [Gnosis Safe](https://gnosis-safe.io/) contract permissions
 
 !!! warning ""
 
-    It is recommended that most applications use the [3ID DID Method](../../authentication/3id-did/method.md).
+    It is recommended that most applications use the [3ID DID Method](../../docs/advanced/standards/account-standards/cip79-3id-did.md).
 
 ## **2. Install a DID Provider**
 
@@ -30,9 +30,9 @@ After choosing a DID method, install a [DID provider](../../learn/glossary.md#di
 
 #### 3ID Connect
 
-[**3ID Connect**](../../authentication/3id-did/3id-connect.md) is the most popular 3ID DID Provider for Ceramic web apps. The 3ID Connect SDK allows users to authenticate a 3ID DID using their existing blockchain wallets without needing to install any additional software. Developers do not need to worry about DID key management for their users.
+[**3ID Connect**](../../docs/advanced/standards/account-standards/cip79-3id-did.md#3id-connect) is the most popular 3ID DID Provider for Ceramic web apps. The 3ID Connect SDK allows users to authenticate a 3ID DID using their existing blockchain wallets without needing to install any additional software. Developers do not need to worry about DID key management for their users.
 
-[:octicons-download-16: Installation](../../authentication/3id-did/3id-connect.md#installation){: .md-button .md-button--primary }
+[:octicons-download-16: Installation](../../reference/accounts/3id-did.md#3id-connect){: .md-button .md-button--primary }
 
 !!! warning ""
 
@@ -40,14 +40,14 @@ After choosing a DID method, install a [DID provider](../../learn/glossary.md#di
 
 #### 3ID DID Provider
 
-[**3ID DID Provider**](../../authentication/3id-did/provider.md) is a low-level JavaScript 3ID DID Provider. Your application is responsible for key management, and users need to authenticate with a DID seed or an auth secret.
+[**3ID DID Provider**](../../docs/advanced/standards/account-standards/cip79-3id-did.md#3id-did-provider) is a low-level JavaScript 3ID DID Provider. Your application is responsible for key management, and users need to authenticate with a DID seed or an auth secret.
 
-[:octicons-download-16: Installation](../../authentication/3id-did/provider.md#installation){: .md-button .md-button--primary }
+[:octicons-download-16: Installation](../../reference/accounts/3id-did.md#3id-did-provider){: .md-button .md-button--primary }
 
 ### Key DID Providers
 
 #### Key DID Provider Ed25519
 
-[**Key DID Provider Ed25519**](../../authentication/key-did/provider.md) is a low-level JavaScript Key DID Provider for use with `Ed25519` key pairs. Your application is responsible for key managemet, and users need to authenticate with a DID seed.
+[**Key DID Provider Ed25519**](../../docs/advanced/standards/account-standards/key-did.md#key-did-provider-ed25519) is a low-level JavaScript Key DID Provider for use with `Ed25519` key pairs. Your application is responsible for key managemet, and users need to authenticate with a DID seed.
 
-[:octicons-download-16: Installation](../../authentication/key-did/provider.md#installation){: .md-button .md-button--primary }
+[:octicons-download-16: Installation](../../reference/accounts/key-did.md#ed25519){: .md-button .md-button--primary }

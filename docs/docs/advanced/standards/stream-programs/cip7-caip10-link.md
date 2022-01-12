@@ -27,4 +27,4 @@ Metadata for CAIP-10 Links is defined by the protocol and not editable by consum
 ## Reference
 
 - [CIP-7 standard](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-7/CIP-7.md)
-- [JavaScript client implementation](../../../reference/stream-programs/caip10-link.md)
+- [JavaScript client implementation](../../../../reference/stream-programs/caip10-link.md)

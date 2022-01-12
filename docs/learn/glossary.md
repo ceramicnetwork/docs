@@ -14,7 +14,7 @@ A StreamID is an immutable identifier for a [stream](#stream). StreamIDs enable 
 
 ### StreamTypes
 
-StreamTypes are functions used for processing updates to [streams](#streams). StreamTypes handle everything from defining the data structure of the stream, to what can be stored in its [commits](#commits), its state transitition function, [authentication](#authentication) requirements, and [conflict resolution strategy](#conflict-resolution-strategy). Every stream must specify a StreamType; and StreamTypes run on Ceramic [nodes](#nodes). Ceramic comes [pre-installed with various StreamTypes](../streamtypes/overview.md), or you can code your own.
+StreamTypes are functions used for processing updates to [streams](#streams). StreamTypes handle everything from defining the data structure of the stream, to what can be stored in its [commits](#commits), its state transitition function, [authentication](#authentication) requirements, and [conflict resolution strategy](#conflict-resolution-strategy). Every stream must specify a StreamType; and StreamTypes run on Ceramic [nodes](#nodes). Ceramic comes [pre-installed with various StreamTypes](../docs/advanced/standards/stream-programs/index.md), or you can code your own.
 
 ### Commits
 
@@ -64,7 +64,7 @@ DIDs is the [W3C standard](https://www.w3.org/TR/did-core/) for decentralized id
 
 ### DID methods
 
-DID methods are implementations of the [DID](#dids) specification. DID methods must specify a name for the method in the form of a string (see below), a description of where the [DID document](#did-document) is stored (or how it is statically generated), and a [DID resolver](#did-resolver) which can return a DID document given a URI that conforms to that particular DID method. There are over 40 DID methods on the W3C's official DID registry. Ceramic can support any DID method if needed, and currently supports the [3ID DID method](../authentication/3id-did/method.md) and the [Key DID method](../authentication/key-did/method.md). DID URIs look like this:
+DID methods are implementations of the [DID](#dids) specification. DID methods must specify a name for the method in the form of a string (see below), a description of where the [DID document](#did-document) is stored (or how it is statically generated), and a [DID resolver](#did-resolver) which can return a DID document given a URI that conforms to that particular DID method. There are over 40 DID methods on the W3C's official DID registry. Ceramic can support any DID method if needed, and currently supports the [3ID DID method](../docs/advanced/standards/account-standards/cip79-3id-did.md) and the [Key DID method](../docs/advanced/standards/account-standards/key-did.md). DID URIs look like this:
 
 ```
 did:<method-name>:<method-specific-identifier>
@@ -72,7 +72,7 @@ did:<method-name>:<method-specific-identifier>
 
 ### DID document
 
-DID documents are documents which contain metadata about a given DID. At a minimum they should contain cryptographic key material used for signature verification and encryption/decryption. They may be mutable where their keys and content can be changed/rotated (i.e. [3ID DID method](../authentication/3id-did/method.md)) or statically generated where their contents cannot be manually changed (i.e. [Key DID method](../authentication/key-did/method.md)).
+DID documents are documents which contain metadata about a given DID. At a minimum they should contain cryptographic key material used for signature verification and encryption/decryption. They may be mutable where their keys and content can be changed/rotated (i.e. [3ID DID method](../docs/advanced/standards/account-standards/cip79-3id-did.md)) or statically generated where their contents cannot be manually changed (i.e. [Key DID method](../docs/advanced/standards/account-standards/key-did.md)).
 
 ### DID resolver
 
@@ -84,7 +84,7 @@ DID providers are software libraries that expose a json-rpc interface which allo
 
 ### DID wallets
 
-DID wallets are software libraries or end-user applications that wrap [DID providers](#did-providers) with additional capabilities. [3ID Connect](../authentication/3id-did/3id-connect.md) is the most popular DID wallet SDK that allows users create, manage, and use a 3ID DID method with their existing blockchain wallets, and without needing to install any additional software.
+DID wallets are software libraries or end-user applications that wrap [DID providers](#did-providers) with additional capabilities. [3ID Connect](../docs/advanced/standards/account-standards/cip79-3id-did.md#3id-connect) is the most popular DID wallet SDK that allows users create, manage, and use a 3ID DID method with their existing blockchain wallets, and without needing to install any additional software.
 
 ## Network
 

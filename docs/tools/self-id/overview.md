@@ -9,7 +9,7 @@ Self.ID is a SDK for building user-centric Web applications using Ceramic and re
 
 ## **Features**
 
-**Login and connect blockchain wallets**: Self.ID integrates [3ID Connect](../../authentication/3id-did/3id-connect.md) for [authentication](../../build/javascript/authentication.md) to allow users to create and use a [3ID DID](../../authentication/3id-did/method.md) from one or more existing blockchain wallets.
+**Login and connect blockchain wallets**: Self.ID integrates [3ID Connect](../../docs/advanced/standards/account-standards/cip79-3id-did.md#3id-connect) for [authentication](../../build/javascript/authentication.md) to allow users to create and use a [3ID DID](../../docs/advanced/standards/account-standards/cip79-3id-did.md) from one or more existing blockchain wallets.
 
 **Basic profiles**: Self.ID allows users to create and/or edit a basic profile for their 3ID DID. To achieve this, Self.ID integrates the [DID DataStore](../glaze/did-datastore.md) to create and query [records](../glaze/overview.md#record) that conform to the [Basic Profile definition and schema (CIP-19)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-19/CIP-19.md).
 

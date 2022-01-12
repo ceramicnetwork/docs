@@ -56,4 +56,4 @@ When using the CLI with a remote node, you have a few options:
 
 ## **Authentication**
 
-By default, the CLI is authenticated using the [Key DID Provider](../../authentication/key-did/provider.md). The seed for this DID is stored in `~/.ceramic/config.json`. If this file is not present on startup a new DID will be randomly generated. It's currently not possible to use the Ceramic CLI with other DID methods.
+By default, the CLI is authenticated using the [Key DID Provider](../../docs/advanced/standards/account-standards/key-did.md). The seed for this DID is stored in `~/.ceramic/config.json`. If this file is not present on startup a new DID will be randomly generated. It's currently not possible to use the Ceramic CLI with other DID methods.

@@ -39,7 +39,7 @@ This package can be used independently of the framework, however it is specifica
 
 Ceramic and by extension Self.ID leverage DIDs as "user accounts" used to interact with data records, therefore an important part of most applications logic requires authentication to access such DIDs.
 
-The [`@self.id/web`](../../reference/self-id/modules/web.md) package leverages [3ID Connect](../../authentication/3id-did/3id-connect.md) to access a DID using an Ethereum authentication provider, while the [`@self.id/multiauth` package](../../reference/self-id/modules/multiauth.md) provides a React-based interface to handle the connection flow to an Ethereum Wallet.
+The [`@self.id/web`](../../reference/self-id/modules/web.md) package leverages [3ID Connect](../../reference/accounts/3id-did.md#3id-connect) to access a DID using an Ethereum authentication provider, while the [`@self.id/multiauth` package](../../reference/self-id/modules/multiauth.md) provides a React-based interface to handle the connection flow to an Ethereum Wallet.
 
 By combining APIs from these two packages, the framework provides a unified authentication flow described below.
 
@@ -47,7 +47,7 @@ By combining APIs from these two packages, the framework provides a unified auth
 
 Many interactions provided by the framework are based on the concept of a "viewer". The Viewer can be considered as the "current user" of the app, for which data records are loaded.
 
-With Self.ID, users can only be authenticated client-side (in browser) via [3ID Connect](../../authentication/3id-did/3id-connect.md), so the Viewer can represent the currently authenticated user (DID) of the app, or the last known authenticated DID, for example when using a cookie for persistence.
+With Self.ID, users can only be authenticated client-side (in browser) via [3ID Connect](../../reference/accounts/3id-did.md#3id-connect), so the Viewer can represent the currently authenticated user (DID) of the app, or the last known authenticated DID, for example when using a cookie for persistence.
 
 The framework provides APIs to interact with the Viewer's records for reads only if the Viewer is not authenticated and for writes as well if authenticated.
 
@@ -57,8 +57,8 @@ The framework provides a React hook to easily initiate an authentication flow fo
 
 1. A modal prompts the user to select a Wallet to connect with
 1. Selecting a Wallet initiates the connection to access the Ethereum provider
-1. An [Ethereum authentication provider](https://developers.ceramic.network/authentication/3id-did/3id-connect/#2-import-the-provider) is created using the Ethereum provider
-1. The authentication flow with 3ID Connect starts, using the [Ethereum authentication provider](https://developers.ceramic.network/authentication/3id-did/3id-connect/#2-import-the-provider)
+1. An [Ethereum authentication provider](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_blockchain_utils_linking.ethereumauthprovider-1.html) is created using the Ethereum provider
+1. The authentication flow with 3ID Connect starts, using the [Ethereum authentication provider](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_blockchain_utils_linking.ethereumauthprovider-1.html)
 1. A [`SelfID` instance](../../reference/self-id/classes/web.SelfID.md) is created and stored in the application state
 
 Once this flow is successfully applied, the Viewer's cookie is set to the authenticated DID and writing records associated to the Viewer becomes possible.

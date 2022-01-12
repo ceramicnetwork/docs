@@ -65,7 +65,7 @@ Let's query a [record](https://developers.idx.xyz/learn/glossary/#record){:targe
 
 ## **Step 3: Create a DID**
 
-The IDX SDK does not support DID Creation, however we've built [3ID-Connect](../../authentication/3id-did/3id-connect.md){:target="\_blank"} to allow web apps to create a DID based off of the user's blockchain wallet.
+The IDX SDK does not support DID Creation, however we've built [3ID-Connect](../../docs/advanced/standards/account-standards/cip79-3id-did.md#3id-connect){:target="\_blank"} to allow web apps to create a DID based off of the user's blockchain wallet.
 
 ## **Step 4: Create a Record**
 

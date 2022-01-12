@@ -28,7 +28,7 @@ All streams on Ceramic exist within a single global namespace, allowing you to r
 
 ### **Custom functions**
 
-Write custom functions for processing updates to your stream's [state](./glossary.md#state). These functions are called [StreamTypes](./glossary.md#streamtypes), and they're deployed to a Ceramic [node](./glossary.md#nodes). StreamTypes ingest new updates and autonomously apply transformations to your stream – guaranteeing data consistency and integrity without needing to rely on an external source of compute logic or state management. Ceramic nodes come [prepackaged with common StreamTypes](../streamtypes/overview.md) making it easy to get started creating applications without needing to code your own.
+Write custom functions for processing updates to your stream's [state](./glossary.md#state). These functions are called [StreamTypes](./glossary.md#streamtypes), and they're deployed to a Ceramic [node](./glossary.md#nodes). StreamTypes ingest new updates and autonomously apply transformations to your stream – guaranteeing data consistency and integrity without needing to rely on an external source of compute logic or state management. Ceramic nodes come [prepackaged with common StreamTypes](../docs/advanced/standards/stream-programs/index.md) making it easy to get started creating applications without needing to code your own.
 
 ### **DID authentication**
 

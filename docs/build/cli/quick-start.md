@@ -12,7 +12,7 @@ Visit the [Ceramic CLI](./installation.md) page for instructions on how to quick
 
 ## **2. Create a stream**
 
-Use the `create` command to create a new [stream](../../learn/glossary.md#streams). In the example below we create a stream that uses the [TileDocument StreamType](../../streamtypes/tile-document/overview.md). Note that _TileDocument_ is the only [StreamType](../../learn/glossary.md#streamtypes) that can currently be created by the Ceramic CLI.
+Use the `create` command to create a new [stream](../../learn/glossary.md#streams). In the example below we create a stream that uses the [TileDocument StreamType](../../docs/advanced/standards/stream-programs/cip8-tile-document.md). Note that _TileDocument_ is the only [StreamType](../../learn/glossary.md#streamtypes) that can currently be created by the Ceramic CLI.
 
 === "Command"
 

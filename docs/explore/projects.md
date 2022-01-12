@@ -6,7 +6,7 @@ This page contains a list of community projects built on Ceramic.
 
 ### Boardroom (coming soon)
 
-**Governance forums**: [BoardRoom](https://boardroom.info) uses Ceramic, [IDX](../tools/idx/overview.md), and [3ID Connect](../authentication/3id-did/3id-connect.md) to store proposals, comments, votes, and other user-generated content for their decentralized governance application.
+**Governance forums**: [BoardRoom](https://boardroom.info) uses Ceramic, [IDX](../tools/idx/overview.md), and [3ID Connect](../docs/advanced/standards/account-standards/cip79-3id-did.md#3id-connect) to store proposals, comments, votes, and other user-generated content for their decentralized governance application.
 
 ### GeoWeb
 
@@ -16,7 +16,7 @@ This page contains a list of community projects built on Ceramic.
 
 ### MetaGame (coming soon)
 
-**Multi-app user profiles**: [MetaGame](https://metagame.wtf) uses Ceramic, [IDX](../tools/idx/overview.md), and [3ID Connect](../authentication/3id-did/3id-connect.md) to store profile data for Ethereum users that can be consumed, added to, or extended by any app in the Web3 metaverse.
+**Multi-app user profiles**: [MetaGame](https://metagame.wtf) uses Ceramic, [IDX](../tools/idx/overview.md), and [3ID Connect](../docs/advanced/standards/account-standards/cip79-3id-did.md#3id-connect) to store profile data for Ethereum users that can be consumed, added to, or extended by any app in the Web3 metaverse.
 
 ### ArcX (coming soon)
 
@@ -28,7 +28,7 @@ This page contains a list of community projects built on Ceramic.
 
 ### RabbitHole (coming soon)
 
-**Cross-chain identity and reputation**: [RabbitHole](https://rabbithole.gg) uses Ceramic, [IDX](../tools/idx/overview.md), and [3ID Connect](../authentication/3id-did/3id-connect.md) to link multiple Web3 wallets and Web2 accounts to a unified, cross-chain DID. After calculating an aggregate reputation score for this DID, they issue and store a verifiable credential in the user's IDX so it's usable on any other Web3 application.
+**Cross-chain identity and reputation**: [RabbitHole](https://rabbithole.gg) uses Ceramic, [IDX](../tools/idx/overview.md), and [3ID Connect](../docs/advanced/standards/account-standards/cip79-3id-did.md#3id-connect) to link multiple Web3 wallets and Web2 accounts to a unified, cross-chain DID. After calculating an aggregate reputation score for this DID, they issue and store a verifiable credential in the user's IDX so it's usable on any other Web3 application.
 
 ### The Convo Space (coming soon)
 

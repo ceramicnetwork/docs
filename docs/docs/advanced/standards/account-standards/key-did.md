@@ -1,6 +1,6 @@
 # Key DID Method
 
-The Key DID Method is a [DID method](../../../learn/glossary.md#did-methods) which can be used to [authenticate](../../../build/javascript/authentication.md) to a Ceramic client to perform [writes](../../../build/javascript/writes.md) to streams that rely on DIDs for authentication. The Key DID Method is the most simple DID method. It simply encodes a public key in the DID string, and when resolved converts this public key into a [DID Document](../../../learn/glossary.md#did-document). Key DID is on the W3C's official DID method registry and is fully compliant with decentralized identity standards. Carefully read the considerations below before deciding to use the Key DID Method in your project.
+The Key DID Method is a [DID method](../../../../learn/glossary.md#did-methods) which can be used to [authenticate](../../../../build/javascript/authentication.md) to a Ceramic client to perform [writes](../../../../build/javascript/writes.md) to streams that rely on DIDs for authentication. The Key DID Method is the most simple DID method. It simply encodes a public key in the DID string, and when resolved converts this public key into a [DID Document](../../../../learn/glossary.md#did-document). Key DID is on the W3C's official DID method registry and is fully compliant with decentralized identity standards. Carefully read the considerations below before deciding to use the Key DID Method in your project.
 
 ## **Considerations**
 
@@ -10,13 +10,13 @@ The Key DID Method is a [DID method](../../../learn/glossary.md#did-methods) whi
 
 ## **Installation**
 
-To use the Key DID Method for authentication in your project, install one of the [Key DID Providers](../../../reference/accounts/key-did.md#key-did-providers) below and be sure to include the [Key DID Resolver](../../../reference/accounts/key-did.md#key-did-resolver) in your project during [installation](../../../build/javascript/installation.md).
+To use the Key DID Method for authentication in your project, install one of the [Key DID Providers](../../../../reference/accounts/key-did.md#key-did-providers) below and be sure to include the [Key DID Resolver](../../../../reference/accounts/key-did.md#key-did-resolver) in your project during [installation](../../../../build/javascript/installation.md).
 
 ### Key DID Provider Ed25519
 
 A low-level JavaScript Key DID Provider for use with Ed25519 key pairs. Your application is responsible for key managemet, and users need to authenticate with a DID seed.
 
-[Install](../../../reference/accounts/key-did.md#ed25519){: .md-button .md-button--primary }
+[Install](../../../../reference/accounts/key-did.md#ed25519){: .md-button .md-button--primary }
 
 ## **Specification**
 
@@ -40,7 +40,7 @@ Key DID offers an immutable DID document that is statically generated from any c
 
 ### DID Resolver
 
-The [Key DID Resolver](../../../reference/accounts/key-did.md#key-did-resolver) takes a Key DID string and returns a DID Document that includes the key pair.
+The [Key DID Resolver](../../../../reference/accounts/key-did.md#key-did-resolver) takes a Key DID string and returns a DID Document that includes the key pair.
 
 ## **Underlying technology**
 

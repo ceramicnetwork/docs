@@ -72,7 +72,7 @@ The response body contains the following fields:
 
 **:octicons-alert-16: Disabled in gateway mode**
 
-Create a new stream, or load a stream from its genesis content. The genesis content may be signed (e.g. DagJWS for the [TileDocument StreamType](../../streamtypes/tile-document/overview.md)), or unsigned in some cases.
+Create a new stream, or load a stream from its genesis content. The genesis content may be signed (e.g. DagJWS for the [TileDocument StreamType](../../docs/advanced/standards/stream-programs/cip8-tile-document.md)), or unsigned in some cases.
 
 === "Request"
 

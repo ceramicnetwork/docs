@@ -4,13 +4,13 @@
 
     **NFT DID is experimental.** Please reach out in [Discord](https://chat.ceramic.network) to provide feedback.
 
-The [NFT DID Method (CIP-94)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-94/CIP-94.md) is a [DID method](../../../learn/glossary.md#did-methods)
-that can be used to [authenticate](../../../build/javascript/authentication.md) to Ceramic to perform [writes](../../../build/javascript/writes.md)
-to [streams](../../../learn/glossary.md#streams) that rely on DIDs for authentication.
+The [NFT DID Method (CIP-94)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-94/CIP-94.md) is a [DID method](../../../../learn/glossary.md#did-methods)
+that can be used to [authenticate](../../../../build/javascript/authentication.md) to Ceramic to perform [writes](../../../../build/javascript/writes.md)
+to [streams](../../../../learn/glossary.md#streams) that rely on DIDs for authentication.
 NFT DID is a lightweight DID method with permissions that change based on on-chain NFT asset ownership.
 
 The NFT DID Method turns every NFT into a DID capable of controlling streams on Ceramic.
-Write permissions for streams whose [controller](../../../learn/glossary.md#controllers) is set to an NFT DID
+Write permissions for streams whose [controller](../../../../learn/glossary.md#controllers) is set to an NFT DID
 are restricted to the DID of the blockchain account that currently owns the NFT.
 When the NFT changes ownership on-chain, so do the write permissions.
 NFT DID is on the W3C's official DID method registry and is fully compliant with decentralized identity standards.
@@ -64,15 +64,15 @@ const didNFT = createNftDidUrl({
 ## **Under the hood**
 
 When resolving did-nft, Ceramic and did-nft-resolver do the following.
-We query a blockchain (via subgraph) for the NFT owners. Then for each NFT owner we find a corresponding [CAIP10Link (CIP-7)](../../../streamtypes/caip-10-link/overview.md) stream.
+We query a blockchain (via subgraph) for the NFT owners. Then for each NFT owner we find a corresponding [CAIP10Link (CIP-7)](../stream-programs/cip7-caip10-link.md) stream.
 It provides a link from blockchain account to Ceramic 3id DID.
 
-![NFT-DID Relationship](../../../images/nft-did-link.png)
+![NFT-DID Relationship](../../../../images/nft-did-link.png)
 
 When a signature is made by usual 3ID, we verify if there is indeed such a connection from NFT to 3id.
 
 If you are a dApp developer who wishes to use NFT-DID, you have to make sure that your users
-have that connection via [CAIP10Link (CIP-7)](../../../streamtypes/caip-10-link/overview.md).
+have that connection via [CAIP10Link (CIP-7)](../stream-programs/cip7-caip10-link.md).
 If a user authenticates via 3id-connect, as usually is the case, such a connection is created automatically.
 
 !!! note ""

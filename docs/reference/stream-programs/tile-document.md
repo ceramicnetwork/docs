@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The `stream-tile` module exports a `TileDocument` class used to store and load JSON documents using the [CIP-7 "Tile Document" program](../../advanced/standards/stream-programs/cip8-tile-document.md), as well a provide accessors to the contents and metadata of a given version of the document.
+The `stream-tile` module exports a `TileDocument` class used to store and load JSON documents using the [CIP-8 "Tile Document" program](../../docs/advanced/standards/stream-programs/cip8-tile-document.md), as well a provide accessors to the contents and metadata of a given version of the document.
 
 ## Installation
 
@@ -104,9 +104,12 @@ async function updateDocument(id, content) {
 
 ### Use JSON schema validation
 
+<!--
+TODO: uncomment once the data models docs are available.
+
 !!! note "Related standard"
 
-    The [Data Models standard](../../advanced/standards/data-models/index.md) can be used to manage a set of related schemas, notably by leveraging the [Glaze suite](../glaze/index.md) of tools.
+    The [Data Models standard](../../docs/advanced/standards/data-models/index.md) can be used to manage a set of related schemas, notably by leveraging the [Glaze suite](../glaze/index.md) of tools. -->
 
 Ceramic nodes support validation of documents using JSON schemas. In order for a document to get validated, a Tile document containing the contents of the JSON schema must be created on the node and referenced in metadata.
 
@@ -174,9 +177,9 @@ async function run(seed) {
 
 !!! note "Related standard"
 
-    The [CIP-11 "Identity Index" (IDX) standard](../../advanced/standards/application-protocols/cip11-identity-index.md) leverages deterministic documents to associate records to a DID and is implemented by the [DID DataStore library](../glaze/modules/did_datastore.md).
+    The [CIP-11 "Identity Index" (IDX) standard](../../docs/advanced/standards/application-protocols/cip11-identity-index.md) leverages deterministic documents to associate records to a DID and is implemented by the [DID DataStore library](../glaze/modules/did_datastore.md).
 
-Ceramic allows the creation and load of documents based on their [metadata](../../advanced/standards/stream-programs/cip8-tile-document.md#metadata). This is useful to identify documents based on their controller and family or tags rather than having to know their stream IDs.
+Ceramic allows the creation and load of documents based on their [metadata](../../docs/advanced/standards/stream-programs/cip8-tile-document.md#metadata). This is useful to identify documents based on their controller and family or tags rather than having to know their stream IDs.
 
 ```ts
 import { CeramicClient } from '@ceramicnetwork/http-client'
