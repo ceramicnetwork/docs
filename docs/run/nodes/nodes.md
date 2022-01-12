@@ -67,7 +67,7 @@ We highly encourage others to create Terraform modules for other infrastructure 
 
 ### Docker
 
-The js-ceramic repo builds Docker images that run the Ceramic daemon and IPFS from the source code of the master branch. These images are tagged with "latest" and the git commit hash of the source code that the image was built from. You can view the image builds of [js-ceramic on DockerHub](https://hub.docker.com/r/ceramicnetwork/js-ceramic) and compatible builds of IPFS with the image builds of [ipfs-daemon on DockerHub](https://hub.docker.com/r/ceramicnetwork/ipfs-daemon).
+The js-ceramic repo builds Docker images that run the Ceramic daemon and IPFS from the source code of the master branch. These images are tagged with "latest" and the git commit hash of the source code that the image was built from. You can view the image builds of [js-ceramic on DockerHub](https://hub.docker.com/r/ceramicnetwork/js-ceramic) and compatible builds of IPFS with the image builds of [go-ipfs-daemon on DockerHub](https://hub.docker.com/r/ceramicnetwork/go-ipfs-daemon).
 
 ```bash
 docker pull ceramicnetwork/ipfs-daemon:latest
@@ -295,11 +295,6 @@ The Ceramic node uses less than 7% of CPU at any given time and requires about 0
 ![Ceramic CPU Usage](../../images/ceramic-cpu-usage.png)
 ![Ceramic Memory Usage](../../images/ceramic-memory-usage.png)
 
-The IPFS node uses less than 30% of CPU at any given time and requires about 2.5 GB of memory. (Notice that js-ipfs appears to have a memory leak so we have our AWS service configured to auto-restart on crash.)
-
-![IPFS CPU Usage](../../images/ipfs-cpu-usage.png)
-![IPFS Memory Usage](../../images/ipfs-memory-usage.png)
-
 ## Networking
 
 ### Ceramic
@@ -323,7 +318,7 @@ Healthchecks can be run against the `HEALTHCHECK_PORT` (port `8011` by default) 
 
 When running IPFS out-of-process, its API port must be accessible by the Ceramic node. The default API port is `5011`. The IPFS node address will then be passed to Ceramic with a CLI flag `--ipfs-api <ipfs_api_url>`.
 
-#### Peerlist
+#### Connectivity
 
 Once you have fully configured your Ceramic node with this guide and have a way to persist its configuration and state, submit a [placeholder] with the public, static IP address for your Ceramic node, and a brief description of your data persistence setup for the Ceramic State Store and IPFS Repo. Make sure there are no firewalls blocking your instance and that your port is properly exposed.
 
