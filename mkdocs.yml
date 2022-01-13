@@ -24,9 +24,8 @@ theme:
   features:
     - navigation.instant
     - navigation.tabs
-    - navigation.expand
-    - navigation.sections
-    - header.autohide
+    - navigation.indexes
+    - content.code.annotate
 
 nav:
   - Learn:
@@ -148,8 +147,6 @@ nav:
           - Authentication and writes: tools/self-id/write.md
           - Framework: tools/self-id/framework.md
           - Utilities: tools/self-id/utilities.md
-      - IDX:
-          - Overview: tools/idx/overview.md
       - IdentityLink:
           - Overview: tools/identitylink/overview.md
   - Reference:
@@ -266,7 +263,7 @@ plugins:
         'reference/http-api.md': 'build/http/api.md'
         'tools/hosted-nodes/community-nodes.md': 'run/nodes/community-nodes.md'
         'tools/hosted-nodes/node-providers.md': 'run/nodes/node-providers.md'
-        'tools/identity/idx.md': 'tools/idx/overview.md'
+        'tools/identity/idx.md': 'docs/advanced/standards/application-protocols/cip11-identity-index.md' # v2 redirect
         'tools/identity/identitylink.md': 'tools/identitylink/overview.md'
         'tools/identity/self-id.md': 'tools/self-id/overview.md'
         'build/quick-start.md': 'build/cli/quick-start.md'
@@ -291,4 +288,5 @@ plugins:
         'streamtypes/tile-document/api.md': 'reference/stream-programs/tile-document.md'
         'streamtypes/tile-document/overview.md': 'docs/advanced/standards/stream-programs/cip8-tile-document.md'
         'streamtypes/overview.md': 'docs/advanced/standards/stream-programs/index.md'
+        'tools/idx/overview.md': 'docs/advanced/standards/application-protocols/cip11-identity-index.md'
   - search

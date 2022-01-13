@@ -4,9 +4,9 @@ The DID DataStore is an implementation of the [Identity Index (IDX) CIP](https:/
 
 ## Design
 
-Dive into the design and architecture of the IDX protocol, which is implemented by the DID DataStore.
+Dive into the design and architecture of the Identity Index (IDX) protocol, which is implemented by the DID DataStore.
 
-![Image that describes the architecture of IDX](../../images/idx-architecture.png)
+![Image that describes the architecture of the Identity Index protocol](../../images/idx-architecture.png)
 
 ### Index
 

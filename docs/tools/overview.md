@@ -14,14 +14,6 @@ Self.ID is both a **reference application** and a **SDK** providing higher-level
 
 [Self.ID overview](self-id/overview.md){: .md-button }
 
-## IDX
-
-IDX refers to both the [Identity Index specification](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-11/CIP-11.md) and a set of tools (libraries and CLI).
-
-While the specification is still actively used, the IDX SDK and tools are now **deprecated** in favor of Glaze and Self.ID presented above.
-
-[IDX overview](idx/overview.md){: .md-button }
-
 ## IdentityLink
 
 IdentityLink is a service that issues verifiable claims which prove that a DID owns one or more Web2 social accounts.
