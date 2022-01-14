@@ -33,19 +33,16 @@ import Ceramic from '@ceramicnetwork/core'
 Ceramic utilizes the [dag-jose](../../learn/glossary.md#dagjose) IPLD codec to format and store data in IPFS.
 
 ```javascript
-import Ipfs from 'ipfs-core'
-import dagJose from 'dag-jose'
-import { convert } from 'blockcodec-to-ipld-format'
-
-const dagJoseFormat = convert(dagJose)
+import { create as createIPFS } from 'ipfs-core'
+import * as dagJose from 'dag-jose'
 ```
 
 ## **4. Create an IPFS instance**
 
-Create an instance of `js-ipfs` with `dag-jose` enabled.
+Create an instance of `go-ipfs` with `dag-jose` enabled.
 
 ```javascript
-const ipfs = await Ipfs.create({ ipld: { formats: [dagJoseFormat] } })
+const ipfs = await createIPFS({ ipld: { codecs: [dagJose] } })
 ```
 
 ## **5. Create a Ceramic instance**
