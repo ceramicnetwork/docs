@@ -28,7 +28,7 @@ The following is an overview of the steps you must take to run a Ceramic node. D
 
 4.  Staying Connected
 
-    Submit a [placeholder] with the static public IP address for your Ceramic node and a description of the data persistence setup for the Ceramic State Store and IPFS Repo. Once your [placeholder] is reviewed, you will be connected to the Ceramic network and the [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service).
+    Submit a [placeholder] with the public, static IP address for your Ceramic node and a description of the data persistence setup for the Ceramic State Store and IPFS Repo. Once your [placeholder] is reviewed, you will be connected to the Ceramic network and the [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service).
     
     !!! info ""
  
