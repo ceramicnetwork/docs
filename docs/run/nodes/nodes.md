@@ -28,12 +28,12 @@ The following is an overview of the steps you must take to run a Ceramic node. D
 
 4.  Staying Connected
 
-    Submit a [placeholder] with the public, static IP address for your Ceramic node and a description of the data persistence setup for the Ceramic State Store and IPFS Repo. Once your [placeholder] is reviewed, you will be connected to the Ceramic network and the [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service).
+    Submit a pull request to the [Ceramic peerlist](https://github.com/ceramicnetwork/peerlist) with the public, static IP address for your Ceramic node, and a description of the data persistence setup for the Ceramic State Store and IPFS Repo. Once your pull request is reviewed, you will be connected to the Ceramic network and the [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service).
     
     !!! info ""
  
 
-        Mainnet nodes will not run immediately after start up until your [placeholder] is reviewed and your IP address is added to the allow list for the 3Box hosted anchor service.
+        Mainnet nodes will not run immediately after start up until your pull request is reviewed and your IP address is added to the allow list for the 3Box Labs hosted anchor service.
 
 
 ## Running the Daemon
@@ -320,9 +320,9 @@ When running IPFS out-of-process, its API port must be accessible by the Ceramic
 
 #### Connectivity
 
-Once you have fully configured your Ceramic node with this guide and have a way to persist its configuration and state, submit a [placeholder] with the public, static IP address for your Ceramic node, and a brief description of your data persistence setup for the Ceramic State Store and IPFS Repo. Make sure there are no firewalls blocking your instance and that your port is properly exposed.
+Once you have fully configured your Ceramic node with this guide and have a way to persist its configuration and state, submit a pull request to the [Ceramic peerlist](https://github.com/ceramicnetwork/peerlist) with the public, static IP address for your Ceramic node, and a brief description of your data persistence setup for the Ceramic State Store and IPFS Repo. Make sure there are no firewalls blocking your instance and that your port is properly exposed.
 
-Once your [placeholder] is approved, you should monitor your IPFS node and alert our team on Discord in the case of any planned or unexpected downtime.
+Once your pull request is reviewed, you should monitor your IPFS node and alert our team on Discord in the case of any planned or unexpected downtime.
 
 ## Observability
 
