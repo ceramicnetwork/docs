@@ -1,6 +1,6 @@
 # 3ID Security
 
-The 3ID Connect system allows blockchain accounts to be used as an authentication method to the keys used for the users 3ID. In order to authenticate a user signs a message with their wallet. The entropy is used to generate a [Key DID](../key-did/method.md) which in turn is used to decrypt the seed used for the 3ID.
+The 3ID Connect system allows blockchain accounts to be used as an authentication method to the keys used for the users 3ID. In order to authenticate a user signs a message with their wallet. The entropy is used to generate a [Key DID](../docs/advanced/standards/accounts/key-did.md) which in turn is used to decrypt the seed used for the 3ID.
 
 The main security concern here is that the seed used for the 3ID is stored within the 3ID iframe. While this restricts the app using 3ID Connect from doing whatever it wants with the seed, a malicious browser plugin could easily pick up the seed from the web browser and take full control over the users 3ID. While are multiple paths that can be used to mitigate this issue, it's currently considered to be a fair tradeoff to improve UX for users. In contrast to a users crypto wallet, the 3ID doesn't actually hold or control any cryptocurrency; it only controls data read/writes. This means that the incentive for a hacker to execute an attack is much smaller since there is no immediate financial reward. Also note that this security issue is not inherent to 3ID itself, it's just related to how 3ID is used within 3ID connect.
 
