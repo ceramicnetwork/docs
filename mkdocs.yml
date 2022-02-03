@@ -50,22 +50,21 @@ nav:
           # TODO: v2 index contents
           # - docs/advanced/standards/index.md
           - Stream programs:
-              # TODO: v2 index contents
-              # - docs/advanced/standards/stream-programs/index.md
-              - CAIP-10 Link (CIP-7): docs/advanced/standards/stream-programs/cip7-caip10-link.md
-              - Tile Document (CIP-8): docs/advanced/standards/stream-programs/cip8-tile-document.md
+              - docs/advanced/standards/stream-programs/index.md
+              - CAIP-10 Link (CIP-7): docs/advanced/standards/stream-programs/caip10-link.md
+              - Tile Document (CIP-8): docs/advanced/standards/stream-programs/tile-document.md
           - Accounts:
               # TODO: v2 index contents
               # - docs/advanced/standards/accounts/index.md
-              - 3ID DID (CIP-79): docs/advanced/standards/accounts/cip79-3id-did.md
+              - 3ID DID (CIP-79): docs/advanced/standards/accounts/3id-did.md
               # TODO: v2 contents for PKH DID
               # - PKH DID: docs/advanced/standards/accounts/pkh-did.md
               - Key DID: docs/advanced/standards/accounts/key-did.md
-              - NFT DID (CIP-94): docs/advanced/standards/accounts/cip94-nft-did.md
-              - Safe DID (CIP-101): docs/advanced/standards/accounts/cip101-safe-did.md
+              - NFT DID (CIP-94): docs/advanced/standards/accounts/nft-did.md
+              - Safe DID (CIP-101): docs/advanced/standards/accounts/safe-did.md
           - Application protocols:
               # - docs/advanced/standards/application-protocols/index.md
-              - Account-based indexing (CIP-11): docs/advanced/standards/application-protocols/cip11-identity-index.md
+              - Account-based indexing (CIP-11): docs/advanced/standards/application-protocols/identity-index.md
             #   - Data model standards:
             #       - docs/advanced/standards/data-models/index.md
             #       - Data Model Universe: docs/advanced/standards/data-models/data-model-universe.md
@@ -129,8 +128,8 @@ nav:
       - Accounts:
           - Key DID: reference/accounts/key-did.md
           - 3ID DID: reference/accounts/3id-did.md
-          - NFT DID: reference/accounts/nft-did.md
-          - Safe DID: reference/accounts/safe-did.md
+        #   - NFT DID: reference/accounts/nft-did.md
+        #   - Safe DID: reference/accounts/safe-did.md
       - Stream programs:
           - Tile Document: reference/stream-programs/tile-document.md
           - CAIP-10 Link: reference/stream-programs/caip10-link.md
@@ -210,13 +209,13 @@ plugins:
         'try/explorers.md': 'explore/explorers.md'
         'try/sample-apps.md': 'explore/sample-apps.md'
         'try/projects.md': 'explore/projects.md'
-        'authentication/wallets/3id-connect.md': 'docs/advanced/standards/accounts/cip79-3id-did.md' # v2 redirect
-        'authentication/dids/3id.md': 'docs/advanced/standards/accounts/cip79-3id-did.md' # v2 redirect
+        'authentication/wallets/3id-connect.md': 'docs/advanced/standards/accounts/3id-did.md' # v2 redirect
+        'authentication/dids/3id.md': 'docs/advanced/standards/accounts/3id-did.md' # v2 redirect
         'authentication/dids/key.md': 'docs/advanced/standards/accounts/key-did.md' # v2 redirect
         'authentication/legacy/3id-connect-migration.md': 'pages/3box-migration.md' # v2 redirect
         'reference/javascript/clients.md': 'build/javascript/http.md'
-        'reference/javascript/did-resolvers.md': 'docs/advanced/standards/accounts/cip79-3id-did.md' # v2 redirect
-        'reference/javascript/did-providers.md': 'docs/advanced/standards/accounts/cip79-3id-did.md' # v2 redirect
+        'reference/javascript/did-resolvers.md': 'docs/advanced/standards/accounts/3id-did.md' # v2 redirect
+        'reference/javascript/did-providers.md': 'docs/advanced/standards/accounts/3id-did.md' # v2 redirect
         'learn/clients.md': 'build/javascript/http.md'
         'build/configure-did.md': 'build/javascript/http.md'
         'run/nodes.md': 'run/nodes/nodes.md'
@@ -234,7 +233,7 @@ plugins:
         'reference/http-api.md': 'build/http/api.md'
         'tools/hosted-nodes/community-nodes.md': 'run/nodes/community-nodes.md'
         'tools/hosted-nodes/node-providers.md': 'run/nodes/node-providers.md'
-        'tools/identity/idx.md': 'docs/advanced/standards/application-protocols/cip11-identity-index.md' # v2 redirect
+        'tools/identity/idx.md': 'docs/advanced/standards/application-protocols/identity-index.md' # v2 redirect
         'tools/identity/identitylink.md': 'tools/identitylink/overview.md'
         'tools/identity/self-id.md': 'tools/self-id/overview.md'
         'build/quick-start.md': 'build/cli/quick-start.md'
@@ -242,19 +241,19 @@ plugins:
         'reference/glaze/overview.md': 'reference/glaze/index.md'
         'reference/self-id/overview.md': 'reference/self-id/index.md'
         'authentication/3id-did/3box-migration.md': 'pages/3box-migration.md'
-        'authentication/3id-did/3id-connect.md': 'docs/advanced/standards/accounts/cip79-3id-did.md'
+        'authentication/3id-did/3id-connect.md': 'docs/advanced/standards/accounts/3id-did.md'
         'authentication/3id-did/lifecycle.md': 'pages/3id-lifecycle.md'
-        'authentication/3id-did/method.md': 'docs/advanced/standards/accounts/cip79-3id-did.md'
-        'authentication/3id-did/provider.md': 'docs/advanced/standards/accounts/cip79-3id-did.md'
-        'authentication/3id-did/resolver.md': 'docs/advanced/standards/accounts/cip79-3id-did.md'
+        'authentication/3id-did/method.md': 'docs/advanced/standards/accounts/3id-did.md'
+        'authentication/3id-did/provider.md': 'docs/advanced/standards/accounts/3id-did.md'
+        'authentication/3id-did/resolver.md': 'docs/advanced/standards/accounts/3id-did.md'
         'authentication/3id-did/security.md': 'pages/3id-security.md'
         'authentication/key-did/method.md': 'docs/advanced/standards/accounts/key-did.md'
         'authentication/key-did/provider.md': 'docs/advanced/standards/accounts/key-did.md'
         'authentication/key-did/resolver.md': 'docs/advanced/standards/accounts/key-did.md'
         'streamtypes/caip-10-link/api.md': 'reference/stream-programs/caip10-link.md'
-        'streamtypes/caip-10-link/overview.md': 'docs/advanced/standards/stream-programs/cip7-caip10-link.md'
+        'streamtypes/caip-10-link/overview.md': 'docs/advanced/standards/stream-programs/caip10-link.md'
         'streamtypes/tile-document/api.md': 'reference/stream-programs/tile-document.md'
-        'streamtypes/tile-document/overview.md': 'docs/advanced/standards/stream-programs/cip8-tile-document.md'
+        'streamtypes/tile-document/overview.md': 'docs/advanced/standards/stream-programs/tile-document.md'
         'streamtypes/overview.md': 'docs/advanced/standards/stream-programs/index.md'
-        'tools/idx/overview.md': 'docs/advanced/standards/application-protocols/cip11-identity-index.md'
+        'tools/idx/overview.md': 'docs/advanced/standards/application-protocols/identity-index.md'
   - search

@@ -42,9 +42,9 @@ Whether you want to learn how the Ceramic protocol works, explore standards and 
 
 [**StreamTypes**](../docs/advanced/standards/stream-programs/index.md): StreamTypes developed by the community
 
-[**Identity Index (IDX)**](../docs/advanced/standards/application-protocols/cip11-identity-index.md): Protocol for building apps with decentralized identity and user-controlled data storage
+[**Identity Index (IDX)**](../docs/advanced/standards/application-protocols/identity-index.md): Protocol for building apps with decentralized identity and user-controlled data storage
 
-[**3ID Connect**](../docs/advanced/standards/accounts/cip79-3id-did.md#3id-connect): Authentication SDK that allows users to interact with Ceramic using various blockchain wallets
+[**3ID Connect**](../docs/advanced/standards/accounts/3id-did.md#3id-connect): Authentication SDK that allows users to interact with Ceramic using various blockchain wallets
 
 ## **Community**
 

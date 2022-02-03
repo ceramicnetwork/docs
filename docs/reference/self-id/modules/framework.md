@@ -417,22 +417,6 @@ ___
 
 ___
 
-### isCAIP10string
-
-▸ **isCAIP10string**(`account`): `boolean`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `account` | `string` |
-
-#### Returns
-
-`boolean`
-
-___
-
 ### selectImageSource
 
 ▸ **selectImageSource**(`sources`, `dimensions`, `mode?`): `ImageMetadata`

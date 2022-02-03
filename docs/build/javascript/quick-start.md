@@ -14,7 +14,7 @@ Visit the [Ceramic Client](./installation.md) page for instructions on how to qu
 
 ## **2. Create a stream**
 
-Creating streams is dependent on the StreamType. More details can be found in our [StreamTypes Overview](../../docs/advanced/standards/stream-programs/index.md). A basic sample using the [TileDocument StreamType](../../docs/advanced/standards/stream-programs/cip8-tile-document.md) can be found below.
+Creating streams is dependent on the StreamType. More details can be found in our [StreamTypes Overview](../../docs/advanced/standards/stream-programs/index.md). A basic sample using the [TileDocument StreamType](../../docs/advanced/standards/stream-programs/tile-document.md) can be found below.
 
 === "Command"
 

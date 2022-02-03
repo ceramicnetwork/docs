@@ -6,7 +6,7 @@ The Ceramic HTTP client library can be used in browsers and Node.js to connect y
 
 ## Things to know
 
-- The HTTP client currently supports loading [CAIP-10 links (CIP-7)](../../docs/advanced/standards/stream-programs/cip7-caip10-link.md) and [Tile document (CIP-8)](../../docs/advanced/standards/stream-programs/cip8-tile-document.md) streams.
+- The HTTP client currently supports loading [CAIP-10 links (CIP-7)](../../docs/advanced/standards/stream-programs/caip10-link.md) and [Tile document (CIP-8)](../../docs/advanced/standards/stream-programs/tile-document.md) streams.
 - The client is read-only by default, to enable transactions a [DID client](did-jsonrpc.md) needs to be attached to the Ceramic client instance.
 - Ceramic streams can be identified by a **stream ID** or a **commit ID**. A **stream ID** is generated when creating the stream and can be used to load the **latest version** of the stream, while a **commit ID** represents a **specific version** of the stream.
 
@@ -16,6 +16,7 @@ The Ceramic HTTP client library can be used in browsers and Node.js to connect y
 npm install @ceramicnetwork/http-client
 ```
 
+<!--
 ## Common options
 
 TODO: describe options common to multiple methods and stream programs
@@ -25,6 +26,7 @@ TODO: describe options common to multiple methods and stream programs
 ### `pin`
 
 ### `publish`
+-->
 
 ## Common use-cases
 
@@ -70,8 +72,8 @@ In order to create and update streams, the Ceramic client instance must be able 
 
 ### Interact with JSON data
 
-The [Tile document client](../stream-programs/tile-document.md) provides APIs to interact specifically with [Tile document streams (CIP-8)](../../docs/advanced/standards/stream-programs/cip8-tile-document.md).
+The [Tile document client](../stream-programs/tile-document.md) provides APIs to interact specifically with [Tile document streams (CIP-8)](../../docs/advanced/standards/stream-programs/tile-document.md).
 
 ### Interact with crypto account links
 
-The [CAIP-10 links client](../stream-programs/caip10-link.md) provides APIs to interact specifically with [CAIP-10 links streams (CIP-7)](../../docs/advanced/standards/stream-programs/cip7-caip10-link.md).
+The [CAIP-10 links client](../stream-programs/caip10-link.md) provides APIs to interact specifically with [CAIP-10 links streams (CIP-7)](../../docs/advanced/standards/stream-programs/caip10-link.md).

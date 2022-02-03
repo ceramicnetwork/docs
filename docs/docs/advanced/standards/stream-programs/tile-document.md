@@ -32,14 +32,12 @@ TileDocument is a StreamType that stores a mutable JSON document, providing simi
 
 ### Metadata
 
-- `controllers` array but single entry
-- `schema` stream or commit ID for validation
-- `family` and `tags` for determinism and indexing (future)
-  - `family` for network-wide identification ("collection")
-  - `tags` for apps/protocols-specific indexing
-- `deterministic` flag
+- `controllers` array but single entry (only one controller is supported currently)
+- `schema` stream or commit ID for content validation
+- `family` and `tags` for determinism and indexing (future), using `family` for network-wide identification ("collection") and `tags` for apps/protocols-specific indexing
+- `deterministic` flag for stream identification based on genesis commit metadata
 
 ## Reference
 
-- CIP
-- JS client
+- [CIP-8 standard](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-8/CIP-8.md)
+- [JavaScript client implementation](../../../../reference/stream-programs/tile-document.md)

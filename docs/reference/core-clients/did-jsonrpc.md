@@ -11,7 +11,7 @@ Simple JS API for interacting with Ceramic accounts.
 - For Ceramic clients, the DID client serves as a way to create account, authenticate, sign, encrypt
 - If your project requires transactions, you **need** to install this package, or one that offers similar EIP-2844 API support.
 - The DID client library can be used in both browser and Node.js environments.
-- It supports any DID wallet provider that adheres to the [EIP-2844]() interface.
+- It supports any DID wallet provider that adheres to the [EIP-2844](https://eips.ethereum.org/EIPS/eip-2844) interface.
 - Communicating between a Ceramic client and any account provider.
 - Ceramic does not work without a DID client, as it is how all participants are identified and how transactions and messages are signed and verified.
 
@@ -27,6 +27,23 @@ The `DID` class provides the interface on top of underlying account libraries. T
 
 Choosing an account type can have a big impact on the interoperability of your users' identity and data. For example some account types are fixed to a single public key (Key DID, PHK DID) so the data is siloed to that key, while others (3ID DID) have mutable key management schemes that can support multiple authorized signing keys and works cross-chain with blockchain wallets. Visit each account to learn more about its capabilities.
 
+### [3ID DID](../../docs/advanced/standards/accounts/3id-did.md)
+
+Supports multi-account, cross-chain (MACC) identities. Mutability and key rotations. Good for users + most popular. Relies on Ceramic for account storage.
+
+### [Key DID](../../docs/advanced/standards/accounts/key-did.md)
+
+Simple, self-contained DID method.
+
+### [NFT DID](../../docs/advanced/standards/accounts/nft-did.md)
+
+**Experimental** DID method using NFT ownership for authentication.
+
+### [Safe DID](../../docs/advanced/standards/accounts/safe-did.md)
+
+**Experimental** DID method using a Gnosis Safe for authentication.
+
+<!--
 <div class="txtl-options half">
   <a href="http://127.0.0.1:8000/authentication/3id-did/method/" class="box">
     <h5>3ID DID →</h5>
@@ -55,45 +72,48 @@ Choosing an account type can have a big impact on the interoperability of your u
     <p>Connect to Ceramic with your preferred programming language.</p>
   </a>
 </div>
+-->
 
 ## Install account resolvers
 
 The next step is to install resolver libraries for all of the account types which you may need to read and verify data (signatures). This includes _at least_ the resolver for the provider or wallet chosen in the previous step. However, most projects install all reslovers to be safe:
 
-| Account  | Resolver libraries          | Maintainer         |
-| -------- | --------------------------- | ------------------ |
-| 3ID DID  | [`js-3id/did-resolver →`]() | 3Box Labs          |
+| Account | Resolver libraries                                                            | Maintainer |
+| ------- | ----------------------------------------------------------------------------- | ---------- |
+| 3ID DID | [`@ceramicnetwork/3id-did-resolver`](../accounts/3id-did.md#3id-did-resolver) | 3Box Labs  |
+| Key DID | [`key-did-resolver`](../accounts/key-did.md#key-did-resolver)                 | 3Box Labs  |
+
+<!--
 | PKH DID  | [`js-pkh-did-resolver →`]() | Spruce             |
-| Key DID  | [`key-did-resolver →`]()    | 3Box Labs          |
 | NFT DID  | [`3id/did-resolver →`]()    | @someonehandle.xyz |
 | Safe DID | [`3id/did-resolver →`]()    | 3Box Labs          |
+-->
 
 ## Install account providers
 
----
-
-Install providers to manage accounts and sign transactions. Once you have chosen one or more account types, you'll need to install the providers for these account types. These will enable the client-side creation and use of accounts within your application. If your application is using Ceramic in a read-only manner without transactions then you do not need to install a provider and can skip ahead to Section 2.3 below.
+Install providers to manage accounts and sign transactions. Once you have chosen one or more account types, you'll need to install the providers for these account types. These will enable the client-side creation and use of accounts within your application. If your application is using Ceramic in a read-only manner without transactions then you do not need to install a provider.
 
 ### Using web wallets
 
 However, the providers listed above are low-level, run locally, and burden developers with UX issues related to secret key management and transaction signing. Instead of using a local provider, you can alternatively use a wallet system. Wallets wrap providers with additional user experience features related to signing and key management and can be used in place of a provider. Benefit is multiple applications can access the same wallet and key management system, so users have a continuous experience between applications.
 
-| Account | Wallet                  | Benefits                                                                                                                                                                                 | Drawbacks |
-| ------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| 3ID DID | [`Self.ID Connect →`]() | ✅ Sign with blockchain wallets including MetaMask</br>✅ Connect multiple blockchain accounts to one Ceramic account</br>✅ Implements 3ID DID</br>✅ Works cross-chain</br>✅ Sleek UI | ❌ Risks  |
+| Account | Wallet                                              | Benefits                                                                                                                                                                                 | Drawbacks |
+| ------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| 3ID DID | [`3ID Connect`](../accounts/3id-did.md#3id-connect) | ✅ Sign with blockchain wallets including MetaMask</br>✅ Connect multiple blockchain accounts to one Ceramic account</br>✅ Implements 3ID DID</br>✅ Works cross-chain</br>✅ Sleek UI | ❌ Risks  |
 
-> Most user-facing applications use the Self.ID Connect wallet instead of using a provider.
+> Most user-facing applications use the 3ID Connect wallet instead of using a provider.
 
 ### Create your own wallet
 
 One option is to install and set up one or more account providers that run locally. Note that these local signers have different wallet support
 
-| Account | Supported Key Types | Provider libraries                    |
-| ------- | ------------------- | ------------------------------------- |
-| 3ID DID | ?????????           | [`js-3id-did-provider →`]()           |
-| PKH DID | ?????????           | [`js-pkh-did-provider →`]()           |
-| Key DID | Ed25519             | [`js-key-did-provider-ed25519 →`]()   |
-| Key DID | Secp256k1           | [`js-key-did-provider-secp256k1 →`]() |
+| Account | Supported Key Types | Provider libraries                                               |
+| ------- | ------------------- | ---------------------------------------------------------------- |
+| 3ID DID | Ed25519             | [`3id-did-provider`](../accounts/3id-did.md#3id-did-provider)    |
+| Key DID | Ed25519             | [`key-did-provider-ed25519`](../accounts/key-did.md#ed25519)     |
+| Key DID | Secp256k1           | [`key-did-provider-secp256k1`](../accounts/key-did.md#secp256k1) |
+
+<!-- | PKH DID | ?????????           | [`js-pkh-did-provider →`]()           | -->
 
 Note that NFT DID and Safe DID do not have a signer because they are compatible with all other providers.
 
@@ -265,6 +285,7 @@ console.log(await did.decryptDagJWE(dagJWE))
 // > { some: 'data' }
 ```
 
+<!--
 ## A Note on Wallets
 
 ---
@@ -295,3 +316,4 @@ console.log(await did.decryptDagJWE(dagJWE))
 ---
 
 - To support transactions, you'll need to set up your DID provider for authentication.
+-->

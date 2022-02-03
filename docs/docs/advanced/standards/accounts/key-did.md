@@ -20,7 +20,7 @@ A low-level JavaScript Key DID Provider for use with Ed25519 key pairs. Your app
 
 ## **Specification**
 
-Below, find a simplified version of the Key DID Method specification. View the [complete W3C specification](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-79/CIP-79.md).
+Below, find a simplified version of the Key DID Method specification. View the [complete W3C specification](https://w3c-ccg.github.io/did-method-key/).
 
 ### Method name
 

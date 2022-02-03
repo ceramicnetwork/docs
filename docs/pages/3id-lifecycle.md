@@ -1,8 +1,8 @@
 # 3ID Lifecycle
 
-This page describes the complete lifecycle of a [3ID DID](../docs/advanced/standards/accounts/cip79-3id-did.md), including how the DID document is created, how keys are managed, and how [3ID Connect](../docs/advanced/standards/accounts/cip79-3id-did.md#3id-connect) uses these building blocks. Most of the logic described here is implemented in the [3id-did-provider](../docs/advanced/standards/accounts/cip79-3id-did.md#3id-did-provider) package.
+This page describes the complete lifecycle of a [3ID DID](../docs/advanced/standards/accounts/3id-did.md), including how the DID document is created, how keys are managed, and how [3ID Connect](../docs/advanced/standards/accounts/3id-did.md#3id-connect) uses these building blocks. Most of the logic described here is implemented in the [3id-did-provider](../docs/advanced/standards/accounts/3id-did.md#3id-did-provider) package.
 
-The two core components to the 3ID lifecycle are the [3ID DID method](../docs/advanced/standards/accounts/cip79-3id-did.md) and the [3ID Keychain](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-20/CIP-20.md) which is a standard for storing encrypted key material in a DID's [Identity Index](../docs/advanced/standards/application-protocols/cip11-identity-index.md).
+The two core components to the 3ID lifecycle are the [3ID DID method](../docs/advanced/standards/accounts/3id-did.md) and the [3ID Keychain](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-20/CIP-20.md) which is a standard for storing encrypted key material in a DID's [Identity Index](../docs/advanced/standards/application-protocols/identity-index.md).
 
 ## 3ID DID provider lifecycle
 

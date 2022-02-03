@@ -165,7 +165,7 @@ Using 3ID Connect, Web apps do not need to take care of key custody directly, bu
 ### Installation
 
 ```sh
-npm install 3id-connect
+npm install @3id/connect
 ```
 
 ### Usage

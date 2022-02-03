@@ -64,7 +64,7 @@ const didNFT = createNftDidUrl({
 ## **Under the hood**
 
 When resolving did-nft, Ceramic and did-nft-resolver do the following.
-We query a blockchain (via subgraph) for the NFT owners. Then for each NFT owner we find a corresponding [CAIP10Link (CIP-7)](../stream-programs/cip7-caip10-link.md) stream.
+We query a blockchain (via subgraph) for the NFT owners. Then for each NFT owner we find a corresponding [CAIP10Link (CIP-7)](../stream-programs/caip10-link.md) stream.
 It provides a link from blockchain account to Ceramic 3id DID.
 
 ![NFT-DID Relationship](../../../../images/nft-did-link.png)
@@ -72,7 +72,7 @@ It provides a link from blockchain account to Ceramic 3id DID.
 When a signature is made by usual 3ID, we verify if there is indeed such a connection from NFT to 3id.
 
 If you are a dApp developer who wishes to use NFT-DID, you have to make sure that your users
-have that connection via [CAIP10Link (CIP-7)](../stream-programs/cip7-caip10-link.md).
+have that connection via [CAIP10Link (CIP-7)](../stream-programs/caip10-link.md).
 If a user authenticates via 3id-connect, as usually is the case, such a connection is created automatically.
 
 !!! note ""

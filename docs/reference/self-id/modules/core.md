@@ -137,25 +137,3 @@ ___
 | :------ | :------ |
 | `core` | [`Core`](../classes/core.Core.md)<`ModelTypes`\> |
 | `id` | `string` |
-
-## Variables
-
-### CERAMIC\_URLS
-
-• **CERAMIC\_URLS**: `Record`<[`CeramicNetwork`](core.md#ceramicnetwork), `string`\>
-
-## Functions
-
-### isCAIP10string
-
-▸ **isCAIP10string**(`account`): `boolean`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `account` | `string` |
-
-#### Returns
-
-`boolean`

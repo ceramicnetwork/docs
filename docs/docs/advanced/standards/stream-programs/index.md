@@ -1,41 +1,14 @@
 # Stream program standards
 
-## Introduction
+## Overview
 
----
+Stream programs run custom logic for stream transactions, notably for write access verification.
 
-One of the many Ethereum development standards focus on token interfaces. These standards help ensure smart contracts remain composable, so for instance when a new project issues a token, that it remains compatible with existing decentralized exchanges.
+## Supported stream programs
 
-## Prerequisites
+Here are the stream program standards currently supported on Ceramic:
 
----
-
-- Ethereum development standards
-- Streams and stream programs
-
-## Stream program standards
-
----
-
-Here are some of the most popular stream program standards on Ceramic:
-
-| CIP    | NAME         | DESCRIPTION                                                                                                           |
-| ------ | ------------ | --------------------------------------------------------------------------------------------------------------------- |
-| CIP-7  | CAIP10-Link  | A standard interface for fungible (interchangeable) tokens, like voting tokens, staking tokens or virtual currencies. |
-| CIP-8  | TileDocument | A standard interface for fungible (interchangeable) tokens, like voting tokens, staking tokens or virtual currencies. |
-| CIP-53 | DID-Publish  | A standard interface for fungible (interchangeable) tokens, like voting tokens, staking tokens or virtual currencies. |
-
-## Further reading
-
----
-
-Know of a community resource that helped you? Edit this page and add it!
-
-## Related tutorials
-
----
-
-- Token integration checklist – A checklist of things to consider when interacting with tokens.
-  Understand the ERC20 token smart contract – An introduction to deploying your first smart contract on an Ethereum test network.
-- Transfers and approval of ERC20 tokens from a Solidity smart contract – How to use a smart contract to interact with a token using the Solidity language.
-- Implementing an ERC721 market [a how-to guide] – How to put tokenized items for sale on a decentralized classifieds board.
+| Name                                      | Description                                                                                |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
+| [CAIP-10 Link (CIP-7)](caip10-link.md)    | Stores a cryptographically verifiable proof that links a blockchain address to a DID.      |
+| [Tile Document (CIP-8)](tile-document.md) | Stores a mutable JSON document, providing similar functionality as a NoSQL document store. |

@@ -9,7 +9,7 @@ Self.ID is a SDK for building user-centric Web applications using Ceramic and re
 
 ## **Features**
 
-**Login and connect blockchain wallets**: Self.ID integrates [3ID Connect](../../docs/advanced/standards/accounts/cip79-3id-did.md#3id-connect) for [authentication](../../build/javascript/authentication.md) to allow users to create and use a [3ID DID](../../docs/advanced/standards/accounts/cip79-3id-did.md) from one or more existing blockchain wallets.
+**Login and connect blockchain wallets**: Self.ID integrates [3ID Connect](../../docs/advanced/standards/accounts/3id-did.md#3id-connect) for [authentication](../../build/javascript/authentication.md) to allow users to create and use a [3ID DID](../../docs/advanced/standards/accounts/3id-did.md) from one or more existing blockchain wallets.
 
 **Basic profiles**: Self.ID allows users to create and/or edit a basic profile for their 3ID DID. To achieve this, Self.ID integrates the [DID DataStore](../glaze/did-datastore.md) to create and query [records](../glaze/overview.md#record) that conform to the [Basic Profile definition and schema (CIP-19)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-19/CIP-19.md).
 
@@ -23,19 +23,19 @@ Many functionalities implemented in the Self.ID application are exposed by the S
 
 The Core package can be used to read public records in Node and browser environments. You can read more about [configuration](configuration.md) and [read-only interactions](read.md) in the following pages if these docs.
 
-[Core API reference](../../reference/self-id/modules/core.md){: .md-button .md-button }
+[Core API reference](../../reference/self-id/modules/core.md){: .md-button }
 
 ### Web
 
 The Web package can be used to authenticate and write records in browser environments. You can read more about [authentication and writes](write.md) in the following pages if these docs.
 
-[Web API reference](../../reference/self-id/modules/web.md){: .md-button .md-button }
+[Web API reference](../../reference/self-id/modules/web.md){: .md-button }
 
 ### Framework
 
 A React-based framework combines many of the SDK packages to provide a high-level abstraction for applications to get started using Self.ID.
 
-[Framework documentation](framework.md){: .md-button .md-button }
+[Framework documentation](framework.md){: .md-button }
 
 ### Utility packages
 

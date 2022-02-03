@@ -2,7 +2,7 @@
 
 A CAIP-10 Link is a stream program that stores a cryptographically verifiable proof that links a blockchain address to a DID, using the [CAIP-10 standard](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-10.md) to represent blockchain addresses.
 
-The `stream-caip10-link` module export a `Caip10Link` class used to link and unlink a DID to a CAIP-10 address using the [CIP-7 "CAIP-10 Link" program](../../docs/advanced/standards/stream-programs/cip7-caip10-link.md).
+The `stream-caip10-link` module export a `Caip10Link` class used to link and unlink a DID to a CAIP-10 address using the [CIP-7 "CAIP-10 Link" program](../../docs/advanced/standards/stream-programs/caip10-link.md).
 
 ## Installation
 
@@ -114,6 +114,7 @@ async function unlinkCurrentAddress() {
 }
 ```
 
+<!--
 ## Additional Resources
 
 - [CIP-10: CAIP10 Link Specification](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-8/CIP-8.md)
@@ -124,3 +125,4 @@ async function unlinkCurrentAddress() {
 ---
 
 - [Next step 1]()
+-->
