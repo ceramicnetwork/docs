@@ -99,7 +99,7 @@ function getFromCache(id) {
 
 ### Create and cache a stream
 
-The `create` method adss the created stream to the internal cache of the loader. This has no
+The `create` method adds the created stream to the internal cache of the loader. This has no
 effect if the cache is disabled.
 
 ```ts
@@ -171,6 +171,7 @@ ___
 | :------ | :------ | :------ |
 | `cache?` | [`TileCache`](tile_loader.md#tilecache) \| `boolean` | A supported cache implementation, `true` to use the default implementation or `false` to disable the cache (default) |
 | `ceramic` | `CeramicApi` | A Ceramic client instance |
+| `multiqueryTimeout?` | `number` | MultiQuery request timeout in milliseconds |
 
 ___
 
