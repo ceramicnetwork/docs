@@ -1,28 +1,36 @@
-# 3ID DID
+# **3ID DID libraries**
 
-## Purpose
+---
 
-The 3ID DID libraries provide support for the `did:3` method, which notably uses Ceramic to store DID documents as Ceramic streams, enabling features such as supporting multiple authentication keys and rotating these keys.
+The 3ID DID libraries provide support for the `did:3` method as a Ceramic account, which notably uses Ceramic to store DID documents as Ceramic streams, enabling features such as supporting multiple authentication keys and rotating these keys.
 
-The [resolver](#3id-did-resolver) allows a DID instance to resolve DIDs using the `did:3` method from the Ceramic network, while the [provider](#3id-did-provider) allows to create and use 3ID DIDs. In addition, [3ID Connect](#3id-connect) exposes an in-browser implementation of the 3ID DID provider.
+## **Available libraries**
 
-## 3ID DID resolver
+---
+
+- The [3ID DID resolver](#3id-did-resolver) allows a DID JSON-RPC client to resolve accounts using the `did:3` method from the Ceramic network
+- The [3ID DID provider](#3id-did-provider) allows applications to create and use 3ID DID accounts to perform transactions
+- [3ID Connect](#3id-connect) exposes a hosted implementation of the 3ID DID provider for use with web applications (recommended)
+
+## **3ID DID resolver**
+
+---
 
 A 3ID DID resolver is needed to resolve DID documents using the `did:3` method.
 
-### Installation
+### **Installation**
 
 ```sh
 npm install @ceramicnetwork/3id-did-resolver key-did-resolver
 ```
 
-A Ceramic client is also needed to use this resolver, if you have not installed it already:
+A Ceramic client is also needed to use this resolver:
 
 ```sh
 npm install @ceramicnetwork/http-client
 ```
 
-### Usage
+### **Usage**
 
 ```ts
 import { CeramicClient } from '@ceramicnetwork/http-client'
@@ -45,19 +53,21 @@ function createCeramicWith3ID() {
 }
 ```
 
-## 3ID DID provider
+## **3ID DID provider**
+
+---
 
 The `3id-did-provider` module implements a provider to create and manage DIDs using the `did:3` method, either using a `seed` or an `authId` associated to an `authSecret` (recommended).
 
-It is up to applications using `3id-did-provider` to take care of the security of authentication secrets and seeds, whether they are providing a custodial key management, prompting users to input secrets or alternative solutions.
+It is up to applications using `3id-did-provider` to take care of the security of authentication secrets and seeds, whether they are providing a custodial key management, prompting users to input secrets, or alternative solutions.
 
-### Installation
+### **Installation**
 
 ```sh
 npm install 3id-did-provider
 ```
 
-### Permissions management
+### **Permissions management**
 
 The `getPermission` parameter is always required when creating an instance of `ThreeIdProvider`. It allows your application to request actions from a 3ID, such as signing and/or decrypting data. When called, this function should prompt the user in the UI asking for permission to the given paths. You would likely need to implement a UI for this.
 
@@ -83,7 +93,7 @@ function getPermission(request) {
 }
 ```
 
-### Usage with authentication ID and secret
+### **Usage with authID and secret**
 
 This is the **recommended method** for using a 3ID DID provider.
 
@@ -121,7 +131,7 @@ async function authenticateWithSecret(authSecret) {
 }
 ```
 
-### Usage with seed
+### **Usage with seed**
 
 ```ts
 import { CeramicClient } from '@ceramicnetwork/http-client'
@@ -156,21 +166,23 @@ async function authenticateWithSecret(seed) {
 }
 ```
 
-## 3ID Connect
+## **3ID Connect**
+
+---
 
 3ID Connect is an in-browser [3ID DID provider](#3id-did-provider), using blockchain wallets to create deterministic authentication secrets using to control a DID.
 
-Using 3ID Connect, Web apps do not need to take care of key custody directly, but rather to use an authentication provider such as `EthereumAuthProvider` to allow 3ID Connect to generate the necessarry authentication secrets.
+Using 3ID Connect, web apps do not need to take care of key custody directly, but rather to use an authentication provider such as `EthereumAuthProvider` to allow 3ID Connect to generate the necessarry authentication secrets.
 
-### Installation
+### **Installation**
 
 ```sh
 npm install @3id/connect
 ```
 
-### Usage
+### **Usage**
 
-Notice: 3ID Connect is a **browser-only** library, if your app has shared code between browser and server logic, you need to make sure the following code is **not executed server-side**, otherwise it will not work and may throw errors.
+> 3ID Connect is a **browser-only** library, if your app has shared code between browser and server logic, you need to make sure the following code is not executed server-side, otherwise it will not work and may throw errors.
 
 ```ts
 import { CeramicClient } from '@ceramicnetwork/http-client'

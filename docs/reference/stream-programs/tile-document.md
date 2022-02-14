@@ -1,23 +1,27 @@
-# TileDocument client
+# **TileDocument client**
 
-## Purpose
+---
 
-The `stream-tile` module exports a `TileDocument` class used to store and load JSON documents using the [CIP-8 "Tile Document" program](../../docs/advanced/standards/stream-programs/tile-document.md), as well a provide accessors to the contents and metadata of a given version of the document.
+The `stream-tile` module exports a `TileDocument` class used to store and load JSON documents using the [CIP-8 "Tile Document" streamcode](../../docs/advanced/standards/stream-programs/tile-document.md), as well a provide accessors to the contents and metadata of a given version of the stream.
 
-## Installation
+## **Installation**
+
+---
 
 ```sh
 npm install @ceramicnetwork/stream-tile
 ```
 
-### Additional requirements
+### **Additional requirements**
 
-- In order to load Tile documents, a [Ceramic client instance](../core-clients/ceramic-http.md) must be available.
-- To create and update documents, the client must also have an [authenticated DID](../core-clients/did-jsonrpc.md) attached to it.
+- In order to load Tile documents, a [Ceramic client instance](../core-clients/ceramic-http.md) must be available
+- To create/update documents, the client must have an [authenticated DID](../core-clients/did-jsonrpc.md)
 
-## Common use-cases
+## **Common usage**
 
-### Load a document
+---
+
+### **Load a document**
 
 ```ts
 // Import the Ceramic and Tile document clients
@@ -34,7 +38,7 @@ async function load(id) {
 }
 ```
 
-### Create a document
+### **Create a document**
 
 In order to create a document, an authenticated DID needs to be attached to the Ceramic client instance to enable transactions (signing commits).
 
@@ -69,7 +73,7 @@ async function createDocument(content) {
 
 In addition to the stream `content`, the following `metadata` can be set
 
-### Update a document
+### **Update a document**
 
 In order to update a document, an authenticated DID needs to be attached to the Ceramic client instance to enable transactions (signing commits).
 
@@ -102,7 +106,7 @@ async function updateDocument(id, content) {
 }
 ```
 
-### Use JSON schema validation
+### **Use JSON schema validation**
 
 <!--
 TODO: uncomment once the data models docs are available.
@@ -113,9 +117,9 @@ TODO: uncomment once the data models docs are available.
 
 Ceramic nodes support validation of documents using JSON schemas. In order for a document to get validated, a Tile document containing the contents of the JSON schema must be created on the node and referenced in metadata.
 
-In this example, we use the **commit ID** of the created schema document rather than the stream ID in order to get an **immutable reference to the specific version on the schema**.
+In this example, we use the `commitID` of the created schema document rather than the stream ID in order to get an *immutable reference to the specific version on the schema*.
 This is particularly useful when using schemas that are controlled by external entities, as using the latest version of the schema (using a stream ID as reference) could lead to breaking changes. For example, the schema document could be updated such as `name` would be replaced by `firstName` and `lastName`, but apps having logic implementing setting the `name` would no longer pass validation.
-By using the **commit ID** of the schema document, apps are guaranteed that documents will be validated against this exact version of the schema.
+By using the `commitID` of the schema document, apps are guaranteed that documents will be validated against this exact version of the schema.
 
 ```ts
 import { CeramicClient } from '@ceramicnetwork/http-client'
@@ -173,7 +177,7 @@ async function run(seed) {
 }
 ```
 
-### Access a deterministic document
+### **Access a deterministic document**
 
 !!! note "Related standard"
 

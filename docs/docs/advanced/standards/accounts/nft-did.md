@@ -1,56 +1,49 @@
-# NFT DID Method
+# **NFT DID Accounts**
+
+---
 
 !!! warning ""
 
-    **NFT DID is experimental.** Please reach out in [Discord](https://chat.ceramic.network) to provide feedback.
+    **⚠️ NFT DID is experimental.** Please reach out in [Discord](https://chat.ceramic.network) to provide feedback or get help.
 
-The [NFT DID Method (CIP-94)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-94/CIP-94.md) is a [DID method](../../../../learn/glossary.md#did-methods)
-that can be used to [authenticate](../../../../build/javascript/authentication.md) to Ceramic to perform [writes](../../../../build/javascript/writes.md)
-to [streams](../../../../learn/glossary.md#streams) that rely on DIDs for authentication.
-NFT DID is a lightweight DID method with permissions that change based on on-chain NFT asset ownership.
+The NFT DID Method (CIP-94) is an account that can perform transactions on streams. NFT DID accounts are controlled by the current owner of an NFT (non-fungible token). NFT DIDs are still very experimental, so use at your own risk.
 
-The NFT DID Method turns every NFT into a DID capable of controlling streams on Ceramic.
-Write permissions for streams whose [controller](../../../../learn/glossary.md#controllers) is set to an NFT DID
-are restricted to the DID of the blockchain account that currently owns the NFT.
-When the NFT changes ownership on-chain, so do the write permissions.
+## **What is an NFT account?**
+
+---
+
+The NFT DID Method turns every NFT into an account capable of controlling streams on Ceramic. Write permissions for streams whose [controller](../../../../learn/glossary.md#controllers) is set to an NFT DID are restricted to the DID account of the blockchain account that currently owns the NFT. When the NFT changes ownership on-chain, so do the Ceramic write permissions.
 NFT DID is on the W3C's official DID method registry and is fully compliant with decentralized identity standards.
 
-## **Rationale**
+## **Example use cases for NFT accounts**
 
-One can find NFT tokens used in the wild for providing access control to articles, communities,
-and other form of gated contend. An NFT token can be used to control content of Ceramic stream as well.
-With implementation of [NFT DID Method (CIP-94)](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-94/CIP-94.md)
-we can translate an NFT into DID, which can actually control a Ceramic stream.
+---
 
-In general, an NFT owner becomes a stream controller and have full read-write access to it.
-If the NFT gets transferred, the rights move to a new owner. We heard of the following scenarios for this:
+- **Extensible, mutable NFT metadata** – NFTs currently have fixed metadata that is created when the token is minted. But what if we want an NFT to be able to collect data over time? With NFT DID, an NFT owner can annotate an NFT with additional information that is modified over time, such as a social graph for the NFT, a story behind the artefact, owner-restricted content, or, for example, carbon offsetting certificate.
 
-1. External NFT meta-data, like annotation. An NFT owner can annotate an NFT with a story behind an artefact, or, for example, carbon offsetting certificate.
-2. NFT as smart-contract enabled access control. An NFT owner creates a Ceramic stream, then some smart-contract logic is used to transfer NFT to a different person, and she now can continue the work on the stream.
+## **How to use NFT accounts**
 
-## **How to use**
+---
 
-To use an NFT as a Ceramic stream controller, one has to include [nft-did-resolver](https://www.npmjs.com/package/nft-did-resolver) in Ceramic node.
-Ceramic upstream includes it by default. Until a new version is released, one has to build your own node from our GitHub repository though.
+### **Installation**
 
-One creates an NFT-controlled stream by setting a stream controller to `did:nft` DID URL. For example:
+To use an NFT for dynamic stream access control, include the [nft-did-resolver](https://www.npmjs.com/package/nft-did-resolver) in your Ceramic node. 
 
-```
+### **Usage**
+
+To create an NFT-controlled stream, set your stream controller to `did:nft:...` when creating it. Here's an example that creates a Tile Document controlled by an NFT:
+
+```js
 const didNFT =
     "did:nft:eip155:4_erc721:0xe2a6a2da2408e1c944c045162852ef2056e235ab_1";
 const tile = await TileDocument.create(ceramic, {foo: "blah"}, {controllers: [didNFT]})
 ```
 
-Now the Tile Document we have just created can only be controlled by the NFT owner.
+- The address of the NFT must be lowercase
+- The `didNFT` string is a DID URI that references ERC721 token `1` on contract `0xe2a6a2da2408e1c944c045162852ef2056e235ab` deployed to Rinkeby (`eip155:4`). This should reference your NFT.
+- We provide a helper function `createNftDidUrl` to create such a string:
 
-!!! note ""
-
-    The Ethereum address used to reference the NFT must be lowercase.
-
-Here `didNFT` string is a DID URL that references ERC721 token `1` on contract `0xe2a6a2da2408e1c944c045162852ef2056e235ab` deployed to Rinkeby (`eip155:4`). This should reference your NFT.
-We provide a helper function `createNftDidUrl` to create such a string.
-
-```
+```js
 import { createNftDidUrl } from 'nft-did-resolver'
 // "did:nft:eip155:4_erc721:0xe2a6a2da2408e1c944c045162852ef2056e235ab_1"
 const didNFT = createNftDidUrl({
@@ -60,44 +53,44 @@ const didNFT = createNftDidUrl({
   tokenId: '1',
 })
 ```
+    
 
-## **Under the hood**
+Now the Tile Document we have just created can only be controlled by the NFT's current owner.
 
-When resolving did-nft, Ceramic and did-nft-resolver do the following.
-We query a blockchain (via subgraph) for the NFT owners. Then for each NFT owner we find a corresponding [CAIP10Link (CIP-7)](../stream-programs/caip10-link.md) stream.
-It provides a link from blockchain account to Ceramic 3id DID.
+## **How it works**
+
+---
+
+When resolving an NFT DID account, Ceramic and the did-nft-resolver perform the following steps:
+
+1. Query a blockchain for the NFT's owner(s) using a subgraph on The Graph protocol. 
+2. For each owner, find a corresponding [CAIP-10 Link (CIP-7)](../stream-programs/caip10-link.md), which provides a link from blockchain account to Ceramic account. This determines who can write to the stream.
+3. When a transaction is sent to the stream owned by the NFT,  verify the Ceramic account that signed the message is linked to the blockchain account that is a current owner.
 
 ![NFT-DID Relationship](../../../../images/nft-did-link.png)
 
-When a signature is made by usual 3ID, we verify if there is indeed such a connection from NFT to 3id.
 
-If you are a dApp developer who wishes to use NFT-DID, you have to make sure that your users
-have that connection via [CAIP10Link (CIP-7)](../stream-programs/caip10-link.md).
-If a user authenticates via 3id-connect, as usually is the case, such a connection is created automatically.
+Note: If you wish to build with NFT accounts, you need to ensure your users can generate [CAIP-10 Links](../stream-programs/caip10-link.md) to connect their blockchain account(s) to their Ceramic account. If you're using 3ID Connect, this is handled automatically by the wallet when signing in.
 
-!!! note ""
+!!! warning ""
 
-    In practice, it might happen that your 3id-connect is on a different Ceramic network than your application.
-    This can manifest as a mismatch between DIDs linked to the same blockchain account (on testnet `0xethereum`→DID-A, on devnet for the same account `0xethereum`→DID-B),
-    or unavailability of a record within the DID's DIDDataStore.
-    Please make sure that the DID from a Caip10Link in your application corresponds to the DID you get from 3id-connect.
+    Ensure 3ID Connect is on the same Ceramic network as your application. If those networks are different it will create a mismatch in Ceramic acounts that are linked to the same blockchain account (on testnet `0xethereum`→DID-A, on devnet for the same account `0xethereum`→DID-B). 
+    Please make sure that the DID from a CAIP-10 Link  from your app corresponds to the DID you get from 3ID Connect.
 
-## **Constraints**
+## **Current limitations**
 
-We support only [ERC721](https://eips.ethereum.org/EIPS/eip-721) and [ERC1155](https://eips.ethereum.org/EIPS/eip-1155) tokens for now.
-We support Rinkeby, Etherem mainnet and Polygon networks by default. If you need other networks, please, consult with [nft-did-resolver](https://github.com/ceramicnetwork/nft-did-resolver) README,
-and update configuration of your Ceramic node. There you can find parameters required for a new network.
-Namely, it needs three [subgraphs](https://thegraph.com): for blocks, for erc721 and erc1155 tokens, and a "skew", which is a typical block time.
+---
 
-!!! note ""
+- Only [ERC-21](https://eips.ethereum.org/EIPS/eip-721) and [ERC-1155](https://eips.ethereum.org/EIPS/eip-1155) tokens are supported at this time.
+- Only Ethereum Rinkeby, Etherem mainnet, and Polygon networks are supported by default. If you need other networks, see the [nft-did-resolver README](https://github.com/ceramicnetwork/nft-did-resolver),
+and update network parameters and configuration of your Ceramic node. Notable, this config needs three additional [subgraphs](https://thegraph.com): for blocks, for ERC-721 and ERC-1155 tokens, and a "skew", which is a typical block time.
 
-    A subgraph might be lagging behind a blockchain network. If etherscan reports the latest block number as 1000,
-    a subgraph might still index block number 995. This could result in an error like "invalid_jws: not a valid verificationMethod for issuer".
-    Please, make sure to repeat an operation after some time, enough for the subgraph to catch up with the blockchain.
-    In general, it is a good practice to accommodate for the condition.
+!!! warning ""
+
+    Data from a subgraph might lag behing the current state found on the blockchain network. For example, if Etherscan reports the latest block number as 1000, a subgraph might still index block number 995. This could result in an error like `"invalid_jws: not a valid verificationMethod for issuer"`. If this occurs, make sure to repeat the transaction after some time, enough for the subgraph to catch up with the blockchain. In general, it is best practice to accommodate for this delay in your application.
 
 ## **Specification**
 
-Read the [NFT DID Method (CIP-94) Specification](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-94/CIP-94.md).
+---
 
-NFT DID is on the W3C's official DID method registry and is fully compliant with decentralized identity standards.
+Read the [NFT DID Method (CIP-94) Specification](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-94/CIP-94.md) for the full specificatoin.

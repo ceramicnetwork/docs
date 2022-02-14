@@ -1,20 +1,30 @@
-# Key DID
+# **Key DID libraries**
 
-## Purpose
+---
 
 The Key DID libraries include the [resolver](#key-did-resolver) and [multiple providers](#key-did-providers) to provide a simple way for developers to get started using the [DID client](../core-clients/did-jsonrpc.md) with the `did:key` method.
 
-## Key DID resolver
+## **Available libraries**
+
+---
+
+- The [Key DID resolver](#key-did-resolver) allows a DID JSON-RPC client to resolve accounts using the `did:key` method
+- The [Key DID provider ED25519](#key-did-provider-ed25519) allows applications to create and use Key DID accounts for ED25519 keypairs. This provider supports encryption.
+- The [Key DID provider secp256k1](#key-did-provider-secp256k1) allows applications to create and use Key DID accounts for secp256k1 keypairs. This provider does not supports encryption.
+
+## **Key DID resolver**
+
+---
 
 The `key-did-resolver` module is needed to resolve DID documents using the `did:key` method.
 
-#### Installation
+### **Installation**
 
 ```sh
 npm install key-did-resolver
 ```
 
-#### Usage
+### **Usage**
 
 ```ts
 import { DID } from 'dids'
@@ -26,23 +36,25 @@ async function resolveDID() {
 }
 ```
 
-## Key DID providers
+## **Key DID providers**
 
-Different libraries implement a provider for the `did:key` method based on different cryptographic primitives.
+---
 
-These providers may have different possibilities, for example `key-did-provider-ed25519` supports encryption while `key-did-provider-secp256k1` **does not**.
+Different libraries implement a provider for the `did:key` method based on different cryptographic primitives. These providers may have different possibilities, for example `key-did-provider-ed25519` supports encryption while `key-did-provider-secp256k1` does not.
 
-### ed25519
+## **Key DID provider ED25519**
+
+---
 
 This is the **recommended provider** for the `key:did` method in most cases.
 
-#### Installation
+### **Installation**
 
 ```sh
 npm install key-did-provider-ed25519
 ```
 
-#### Usage
+### **Usage**
 
 ```ts
 import { DID } from 'dids'
@@ -58,17 +70,19 @@ async function authenticateDID(seed) {
 }
 ```
 
-### secp256k1
+## **Key DID provider secp256k1**
 
-This provider **does not support encryption**, so using methods such as `createJWE` on the `DID` instance is not supported.
+---
 
-#### Installation
+This provider *does not support encryption*, so using methods such as `createJWE` on the `DID` instance is not supported.
+
+### **Installation**
 
 ```sh
 npm install key-did-provider-secp256k1
 ```
 
-#### Usage
+### **Usage**
 
 ```ts
 import { DID } from 'dids'

@@ -1,13 +1,15 @@
-# DID JSON-RPC client
+# **DID JSON-RPC client**
 
-Simple JS API for interacting with Ceramic accounts.
+---
 
-![](../../images/verse.png)
+DID JSON-RPC client provides a simple JS API for interacting with Ceramic accounts.
 
-## Things to know
+## **Things to know**
+
+---
 
 - Provides the DID object, which must be authenticated, then mounted on the Ceramic object to perform transactions.
-- For Ceramic nodes, the DID client serves as a way to verify transaction signatures
+- For Ceramic nodes, the DID client serves as a way to resolve ad verify transaction signatures
 - For Ceramic clients, the DID client serves as a way to create account, authenticate, sign, encrypt
 - If your project requires transactions, you **need** to install this package, or one that offers similar EIP-2844 API support.
 - The DID client library can be used in both browser and Node.js environments.

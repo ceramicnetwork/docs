@@ -1,44 +1,28 @@
-# Account standards
-
-## Introduction
+# **Ceramic Accounts**
 
 ---
 
-One of the many Ethereum development standards focus on token interfaces. These standards help ensure smart contracts remain composable, so for instance when a new project issues a token, that it remains compatible with existing decentralized exchanges.
+Ceramic uses the [Decentralized Identifier (DID) standard]() for user accounts. Decentralized identifiers provide an abstraction from individual cryptographic accounts, such as blockchain accounts, enabling cross-chain interoperability and multi-account to identity support.
 
-## Prerequisites
-
----
-
-- Ethereum development standards
-- Streams and stream programs
-
-## Stream program standards
+## **Supported account types**
 
 ---
 
-Here are some of the most popular stream program standards on Ceramic:
+Below find the decentralized identifier (DID) standards currently supported as user accounts on Ceramic:
 
-| CIP | NAME | DESCRIPTION |
-| ---- | ----- | ----------- |
-| CIP-79 | 3ID DID | A standard interface for fungible (interchangeable) tokens, like voting tokens, staking tokens or virtual currencies. |
-| N/A | PKH DID | A standard interface for fungible (interchangeable) tokens, like voting tokens, staking tokens or virtual currencies. |
-| N/A | KEY DID | A standard interface for fungible (interchangeable) tokens, like voting tokens, staking tokens or virtual currencies. |
-| CIP-94 | NFT DID | A standard interface for fungible (interchangeable) tokens, like voting tokens, staking tokens or virtual currencies. |
-| CIP-101 | Safe DID | A standard interface for fungible (interchangeable) tokens, like voting tokens, staking tokens or virtual currencies. |
+| NAME | DESCRIPTION | Status | 
+| ----- | ----------- | --- | 
+| [3ID DID (CIP-79)]() | A Ceramic-native account that supports mutations in the DID Document, enabling the association of multiple wallets to the account | ✅ Production |
+| [Key DID]() | A Ceramic account that can only be associated with one wallet, which can never be changed | ✅ Production |
+| [NFT DID (CIP-94)]() | A Ceramic account that can be controlled by the current owner of a given NFT (non-fungible token) | ⚠️ *Experimental* |
+| [Safe DID (CIP-101)]() | A Ceramic account that can be controlled by the current members of a Gnosis Safe smart contract | ⚠️ *Experimental*
 
-
-## Further reading
+## **Building with accounts**
 
 ---
 
-Know of a community resource that helped you? Edit this page and add it!
+In order for users to perform transactions on Ceramic they need an account. Your application can control which accounts it supports. 
 
-## Related tutorials
+- When building with a Ceramic client, you should install and configure the [DID JSON-RPC client](), which will instruct you how to add support for various account types.
+- When building with a framework such as the [Self.ID SDK](), you don't need to worry about accounts, it will use 3ID DID.
 
----
-
-- Token integration checklist – A checklist of things to consider when interacting with tokens.
-Understand the ERC20 token smart contract – An introduction to deploying your first smart contract on an Ethereum test network.
-- Transfers and approval of ERC20 tokens from a Solidity smart contract – How to use a smart contract to interact with a token using the Solidity language.
-- Implementing an ERC721 market [a how-to guide] – How to put tokenized items for sale on a decentralized classifieds board.

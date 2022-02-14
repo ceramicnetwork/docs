@@ -1,43 +1,45 @@
----
-hide:
-  - toc
+# **Glaze Suite**
+
 ---
 
-# Glaze Suite
-
-Glaze is a suite of developer libraries and tools that provides much of what is needed to build a complete Ceramic application. The Glaze libraries can be used separately, but are best when used together.
+Glaze suite includes a collection of tools for building applications on Ceramic, including data model management tools, runtime libraries for user-centric data storage and retrieval, and client-side tools for caching data from the network. Glaze modules can be used separately, but are best when used together.
 
 ![](../../images/glaze.png)
 
-## Runtime libraries
+!!! warning ""
 
-<div class="txtl-options">
-  <a href="./modules/tile_loader/" class="box">
-    <h5>Tile loader</h5>
-    <p>Batching and caching for Ceramic streams.</p>
-  </a>
-  <span class="box-space"> </span>
-  <a href="./modules/datamodel/" class="box">
-    <h5>DataModel runtime</h5>
-    <p>Aliases for Ceramic stream references.</p>
-  </a>
-  <span class="box-space"> </span>
-  <a href="./modules/did_datastore/" class="box">
-    <h5>DID DataStore</h5>
-    <p>Associate data records to a DID.</p>
-  </a>
-</div>
+    :octicons-stop-16: Before reading further and getting started using Glaze packages, you should be familiar with other Ceramic concepts previously presented, such as [DIDs](../../../learn/glossary/#dids), [authentication](../../../build/javascript/authentication/), [schemas](../../../build/javascript/quick-start/#5-create-a-schema), [streams](../../../learn/glossary/#streams) and [stream types](../../../learn/glossary/#streamtypes).
 
-## Development tools
 
-<div class="txtl-options">
-  <a href="./modules/devtools/" class="box">
-    <h5>DevTools library</h5>
-    <p>APIs for data models management.</p>
-  </a>
-  <span class="box-space"> </span>
-  <a href="./cli/" class="box">
-    <h5>Glaze CLI</h5>
-    <p>Command-line tools for data models management.</p>
-  </a>
-</div>
+## **Data model management**
+
+---
+
+### [**Deploy from JavaScript →**]()
+
+The devtools module provides JavaScript APIs for managing and deploying the data models used by your Ceramic application. 
+
+### [**Deploy from the CLI →**]()
+
+The Glaze CLI provides a set of command-line tools for managing and deploying the data models used by your Ceramic application.
+
+## **Build with data models**
+
+---
+
+### [**User-centric storage →**]()
+
+The DID DataStore module provides read and write APIs allowing applications to interact with user data based on data model. DID DataStore also makes it possible for applications to discover all information about a user in one place, forming the basis for user-centric data composability on Ceramic.
+
+### [**Data model aliasing →**]()
+
+The DataModel module provides human-readable aliasing for data models at runtime, making it easier to use the DID DataStore API.
+
+## **Client-side caching**
+
+---
+
+### [**Tile loader →**]()
+
+The tile loader module provides client-side batching and caching for Ceramic data, improving the performance of retrieving data from the network in order to populate your application.
+

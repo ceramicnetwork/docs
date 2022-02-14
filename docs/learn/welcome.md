@@ -1,57 +1,42 @@
-# Ceramic Developers
+# **The Ceramic network**
 
-!!! warning "**MAINNET NOW LIVE!**"
+---
 
-    We're onboarding the first projects to [Mainnet](./mainnet.md) from the waitlist. If you want to deploy to mainnet in the near future, **[sign up for the Mainnet waitlist](https://blog.ceramic.network/ceramic-mainnet-early-launch-program/)**.
+### **Ceramic is a decentralized network for composable data.**
 
-    While on the waitlist, you can always develop and prototype your integration on the [Clay Testnet](./networks.md#mainnet). Demonstrating a fully-functioning integration that is ready for mainnet is a great way to increase your odds of being selected from the waitlist. If you have questions or need further prioritization, you can [**join the Discord**](https://chat.ceramic.network) and let us know.
+With Ceramic, building scalable Web3 applications with natively-composable data is as easy as browsing a marketplace of community-created data models and plugging them into your app via open APIs for storing, updating, and retrieving data from those models. When different applications reuse the same data model, their underlying data is automatically interoperable.
 
-Ceramic is a decentralized, open source platform for creating, hosting, and sharing streams of data. With Ceramic's permissionless data streaming network, you can store streams of information and ever-changing files directly on the decentralized web – and share updates with anyone in the world.
+By decentralizing the database layer for applications, Ceramic makes it possible data to be accessible and reusable across all applications built on the network.
 
-Whether you want to learn how the Ceramic protocol works, explore standards and tooling, or get started building – this site has the resources for you.
+</br>
 
 ![](../images/image-ceramic-opengraph.png)
 
-## **Learn**
+## **Getting started**
 
-[**Overview**](./advanced/overview.md): Learn about Ceramic's decentralized data streaming platform
+---
 
-[**Features**](./features.md): Explore core features and capabilities
+### **Build applications with Ceramic**
+Connect your app to Ceramic using a [**development framework**](../../tools/self-id/overview/) or [**client library**](../../reference/core-clients/ceramic-http/). 
 
-[**Use cases**](./use-cases.md): Dive into common use cases
+> Frameworks provide a great way to get started quickly, while clients provide greater flexibility but require a lower-level understanding of how the network functions.
 
-[**Glossary**](./glossary.md): A glossary of important terms and concepts
+!!! warning ""
 
-## **Explore**
+    Don't know what to build with composable data? Check out these [data models]() to get your creativity flowing.
 
-[**Explorers**](../explore/explorers.md): Discover and inspect streams on the Ceramic network
+### **Operate the Ceramic network**
+Provide storage, compute, and bandwidth to the network by [**running a node**](../run/nodes/nodes.md).
 
-[**Projects**](../explore/projects.md): Browse community projects built on Ceramic
+> Today there are no tokenized incentives for running a Ceramic node, but by running a node you can ensure the data for your app remains available while helping contribute to the network's decentralization.
 
-[**Samples**](../explore/sample-apps.md): Try Ceramic using a demo or sample application
 
-## **Build**
+## **Join the community**
 
-[**Quick start**](../build/cli/quick-start.md): Get up to speed on the basics using the CLI
+---
 
-[**Installation**](../build/javascript/installation.md): Install Ceramic in your project
+- Join the [**Ceramic Discord**](https://chat.ceramic.network){:target="\_blank"} to say gm and get help building
 
-[**Run a node**](../run/nodes/nodes.md): Set up and run your own Ceramic node
+- Follow [**@ceramicnetwork**](https://twitter.com/ceramicnetwork){:target="\_blank"} on Twitter for official updates
 
-## **Standards and tools**
-
-[**StreamTypes**](../docs/advanced/standards/stream-programs/index.md): StreamTypes developed by the community
-
-[**Identity Index (IDX)**](../docs/advanced/standards/application-protocols/identity-index.md): Protocol for building apps with decentralized identity and user-controlled data storage
-
-[**3ID Connect**](../docs/advanced/standards/accounts/3id-did.md#3id-connect): Authentication SDK that allows users to interact with Ceramic using various blockchain wallets
-
-## **Community**
-
-Join the [**Discord**](https://chat.ceramic.network){:target="\_blank"} to ask questions and engage with the community
-
-Follow us on [**Twitter**](https://twitter.com/ceramicnetwork){:target="\_blank"} for updates
-
-Read the [**blog**](https://blog.ceramic.network){:target="\_blank"} for news, announcements, and tutorials
-
-Watch the [**Youtube channel**](https://www.youtube.com/channel/UCgCLq5dx7sX-yUrrEbtYqVw){:target="\_blank"} for videos and presentations
+- Browse our [**YouTube channel**](https://www.youtube.com/channel/UCgCLq5dx7sX-yUrrEbtYqVw){:target="\_blank"} for community videos and presentations

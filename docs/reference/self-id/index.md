@@ -1,19 +1,39 @@
-# Self.ID SDK Reference
+# **Self.ID SDK**
 
-## What is the Self.ID SDK?
+---
 
-Self.ID is a SDK for building user-centric Web applications using Ceramic and related decentralized technologies.
+Self.ID is a framework that makes it easy to build Web3 applications with Ethereum-based authentication and composable, user-centric data storage and retrieval.
 
-The Self.ID SDK bundles the [Ceramic HTTP client](../core-clients/ceramic-http.md), [DID client](../core-clients/did-jsonrpc.md) via [3ID Connect](../accounts/3id-did.md#3id-connect) and [Glaze libraries](../glaze/index.md) into a set of higher-level packages.
+## **Why Self.ID?**
 
-## Understanding the stack
+---
 
-Self.ID packages are organized in the following stack:
+**✅ One library, easy setup**
+
+Self.ID is a single library with minimal configuration that provides access to the full Ceramic stack with support for popular environments such as `React` and `web`. The Self.ID SDK uses [Glaze suite](../glaze/index.md) middleware, [3ID DID]() accounts, [3ID Connect](../accounts/3id-did.md#3id-connect) authentication,  and [Ceramic HTTP client](../core-clients/ceramic-http.md) and [DID JSON-RPC client](../core-clients/did-jsonrpc.md).
+
+**✅ Login with Web3**
+
+Self.ID is compatible with Ethereum accounts and EVM-based wallet authentication, so users don't have to install new wallets or create new accounts in order to use Ceramic. Users can even connect multiple wallet accounts to their Ceramic account, if they like.
+
+**✅ Composable, user-centric data management**
+
+The SDK includes some of the most popular Ceramic data models out-of-the-box, such as [user profiles](), linked [crypto accounts](), and linked [Web2 accounts](), giving your application automatic storage and retrieval composability with a rich set of existing users and data to bootstrap your application.
+
+**✅ Extensible data models**
+
+You're not limited to just the data models provided by Self.ID! You can create new data models or import ones from the [Data Models Registry]() to add additional data features to your application.
+
+## **SDK overview**
+
+---
+
+The Self.ID SDK contains modules organized in the following manner:
 
 ```
-┌─────────────────────────────────────────────┐ ┌─────────────┐
-│                  framework                  │ │ 3box-legacy │
-├─────────────┬─┬─────────────┬─┬─────────────┤ └─────────────┘
+┌─────────────────────────────────────────────┐
+│                  framework                  │ 
+├─────────────┬─┬─────────────┬─┬─────────────┤ 
 ├─────────────┤ ├─────────────┤ ├─────────────┤
 │    react    │ │  multiauth  │ │ image-utils │
 ├─────────────┤ ├─────────────┤ └─────────────┘
@@ -25,29 +45,27 @@ Self.ID packages are organized in the following stack:
 └─────────────┘
 ```
 
-### Framework
 
-The [Framework module](modules/framework.md) is the highest-level abstraction provided by the Self.ID SDK, leveraging most of the other packages included in the SDK. It is meant to power [React](https://reactjs.org/) application similar to the [reference self.id application](https://self.id).
+## **Building with React**
 
-### Main packages
+---
 
-The main packages provide a granular set of APIs for user interactions with an [account-based streams index](../../docs/advanced/standards/application-protocols/identity-index.md):
+### [**Using the Framework →**]()
 
-- [Core module](modules/core.md): read-only interactions with the index
-- [Web module](modules/web.md): authentication via [3ID Connect](../accounts/3id-did.md#3id-connect), allowing write access in addition to reads to the index
-- [React module](modules/react.md): wrapper for the Web module with [React](https://reactjs.org/) APIs
+The Framework is the highest-level abstraction provided by the Self.ID SDK, designed specifically to power [React](https://reactjs.org/) applications. It leverages most other packages of the Self.ID SDK, and in most cases is the module you should use if you're building with React.
 
-### Utility packages
+### [**Using the React module →**]()
 
-The utility packages provide specific-purpose APIs to support common use-cases of the framework or applications:
+The React module is used by the Framework module and provides React-specific components, hooks, and utility functions to help manage user authentication, data storage, and retrieval. Unless you have a specific reason to use this React module, you should consider using the Framework instead.
 
-- [UI module](modules/ui.md): shared [React](https://reactjs.org/) components
-- [Multiauth module](modules/multiauth.md): wallet authentication flow complementary to [3ID Connect](../accounts/3id-did.md#3id-connect)
-- [Image utilities module](modules/image_utils.md): images manipulation, upload and display utilities
-- [3Box legacy module](modules/3box_legacy.md): APIs for loading legacy 3Box profiles
+## **Building with JavaScript**
 
-## Getting started
+---
 
-The [Tools section](../../tools/self-id/overview.md) provides documentation for getting started using the Self.ID SDK. Make sure to understand the configuration before trying to use the SDK.
+### [**Using the Web module →**]()
 
-[Self.ID configuration](../../tools/self-id/configuration.md){: .md-button }
+The Web module provides user authentication, data storage, and retrieval for browser-based web applications.
+
+### [**Using the Core module →**]()
+
+The Core module only provides data retrieval for Node and browser-based applications.
