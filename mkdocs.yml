@@ -191,7 +191,8 @@ nav:
 
 markdown_extensions:
   - meta
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.superfences
   - admonition
   - pymdownx.details
