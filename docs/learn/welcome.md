@@ -4,7 +4,7 @@
 
 ### **Ceramic is a decentralized network for composable data.**
 
-Building applications with composable Web3 data is as easy as browsing a marketplace of data models, plugging them into your app, and storing, updating, and retrieving data from those models. When different applications reuse the same data models, their data is automatically interoperable. By decentralizing application databases, Ceramic makes data composable and reusable across all applications.
+Ceramic makes building applications with composable Web3 data as easy as browsing a marketplace of data models, plugging them into your app, and storing, updating, and retrieving data from those models. When different applications reuse the same data models, their data is automatically interoperable. By decentralizing application databases, Ceramic makes data composable and reusable across all applications.
 
 </br>
 
@@ -42,4 +42,4 @@ Provide storage, compute, and bandwidth to the network by [**running a node**](.
 
 - Watch the [**Youtube channel**](https://www.youtube.com/channel/UCgCLq5dx7sX-yUrrEbtYqVw) for videos and presentations
 
-- Work on Ceramic through open roles at [**3Box Labs**](https://www.keyvalues.com/3box-labs)
+- Work on Ceramic through open roles at [**3Box Labs**](https://careers.3boxlabs.com)
