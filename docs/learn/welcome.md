@@ -17,7 +17,8 @@ By decentralizing the database layer for applications, Ceramic makes it possible
 ---
 
 ### **Build applications with Ceramic**
-Connect your app to Ceramic using a [**development framework**](../../tools/self-id/overview/) or [**client library**](../../reference/core-clients/ceramic-http/). 
+
+Connect your app to Ceramic using a [**development framework**](../../tools/self-id/overview/) or [**client library**](../../reference/core-clients/ceramic-http/).
 
 > Frameworks provide a great way to get started quickly, while clients provide greater flexibility but require a lower-level understanding of how the network functions.
 
@@ -26,17 +27,21 @@ Connect your app to Ceramic using a [**development framework**](../../tools/self
     Don't know what to build with composable data? Check out these [data models]() to get your creativity flowing.
 
 ### **Operate the Ceramic network**
+
 Provide storage, compute, and bandwidth to the network by [**running a node**](../run/nodes/nodes.md).
 
 > Today there are no tokenized incentives for running a Ceramic node, but by running a node you can ensure the data for your app remains available while helping contribute to the network's decentralization.
-
 
 ## **Join the community**
 
 ---
 
-- Join the [**Ceramic Discord**](https://chat.ceramic.network){:target="\_blank"} to say gm and get help building
+- Join the [**Discord**](https://chat.ceramic.network) to ask questions and engage with the community
 
-- Follow [**@ceramicnetwork**](https://twitter.com/ceramicnetwork){:target="\_blank"} on Twitter for official updates
+- Follow us on [**Twitter**](https://twitter.com/ceramicnetwork) for updates
 
-- Browse our [**YouTube channel**](https://www.youtube.com/channel/UCgCLq5dx7sX-yUrrEbtYqVw){:target="\_blank"} for community videos and presentations
+- Read the [**blog**](https://blog.ceramic.network) for news, announcements, and tutorials
+
+- Watch the [**Youtube channel**](https://www.youtube.com/channel/UCgCLq5dx7sX-yUrrEbtYqVw) for videos and presentations
+
+- Work on Ceramic through open roles at [**3Box Labs**](https://www.keyvalues.com/3box-labs)
