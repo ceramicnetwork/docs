@@ -24,155 +24,175 @@ theme:
   features:
     - navigation.instant
     - navigation.tabs
-    - navigation.expand
-    - navigation.sections
-    - header.autohide
+    - navigation.indexes
+    - content.code.annotate
 
 nav:
-  - Learn:
-      - Welcome: learn/welcome.md
-      - Mainnet: learn/mainnet.md
-      - Features: learn/features.md
-      - Use cases: learn/use-cases.md
-      - Glossary: learn/glossary.md
-      - Networks: learn/networks.md
-      - Blog: learn/blog.md
-      - Explore:
-          - Explorers: explore/explorers.md
-          - Projects: explore/projects.md
-          - Sample apps: explore/sample-apps.md
+  - Learn the basics:
+      - Introduction: learn/welcome.md
+      - Why Ceramic?: learn/features.md
+      - How it works: learn/how-it-works.md
       - Advanced:
           - Tech overview: learn/advanced/overview.md
           - Data availability: learn/advanced/data-availability.md
           - Consensus: learn/advanced/consensus.md
           - Security: learn/advanced/security.md
           - Privacy: learn/advanced/privacy.md
-  - Build:
-      - JavaScript:
-          - Installation:
-              - Choose a client: build/javascript/installation.md
-              - HTTP Client: build/javascript/http.md
-              - Core Client: build/javascript/core.md
-          - Quickstart: build/javascript/quick-start.md
-          - Authentication: build/javascript/authentication.md
-          - Writes: build/javascript/writes.md
-          - Queries: build/javascript/queries.md
-          - Pinning: build/javascript/pinning.md
-      - Command line (CLI):
-          - Quickstart: build/cli/quick-start.md
-          - Installation: build/cli/installation.md
-          - API: build/cli/api.md
-      - HTTP API:
-          - API: build/http/api.md
-      - More:
-          - Share your work: build/share.md
-          - Troubleshooting: build/troubleshooting.md
-  - Run:
-      - Nodes:
-          - Community nodes: run/nodes/community-nodes.md
-          - Node Providers: run/nodes/node-providers.md
-          - Hosting a node: run/nodes/nodes.md
+  - Build apps:
+      - Build apps: build/index.md
+      - The Ceramic stack: build/the-ceramic-stack.md
+      - Frameworks:
+          - Frameworks: build/frameworks/index.md
+          - Self.ID SDK:
+              - Self.ID SDK: reference/self-id/index.md
+              #- Overview: tools/self-id/overview.md
+              - Build with React:
+                  - Using the framewok module: tools/self-id/framework.md
+              - Build with JavaScript:
+                  - Using the web module: tools/self-id/write.md
+                  - Using the core module: tools/self-id/read.md
+              - Configurations: tools/self-id/configuration.md
+              - Utilities: tools/self-id/utilities.md
+              - Samples: tools/self-id/sample-applications.md
+      - Middleware:
+          - Middleware: build/middleware/index.md
+          #- Overview: tools/overview.md
+          - Glaze suite:
+              - Glaze suite: reference/glaze/index.md
+              #- Overview: tools/glaze/overview.md
+              #- Glossary: tools/glaze/glossary.md
+              - Managing data models:
+                  - Deploying from JS: tools/glaze/development.md
+                  - Deploying from CLI: tools/glaze/deploy-from-cli.md
+                  - Aliasing models: tools/glaze/datamodel.md
+              - User-centric storage:
+                  - DID DataStore: tools/glaze/did-datastore.md
+              - Client-side caching:
+                  - Tile Loader: tools/glaze/tile-loader.md
+      - Data models:
+          - Data models: docs/advanced/standards/data-models/index.md
+          # - docs/advanced/standards/application-protocols/index.md
+          - Data Model Registry: docs/advanced/standards/data-models/data-model-universe.md
+      #   - Data model standards:
+      #       - CIP-11 Identity Index: docs/advanced/standards/data-models/cip-11.md
+      #       - CIP-19 Basic Profile: docs/advanced/standards/data-models/cip-19.md
+      #       - CIP-21 Crypto Accounts: docs/advanced/standards/data-models/cip-21.md
+      #       - CIP-23 Also Known As: docs/advanced/standards/data-models/cip-23.md
+      #       - CIP-20 3ID Keychain: docs/advanced/standards/data-models/cip-20.md
+      - Application standards:
+          - Account-based index (CIP-11): docs/advanced/standards/application-protocols/identity-index.md
+      - Streams:
+          - Streams: docs/advanced/standards/stream-programs/index.md
+          - Tile Document (CIP-8): docs/advanced/standards/stream-programs/tile-document.md
+          - CAIP-10 Link (CIP-7): docs/advanced/standards/stream-programs/caip10-link.md
+      # - Standards:
+      # TODO: v2 index contents
+      # - docs/advanced/standards/index.md
+      - Accounts:
+          # TODO: v2 index contents
+          - Accounts: docs/advanced/standards/accounts/index.md
+          - 3ID DID (CIP-79): docs/advanced/standards/accounts/3id-did.md
+          # TODO: v2 contents for PKH DID
+          # - PKH DID: docs/advanced/standards/accounts/pkh-did.md
+          - Key DID: docs/advanced/standards/accounts/key-did.md
+          - NFT DID (CIP-94): docs/advanced/standards/accounts/nft-did.md
+          - Safe DID (CIP-101): docs/advanced/standards/accounts/safe-did.md
+      - Clients:
+          - Clients: build/clients/index.md
+      - Network APIs:
+          - Ceramic HTTP API: build/http/api.md
+        # - JavaScript:
+        #    - Installation:
+        #        - HTTP Client: build/javascript/http.md
+        #    - Authentication: build/javascript/authentication.md
+        #    - Writes: build/javascript/writes.md
+  - Run nodes:
+      - Run nodes: run/index.md
+      - Networks: learn/networks.md
+      - Available nodes: run/nodes/available.md
+      - Launching locally: build/cli/installation.md
+      - Launching in the cloud: run/nodes/nodes.md
       - Anchor service:
           - Community CAS: run/cas/community-cas.md
           - Hosting a CAS: run/cas/cas.md
-  - Auth:
-      - 3ID DID:
-          - Method: authentication/3id-did/method.md
-          - Providers:
-              - 3ID Connect: authentication/3id-did/3id-connect.md
-              - JS 3ID DID Provider: authentication/3id-did/provider.md
-          - Resolver: authentication/3id-did/resolver.md
-          - 3ID Lifecycle: authentication/3id-did/lifecycle.md
-          - Security: authentication/3id-did/security.md
-          - 3Box migration: authentication/3id-did/3box-migration.md
-      - Key DID:
-          - Method: authentication/key-did/method.md
-          - Providers:
-              - JS Key DID Provider Ed25519: authentication/key-did/provider.md
-          - Resolver: authentication/key-did/resolver.md
-      - NFT DID:
-          - Method: authentication/nft-did/method.md
-      - Safe DID:
-          - Method: authentication/safe-did/method.md
-  - StreamTypes:
-      - Overview: streamtypes/overview.md
-      - Tile Document:
-          - Overview: streamtypes/tile-document/overview.md
-          - API: streamtypes/tile-document/api.md
-          - Schemas:
-              - BasicProfile: streamtypes/tile-document/schemas/basic-profile.md
-            #- 3ID Keychain:
-            #- Also Known As:
-            #- AppendCollection:
-      - CAIP-10 Link:
-          - Overview: streamtypes/caip-10-link/overview.md
-          - API: streamtypes/caip-10-link/api.md
-  - Tools:
-      - Overview: tools/overview.md
-      - Glaze:
-          - Overview: tools/glaze/overview.md
-          - Glossary: tools/glaze/glossary.md
-          - Tile Loader: tools/glaze/tile-loader.md
-          - DataModel: tools/glaze/datamodel.md
-          - DID DataStore: tools/glaze/did-datastore.md
-          - Development: tools/glaze/development.md
-          - Example: tools/glaze/example.md
-      - Self.ID:
-          - Overview: tools/self-id/overview.md
-          - Configuration: tools/self-id/configuration.md
-          - Read-only interactions: tools/self-id/read.md
-          - Authentication and writes: tools/self-id/write.md
-          - Framework: tools/self-id/framework.md
-          - Utilities: tools/self-id/utilities.md
-      - IDX:
-          - Overview: tools/idx/overview.md
-      - IdentityLink:
-          - Overview: tools/identitylink/overview.md
+  - Guides:
+      - Guides: guides/index.md
+      - Application development:
+          - Using the command line:
+              - Getting started with the CLI: build/cli/quick-start.md
+              - Using the CLI: build/cli/api.md
+          - Building with Ceramic clients:
+              - Using the Ceramic HTTP client: build/javascript/quick-start.md
+              - Ceramic core Client: build/javascript/core.md
+              - Retrieving data from Ceramic: build/javascript/queries.md
+              - Pinning data on Ceramic: build/javascript/pinning.md
+          - Building with Glaze suite:
+              - Build a note-taking app with Glaze: tools/glaze/example.md
+      - Protocol development:
+          - Add support for new blockchain accounts: reference/javascript/blockchain.md
+  #- Ecosystem:
+  #- Use cases: learn/use-cases.md
+  #- Projects: explore/projects.md
+  #- Identity and reputation: index.md
+  #- Decentralized social: index.md
+  #- DAOs and governance: index.md
+  #- NFTs and gaming: index.md
+  #- Network explorers: explore/explorers.md
+  #- Wallets: index.md
   - Reference:
-      - Ceramic:
-          - JavaScript: reference/javascript/packages.md
-      - Glaze:
-          - Overview: reference/glaze/overview.md
-          - Tile Loader:
-              - Module: reference/glaze/modules/tile_loader.md
-              - TileLoader class: reference/glaze/classes/tile_loader.TileLoader.md
-          - DataModel:
-              - Module: reference/glaze/modules/datamodel.md
-              - DataModel class: reference/glaze/classes/datamodel.DataModel.md
-          - DID DataStore:
-              - Module: reference/glaze/modules/did_datastore.md
-              - DIDDataStore class: reference/glaze/classes/did_datastore.DIDDataStore.md
-          - DevTools:
-              - Module: reference/glaze/modules/devtools.md
-              - ModelManager class: reference/glaze/classes/devtools.ModelManager.md
-      - Self.ID:
-          - Overview: reference/self-id/overview.md
-          - Core:
-              - Module: reference/self-id/modules/core.md
-              - Core class: reference/self-id/classes/core.Core.md
-              - PublicID class: reference/self-id/classes/core.PublicID.md
+      - Reference: reference/index.md
+      - Ceramic clients:
+          - JavaScript clients:
+              #- Choose a client: build/javascript/installation.md
+              - Ceramic HTTP client: reference/core-clients/ceramic-http.md
+              - DID JSON-RPC client: reference/core-clients/did-jsonrpc.md
+      - Accounts:
+          - 3ID DID: reference/accounts/3id-did.md
+          - Key DID: reference/accounts/key-did.md
+          #- NFT DID: reference/accounts/nft-did.md
+          #- Safe DID: reference/accounts/safe-did.md
+      - Streams:
+          - Tile Document: reference/stream-programs/tile-document.md
+          - CAIP-10 Link: reference/stream-programs/caip10-link.md
+      - Glaze suite:
+          - Modules and APIs:
+              - DID DataStore:
+                  - DID DataStore module: reference/glaze/modules/did_datastore.md
+                  - DIDDataStore class: reference/glaze/classes/did_datastore.DIDDataStore.md
+              - DevTools:
+                  - DevTools module: reference/glaze/modules/devtools.md
+                  - ModelManager class: reference/glaze/classes/devtools.ModelManager.md
+              - DataModel:
+                  - DataModel module: reference/glaze/modules/datamodel.md
+                  - DataModel class: reference/glaze/classes/datamodel.DataModel.md
+              - Tile loader:
+                  - Tile loader module: reference/glaze/modules/tile_loader.md
+                  - TileLoader class: reference/glaze/classes/tile_loader.TileLoader.md
+      - Self.ID SDK:
+          - Framework: reference/self-id/modules/framework.md
+          - React:
+              - React module: reference/self-id/modules/react.md
+              - RequestClient class: reference/self-id/classes/react.RequestClient.md
           - Web:
-              - Module: reference/self-id/modules/web.md
+              - Web module: reference/self-id/modules/web.md
               - WebClient class: reference/self-id/classes/web.WebClient.md
               - SelfID class: reference/self-id/classes/web.SelfID.md
-          - React:
-              - Module: reference/self-id/modules/react.md
-              - RequestClient class: reference/self-id/classes/react.RequestClient.md
-          - Framework:
-              - Module: reference/self-id/modules/framework.md
-              - UI components: reference/self-id/modules/ui.md
-              - Multiauth hook: reference/self-id/modules/multiauth.md
+          - Core:
+              - Core module: reference/self-id/modules/core.md
+              - Core class: reference/self-id/classes/core.Core.md
+              - PublicID class: reference/self-id/classes/core.PublicID.md
           - Utilities:
               - Image utilities: reference/self-id/modules/image_utils.md
-              - 3Box legacy: reference/self-id/modules/3box_legacy.md
-      - Guides:
-          - Support a new blockchain: reference/javascript/blockchain.md
-  - Chat: 'https://chat.ceramic.network'
-  - Blog: 'https://blog.ceramic.network'
+              - UI components: reference/self-id/modules/ui.md
+              - Multiauth: reference/self-id/modules/multiauth.md
+              #- 3Box utilities: reference/self-id/modules/3box_legacy.md
+      - List of core Ceramic JS packages: reference/javascript/packages.md
+      - Glossary: learn/glossary.md
 
 markdown_extensions:
   - meta
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
   - pymdownx.superfences
   - admonition
   - pymdownx.details
@@ -211,13 +231,13 @@ plugins:
         'try/explorers.md': 'explore/explorers.md'
         'try/sample-apps.md': 'explore/sample-apps.md'
         'try/projects.md': 'explore/projects.md'
-        'authentication/wallets/3id-connect.md': 'authentication/3id-did/3id-connect.md'
-        'authentication/dids/3id.md': 'authentication/3id-did/provider.md'
-        'authentication/dids/key.md': 'authentication/key-did/provider.md'
-        'authentication/legacy/3id-connect-migration.md': 'authentication/3id-did/3box-migration.md'
+        'authentication/wallets/3id-connect.md': 'docs/advanced/standards/accounts/3id-did.md' # v2 redirect
+        'authentication/dids/3id.md': 'docs/advanced/standards/accounts/3id-did.md' # v2 redirect
+        'authentication/dids/key.md': 'docs/advanced/standards/accounts/key-did.md' # v2 redirect
+        'authentication/legacy/3id-connect-migration.md': 'pages/3box-migration.md' # v2 redirect
         'reference/javascript/clients.md': 'build/javascript/http.md'
-        'reference/javascript/did-resolvers.md': 'authentication/3id-did/resolver.md'
-        'reference/javascript/did-providers.md': 'authentication/3id-did/provider.md'
+        'reference/javascript/did-resolvers.md': 'docs/advanced/standards/accounts/3id-did.md' # v2 redirect
+        'reference/javascript/did-providers.md': 'docs/advanced/standards/accounts/3id-did.md' # v2 redirect
         'learn/clients.md': 'build/javascript/http.md'
         'build/configure-did.md': 'build/javascript/http.md'
         'run/nodes.md': 'run/nodes/nodes.md'
@@ -235,8 +255,29 @@ plugins:
         'reference/http-api.md': 'build/http/api.md'
         'tools/hosted-nodes/community-nodes.md': 'run/nodes/community-nodes.md'
         'tools/hosted-nodes/node-providers.md': 'run/nodes/node-providers.md'
-        'tools/identity/idx.md': 'tools/idx/overview.md'
+        'tools/identity/idx.md': 'docs/advanced/standards/application-protocols/identity-index.md' # v2 redirect
         'tools/identity/identitylink.md': 'tools/identitylink/overview.md'
         'tools/identity/self-id.md': 'tools/self-id/overview.md'
         'build/quick-start.md': 'build/cli/quick-start.md'
+        # v2 redirects
+        'authentication/3id-did/3box-migration.md': 'pages/3box-migration.md'
+        'authentication/3id-did/3id-connect.md': 'docs/advanced/standards/accounts/3id-did.md'
+        'authentication/3id-did/lifecycle.md': 'pages/3id-lifecycle.md'
+        'authentication/3id-did/method.md': 'docs/advanced/standards/accounts/3id-did.md'
+        'authentication/3id-did/provider.md': 'docs/advanced/standards/accounts/3id-did.md'
+        'authentication/3id-did/resolver.md': 'docs/advanced/standards/accounts/3id-did.md'
+        'authentication/3id-did/security.md': 'pages/3id-security.md'
+        'authentication/key-did/method.md': 'docs/advanced/standards/accounts/key-did.md'
+        'authentication/key-did/provider.md': 'docs/advanced/standards/accounts/key-did.md'
+        'authentication/key-did/resolver.md': 'docs/advanced/standards/accounts/key-did.md'
+        'reference/glaze/overview.md': 'reference/glaze/index.md'
+        'reference/self-id/overview.md': 'reference/self-id/index.md'
+        'streamtypes/caip-10-link/api.md': 'reference/stream-programs/caip10-link.md'
+        'streamtypes/caip-10-link/overview.md': 'docs/advanced/standards/stream-programs/caip10-link.md'
+        'streamtypes/tile-document/api.md': 'reference/stream-programs/tile-document.md'
+        'streamtypes/tile-document/overview.md': 'docs/advanced/standards/stream-programs/tile-document.md'
+        'streamtypes/overview.md': 'docs/advanced/standards/stream-programs/index.md'
+        'tools/glaze/overview.md': 'reference/glaze/index.md'
+        'tools/idx/overview.md': 'docs/advanced/standards/application-protocols/identity-index.md'
+        'tools/self-id/overview.md': 'reference/self-id/index.md'
   - search

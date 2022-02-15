@@ -4,4 +4,4 @@ Writes are interactions that write to streams, such as creating new streams or u
 
 ## **Usage**
 
-Write operations are StreamType specific. The APIs for performing writes are contained within the various Stream implementations. See [StreamTypes](../../streamtypes/overview.md) for information on how to perform writes for each of the supported StreamTypes.
+Write operations are StreamType specific. The APIs for performing writes are contained within the various Stream implementations. See [StreamTypes](../../docs/advanced/standards/stream-programs/index.md) for information on how to perform writes for each of the supported StreamTypes.

@@ -1,12 +1,50 @@
-# Authentication and write access
+# **Self.ID Web**
 
-Performing writes (creating and updating streams) in Ceramic requires an authenticated DID.
+The `@self.id/web` module provides user authentication, data storage, and retrieval for browser-based web applications.
 
-The Self.ID SDK leverages [3ID Connect](../../authentication/3id-did/3id-connect.md) to provide browser-based authentication in the `@self.id/web` package via the [`EthereumAuthProvider`](https://developers.ceramic.network/authentication/3id-did/3id-connect/#2-import-the-provider).
+> If you're building with React, we recommend using [Self.ID Framework](framework.md) instead.
 
-## Using the WebClient class
+## **Getting started with Self.ID Web**
 
-The `WebClient` class extends `Core` from the `@self.id/core` package with the additional `connectNetwork` parameter to specify the Ceramic network that should be used by 3ID Connect:
+---
+
+Visit the [**Self.ID Web reference →**](../../reference/self-id/modules/web.md) documentation for full instructions on how to install, configure, and use the module in your application. For convenience, here's a look at what's possible with Self.ID Web:
+
+### **Installation**
+
+Install `@self.id/web` from npm:
+
+```bash
+npm install @self.id/web
+```
+
+### **User authentication**
+
+The Self.ID web module exports the `SelfID` and `WebClient` classes. Either can be used for user authentication via an Ethereum or EVM-comppatible wallet:
+
+#### Using the SelfID class
+
+The process of creating all instances needed by your web application (`WebClient`, `DID` and `SelfID`) can be reduced to using the [`SelfID.authenticate()`](../../reference/self-id/classes/web.SelfID.md#authenticate) static authentication method:
+
+```ts
+import { EthereumAuthProvider, SelfID } from '@self.id/web'
+
+// The following assumes there is an injected `window.ethereum` provider
+const addresses = await window.ethereum.request({
+  method: 'eth_requestAccounts',
+})
+
+// The following configuration assumes your local node is connected to the Clay testnet
+const self = await SelfID.authenticate({
+  authProvider: new EthereumAuthProvider(window.ethereum, addresses[0]),
+  ceramic: 'local',
+  connectNetwork: 'testnet-clay',
+})
+```
+
+#### Using the WebClient class
+
+The [`WebClient`](../../reference/self-id/classes/web.WebClient.md) class extends `Core` from the `@self.id/core` package with the additional `connectNetwork` parameter to specify the Ceramic network that should be used by 3ID Connect:
 
 ```ts
 import { EthereumAuthProvider, SelfID, WebClient } from '@self.id/web'
@@ -28,32 +66,12 @@ await client.authenticate(authProvider)
 
 // A SelfID instance can only be created with an authenticated Ceramic instance
 const self = new SelfID({ client })
-
-await self.set('basicProfile', { name: 'Alice' })
 ```
 
-[WebClient API reference](../../reference/self-id/classes/web.WebClient.md){: .md-button .md-button }
+### **Data management**
 
-## Using the SelfID class directly
-
-The process of creating a `WebClient`, `DID` and `SelfID` instances can be reduced to using the [`SelfID.authenticate()`](../../reference/self-id/classes/web.SelfID.md#authenticate) static method:
+After authenticating the user with either of the above methods, your application can perform data storage and retrieval interactions with the user based on a data model (definition):
 
 ```ts
-import { EthereumAuthProvider, SelfID } from '@self.id/web'
-
-// The following assumes there is an injected `window.ethereum` provider
-const addresses = await window.ethereum.request({
-  method: 'eth_requestAccounts',
-})
-
-// The following configuration assumes your local node is connected to the Clay testnet
-const self = await SelfID.authenticate({
-  authProvider: new EthereumAuthProvider(window.ethereum, addresses[0]),
-  ceramic: 'local',
-  connectNetwork: 'testnet-clay',
-})
-
 await self.set('basicProfile', { name: 'Alice' })
 ```
-
-[SelfID API reference](../../reference/self-id/classes/web.SelfID.md){: .md-button .md-button }

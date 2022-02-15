@@ -1,6 +1,6 @@
 # IdentityLink
 
-IdentityLink is a service that issues verifiable claims which prove that a DID owns one or more Web2 social accounts. Once issued these claims can be stored anywhere, however it is recommended to store them in a user's IDX under the Also Known As definition.
+IdentityLink is a service that issues verifiable claims which prove that a DID owns one or more Web2 social accounts. Once issued these claims can be stored anywhere, however it is recommended to store them in a user's Identity Index (IDX) under the Also Known As definition.
 
 ## Compatibility
 

@@ -1,1 +1,21 @@
 INHERIT: mkdocs.yml
+
+theme:
+  name: material
+  custom_dir: overrides
+  # 404 page
+  static_templates:
+    - 404.html
+  palette:
+    scheme: default
+  logo: images/ceramic-no-shadow.png
+  icon:
+    repo: fontawesome/brands/github-alt
+  favicon: images/favicon.png
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.indexes
+    - content.code.annotate
+    # Insiders only
+    - content.tabs.link
