@@ -4,9 +4,7 @@
 
 ### **Ceramic is a decentralized network for composable data.**
 
-With Ceramic, building scalable Web3 applications with natively-composable data is as easy as browsing a marketplace of community-created data models and plugging them into your app via open APIs for storing, updating, and retrieving data from those models. When different applications reuse the same data model, their underlying data is automatically interoperable.
-
-By decentralizing the database layer for applications, Ceramic makes it possible data to be accessible and reusable across all applications built on the network.
+Building applications with composable Web3 data is as easy as browsing a marketplace of data models, plugging them into your app, and storing, updating, and retrieving data from those models. When different applications reuse the same data models, their data is automatically interoperable. By decentralizing application databases, Ceramic makes data composable and reusable across all applications.
 
 </br>
 
