@@ -27,7 +27,7 @@ If you want to see the contents of a stream as of a specific point in time, it's
 
 ## **Query multiple streams**
 
-Use the [`multiQuery()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.ceramicapi-1.html#multiquery){:target="\_blank"} method to load multiple streams at once. The returned object is a map from _StreamIDs_ to stream instances.
+Use the [`multiQuery()`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#multiquery){:target="\_blank"} method to load multiple streams at once. The returned object is a map from _StreamIDs_ to stream instances.
 
 ```javascript
 const queries = [
@@ -45,7 +45,7 @@ const streamMap = await ceramic.multiQuery(queries)
 
 ## **Query a stream using paths**
 
-Use the [`multiQuery()`](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_common.ceramicapi-1.html#multiquery){:target="\_blank"} method to load one or more streams using known paths from a root stream to its linked streams.
+Use the [`multiQuery()`](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#multiquery){:target="\_blank"} method to load one or more streams using known paths from a root stream to its linked streams.
 
 Imagine a stream `kjzl6cwe1jw...14` whose content contains the StreamIDs of two other streams. These StreamIDs exist at various levels within a nested JSON structure.
 
@@ -70,7 +70,7 @@ const queries = [{
 const streamMap = await ceramic.multiQuery(queries)
 ```
 
-[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.multiquery-1.html){:target="\_blank"}
+[:octicons-file-code-16: API reference](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.ceramicapi-1.html#multiquery){:target="\_blank"}
 
 ## **Helper methods**
 

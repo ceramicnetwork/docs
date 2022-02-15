@@ -1,43 +1,42 @@
-# Features
+# **Why Ceramic?**
 
-Ceramic is a decentralized, open source platform for creating, hosting, and sharing streams of data. With Ceramic's permissionless data streaming network, you can store streams of information and ever-changing files directly on the decentralized web – and share updates with anyone in the world. This page describes the most important features of the protocol.
+---
 
-### **Mutable streams**
+Ceramic's decentralized data network provides Web3 developers with a collection of features that make it possible to build scalable Web3 applications with composable data that can be reused and shared across applications.
 
-Store, edit, and update continuous [streams](./glossary.md#streams) of content or ever-changing files using stateful data structures on [IPFS](./glossary.md#ipfs) (specifically [IPLD](./glossary.md#ipld)). The data structure of your streams can be fully customized to your specific use cases and needs.
+## **Mutable data storage**
 
-### **Immutable naming**
+---
 
-Reference streams by a persistent identifier, called a [StreamID](./glossary.md#streamid), instead of needing to keep track of IPFS [CIDs](./glossary.md#cid) that change every time your content does.
+Ceraic provides developers with a set of standard, open APIs for storing, updating, and retrieving data from the network. This helps to break down data silos, enabling all data to be openly accessible. Additionally, all data mutations on Ceramic are cryptographically verifiable and can provide auditability throughout all historical versions of a piece of data that has changed over time.
 
-### **Tamper-proof history**
+## **Data composability**
 
-Inspect, audit, or time travel through the complete history of any stream to see how its content has changed over time.
+---
 
-### **Global availability**
+Data on Ceramic is structured and stored in data models, which can be easily reused by different applications to share
+data between them. Data models are created by developers in the community, and the ecosystem of data models is constantly expanding. Data models typically represent a single, logical application feature such as a user profile, a social graph, or a blog and developers typically combine multiple data models to create their application.
 
-Host and make your streams available over a decentralized, global, peer-to-peer network that is censorship-resistant and completely free of middlemen.
+## **Developer experience**
 
-### **Sync & share**
+---
 
-Query, sync, or subscribe to any stream on the network using standardized APIs, making it easy to share data across organizational boundaries. Whenever you or anyone else syncs your streams from the network, they will always get back the most current state.
+Building composable applications with Web3 data on Ceramic is simple. Install Ceramic, browse the marketplace of data models, plug these models into your app, and automatically get access to all data stored on the network that conforms to those data models. The community is constantly creating new tooling that make it easier to build, and expand what's possible with composable data.
 
-### **Limitless composability**
+## **Sign in with Web3**
 
-All streams on Ceramic exist within a single global namespace, allowing you to reference and aggregate multiple streams into higher-order compositions or fork and remix existing streams into entirely new creations.
+---
 
-### **Custom functions**
+Ceramic uses the decentralized identifier (DID) standard for user accounts, which are compatible with all blockchain wallets. When using Ceramic in your application, users can authenticate with the Web3 wallets they already have, and can even control the same Ceramic account from multiple different blockchain wallets (cross-chain) if they'd like. Data models are typically account-centric, meaning that every user is in control of their own data.
 
-Write custom functions for processing updates to your stream's [state](./glossary.md#state). These functions are called [StreamTypes](./glossary.md#streamtypes), and they're deployed to a Ceramic [node](./glossary.md#nodes). StreamTypes ingest new updates and autonomously apply transformations to your stream – guaranteeing data consistency and integrity without needing to rely on an external source of compute logic or state management. Ceramic nodes come [prepackaged with common StreamTypes](../streamtypes/overview.md) making it easy to get started creating applications without needing to code your own.
+## **Decentralization**
 
-### **DID authentication**
+---
 
-[Authenticate](./glossary.md#authentication) to and transact with streams using W3C-standard decentralized identities ([DIDs](./glossary.md#dids)). While every StreamType is able to define its own authentication requirements and mechanisms, DIDs are the most common. Notably DIDs can be controlled with one or more Web3/blockchain wallets, so your users can build up a unified cross-chain Web3 identity using the wallets they already have.
+The Ceramic network is decentralized and permissionless, allowing anyone in the world to spin up a node to provide storage, compute, and bandwidth resources to users and applications built on the network. Today there are no tokenized incentives for running Ceramic, but the community is exploring options.
 
-### **Scalable consensus**
+## **Scalability**
 
-Unlike blockchains or other DLT systems which have scalability limitations due to reliances on a single execution environment and global state, Ceramic takes a different approach to network scalability. On Ceramic, every stream maintains its own state and nodes independently process stream transactions, allowing for unbounded parallelization. This enables Ceramic to operate at worldwide data scale, which is orders of magnitude greater than the scale needed for decentralized finance.
+---
 
-### **Archive anywhere**
-
-Backup the contents of your stream to IPFS, Filecoin, or Amazon S3. Visit [Data Availability](./advanced/data-availability.md) to learn more about the data persistence and availability model of Ceramic.
+Ceramic's data network infrastructure is highly-scalable and can service use cases where high amounts of data throughput is needed. On Ceramic, every data object maintains its own state and nodes independently process stream transactions, allowing unbounded parallelization. This enables Ceramic to operate at worldwide data scale, which is orders of magnitude greater than the scale needed for decentralized finance.

@@ -14,7 +14,7 @@ Visit the [Ceramic Client](./installation.md) page for instructions on how to qu
 
 ## **2. Create a stream**
 
-Creating streams is dependent on the StreamType. More details can be found in our [StreamTypes Overview](../../streamtypes/overview.md). A basic sample using the [TileDocument StreamType](../../streamtypes/tile-document/overview.md) can be found below.
+Creating streams is dependent on the StreamType. More details can be found in our [StreamTypes Overview](../../docs/advanced/standards/stream-programs/index.md). A basic sample using the [TileDocument StreamType](../../docs/advanced/standards/stream-programs/tile-document.md) can be found below.
 
 === "Command"
 
@@ -153,4 +153,4 @@ Use `reward.state` to query the state of the TileDocument we just created. We ca
 
 # **That's it!**
 
-Congratulations on completing this tutorial! You're well on your way to becoming a Ceramic developer. Now let's [install Ceramic in your project](./installation.md) or take a look at [IDX](../../tools/idx/overview.md) a framework for interacting with Streams.
+Congratulations on completing this tutorial! You're well on your way to becoming a Ceramic developer. Now let's [install Ceramic in your project](./installation.md) or take a look at [Self.ID](../../tools/self-id/overview.md), a framework for interacting with Streams.

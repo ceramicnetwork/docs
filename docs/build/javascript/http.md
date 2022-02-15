@@ -76,28 +76,31 @@ ceramic.did = did
 ```
 
 ## **Examples**
+
 Once you have completed installing and configuring the HTTP Client, your project's setup should look something like this.
 
 ### Write and read
 
-``` javascript
+```javascript
 import { CeramicClient } from '@ceramicnetwork/http-client'
 import KeyDidResolver from 'key-did-resolver'
 import ThreeIdResolver from '@ceramicnetwork/3id-did-resolver'
 import { DID } from 'dids'
-const API_URL = "https://yourceramicnode.com"
+const API_URL = 'https://yourceramicnode.com'
 const ceramic = new CeramicClient(API_URL)
-const resolver = { ...KeyDidResolver.getResolver(),
-                   ...ThreeIdResolver.getResolver(ceramic) }
+const resolver = {
+  ...KeyDidResolver.getResolver(),
+  ...ThreeIdResolver.getResolver(ceramic),
+}
 const did = new DID({ resolver })
 ceramic.did = did
 ```
 
 ### Read-only
 
-``` javascript
+```javascript
 import CeramicClient from '@ceramicnetwork/http-client'
-const API_URL = "https://yourceramicnode.com"
+const API_URL = 'https://yourceramicnode.com'
 const ceramic = new CeramicClient(API_URL)
 ```
 
