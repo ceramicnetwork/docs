@@ -6,9 +6,9 @@
 
 **Native support for React** – React components, hooks and related utility functions to help manage user authentication, storage, and retrieval on Ceramic.
 
-**Authentication hook** – React hook to easily initiate a Ceramic sign-in flow where users are authenticated client-side with their Ethereum or other EVM-compatible wallet. 
+**Authentication hook** – React hook to easily initiate a Ceramic sign-in flow where users are authenticated client-side with their Ethereum or other EVM-compatible wallet.
 
-**User data management hook** – Data storage and retrieval APIs are primarily based on the concept of a viewer, aka the *current user* of the app, which can be the currently-authenticated user or the last known authenticated user (for example when using a cookie for persistence). APIs are read-only if the viewer is not authenticated, but support reads and writes if they're authenticated.
+**User data management hook** – Data storage and retrieval APIs are primarily based on the concept of a viewer, aka the _current user_ of the app, which can be the currently-authenticated user or the last known authenticated user (for example when using a cookie for persistence). APIs are read-only if the viewer is not authenticated, but support reads and writes if they're authenticated.
 
 ## **Getting started with Framework**
 
@@ -17,9 +17,10 @@
 Visit the [**Self.ID Framework reference →**](../../reference/self-id/modules/framework.md) documentation for full instructions on how to install, configure, and use the module in your application. For convenience, here's a look at what's possible with the Self.ID Framework:
 
 ### **Installation**
+
 Install `@self.id/framework` from npm:
 
-``` bash
+```bash
 npm install @self.id/framework
 ```
 

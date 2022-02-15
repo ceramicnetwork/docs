@@ -2,7 +2,7 @@
 
 ---
 
-Ceramic decentralizes application databases, making data universally composable and reusable across applications. The network consists of three core parts: a highly-scalable, decentralized infrastructure for data availability and consensus, a marketplace of community-created data models, and a suite of standard APIs for storing, updating, and retrieving data from those models. 
+Ceramic decentralizes application databases, making data universally composable and reusable across applications. The network consists of three core parts: a highly-scalable, decentralized infrastructure for data availability and consensus, a marketplace of community-created data models, and a suite of standard APIs for storing, updating, and retrieving data from those models.
 
 ## **Core components**
 
@@ -10,15 +10,15 @@ Ceramic decentralizes application databases, making data universally composable 
 
 The Ceramic network consists of three core components:
 
-1. [Scalable, decentralized data infrastructure]()
-2. [Data models marketplace]()
-3. [Open APIs for data storage, update, and retrieval]()
+1. [Scalable, decentralized data infrastructure](#scalable-decentralized-data-infrastructure)
+2. [Data models marketplace](#data-models-marketplace)
+3. [Open APIs for data storage, update, and retrieval](#open-apis)
 
 ## **Scalable, decentralized data infrastructure**
 
 ---
 
-The most foundational layer of Ceramic is its scalable, decentralized data network. The Ceramic network consists of a collection of permissionless nodes that work together to provide data availability for all states stored on the network, and work to come to consensus about those states every time there is a new transaction. 
+The most foundational layer of Ceramic is its scalable, decentralized data network. The Ceramic network consists of a collection of permissionless nodes that work together to provide data availability for all states stored on the network, and work to come to consensus about those states every time there is a new transaction.
 
 However, unlike Layer 1 blockchains designed to keep track of state for financial applications such as tokens, Ceramic is specifically designed to keep track of state for high-throughput data applications such as decentralized social networks, decentralized identity, crypto gaming, reputation systems, etc. In this way, Ceramic acts as a global, highly-scalable decentralized database that every application in the world can build on.
 
@@ -28,7 +28,6 @@ On Ceramic, every account has a collection of mutable data objects, called strea
 
 This architecture untangles state between users, allowing the system to scale horizontally very cleanly. You can imagine that accounts 1 - 1,000,000 are replicated on one set of Ceramic nodes, and accounts 1,000,001 - 2,000,000 are replicated on another. Theoretically, the network can be sharded all the way down to each individual user if needed without breaking composability. In order to ensure state verifiability and composability between user shards, Ceramic relies on a merkle tree data structure that aggregates transactions across all users, allowing any any account to verify the integrity of anyone else’s streams at any time.
 
-
 ## **Data models marketplace**
 
 ---
@@ -37,7 +36,7 @@ The second core component of Ceramic is its vibrant ecosystem of open source dat
 
 > You can compare Ceramic’s use of data model standards to the use of token standards for financial ledgers. On Ethereum, for example, the introduction of the ERC-20 fungible token and ERC-721 non-fungible token standards have given rise to entire ecosystems of tokens and financial applications that natively interoperate. Ceramic brings this same concept to data.
 
-Ceramic takes a community-driven approach to creating these data models, allowing any developer to easily define, share, and reuse their models with other developers in the ecosystem. As more data models are created by the community, we will see a continuous expansion in the quantity and variety of applications that are built with composable data. 
+Ceramic takes a community-driven approach to creating these data models, allowing any developer to easily define, share, and reuse their models with other developers in the ecosystem. As more data models are created by the community, we will see a continuous expansion in the quantity and variety of applications that are built with composable data.
 
 Composability done this way also makes the developer experience better. Building an application on Ceramic looks like browsing a marketplace of data models, plugging them into your app, and automatically gaining access to all data on the network that’s stored in these models. No longer will every single developer need to worry about bootstrapping their application with their own siloed users and data, making it easier than ever to go from idea to implementation.
 

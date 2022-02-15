@@ -8,45 +8,45 @@ This section contains reference documentation as well as instructions for common
 
 ---
 
-- [Ceramic JS HTTP client]()
-- [DID JSON-RPC client]()
+- [Ceramic JS HTTP client](./core-clients/ceramic-http.md)
+- [DID JSON-RPC client](./core-clients/did-jsonrpc.md)
 
 ## **Accounts**
 
 ---
 
-- [3ID DID libraries]()
-- [Key DID libraries]()
+- [3ID DID libraries](./accounts/3id-did.md)
+- [Key DID libraries](./accounts/key-did.md)
 
 ## **Streams**
 
 ---
 
-- [Tile Document client]()
-- [CAIP-10 Link client]()
+- [Tile Document client](./stream-programs/tile-document.md)
+- [CAIP-10 Link client](./stream-programs/caip10-link.md)
 
 ## **Glaze Suite**
 
 ---
 
-- [DID DataStore client]()
-- [DevTools library]()
-- [Glaze CLI]()
-- [DataModel client]()
-- [Tile loader library]()
+- [DID DataStore client](./glaze/modules/did_datastore.md)
+- [DevTools library](./glaze/modules/devtools.md)
+<!-- - [Glaze CLI]() -->
+- [DataModel client](./glaze/modules/datamodel.md)
+- [Tile loader library](./glaze/modules/tile_loader.md)
 
 ## **Self.ID SDK**
 
 ---
 
-- [Self.ID Framework]()
-- [Self.ID React]()
-- [Self.ID Web]()
-- [Self.ID Core]()
-- [Self.ID Utilities]()
+- [Self.ID Framework](./self-id/modules/framework.md)
+- [Self.ID React](./self-id/modules/react.md)
+- [Self.ID Web](./self-id/modules/web.md)
+- [Self.ID Core](./self-id/modules/core.md)
+- [Self.ID Image utilities](./self-id/modules/image_utils.md)
 
 ## **Glossary**
 
 ---
 
-- [Glossary of terms]()
+- [Glossary of terms](./glossary.md)

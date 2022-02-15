@@ -18,17 +18,17 @@ By decentralizing the database layer for applications, Ceramic makes it possible
 
 ### **Build applications with Ceramic**
 
-Connect your app to Ceramic using a [**development framework**](../../tools/self-id/overview/) or [**client library**](../../reference/core-clients/ceramic-http/).
+Connect your app to Ceramic using a [**development framework**](../build/frameworks/index.md) or [**client library**](../build/clients/index.md).
 
 > Frameworks provide a great way to get started quickly, while clients provide greater flexibility but require a lower-level understanding of how the network functions.
 
 !!! warning ""
 
-    Don't know what to build with composable data? Check out these [data models]() to get your creativity flowing.
+    Don't know what to build with composable data? Check out these [data models](../docs/advanced/standards/data-models/index.md) to get your creativity flowing.
 
 ### **Operate the Ceramic network**
 
-Provide storage, compute, and bandwidth to the network by [**running a node**](../run/nodes/nodes.md).
+Provide storage, compute, and bandwidth to the network by [**running a node**](../run/index.md).
 
 > Today there are no tokenized incentives for running a Ceramic node, but by running a node you can ensure the data for your app remains available while helping contribute to the network's decentralization.
 

@@ -2,18 +2,19 @@
 
 The `@self.id/core` module provides read-only user data APIs for Node and browser-based applications.
 
-> If you need user data storage, use [Self.ID Framework]() for React or [Self.ID Web]() for web.
+> If you need user data storage, use [Self.ID Framework](framework.md) for React or [Self.ID Web](write.md) for web.
 
 ## **Getting started with Self.ID Core**
 
 ---
 
-Visit the [**Self.ID Core reference →**](../../reference/self-id/classes/core.Core.md) documentation for full instructions on how to install, configure, and use the module in your application. For convenience, here's a look at what's possible with Self.ID Core:
+Visit the [**Self.ID Core reference →**](../../reference/self-id/modules/core.md) documentation for full instructions on how to install, configure, and use the module in your application. For convenience, here's a look at what's possible with Self.ID Core:
 
 ### **Installation**
+
 Install `@self.id/core` from npm:
 
-``` bash
+```bash
 npm install @self.id/core
 ```
 
@@ -34,11 +35,11 @@ const core = new Core({ ceramic: 'http://localhost:7007' })
 const core = new Core({ ceramic: 'testnet-clay' })
 ```
 
-This Ceramic endpoint can be the URL of any known node, `http://localhost:7007`, or one of Self.ID's [preconfigured node options]().
+This Ceramic endpoint can be the URL of any known node, `http://localhost:7007`, or one of Self.ID's [preconfigured node options](configuration.md#connect-to-a-ceramic-node).
 
 #### Configure data models
 
-Self.ID core come [pre-configured with a few popular data models]() that you can use to retrieve data from the network. You can read about those data models, and learn how to add additional data models, in the [data models configuration]() page.
+Self.ID core come [pre-configured with a few popular data models](configuration.md#configure-your-data-models) that you can use to retrieve data from the network. You can read about those data models, and learn how to add additional data models, in the [data models configuration](configuration.md#using-additional-data-models) page.
 
 ### **Retrieving user data**
 

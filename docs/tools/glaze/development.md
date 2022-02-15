@@ -2,15 +2,15 @@
 
 ---
 
-The Glaze DevTools module provides JavaScript APIs that allow you to programmatically create, edit, and deploy the data models used by your Ceramic application using a script. As opposed to manually [deploying data models with the Glaze CLI](), DevTools makes it easy to manage more models or more complex models.
+The Glaze DevTools module provides JavaScript APIs that allow you to programmatically create, edit, and deploy the data models used by your Ceramic application using a script. As opposed to manually [deploying data models with the Glaze CLI](deploy-from-cli.md), DevTools makes it easy to manage more models or more complex models.
 
 ## **How it works**
 
 ---
 
-The DevTools module exports a `ModelManager` class, that can be used in scripts to programmatically manage a data model. The ModelManager object contains all data and metadata necessary to represent a Ceramic data model, and can be serialized to JSON. 
+The DevTools module exports a `ModelManager` class, that can be used in scripts to programmatically manage a data model. The ModelManager object contains all data and metadata necessary to represent a Ceramic data model, and can be serialized to JSON.
 
-The ModelManager helps you to keep track of dependencies between streams that comprise your data models during development. For example, adding a data model definition to a model will also add the schema referenced by the definition, as both streams need to be present on your Ceramic node at runtime to work as expected. 
+The ModelManager helps you to keep track of dependencies between streams that comprise your data models during development. For example, adding a data model definition to a model will also add the schema referenced by the definition, as both streams need to be present on your Ceramic node at runtime to work as expected.
 
 Additionally, data models promote reusability: a model can be created and edited on a local node and then deployed to the Ceramic testnet and mainnet with no change required in application code.
 
@@ -18,7 +18,7 @@ Additionally, data models promote reusability: a model can be created and edited
 
 ---
 
-Visit the [**Glaze DevTools reference →**](../../reference/glaze/classes/devtools.ModelManager.md) documentation for full instructions on how to install, configure, and use the module in your application.
+Visit the [**Glaze DevTools reference →**](../../reference/glaze/modules/devtools.md) documentation for full instructions on how to install, configure, and use the module in your application.
 
 ### **Installation**
 
@@ -37,6 +37,7 @@ const manager = new ModelManager(ceramic)
 ```
 
 ### **Constructing your model manager**
+
 A model manager consists of various data models used by your application. Each data model consists of one or more schemas and a definition. You'll need to add those schemas and definitions to your model manager.
 
 #### Adding schemas
@@ -86,7 +87,7 @@ const publishedModel = await manager.toPublished()
 
 ---
 
-In this example, we will import and publish popular Ceramic data models found in the [Data Models Registry](), defined by the [CIP-19 "Basic Profile"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-19/CIP-19.md), [CIP-21 "Crypto Accounts"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-21/CIP-21.md) and [CIP-23 "Also Known As"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-23/CIP-23.md) specifications.
+In this example, we will import and publish popular Ceramic data models found in the [Data Models Registry](../../docs/advanced/standards/data-models/data-model-universe.md), defined by the [CIP-19 "Basic Profile"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-19/CIP-19.md), [CIP-21 "Crypto Accounts"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-21/CIP-21.md) and [CIP-23 "Also Known As"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-23/CIP-23.md) specifications.
 
 First, install these data models from the Data Models Registry using npm:
 

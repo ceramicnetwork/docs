@@ -7,7 +7,8 @@ DID DataStore is a runtime library that allows any application to store and retr
 ## **How it works**
 
 ---
-The DID DataStore is an implementation of the [Identity Index (IDX) protocol](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-11/CIP-11.md), allowing to associate records to a DID. To learn more about the IDX protocol, see its [reference documentation]().
+
+The DID DataStore is an implementation of the [Identity Index (IDX) protocol](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-11/CIP-11.md), allowing to associate records to a DID. To learn more about the IDX protocol, see its [reference documentation](../../docs/advanced/standards/application-protocols/identity-index.md).
 
 ![Image that describes the architecture of the Identity Index protocol](../../images/idx-architecture.png)
 
@@ -15,7 +16,7 @@ The DID DataStore is an implementation of the [Identity Index (IDX) protocol](ht
 
 ---
 
-Visit the [**DID DataStore reference →**](../../reference/glaze/classes/did_datastore.DIDDataStore.md) documentation for full instructions on how to install, configure, and use the module in your application. For convenience, here's a look at what's possible with DID DataStore:
+Visit the [**DID DataStore reference →**](../../reference/glaze/modules/did_datastore.md) documentation for full instructions on how to install, configure, and use the module in your application. For convenience, here's a look at what's possible with DID DataStore:
 
 ### **Installation**
 
@@ -25,7 +26,7 @@ npm install @glazed/did-datastore
 
 ### **Usage**
 
-The DID DataStore requires a Ceramic instance and either a [DataModel instance](datamodel.md#datamodel-runtime) or [PublishedModel object](datamodel.md#publishedmodel) provided by the Glaze DataModel library:
+The DID DataStore requires a Ceramic instance and either a [DataModel instance](../../reference/glaze/classes/datamodel.DataModel.md) or [PublishedModel object](development.md#deploy-to-ceramic) provided by the Glaze DataModel library:
 
 === "Using a DataModel instance"
 

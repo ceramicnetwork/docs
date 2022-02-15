@@ -19,7 +19,7 @@ The [`TileLoader` class](../../reference/glaze/classes/tile_loader.TileLoader.md
 
 ---
 
-Visit the Glaze [**Tile Loader reference →**](../../reference/glaze/classes/tile_loader.TileLoader.md) documentation for full instructions on how to install, configure, and use the module in your application. For convenience, here's a look at what's possible with tile loader:
+Visit the Glaze [**Tile Loader reference →**](../../reference/glaze/modules/tile_loader.md) documentation for full instructions on how to install, configure, and use the module in your application. For convenience, here's a look at what's possible with tile loader:
 
 ### **Batching**
 
@@ -69,7 +69,7 @@ const stream = await TileDocument.load(ceramic, 'streamID')
 const streamAgain = await TileDocument.load(ceramic, 'streamID')
 ```
 
-When using the `loader` instance, the second call will be resolved *directly from the loader's internal cache* rather than making a second network request:
+When using the `loader` instance, the second call will be resolved _directly from the loader's internal cache_ rather than making a second network request:
 
 ```ts
 import { TileLoader } from '@glazed/tile-loader'

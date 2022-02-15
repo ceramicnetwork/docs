@@ -6,7 +6,7 @@ The Glaze DataModel library provides human-readable name aliasing for data model
 
 ---
 
-The Glaze DataModel library requires an instance of Ceramic and a preexisting `publishedModel` object, which can be created during development using either the [Glaze CLI]() or the [Glaze DevTools]() library.
+The Glaze DataModel library requires an instance of Ceramic and a preexisting `publishedModel` object, which can be created during development using either the [Glaze CLI](deploy-from-cli.md) or the [Glaze DevTools](development.md) library.
 
 The primary purpose of the DataModel library is to create a new `PublishedModel` object which contains human-friendly aliases for your data models that can be used at runtime to simplify development. This `PublishedModel` is defined by the following type:
 
@@ -20,13 +20,11 @@ type PublishedModel = {
 
 In this object, the key of each record is your alias and the value is a reference to a stream, which for schemas is a commitURL and for definitions and other related tiles is a streamID.
 
-
 ## **Getting started with Glaze DataModel**
 
 ---
 
-Visit the [**Glaze DataModel reference →**](../../reference/glaze/classes/datamodel.DataModel.md) documentation for full instructions on how to install, configure, and use the module in your application. For convenience, here's a look at what's possible with the Glaze DataModel:
-
+Visit the [**Glaze DataModel reference →**](../../reference/glaze/modules/datamodel.md) documentation for full instructions on how to install, configure, and use the module in your application. For convenience, here's a look at what's possible with the Glaze DataModel:
 
 ### **Installation**
 
@@ -60,4 +58,4 @@ model.getSchemaURL('MySchema') // 'ceramic://mySchemaURL'
 
 ---
 
-Your human-readable data model aliases can now be used with the [**DID DataStore**]() module provided by Glaze suite, which is also included in the [**Self.ID SDK**](), to store and retrieve data from these data models.
+Your human-readable data model aliases can now be used with the [**DID DataStore**](did-datastore.md) module provided by Glaze suite, which is also included in the [**Self.ID SDK**](../../reference/self-id/index.md), to store and retrieve data from these data models.

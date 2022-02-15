@@ -2,9 +2,9 @@
 
 ---
 
-The Glaze CLI provide commands for common interactions with data models to help support your development workflow. 
+The Glaze CLI provide commands for common interactions with data models to help support your development workflow.
 
-> The Glaze CLI is useful for basic data model management. For managing multiple models or more complex models, we recommend using the Glaze [DevTools]() library.
+> The Glaze CLI is useful for basic data model management. For managing multiple models or more complex models, we recommend using the Glaze [DevTools](development.md) library.
 
 ## **Getting started with the Glaze CLI**
 
@@ -31,6 +31,7 @@ glaze did:create
 ```
 
 ### **Creating data models**
+
 Creating a local model can be done using the `model:create` command:
 
 ```sh
@@ -70,6 +71,7 @@ Existing models can be imported in a local model either using JSON files or loca
     ```
 
 ### **Export data models as JSON**
+
 A local model can also be exported to a JSON file using the `model:export` command:
 
 ```sh
@@ -120,7 +122,7 @@ Your data models are now available to be used by the DID DataStore module provid
 
 ---
 
-In this example, we will import and publish popular Ceramic data models found in the [Data Models Registry](), defined by the [CIP-19 "Basic Profile"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-19/CIP-19.md), [CIP-21 "Crypto Accounts"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-21/CIP-21.md) and [CIP-23 "Also Known As"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-23/CIP-23.md) specifications.
+In this example, we will import and publish popular Ceramic data models found in the [Data Models Registry](../../docs/advanced/standards/data-models/data-model-universe.md), defined by the [CIP-19 "Basic Profile"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-19/CIP-19.md), [CIP-21 "Crypto Accounts"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-21/CIP-21.md) and [CIP-23 "Also Known As"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-23/CIP-23.md) specifications.
 
 First, we need to install these data models from the Data Models Registry using npm:
 

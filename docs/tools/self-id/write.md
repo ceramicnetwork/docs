@@ -2,18 +2,19 @@
 
 The `@self.id/web` module provides user authentication, data storage, and retrieval for browser-based web applications.
 
-> If you're building with React, we recommend using [Self.ID Framework]() instead.
+> If you're building with React, we recommend using [Self.ID Framework](framework.md) instead.
 
 ## **Getting started with Self.ID Web**
 
 ---
 
-Visit the [**Self.ID Web reference →**](../../reference/self-id/classes/web.SelfID.md) documentation for full instructions on how to install, configure, and use the module in your application. For convenience, here's a look at what's possible with Self.ID Web:
+Visit the [**Self.ID Web reference →**](../../reference/self-id/modules/web.md) documentation for full instructions on how to install, configure, and use the module in your application. For convenience, here's a look at what's possible with Self.ID Web:
 
 ### **Installation**
+
 Install `@self.id/web` from npm:
 
-``` bash
+```bash
 npm install @self.id/web
 ```
 

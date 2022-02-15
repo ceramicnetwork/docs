@@ -2,7 +2,7 @@
 
 ---
 
-### [**Image utilities →**]()
+### [**Image utilities →**](../../reference/self-id/modules/image_utils.md)
 
 The `@self.id/image-utils` module provides various utility functions for managing images on Web3 and is mostly meant to be used in a Web browser environment:
 

@@ -95,7 +95,7 @@ To experience how Ceramic works in a browser application, try the [**Playground*
 
 ### Installation
 
-Getting started with Ceramic is simple. Visit the [**Quick Start**](../../build/cli/quick-start.md){:target="\_blank"} guide to learn the basics using the Ceramic CLI or follow the [**Installation**](../../build/javascript/installation.md){:target="\_blank"} page to integrate Ceramic into your project.
+Getting started with Ceramic is simple. Visit the [**Quick Start**](../../build/cli/quick-start.md) guide to learn the basics using the Ceramic CLI or follow the [**Installation**](../../build/javascript/installation.md) page to integrate Ceramic into your project.
 
 ### Tools and services
 

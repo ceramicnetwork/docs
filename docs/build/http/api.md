@@ -2,9 +2,9 @@
 
 ---
 
-The Ceramic HTTP API is the standard lowest-level communication protocol between clients and nodes on the Ceramic network. It allows client applications to manually make REST HTTP requests to a remote Ceramic node to send transactons, retrieve data, and "pin" data to make it available. 
+The Ceramic HTTP API is the standard lowest-level communication protocol between clients and nodes on the Ceramic network. It allows client applications to manually make REST HTTP requests to a remote Ceramic node to send transactons, retrieve data, and "pin" data to make it available.
 
-If you are building an application, you will usually interact with Ceramic using a client API, such as the [JS HTTP Client](../javascript/installation.md#js-http-client), or a framework such as the [Self.ID SDK](), which includes the JS HTTP client by default.
+If you are building an application, you will usually interact with Ceramic using a client API, such as the [JS HTTP Client](../javascript/installation.md#js-http-client), or a framework such as the [Self.ID SDK](../frameworks/index.md), which includes the JS HTTP client by default.
 
 ## **When to use the HTTP API**
 

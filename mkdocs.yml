@@ -41,9 +41,9 @@ nav:
   - Build apps:
       - Build apps: build/index.md
       - The Ceramic stack: build/the-ceramic-stack.md
-      - Frameworks: 
+      - Frameworks:
           - Frameworks: build/frameworks/index.md
-          - Self.ID SDK: 
+          - Self.ID SDK:
               - Self.ID SDK: reference/self-id/index.md
               #- Overview: tools/self-id/overview.md
               - Build with React:
@@ -86,8 +86,8 @@ nav:
           - Tile Document (CIP-8): docs/advanced/standards/stream-programs/tile-document.md
           - CAIP-10 Link (CIP-7): docs/advanced/standards/stream-programs/caip10-link.md
       # - Standards:
-          # TODO: v2 index contents
-          # - docs/advanced/standards/index.md
+      # TODO: v2 index contents
+      # - docs/advanced/standards/index.md
       - Accounts:
           # TODO: v2 index contents
           - Accounts: docs/advanced/standards/accounts/index.md
@@ -131,14 +131,14 @@ nav:
       - Protocol development:
           - Add support for new blockchain accounts: reference/javascript/blockchain.md
   #- Ecosystem:
-      #- Use cases: learn/use-cases.md
-      #- Projects: explore/projects.md
-      #- Identity and reputation: index.md
-      #- Decentralized social: index.md
-      #- DAOs and governance: index.md
-      #- NFTs and gaming: index.md
-      #- Network explorers: explore/explorers.md
-      #- Wallets: index.md
+  #- Use cases: learn/use-cases.md
+  #- Projects: explore/projects.md
+  #- Identity and reputation: index.md
+  #- Decentralized social: index.md
+  #- DAOs and governance: index.md
+  #- NFTs and gaming: index.md
+  #- Network explorers: explore/explorers.md
+  #- Wallets: index.md
   - Reference:
       - Reference: reference/index.md
       - Ceramic clients:
@@ -162,7 +162,6 @@ nav:
               - DevTools:
                   - DevTools module: reference/glaze/modules/devtools.md
                   - ModelManager class: reference/glaze/classes/devtools.ModelManager.md
-              - Glaze CLI: reference/glaze/cli.md
               - DataModel:
                   - DataModel module: reference/glaze/modules/datamodel.md
                   - DataModel class: reference/glaze/classes/datamodel.DataModel.md
@@ -171,10 +170,10 @@ nav:
                   - TileLoader class: reference/glaze/classes/tile_loader.TileLoader.md
       - Self.ID SDK:
           - Framework: reference/self-id/modules/framework.md
-          - React: 
+          - React:
               - React module: reference/self-id/modules/react.md
               - RequestClient class: reference/self-id/classes/react.RequestClient.md
-          - Web: 
+          - Web:
               - Web module: reference/self-id/modules/web.md
               - WebClient class: reference/self-id/classes/web.WebClient.md
               - SelfID class: reference/self-id/classes/web.SelfID.md
@@ -186,10 +185,9 @@ nav:
               - Image utilities: reference/self-id/modules/image_utils.md
               - UI components: reference/self-id/modules/ui.md
               - Multiauth: reference/self-id/modules/multiauth.md
-              #- 3Box utilities: reference/self-id/modules/3box_legacy.md 
+              #- 3Box utilities: reference/self-id/modules/3box_legacy.md
       - List of core Ceramic JS packages: reference/javascript/packages.md
       - Glossary: learn/glossary.md
-
 
 markdown_extensions:
   - meta
@@ -261,8 +259,6 @@ plugins:
         'tools/identity/self-id.md': 'tools/self-id/overview.md'
         'build/quick-start.md': 'build/cli/quick-start.md'
         # v2 redirects
-        'reference/glaze/overview.md': 'reference/glaze/index.md'
-        'reference/self-id/overview.md': 'reference/self-id/index.md'
         'authentication/3id-did/3box-migration.md': 'pages/3box-migration.md'
         'authentication/3id-did/3id-connect.md': 'docs/advanced/standards/accounts/3id-did.md'
         'authentication/3id-did/lifecycle.md': 'pages/3id-lifecycle.md'
@@ -273,10 +269,14 @@ plugins:
         'authentication/key-did/method.md': 'docs/advanced/standards/accounts/key-did.md'
         'authentication/key-did/provider.md': 'docs/advanced/standards/accounts/key-did.md'
         'authentication/key-did/resolver.md': 'docs/advanced/standards/accounts/key-did.md'
+        'reference/glaze/overview.md': 'reference/glaze/index.md'
+        'reference/self-id/overview.md': 'reference/self-id/index.md'
         'streamtypes/caip-10-link/api.md': 'reference/stream-programs/caip10-link.md'
         'streamtypes/caip-10-link/overview.md': 'docs/advanced/standards/stream-programs/caip10-link.md'
         'streamtypes/tile-document/api.md': 'reference/stream-programs/tile-document.md'
         'streamtypes/tile-document/overview.md': 'docs/advanced/standards/stream-programs/tile-document.md'
         'streamtypes/overview.md': 'docs/advanced/standards/stream-programs/index.md'
+        'tools/glaze/overview.md': 'reference/glaze/index.md'
         'tools/idx/overview.md': 'docs/advanced/standards/application-protocols/identity-index.md'
+        'tools/self-id/overview.md': 'reference/self-id/index.md'
   - search

@@ -10,15 +10,14 @@ A collection of helpful development guides created by the community. Want to add
 
 The Ceramic blog contains many useful resources that can help when building applications with Ceramic. To check out those resources, head over to [**the Ceramic blog →**](https://blog.ceramic.network){:target="\_blank"}.
 
-
 ## **Application development guides**
 
 ---
 
-- [Getting started with the Ceramic CLI]()
-- [Using the Ceramic HTTP Client]()
-- [Retrieving data from Ceramic]()
-- [Build a note-taking application with Glaze suite]()
+- [Getting started with the Ceramic CLI](../build/cli/quick-start.md)
+- [Using the Ceramic HTTP Client](../build/javascript/quick-start.md)
+- [Retrieving data from Ceramic](../build/javascript/queries.md)
+- [Build a note-taking application with Glaze suite](../tools/glaze/example.md)
 
 ## **Protocol development guides**
 
