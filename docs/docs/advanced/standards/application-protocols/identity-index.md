@@ -22,7 +22,7 @@ CIP-11 "Identity Index" (commonly called "IDX") is a decentralized identity prot
 
 ## Protocol design
 
-Dive into the design and architecture of the IDX protocol, which is implemented by the IDX SDK.
+Dive into the design and architecture of the IDX protocol, which is implemented by DID DataStore.
 
 ![Image that describes the architecture of IDX](../../../../images/idx-architecture.png)
 
