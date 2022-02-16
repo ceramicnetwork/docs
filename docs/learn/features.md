@@ -8,7 +8,7 @@ Ceramic's decentralized data network provides Web3 developers with a collection 
 
 ---
 
-Ceraic provides developers with a set of standard, open APIs for storing, updating, and retrieving data from the network. This helps to break down data silos, enabling all data to be openly accessible. Additionally, all data mutations on Ceramic are cryptographically verifiable and can provide auditability throughout all historical versions of a piece of data that has changed over time.
+Ceramic provides developers with a set of standard, open APIs for storing, updating, and retrieving data from the network. This helps to break down data silos, enabling all data to be openly accessible. Additionally, all data mutations on Ceramic are cryptographically verifiable and can provide auditability throughout all historical versions of a piece of data that has changed over time.
 
 ## **Data composability**
 
