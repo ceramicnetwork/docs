@@ -42,7 +42,7 @@ async function getLinkedDID() {
   // Using the Ceramic client instance, we can load the link for a given CAIP-10 account
   const link = await Caip10Link.fromAccount(
     ceramic,
-    'eip155:1:0x0544dcf4fce959c6c4f3b7530190cb5e1bd67cb8',
+    '0x0544dcf4fce959c6c4f3b7530190cb5e1bd67cb8@eip155:1',
   )
   // The `did` property of the loaded link will contain the DID string value if set
   return link.did
