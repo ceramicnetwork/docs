@@ -208,6 +208,9 @@ markdown_extensions:
       toc_depth: 3
 
 extra:
+  analytics:
+    provider: google
+    property: G-MP8QDL3LWK
   generator: false
   # Social icons in footer
   social:
