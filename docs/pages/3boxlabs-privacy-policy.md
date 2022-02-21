@@ -49,6 +49,8 @@ Cookies, tags, and similar technologies are small pieces of code placed on your 
 
 - **Do Not Track Requests.** Some web browsers or smartphones can set “Do Not Track” requests to block user activity from being tracked across web pages or devices. We do not recognize “Do Not Track” signals because there is no industry standard way to do so.
 
+[Change cookie settings](#__consent){ .md-button }
+
 ## USE OF PERSONAL INFORMATION
 
 We use the Personal Information we collect for:

@@ -1,5 +1,27 @@
 INHERIT: mkdocs.yml
 
+extra:
+  analytics:
+    provider: google
+    property: G-MP8QDL3LWK
+  consent:
+    title: Cookie consent
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well as to measure the
+      effectiveness of our documentation and whether users find what they're searching for, in
+      accordance to our <a href="/pages/3boxlabs-terms-conditions/">Terms and Conditions</a> and
+      <a href="/pages/3boxlabs-privacy-policy/">Privacy Policy</a>. With your consent, you're helping
+      us to make our documentation better.
+  generator: false
+  # Social icons in footer
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ceramicnetwork/ceramic
+      name: Ceramicnetwork on Github
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/ceramicnetwork
+      name: Ceramicnetwork on Twitter
+
 theme:
   name: material
   custom_dir: overrides
