@@ -22,7 +22,7 @@ npm install @self.id/core
 
 Before using the Self.ID Core APIs, make sure you have [configured your setup](configuration.md) including your node and data models.
 
-#### Connect to a Ceramic ndoe
+#### Connect to a Ceramic node
 
 The Self.ID `Core` instance generates a Ceramic client that needs to connect to a Ceramic node:
 
@@ -39,7 +39,7 @@ This Ceramic endpoint can be the URL of any known node, `http://localhost:7007`,
 
 #### Configure data models
 
-Self.ID core come [pre-configured with a few popular data models](configuration.md#configure-your-data-models) that you can use to retrieve data from the network. You can read about those data models, and learn how to add additional data models, in the [data models configuration](configuration.md#using-additional-data-models) page.
+Self.ID core is [pre-configured with a few popular data models](configuration.md#configure-your-data-models) that you can use to retrieve data from the network. You can read about those data models, and learn how to add additional data models, in the [data models configuration](configuration.md#using-additional-data-models) page.
 
 ### **Retrieving user data**
 
