@@ -8,7 +8,7 @@ Stream data can be divided into two main categories: [commits](../glossary.md#co
 
 ## **Stream commits**
  
-Every stream is an event log consisting of one or more commits, and each commit contains of at least two [IPLD](../glossary.md#ipld) objects. Collectively these commits store the data that makes up the content of a stream.
+Every stream is an event log consisting of one or more commits, and each commit contains at least two [IPLD](../glossary.md#ipld) objects. Collectively these commits store the data that makes up the content of a stream.
 
 ### Caching
 
