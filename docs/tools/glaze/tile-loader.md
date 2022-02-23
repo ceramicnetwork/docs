@@ -36,7 +36,7 @@ const [stream1, stream2] = await Promise.all([
 ])
 ```
 
-Wen using the `loader` instance, the two streams will now be loaded with a single network request:
+When using the `loader` instance, the two streams will now be loaded with a single network request:
 
 ```ts
 import { TileLoader } from '@glazed/tile-loader'
