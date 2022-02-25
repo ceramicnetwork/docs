@@ -7,8 +7,8 @@ This page describes the data persistence and data availability model for [stream
 Stream data can be divided into two main categories: [commits](../glossary.md#commits) and [state](../glossary.md#state). While there is some overlap, these two types of data have enough difference that they should be considered separately when planning how to persist and host your streams. All commits and state for a given stream must be available when performing [writes](../../build/javascript/writes.md) or [queries](../../build/javascript/queries.md) on that stream; if not, your client will return an error. This error will disappear once all data comes back online. In the event that one or more commits for the given stream were permanently lost due to improper persistence management, then this stream will be corrupted and the error will not disappear.
 
 ## **Stream commits**
-
-Every stream is an event log consisting of one of more commits, and each commit contains of at least two [IPLD](../glossary.md#ipld) objects. Collectively these commits store the data that makes up the content of a stream.
+ 
+Every stream is an event log consisting of one or more commits, and each commit contains at least two [IPLD](../glossary.md#ipld) objects. Collectively these commits store the data that makes up the content of a stream.
 
 ### Caching
 
