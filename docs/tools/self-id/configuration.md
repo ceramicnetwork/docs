@@ -15,7 +15,7 @@ In all Self.ID modules, you'll need to specify which Ceramic node to use. This e
 
 | Preconfigurations | Network | Permissions | Implementation | Host |
 | ----- | ----- | ----- | ----- | ----- |
-| `local` | Local | Write/Read | JS Ceramic | Local |
+| `local` | Local | Read/Write | JS Ceramic | Local |
 | `testnet-clay` | Clay testnet | Read/Write | JS Ceramic | 3Box Labs |
 | `testnet-clay-gateway` | Clay testnet | Read-only | JS Ceramic | 3Box Labs |
 | `mainnet-gateway` | Mainnet | Read-only | JS Ceramic | 3Box Labs |
