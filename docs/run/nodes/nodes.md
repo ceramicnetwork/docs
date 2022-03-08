@@ -2,7 +2,7 @@
 
 ---
 
-This guide provide complete instructions and various tools for launching a highly-available, well-connected Ceramic node in the cloud.
+This guide provide complete instructions and various tools for launching a well-connected Ceramic node in the cloud.
 
 ## **Who should run Ceramic in the cloud?**
 
@@ -14,23 +14,13 @@ At this time, any application that wishes to deploy to mainnet needs to run thei
 
 ---
 
-**Ceramic networks** – There are currently three Ceramic networks: `mainnet`, `testnet-clay`, and `dev-unstable`. Learn more about each network [here](https://developers.ceramic.network/learn/networks/). By default, Ceramic will connect to the Clay testnet and a [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service) running on Ethereum Ropsten. When you are ready to get on Ceramic mainnet, reach out on the [Ceramic Discord →](https://chat.ceramic.network). For now, mainnet is limited to early partners and we will need to test your connectivity before granting you access.
+**Ceramic networks** – There are currently three Ceramic networks: `mainnet`, `testnet-clay`, and `dev-unstable`. Learn more about each network [here](https://developers.ceramic.network/learn/networks/). By default, Ceramic will connect to the Clay testnet and a [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service) running on Ethereum Ropsten. When you are ready to get on Ceramic mainnet, reach out on the [Ceramic Discord →](https://chat.ceramic.network) to get access to our mainnet anchor service.
 
-**Running IPFS** – Ceramic relies on the IPFS interplanetary file system. By default, Ceramic includes an internal IPFS instance. You can run Ceramic and IPFS in this single process or in separate processes that communicate over HTTP. For production, it is recommended to run as separate processes for better scalability, resource utilization, control, debugging, and observability.
+**Running IPFS** – Ceramic relies on a system called [IPFS](https://docs.ipfs.io/) to connect to and share data in Ceramic networks. IPFS can run in a "bundled" mode alongside the Ceramic daemon or in "unbundled" mode, in which Ceramic connects to IPFS over HTTP. **Bundled** mode is designed for testing and local development only. **Unbundled** mode is designed for production and accomodates both local and cloud setups. It allows for more configuration options, controlled resource allocation, maintenance, debugging, and observability. (Note that Ceramic only works with go-ipfs version 0.11 or later.)
 
-**DagJose codec** – When using an IPFS node running separately from Ceramic, this IPFS node needs to support the `dagJose` codec, which is not included in IPFS by default. You should use the [@ceramicnetwork/ipfs-daemon](https://www.npmjs.com/package/@ceramicnetwork/ipfs-daemon), package which includes `js-ipfs` configured with dagJose support. Config options for the IPFS daemon can be viewed in the [ipfs-daemon README](https://github.com/ceramicnetwork/js-ceramic/tree/develop/packages/ipfs-daemon) and in the [ipfs-daemon source code](https://github.com/ceramicnetwork/js-ceramic/blob/develop/packages/ipfs-daemon/src/ipfs-daemon.ts).
+The rest of this guide assumes you are running Ceramic with IPFS unbundled.
 
-**Restarts and maintaining data persistence and connectivity** – Ceramic and IPFS will not automatically restart if they crash. You should configure your own restart mechanism and you must ensure data persistence between restarts. If the IPFS multiaddress changes for any reason (your node goes down or restarts without pulling in an existing config file), your node will regenerate this file upon restarting with a new address and all other nodes on the network will lose connection to you.
-
-## **Quick start**
-
----
-
-### [**Run Ceramic on AWS ECS with Terraform →**](https://github.com/ceramicnetwork/terraform-aws-ceramic)
-
-The 3Box Labs team has written a Terraform module that configures Ceramic and IPFS in AWS ECS. This module is currently the fastest way to run Ceramic in the cloud. It runs Ceramic and IPFS separately in containers using Docker images. This module currently requires some common AWS resources to be pre-configured as well as Cloudflare. You can see an [example of the module in use](https://github.com/ceramicnetwork/terraform-aws-ceramic/blob/main/examples/ecs/main.tf).
-
-> We highly encourage others to create Terraform modules for other infrastructure providers and using different platforms.
+**Process management, restarts and data persistence** – Ceramic and IPFS will not automatically restart if they crash. You should configure your own restart mechanism and you must ensure data persistence between restarts.
 
 ## **Required steps**
 
@@ -43,209 +33,220 @@ Below are the steps required for running a Ceramic node in the cloud. This guide
 3. [Stay connected to the network](#stay-connected-to-the-network)
 4. [Get observability data from your node](#observability)
 
+## **Quick start**
+
+---
+
+### [**Run Ceramic on AWS ECS with Terraform →**](https://github.com/ceramicnetwork/terraform-aws-ceramic)
+
+The 3Box Labs team has written a [Terraform module](https://github.com/ceramicnetwork/terraform-aws-ceramic) that configures Ceramic and IPFS in AWS ECS using Fargate. Using this module is a fast and reliable way to run Ceramic in the cloud because it is set up for data persistence and auto-restarts. The module currently requires some common AWS resources to be pre-configured as well as Cloudflare. See an [example of the module in use](https://github.com/ceramicnetwork/terraform-aws-ceramic/blob/main/examples/ecs/main.tf).
+
+> We highly encourage the community to create Terraform modules or other templates for different infrastructure providers to further decentralize the Ceramic network.
+
 ## **Running the daemon**
 
 ---
 
-The JS Ceramic node is run as a daemon using Docker or Node.js, It can be configured with a JSON file which is created on start and located at `$HOME/.ceramic/daemon.config.json`. Configuration options can be viewed in the [reference documentation for the DaemonConfig class](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_cli.daemonconfig-1.html).
+The [js-ceramic](https://github.com/ceramicnetwork/js-ceramic) node is run as a daemon using Node.js or Docker.
 
-### **Install from DockerHub**
+By default, the Ceramic daemon runs bundled with a [go-ipfs](https://github.com/ipfs/go-ipfs) node and connects to the Clay testnet and an Ethereum Ropsten [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service). In production you should change these defaults to secure your data and accommodate your infrastructure setup.
 
-The JS Ceramic repo builds Docker images that run the Ceramic daemon and IPFS from the source code of the master branch. These images are tagged with `latest` and the git commit hash of the source code that the image was built from. You can view the image builds of [js-ceramic on DockerHub](https://hub.docker.com/r/ceramicnetwork/js-ceramic) and compatible builds of [ipfs-daemon on DockerHub](https://hub.docker.com/r/ceramicnetwork/ipfs-daemon).
+The Ceramic daemon can be configured with a JSON file which is created on start and located at `$HOME/.ceramic/daemon.config.json`. See [example daemon.config.json](#example-daemonconfigjson) below. Configuration options can be viewed in the [reference documentation for the DaemonConfig class](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_cli.daemonconfig-1.html).
+
+### **Run with Docker containers**
+
+Docker images to run Ceramic and IPFS are built from the source code of the [js-ceramic](https://github.com/ceramicnetwork/js-ceramic) and [go-ipfs-daemon](https://github.com/ceramicnetwork/go-ipfs-daemon) repositories respectively. Images built from the main branches are tagged with `latest` and the git commit hash from which the image was built. You can view the image builds of [js-ceramic on DockerHub](https://hub.docker.com/r/ceramicnetwork/js-ceramic). The Docker image for go-ipfs-daemon pre-configures IPFS with plugins that make it easy to run on cloud infrastructure. You can view the image builds for [go-ipfs-daemon on DockerHub](https://hub.docker.com/r/ceramicnetwork/go-ipfs-daemon).
+
+### **Run outside of containers**
+
+If you would like to run Ceramic and IPFS outside of containers or on bare metal, start by installing [go-ipfs](https://github.com/ipfs/go-ipfs) (**version 0.11 or later**). Depending on your infrastructure setup you may consider building go-ipfs with the [healthcheck plugin](https://github.com/ceramicnetwork/go-ipfs-healthcheck) and [S3 datastore plugin](https://github.com/3box/go-ds-s3). Next install the Ceramic daemon with the [js-ceramic CLI](https://www.npmjs.com/package/@ceramicnetwork/cli), which is available as a public NPM module. It is currently compatible with **Node.js version 16.**
+
+
+
+### **Data Persistence**
+
+To run a Ceramic node in production, it is critical to persist the [Ceramic state store](https://developers.ceramic.network/run/nodes/nodes/#ceramic-state-store) and the [IPFS datastore](https://github.com/ipfs/go-ipfs/blob/master/docs/config.md#datastorespec). The form of storage you choose should also be configured for disaster recovery with data redundancy, and some form of snapshotting and/or backups.
+
+**Loss of this data can result in permanent loss of Ceramic streams and will cause your node to be in a corrupt state.**
+
+The Ceramic state store and IPFS datastore are stored on your machine's filesystem by default. The Ceramic state store defaults to `$HOME/.ceramic/statestore`. The IPFS datastore defaults to `ipfs/blocks` located wherever you run IPFS.
+
+The fastest way to ensure data persistence is by mounting a persistent volume to your instances and configuring the Ceramic and IPFS nodes to write to the mount location. The mounted volume should be configured such that the data persists if the instance shuts down.
+
+You can also use AWS S3 for data storage which is supported for both Ceramic and IPFS. Examples of the configuration for both storage options are listed below.
+
+#### IPFS Datastore
+
+The IPFS datastore stores the raw IPFS blocks that make up Ceramic streams. To prevent data corruption, use environment variables written to your profile file, or otherwise injected into your environment on start so that the datastore location does not change between reboots.
+
+Note: Switching between data storage locations is an advanced feature and should be avoided. Depending on the sharding implementation you may need to do a data migration first. See [https://github.com/ipfs/go-ipfs/blob/master/docs/config.md#datastorespec](https://github.com/ipfs/go-ipfs/blob/master/docs/config.md#datastorespec) for more information.
+
+#### Ceramic State Store
+
+The Ceramic state store holds commits for pinned streams and the acts as a cache for the Ceramic streams that your node creates or loads. To ensure that the data you create with your Ceramic node does not get lost you must pin streams you care about and you must ensure that the state store does not get deleted.
+
+
+## **Examples**
+
+---
+
+### Example with Docker containers
 
 ```bash
-docker pull ceramicnetwork/ipfs-daemon:latest
+docker pull ceramicnetwork/go-ipfs-daemon:latest
 
-docker run -d -p 4011:4011 -p 5011:5011 -e CERAMIC_NETWORK=mainnet --name ipfs-daemon ceramicnetwork/ipfs-daemon:latest
+# Use this snippet to keep the datastore in the volume
+docker run \
+  -p 5001:5001 \ # API port
+  -p 8011:8011 \ # Healthcheck port
+  -v /path_on_volume_for_ipfs_repo:/data/ipfs \
+  --name ipfs \
+  go-ipfs-daemon
+
+# Use this snippet to keep the datastore in S3
+docker run \
+  -p 5001:5001 \ # API port
+  -p 8011:8011 \ # Healthcheck port
+  -v /path_on_volume_for_ipfs_repo:/data/ipfs \
+  -e IPFS_ENABLE_S3=true \
+  -e IPFS_S3_REGION=region \
+  -e IPFS_S3_BUCKET_NAME=bucket_name \
+  -e IPFS_S3_ROOT_DIRECTORY=root_directory \
+  -e IPFS_S3_ACCESS_KEY_ID=aws_access_key_id \
+  -e IPFS_S3_SECRET_ACCESS_KEY=aws_secret_access_key \
+  -e IPFS_S3_KEY_TRANSFORM=next-to-last/2 \ # Sharding method
+  --name ipfs \
+  go-ipfs-daemon
 
 # Get the IP address
 docker inspect -f \
   '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' \
-  ipfs-daemon
-
-docker pull ceramicnetwork/js-ceramic:latest
+  ipfs
 ```
 
-Next launch the daemons:
-
-```
-docker run -d \
--p 7007:7007 \
--v /path_for_daemon_config:/root/.ceramic/daemon.config.json \
--v /path_for_ceramic_logs:/root/.ceramic/logs \
--v /path_for_ceramic_statestore:/root/.ceramic/statestore \
---name js-ceramic \
-ceramicnetwork/js-ceramic:latest
-```
-
-Then, configure your setup using a JSON file. See [example daemon.config.json](#example-daemonconfigjson) below.
-
-### **Install from npm**
-
-The [JS Ceramic CLI](https://www.npmjs.com/package/@ceramicnetwork/cli) and [ipfs-daemon](https://www.npmjs.com/package/@ceramicnetwork/ipfs-daemon) are available as npm modules. They are currently compatible with **Node.js version 14**. After a global installation, the daemons can be run from the command line:
+Before running the Ceramic daemon, configure it to use IPFS unbundled. See [example daemon.config.json](#example-daemonconfigjson) below.
 
 ```bash
-npm install -g @ceramicnetwork/ipfs-daemon
-export CERAMIC_NETWORK=mainnet # Set the Ceramic network for the IPFS node
-ipfs-daemon
+docker pull ceramicnetwork/js-ceramic:latest
 
-# In a new shell, configure Ceramic to use IPFS
+# Use this snippet to keep the statestore in a volume
+docker run -d \
+  -p 7007:7007 \
+  -v /path_on_volume_for_daemon_config:/root/.ceramic/daemon.config.json \
+  -v /path_on_volume_for_ceramic_logs:/root/.ceramic/logs \
+  -v /path_on_volume_for_ceramic_statestore:/root/.ceramic/statestore \
+  -e NODE_ENV=production \
+  --name js-ceramic \
+  ceramicnetwork/js-ceramic:latest
 
-npm install -g @ceramicnetwork/cli
+# Use this snippet to keep the statestore in S3
+docker run -d \
+  -p 7007:7007 \
+  -v /path_for_daemon_config:/root/.ceramic/daemon.config.json \
+  -v /path_for_ceramic_logs:/root/.ceramic/logs \
+  -e NODE_ENV=production \
+  -e AWS_ACCESS_KEY_ID=s3_access_key_id \
+  -e AWS_SECRET_ACCESS_KEY=s3_secret_access_key \
+  --name js-ceramic \
+  ceramicnetwork/js-ceramic:latest
 ```
 
-Next launch the daemons:
+### Example without containers
+
+After installation, both daemons can be run from the command line
+
+```bash
+ipfs init
+ipfs daemon
+```
+
+Before running the Ceramic daemon, configure it to use IPFS unbundled. See [example daemon.config.json](#example-daemonconfigjson) below.
 
 ```bash
 ceramic daemon
 ```
 
-Then, configure your setup using a JSON file. See [example daemon.config.json](#example-daemonconfigjson) below.
-
 ### **Example daemon.config.json**
 
 ```json
 {
-  "anchor": {
-    "ethereum-rpc-url": "https://eg_infura_endpoint" // Replace with an Ethereum RPC endpoint to avoid rate limiting
-  },
-  "http-api": {
-    "cors-allowed-origins": [".*"]
-  },
-  "ipfs": {
-    "mode": "remote", // Use "remote" for IPFS out-of-process or "bundled" for in-process
-    "host": "http://ipfs_ip_address:5011"
-  },
-  "logger": {
-    "log-level": 2, // 0 is most verbose
-    "log-to-files": true
-  },
-  "network": {
-    "name": "mainnet" // Connect to mainnet, testnet-clay, or dev-unstable
-  },
-  "node": {},
-  "state-store": {
-    "mode": "fs",
-    "local-directory": "/path_for_ceramic_statestore" // Defaults to $HOME/.ceramic/statestore
-  }
+    "anchor": {
+        "ethereum-rpc-url": "https://eg_infura_endpoint" // Replace with an Ethereum RPC endpoint to avoid rate limiting
+    },
+    "http-api": {
+        "cors-allowed-origins": [
+            ".*"
+        ]
+    },
+    "ipfs": {
+        "mode": "remote", // Use "remote" or "bundled"
+        "host": "http://ipfs_ip_address:5001"
+    },
+    "logger": {
+        "log-level": 2, // 0 is most verbose
+        "log-to-files": true
+    },
+    "network": {
+        "name": "mainnet", // Connect to mainnet, testnet-clay, or dev-unstable
+    },
+    "node": {},
+    "state-store": {
+        "mode": "s3",
+        "s3-bucket": "bucket_name"
+    }
 }
 ```
 
-## **Configure data persistence**
+To use volume storage for the statestore instead of S3
 
----
+```json
+"state-store": {
+    "mode": "fs",
+    "local-directory": "/path_for_ceramic_statestore", // Defaults to $HOME/.ceramic/statestore
+}
+```
 
-When running a Ceramic node in production, it is critical to persist the IPFS multiaddress for network connectivity, the IPFS repo, and the Ceramic state store for data persistence since there is no guarantee another node is also keeping your data available. **Loss of this data can result in permanent loss of Ceramic streams and will cause your node to be in a corrupt state.**
+### Example AWS S3 Policies
 
-!!! warning ""
+IPFS AWS S3 policy for the access key
 
-    Data persistence is the most critical step to properly running a Ceramic node. The form of storage you choose should be configured for disaster recovery with data redundancy, some form of snapshotting, and/or backups.
-
-The IPFS repo and the Ceramic state store are stored on your machine's filesystem by default. The IPFS repo defaults to a directory called `ipfs` located wherever you run the `ipfs-daemon` process (or where you run the`ceramic daemon` process if keeping Ceramic and IPFS bundled, which isn't recommended). The Ceramic state store defaults to `~/.ceramic/statestore`.
-
-The fastest way to ensure data persistence is by mounting a persistent volume to your instances and configuring the Ceramic and IPFS nodes to write to the mount location. The mounted volume should be configured such that the data persists if the instance shuts down.
-
-You can also use AWS S3 for data storage which is supported for both Ceramic and IPFS. Below are examples of the configuration for both storage options.
-
-### **Persisting IPFS data**
-
-The IPFS repo holds configuration settings and all the raw IPFS data for the Ceramic streams used by your node. It is essential to keep the file names `config` generated by IPFS so that your node can stay connected to the Ceramic network. This file is located at the root of the IPFS repo directory.
-
-!!! warning ""
-
-    The IPFS config file holds your node's private key which is used to generate your node's peerId and multiaddress. If this file is deleted it will be re-created on start with a different key, peerId and multiaddress. This will result in your node and the rest of the network not being able to connect to each other.
-
-!!! warning ""
-
-    Environment variables should be written to your profile file, or otherwise injected into your environment on start so that they persist between reboots.
-
-=== "Volume storage"
-
-    ```bash
-    # Environment variable to use a mounted volume for IPFS persistence
-    export IPFS_PATH="/mnt_volume_path_for_ipfs"
-    ```
-
-=== "AWS S3"
-
-    ```bash
-    # Environment variables to use S3 for IPFS persistence
-    export IPFS_S3_REPO_ENABLED="true"
-    export IPFS_PATH="directory_for_the_bucket"
-    export AWS_BUCKET_NAME="bucket_name"
-    export AWS_ACCESS_KEY_ID="aws_access_key_id"
-    export AWS_SECRET_ACCESS_KEY="aws_secret_access_key"
-    export IPFS_BACKEND_ROOT="s3"
-    export IPFS_BACKEND_BLOCKS="s3"
-    export IPFS_BACKEND_KEYS="s3"
-    export IPFS_BACKEND_PINS="s3"
-    export IPFS_BACKEND_DATASTORE="s3"
-    ```
-
-    ```json
-    // IPFS AWS S3 policy for the access key
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
     {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-        "Action": [
-            "s3:GetObject",
-            "s3:ListBucket",
-            "s3:PutObject",
-            "s3:DeleteObject"
-        ],
-        "Effect": "Allow",
-        "Resource": ["ipfs_bucket_arn", "ipfs_bucket_arn/*"]
-        }
-    ]
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket",
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Effect": "Allow",
+      "Resource": ["ipfs_bucket_arn", "ipfs_bucket_arn/*"]
     }
-    ```
+  ]
+}
+```
 
-### **Persisting the Ceramic State Store**
+Ceramic state store AWS S3 policy for the access key
 
-The Ceramic state store holds commits for pinned streams and the acts as a cache for the Ceramic streams that your node creates or loads. To ensure that the data you create with your Ceramic node does not get lost you must pin streams you care about and you must ensure that the state store does not get deleted.
-
-=== "Volume storage"
-
-    Using `daemon.config.json`
-
-    ```json
-        "state-store": {
-            "mode": "fs",
-            "local-directory": "/mnt_volume_path_for_statestore",
-        },
-    ```
-
-=== "AWS S3"
-
-    Using `daemon.config.json`
-
-    ```json
-        "state-store": {
-            "mode": "s3",
-            "s3-bucket": "bucket_name"
-        },
-    ```
-
-    Ceramic state store AWS S3 policy for the access key
-
-    ```json
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
     {
-     "Version": "2012-10-17",
-     "Statement": [
-        {
-        "Action": [
-            "s3:ListBucket",
-            "s3:GetObject",
-            "s3:PutObject",
-            "s3:DeleteObject"
-        ],
-        "Effect": "Allow",
-        "Resource": ["state_store_bucket_arn", "state_store_bucket_arn/*"]
-        }
-    ]
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:DeleteObject"
+      ],
+      "Effect": "Allow",
+      "Resource": ["state_store_bucket_arn", "state_store_bucket_arn/*"]
     }
-    ```
+  ]
+}
+```
 
 ## **Stay connected to the network**
 
@@ -299,4 +300,4 @@ Request and event logs are written in [logfmt](https://brandur.org/logfmt). This
 
 ---
 
-Congratulations! You have now set up a highly-available, well-connected Ceramic node in the cloud which can receive HTTP requests from the local environment, the [JS HTTP Client](../../build/javascript/installation.md#js-http-client), or to simply serve as another node to replicate and pin streams. Please report any bugs as issues on the [JS Ceramic GitHub](https://github.com/ceramicnetwork/js-ceramic).
+Congratulations! You have now set up a well-connected Ceramic node in the cloud which can receive HTTP requests from the local environment, the [JS HTTP Client](../../build/javascript/installation.md#js-http-client), or to simply serve as another node to replicate and pin streams. Please report any bugs as issues on the [JS Ceramic GitHub](https://github.com/ceramicnetwork/js-ceramic).
