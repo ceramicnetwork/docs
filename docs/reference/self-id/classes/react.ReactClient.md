@@ -1,14 +1,14 @@
-# Class: RequestClient<ModelTypes, Alias\>
+# Class: ReactClient<ModelTypes\>
 
-[react](../modules/react.md).RequestClient
+[react](../modules/react.md).ReactClient
 
-The RequestClient extends the [`Core`](core.Core.md) class as a server-side client for
-prefetching and serializing records so they can be hydrated on the browser side.
+ReactClient extends the [`Core class`](core.Core.md) with authentication support in browser
+environments.
 
 It is exported by the [`react`](../modules/react.md) module.
 
 ```sh
-import { RequestClient } from '@self.id/react'
+import { ReactClient } from '@self.id/react'
 ```
 
 ## Type parameters
@@ -16,32 +16,30 @@ import { RequestClient } from '@self.id/react'
 | Name | Type |
 | :------ | :------ |
 | `ModelTypes` | extends `ModelTypeAliases` = `CoreModelTypes` |
-| `Alias` | extends keyof `ModelTypes`[``"definitions"``] = keyof `ModelTypes`[``"definitions"``] |
 
 ## Hierarchy
 
 - `Core`<`ModelTypes`\>
 
-  ↳ **`RequestClient`**
+  ↳ **`ReactClient`**
 
 ## Constructors
 
 ### constructor
 
-• **new RequestClient**<`ModelTypes`, `Alias`\>(`params`)
+• **new ReactClient**<`ModelTypes`\>(`params`)
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
 | `ModelTypes` | extends `ModelTypeAliases`<`Record`<`string`, `any`\>, `Record`<`string`, `string`\>, `Record`<`string`, `string`\>\> = `ModelTypes` |
-| `Alias` | extends `string` \| `number` \| `symbol` = keyof `ModelTypes`[``"definitions"``] |
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `params` | [`RequestClientParams`](../modules/react.md#requestclientparams)<`ModelTypes`\> |
+| `params` | `WebClientParams`<`ModelTypes`\> |
 
 #### Overrides
 
@@ -117,19 +115,26 @@ ___
 
 Core.tileLoader
 
-___
+## Methods
 
-### viewerID
+### authenticate
 
-• `get` **viewerID**(): ``null`` \| `string`
+▸ **authenticate**(`authProvider`): `Promise`<`SelfID`<`ModelTypes`, keyof `ModelTypes`[``"definitions"``]\>\>
 
-Viewer ID associated to the request, if found in cookie string.
+Create a [`SelfID`](web.SelfID.md) instance using the given `authProvider` and attach the
+associated DID instance to the internal Ceramic client instance.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `authProvider` | `EthereumAuthProvider` |
 
 #### Returns
 
-``null`` \| `string`
+`Promise`<`SelfID`<`ModelTypes`, keyof `ModelTypes`[``"definitions"``]\>\>
 
-## Methods
+___
 
 ### get
 
@@ -176,44 +181,6 @@ ___
 #### Inherited from
 
 Core.getAccountDID
-
-___
-
-### getState
-
-▸ **getState**(): [`RequestState`](../modules/react.md#requeststate)
-
-Return a serialized request state possibly containing the current viewer ID and prefetched
-records so they can be injected on the browser side, notably in the [`Provider`](../modules/react.md#provider).
-
-#### Returns
-
-[`RequestState`](../modules/react.md#requeststate)
-
-___
-
-### prefetch
-
-▸ **prefetch**<`Key`\>(`key`, `id?`): `Promise`<`boolean`\>
-
-Prefetch loading a record so it can be exported using [`getState`](react.RequestClient.md#getstate).
-
-#### Type parameters
-
-| Name | Type |
-| :------ | :------ |
-| `Key` | extends `string` \| `number` \| `symbol` |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `key` | `Key` |
-| `id` | ``null`` \| `string` |
-
-#### Returns
-
-`Promise`<`boolean`\>
 
 ___
 

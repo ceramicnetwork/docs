@@ -10,14 +10,13 @@ import { ModelManager } from '@glazed/devtools'
 
 ### constructor
 
-• **new ModelManager**(`ceramic`, `model?`)
+• **new ModelManager**(`config`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `ceramic` | `CeramicApi` |
-| `model?` | `ManagedModel`<`DagJWSResult`\> |
+| `config` | [`ModelManagerConfig`](../modules/devtools.md#modelmanagerconfig) |
 
 ## Accessors
 
@@ -60,6 +59,30 @@ ___
 `string`[]
 
 ## Methods
+
+### \_createDoc
+
+▸ **_createDoc**<`T`\>(`content`, `metadata?`, `opts?`): `Promise`<`TileDocument`<`T`\>\>
+
+#### Type parameters
+
+| Name | Type |
+| :------ | :------ |
+| `T` | `Record`<`string`, `any`\> |
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `content` | `T` |
+| `metadata` | `Partial`<`StreamMetadata`\> |
+| `opts` | `CreateOpts` |
+
+#### Returns
+
+`Promise`<`TileDocument`<`T`\>\>
+
+___
 
 ### addJSONModel
 
@@ -174,6 +197,16 @@ ___
 #### Returns
 
 `Promise`<`string`\>
+
+___
+
+### deploy
+
+▸ **deploy**(): `Promise`<`ModelData`<`string`\>\>
+
+#### Returns
+
+`Promise`<`ModelData`<`string`\>\>
 
 ___
 
@@ -428,26 +461,16 @@ ___
 
 ___
 
-### toPublished
+### useDeployed
 
-▸ **toPublished**(): `Promise`<`ModelData`<`string`\>\>
-
-#### Returns
-
-`Promise`<`ModelData`<`string`\>\>
-
-___
-
-### usePublished
-
-▸ **usePublished**<`T`, `ID`\>(`type`, `alias`, `id`): `Promise`<`string`\>
+▸ **useDeployed**<`T`, `ID`\>(`type`, `alias`, `id`): `Promise`<`string`\>
 
 #### Type parameters
 
 | Name | Type |
 | :------ | :------ |
-| `T` | extends keyof `UsePublishedIDType` |
-| `ID` | `UsePublishedIDType`[`T`] |
+| `T` | extends keyof `UseDeployedIDType` |
+| `ID` | `UseDeployedIDType`[`T`] |
 
 #### Parameters
 
@@ -463,9 +486,9 @@ ___
 
 ___
 
-### usePublishedDefinition
+### useDeployedDefinition
 
-▸ **usePublishedDefinition**(`alias`, `id`): `Promise`<`string`\>
+▸ **useDeployedDefinition**(`alias`, `id`): `Promise`<`string`\>
 
 #### Parameters
 
@@ -480,9 +503,9 @@ ___
 
 ___
 
-### usePublishedSchema
+### useDeployedSchema
 
-▸ **usePublishedSchema**(`alias`, `id`): `Promise`<`string`\>
+▸ **useDeployedSchema**(`alias`, `id`): `Promise`<`string`\>
 
 #### Parameters
 
@@ -497,9 +520,9 @@ ___
 
 ___
 
-### usePublishedTile
+### useDeployedTile
 
-▸ **usePublishedTile**(`alias`, `id`): `Promise`<`string`\>
+▸ **useDeployedTile**(`alias`, `id`): `Promise`<`string`\>
 
 #### Parameters
 
@@ -516,14 +539,13 @@ ___
 
 ### fromJSON
 
-▸ `Static` **fromJSON**(`ceramic`, `encoded`): [`ModelManager`](devtools.ModelManager.md)
+▸ `Static` **fromJSON**(`params`): [`ModelManager`](devtools.ModelManager.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `ceramic` | `CeramicApi` |
-| `encoded` | `EncodedManagedModel` |
+| `params` | [`FromJSONParams`](../modules/devtools.md#fromjsonparams) |
 
 #### Returns
 

@@ -4,6 +4,16 @@
 
 Ceramic provides a decentralized network for building Web3 applications with composable data. Ceramic's APIs enable applications to store, modify, and retrieve data from a scalable decentralized data network, while maintaining composability of data across applications.
 
+## **System requirements**
+
+---
+
+Ceramic clients and tools using them are designed for environments supporting [ECMAScript 11th edition](https://262.ecma-international.org/11.0/), commonly referred to as ES2020.
+
+Most packages are exposed as ECMAScript Modules (ESM), which are supported by most modern browsers and recent versions of Node.
+
+When using Node, we recommend version 16 (LTS), as it is the version used for tests in most Ceramic packages.
+
 ## **Get started with frameworks**
 
 ---

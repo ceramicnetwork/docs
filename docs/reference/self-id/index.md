@@ -8,9 +8,9 @@ Self.ID is a framework that makes it easy to build Web3 applications with Ethere
 
 ---
 
-**✅ One library, easy setup**
+**✅ Easy setup**
 
-Self.ID is a single library with minimal configuration that provides access to the full Ceramic stack with support for popular environments such as `React` and `web`. The Self.ID SDK uses [Glaze suite](../glaze/index.md) middleware, [3ID DID](../../docs/advanced/standards/accounts/3id-did.md) accounts, [3ID Connect](../accounts/3id-did.md#3id-connect) authentication, and [Ceramic HTTP client](../core-clients/ceramic-http.md) and [DID JSON-RPC client](../core-clients/did-jsonrpc.md).
+Self.ID is a simple SDK requiring minimal configuration that provides access to the full Ceramic stack with support for popular environments such as `React` and `web`. The Self.ID SDK uses [Glaze suite](../glaze/index.md) middleware, [3ID DID](../../docs/advanced/standards/accounts/3id-did.md) accounts, [3ID Connect](../accounts/3id-did.md#3id-connect) authentication, and [Ceramic HTTP client](../core-clients/ceramic-http.md) and [DID JSON-RPC client](../core-clients/did-jsonrpc.md).
 
 **✅ Login with Web3**
 
@@ -23,27 +23,6 @@ The SDK includes some of the most popular Ceramic data models out-of-the-box, su
 **✅ Extensible data models**
 
 You're not limited to just the data models provided by Self.ID! You can create new data models or import ones from the [Data Models Registry](https://github.com/ceramicstudio/datamodels) to add additional data features to your application.
-
-## **SDK overview**
-
----
-
-The Self.ID SDK contains modules organized in the following manner:
-
-```
-┌─────────────────────────────────────────────┐
-│                  framework                  │
-├─────────────┬─┬─────────────┬─┬─────────────┤
-├─────────────┤ ├─────────────┤ ├─────────────┤
-│    react    │ │  multiauth  │ │ image-utils │
-├─────────────┤ ├─────────────┤ └─────────────┘
-├─────────────┤ ├─────────────┤
-│     web     │ │     ui      │
-├─────────────┤ └─────────────┘
-├─────────────┤
-│    core     │
-└─────────────┘
-```
 
 ## **Building with React**
 
@@ -63,7 +42,7 @@ The React module is used by the Framework module and provides React-specific com
 
 ### [**Using the Web module →**](../../tools/self-id/write.md)
 
-The Web module provides user authentication, data storage, and retrieval for browser-based web applications.
+The Web module provides user authentication, data storage, and retrieval for browser-based applications.
 
 ### [**Using the Core module →**](../../tools/self-id/read.md)
 
