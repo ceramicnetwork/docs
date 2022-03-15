@@ -33,7 +33,7 @@ The `ModelManager` constructor requires a Ceramic instance, that must be authent
 ```ts
 import { ModelManager } from '@glazed/devtools'
 
-const manager = new ModelManager(ceramic)
+const manager = new ModelManager({ ceramic })
 ```
 
 ### **Constructing your model manager**
@@ -45,7 +45,7 @@ A model manager consists of various data models used by your application. Each d
 If the stream containing the schema you wish to use is already available on your Ceramic node, you can add it like this:
 
 ```ts
-await manager.usePublishedSchema('MySchema', schemaStreamReference)
+await manager.useDeployedSchema('MySchema', schemaStreamReference)
 ```
 
 If the schema you wish to use is not available on your Ceramic node or has not been created yet, you can create it like this:
@@ -63,24 +63,24 @@ await manager.createSchema('MySchema', {
 
 #### Adding definitions
 
-Similar methods can be used to add data model definitions with `usePublishedDefinition()` and `createDefinition()` or Tiles with `usePublishedTile()` and `createTile()`.
+Similar methods can be used to add data model definitions with `useDeployedDefinition()` and `createDefinition()` or Tiles with `useDeployedTile()` and `createTile()`.
 
 ### **Import/export as JSON**
 
 The ManagedModel used internally by a `ModelManager` can be exported and imported as JSON for easier portability and storage:
 
 ```ts
-const encodedModel = manager.toJSON()
+const model = manager.toJSON()
 
-const clonedManager = ModelManager.fromJSON(ceramic, encodedModel)
+const clonedManager = ModelManager.fromJSON({ ceramic, model })
 ```
 
 ### **Deploy to Ceramic**
 
-The model can be deployed to your Ceramic node by calling the `toPublished()` method:
+The model can be deployed to your Ceramic node by calling the `deploy()` method:
 
 ```ts
-const publishedModel = await manager.toPublished()
+const modelAliases = await manager.deploy()
 ```
 
 ## **Example**
@@ -103,10 +103,10 @@ import { model as basicProfileModel } from '@datamodels/identity-profile-basic'
 import { model as cryptoAccountsModel } from '@datamodels/identity-accounts-crypto'
 import { model as webAccountsModel } from '@datamodels/identity-accounts-web'
 
-const manager = new ModelManager(ceramic)
+const manager = new ModelManager({ ceramic })
 manager.addJSONModel(basicProfileModel)
 manager.addJSONModel(cryptoAccountsModel)
 manager.addJSONModel(webAccountsModel)
 
-const published = await manager.toPublished()
+const aliases = await manager.deploy()
 ```

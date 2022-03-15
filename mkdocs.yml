@@ -186,7 +186,7 @@ nav:
           - Utilities:
               - Image utilities: reference/self-id/modules/image_utils.md
               #- 3Box utilities: reference/self-id/modules/3box_legacy.md
-      - List of core Ceramic JS packages: reference/javascript/packages.md
+      - Ceramic JS packages and API references: reference/javascript/packages.md
       - Glossary: learn/glossary.md
 
 markdown_extensions:
