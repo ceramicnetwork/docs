@@ -168,6 +168,7 @@ nav:
               - Tile loader:
                   - Tile loader module: reference/glaze/modules/tile_loader.md
                   - TileLoader class: reference/glaze/classes/tile_loader.TileLoader.md
+              - Shared types: reference/glaze/modules/types.md
       - Self.ID SDK:
           - Framework: reference/self-id/modules/framework.md
           - React:
