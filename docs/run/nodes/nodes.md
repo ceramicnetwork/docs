@@ -2,25 +2,25 @@
 
 ---
 
-This guide provide complete instructions and various tools for launching a well-connected Ceramic node in the cloud.
+This guide provides complete instructions and various tools for launching a well-connected Ceramic node in the cloud.
 
 ## **Who should run Ceramic in the cloud?**
 
 ---
 
-At this time, any application that wishes to deploy to mainnet needs to run their own node. Additionally, developers building on testnet may wish to run their own node so they don't need to rely on [community-hosted nodes](https://developers.ceramic.network/run/nodes/community-nodes/) which may be unstable and/or wipe data from time to time.
+At this time, any application that wishes to deploy to `mainnet` needs to run their own node. Additionally, developers building on `testnet-clay` may wish to run their own node so they don't need to rely on [community-hosted nodes](https://developers.ceramic.network/run/nodes/community-nodes/) which may be unstable and/or wipe data from time to time.
 
 ## **Things to know**
 
 ---
 
-**Ceramic networks** – There are currently three Ceramic networks: `mainnet`, `testnet-clay`, and `dev-unstable`. Learn more about each network [here](https://developers.ceramic.network/learn/networks/). By default, Ceramic will connect to the Clay testnet and a [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service) running on Ethereum Ropsten. When you are ready to get on Ceramic mainnet, reach out on the [Ceramic Discord →](https://chat.ceramic.network) to get access to our mainnet anchor service.
+**Ceramic networks** – There are currently three Ceramic networks: `mainnet`, `testnet-clay`, and `dev-unstable`. Learn more about each network [here](https://developers.ceramic.network/learn/networks/). By default, Ceramic will connect to `testnet-clay` and a [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service) running on Ethereum Ropsten. When you are ready to get on Ceramic `mainnet`, reach out on the [Ceramic Discord →](https://chat.ceramic.network) to get access to our `mainnet` anchor service.
 
-**Running IPFS** – Ceramic relies on a system called [IPFS](https://docs.ipfs.io/) to connect to and share data in Ceramic networks. IPFS can run in a "bundled" mode alongside the Ceramic daemon or in "unbundled" mode, in which Ceramic connects to IPFS over HTTP. **Bundled** mode is designed for testing and local development only. **Unbundled** mode is designed for production and accomodates both local and cloud setups. It allows for more configuration options, controlled resource allocation, maintenance, debugging, and observability. (Note that Ceramic only works with go-ipfs version 0.11 or later.)
+**Running IPFS** – Ceramic relies on a system called [IPFS](https://docs.ipfs.io/) to connect to and share data in Ceramic networks. IPFS can run in a "bundled" mode alongside the Ceramic daemon or in "unbundled" mode, in which Ceramic connects to IPFS over HTTP. **Bundled** mode is designed for testing and local development only. **Unbundled** mode is designed for production and accommodates both local and cloud setups. It allows for more configuration options, controlled resource allocation, maintenance, debugging, and observability. (Note that Ceramic only works with `go-ipfs` version 0.11 or later.)
 
 The rest of this guide assumes you are running Ceramic with IPFS unbundled.
 
-**Process management, restarts and data persistence** – Ceramic and IPFS will not automatically restart if they crash. You should configure your own restart mechanism and you must ensure data persistence between restarts.
+**Process management, restarts and data persistence** – Ceramic and IPFS will not automatically restart if they crash. You should configure your own restart mechanism, and you must ensure data persistence between restarts.
 
 ## **Required steps**
 
@@ -49,19 +49,17 @@ The 3Box Labs team has written a [Terraform module](https://github.com/ceramicne
 
 The [js-ceramic](https://github.com/ceramicnetwork/js-ceramic) node is run as a daemon using Node.js or Docker.
 
-By default, the Ceramic daemon runs bundled with a [go-ipfs](https://github.com/ipfs/go-ipfs) node and connects to the Clay testnet and an Ethereum Ropsten [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service). In production you should change these defaults to secure your data and accommodate your infrastructure setup.
+By default, the Ceramic daemon runs bundled with a [go-ipfs](https://github.com/ipfs/go-ipfs) node and connects to the Clay testnet and an Ethereum Ropsten [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service). In production, you should change these defaults to secure your data and accommodate your infrastructure setup.
 
 The Ceramic daemon can be configured with a JSON file which is created on start and located at `$HOME/.ceramic/daemon.config.json`. See [example daemon.config.json](#example-daemonconfigjson) below. Configuration options can be viewed in the [reference documentation for the DaemonConfig class](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_cli.daemonconfig-1.html).
 
 ### **Run with Docker containers**
 
-Docker images to run Ceramic and IPFS are built from the source code of the [js-ceramic](https://github.com/ceramicnetwork/js-ceramic) and [go-ipfs-daemon](https://github.com/ceramicnetwork/go-ipfs-daemon) repositories respectively. Images built from the main branches are tagged with `latest` and the git commit hash from which the image was built. You can view the image builds of [js-ceramic on DockerHub](https://hub.docker.com/r/ceramicnetwork/js-ceramic). The Docker image for go-ipfs-daemon pre-configures IPFS with plugins that make it easy to run on cloud infrastructure. You can view the image builds for [go-ipfs-daemon on DockerHub](https://hub.docker.com/r/ceramicnetwork/go-ipfs-daemon).
+Docker images to run Ceramic and IPFS are built from the source code of the [js-ceramic](https://github.com/ceramicnetwork/js-ceramic) and [go-ipfs-daemon](https://github.com/ceramicnetwork/go-ipfs-daemon) repositories respectively. Images built from the main branches are tagged with `latest` and the git commit hash from which the image was built. You can view the image builds of [js-ceramic on DockerHub](https://hub.docker.com/r/ceramicnetwork/js-ceramic). The Docker image for `go-ipfs-daemon` pre-configures IPFS with plugins that make it easy to run on cloud infrastructure. You can view the image builds for [go-ipfs-daemon on DockerHub](https://hub.docker.com/r/ceramicnetwork/go-ipfs-daemon).
 
 ### **Run outside of containers**
 
-If you would like to run Ceramic and IPFS outside of containers or on bare metal, start by installing [go-ipfs](https://github.com/ipfs/go-ipfs) (**version 0.11 or later**). Depending on your infrastructure setup you may consider building go-ipfs with the [healthcheck plugin](https://github.com/ceramicnetwork/go-ipfs-healthcheck) and [S3 datastore plugin](https://github.com/3box/go-ds-s3). Next install the Ceramic daemon with the [js-ceramic CLI](https://www.npmjs.com/package/@ceramicnetwork/cli), which is available as a public NPM module. It is currently compatible with **Node.js version 16.**
-
-
+If you would like to run Ceramic and IPFS outside of containers or on bare metal, start by installing [go-ipfs](https://github.com/ipfs/go-ipfs) (**version 0.11 or later**). Depending on your infrastructure setup you may consider building `go-ipfs` with the [healthcheck plugin](https://github.com/ceramicnetwork/go-ipfs-healthcheck) and [S3 datastore plugin](https://github.com/3box/go-ds-s3). Next install the Ceramic daemon with the [js-ceramic CLI](https://www.npmjs.com/package/@ceramicnetwork/cli), which is available as a public NPM module. It is currently compatible with **Node.js version 16.**
 
 ### **Data Persistence**
 
@@ -228,6 +226,10 @@ IPFS AWS S3 policy for the access key
 }
 ```
 
+!!! info ""
+
+    The [S3 datastore](https://github.com/3box/go-ds-s3) is not available out-of-the-box in vanilla `go-ipfs`. In order to use it with minimal configuration, use the 3Box Labs [go-ipfs-daemon](https://github.com/ceramicnetwork/go-ipfs-daemon).
+
 Ceramic state store AWS S3 policy for the access key
 
 ```json
@@ -247,6 +249,12 @@ Ceramic state store AWS S3 policy for the access key
   ]
 }
 ```
+
+## **Resource Allocation**
+
+---
+
+The 3Box Labs team runs Ceramic and out-of-process IPFS nodes in AWS ECS with 4 vCPU and 8 GB of memory allocated for each node.
 
 ## **Stay connected to the network**
 
@@ -272,19 +280,15 @@ Ceramic nodes rely on IPFS for networking. IPFS nodes connect to each other usin
 
     Healthchecks can be run against the `HEALTHCHECK_PORT` (port `8011` by default) when `HEALTHCHECK_ENABLED` is `true`.
 
-Additionally when running IPFS separately from Ceramic, the IPFS API port must be accessible by the Ceramic node. The default API port is `5011`. The IPFS node address will then be passed to Ceramic with a CLI flag `--ipfs-api <ipfs_api_url>`.
+Additionally, when running IPFS separately from Ceramic, the IPFS API port must be accessible by the Ceramic node. The default API port is `5011`. The IPFS node address will then be passed to Ceramic with a CLI flag `--ipfs-api <ipfs_api_url>`.
 
 ### **Join the peerlist**
 
-The `ipfs-daemon` package used by Ceramic has IPFS's node discovery mechanism, the Libp2p DHT, turned off by default. With node discovery turned off, we must manually create a connected network of peers by sharing known addresses and dialing them explicitly. The `ipfs-daemon` package handles this logic and requires that every node that wants to be in the network be in a "peerlist" which is maintained [here](https://github.com/ceramicnetwork/peerlist).
-
-Once you have fully configured your Ceramic node with this guide and have a way to persist its configuration and state, submit a pull request to the [Ceramic peerlist](https://github.com/ceramicnetwork/peerlist) with the persistent multiaddress of your IPFS node, the IP address for your Ceramic node, and a brief description of the data persistence setup for the multiaddress, Ceramic State Store, and IPFS Repo. When a pull request is submitted, it triggers a connectivity test to ensure the node can successfully connect to the network. If this fails, the 3Box Labs team will reach out to you directly to triage the issue. Make sure there are no firewalls blocking your instance and that your port is properly exposed. Once your pull request is merged, you will be connected to the Ceramic network and the [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service).
+Once you have fully configured your Ceramic node with this guide and have a way to persist its configuration and state, submit a pull request to the [Ceramic peerlist](https://github.com/ceramicnetwork/peerlist) with the public, static *egress* IP address for your Ceramic node, and a brief description of the data persistence setup for the multiaddress, Ceramic State Store, and IPFS Repo. Once your pull request is reviewed, you will be connected to the Ceramic network and the [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service).
 
 !!! warning ""
 
-    Mainnet nodes will not run immediately after start up until your IP address is added to the allow list for the anchor service hosted by 3Box Labs and your PR to the peerlist is merged.
-
-Once you are on the peerlist, you should monitor your IPFS node and alert our team on Discord in the case of any planned or unexpected downtime. Please make your best effort to come back online within 24 hours. If we can not connect to your IPFS node for over 24 hours, we will remove it from the peerlist and you can resubmit your multiaddress in a new PR once your node becomes stable again. If the connectivity test in your PR to the peerlist fails and it is due to a node other than your own, we will update the peerlist and re-run the tests for you.
+    Mainnet nodes will not run immediately after start up until your pull request is reviewed and your IP address is added to the allow list for the 3Box Labs hosted anchor service.
 
 ## **Observability**
 
