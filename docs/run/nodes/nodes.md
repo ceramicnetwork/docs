@@ -16,9 +16,7 @@ At this time, any application that wishes to deploy to `mainnet` needs to run th
 
 **Ceramic networks** – There are currently three Ceramic networks: `mainnet`, `testnet-clay`, and `dev-unstable`. Learn more about each network [here](https://developers.ceramic.network/learn/networks/). By default, Ceramic will connect to `testnet-clay` and a [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service) running on Ethereum Ropsten. When you are ready to get on Ceramic `mainnet`, reach out on the [Ceramic Discord →](https://chat.ceramic.network) to get access to our `mainnet` anchor service.
 
-**Running IPFS** – Ceramic relies on a system called [IPFS](https://docs.ipfs.io/) to connect to and share data in Ceramic networks. IPFS can run in a "bundled" mode alongside the Ceramic daemon or in "unbundled" mode, in which Ceramic connects to IPFS over HTTP. **Bundled** mode is designed for testing and local development only. **Unbundled** mode is designed for production and accommodates both local and cloud setups. It allows for more configuration options, controlled resource allocation, maintenance, debugging, and observability. (Note that Ceramic only works with `go-ipfs` version 0.11 or later.)
-
-The rest of this guide assumes you are running Ceramic with IPFS unbundled.
+**Running IPFS** – Ceramic relies on a system called [IPFS](https://docs.ipfs.io/) to connect to and share data in Ceramic networks. IPFS runs as a separate process from the Ceramic node itself, with each Ceramic node connected to a dedicated IPFS node over HTTP. The Ceramic Daemon can launch an IPFS process automatically (referred to as running ipfs in "bundled" mode in the Ceramic config file), which can be helpful for getting started quickly for testing and local development, but for production deployments we recommend running your own IPFS process manually and pointing your Ceramic node at it (referred to as running ipfs in "remote" mode in the Ceramic config file). This allows for more configuration options for your IPFS node allowing for more controlled resource allocation, as well as improved maintenance, debugging and observability. Note that Ceramic only supports `go-ipfs` version 0.12 or later.
 
 **Process management, restarts and data persistence** – Ceramic and IPFS will not automatically restart if they crash. You should configure your own restart mechanism, and you must ensure data persistence between restarts.
 
@@ -51,7 +49,7 @@ The [js-ceramic](https://github.com/ceramicnetwork/js-ceramic) node is run as a 
 
 By default, the Ceramic daemon runs bundled with a [go-ipfs](https://github.com/ipfs/go-ipfs) node and connects to the Clay testnet and an Ethereum Ropsten [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service). In production, you should change these defaults to secure your data and accommodate your infrastructure setup.
 
-The Ceramic daemon can be configured with a JSON file which is created on start and located at `$HOME/.ceramic/daemon.config.json`. See [example daemon.config.json](#example-daemonconfigjson) below. Configuration options can be viewed in the [reference documentation for the DaemonConfig class](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_cli.daemonconfig-1.html).
+The Ceramic daemon can be configured with a JSON file which is created on start and located at `$HOME/.ceramic/daemon.config.json` by default. See [example daemon.config.json](#example-daemonconfigjson) below. Configuration options can be viewed in the [reference documentation for the DaemonConfig class](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_cli.daemonconfig-1.html).
 
 ### **Run with Docker containers**
 
@@ -59,7 +57,7 @@ Docker images to run Ceramic and IPFS are built from the source code of the [js-
 
 ### **Run outside of containers**
 
-If you would like to run Ceramic and IPFS outside of containers or on bare metal, start by installing [go-ipfs](https://github.com/ipfs/go-ipfs) (**version 0.11 or later**). Depending on your infrastructure setup you may consider building `go-ipfs` with the [healthcheck plugin](https://github.com/ceramicnetwork/go-ipfs-healthcheck) and [S3 datastore plugin](https://github.com/3box/go-ds-s3). Next install the Ceramic daemon with the [js-ceramic CLI](https://www.npmjs.com/package/@ceramicnetwork/cli), which is available as a public NPM module. It is currently compatible with **Node.js version 16.**
+If you would like to run Ceramic and IPFS outside of containers or on bare metal, start by installing [go-ipfs](https://github.com/ipfs/go-ipfs) (**version 0.12 or later**). Depending on your infrastructure setup you may consider building `go-ipfs` with the [healthcheck plugin](https://github.com/ceramicnetwork/go-ipfs-healthcheck) and [S3 datastore plugin](https://github.com/3box/go-ds-s3). Next install the Ceramic daemon with the [js-ceramic CLI](https://www.npmjs.com/package/@ceramicnetwork/cli), which is available as a public NPM module. It is currently compatible with **Node.js version 16.**
 
 ### **Data Persistence**
 
@@ -81,7 +79,7 @@ Note: Switching between data storage locations is an advanced feature and should
 
 #### Ceramic State Store
 
-The Ceramic state store holds commits for pinned streams and the acts as a cache for the Ceramic streams that your node creates or loads. To ensure that the data you create with your Ceramic node does not get lost you must pin streams you care about and you must ensure that the state store does not get deleted.
+The Ceramic state store holds state for pinned streams and the acts as a cache for the Ceramic streams that your node creates or loads. To ensure that the data you create with your Ceramic node does not get lost you must pin streams you care about and you must ensure that the state store does not get deleted.
 
 
 ## **Examples**
@@ -122,7 +120,7 @@ docker inspect -f \
   ipfs
 ```
 
-Before running the Ceramic daemon, configure it to use IPFS unbundled. See [example daemon.config.json](#example-daemonconfigjson) below.
+Before running the Ceramic daemon, configure it to use IPFS in "remote" mode. See [example daemon.config.json](#example-daemonconfigjson) below.
 
 ```bash
 docker pull ceramicnetwork/js-ceramic:latest
@@ -158,7 +156,7 @@ ipfs init
 ipfs daemon
 ```
 
-Before running the Ceramic daemon, configure it to use IPFS unbundled. See [example daemon.config.json](#example-daemonconfigjson) below.
+Before running the Ceramic daemon, configure it to use IPFS in "remote" mode. See [example daemon.config.json](#example-daemonconfigjson) below.
 
 ```bash
 ceramic daemon
@@ -177,7 +175,7 @@ ceramic daemon
         ]
     },
     "ipfs": {
-        "mode": "remote", // Use "remote" or "bundled"
+        "mode": "remote", // Use "remote" or "bundled". "remote" is recommended for production deployments
         "host": "http://ipfs_ip_address:5001"
     },
     "logger": {
@@ -254,7 +252,7 @@ Ceramic state store AWS S3 policy for the access key
 
 ---
 
-The 3Box Labs team runs Ceramic and out-of-process IPFS nodes in AWS ECS with 4 vCPU and 8 GB of memory allocated for each node.
+The 3Box Labs team runs Ceramic and remote IPFS nodes in AWS ECS with 4 vCPU and 8 GB of memory allocated for each node.
 
 ## **Stay connected to the network**
 
@@ -280,7 +278,7 @@ Ceramic nodes rely on IPFS for networking. IPFS nodes connect to each other usin
 
     Healthchecks can be run against the `HEALTHCHECK_PORT` (port `8011` by default) when `HEALTHCHECK_ENABLED` is `true`.
 
-Additionally, when running IPFS separately from Ceramic, the IPFS API port must be accessible by the Ceramic node. The default API port is `5011`. The IPFS node address will then be passed to Ceramic with a CLI flag `--ipfs-api <ipfs_api_url>`.
+Additionally, when running IPFS the IPFS API port must be accessible by the Ceramic node. The default API port is `5001`. The IPFS node address will then be passed to Ceramic with a CLI flag `--ipfs-api <ipfs_api_url>`, or the `ipfs.host` option in the Ceramic daemon config file.
 
 ### **Join the peerlist**
 
