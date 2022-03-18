@@ -4,7 +4,7 @@ This guide describes how to install the [JS Core Client](./installation.md#js-co
 
 ## **Requirements**
 
-Installing the JS Core Client requires a console, [Node.js](https://nodejs.org/en/){:target="\_blank"} v14, and [npm](https://www.npmjs.com/get-npm){:target="\_blank"} v6. Make sure to have these installed on your machine.
+Installing the JS Core Client requires a console, [Node.js](https://nodejs.org/en/){:target="\_blank"} v16, and [npm](https://www.npmjs.com/get-npm){:target="\_blank"} v6. Make sure to have these installed on your machine.
 
 !!! warning ""
 
@@ -23,6 +23,8 @@ npm install @ceramicnetwork/core
 ```
 
 ## **2. Import the Core client**
+
+In the javascript code that your application will use to connect to Ceramic, import the Ceramic Core client.
 
 ```javascript
 import Ceramic from '@ceramicnetwork/core'
