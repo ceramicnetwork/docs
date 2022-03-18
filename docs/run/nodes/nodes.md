@@ -18,6 +18,8 @@ At this time, any application that wishes to deploy to `mainnet` needs to run th
 
 **Running IPFS** – Ceramic relies on a system called [IPFS](https://docs.ipfs.io/) to connect to and share data in Ceramic networks. IPFS runs as a separate process from the Ceramic node itself, with each Ceramic node connected to a dedicated IPFS node over HTTP. The Ceramic Daemon can launch an IPFS process automatically (referred to as running ipfs in "bundled" mode in the Ceramic config file), which is designed for testing and local development only. For production deployments you should run your own IPFS process manually and point your Ceramic node at it (referred to as running ipfs in "remote" mode in the Ceramic config file). This allows for more configuration options for your IPFS node allowing for more controlled resource allocation, as well as improved maintenance, debugging and observability. Note that Ceramic only supports `go-ipfs` version 0.12 or later.
 
+The rest of this guide assumes you are running Ceramic with IPFS in "remote" mode.
+
 **Process management, restarts and data persistence** – Ceramic and IPFS will not automatically restart if they crash. You should configure your own restart mechanism, and you must ensure data persistence between restarts.
 
 ## **Required steps**
