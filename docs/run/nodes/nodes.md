@@ -288,7 +288,7 @@ Once you have fully configured your Ceramic node with this guide and have a way 
 
 Ceramic has a debug mode that you can enable using the `--debug` flag. This will allow you to see all logs printed to your console, including debug logs, API requests, events, and errors.
 
-For observability, it is best to have these logs written to files to debug any issues and to generate metrics. Logging to files can be enabled with the `--log-to-files` flag. The default location for logs is `~/.ceramic/logs` but this path can be configured with the `--log-directory` flag. Without debug mode enabled you will still get critical logs and metrics written to files.
+For observability, it is best to have these logs written to files to debug any issues and to generate metrics. Logging to files can be enabled with the `logger.log-to-files` config file option. The default location for logs is `~/.ceramic/logs` but this path can be configured with the `logger.log-directory` config file option. Even without debug mode enabled you will still get critical logs and metrics written to files.
 
 Request and event logs are written in [logfmt](https://brandur.org/logfmt). This makes them easy to import into [Grafana](https://grafana.com/) dashboards using a log scraping agent like [Promtail](https://grafana.com/docs/loki/latest/clients/promtail/) and a log aggregator like [Loki](https://grafana.com/docs/loki/latest/), which can be used as a data source for Grafana. An example of such a setup can be found [here](https://github.com/3box/ceramic-stats).
 
