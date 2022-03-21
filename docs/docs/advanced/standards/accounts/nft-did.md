@@ -81,7 +81,7 @@ Note: If you wish to build with NFT accounts, you need to ensure your users can 
 
 ---
 
-- Only [ERC-21](https://eips.ethereum.org/EIPS/eip-721) and [ERC-1155](https://eips.ethereum.org/EIPS/eip-1155) tokens are supported at this time.
+- Only [ERC-721](https://eips.ethereum.org/EIPS/eip-721) and [ERC-1155](https://eips.ethereum.org/EIPS/eip-1155) tokens are supported at this time.
 - Only Ethereum Rinkeby, Etherem mainnet, and Polygon networks are supported by default. If you need other networks, see the [nft-did-resolver README](https://github.com/ceramicnetwork/nft-did-resolver),
 and update network parameters and configuration of your Ceramic node. Notable, this config needs three additional [subgraphs](https://thegraph.com): for blocks, for ERC-721 and ERC-1155 tokens, and a "skew", which is a typical block time.
 
