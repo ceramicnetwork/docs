@@ -6,3 +6,7 @@
 article.md-content__inner {
   padding-bottom: 90px;
 }
+
+h1 {
+  color: #111;
+}

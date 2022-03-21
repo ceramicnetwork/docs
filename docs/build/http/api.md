@@ -1,21 +1,26 @@
-# HTTP API
+# **Ceramic HTTP API**
 
-The HTTP API allows you to manually make REST HTTP requests to write, query, and pin streams on a remote Ceramic node. If you are building an application, you will usually interact with Ceramic using a client, such as the [**JS HTTP Client**](../javascript/installation.md#js-http-client) or the [**JS Core Client**](../javascript/installation.md#js-core-client).
+---
 
-However the HTTP API is useful if:
+The Ceramic HTTP API is the standard lowest-level communication protocol between clients and nodes on the Ceramic network. It allows client applications to manually make REST HTTP requests to a remote Ceramic node to send transactons, retrieve data, and "pin" data to make it available.
 
-- You have a special use case where you directly want to make manual HTTP requests
-- You want to implement an HTTP client in a new language
+If you are building an application, you will usually interact with Ceramic using a client API, such as the [JS HTTP Client](../javascript/installation.md#js-http-client), or a framework such as the [Self.ID SDK](../frameworks/index.md), which includes the JS HTTP client by default.
+
+## **When to use the HTTP API**
+
+---
+
+The HTTP API is useful if you have a special use case where you directly want to make manual HTTP requests, or you want to implement an HTTP client in a new language.
 
 !!! warning "Gateway mode"
 
-    Some HTTP API methods will not be available if the Ceramic node you are using runs in *gateway mode*. This option disables writes, which is useful when exposing your node to the internet. **API methods that are disabled when running in gateway mode will be clearly marked.** For examples of gateways, see [Community Nodes: Gateways](../../run/nodes/community-nodes.md#gateways).
+    Some HTTP API methods will not be available if the Ceramic node you are using runs in *gateway mode*. This option disables writes, which is useful when exposing your node to the internet. **API methods that are disabled when running in gateway mode will be clearly marked.**
 
-## **Streams**
+## **Streams API**
 
-The `stream` endpoint is used to create new streams and to load streams from their StreamID or from their genesis content.
+The `stream` endpoint is used to create new streams and load streams from the node using a StreamID or genesis content.
 
-### Get stream state
+### Loading a stream
 
 Load the state of a stream given its StreamID.
 
@@ -68,11 +73,11 @@ The response body contains the following fields:
     }
     ```
 
-### Create stream
+### Creating stream
 
 **:octicons-alert-16: Disabled in gateway mode**
 
-Create a new stream, or load a stream from its genesis content. The genesis content may be signed (e.g. DagJWS for the [TileDocument StreamType](../../streamtypes/tile-document/overview.md)), or unsigned in some cases.
+Create a new stream, or load a stream from its genesis content. The genesis content may be signed (e.g. DagJWS for the [TileDocument StreamType](../../docs/advanced/standards/stream-programs/tile-document.md)), or unsigned in some cases.
 
 === "Request"
 
@@ -138,11 +143,11 @@ This example creates a `TileDocument` from an unsigned genesis commit. Note that
     }
     ```
 
-## **Multiqueries**
+## **Multiqueries API**
 
 The `multiqueries` endpoint enables querying multiple streams at once, as well as querying streams which are linked.
 
-### Query multiple streams
+### Querying multiple streams
 
 This endpoint allows you to query multiple StreamIDs. Along with each StreamID an array of paths can be passed. If any of the paths within the stream structure contains a Ceramic StreamID url (`ceramic://<StreamID>`), this linked stream will also be returned as part of the response.
 
@@ -299,11 +304,11 @@ Now let's query them though the multiqueries endpoint:
     }
     ```
 
-## **Commits**
+## **Commits API**
 
 The `commits` endpoint provides lower level access to the data structure of a Ceramic stream. It is also the enpoint that is used in order to update a stream, by adding a new commit.
 
-### Get all stream commits
+### Getting all commits in a stream
 
 By calling GET on the _commits_ endpoint along with a StreamID gives you access to all of the commits of the given stream. This is useful if you want to inspect the stream history, or apply all of the commits to a Ceramic node that is not connected to the network.
 
@@ -370,7 +375,7 @@ By calling GET on the _commits_ endpoint along with a StreamID gives you access 
     }
     ```
 
-### Apply a commit to stream
+### Applying a new commit to stream
 
 **:octicons-alert-16: Disabled in gateway mode**
 
@@ -459,11 +464,11 @@ In order to modify a stream we apply a commit to its log. This commit usually co
     }
     ```
 
-## **Pins**
+## **Pins API**
 
 The `pins` api endpoint can be used to manipulate the pinset. The pinset is all of the streams that a node maintains the state of. Any stream opened by the node that is not pinned will eventually be garbage collected from the node.
 
-### Add to pinset
+### Adding to pinset
 
 **:octicons-alert-16: Disabled in gateway mode**
 
@@ -499,7 +504,7 @@ This method adds the stream with the given StreamID to the pinset.
     }
     ```
 
-### Remove from pinset
+### Removing from pinset
 
 **:octicons-alert-16: Disabled in gateway mode**
 
@@ -535,7 +540,7 @@ This method removes the stream with the given StreamID from the pinset.
     }
     ```
 
-### List streams in pinset
+### Listing streams in pinset
 
 Calling this method allows you to list all of the streams that are in the pinset on this node.
 
@@ -570,7 +575,7 @@ Calling this method allows you to list all of the streams that are in the pinset
     }
     ```
 
-### Confirm stream in pinset
+### Checking inclusion in pinset
 
 This method is used to check if a particular stream is in the pinset.
 
@@ -602,7 +607,7 @@ This method is used to check if a particular stream is in the pinset.
     }
     ```
 
-## **Node Info**
+## **Node Info APIs**
 
 The methods under the `/node` path provides more information about this particular node.
 

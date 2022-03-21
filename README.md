@@ -30,7 +30,6 @@ Webserver with built docs should now be running and can be connected to in a bro
 - [Michael Sena](https://github.com/michaelsena)
 - [Spencer T. Brody](https://github.com/stbrody)
 - [Joel Thorstensson](https://github.com/oed)
-- [Gabe Cohen](https://github.com/glcohen)
 
 ## License
 

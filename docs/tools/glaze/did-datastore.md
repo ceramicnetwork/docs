@@ -1,69 +1,32 @@
-# DID DataStore
+# **DID DataStore**
 
-The DID DataStore is an implementation of the [Identity Index (IDX) CIP](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-11/CIP-11.md), allowing to associate records to a DID.
+---
 
-## Design
+DID DataStore is a runtime library that allows any application to store and retrieve data from a Ceramic account's personal datastore, with support for public and private data. The DID DataStore API is based on data models; when multiple applications reuse the same data model, they reuse the same underlying data. As such, DID DataStore is core to how Ceramic delivers user-centric data composability across applications.
 
-Dive into the design and architecture of the IDX protocol, which is implemented by the DID DataStore.
+## **How it works**
 
-![Image that describes the architecture of IDX](../../images/idx-architecture.png)
+---
 
-### Index
+The DID DataStore is an implementation of the [Identity Index (IDX) protocol](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-11/CIP-11.md), allowing to associate records to a DID. To learn more about the IDX protocol, see its [reference documentation](../../docs/advanced/standards/application-protocols/identity-index.md).
 
-The index is a stream controlled by the user's DID which stores entries consisting of [definition](#definitions) (represented by a streamID) to [record](#records) (represented by a streamID) mappings. Every DID has only one global index and its entries represent the entire catalog of data that belongs to the user. An index is similar to a row in a user table, and enables the decentralized association and discovery of streams that belong to a user.
+![Image that describes the architecture of the Identity Index protocol](../../images/idx-architecture.png)
 
-Example:
+## **Getting started with DID DataStore**
 
-```js
-{
-  "kyz123...456": "ceramic://kyz789...012",
-  "kyz345...678": "ceramic://kyz901...234",
-  "kyz567...890": "ceramic://kyz123...456",
-  "kyz789...012": "ceramic://kyz345...678"
-}
-```
+---
 
-### Definitions
+Visit the [**DID DataStore reference →**](../../reference/glaze/modules/did_datastore.md) documentation for full instructions on how to install, configure, and use the module in your application. For convenience, here's a look at what's possible with DID DataStore:
 
-Definitions are streams created by application developers that store metadata which describes the stream used for data storage. Definitions allow records to be semantically described and queried using their metadata or [schema](#schemas) and are similar to a column in a user table. The streamID of the definition is a key in the [index](#index).
-
-Example:
-
-```js
-{
-  name: 'Basic Profile',
-  description: 'A simple basic profile.',
-  schema: 'ceramic://kyz123...456'
-}
-```
-
-### Schemas
-
-Schemas are streams created by application developers that store a JSON schema. They specify the data schema of a [record](#records). Schemas are identified by the streamID of the stream that stores the schema, which is included in the [definition](#definitions) as seen above.
-
-### Records
-
-Records are streams that store information for a DID. They can directly store content, or they can store foreign key references to external datastores outside of Ceramic. A record is similar to a cell in a user table. The streamID of the record is a value in the [index](#index).
-
-Example:
-
-```js
-{
-  name: 'Alan Turing',
-  description: 'I make computers beep good.',
-  emoji: '💻'
-}
-```
-
-## Installation
+### **Installation**
 
 ```sh
 npm install @glazed/did-datastore
 ```
 
-## Usage
+### **Usage**
 
-The DID DataStore requires a Ceramic instance and either a [DataModel instance](datamodel.md#datamodel-runtime) or [PublishedModel object](datamodel.md#publishedmodel):
+The DID DataStore requires a Ceramic instance and either a [DataModel instance](../../reference/glaze/classes/datamodel.DataModel.md) or [PublishedModel object](development.md#deploy-to-ceramic) provided by the Glaze DataModel library:
 
 === "Using a DataModel instance"
 
@@ -71,7 +34,7 @@ The DID DataStore requires a Ceramic instance and either a [DataModel instance](
     import { DataModel } from '@glazed/datamodel'
     import { DIDDataStore } from '@glazed/did-datastore'
 
-    const publishedModel = {
+    const aliases = {
       schemas: {
         MySchema: 'ceramic://mySchemaURL',
       },
@@ -81,16 +44,16 @@ The DID DataStore requires a Ceramic instance and either a [DataModel instance](
       tiles: {},
     }
 
-    const model = new DataModel({ ceramic, model: publishedModel })
+    const model = new DataModel({ ceramic, aliases })
     const dataStore = new DIDDataStore({ ceramic, model })
     ```
 
-=== "Using a PublishedModel directly"
+=== "Using model aliases directly"
 
     ```ts
     import { DIDDataStore } from '@glazed/did-datastore'
 
-    const publishedModel = {
+    const aliases = {
       schemas: {
         MySchema: 'ceramic://mySchemaURL',
       },
@@ -100,15 +63,15 @@ The DID DataStore requires a Ceramic instance and either a [DataModel instance](
       tiles: {},
     }
 
-    const dataStore = new DIDDataStore({ ceramic, model: publishedModel })
+    const dataStore = new DIDDataStore({ ceramic, model: aliases })
     ```
 
-It is then possible to interact with records attached to the DataStore:
+### **Read/Write Data**
+
+It is then possible to read and write with data in the user's DataStore:
 
 ```ts
 await dataStore.set('myDefinition', { record: 'content' })
 
 await dataStore.get('myDefinition') // { record: 'content' }
 ```
-
-[API reference](../../reference/glaze/classes/did_datastore.DIDDataStore.md){: .md-button .md-button .md-button--primary }
