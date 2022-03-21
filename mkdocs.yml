@@ -123,7 +123,6 @@ nav:
               - Using the CLI: build/cli/api.md
           - Building with Ceramic clients:
               - Using the Ceramic HTTP client: build/javascript/quick-start.md
-              - Ceramic core Client: build/javascript/core.md
               - Retrieving data from Ceramic: build/javascript/queries.md
               - Pinning data on Ceramic: build/javascript/pinning.md
           - Building with Glaze suite:
