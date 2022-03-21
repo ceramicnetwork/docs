@@ -18,6 +18,10 @@ Installing the CLI requires a console, [Node.js](https://nodejs.org/en/){:target
     npm install -g node-pre-gyp
     ```
 
+!!! warning "Depreciation Notice:"
+
+    Interactions with Streams and TileDocuments have been moved to our [Glaze CLI](../../../tools/glaze/development#cli). If you encounter any errors with the commands below please retry using the Glaze CLI first.
+
 ## **Installation and usage**
 
 ---
