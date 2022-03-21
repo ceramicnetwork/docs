@@ -38,13 +38,13 @@ function App({ children }) {
 
 ### **User authentication**
 
-The [`useConnection` hook](../../reference/self-id/modules/framework.md#useconnection) provides a way for applications to access the current authentication state, initiate the authentication flow, and reset the authentication state.
+The [`useViewerConnection` hook](../../reference/self-id/modules/framework.md#useviewerconnection) provides a way for applications to access the current authentication state, initiate the authentication flow, and reset the authentication state.
 
 ```typescript
-import { useConnection } from '@self.id/framework'
+import { useViewerConnection } from '@self.id/framework'
 
 function ConnectButton() {
-  const [connection, connect, disconnect] = useConnection()
+  const [connection, connect, disconnect] = useViewerConnection()
 
   return connection.status === 'connected' ? (
     <button
@@ -56,8 +56,11 @@ function ConnectButton() {
   ) : 'ethereum' in window ? (
     <button
       disabled={connection.status === 'connecting'}
-      onClick={() => {
-        connect()
+      onClick={async () => {
+        const accounts = await window.ethereum.request({
+          method: 'eth_requestAccounts',
+        })
+        await connect(new EthereumAuthProvider(window.ethereum, accounts[0]))
       }}>
       Connect
     </button>
@@ -72,11 +75,9 @@ function ConnectButton() {
 
 The user authentication flow consists of the following steps:
 
-1. A modal prompts the user to select their Web3 wallet
-2. Selecting a wallet initiates the connection to access the Ethereum provider
-3. An [Ethereum auth provider](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_blockchain_utils_linking.ethereumauthprovider-1.html) is created using the Ethereum provider
-4. The auth flow with 3ID Connect starts, using the [Ethereum authentication provider](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_blockchain_utils_linking.ethereumauthprovider-1.html)
-5. A [`SelfID` instance](../../reference/self-id/classes/web.SelfID.md) is created and stored in application state
+1. An [Ethereum authentication provider](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_blockchain_utils_linking.ethereumauthprovider-1.html) is created using the Ethereum provider
+2. The auth flow with 3ID Connect starts, using the [Ethereum authentication provider](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_blockchain_utils_linking.ethereumauthprovider-1.html)
+3. A [`SelfID` instance](../../reference/self-id/classes/web.SelfID.md) is created and stored in application state
 
 Once this flow is completed, the viewer's cookie is set to the authenticated user and storing data with the user becomes possible.
 
@@ -100,6 +101,20 @@ function ShowViewerName() {
     ? `Hello ${record.content.name || 'stranger'}`
     : 'No profile to load'
   return <p>{text}</p>
+}
+
+function SetViewerName() {
+  const record = useViewerRecord('basicProfile')
+
+  return (
+    <button
+      disabled={!record.isMutable || record.isMutating}
+      onClick={async () => {
+        await record.merge({ name: 'Alice' })
+      }}>
+      Set name
+    </button>
+  )
 }
 ```
 

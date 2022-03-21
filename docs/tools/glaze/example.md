@@ -56,7 +56,7 @@ The following steps will present two ways of going through the development flow:
     ceramic.did = did
 
     // Create a manager for the model
-    const manager = new ModelManager(ceramic)
+    const manager = new ModelManager({ ceramic })
     ```
 
 === "CLI"
@@ -170,7 +170,7 @@ In this example, we are creating streams on the local Ceramic node, so we know t
 There are various cases however when we can't make assumptions about the presence of the necessary streams, for example on a testnet or CI node.
 
 The deployment process consists in publishing all the necessary streams potentially used by our DataModel at runtime to a given Ceramic node, in order to ensure their availability.
-The published model is then written to the `model.json` file, that will simply contain mappings for our aliases to stream references, for example:
+The deployed model is then written to the `model.json` file, that will simply contain mappings for our aliases to stream references, for example:
 
 ```json
 {
@@ -191,19 +191,19 @@ The published model is then written to the `model.json` file, that will simply c
     We can add the following code at the end of our `create-model.mjs` script:
 
     ```js
-    // Publish model to Ceramic node
-    const model = await manager.toPublished()
+    // Deploy model to Ceramic node
+    const model = await manager.deploy()
 
-    // Write published model to JSON file
+    // Write deployed model aliases to JSON file
     await writeFile('./model.json', JSON.stringify(model))
     ```
 
 === "CLI"
 
-    We can use the `model:publish` command to deploy a model, optionally with a second argument to output the published model to a JSON file:
+    We can use the `model:deploy` command to deploy a model, optionally with a second argument to output the deployed model aliases to a JSON file:
 
     ```sh
-    glaze model:publish simple-note ./model.json
+    glaze model:deploy simple-note ./model.json
     ```
 
 ## 5. Runtime usage
@@ -238,7 +238,7 @@ const ceramic = new CeramicClient('http://localhost:7007')
 ceramic.did = did
 
 // Create the model and store
-const model = new DataModel({ ceramic, model: modelAliases })
+const model = new DataModel({ ceramic, aliases: modelAliases })
 const store = new DIDDataStore({ ceramic, model })
 ```
 
