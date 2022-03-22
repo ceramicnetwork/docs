@@ -30,8 +30,8 @@ Below are the steps required for running a Ceramic node in the cloud. This guide
 
 1. [Install and run the Ceramic daemon](#running-the-daemon)
 2. [Configure data persistence](#configure-data-persistence)
-3. [Stay connected to the network](#stay-connected-to-the-network)
-4. [Get observability data from your node](#observability)
+3. [Get connected to the network](#get-connected-to-the-network)
+4. [Get observability data from your node (optional)](#observability)
 
 ## **Quick start**
 
@@ -250,11 +250,11 @@ Ceramic state store AWS S3 policy for the access key
 }
 ```
 
-## **Stay connected to the network**
+## **Get connected to the network**
 
 ---
 
-### **Staying connected to Ceramic**
+### **Connecting to Ceramic**
 
 The Ceramic daemon serves an HTTP API that clients use to interact with your Ceramic node. The default API port is `7007`. Make sure this port is available to all clients you plan to use for your application.
 
