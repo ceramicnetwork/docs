@@ -38,8 +38,6 @@ Use the `ceramic daemon` command to start a local JS Ceramic node connected to t
 ceramic daemon
 ```
 
-The `localhost` setup allows you to load streams from other nodes connected to the same [network](../../learn/networks.md). However, writes to your local node will only be available on your node and other nodes found on the [`peerlist`](https://github.com/ceramicnetwork/peerlist/blob/main/testnet-clay.json). They will not be available to every node on the network. For greater connectivity, you might want to connect your CLI to a remote long-lived Ceramic node.
-
 ### **Configure your network**
 
 (Optional) By default, the JS CLI starts a node on the [Clay Testnet](../../learn/networks.md#clay-testnet). If you would like to use a different network, you can specify this using the `--network` option. View [available networks](../../learn/networks.md). Note, the CLI can not be used with [Mainnet](../../learn/networks.md#mainnet).
