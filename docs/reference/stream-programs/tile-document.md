@@ -100,7 +100,7 @@ async function authenticateCeramic(seed) {
 
 async function updateDocument(id, content) {
   // First, we need to load the document
-  const doc = await TileDocument.load(id)
+  const doc = await TileDocument.load(ceramic, id)
   // The following call will fail if the Ceramic instance does not have an authenticated DID
   await doc.update(content)
 }
