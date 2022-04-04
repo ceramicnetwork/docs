@@ -249,7 +249,6 @@ plugins:
         'clients/javascript/cli.md': 'build/cli/installation.md'
         'build/installation.md': 'build/javascript/installation.md'
         'clients/javascript/http.md': 'build/javascript/http.md'
-        'clients/javascript/core.md': 'build/javascript/core.md'
         'build/authentication.md': 'build/javascript/authentication.md'
         'build/writes.md': 'build/javascript/writes.md'
         'build/queries.md': 'build/javascript/queries.md'
