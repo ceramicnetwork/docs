@@ -110,8 +110,8 @@ nav:
       - Run nodes: run/index.md
       - Networks: learn/networks.md
       - Available nodes: run/nodes/available.md
-      - Launching locally: build/cli/installation.md
-      - Launching in the cloud: run/nodes/nodes.md
+      - Running in development: build/cli/installation.md
+      - Running in production: run/nodes/nodes.md
       - Anchor service:
           - Community CAS: run/cas/community-cas.md
           - Hosting a CAS: run/cas/cas.md
