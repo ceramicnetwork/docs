@@ -1,14 +1,14 @@
-# **Launching Ceramic in the cloud**
+# **Running Ceramic in production**
 
 ---
 
-This guide provides complete instructions and various tools for launching a well-connected Ceramic node in the cloud.
+This guide provides complete instructions and various tools for launching a well-connected, production-ready Ceramic node.
 
-## **Who should run Ceramic in the cloud?**
+## **Who should run a Ceramic node?**
 
 ---
 
-At this time, any application that wishes to deploy to `mainnet` needs to run their own node. Additionally, developers building on `testnet-clay` may wish to run their own node so they don't need to rely on [community-hosted nodes](https://developers.ceramic.network/run/nodes/community-nodes/) which may be unstable and/or wipe data from time to time.
+At this time, any application that wishes to deploy to `mainnet` needs to run their own production-ready node. Additionally, developers building on `testnet-clay` may wish to run their own node so they don't need to rely on [community-hosted nodes](https://developers.ceramic.network/run/nodes/community-nodes/) which may be unstable and/or wipe data from time to time.
 
 ## **Things to know**
 
@@ -26,10 +26,10 @@ The rest of this guide assumes you are running Ceramic with IPFS in "remote" mod
 
 ---
 
-Below are the steps required for running a Ceramic node in the cloud. This guide will teach you how to:
+Below are the steps required for running a Ceramic node in production. This guide will teach you how to:
 
 1. [Install and run the Ceramic daemon](#running-the-daemon)
-2. [Configure data persistence](#configure-data-persistence)
+2. [Configure data persistence](#data-persistence)
 3. [Get connected to the network](#get-connected-to-the-network)
 4. [Get observability data from your node (optional)](#observability)
 
@@ -61,7 +61,7 @@ Docker images to run Ceramic and IPFS are built from the source code of the [js-
 
 If you would like to run Ceramic and IPFS outside of containers or on bare metal, start by installing [go-ipfs](https://github.com/ipfs/go-ipfs) (**version 0.12 or later**). Depending on your infrastructure setup you may consider building `go-ipfs` with the [healthcheck plugin](https://github.com/ceramicnetwork/go-ipfs-healthcheck) and [S3 datastore plugin](https://github.com/3box/go-ds-s3). Next install the Ceramic daemon with the [js-ceramic CLI](https://www.npmjs.com/package/@ceramicnetwork/cli), which is available as a public NPM module. It is currently compatible with **Node.js version 16.**
 
-### **Data Persistence**
+## **Data Persistence**
 
 To run a Ceramic node in production, it is critical to persist the [Ceramic state store](https://developers.ceramic.network/run/nodes/nodes/#ceramic-state-store) and the [IPFS datastore](https://github.com/ipfs/go-ipfs/blob/master/docs/config.md#datastorespec). The form of storage you choose should also be configured for disaster recovery with data redundancy, and some form of snapshotting and/or backups.
 
