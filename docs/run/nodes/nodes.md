@@ -268,10 +268,6 @@ Ceramic nodes rely on IPFS for networking. IPFS nodes connect to each other usin
 
 !!! warning ""
 
-    We recommend using SSL for a secure websocket (port `4012` by default).
-
-!!! warning ""
-
     Healthchecks can be run against the `HEALTHCHECK_PORT` (port `8011` by default) when `HEALTHCHECK_ENABLED` is `true`.
 
 Additionally, when running IPFS the IPFS API port must be accessible by the Ceramic node. The default API port is `5001`. The IPFS node address will then be passed to Ceramic with the `ipfs.host` option in the Ceramic daemon config file.
