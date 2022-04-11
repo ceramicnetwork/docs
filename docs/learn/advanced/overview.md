@@ -81,7 +81,7 @@ In addition to executing stream transactions according to StreamType logic, Cera
 
 A ceramic node requires several components in addition to the actual ceramic instance: an IPFS running instance and storages, a ceramic state store, and log storage.
 
-[Ceramic Node Components](ceramic-node-stack.png)
+![Ceramic Node Components](ceramic-node-stack.png)
 
 ## **Clients**
 
