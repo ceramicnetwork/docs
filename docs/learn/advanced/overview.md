@@ -77,6 +77,12 @@ In addition to executing stream transactions according to StreamType logic, Cera
 - **Query responses:** Ceramic nodes respond to stream queries from clients. If the node has the stream pinned, it will return the response; if not, it will ask the rest of the network for the stream over libp2p and then return the response.
 - **Broadcasting transactions:** When a Ceramic node successfully performs a transaction on a stream, it broadcasts this transaction out the rest of the network over libp2p so other nodes also pinning this stream can update their StreamState to reflect this new transaction.
 
+### Components of a Ceramic Node
+
+A ceramic node requires several components in addition to the actual ceramic instance: an IPFS running instance and storages, a ceramic state store, and log storage.
+
+[Ceramic Node Components](ceramic-node-stack.png)
+
 ## **Clients**
 
 Clients provide standard interfaces for performing transactions and queries on streams, and are installed into applications. Clients are also responsible for authenticating users and signing transactions.
