@@ -79,9 +79,11 @@ In addition to executing stream transactions according to StreamType logic, Cera
 
 ### Components of a Ceramic Node
 
-A ceramic node requires several components in addition to the actual ceramic instance: an IPFS running instance and storages, a ceramic state store, and log storage.
+A fully functioning Ceramic Node requires a Ceramic Instance with associated storages and requires a Ceramic Anchor Service (CAS) to be available on the network.
 
-![Ceramic Node Components](ceramic-node-stack.png)
+The storage needs of a Ceramic Node include the Ceramic State Store and the IPFS repo.  See [persisting IPFS data](https://developers.ceramic.network/run/nodes/nodes/#persisting-ipfs-data) for details.
+
+![Ceramic Node Components](ceramic-node-stack-simplified.png)
 
 ## **Clients**
 
