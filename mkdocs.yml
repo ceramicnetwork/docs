@@ -238,6 +238,7 @@ plugins:
         'authentication/dids/3id.md': 'docs/advanced/standards/accounts/3id-did.md' # v2 redirect
         'authentication/dids/key.md': 'docs/advanced/standards/accounts/key-did.md' # v2 redirect
         'authentication/legacy/3id-connect-migration.md': 'pages/3box-migration.md' # v2 redirect
+        'authentication/nft-did/method.md': 'docs/advanced/standards/accounts/nft-did.md' # link exists in the wild
         'reference/javascript/clients.md': 'build/javascript/http.md'
         'reference/javascript/did-resolvers.md': 'docs/advanced/standards/accounts/3id-did.md' # v2 redirect
         'reference/javascript/did-providers.md': 'docs/advanced/standards/accounts/3id-did.md' # v2 redirect
