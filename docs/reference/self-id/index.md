@@ -18,7 +18,7 @@ Self.ID is compatible with Ethereum accounts and EVM-based wallet authentication
 
 **✅ Composable, user-centric data management**
 
-The SDK includes some of the most popular Ceramic data models out-of-the-box, such as [user profiles](https://github.com/ceramicstudio/datamodels/tree/main/packages/identity-profile-basic), linked [crypto accounts](https://github.com/ceramicstudio/datamodels/tree/main/packages/identity-accounts-crypto), and linked [Web2 accounts](https://github.com/ceramicstudio/datamodels/tree/main/packages/identity-accounts-web), giving your application automatic storage and retrieval composability with a rich set of existing users and data to bootstrap your application.
+The SDK includes some of the most popular Ceramic data models out-of-the-box, such as [user profiles](https://github.com/ceramicstudio/datamodels/tree/main/models/identity-profile-basic), linked [crypto accounts](https://github.com/ceramicstudio/datamodels/tree/main/models/identity-accounts-crypto), and linked [Web2 accounts](https://github.com/ceramicstudio/datamodels/tree/main/models/identity-accounts-web), giving your application automatic storage and retrieval composability with a rich set of existing users and data to bootstrap your application.
 
 **✅ Extensible data models**
 

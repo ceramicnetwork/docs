@@ -10,12 +10,12 @@ The [**Data Models Registry →**](https://github.com/ceramicstudio/datamodels) 
 
 Visit the [**Data Models Registry →**](https://github.com/ceramicstudio/datamodels) for a full list of available data models. Although we cannot list every data model in the registry, here is a sampling of what can be found there:
 
-| Data model                                                                                                            | Description                                                                              | Maintainer   |
-| --------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------ |
-| [`identity-profile-basic`](https://github.com/ceramicstudio/datamodels/tree/main/packages/identity-profile-basic)     | Stores a user's profile                                                                  | 3Box Labs    |
-| [`identity-accounts-web`](https://github.com/ceramicstudio/datamodels/tree/main/packages/identity-accounts-web)       | Stores verifiable credentials that link a user's Web2 accounts to their Ceramic account  | 3Box Labs    |
-| [`identity-accounts-crypto`](https://github.com/ceramicstudio/datamodels/tree/main/packages/identity-accounts-crypto) | Stores a list of CAIP-10 Links that link a user's Web3 accounts to their Ceramic account | 3Box Labs    |
-| [`social-connections`](https://github.com/ceramicstudio/datamodels/tree/main/packages/social-connections)             | Stores a user's social graph                                                             | CyberConnect |
+| Data model                                                                                                          | Description                                                                              | Maintainer   |
+| ------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------ |
+| [`identity-profile-basic`](https://github.com/ceramicstudio/datamodels/tree/main/models/identity-profile-basic)     | Stores a user's profile                                                                  | 3Box Labs    |
+| [`identity-accounts-web`](https://github.com/ceramicstudio/datamodels/tree/main/models/identity-accounts-web)       | Stores verifiable credentials that link a user's Web2 accounts to their Ceramic account  | 3Box Labs    |
+| [`identity-accounts-crypto`](https://github.com/ceramicstudio/datamodels/tree/main/models/identity-accounts-crypto) | Stores a list of CAIP-10 Links that link a user's Web3 accounts to their Ceramic account | 3Box Labs    |
+| [`social-connections`](https://github.com/ceramicstudio/datamodels/tree/main/models/social-connections)             | Stores a user's social graph                                                             | CyberConnect |
 
 ## **Adding your models to the registry**
 
