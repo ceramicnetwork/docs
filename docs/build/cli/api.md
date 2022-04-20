@@ -2,6 +2,10 @@
 
 This page describes CLI commands for interacting with Ceramic.
 
+!!! warning "Depreciation Notice:"
+
+    Interactions with Streams and TileDocuments have been moved to our [Glaze CLI](../../../tools/glaze/development#cli). If you encounter any errors with the commands below please retry using the Glaze CLI first.
+
 ## **Requirements**
 
 You should have already [installed the CLI](./installation.md).

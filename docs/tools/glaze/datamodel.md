@@ -6,12 +6,12 @@ The Glaze DataModel library provides human-readable name aliasing for data model
 
 ---
 
-The Glaze DataModel library requires an instance of Ceramic and a preexisting `publishedModel` object, which can be created during development using either the [Glaze CLI](deploy-from-cli.md) or the [Glaze DevTools](development.md) library.
+The Glaze DataModel library requires an instance of Ceramic and a preexisting `aliases` object, which can be created during development using either the [Glaze CLI](deploy-from-cli.md) or the [Glaze DevTools](development.md) library.
 
-The primary purpose of the DataModel library is to create a new `PublishedModel` object which contains human-friendly aliases for your data models that can be used at runtime to simplify development. This `PublishedModel` is defined by the following type:
+The primary purpose of the DataModel library is to create a new `ModelAliases` object which contains human-friendly aliases for your data models that can be used at runtime to simplify development. This `ModelAliases` is defined by the following type:
 
 ```ts
-type PublishedModel = {
+type ModelAliases = {
   schemas: Record<string, string>
   definitions: Record<string, string>
   tiles: Record<string, string>
@@ -34,12 +34,12 @@ npm install @glazed/datamodel
 
 ### **Usage**
 
-After you have a `PublishedModel` object from the Glaze CLI or the DevTools library, the main purpose of the Glaze DataModel library is to abstract away the underlying machine-readable names of your schemas and data model definitions into something human-readable that simplifies application development:
+After you have a `ModelAliases` object from the Glaze CLI or the DevTools library, the main purpose of the Glaze DataModel library is to abstract away the underlying machine-readable names of your schemas and data model definitions into something human-readable that simplifies application development:
 
 ```ts
 import { DataModel } from '@glazed/datamodel'
 
-const publishedModel = {
+const aliases = {
   schemas: {
     MySchema: 'ceramic://mySchemaURL',
   },
@@ -49,7 +49,7 @@ const publishedModel = {
   tiles: {},
 }
 
-const model = new DataModel({ ceramic, model: publishedModel })
+const model = new DataModel({ ceramic, aliases })
 
 model.getSchemaURL('MySchema') // 'ceramic://mySchemaURL'
 ```

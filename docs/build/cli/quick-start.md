@@ -6,46 +6,85 @@ Learn the basics by setting up and interacting with the [Ceramic CLI](./installa
 
     **Want an even faster way to try Ceramic?** Visit the [Playground demo app](https://playground.ceramic.dev){:target="_blank"} to test the full stack of Ceramic components in the browser.
 
-## **1. Install the CLI**
+## **1. Install the CLIs**
 
-Visit the [Ceramic CLI](./installation.md) page for instructions on how to quickly install the CLI.
+```sh
+npm install --global @ceramicnetwork/cli @glazed/cli
+```
 
-## **2. Create a stream**
+The Ceramic CLI is then accessible as `ceramic` and the Glaze CLI as `glaze`.
 
-Use the `create` command to create a new [stream](../../learn/glossary.md#streams). In the example below we create a stream that uses the [TileDocument StreamType](../../docs/advanced/standards/stream-programs/tile-document.md). Note that _TileDocument_ is the only [StreamType](../../learn/glossary.md#streamtypes) that can currently be created by the Ceramic CLI.
+Run `ceramic help` and `glaze help` to list the available commands.
+
+## **2. Start the Ceramic daemon**
+
+Run the `daemon` command of the Ceramic CLI to start a local Ceramic node:
+
+```sh
+ceramic daemon
+```
+
+Visit the [Ceramic CLI](./installation.md) page for more informations about the Ceramic daemon.
+
+## **3. Create a Ceramic account**
+
+Signing transactions to send on a Ceramic node requires a Ceramic account provided by a [DID](../../learn/glossary.md#dids).
+
+The Glaze CLI can be used to create a key DID, generating a 32-byte random seed:
+
+```sh
+glaze did:create
+```
+
+The expected output will be similar to the following, with `...` used as placeholder for brievety:
+
+```sh
+✔ Created DID did:key:z6Mk... with seed ab...f0
+```
+
+The seed can then be used when running other commands:
+
+```sh
+glaze [command] --key=ab...f0
+DID_KEY=ab...f0 glaze [command]
+```
+
+## **4. Create a stream**
+
+Use the `tile:create` command to create a new [stream](../../learn/glossary.md#streams). In the example below we create a stream that uses the [TileDocument StreamType](../../docs/advanced/standards/stream-programs/tile-document.md). Note that _TileDocument_ is the only [StreamType](../../learn/glossary.md#streamtypes) that can currently be created by the Ceramic CLI.
 
 === "Command"
 
     ```bash
-    ceramic create tile --content '{ "Foo": "Bar" }'
+    glaze tile:create --key ab...f0 --content '{"Foo":"Bar"}'
     ```
 
 === "Output"
 
     ```bash
-    StreamID(kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa)
+    Created stream kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa.
     {
-        "Foo": "Bar"
+      streamID: 'kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa',
+      content: { Foo: 'Bar' }
     }
     ```
 
     !!! quote ""
-        The first line of the output is the [StreamID](../../learn/glossary.md#streamid), which is the persistent identifier of our newly created stream. This StreamID will be different for you, since you created it with your DID. Below the StreamID is the current content of the stream.
+        Part pf the output is the [StreamID](../../learn/glossary.md#streamid), which is the persistent identifier of our newly created stream. This StreamID will be different for you, since you created it with your DID. Below the StreamID is the current content of the stream.
 
 ??? info "More options"
 
-    - `--controllers`: set the *controller* of the stream
-    - `--schema`: set the *schema* of the TileDocument
-    - Run `ceramic create -h` to see all available options
+    - `--metadata`: set the *metadata* of the stream
+    - Run `glaze tile:create -h` to see all available options
 
-## **3. Query a stream**
+## **5. Query a stream**
 
-Use the `show` command to query the current [state](../../learn/glossary.md#state) of a stream. You will need to provide its _StreamID_.
+Use the `tile:show` command to query the current [state](../../learn/glossary.md#state) of a stream. You will need to provide its _StreamID_.
 
 === "Command"
 
     ```bash
-    ceramic show kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa
+    glaze tile:show kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa
     ```
 
     !!! quote ""
@@ -54,17 +93,16 @@ Use the `show` command to query the current [state](../../learn/glossary.md#stat
 === "Output"
 
     ```bash
-    {
-        "Foo": "Bar"
-    }
+    Retrieved details of stream kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa
+    { Foo: 'Bar' }
     ```
 
-Use the `state` command to query the entire state of a stream.
+Use the `stream:state` command to query the entire state of a stream.
 
 === "Command"
 
     ```bash
-    ceramic state kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa
+    glaze stream:state kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa
     ```
 
     !!! quote ""
@@ -141,16 +179,14 @@ Use the `state` command to query the entire state of a stream.
     !!! quote ""
         This output was seen after the anchor has been created. The stream state has now shifted *anchorStatus* to `ANCHORED`. You can also see that the log contains one more entry.
 
-## **4. Update a stream**
+## **6. Update a stream**
 
-Use the `update` command to update a stream. Your [DID](../../learn/glossary.md#dids) must be the [controller](../../learn/glossary.md#controllers) of the stream in order to update it. Note that _TileDocument_ is the only StreamType that can currently be updated by the CLI.
+Use the `tile:update` command to update a stream. Your [DID](../../learn/glossary.md#dids) must be the [controller](../../learn/glossary.md#controllers) of the stream in order to update it. Note that _TileDocument_ is the only StreamType that can currently be updated by the CLI.
 
 === "Command"
 
     ```bash
-    ceramic update kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa --content '{
-        "Foo": "Baz"
-      }'
+    glaze tile:update kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa --key ab...f0 --content '{"Foo":"Baz"}'
     ```
 
     !!! quote ""
@@ -159,29 +195,33 @@ Use the `update` command to update a stream. Your [DID](../../learn/glossary.md#
 === "Output"
 
     ```bash
+    Updated stream
     {
-      "Foo": "Baz"
+      "streamID": "kjzl6cwe1jw147ww5d8pswh1hjh686mut8v1br10dar8l9a3n1wf8z38l0bg8qa",
+      "content": {
+        "Foo": "Baz"
+      }
     }
     ```
 
 ??? info "More options"
 
-    Currently you can change _content_, _controllers_, and _schema_ using the CLI. Run `ceramic update -h` for more information.
+    You can change _content_ and _metadata_ using the CLI. Run `glaze tile:update -h` for more information.
 
-## **5. Create a schema**
+## **7. Create a schema**
 
 TileDocuments can enforce that their contents adhere to a specified schema. The schemas themselves are TileDocuments where the content is a [json-schema](https://json-schema.org/){:target="\_blank"}. For example we can create a schema that requires a TileDocument to have a _title_ and _message_.
 
 === "Command"
 
     ```bash
-    ceramic create tile --content ' {
+    glaze tile:create --key ab...f0 --content '{
        "$schema": "http://json-schema.org/draft-07/schema#",
        "title": "Reward",
        "type": "object",
        "properties": {
-         "title": { "type": "string" },
-         "message": { "type": "string" }
+         "title": {"type": "string"},
+         "message": {"type": "string"}
        },
        "required": [
          "message",
@@ -193,34 +233,27 @@ TileDocuments can enforce that their contents adhere to a specified schema. The 
 === "Output"
 
     ```bash
-    StreamID(kjzl6cwe1jw1472as4pj3b3ahqmkokbmwc7jchqcob6pcixcoo4kxq6ls8uuxgb)
+    Created stream kjzl6cwe1jw1472as4pj3b3ahqmkokbmwc7jchqcob6pcixcoo4kxq6ls8uuxgb.
     {
-      "type": "object",
-      "title": "Reward",
-      "$schema": "http://json-schema.org/draft-07/schema#",
-      "required": [
-        "message",
-        "title"
-      ],
-      "properties": {
-        "title": {
-          "type": "string"
-        },
-        "message": {
-          "type": "string"
-        }
+      streamID: 'kjzl6cwe1jw1472as4pj3b3ahqmkokbmwc7jchqcob6pcixcoo4kxq6ls8uuxgb',
+      content: {
+        type: 'object',
+        title: 'Reward',
+        '$schema': 'http://json-schema.org/draft-07/schema#',
+        required: [ 'message', 'title' ],
+        properties: { title: { type: 'string' }, message: { type: 'string' } }
       }
     }
     ```
 
-## **6. Create a TileDocument stream that uses a schema**
+## **8. Create a TileDocument stream that uses a schema**
 
-First, use the `commits` command to list the [commitIDs](../../learn/glossary.md#commitid) contained in the schema stream. When creating a TileDocument that uses this schema, we need to use a commitID instead of the StreamID to enforce that we are using a specific version of the schema since the schema stream is mutable and can be updated.
+First, use the `stream:commits` command to list the [commitIDs](../../learn/glossary.md#commitid) contained in the schema stream. When creating a TileDocument that uses this schema, we need to use a commitID instead of the StreamID to enforce that we are using a specific version of the schema since the schema stream is mutable and can be updated.
 
 === "Command"
 
     ```bash
-    ceramic commits kjzl6cwe1jw1472as4pj3b3ahqmkokbmwc7jchqcob6pcixcoo4kxq6ls8uuxgb
+    glaze stream:commits kjzl6cwe1jw1472as4pj3b3ahqmkokbmwc7jchqcob6pcixcoo4kxq6ls8uuxgb
     ```
 
     !!! quote ""
@@ -229,22 +262,23 @@ First, use the `commits` command to list the [commitIDs](../../learn/glossary.md
 === "Output"
 
     ```bash
+    Stream commits loaded.
     [
       "k3y52l7qbv1frxu8co1hjrivem5cj2oiqtytlku3e4vjo92l67fkkvu6ywuzfxvy8"
     ]
     ```
 
-If a stream contains multiple commits and you're not sure which one you want, use the `show` command to show the content of the stream at the given commit.
+If a stream contains multiple commits and you're not sure which one you want, use the `tile:show` command to show the content of the stream at the given commit.
 
-Once you retrieve the desired commit, you can now create a TileDocument that is enforced to conform to this version of the schema. Use the `create` command and pass the `--schema` option along with your commitID.
+Once you retrieve the desired commit, you can now create a TileDocument that is enforced to conform to this version of the schema. Use the `tile:create` command and pass the `--metadata` option along with your commitID.
 
 === "Command"
 
     ```bash
-    ceramic create tile --content '{
+    glaze tile:create --key ab...f0 --content '{
         "title": "My first document with schema",
         "message": "Hello World"
-      }' --schema k3y52l7qbv1frxu8co1hjrivem5cj2oiqtytlku3e4vjo92l67fkkvu6ywuzfxvy8
+      }' --metadata '{"schema":"k3y52l7qbv1frxu8co1hjrivem5cj2oiqtytlku3e4vjo92l67fkkvu6ywuzfxvy8"}'
     ```
 
     !!! quote ""
@@ -253,21 +287,21 @@ Once you retrieve the desired commit, you can now create a TileDocument that is 
 === "Output"
 
     ```bash
-    StreamID(kjzl6cwe1jw149tvfh6otqfzd2hfknkifb1z2lakozkicvau0xldzzdzwfbsztj)
+    Created stream kjzl6cwe1jw149tvfh6otqfzd2hfknkifb1z2lakozkicvau0xldzzdzwfbsztj.
     {
-      "title": "My first document with schema",
-      "message": "Hello World"
+      streamID: 'kjzl6cwe1jw149tvfh6otqfzd2hfknkifb1z2lakozkicvau0xldzzdzwfbsztj',
+      content: { title: 'My first document with schema', message: 'Hello World' }
     }
     ```
 
-## **7. Query the stream you created**
+## **9. Query the stream you created**
 
-Use the `state` command to query the state of the TileDocument we just created. We can see that the schema is set to the correct commitID.
+Use the `stream:state` command to query the state of the TileDocument we just created. We can see that the schema is set to the correct commitID.
 
 === "Command"
 
     ```bash
-    ceramic state kjzl6cwe1jw14b5sr79heovz7fziz4dxcn8upx3bcesriloqcui137k6rq6g2mn
+    glaze stream:state kjzl6cwe1jw14b5sr79heovz7fziz4dxcn8upx3bcesriloqcui137k6rq6g2mn
     ```
 
     !!! quote ""
@@ -276,6 +310,7 @@ Use the `state` command to query the state of the TileDocument we just created. 
 === "Output"
 
     ```bash
+    Successfully queried stream kjzl6cwe1jw14b5sr79heovz7fziz4dxcn8upx3bcesriloqcui137k6rq6g2mn
     {
       "type": 0,
       "content": {

@@ -24,14 +24,6 @@ This page contains a list of all packages and modules included in the Ceramic Ty
 
 [`@ceramicnetwork/stream-caip10-link-handler`](https://developers.ceramic.network/reference/typescript/modules/_ceramicnetwork_stream_caip10_link_handler.html): Handler implementation for the Caip10Link StreamType.
 
-### IPFS Daemon
-
-[`@ceramicnetwork/ipfs-daemon`](https://developers.ceramic.network/reference/typescript/modules/_ceramicnetwork_ipfs_daemon.html): JS-IPFS instance with DagJOSE codec.
-
-### IPFS Topology
-
-[`@ceramicnetwork/ipfs-topology`](https://developers.ceramic.network/reference/typescript/modules/_ceramicnetwork_ipfs_topology.html): Bootstrap IPFS topology for Ceramic.
-
 ### Pinning
 
 [`@ceramicnetwork/pinning-aggregation`](https://developers.ceramic.network/reference/typescript/modules/_ceramicnetwork_pinning_aggregation.html): Aggregation of backends for pinning stream content and state.

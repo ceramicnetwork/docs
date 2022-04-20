@@ -110,8 +110,8 @@ nav:
       - Run nodes: run/index.md
       - Networks: learn/networks.md
       - Available nodes: run/nodes/available.md
-      - Launching locally: build/cli/installation.md
-      - Launching in the cloud: run/nodes/nodes.md
+      - Running in development: build/cli/installation.md
+      - Running in production: run/nodes/nodes.md
       - Anchor service:
           - Community CAS: run/cas/community-cas.md
           - Hosting a CAS: run/cas/cas.md
@@ -123,7 +123,6 @@ nav:
               - Using the CLI: build/cli/api.md
           - Building with Ceramic clients:
               - Using the Ceramic HTTP client: build/javascript/quick-start.md
-              - Ceramic core Client: build/javascript/core.md
               - Retrieving data from Ceramic: build/javascript/queries.md
               - Pinning data on Ceramic: build/javascript/pinning.md
           - Building with Glaze suite:
@@ -168,10 +167,12 @@ nav:
               - Tile loader:
                   - Tile loader module: reference/glaze/modules/tile_loader.md
                   - TileLoader class: reference/glaze/classes/tile_loader.TileLoader.md
+              - Shared types: reference/glaze/modules/types.md
       - Self.ID SDK:
           - Framework: reference/self-id/modules/framework.md
           - React:
               - React module: reference/self-id/modules/react.md
+              - ReactClient class: reference/self-id/classes/react.ReactClient.md
               - RequestClient class: reference/self-id/classes/react.RequestClient.md
           - Web:
               - Web module: reference/self-id/modules/web.md
@@ -183,10 +184,8 @@ nav:
               - PublicID class: reference/self-id/classes/core.PublicID.md
           - Utilities:
               - Image utilities: reference/self-id/modules/image_utils.md
-              - UI components: reference/self-id/modules/ui.md
-              - Multiauth: reference/self-id/modules/multiauth.md
               #- 3Box utilities: reference/self-id/modules/3box_legacy.md
-      - List of core Ceramic JS packages: reference/javascript/packages.md
+      - Ceramic JS packages and API references: reference/javascript/packages.md
       - Glossary: learn/glossary.md
 
 markdown_extensions:
@@ -251,7 +250,6 @@ plugins:
         'clients/javascript/cli.md': 'build/cli/installation.md'
         'build/installation.md': 'build/javascript/installation.md'
         'clients/javascript/http.md': 'build/javascript/http.md'
-        'clients/javascript/core.md': 'build/javascript/core.md'
         'build/authentication.md': 'build/javascript/authentication.md'
         'build/writes.md': 'build/javascript/writes.md'
         'build/queries.md': 'build/javascript/queries.md'

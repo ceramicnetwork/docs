@@ -57,14 +57,14 @@ function createCeramicWith3ID() {
 
 ---
 
-The `3id-did-provider` module implements a provider to create and manage DIDs using the `did:3` method, either using a `seed` or an `authId` associated to an `authSecret` (recommended).
+The 3ID DID provider module implements a provider to create and manage DIDs using the `did:3` method, either using a `seed` or an `authId` associated to an `authSecret` (recommended).
 
-It is up to applications using `3id-did-provider` to take care of the security of authentication secrets and seeds, whether they are providing a custodial key management, prompting users to input secrets, or alternative solutions.
+It is up to applications using the 3ID DID provider to take care of the security of authentication secrets and seeds, whether they are providing a custodial key management, prompting users to input secrets, or alternative solutions.
 
 ### **Installation**
 
 ```sh
-npm install 3id-did-provider
+npm install @3id/did-provider
 ```
 
 ### **Permissions management**
@@ -102,7 +102,7 @@ import { CeramicClient } from '@ceramicnetwork/http-client'
 import { DID } from 'dids'
 import { getResolver as getKeyResolver } from 'key-did-resolver'
 import { getResolver as get3IDResolver } from '@ceramicnetwork/3id-did-resolver'
-import ThreeIdProvider from '3id-did-provider'
+import { ThreeIdProvider } from '@3id/did-provider'
 
 // `authSecret` must be a 32-byte long Uint8Array
 async function authenticateWithSecret(authSecret) {
@@ -138,7 +138,7 @@ import { CeramicClient } from '@ceramicnetwork/http-client'
 import { DID } from 'dids'
 import { getResolver as getKeyResolver } from 'key-did-resolver'
 import { getResolver as get3IDResolver } from '@ceramicnetwork/3id-did-resolver'
-import ThreeIdProvider from '3id-did-provider'
+import { ThreeIdProvider } from '@3id/did-provider'
 
 // `seed` must be a 32-byte long Uint8Array
 async function authenticateWithSecret(seed) {

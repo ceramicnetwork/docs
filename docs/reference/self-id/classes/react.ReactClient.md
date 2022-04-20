@@ -1,14 +1,14 @@
-# Class: WebClient<ModelTypes\>
+# Class: ReactClient<ModelTypes\>
 
-[web](../modules/web.md).WebClient
+[react](../modules/react.md).ReactClient
 
-WebClient extends the [`Core class`](core.Core.md) with authentication support in browser
+ReactClient extends the [`Core class`](core.Core.md) with authentication support in browser
 environments.
 
-It is exported by the [`web`](../modules/web.md) module.
+It is exported by the [`react`](../modules/react.md) module.
 
 ```sh
-import { WebClient } from '@self.id/web'
+import { ReactClient } from '@self.id/react'
 ```
 
 ## Type parameters
@@ -21,13 +21,13 @@ import { WebClient } from '@self.id/web'
 
 - `Core`<`ModelTypes`\>
 
-  ↳ **`WebClient`**
+  ↳ **`ReactClient`**
 
 ## Constructors
 
 ### constructor
 
-• **new WebClient**<`ModelTypes`\>(`params`)
+• **new ReactClient**<`ModelTypes`\>(`params`)
 
 #### Type parameters
 
@@ -39,7 +39,7 @@ import { WebClient } from '@self.id/web'
 
 | Name | Type |
 | :------ | :------ |
-| `params` | [`WebClientParams`](../modules/web.md#webclientparams)<`ModelTypes`\> |
+| `params` | `WebClientParams`<`ModelTypes`\> |
 
 #### Overrides
 
@@ -111,18 +111,6 @@ Core.resolver
 
 ___
 
-### threeId
-
-• `get` **threeId**(): `ThreeIdConnect`
-
-3ID Connect instance used internally.
-
-#### Returns
-
-`ThreeIdConnect`
-
-___
-
 ### tileLoader
 
 • `get` **tileLoader**(): `TileLoader`
@@ -141,34 +129,10 @@ Core.tileLoader
 
 ### authenticate
 
-▸ **authenticate**(`authProvider`, `attachToCeramic?`): `Promise`<`DID`\>
+▸ **authenticate**(`authProvider`): `Promise`<`SelfID`<`ModelTypes`, keyof `ModelTypes`[``"definitions"``]\>\>
 
-Create and authenticate a DID instance using the given `authProvider`.
-
-By default, this also attaches the created DID instance to the internal Ceramic client
-instance. This behavior can be disabled by setting `attachToCeramic` to `false`.
-
-#### Parameters
-
-| Name | Type | Default value |
-| :------ | :------ | :------ |
-| `authProvider` | `EthereumAuthProvider` | `undefined` |
-| `attachToCeramic` | `boolean` | `true` |
-
-#### Returns
-
-`Promise`<`DID`\>
-
-___
-
-### connect
-
-▸ **connect**(`authProvider`): `Promise`<`DID`\>
-
-Create a DID instance using the given `authProvider`.
-
-⚠️ This method does **not** attempt to authenticate immediately, use [`authenticate`](web.WebClient.md#authenticate)
-instead if this is the wanted behavior.
+Create a [`SelfID`](web.SelfID.md) instance using the given `authProvider` and attach the
+associated DID instance to the internal Ceramic client instance.
 
 #### Parameters
 
@@ -178,7 +142,7 @@ instead if this is the wanted behavior.
 
 #### Returns
 
-`Promise`<`DID`\>
+`Promise`<`SelfID`<`ModelTypes`, keyof `ModelTypes`[``"definitions"``]\>\>
 
 ___
 
@@ -188,7 +152,7 @@ ___
 
 Load the record content for a given definition alias and account.
 
-Uses [`toDID`](web.WebClient.md#todid) to resolve the account.
+Uses [`toDID`](react.ReactClient.md#todid) to resolve the account.
 
 #### Type parameters
 
@@ -244,7 +208,7 @@ ___
 Turn a DID or CAIP-10 string into a DID string.
 
 If the input is a DID string, it will be returned as-is, otherwise
-[`getAccountDID`](web.WebClient.md#getaccountdid) will be used.
+[`getAccountDID`](react.ReactClient.md#getaccountdid) will be used.
 
 #### Parameters
 

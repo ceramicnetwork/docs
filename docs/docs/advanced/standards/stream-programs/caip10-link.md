@@ -11,7 +11,7 @@ CAIP-10 Link (CIP-7) is streamcode that stores a link between a Web3 wallet acco
 ### **Features**
 
 - **Chain-agnostic** – CAIP-10 Link leverages the [Chain Agnostic Improvement Proposal (CAIP) 10 standard](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-10.md) to represent blockchain accounts from a variety of blockchain networks
-- **One-way links** – Links are one way only: from a blockchain account to a Ceramic account (DID). It is not possible to go from a Ceramic account to a blockchain account using only CAIP-10 Links. However, this can be achieved by using the [`identity-accounts-crypto`](https://github.com/ceramicstudio/datamodels/tree/main/packages/identity-accounts-crypto) data model which stores a list of CAIP-10 links owned by a Ceramic account.
+- **One-way links** – Links are one way only: from a blockchain account to a Ceramic account (DID). It is not possible to go from a Ceramic account to a blockchain account using only CAIP-10 Links. However, this can be achieved by using the [`identity-accounts-crypto`](https://github.com/ceramicstudio/datamodels/tree/main/models/identity-accounts-crypto) data model which stores a list of CAIP-10 links owned by a Ceramic account.
 - **Multi-account** – A Ceramic account (DID) can have an unlimited number of CAIP-10 Links that publicly bind it to many different addresses on many different L1 and L2 blockchain networks.
 
 ### **Structure**

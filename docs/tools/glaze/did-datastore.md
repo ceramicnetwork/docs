@@ -34,7 +34,7 @@ The DID DataStore requires a Ceramic instance and either a [DataModel instance](
     import { DataModel } from '@glazed/datamodel'
     import { DIDDataStore } from '@glazed/did-datastore'
 
-    const publishedModel = {
+    const aliases = {
       schemas: {
         MySchema: 'ceramic://mySchemaURL',
       },
@@ -44,16 +44,16 @@ The DID DataStore requires a Ceramic instance and either a [DataModel instance](
       tiles: {},
     }
 
-    const model = new DataModel({ ceramic, model: publishedModel })
+    const model = new DataModel({ ceramic, aliases })
     const dataStore = new DIDDataStore({ ceramic, model })
     ```
 
-=== "Using a PublishedModel directly"
+=== "Using model aliases directly"
 
     ```ts
     import { DIDDataStore } from '@glazed/did-datastore'
 
-    const publishedModel = {
+    const aliases = {
       schemas: {
         MySchema: 'ceramic://mySchemaURL',
       },
@@ -63,7 +63,7 @@ The DID DataStore requires a Ceramic instance and either a [DataModel instance](
       tiles: {},
     }
 
-    const dataStore = new DIDDataStore({ ceramic, model: publishedModel })
+    const dataStore = new DIDDataStore({ ceramic, model: aliases })
     ```
 
 ### **Read/Write Data**

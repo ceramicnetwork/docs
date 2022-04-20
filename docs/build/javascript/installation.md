@@ -26,8 +26,6 @@ The JS HTTP Client is a lightweight way of interacting with Ceramic. It allows y
 
 The JS Core Client allows you to run the full Ceramic protocol (client and node) directly in any JavaScript environment, such as in your tests, in fully client-side browser applications, or in node.js. Most applications instead use the [JS HTTP Client](#js-http-client).
 
-[:octicons-download-16: Installation](./core.md){: .md-button .md-button--primary }
-
 ### Considerations
 
 **Maximal security and decentralization**: The Ceramic Core client does not have trusted relationships with any external nodes. With Ceramic Core, streams that are [written](./writes.md), [queried](./queries.md), or [pinned](./pinning.md) are verified in the local environment which is great if you need maximal security and decentralization in your application.
