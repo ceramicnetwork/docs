@@ -5,7 +5,7 @@
 !!! warning ""
 
     # **⚠️ Safe DID is experimental and ___not___ recommended for production use.** 
-    The current implementation requires the current members of a gnosis safe with a corresponding did:safe to trust all current and previous members of the gnosis safe not to override the content of Ceramic streams controlled by the did:safe.
+    The current implementation requires the current members of a Gnosis Safe with a corresponding did:safe to trust all current and previous members of the Gnosis Safe not to override the content of Ceramic streams controlled by the did:safe.
     
     Please reach out in [Discord](https://chat.ceramic.network) to provide feedback or get help. 
 
