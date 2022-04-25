@@ -4,9 +4,11 @@
 
 !!! warning ""
 
-    #**⚠️ NFT DID is experimental.** 
+    # **⚠️ NFT DID is experimental and ___not___ recommended for production use..** 
     
-    Please reach out in [Discord](https://chat.ceramic.network) to provide feedback or get help.
+    The current implementation requires the current holder of an NFT with a corresponding did:nft to trust all previous holders of the NFT not to override the content of Ceramic streams controlled by the did:nft
+    
+    Please reach out in [Discord](https://chat.ceramic.network) to provide feedback or get help. 
 
 The NFT DID Method (CIP-94) is an account that can perform transactions on streams. NFT DID accounts are controlled by the current owner of an NFT (non-fungible token). NFT DIDs are still very experimental, so use at your own risk.
 
