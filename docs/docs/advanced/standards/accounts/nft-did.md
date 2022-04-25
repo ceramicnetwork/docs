@@ -4,7 +4,7 @@
 
 !!! warning ""
 
-    # **⚠️ NFT DID is experimental and ___not___ recommended for production use..** 
+    # **⚠️ NFT DID is experimental and ___not___ recommended for production use.** 
     
     The current implementation requires the current holder of an NFT with a corresponding did:nft to trust all previous holders of the NFT not to override the content of Ceramic streams controlled by the did:nft
     
