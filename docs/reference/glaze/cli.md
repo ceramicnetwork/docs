@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The Glaze CLI allows to interact with Ceramic nodes, notably to help support DataModel lifecycle operations, such as the creation, edition and publication of models.
+The Glaze CLI allows to interact with Ceramic nodes, notably to help support DataModel lifecycle operations, such as the creation, edition and deployment of models.
 
 ## Installation
 
@@ -89,37 +89,37 @@ glaze model:export my-model ./my-model.json
 
 ### Deploy a model to Ceramic
 
-The `model:publish` command can be used to publish all the streams used by a given model:
+The `model:deploy` command can be used to deploy all the streams used by a given model:
 
-=== "Publishing a local model"
-
-    ```sh
-    glaze model:publish my-model
-    ```
-
-=== "Publishing a model file"
+=== "Deploying a local model"
 
     ```sh
-    glaze model:publish ./my-model.json
+    glaze model:deploy my-model
     ```
 
-=== "Publishing a model package"
+=== "Deploying a model file"
 
     ```sh
-    glaze model:publish package-name-of-model
+    glaze model:deploy ./my-model.json
     ```
 
-Optionally, a second argment can be provided to output the published model object to a JSON file:
+=== "Deploying a model package"
+
+    ```sh
+    glaze model:deploy package-name-of-model
+    ```
+
+Optionally, a second argment can be provided to output the deployed model object to a JSON file:
 
 ```sh
-glaze model:publish my-model ./published-model.json
+glaze model:deploy my-model ./deployed-model.json
 ```
 
 This output file can then be used by the [DataModel runtime](modules/datamodel.md#datamodel-runtime).
 
-### Publish IDX models
+### Deploy IDX models
 
-In this example, we will import and publish the datamodels defined by the [CIP-19 "Basic Profile"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-19/CIP-19.md), [CIP-21 "Crypto Accounts"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-21/CIP-21.md) and [CIP-23 "Also Known As"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-23/CIP-23.md) specifications.
+In this example, we will import and deploy the datamodels defined by the [CIP-19 "Basic Profile"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-19/CIP-19.md), [CIP-21 "Crypto Accounts"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-21/CIP-21.md) and [CIP-23 "Also Known As"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-23/CIP-23.md) specifications.
 
 First, we need to install these datamodels using npm:
 
@@ -134,5 +134,5 @@ glaze model:create idx
 glaze model:import idx @datamodels/identity-profile-basic
 glaze model:import idx @datamodels/identity-accounts-crypto
 glaze model:import idx @datamodels/identity-accounts-web
-glaze model:publish idx
+glaze model:deploy idx
 ```
