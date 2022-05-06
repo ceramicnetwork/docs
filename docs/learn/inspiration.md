@@ -23,7 +23,7 @@ Universal profiles available for use throughout the web3 metaverse.
 
 |Project    |Description    |Demo   |Code Repo|
 |-----|----|-----|--|
-|[DAOHaus](https://daohaus.club/)|  To help DAOs better understand who is participating in thier communities, DAOhaus is using Ceramic to create rich and robust member profiles.|[Blog Post](https://blog.ceramic.network/daohaus-adds-rich-dao-member-profiles/)|[Github])https://github.com/HausDAO/daohaus-app)|
+|[DAOHaus](https://daohaus.club/)|  To help DAOs better understand who is participating in thier communities, DAOhaus is using Ceramic to create rich and robust member profiles.|[Blog Post](https://blog.ceramic.network/daohaus-adds-rich-dao-member-profiles/)|[Github](https://github.com/HausDAO/daohaus-app)|
 |[DNS.xyz](https://beta.dns.xyz/)|DNS.xyz uses Ceramic to allow users to create and manage a universal profile.|||
 |[Titter](https://twitter.com/dabit3/status/1515698468949573634)|Titter is a prototype of a web3-native social application, using Ceramic for editable, self-sovereign user profiles.||[Github](https://github.com/dabit3/titter)|
 
@@ -34,7 +34,7 @@ This includes any publicly veriable attestations for skills, credentials, and co
 |-|----|-----|--|
 |[Deep Skills](https://deepwork.studio/case-studies/deep-skills%20protocol)|Deep Skills is a platform to help DAOs recruit & coordinate workflows amongst team members, using Ceramic to store contributor credentials.)|[Hackathon Submission](https://dorahacks.io/buidl/2054)|[Github](https://github.com/Deep-Skills/denver-eth-2022)|
 |[Gateway](https://beta.mygateway.xyz/)|Gateway is a DAO discovery and contributor reputation platform, aiming to build the LinkedIn for Web3 storing employment credentials on Ceramic.)|||
-|[Intuition](https://hackerlink.io/buidl/2031)|A Game-Theoretic Decentralized Identity System where users can "stake" claims about their identity, allowing the public to view and verify, resulting in an aggregate confidence score in the claim.|[Demo](https://www.youtube.com/watch?v=b7HvaGAti40]|[Github](https://github.com/0xIntuition)|
+|[Intuition](https://hackerlink.io/buidl/2031)|A Game-Theoretic Decentralized Identity System where users can "stake" claims about their identity, allowing the public to view and verify, resulting in an aggregate confidence score in the claim.|[Demo](https://www.youtube.com/watch?v=b7HvaGAti40)|[Github](https://github.com/0xIntuition)|
 |[SuperSkills Lab (with Lego Foundation)](https://www.learningeconomy.io)|SuperSkills Lab is a learning application for children, using Ceramic to issue credentials for earned skills.|[Blog Post](https://www.learningeconomy.io/post/superskillstech)||
 
 ### User-generated Content
