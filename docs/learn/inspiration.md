@@ -15,8 +15,8 @@ Plugins and tools to enhance Ceramic's underlying functionality.
 
 
 
-## Referenceable Projects
-Highlighted projects for popular use-cases built using Ceramic by valued partners, community members, and hackathon participants.
+## Highlighted Projects
+Projects for popular use-cases built using Ceramic by valued partners, community members, and hackathon participants.
 
 ### User Profiles
 Universal profiles available for use throughout the web3 metaverse.
@@ -47,8 +47,7 @@ Includes social media posts, comments, votes, blogs, and social graphs, to name 
 |[HashChat](https://showcase.ethglobal.com/lfgrow/hashchat-t2hhd)|Protocol to enable wallet-to-wallet messages that are fully encrypted and disappearing.|https://hashchat-lfgrow.netlify.app/|https://github.com/hashchat-xyz/hashchat-lfgrow|
 |[Headline by Unlock Protocol](https://viaheadline.xyz/)|Headline is a decentralized publishing platform where a creator’s content is fully self-sovereign.|https://headline-unlock-test.herokuapp.com/v||
 |[Minds](https://www.minds.com/)|Minds is a web3 social network using Ceramic to store user profile data.|https://gitlab.com/minds/minds-ceramic-demo|https://gitlab.com/minds|
-|[Orbis Club](orbis.club)|Orbis is a decentralized version of Twitter built on Ceramic, where user’s posts are stored as Ceramic streams.|||
-|[The Data Wallet](https://showcase.ethglobal.com/hackfs2021/2c-%F0%9F%91%9B-the-data-wallet-%F0%9F%A5%82-byof-marketplace)|The Data Wallet hosts social graphs of trusted people, so that any dApp can load data curated by specific communities.|https://www.figma.com/proto/qe9G6txF7d1y3uoZqfJVF0/Marketplace---HackFS-2021|https://github.com/twos-complement/2c-byof-dapp-marketplace|
+|[Orbis Club](https://orbis.club/)|Orbis is a decentralized version of Twitter built on Ceramic, where user’s posts are stored as Ceramic streams.|||
 
 ### Dynamic NFTs
 NFTs backed by off-chain data storage with content that can change and evolve over time.
@@ -57,15 +56,3 @@ NFTs backed by off-chain data storage with content that can change and evolve ov
 |-|----|-----|--|
 |[FungyProof](https://www.fungyproof.com/)|Using Ceramic, FungyProof has created one of the first implementations for dynamically appending metadata to an NFT over time.|https://blog.ceramic.network/introducing-fungyproof-nft-grading-and-enriching/||
 |[DoinGud](https://doingud.com/)|DoinGud is building a cross-chain interoperable NFT ecosystem, using Ceramic to store dynamic NFT content and metadata, attached to user profiles and identity.|https://blog.doingud.com/doingud-partners-with-ceramic-to-enable-cross-chain-profiles/||
-
-
-### General Data Storage
-Projets that utilize Ceramic as a generalized off-chain data storage solution.
-
-|Project    |Description    |Demo   |Code Repo|
-|-|----|-----|--|
-|[AMHO](https://dorahacks.io/buidl/1946)|dApp marketplace that utilizes QR codes to buy, sell, and trade digital and meta-physical goods.|https://www.youtube.com/watch?v=zyV1aGQUY0I&t=1878s||
-|[Discovery](https://showcase.ethglobal.com/hackfs2021/discovery)|A gamified learning platform where protocols collaborate with content creators to create high-quality courses that are built around open-source trustable and verifiable content.|https://www.youtube.com/watch?v=UGJA6eahQBg|https://github.com/Discovery-Labs/Discovery|
-|[Doxx](https://showcase.ethglobal.com/hackfs2021/doxx)|Doxx is a web3 notebook linking your ENS name to notes stored on Ceramic.|https://www.youtube.com/watch?v=aLouV8c93uM|https://github.com/ecmendenhall/doxx|
-|[MetaSign](https://dorahacks.io/buidl/2136)|Decentralized authentication, profiles, and updates for IoT sensors using Ceramic for cross-sensor metadata management.|https://www.youtube.com/watch?v=fegAY2-785k|https://github.com/spctcl/metasign|
-|[Soleil](https://devpost.com/software/soleil)|A way to incentivise both growths of the entire solar industry with one transaction and of a decentralised off-chain public feed of solar energy production data for all to use.|https://www.youtube.com/watch?v=9V7hv01URL8|https://github.com/H0M13/Soleil|
