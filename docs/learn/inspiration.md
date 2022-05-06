@@ -1,7 +1,7 @@
 # Developer Inspiration
 Whether you're building a new feature for your product or using Ceramic for your next hackathon entry, here's some successful projects, useful tools, and popular use-cases for Ceramic to get excited about!
 
-_Note_: We do our best to keep these links and list of projects as up-to-date as possible. If you see any issues with the content below (links not working, etc), please drop by our [Discord](https://discord.com/invite/6VRZpGP) and let us know.
+_Note_: We do our best to keep these links and list of projects as up-to-date as possible. If you see any issues with the content below, please drop by our [Discord](https://discord.com/invite/6VRZpGP) and let us know.
 
 ## Ecosystem Support
 Plugins and tools to enhance Ceramic's underlying functionality.
