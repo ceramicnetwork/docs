@@ -59,7 +59,7 @@ Docker images to run Ceramic and IPFS are built from the source code of the [js-
 
 ### **Run outside of containers**
 
-If you would like to run Ceramic and IPFS outside of containers or on bare metal, start by installing [go-ipfs](https://github.com/ipfs/go-ipfs) (**version 0.12 or later**). Depending on your infrastructure setup you may consider building `go-ipfs` with the [healthcheck plugin](https://github.com/ceramicnetwork/go-ipfs-healthcheck) and [S3 datastore plugin](https://github.com/3box/go-ds-s3). Next install the Ceramic daemon with the [js-ceramic CLI](https://www.npmjs.com/package/@ceramicnetwork/cli), which is available as a public NPM module. It is currently compatible with **Node.js version 16.**
+If you would like to run Ceramic and IPFS outside of containers or on bare metal, start by installing [go-ipfs](https://github.com/ipfs/go-ipfs) (**version 0.12 or later**). Depending on your infrastructure setup you may consider building `go-ipfs` with the [healthcheck plugin](https://github.com/ceramicnetwork/go-ipfs-healthcheck) and [S3 datastore plugin](https://github.com/3box/go-ds-s3). Once IPFS is installed, configure it to use pubsub, which Ceramic relies on for message passing. This can be done by running the IPFS daemon with the `--enable-pubsub-experiment` flag or modifying the configuration by running `ipfs config --json Pubsub.Enabled true` (learn more in the [IPFS docs](https://github.com/ipfs/go-ipfs/blob/master/docs/experimental-features.md#ipfs-pubsub)). Next you can run IPFS and install the Ceramic daemon with the [js-ceramic CLI](https://www.npmjs.com/package/@ceramicnetwork/cli), which is available as a public NPM module. It is currently compatible with **Node.js versions 14 and 16.**
 
 ## **Data Persistence**
 
