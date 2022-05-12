@@ -49,7 +49,7 @@ Once this flow is successfully applied, the Viewer's cookie is set to the authen
 writing records associated to the Viewer becomes possible.
 
 ```ts
-import { useViewerConnection } from '@self.id/framework'
+import { EthereumAuthProvider, useViewerConnection } from '@self.id/framework'
 
 // A simple button to initiate the connection flow. A Provider must be present at a higher level
 // in the component tree for the `useViewerConnection()` hook to work.
