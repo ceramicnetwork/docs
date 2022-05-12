@@ -32,7 +32,7 @@ nav:
       - Introduction: learn/welcome.md
       - Why Ceramic?: learn/features.md
       - How it works: learn/how-it-works.md
-      - Developer inspiration: learn/inspiration.md
+      - Highlighted projects: learn/highlighted-projects.md
       - Advanced:
           - Tech overview: learn/advanced/overview.md
           - Data availability: learn/advanced/data-availability.md
