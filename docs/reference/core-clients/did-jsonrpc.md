@@ -78,7 +78,7 @@ Simple, self-contained DID method.
 
 ## Install account resolvers
 
-The next step is to install resolver libraries for all of the account types which you may need to read and verify data (signatures). This includes _at least_ the resolver for the provider or wallet chosen in the previous step. However, most projects install all reslovers to be safe:
+The next step is to install resolver libraries for all of the account types which you may need to read and verify data (signatures). This includes _at least_ the resolver for the provider or wallet chosen in the previous step. However, most projects install all resolvers to be safe:
 
 | Account | Resolver libraries                                                            | Maintainer |
 | ------- | ----------------------------------------------------------------------------- | ---------- |
