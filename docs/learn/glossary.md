@@ -50,7 +50,7 @@ A conflict resolution strategy is logic defined by a [StreamType](#streamtypes) 
 
 ### Controllers
 
-Controllers are entities allowed to perform updates to a [stream](#streams), by creating new [signed commits](#signed-commit). A given stream may have one or more controllers.
+Controllers are entities allowed to perform updates to a [stream](#streams), by creating new [signed commits](#signed-commit). A given stream may have one controller only.
 
 ## Stream authentication
 
