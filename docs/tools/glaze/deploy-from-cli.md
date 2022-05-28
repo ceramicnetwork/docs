@@ -80,30 +80,30 @@ glaze model:export my-model ./my-model.json
 
 ### **Deploy to Ceramic**
 
-The `model:publish` command can be used to publish all the streams used by a given model:
+The `model:deploy` command can be used to deploy all the streams used by a given model:
 
-=== "Publishing a local model"
-
-    ```sh
-    glaze model:publish my-model
-    ```
-
-=== "Publishing a model file"
+=== "Deploying a local model"
 
     ```sh
-    glaze model:publish ./my-model.json
+    glaze model:deploy my-model
     ```
 
-=== "Publishing a model package"
+=== "Deploying a model file"
 
     ```sh
-    glaze model:publish package-name-of-model
+    glaze model:deploy ./my-model.json
     ```
 
-Optionally, a second argment can be provided to output the [PublishedModel](datamodel.md#publishedmodel) to a JSON file:
+=== "Deploying a model package"
+
+    ```sh
+    glaze model:deploy package-name-of-model
+    ```
+
+Optionally, a second argment can be provided to output the [ModelAliases](datamodel.md) to a JSON file:
 
 ```sh
-glaze model:publish my-model ./published-model.json
+glaze model:deploy my-model ./deployed-model.json
 ```
 
 ## **Next steps: Using models in your app**
@@ -112,7 +112,7 @@ glaze model:publish my-model ./published-model.json
 
 ### **Aliasing your data models**
 
-Your output file can be used by the [DataModel](datamodel.md#datamodel-runtime) module contained in Glaze suite in order to give your model a friendly, human-readable name.
+Your output file can be used by the [DataModel](datamodel.md#usage) module contained in Glaze suite in order to give your model a friendly, human-readable name.
 
 ### **Storing and retrieving data**
 
@@ -122,7 +122,7 @@ Your data models are now available to be used by the DID DataStore module provid
 
 ---
 
-In this example, we will import and publish popular Ceramic data models found in the [Data Models Registry](../../docs/advanced/standards/data-models/data-model-universe.md), defined by the [CIP-19 "Basic Profile"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-19/CIP-19.md), [CIP-21 "Crypto Accounts"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-21/CIP-21.md) and [CIP-23 "Also Known As"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-23/CIP-23.md) specifications.
+In this example, we will import and deploy popular Ceramic data models found in the [Data Models Registry](../../docs/advanced/standards/data-models/data-model-universe.md), defined by the [CIP-19 "Basic Profile"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-19/CIP-19.md), [CIP-21 "Crypto Accounts"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-21/CIP-21.md) and [CIP-23 "Also Known As"](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-23/CIP-23.md) specifications.
 
 First, we need to install these data models from the Data Models Registry using npm:
 
@@ -137,5 +137,5 @@ glaze model:create idx
 glaze model:import idx @datamodels/identity-profile-basic
 glaze model:import idx @datamodels/identity-accounts-crypto
 glaze model:import idx @datamodels/identity-accounts-web
-glaze model:publish idx
+glaze model:deploy idx
 ```
