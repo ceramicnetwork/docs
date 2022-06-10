@@ -9,9 +9,9 @@ DID JSON-RPC client provides a simple JS API for interacting with Ceramic accoun
 ---
 
 - Provides the DID object, which must be authenticated, then mounted on the Ceramic object to perform transactions.
-- For Ceramic nodes, the DID client serves as a way to resolve ad verify transaction signatures
-- For Ceramic clients, the DID client serves as a way to create account, authenticate, sign, encrypt
-- If your project requires transactions, you **need** to install this package, or one that offers similar EIP-2844 API support.
+- For Ceramic nodes, the DID client acts as a way to resolve and verify transaction signatures
+- For Ceramic clients, the DID client serves as a way to create an account, authenticate, sign, encrypt
+- If your project requires transactions, you **need** to install this package or one that offers similar EIP-2844 API support.
 - The DID client library can be used in both browser and Node.js environments.
 - It supports any DID wallet provider that adheres to the [EIP-2844](https://eips.ethereum.org/EIPS/eip-2844) interface.
 - Communicating between a Ceramic client and any account provider.
@@ -23,11 +23,11 @@ DID JSON-RPC client provides a simple JS API for interacting with Ceramic accoun
 npm install dids
 ```
 
-The `DID` class provides the interface on top of underlying account libraries. The next step is to set up your account system, which requires you to make some important decisisions about your account model and approach to key management. This process consists of three steps: choosing your account types, installing a provider, and installing resolver(s).
+The `DID` class provides the interface on top of underlying account libraries. The next step is to set up your account system, which requires you to make some important decisions about your account model and approach to key management. This process consists of three steps: choosing your account types, installing a provider, and installing resolver(s).
 
 ## Choose your account types
 
-Choosing an account type can have a big impact on the interoperability of your users' identity and data. For example some account types are fixed to a single public key (Key DID, PHK DID) so the data is siloed to that key, while others (3ID DID) have mutable key management schemes that can support multiple authorized signing keys and works cross-chain with blockchain wallets. Visit each account to learn more about its capabilities.
+Choosing an account type can significantly impact your users' identity and data interoperability.  For example, some account types are fixed to a single public key (Key DID, PHK DID), so the data is siloed to that key.  In contrast, others (3ID DID) have mutable key management schemes that can support multiple authorized signing keys and works cross-chain with blockchain wallets. Visit each account to learn more about its capabilities.
 
 ### [3ID DID](../../docs/advanced/standards/accounts/3id-did.md)
 
@@ -78,7 +78,7 @@ Simple, self-contained DID method.
 
 ## Install account resolvers
 
-The next step is to install resolver libraries for all of the account types which you may need to read and verify data (signatures). This includes _at least_ the resolver for the provider or wallet chosen in the previous step. However, most projects install all resolvers to be safe:
+The next step is to install resolver libraries for all account types that you may need to read and verify data (signatures). This includes _at least_ the resolver for the provider or wallet chosen in the previous step. However, most projects install all resolvers to be safe:
 
 | Account | Resolver libraries                                                            | Maintainer |
 | ------- | ----------------------------------------------------------------------------- | ---------- |
@@ -93,21 +93,21 @@ The next step is to install resolver libraries for all of the account types whic
 
 ## Install account providers
 
-Install providers to manage accounts and sign transactions. Once you have chosen one or more account types, you'll need to install the providers for these account types. These will enable the client-side creation and use of accounts within your application. If your application is using Ceramic in a read-only manner without transactions then you do not need to install a provider.
+Install providers to manage accounts and sign transactions. Once you have chosen one or more account types, you'll need to install the providers for these account types. These will enable the client-side creation and use of accounts within your application. If your application uses Ceramic in a read-only manner without transactions, you do not need to install a provider.
 
 ### Using web wallets
 
-However, the providers listed above are low-level, run locally, and burden developers with UX issues related to secret key management and transaction signing. Instead of using a local provider, you can alternatively use a wallet system. Wallets wrap providers with additional user experience features related to signing and key management and can be used in place of a provider. Benefit is multiple applications can access the same wallet and key management system, so users have a continuous experience between applications.
+However, the providers listed above are low-level, run locally, and burden developers with UX issues related to secret key management and transaction signing. Instead of using a local provider, you can alternatively use a wallet system. Wallets wrap providers with additional user experience features related to signing and key management and can be used in place of a provider. The benefit is multiple applications can access the same wallet and key management system, so users have a continuous experience between applications.
 
 | Account | Wallet                                              | Benefits                                                                                                                                                                                 | Drawbacks |
 | ------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| 3ID DID | [`3ID Connect`](../accounts/3id-did.md#3id-connect) | ✅ Sign with blockchain wallets including MetaMask</br>✅ Connect multiple blockchain accounts to one Ceramic account</br>✅ Implements 3ID DID</br>✅ Works cross-chain</br>✅ Sleek UI | ❌ Risks  |
+| 3ID DID | [`3ID Connect`](../accounts/3id-did.md#3id-connect) | ✅ Sign with blockchain wallets, including MetaMask</br>✅ Connect multiple blockchain accounts to one Ceramic account</br>✅ Implements 3ID DID</br>✅ Works cross-chain</br>✅ Sleek UI | ❌ Risks  |
 
 > Most user-facing applications use the 3ID Connect wallet instead of using a provider.
 
 ### Create your own wallet
 
-One option is to install and set up one or more account providers that run locally. Note that these local signers have different wallet support
+One option is installing and setting up one or more account providers that run locally. Note that these local signers have different wallet support
 
 | Account | Supported Key Types | Provider libraries                                               |
 | ------- | ------------------- | ---------------------------------------------------------------- |
@@ -121,7 +121,7 @@ Note that NFT DID and Safe DID do not have a signer because they are compatible 
 
 ## Setup your project
 
-By now you should have installed DID.js and set up your account system, including authentication to perform transactions. When you include everything in your project it should look something like this. Note that exact code will vary by your setup including provider and wallet. Consult your provider's documentation for authentication specifics.
+You should have installed DID.js and set up your account system, including authentication to perform transactions. When you include everything in your project, it should look like this. Note that the exact code will vary by your setup, including provider and wallet. Consult your provider's documentation for authentication specifics.
 
 ```ts
 // Import DID client
@@ -137,7 +137,7 @@ const API_URL = 'https://your-ceramic-node.com'
 // Create the Ceramic object
 const ceramic = new CeramicClient(API_URL)
 
-// ↑ With this setup you can perform read-only queries.
+// ↑ With this setup, you can perform read-only queries.
 // ↓ Continue to authenticate the account and perform transactions.
 
 async function authenticateCeramic(seed) {
@@ -259,7 +259,7 @@ console.log((await ipfs.dag.get(jwsCid)).value)
 
 ##### How it Works
 
-As can be observed above the createDagJWS method takes the payload, encodes it using dag-cbor and computes it's CID. It then uses this CID as the payload of the JWS that is then signed. The JWS that was just created can be put into ipfs using the dag-jose codec. Returned is also the encoded block of the payload. This can be put into ipfs using ipfs.block.put. Alternatively ipfs.dag.put(payload) would have the same effect.
+As can be observed above, the createDagJWS method takes the payload, encodes it using dag-cbor, and computes its CID. It then uses this CID as the payload of the JWS that is then signed. The JWS that was just created can be put into ipfs using the dag-jose codec. Returned is also the encoded block of the payload. This can be put into ipfs using ipfs.block.put. Alternatively, ipfs.dag.put(payload) would have the same effect.
 
 ### Store encrypted data on IPFS with DagJWE
 
