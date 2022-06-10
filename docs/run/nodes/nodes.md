@@ -264,7 +264,7 @@ The Ceramic daemon serves an HTTP API that clients use to interact with your Cer
 
 ### **Staying connected to IPFS**
 
-Ceramic nodes rely on IPFS for networking. IPFS nodes connect to each other using a Libp2p module called "switch" (aka "swarm"). This module operates over a websocket, on port `4011` by default. The websocket port must be accessible to the internet so your Ceramic node can be connected to the network.
+Ceramic nodes rely on IPFS for networking. IPFS nodes connect to each other using a Libp2p module called "switch" (aka "swarm"). This module operates over a websocket, on port `4001` by default. The websocket port must be accessible to the internet so your Ceramic node can be connected to the network.
 
 !!! warning ""
 
