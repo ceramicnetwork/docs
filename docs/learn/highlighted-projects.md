@@ -53,6 +53,7 @@ Includes social media posts, comments, votes, blogs, and social graphs, to name 
 |[CyberConnect](https://cyberconnect.me/)|CyberConnect is building the open social graph for Web3.|[Blog Post](https://blog.ceramic.network/building-the-social-graph-infrastructure-for-web3-0/)|[Github](https://github.com/cyberconnecthq/js-cyberconnect)|
 |[HashChat](https://showcase.ethglobal.com/lfgrow/hashchat-t2hhd)|Protocol to enable wallet-to-wallet messages that are fully encrypted and disappearing.|[Hackathon Submission](https://hashchat-lfgrow.netlify.app/)|[Github](https://github.com/hashchat-xyz/hashchat-lfgrow)|
 |[Headline](https://viaheadline.xyz/)|Headline is a decentralized publishing platform built by Unlock Protocol where a creator’s content is fully self-sovereign.|[Demo](https://www.loom.com/share/2b1484299ebe4c0ea1469d01295e9410)||
+|[Link3](https://link3.to/)| Link3 by CyberConnect is a verified and trusted way for projects to publish their info and links, with all content stored on Ceramic streams.|[Example](https://link3.to/cyberconnect)||
 |[Minds](https://www.minds.com/)|Minds is a web3 social network using Ceramic to store user profile data.|[Demo](https://gitlab.com/minds/minds-ceramic-demo)|[Github](https://gitlab.com/minds)|
 |[Orbis Club](https://orbis.club/)|Orbis is a decentralized version of Twitter built on Ceramic, where user’s posts are stored as Ceramic streams.|[Demo](https://www.loom.com/share/5668edf9a96b406090b974c200693570)||
 
