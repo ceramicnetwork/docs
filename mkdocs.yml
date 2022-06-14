@@ -32,6 +32,7 @@ nav:
       - Introduction: learn/welcome.md
       - Why Ceramic?: learn/features.md
       - How it works: learn/how-it-works.md
+      - Roadmap: learn/roadmap.md
       - Highlighted projects: learn/highlighted-projects.md
       - Advanced:
           - Tech overview: learn/advanced/overview.md
