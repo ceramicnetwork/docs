@@ -160,6 +160,9 @@ nav:
               - DID DataStore:
                   - DID DataStore module: reference/glaze/modules/did_datastore.md
                   - DIDDataStore class: reference/glaze/classes/did_datastore.DIDDataStore.md
+              - DID Session:
+                  - DID Session module: reference/glaze/modules/did_session.md
+                  - DIDSession class: reference/glaze/classes/did_session.DIDSession.md
               - DevTools:
                   - DevTools module: reference/glaze/modules/devtools.md
                   - ModelManager class: reference/glaze/classes/devtools.ModelManager.md
