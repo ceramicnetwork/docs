@@ -36,9 +36,12 @@ This includes any publicly veriable attestations for skills, credentials, and co
 
 |Project    |Description    |Demo   |Code Repo|
 |-|----|-----|--|
+|[C-Voxel](https://testnet.cvoxel.xyz/intro)|C-Voxel is your visualized work history on web3 generated and stored on Ceramic.||[Github](https://github.com/cvoxelprotocol/cvoxel)|
 |[Deep Skills](https://deepwork.studio/case-studies/deep-skills%20protocol)|Deep Skills is a platform to help DAOs recruit & coordinate workflows amongst team members, using Ceramic to store contributor credentials.)|[Hackathon Submission](https://dorahacks.io/buidl/2054)|[Github](https://github.com/Deep-Skills/denver-eth-2022)|
 |[Gateway](https://beta.mygateway.xyz/)|Gateway is a DAO discovery and contributor reputation platform, aiming to build the LinkedIn for Web3 storing employment credentials on Ceramic.|[User Demo](https://www.loom.com/share/1b3a334a08df47a68971e83d35136b98) [Admin Demo](https://www.loom.com/share/3b4d3de447bd487893b9a419b416f138)||
+|[Gitcoin Passport](https://passport.gitcoin.co/)|Gitcoin Passport allows users to prove their identity through a secure, decentralized UI which issues verifiable credentials stored on Ceramic.|[Demo](https://www.loom.com/share/4fd5cb00d255486d84de6be4bbb41b0c)|[Github](https://github.com/gitcoinco/dPopp)|
 |[Intuition](https://hackerlink.io/buidl/2031)|An Identity System where users can "stake" claims about their identity, allowing the public to view and verify, resulting in an aggregate confidence score in the claim, using Ceramic to store credentials and social connections.|[Demo](https://www.youtube.com/watch?v=b7HvaGAti40)|[Github](https://github.com/0xIntuition)|
+|[Krebit.id](https://testnet.krebit.id/#/)|Krebit.id is an open identity verification protocol, DAO and marketplace for Web3 Verifiable Credential.|[Demo](https://gitcoin.co/grants/3522/krebit-web3-verifiable-credentials)|[Github](https://github.com/KrebitDAO)|
 |[SuperSkills Lab](https://www.learningeconomy.io)|Built in partnership with the Lego Foundation, SuperSkills Lab is a learning application for children, using Ceramic to issue credentials for earned skills.|[Blog Post](https://www.learningeconomy.io/post/superskillstech)||
 
 ### User-generated Content
@@ -50,6 +53,7 @@ Includes social media posts, comments, votes, blogs, and social graphs, to name 
 |[CyberConnect](https://cyberconnect.me/)|CyberConnect is building the open social graph for Web3.|[Blog Post](https://blog.ceramic.network/building-the-social-graph-infrastructure-for-web3-0/)|[Github](https://github.com/cyberconnecthq/js-cyberconnect)|
 |[HashChat](https://showcase.ethglobal.com/lfgrow/hashchat-t2hhd)|Protocol to enable wallet-to-wallet messages that are fully encrypted and disappearing.|[Hackathon Submission](https://hashchat-lfgrow.netlify.app/)|[Github](https://github.com/hashchat-xyz/hashchat-lfgrow)|
 |[Headline](https://viaheadline.xyz/)|Headline is a decentralized publishing platform built by Unlock Protocol where a creator’s content is fully self-sovereign.|[Demo](https://www.loom.com/share/2b1484299ebe4c0ea1469d01295e9410)||
+|[Link3](https://link3.to/)| Link3 by CyberConnect is a verified and trusted way for projects to publish their info and links, with all content stored on Ceramic streams.|[Example](https://link3.to/cyberconnect)||
 |[Minds](https://www.minds.com/)|Minds is a web3 social network using Ceramic to store user profile data.|[Demo](https://gitlab.com/minds/minds-ceramic-demo)|[Github](https://gitlab.com/minds)|
 |[Orbis Club](https://orbis.club/)|Orbis is a decentralized version of Twitter built on Ceramic, where user’s posts are stored as Ceramic streams.|[Demo](https://www.loom.com/share/5668edf9a96b406090b974c200693570)||
 
