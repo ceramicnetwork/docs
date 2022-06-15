@@ -34,7 +34,9 @@ Provide storage, compute, and bandwidth to the network by [**running a node**](.
 
 ---
 
-- Join the [**Discord**](https://chat.ceramic.network) to ask questions and engage with the community
+- Join our [**Forum**](https://forum.ceramic.network) to ask questions and get support
+
+- Join the [**Discord**](https://chat.ceramic.network) to discuss the Ceramic Network
 
 - Follow us on [**Twitter**](https://twitter.com/ceramicnetwork) for updates
 

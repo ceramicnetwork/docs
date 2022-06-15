@@ -6,7 +6,7 @@ If you encounter an issue, see if it's already known with a recommended work aro
 
 ## Developer Chat
 
-For developer questions, chat, and support, join us on the [**Ceramic Discord** :octicons-link-external-16:](https://chat.ceramic.network).
+For developer questions, chat, and support, join us on the [**Ceramic Forum** :octicons-link-external-16:](https://forum.ceramic.network).
 
 ## Github Issues
 

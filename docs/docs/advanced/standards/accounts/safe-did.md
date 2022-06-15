@@ -7,7 +7,7 @@
     # **⚠️ Safe DID is experimental and ___not___ recommended for production use.** 
     The current implementation requires the current members of a Gnosis Safe with a corresponding did:safe to trust all current and previous members of the Gnosis Safe not to override the content of Ceramic streams controlled by the did:safe.
     
-    Please reach out in [Discord](https://chat.ceramic.network) to provide feedback or get help. 
+    Please reach out on our [forum](https://forum.ceramic.network) to provide feedback or get help. 
 
 The Gnosis Safe DID Method (CIP-101) is an account that can perform transactions on streams. Safe DID accounts are controlled by the current members of a Gnosis Safe smart contract. Safe DID is on the W3C's official DID method registry and is fully compliant with decentralized identity standards, however they are still highly experimental, so use at your own risk.
 
