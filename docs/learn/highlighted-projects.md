@@ -10,7 +10,7 @@ Plugins and tools to enhance Ceramic's underlying functionality.
 
 |Project    |Description    |Demo   |Code Repo|
 |-|----|-----|--|
-|[Cerscan](https://cerscan.com/)|Explorer for the Ceramic Network testnet and mainnet. Built by the [Orbis](https://orbis.club/) team.|||
+|[Cerscan](https://cerscan.com/)|Explorer for the Ceramic Network testnet and mainnet. Built by the [Orbis](https://orbis.club/) team.|[Example](https://cerscan.com/testnet-clay/family/orbis)||
 |IdentityLink|Services for issuing verifiable credentials that link a decentralized identifier (DID) to various social accounts including Twitter, Github, and Discord.|[Demo](https://www.loom.com/share/919bf631cf484934b415c24991e48c4e)|[Github](https://github.com/ceramicstudio/identitylink-services)|
 |[Lit Protocol ](https://developer.litprotocol.com/docs/ceramicintegration/)|Lit Protocol facilitates gated access to encrypted content/data on Ceramic using tokens, NFTs, and blockchain identity as keys.|[Demo](https://www.youtube.com/watch?v=EENmb0mPGWU)|[Github](https://github.com/LIT-Protocol/CeramicIntegration)|
 |[Self.ID SDK](https://developers.ceramic.network/reference/self-id/#sdk)|Self.ID is a framework that makes it easy to build on Ceramic with Ethereum-based authentication and composable, user-centric data storage and retrieval.|[Reference app](https://self.id/)|[Github](https://github.com/ceramicstudio/self.id)|
