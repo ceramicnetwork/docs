@@ -4,7 +4,7 @@ This guide descibes how to install the [JS HTTP Client](./installation.md#js-htt
 
 ## **Requirements**
 
-Installing the JS HTTP Client requires a console, [Node.js](https://nodejs.org/en/){:target="\_blank"} v14, and [npm](https://www.npmjs.com/get-npm){:target="\_blank"} v6. Make sure to have these installed on your machine.
+Installing the JS HTTP Client requires a console, [Node.js](https://nodejs.org/en/){:target="\_blank"} v16, and [npm](https://www.npmjs.com/get-npm){:target="\_blank"} v8. Make sure to have these installed on your machine.
 
 !!! warning ""
 
