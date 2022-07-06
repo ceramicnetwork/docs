@@ -4,15 +4,7 @@ This guide descibes how to install the [JS HTTP Client](./installation.md#js-htt
 
 ## **Requirements**
 
-Installing the JS HTTP Client requires a console, [Node.js](https://nodejs.org/en/){:target="\_blank"} v14, and [npm](https://www.npmjs.com/get-npm){:target="\_blank"} v6. Make sure to have these installed on your machine.
-
-!!! warning ""
-
-    While npm v7 is not officially supported, you may still be able to get it to work. However you will need to install the `node-pre-gyp` package globally. This is required until `node-webrtc`, which [IPFS](../../learn/glossary.md#ipfs) depends on, [is upgraded](https://github.com/node-webrtc/node-webrtc/pull/694){:target="_blank"}.
-
-    ```bash
-    npm install -g node-pre-gyp
-    ```
+Installing the JS HTTP Client requires a console, [Node.js](https://nodejs.org/en/){:target="\_blank"} v16, and [npm](https://www.npmjs.com/get-npm){:target="\_blank"} v8. Make sure to have these installed on your machine.
 
 ## **1. Install the HTTP client**
 
