@@ -150,6 +150,7 @@ nav:
       - Accounts:
           - 3ID DID: reference/accounts/3id-did.md
           - Key DID: reference/accounts/key-did.md
+          - DID Session: reference/accounts/did-session.md
           #- NFT DID: reference/accounts/nft-did.md
           #- Safe DID: reference/accounts/safe-did.md
       - Streams:
@@ -160,9 +161,6 @@ nav:
               - DID DataStore:
                   - DID DataStore module: reference/glaze/modules/did_datastore.md
                   - DIDDataStore class: reference/glaze/classes/did_datastore.DIDDataStore.md
-              - DID Session:
-                  - DID Session module: reference/glaze/modules/did_session.md
-                  - DIDSession class: reference/glaze/classes/did_session.DIDSession.md
               - DevTools:
                   - DevTools module: reference/glaze/modules/devtools.md
                   - ModelManager class: reference/glaze/classes/devtools.ModelManager.md
