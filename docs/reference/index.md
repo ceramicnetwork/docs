@@ -15,6 +15,7 @@ This section contains reference documentation as well as instructions for common
 
 ---
 
+- [DID Session](./accounts/did-session.md)
 - [3ID DID libraries](./accounts/3id-did.md)
 - [Key DID libraries](./accounts/key-did.md)
 

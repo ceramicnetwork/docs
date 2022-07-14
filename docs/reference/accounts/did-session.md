@@ -177,29 +177,176 @@ const session = await DIDSession.authorize(authProvider, { resources: [`ceramic:
 const did = session.did
 ```
 
-## Classes
+# Class: DIDSession
 
-- [DIDSession](../classes/did_session.DIDSession.md)
+DID Session
 
-## Type Aliases
+## Constructors
 
-### SessionParams
+### constructor
 
-Ƭ **SessionParams**: `Object`
+• **new DIDSession**(`params`)
 
-#### Type declaration
+#### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `cacao` | `Cacao` |
-| `did` | `DID` |
-| `keySeed` | `Uint8Array` |
+| `params` | [`SessionParams`](../modules/did_session.md#sessionparams) |
 
-## Functions
+## Accessors
 
-### createDIDCacao
+### authorizations
 
-▸ **createDIDCacao**(`didKey`, `cacao`): `Promise`<`DID`\>
+• `get` **authorizations**(): `string`[]
+
+Get the list of resources a session is authorized for
+
+#### Returns
+
+`string`[]
+
+___
+
+### cacao
+
+• `get` **cacao**(): `Cacao`
+
+Get the session CACAO
+
+#### Returns
+
+`Cacao`
+
+___
+
+### did
+
+• `get` **did**(): `DID`
+
+Get DID instance, if authorized
+
+#### Returns
+
+`DID`
+
+___
+
+### expireInSecs
+
+• `get` **expireInSecs**(): `number`
+
+Number of seconds until a session expires
+
+#### Returns
+
+`number`
+
+___
+
+### hasSession
+
+• `get` **hasSession**(): `boolean`
+
+#### Returns
+
+`boolean`
+
+___
+
+### id
+
+• `get` **id**(): `string`
+
+DID string associated to the session instance. session.id == session.getDID().parent
+
+#### Returns
+
+`string`
+
+___
+
+### isExpired
+
+• `get` **isExpired**(): `boolean`
+
+Determine if a session is expired or not
+
+#### Returns
+
+`boolean`
+
+## Methods
+
+### isAuthorized
+
+▸ **isAuthorized**(`resources?`): `boolean`
+
+Determine if session is available and optionally if authorized for given resources
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `resources?` | `string`[] |
+
+#### Returns
+
+`boolean`
+
+___
+
+### serialize
+
+▸ **serialize**(): `string`
+
+Serialize session into string, can store and initalize the same session again while valid
+
+#### Returns
+
+`string`
+
+___
+
+### authorize
+
+▸ `Static` **authorize**(`authProvider`, `authOpts?`): `Promise`<[`DIDSession`](did_session.DIDSession.md)\>
+
+Request authorization for session, must pass resources in authOpts `{resources: [...]}`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `authProvider` | `EthereumAuthProvider` |
+| `authOpts` | `AuthOpts` |
+
+#### Returns
+
+`Promise`<[`DIDSession`](did_session.DIDSession.md)\>
+
+___
+
+### fromSession
+
+▸ `Static` **fromSession**(`session`): `Promise`<[`DIDSession`](did_session.DIDSession.md)\>
+
+Initialize a session from a serialized session string
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `session` | `string` |
+
+#### Returns
+
+`Promise`<[`DIDSession`](did_session.DIDSession.md)\>
+
+___
+
+### initDID
+
+▸ `Static` **initDID**(`didKey`, `cacao`): `Promise`<`DID`\>
 
 #### Parameters
 
@@ -207,22 +354,6 @@ const did = session.did
 | :------ | :------ |
 | `didKey` | `DID` |
 | `cacao` | `Cacao` |
-
-#### Returns
-
-`Promise`<`DID`\>
-
-___
-
-### createDIDKey
-
-▸ **createDIDKey**(`seed?`): `Promise`<`DID`\>
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `seed?` | `Uint8Array` |
 
 #### Returns
 
