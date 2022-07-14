@@ -191,7 +191,7 @@ DID Session
 
 | Name | Type |
 | :------ | :------ |
-| `params` | [`SessionParams`](../modules/did_session.md#sessionparams) |
+| `params` | `SessionParams`|
 
 ## Accessors
 
@@ -309,7 +309,7 @@ ___
 
 ### authorize
 
-▸ `Static` **authorize**(`authProvider`, `authOpts?`): `Promise`<[`DIDSession`](did_session.DIDSession.md)\>
+▸ `Static` **authorize**(`authProvider`, `authOpts?`): `Promise`<`DIDSession`\>
 
 Request authorization for session, must pass resources in authOpts `{resources: [...]}`
 
@@ -322,13 +322,13 @@ Request authorization for session, must pass resources in authOpts `{resources: 
 
 #### Returns
 
-`Promise`<[`DIDSession`](did_session.DIDSession.md)\>
+`Promise`<`DIDSession`\>
 
 ___
 
 ### fromSession
 
-▸ `Static` **fromSession**(`session`): `Promise`<[`DIDSession`](did_session.DIDSession.md)\>
+▸ `Static` **fromSession**(`session`): `Promise`<`DIDSession`\>
 
 Initialize a session from a serialized session string
 
@@ -340,7 +340,7 @@ Initialize a session from a serialized session string
 
 #### Returns
 
-`Promise`<[`DIDSession`](did_session.DIDSession.md)\>
+`Promise`<`DIDSession`\>
 
 ___
 
