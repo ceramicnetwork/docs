@@ -1,6 +1,6 @@
 # Module: did-session
 
-Manages user account and DID in web based environments.
+Manages user account DIDs in web based environments.
 
 ## Purpose
 
@@ -29,7 +29,7 @@ const authProvider = new EthereumAuthProvider(ethProvider, addresses[0])
 
 const session = await DIDSession.authorize(authProvider, { resources: [...]})
 
-// Uses DIDs in ceramic & glaze libraries, ie
+// Use DIDs in ceramic, composedb & glaze libraries, ie
 const ceramic = new CeramicClient()
 ceramic.did = session.did
 
@@ -72,8 +72,8 @@ didsession.expiresInSecs
 
 ## Configuration
 
-The resources your app needs to write access to must be passed during authorization. Resources are an array
-of Model Stream Ids or Streams Ids. Typically you * will just pass resources from `@composedb` libraries as
+The resources your app needs write access to must be passed during authorization. Resources are an array
+of Model Stream Ids or Streams Ids. Typically you will just pass resources from `@composedb` libraries as
 you will already manage your Composites and Models there. For example:
 
 ```ts
@@ -97,7 +97,7 @@ const session = await DIDSession.authorize(authProvider, { resources: [...], exp
 
 A domain/app name is used when making requests, by default in a browser based environment the library will use
 the domain name of your app. If you are using the library in a non web based environment you will need to pass
-the `domain` option otherwise an error will thrown.
+the `domain` option otherwise an error will be thrown.
 
 ```ts
 const session = await DIDSession.authorize(authProvider, { resources: [...], domain: 'YourAppName' })
@@ -108,7 +108,7 @@ const session = await DIDSession.authorize(authProvider, { resources: [...], dom
 A typical pattern is to store a serialized session in local storage and load on use if available. Then
 check that a session is still valid before making writes.
 
-**Warning:** LocalStorage is used for illustrative purposes here and may not be best for your app, as 
+**Warning:** LocalStorage is used here for illustrative purposes and may not be best for your app, as 
 there is a number of known issues with storing secret material in browser storage. The session string 
 allows anyone with access to that string to make writes for that user for the time and resources that 
 session is valid for. How that session string is stored and managed is the responsibility of the application.
@@ -141,7 +141,7 @@ const session = await loadSession(authProvider)
 const ceramic = new CeramicClient()
 ceramic.did = session.did
 
-// pass ceramic instance where needed, ie glaze
+// pass ceramic instance where needed, ie ceramic, composedb, glaze
 // ...
 
 // before ceramic writes, check if session is still valid, if expired, create new
@@ -168,8 +168,8 @@ const did = session.did
 ```
 
 Requesting resources are required now when authorizing, before wildcard (access all) was the default. You can continue to use
-wildcard by passing the following * below. Wildcard is typically only used with `@glazed` libraries and/or tile documents and
-it is best to switch over when possible, as the wildcard option may be * deprecated in the future. When using with
+wildcard by passing the following shown below. Wildcard is typically only used with `@glazed` libraries and/or tile documents and
+it is best to switch over when possible, as the wildcard option may be deprecated in the future. When using with
 composites/models you should request the minimum needed resources instead.
 
 ```ts
