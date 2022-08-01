@@ -97,8 +97,6 @@ nav:
           # TODO: v2 contents for PKH DID
           # - PKH DID: docs/advanced/standards/accounts/pkh-did.md
           - Key DID: docs/advanced/standards/accounts/key-did.md
-          - NFT DID (CIP-94): docs/advanced/standards/accounts/nft-did.md
-          - Safe DID (CIP-101): docs/advanced/standards/accounts/safe-did.md
       - Clients:
           - Clients: build/clients/index.md
       - Network APIs:
@@ -151,8 +149,6 @@ nav:
           - 3ID DID: reference/accounts/3id-did.md
           - Key DID: reference/accounts/key-did.md
           - DID Session: reference/accounts/did-session.md
-          #- NFT DID: reference/accounts/nft-did.md
-          #- Safe DID: reference/accounts/safe-did.md
       - Streams:
           - Tile Document: reference/stream-programs/tile-document.md
           - CAIP-10 Link: reference/stream-programs/caip10-link.md
@@ -240,7 +236,7 @@ plugins:
         'authentication/dids/3id.md': 'docs/advanced/standards/accounts/3id-did.md' # v2 redirect
         'authentication/dids/key.md': 'docs/advanced/standards/accounts/key-did.md' # v2 redirect
         'authentication/legacy/3id-connect-migration.md': 'pages/3box-migration.md' # v2 redirect
-        'authentication/nft-did/method.md': 'docs/advanced/standards/accounts/nft-did.md' # link exists in the wild
+        #'authentication/nft-did/method.md': 'docs/advanced/standards/accounts/nft-did.md' # link exists in the wild
         'reference/javascript/clients.md': 'build/javascript/http.md'
         'reference/javascript/did-resolvers.md': 'docs/advanced/standards/accounts/3id-did.md' # v2 redirect
         'reference/javascript/did-providers.md': 'docs/advanced/standards/accounts/3id-did.md' # v2 redirect

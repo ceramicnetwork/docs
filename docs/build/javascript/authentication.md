@@ -14,10 +14,6 @@ The first step in adding authentication to your project is choosing which DID me
 
 [**Key DID Method**](../../docs/advanced/standards/accounts/key-did.md): A lightweight DID method that only supports one key and cannot handle rotations
 
-[**NFT DID Method**](../../docs/advanced/standards/accounts/nft-did.md): A lightweight DID method with permissions that change based on on-chain NFT asset ownership
-
-[**Safe DID Method**](../../docs/advanced/standards/accounts/safe-did.md) _coming soon_: A lightweight DID method with permissions that change based on on-chain [Gnosis Safe](https://gnosis-safe.io/) contract permissions
-
 !!! warning ""
 
     It is recommended that most applications use the [3ID DID Method](../../docs/advanced/standards/accounts/3id-did.md).

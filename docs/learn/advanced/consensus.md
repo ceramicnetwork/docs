@@ -20,7 +20,7 @@ In the existing [TileDocument](../../docs/advanced/standards/stream-programs/til
 
 ### Write conflicts
 
-Sometimes, two conflicting logs for the same Stream might exist simultaneously. This can happen when the controller of the stream makes conflicting updates to the same stream on different devices or via different applications. It can also happen if a single Stream has multiple end users who are able to author updates to the stream (either because the stream has multiple controller DIDs, or because the DID method being used as the stream controller allows multiple users/private keys to sign messages on its behalf, like the [did:safe DID method](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-101/CIP-101.md), for example).
+Sometimes, two conflicting logs for the same Stream might exist simultaneously. This can happen when the controller of the stream makes conflicting updates to the same stream on different devices or via different applications. It can also happen if a single Stream has multiple end users who are able to author updates to the stream (either because the stream has multiple controller DIDs, or because the DID method being used as the stream controller allows multiple users/private keys to sign messages on its behalf).
 
 Whatever the reason for the diverging logs for a single Stream, it is important that all nodes can come to agreement (consensus) as to which is the correct log for that Stream. Most StreamTypes currently rely on the Earliest Anchor Wins strategy for resolving conflicts between stream logs.
 

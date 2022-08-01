@@ -37,14 +37,6 @@ Supports multi-account, cross-chain (MACC) identities. Mutability and key rotati
 
 Simple, self-contained DID method.
 
-### [NFT DID](../../docs/advanced/standards/accounts/nft-did.md)
-
-**Experimental** DID method using NFT ownership for authentication.
-
-### [Safe DID](../../docs/advanced/standards/accounts/safe-did.md)
-
-**Experimental** DID method using a Gnosis Safe for authentication.
-
 <!--
 <div class="txtl-options half">
   <a href="http://127.0.0.1:8000/authentication/3id-did/method/" class="box">
@@ -87,8 +79,6 @@ The next step is to install resolver libraries for all account types that you ma
 
 <!--
 | PKH DID  | [`js-pkh-did-resolver →`]() | Spruce             |
-| NFT DID  | [`3id/did-resolver →`]()    | @someonehandle.xyz |
-| Safe DID | [`3id/did-resolver →`]()    | 3Box Labs          |
 -->
 
 ## Install account providers
@@ -116,8 +106,6 @@ One option is installing and setting up one or more account providers that run l
 | Key DID | Secp256k1           | [`key-did-provider-secp256k1`](../accounts/key-did.md#secp256k1) |
 
 <!-- | PKH DID | ?????????           | [`js-pkh-did-provider →`]()           | -->
-
-Note that NFT DID and Safe DID do not have a signer because they are compatible with all other providers.
 
 ## Setup your project
 

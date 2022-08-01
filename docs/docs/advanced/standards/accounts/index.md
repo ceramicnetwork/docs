@@ -14,8 +14,6 @@ Below find the decentralized identifier (DID) standards currently supported as u
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
 | [3ID DID (CIP-79)](./3id-did.md)    | A Ceramic-native account that supports mutations in the DID Document, enabling the association of multiple wallets to the account | ✅ Production     |
 | [Key DID](./key-did.md)             | A Ceramic account that can only be associated with one wallet, which can never be changed                                         | ✅ Production     |
-| [NFT DID (CIP-94)](./nft-did.md)    | A Ceramic account that can be controlled by the current owner of a given NFT (non-fungible token)                                 | ⚠️ _Experimental_ |
-| [Safe DID (CIP-101)](./safe-did.md) | A Ceramic account that can be controlled by the current members of a Gnosis Safe smart contract                                   | ⚠️ _Experimental_ |
 
 ## **Building with accounts**
 
