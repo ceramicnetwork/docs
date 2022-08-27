@@ -33,7 +33,7 @@ Ceramic uses the decentralized identifier (DID) standard for user accounts, whic
 
 ---
 
-The Ceramic network is decentralized and permissionless, allowing anyone in the world to spin up a node to provide storage, compute, and bandwidth resources to users and applications built on the network. Today there are no tokenized incentives for running Ceramic, but the community is exploring options.
+The Ceramic network is decentralized and permissionless, allowing anyone in the world to spin up a node to provide storage, computatoin power and bandwidth resources to users and applications built on the network. Today there are no tokenized incentives for running Ceramic, but the community is exploring options.
 
 ## **Scalability**
 
