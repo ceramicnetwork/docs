@@ -26,7 +26,7 @@ Connect your app to Ceramic using a [**development framework**](../build/framewo
 
 ### **Operate the Ceramic network**
 
-Provide storage, compute, and bandwidth to the network by [**running a node**](../run/index.md).
+Ceramic Provides storage computation and bandwidth to the network by [**running a node**](../run/index.md).
 
 > Today there are no tokenized incentives for running a Ceramic node, but by running a node you can ensure the data for your app remains available while helping contribute to the network's decentralization.
 
