@@ -187,7 +187,9 @@ ceramic daemon
     "network": {
         "name": "mainnet", // Connect to mainnet, testnet-clay, or dev-unstable
     },
-    "node": {},
+    "node": {
+        "stream-cache-limit": 5000 // How many streams are allowed to live in memory; increase as your memory allows; default is 500
+    },
     "state-store": {
         "mode": "s3",
         "s3-bucket": "bucket_name"
