@@ -4,7 +4,7 @@ Discover various explorers for the Ceramic Network.
 
 ## **Cerscan**
 
-[**Cerscan**](https://cerscan.com/) is a community-contributed explorer indexing streams in real-time since June 12, 2022. It includes information on the app and schema of recent streams too.
+[**Cerscan**](https://cerscan.com/) is a community-contributed explorer indexing streams in real-time since June 12, 2022. It includes information on the app and schema of recent streams too. Cur
 
 
 ## **Tiles**
