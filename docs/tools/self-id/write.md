@@ -56,9 +56,8 @@ const addresses = await window.ethereum.request({
 const authProvider = new EthereumAuthProvider(window.ethereum, addresses[0])
 
 // The following configuration assumes your local node is connected to the Clay testnet
-const client = new WebClient({
+const client = new WebClientSession({
   ceramic: 'local',
-  connectNetwork: 'testnet-clay',
 })
 
 // If authentication is successful, a DID instance is attached to the Ceramic instance
@@ -68,10 +67,33 @@ await client.authenticate(authProvider)
 const self = new SelfID({ client })
 ```
 
+To use with 3id-connect instead of did-session you would use the `WebClient` instead. It is recommended to use with did-session.
+
+```ts
+const client = new WebClient({
+  ceramic: 'local',
+  connectNetwork: 'testnet-clay',
+})
+```
+
 ### **Data management**
 
 After authenticating the user with either of the above methods, your application can perform data storage and retrieval interactions with the user based on a data model (definition):
 
 ```ts
 await self.set('basicProfile', { name: 'Alice' })
+```
+
+### **Auth Session Management**
+
+Reference [did-session](../../learn/reference/accounts/did-session.md) for more examples of managing the session for a user. 
+
+```ts
+// get sessionStr for storage 
+await client.authenticate(authProvider, true, sessionStr)
+const self = new SelfID({ client })
+// get session to serialize and store 
+const session = self.client.session 
+// store session str
+session.serialize()
 ```

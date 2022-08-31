@@ -10,11 +10,11 @@ Self.ID is a framework that makes it easy to build Web3 applications with Ethere
 
 **✅ Easy setup**
 
-Self.ID is a simple SDK requiring minimal configuration that provides access to the full Ceramic stack with support for popular environments such as `React` and `web`. The Self.ID SDK uses [Glaze suite](../glaze/index.md) middleware, [3ID DID](../../docs/advanced/standards/accounts/3id-did.md) accounts, [3ID Connect](../accounts/3id-did.md#3id-connect) authentication, and [Ceramic HTTP client](../core-clients/ceramic-http.md) and [DID JSON-RPC client](../core-clients/did-jsonrpc.md).
+Self.ID is a simple SDK requiring minimal configuration that provides access to the full Ceramic stack with support for popular environments such as `React` and `web`. The Self.ID SDK uses [Glaze suite](../glaze/index.md) middleware, [PKH DID](../../docs/advanced/standards/accounts/pkh-did.md) blockchain accounts, [DID Session](../accounts/did-session.md) authentication, and [Ceramic HTTP client](../core-clients/ceramic-http.md).
 
 **✅ Login with Web3**
 
-Self.ID is compatible with Ethereum accounts and EVM-based wallet authentication, so users don't have to install new wallets or create new accounts in order to use Ceramic. Users can even connect multiple wallet accounts to their Ceramic account, if they like.
+Self.ID is compatible with Ethereum accounts and EVM-based wallet authentication, so users don't have to install new wallets or create new accounts in order to use Ceramic.
 
 **✅ Composable, user-centric data management**
 

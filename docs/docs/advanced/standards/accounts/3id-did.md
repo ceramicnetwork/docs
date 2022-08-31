@@ -40,7 +40,7 @@ To use 3ID DIDs for user accounts in your project, install one of the 3ID DID Pr
 
 ### [**Install 3ID Connect →**](../../../../reference/accounts/3id-did.md#3id-connect)
 
-**Recommended.** 3ID Connect is the most popular 3ID DID Provider for Ceramic web apps. The 3ID Connect SDK allows users to control their 3ID DID from their existing blockchain wallets without needing to install any additional wallet software. Developers do not need to worry about DID key management for their users. If you're using the Self.ID SDK, you don't need to worry about installing 3ID Connect, it already includes it.
+**Recommended.** 3ID Connect is the most popular 3ID DID Provider for Ceramic web apps. The 3ID Connect SDK allows users to control their 3ID DID from their existing blockchain wallets without needing to install any additional wallet software. Developers do not need to worry about DID key management for their users.
 
 ### [**Install 3ID DID Provider →**](../../../../reference/accounts/3id-did.md#3id-did-provider)
 
