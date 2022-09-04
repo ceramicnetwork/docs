@@ -2,7 +2,11 @@
 
 ---
 
-Ceramic decentralizes application databases, making data universally composable and reusable across applications. The network consists of three core parts: a highly-scalable, decentralized infrastructure for data availability and consensus, a marketplace of community-created data models, and a suite of standard APIs for storing, updating, and retrieving data from those models.
+Ceramic decentralizes application databases, making data universally composable and reusable across applications. The network consists of three core parts:
+
+    - A Highly-scalable and decentralized infrastructure for data availability and consensus
+    - A Marketplace of community-created data models
+    - A Suite of standard APIs for storing, updating, and retrieving data from those models
 
 ## **Core components**
 
@@ -10,11 +14,11 @@ Ceramic decentralizes application databases, making data universally composable 
 
 The Ceramic network consists of three core components:
 
-1. [Scalable, decentralized data infrastructure](#scalable-decentralized-data-infrastructure)
+1. [Scalable and decentralized data infrastructure](#scalable-and-decentralized-data-infrastructure)
 2. [Data models marketplace](#data-models-marketplace)
 3. [Open APIs for data storage, update, and retrieval](#open-apis)
 
-## **Scalable, decentralized data infrastructure**
+## **Scalable and decentralized data infrastructure**
 
 ---
 
