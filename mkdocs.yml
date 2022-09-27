@@ -212,7 +212,7 @@ markdown_extensions:
 extra:
   analytics:
     provider: google
-    property: G-MP8QDL3LWK
+    property: G-426ZZLPJPW
   generator: false
   # Social icons in footer
   social:

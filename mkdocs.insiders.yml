@@ -3,7 +3,7 @@ INHERIT: mkdocs.yml
 extra:
   analytics:
     provider: google
-    property: G-MP8QDL3LWK
+    property: G-426ZZLPJPW
     feedback:
       title: Was this page helpful?
       ratings:
