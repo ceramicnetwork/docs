@@ -86,7 +86,7 @@ await self.set('basicProfile', { name: 'Alice' })
 
 ### **Auth Session Management**
 
-Reference [did-session](../../learn/reference/accounts/did-session.md) for more examples of managing the session for a user. 
+Reference [did-session](../../reference/accounts/did-session.md) for more examples of managing the session for a user. 
 
 ```ts
 // get sessionStr for storage 

@@ -83,7 +83,7 @@ Once this flow is completed, the viewer's cookie is set to the authenticated use
 
 ### **Auth Session Management**
 
-Reference [did-session](../../learn/reference/accounts/did-session.md) for more examples of managing the session for a user. Following code expands on example above. 
+Reference [did-session](../../reference/accounts/did-session.md) for more examples of managing the session for a user. Following code expands on example above. 
 
 ```ts
 // ...
@@ -154,7 +154,7 @@ function ShowProfileName({ did }) {
 ```
 ### **Upgrading from 0.3.x to 0.4.x**
 
-Version `0.4.x` switched the default authentication method and libray from [3id-connect](../../reference/accounts/3id-did.md) with [3ID DIDs](../../docs/advanced/standards/accounts/3id-did.md) to [did-session](../../learn/reference/accounts/did-session.md) with [PKH DIDs](../../docs/advanced/standards/accounts/pkh-did.md). If you wish to upgrade and still use 3id-connect you can pass a flag and configure your provider as follows. There are no other changes in `v0.4.x`, making upgrading not required at the moment if you dont wish too change auth methods, but PKH DIDs will be the recommended account going forward. 
+Version `0.4.x` switched the default authentication method and libray from [3id-connect](../../reference/accounts/3id-did.md) with [3ID DIDs](../../docs/advanced/standards/accounts/3id-did.md) to [did-session](../../reference/accounts/did-session.md) with [PKH DIDs](../../docs/advanced/standards/accounts/pkh-did.md). If you wish to upgrade and still use 3id-connect you can pass a flag and configure your provider as follows. There are no other changes in `v0.4.x`, making upgrading not required at the moment if you dont wish too change auth methods, but PKH DIDs will be the recommended account going forward. 
 
 ```typescript
 import { Provider } from '@self.id/framework'
