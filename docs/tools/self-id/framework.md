@@ -81,6 +81,24 @@ The user authentication flow consists of the following steps:
 
 Once this flow is completed, the viewer's cookie is set to the authenticated user and storing data with the user becomes possible.
 
+### **Auth Session Management**
+
+Reference [did-session](../../learn/reference/accounts/did-session.md) for more examples of managing the session for a user. Following code expands on example above. 
+
+```ts
+// ...
+const [connection, connect, disconnect] = useViewerConnection()
+// ...
+// get session string you serialized and stored before, check if still valid (or how much longer)
+const sessionStr = ...
+const selfid = await connect(new EthereumAuthProvider(window.ethereum, accounts[0]), sessionStr)
+// ...
+// get session to serialize and store 
+const session = selfid.client.session //or connection.selfID.client.session
+session.serialize()
+// ...
+```
+
 ### **Data management**
 
 The [`useViewerRecord` hook](../../reference/self-id/modules/framework.md#useviewerrecord) loads the viewer's data for a given data model (definition), with the following variants:
@@ -134,6 +152,21 @@ function ShowProfileName({ did }) {
   return <p>{text}</p>
 }
 ```
+### **Upgrading from 0.3.x to 0.4.x**
+
+Version `0.4.x` switched the default authentication method and libray from [3id-connect](../../reference/accounts/3id-did.md) with [3ID DIDs](../../docs/advanced/standards/accounts/3id-did.md) to [did-session](../../learn/reference/accounts/did-session.md) with [PKH DIDs](../../docs/advanced/standards/accounts/pkh-did.md). If you wish to upgrade and still use 3id-connect you can pass a flag and configure your provider as follows. There are no other changes in `v0.4.x`, making upgrading not required at the moment if you dont wish too change auth methods, but PKH DIDs will be the recommended account going forward. 
+
+```typescript
+import { Provider } from '@self.id/framework'
+
+function App({ children }) {
+  return <Provider client={{ ceramic: 'testnet-clay' }} threeidConnect={true}>{children}</Provider>
+}
+```
+
+!!! warning ""
+
+    **Switching authentication methods with out consideration will change DIDs for users and result in any prior data not being resolved. **
 
 ## **Advanced**
 

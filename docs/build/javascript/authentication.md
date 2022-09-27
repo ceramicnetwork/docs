@@ -10,6 +10,8 @@ Authentication requires having [installed a Ceramic client](./installation.md). 
 
 The first step in adding authentication to your project is choosing which DID method to use for authentication.
 
+[**PKH DID Method**](../../docs/advanced/standards/accounts/3id-did.md): A DID method that natively supports blockchain accounts, default usage with did-session allows capabality and session usage.
+
 [**3ID DID Method**](../../docs/advanced/standards/accounts/3id-did.md): A powerful DID method that supports multiple keys, key rotations, and revocations
 
 [**Key DID Method**](../../docs/advanced/standards/accounts/key-did.md): A lightweight DID method that only supports one key and cannot handle rotations
@@ -20,23 +22,32 @@ The first step in adding authentication to your project is choosing which DID me
 
 !!! warning ""
 
-    It is recommended that most applications use the [3ID DID Method](../../docs/advanced/standards/accounts/3id-did.md).
+    It is recommended that most applications use the [PKH DID Method with DID Session](../../docs/advanced/standards/accounts/pkh-did.md).
 
 ## **2. Install a DID Provider**
 
 After choosing a DID method, install a [DID provider](../../learn/glossary.md#did-providers) for that method.
 
-### 3ID DID Providers
+### PKH DID Providers
 
-#### 3ID Connect
+#### DID Session
 
-[**3ID Connect**](../../docs/advanced/standards/accounts/3id-did.md#3id-connect) is the most popular 3ID DID Provider for Ceramic web apps. The 3ID Connect SDK allows users to authenticate a 3ID DID using their existing blockchain wallets without needing to install any additional software. Developers do not need to worry about DID key management for their users.
+[**DID Session**](../../reference/accounts/did-session.md) is the most popular DID Provider for Ceramic web apps. DID-Session allows developers to use capabilities to permission and manage sessions for a users blockchain account (PKH DID). Sessions allow users to only sign with their blockchain wallets once and then continue to sign Ceramic transactions in their browser for the duration of the session. 
 
-[:octicons-download-16: Installation](../../reference/accounts/3id-did.md#3id-connect){: .md-button .md-button--primary }
+[:octicons-download-16: Installation](../../reference/accounts/did-session.md){: .md-button .md-button--primary }
 
 !!! warning ""
 
     **Recommended for most browser applications.**
+
+
+### 3ID DID Providers
+
+#### 3ID Connect
+
+[**3ID Connect**](../../docs/advanced/standards/accounts/3id-did.md#3id-connect) SDK allows users to authenticate a 3ID DID using their existing blockchain wallets without needing to install any additional software. Developers do not need to worry about DID key management for their users. For most use cases it is now suggested to use did-session over 3id-connect. 
+
+[:octicons-download-16: Installation](../../reference/accounts/3id-did.md#3id-connect){: .md-button .md-button--primary }
 
 #### 3ID DID Provider
 

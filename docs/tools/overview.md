@@ -10,7 +10,7 @@ The Glaze umbrella includes projects providing **low-level solutions** on top of
 
 ## Self.ID
 
-Self.ID is both a **reference application** and a **SDK** providing higher-level abstractions to create user-centric Web applications. It leverages Glaze projects and [3ID Connect](../reference/accounts/3id-did.md#3id-connect) to offer a simple way to help Web developers get started with the Ceramic ecosystem.
+Self.ID is both a **reference application** and a **SDK** providing higher-level abstractions to create user-centric Web applications. It leverages Glaze projects and [DID Session](../reference/accounts/did-session.md) to offer a simple way to help Web developers get started with the Ceramic ecosystem.
 
 [Self.ID overview](self-id/overview.md){: .md-button }
 

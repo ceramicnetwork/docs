@@ -8,7 +8,7 @@ The `web` module of the Self.ID SDK exports the [`WebClient`](../classes/web.Web
 [`SelfID`](../classes/web.SelfID.md) classes to provide APIs for authenticating a DID to allow writing
 records, in addition to reading them.
 
-DID authentication leverages 3ID Connect, which only works in browsers, therefore the `web`
+DID authentication leverages DID Session, which only works in browsers, therefore the `web`
 module can only be used in browsers. The [`core`](core.md) module can be used to read public
 records in browsers as well as Node environments.
 
@@ -32,8 +32,6 @@ async function createSelfID() {
   return await SelfID.authenticate({
     authProvider: new EthereumAuthProvider(window.ethereum, addresses[0]),
     ceramic: 'testnet-clay',
-    // Make sure the `ceramic` and `connectNetwork` parameter connect to the same network
-    connectNetwork: 'testnet-clay',
   })
 }
 
@@ -41,6 +39,18 @@ async function setBasicProfile(selfID) {
   // Use the SelfID instance created by the `createSelfID()` function
   await selfID.set('basicProfile', { name: 'Alice' })
 }
+```
+
+To use with 3id-connect instead of did-session you can pass a configuration flag and the 3id-connect network. It is recommended to use with did-session.
+
+```ts
+await SelfID.authenticate({
+    authProvider: new EthereumAuthProvider(window.ethereum, addresses[0]),
+    ceramic: 'testnet-clay',
+    // Make sure the `ceramic` and `connectNetwork` parameter connect to the same network
+    connectNetwork: 'testnet-clay',
+    threeidConnect: true
+  })
 ```
 
 ## Re-exported classes
