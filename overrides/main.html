@@ -32,3 +32,11 @@
   <meta name="twitter:description" content="{{ config.site_description }}" />
   <meta name="twitter:image" content="https://developers.ceramic.network/images/image-ceramic-opengraph.png" />
 {% endblock %}
+
+{% block header %}
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFSSCZB"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  {{ super() }}
+{% endblock %}
