@@ -8,8 +8,6 @@ The [**Ceramic Blog**](https://blog.ceramic.network){:target="\_blank"} contains
 
 [**What is Ceramic**](https://blog.ceramic.network/what-is-ceramic/){:target="\_blank"}: Ceramic is a decentralized content computation network for a world of open source information.
 
-[**Ceramic Mainnet Early Launch Program**](https://blog.ceramic.network/ceramic-mainnet-early-launch-program/){:target="\_blank"}: Sign up today to deploy your project on the Ceramic Mainnet before it's open to the general public.
-
 [**How to build a simple notes app with IDX**](https://blog.ceramic.network/how-to-build-a-simple-notes-app-with-idx/){:target="\_blank"}: Learn how to build a simple note taking application where users own their data with IDX and React.
 
 [**How to store signed and encrypted data on IPFS**](https://blog.ceramic.network/how-to-store-signed-and-encrypted-data-on-ipfs/){:target="\_blank"}: Learn how to store signed and encrypted data directly in IPFS using two new standards: dag-jose and EIP-2844.
