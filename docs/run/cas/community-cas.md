@@ -8,10 +8,6 @@ At this time it is not possible to [run your own CAS](./cas.md), however this fu
 
 Nodes connected to [Mainnet](../../learn/networks.md#mainnet) will automatically use this CAS which generates [anchor commits](../../learn/glossary.md#anchor-commit) using the Ethereum Mainnet blockchain (`eip155:1`) and communicates over the `/ceramic/mainnet` libp2p topic.
 
-!!! warning ""
-
-    **Mainnet usage is currently restricted to projects in the Early Launch program (ELP).** Sign up for the ELP waitlist [here](https://blog.ceramic.network/ceramic-mainnet-early-launch-program/).
-
 [ETH Mainnet Address](https://etherscan.io/):
 
 ```
