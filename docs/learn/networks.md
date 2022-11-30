@@ -8,7 +8,7 @@ Ceramic has three public networks that you can use when building applications: M
 
 ### **Mainnet**
 
-Mainnet is the main public network used for production deployments on Ceramic. Ceramic's mainnet nodes communicate over the dedicated `/ceramic/mainnet` libp2p topic and use [Ethereum's](../glossary#ethereum) mainnet blockchain (`EIP155:1`) for generating timestamps used in [anchor commits](../glossary#anchor-commit) for [streams](../glossary#streams). Mainnet is currently running and anyone can openly query data from streams on mainnet using the [community mainnet gateway](../run/nodes/community-nodes.md#gateways), but deployments that require writing data to the network are restricted to those projects on the mainnet early launch program (ELP) waitlist. If you want to write data to mainnet, [**sign up for ELP here**](https://blog.ceramic.network/ceramic-mainnet-early-launch-program/). _Over time, we will fully open mainnet to all applications._
+Mainnet is the main public network used for production deployments on Ceramic. Ceramic's mainnet nodes communicate over the dedicated `/ceramic/mainnet` libp2p topic and use [Ethereum's](../glossary#ethereum) mainnet blockchain (`EIP155:1`) for generating timestamps used in [anchor commits](../glossary#anchor-commit) for [streams](../glossary#streams). Mainnet is currently running and anyone can openly query data from streams on mainnet. We are currently transitioning to a self-serve mainnet process by Dec 31, 2022 -- if you need access in the interim, reach out in the #share-your-project channel in Discord.
 
 ### **Clay Testnet**
 
