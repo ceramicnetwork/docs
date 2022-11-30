@@ -24,9 +24,6 @@ In all Self.ID modules, you'll need to specify which Ceramic node to use. This e
 
     When using localhost, ensure your local Ceramic node [is running](../../build/cli/installation.md#2-start-the-ceramic-node)
 
-!!! warning ""
-
-    The mainnet configuration for Self.ID is read-only. To perform writes on mainnet, you will need to join Ceramic's Mainnet [Early Launch Program](https://blog.ceramic.network/ceramic-mainnet-early-launch-program/).
 
 ## **Configure your data models**
 
