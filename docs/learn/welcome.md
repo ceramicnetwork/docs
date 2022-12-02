@@ -16,7 +16,7 @@ Ceramic makes building applications with composable Web3 data as easy as browsin
 
 ### **Try ComposeDB on Ceramic**
 
-ComposeDB is a decentralized graph database that is currently in developer preview. It is not suitable for mainnet applications until early 2023, however the developer preview is ready for you to design, build and test your application with advanced relations between data, GraphQL, and reusable data models. Learn more in this [**blog post**](https://blog.ceramic.network/composedb-using-ceramic-as-a-graph-database/) or check out the developer [**getting started guide here**](https://threebox.notion.site/ComposeDB-on-Ceramic-Developer-Preview-c0032b37a007451683eb3d7a1091db53).
+ComposeDB is a decentralized graph database that is currently in developer preview. It is not suitable for mainnet applications until early 2023, however the developer preview is ready for you to design, build and test your application with advanced relations between data, GraphQL, and reusable data models. Learn more in this [**blog post**](https://blog.ceramic.network/composedb-using-ceramic-as-a-graph-database/) or check out the developer [**getting started guide here**](https://composedb.js.org/).
 
 ### **Build applications with Ceramic**
 
