@@ -49,7 +49,7 @@ nav:
               - Self.ID SDK: reference/self-id/index.md
               #- Overview: tools/self-id/overview.md
               - Build with React:
-                  - Using the framewok module: tools/self-id/framework.md
+                  - Using the framework module: tools/self-id/framework.md
               - Build with JavaScript:
                   - Using the web module: tools/self-id/write.md
                   - Using the core module: tools/self-id/read.md
