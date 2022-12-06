@@ -12,7 +12,7 @@ Below find the decentralized identifier (DID) standards currently supported as u
 
 | NAME                                | DESCRIPTION                                                                                                                       | Status            |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| [DID PKH (CIP-79)](./3id-did.md)    | A Ceramic account that natively supports blockchain accounts, default usage with did-session allows capabality and session usage  | ✅ Production     |
+| [DID PKH (CIP-79)](https://did.js.org)    | A Ceramic account that natively supports blockchain accounts, default usage with did-session allows capabality and session usage  | ✅ Production     |
 | [3ID DID (CIP-79)](./3id-did.md)    | A Ceramic-native account that supports mutations in the DID Document, enabling the association of multiple wallets to the account | ✅ Production     |
 | [Key DID](./key-did.md)             | A Ceramic account that can only be associated with one wallet, which can never be changed                                         | ✅ Production     |
 | [NFT DID (CIP-94)](./nft-did.md)    | A Ceramic account that can be controlled by the current owner of a given NFT (non-fungible token)                                 | ⚠️ _Experimental_ |
