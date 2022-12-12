@@ -10,6 +10,10 @@ This page contains a list of free, hosted Ceramic nodes made available by the co
 
 Gateways are nodes that provide read-only access to the Ceramic network. [3Box Labs](https://3boxlabs.com) provides free gateway nodes for use by the Ceramic community. Here is a list of their HTTP endpoints:
 
+!!! warning ""
+
+    **Warning: The developer gateway is being deprecated. Please do not use.
+
 ### Mainnet
 
 ```
