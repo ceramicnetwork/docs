@@ -2,7 +2,7 @@
 
 Manages user account DIDs in web based environments.
 
- ## Purpose
+## Purpose
 
 Manages, creates and authorizes a DID session key for a user. Returns an authenticated DIDs instance
 to be used in other Ceramic libraries. Supports did:pkh for blockchain accounts with Sign-In with
