@@ -268,9 +268,17 @@ Ceramic nodes rely on IPFS for networking. IPFS nodes connect to each other usin
 
 !!! warning ""
 
+    IPFS nodes connect to other nodes over the p2p network, and incoming connections to a node running on a local machine might get flagged as suspicious by a router or anti-virus software. Make sure to vet all such reports and verify on a case-by-case basis whether they are false positives and can be safely ignored.
+
+!!! warning ""
+
     Healthchecks can be run against the `HEALTHCHECK_PORT` (port `8011` by default) when `HEALTHCHECK_ENABLED` is `true`.
 
 Additionally, when running IPFS the IPFS API port must be accessible by the Ceramic node. The default API port is `5001`. The IPFS node address will then be passed to Ceramic with the `ipfs.host` option in the Ceramic daemon config file.
+
+!!! warning ""
+
+    Access to the IPFS API port _must_ be restricted to the Ceramic node in order to prevent malicious API calls.
 
 ### **Connect to the mainnnet anchor service**
 
