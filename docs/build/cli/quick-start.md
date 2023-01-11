@@ -36,7 +36,7 @@ The Glaze CLI can be used to create a key DID, generating a 32-byte random seed:
 glaze did:create
 ```
 
-The expected output will be similar to the following, with `...` used as placeholder for brievety:
+The expected output will be similar to the following, with `...` used as placeholder for brevity:
 
 ```sh
 ✔ Created DID did:key:z6Mk... with seed ab...f0
@@ -48,6 +48,8 @@ The seed can then be used when running other commands:
 glaze [command] --key=ab...f0
 DID_KEY=ab...f0 glaze [command]
 ```
+
+**Note:** when entering your --key here, it refers to the encoded seed generated for the private key, not the did:key itself.
 
 ## **4. Create a stream**
 
