@@ -142,8 +142,8 @@ nav:
       - Protocol: protocol/index.md
       - Streams:
          - Streams: protocol/streams/index.md
-         - Event Log: protocol/streams/eventlog.md
-         - URI Scheme: protocol/streams/urischeme.md
+         - Event Log: protocol/streams/event-log.md
+         - URI Scheme: protocol/streams/uri-scheme.md
          - Consensus: protocol/streams/consensus.md
          - Lifecycle: protocol/streams/lifecycle.md
       - Accounts: 
