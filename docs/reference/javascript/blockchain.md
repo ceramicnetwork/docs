@@ -1,5 +1,9 @@
 # Add support for a new blockchain
 
+!!! warning "Deprecation Notice"
+
+    This guide is no longer the recommended way to add support for your blockchain and we are not accepting PRs at this moment for blockchains added in this way. The recommend way is now described [here](https://did.js.org/docs/guides/add-chain-support). 
+
 This document contains a guide on how to add support for a new blockchain to the [`CAIP10Link`](../../../streamtypes/caip-10-link/overview) StreamType, and to use it for authentication in Ceramic.
 
 ## Ceramic and blockchain accounts
