@@ -129,8 +129,6 @@ nav:
               - Pinning data on Ceramic: build/javascript/pinning.md
           - Building with Glaze suite:
               - Build a note-taking app with Glaze: tools/glaze/example.md
-      - Protocol development:
-          - Add support for new blockchain accounts: reference/javascript/blockchain.md
   #- Ecosystem:
   #- Use cases: learn/use-cases.md
   #- Projects: explore/projects.md
