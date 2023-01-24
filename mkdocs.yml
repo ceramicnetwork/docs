@@ -138,6 +138,27 @@ nav:
   #- NFTs and gaming: index.md
   #- Network explorers: explore/explorers.md
   #- Wallets: index.md
+  - Protocol:
+      - Protocol: protocol/index.md
+      - Streams:
+         - Streams: protocol/streams/index.md
+         - Event Log: protocol/streams/eventlog.md
+         - URI Scheme: protocol/streams/urischeme.md
+         - Consensus: protocol/streams/consensus.md
+         - Lifecycle: protocol/streams/lifecycle.md
+      - Accounts: 
+         - Accounts: protocol/accounts/index.md 
+         - Decentralized IDs: protocol/accounts/decentralized-indentifiers.md 
+         - Persmissions: protocol/accounts/permissions.md 
+         - Object-Capabilities: protocol/accounts/object-capabilities.md 
+      - Networking: 
+         - Networking: protocol/networking/index.md 
+         - Networks: protocol/networking/networks.md 
+         - Tip Gossip: protocol/networking/tip-gossip.md 
+         - Tip Queries: protocol/networking/tip-queries.md 
+         - Event Fetching: protocol/networking/event-fetching.md
+      - API: protocol/api/index.md
+      - Nodes: protocol/nodes/index.md 
   - Reference:
       - Reference: reference/index.md
       - Ceramic clients:
@@ -188,7 +209,6 @@ nav:
               #- 3Box utilities: reference/self-id/modules/3box_legacy.md
       - Ceramic JS packages and API references: reference/javascript/packages.md
       - Glossary: learn/glossary.md
-
 markdown_extensions:
   - meta
   - pymdownx.tabbed:
