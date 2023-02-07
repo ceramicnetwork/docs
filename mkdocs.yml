@@ -148,7 +148,7 @@ nav:
          - Lifecycle: protocol/streams/lifecycle.md
       - Accounts: 
          - Accounts: protocol/accounts/index.md 
-         - Decentralized IDs: protocol/accounts/decentralized-indentifiers.md 
+         - Decentralized IDs: protocol/accounts/decentralized-identifiers.md 
          - Persmissions: protocol/accounts/permissions.md 
          - Object-Capabilities: protocol/accounts/object-capabilities.md 
       - Networking: 
