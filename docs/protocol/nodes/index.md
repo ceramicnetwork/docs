@@ -23,7 +23,7 @@ The following services are typically provided to a Ceramic node by a connected I
 | Pinning | Tracks the streams a node wants to store and to receive the latest events for.  |
 | --- | --- |
 | StateStore | Tracks and stores the latest tips for pinned streams and caches stream state.  |
-| Networking | Runs the stream query and update protocols [LINK] on Gossipsub and manages peer connections.  |
+| Networking | Runs the stream query and update protocols on Gossipsub and manages peer connections.  |
 | API | Provides HTTP API service for connected Ceramic clients to read, write and query streams. Additionally, some node management functions are included.  |
 | Timestamping | Regularly publishes timestamp proofs and Ceramic time events for a given set of events.  |
 
