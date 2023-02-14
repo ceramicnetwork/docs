@@ -29,32 +29,32 @@ The Ceramic protocol is made out of various different components:
 
 | Spec state | Label |
 | --- | --- |
-| Unlikely to change in the foreseeable future. | Stable |
-| All content is correct. Important details are covered. | Reliable |
-| All content is correct. Details are being worked on. | Draft/WIP |
-| Do not follow. Important things have changed. | Incorrect |
-| No work has been done yet. | Missing |
+| Unlikely to change in the foreseeable future. |  **<span style="color:rgba(51, 126, 169, 1)">Stable</span>** |
+| All content is correct. Important details are covered. | **<span style="color:rgba(68, 131, 97, 1)">Reliable</span>** |
+| All content is correct. Details are being worked on. | **<span style="color:rgba(203, 145, 47, 1)">Draft/WIP</span>** |
+| Do not follow. Important things have changed. | **<span style="color:rgba(217, 115, 13, 1)">Incorrect</span>** |
+| No work has been done yet. | **<span style="color:rgba(212, 76, 71, 1)">Missing</span>** |
 
 ### Status by Section
 
 | Section | State |
 | --- | --- |
-| 1. Streams | Draft/WIP |
-| 1.1. Event Log | Reliable |
-| 1.2. URI Scheme | Reliable |
-| 1.3. Consensus | Draft/WIP |
-| 1.4. Lifecycle | Reliable |
-| 2. Accounts | Draft/WIP |
-| 2.1. Decentralized Identifiers | Draft/WIP |
-| 2.2. Permissions | Reliable |
-| 2.3. Object-capabilities | Draft/WIP |
-| 3. Networking | Draft/WIP |
-| 3.1. Tip Gossip | Reliable |
-| 3.2. Tip Queries | Reliable |
-| 3.3. Event Fetching | Reliable |
-| 3.4. Network Identifiers | Reliable |
-| 4. API | Missing |
-| 5. Nodes | Draft/WIP |
+| 1. Streams | **[<span style="color:rgba(203, 145, 47, 1)">Draft/WIP</span>](./streams/index.md)** |
+| 1.1. Event Log | **[<span style="color:rgba(68, 131, 97, 1)">Reliable</span>](./streams/event-log.md)** |
+| 1.2. URI Scheme | **[<span style="color:rgba(68, 131, 97, 1)">Reliable</span>](./streams/uri-scheme.md)** |
+| 1.3. Consensus | **[<span style="color:rgba(203, 145, 47, 1)">Draft/WIP</span>](./streams/consensus.md)** |
+| 1.4. Lifecycle | **[<span style="color:rgba(68, 131, 97, 1)">Reliable</span>](./streams/lifecycle.md)** |
+| 2. Accounts | **[<span style="color:rgba(203, 145, 47, 1)">Draft/WIP</span>](./accounts/index.md)** |
+| 2.1. Decentralized Identifiers | **[<span style="color:rgba(203, 145, 47, 1)">Draft/WIP</span>](./accounts/decentralized-identifiers.md)** |
+| 2.2. Permissions | **[<span style="color:rgba(68, 131, 97, 1)">Reliable</span>](./accounts/permissions.md)** |
+| 2.3. Object-Capabilities | **[<span style="color:rgba(203, 145, 47, 1)">Draft/WIP</span>](./accounts/object-capabilities.md)** |
+| 3. Networking | **[<span style="color:rgba(203, 145, 47, 1)">Draft/WIP</span>](./networking/index.md)** |
+| 3.1. Tip Gossip | **[<span style="color:rgba(68, 131, 97, 1)">Reliable</span>](./networking/tip-gossip.md)** |
+| 3.2. Tip Queries | **[<span style="color:rgba(68, 131, 97, 1)">Reliable</span>](./networking/tip-queries.md)** |
+| 3.3. Event Fetching | **[<span style="color:rgba(68, 131, 97, 1)">Reliable</span>](./networking/event-fetching.md)** |
+| 3.4. Network Identifiers | **[<span style="color:rgba(68, 131, 97, 1)">Reliable</span>](./networking/networks.md)** |
+| 4. API | **[<span style="color:rgba(212, 76, 71, 1)">Missing</span>](./api/index.md)** |
+| 5. Nodes | **[<span style="color:rgba(203, 145, 47, 1)">Draft/WIP</span>](./nodes/index.md)** |
 
 ## Next Steps
 
