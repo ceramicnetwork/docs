@@ -1,12 +1,12 @@
 # Consensus
 
-## Consensus model
+## Consensus Model
 
 ---
 
 Event streams rely on a limited conflict resolution or consensus model. Global consensus and ordering is not needed for progress and most decisions are localized to the consuming party of a single event stream. Guarantees are limited, but if any two parties consume the same set of events for a stream, they will arrive at the same state. 
 
-The underlying log structure of an event stream allows multiple parallel histories, or branches, to be created resulting in a tree structure. A log or valid event stream is a single tree path from a known “latest” event to the Init Event. Latest events are also referred to as stream `tips`. Logs can have multiple tips when there are branches in the log, and the “tip” selection for the canonical log of a stream becomes a consensus problem. 
+The underlying log structure of an event stream allows multiple parallel histories, or branches, to be created resulting in a tree structure. A log or valid event stream is a single tree path from a known "latest" event to the Init Event. Latest events are also referred to as stream "tips". Logs can have multiple tips when there are branches in the log, and the "tip" selection for the canonical log of a stream becomes a consensus problem. 
 
 ### Single stream consensus
 
@@ -24,7 +24,7 @@ A tip and canonical log for a stream are selected by the following pseudo algori
 
 ### Cross stream ordering
 
-It’s assumed all timestamp events in a network are committed to the same blockchain, as specified by the `chainId` in the timestamp event. The main Ceramic network commits timestamp proofs to the Ethereum blockchain. 
+It is assumed all timestamp events in a network are committed to the same blockchain, as specified by the `chainId` in the timestamp event. The main Ceramic network commits timestamp proofs to the Ethereum blockchain. 
 
 The addition of timestamp events in streams gives some notion of relative global time for all events time-stamped on the same blockchain. This allows events across different streams to be globally ordered if a higher-level protocol requires it. Ceramic events can also be ordered against transactions and state on the blockchain in which it is timestamped. On most secure blockchains you can also reference wall clock time within some reasonable bounds and order events both in and out of the system based on that. 
 
@@ -38,4 +38,4 @@ Without any global consensus guarantees, all streams and their potential tips ar
 
 Consider the following example: A user creates a stream, makes two conflicting updates and timestamps one of them earlier than the other, but only publishes the data of the update that was timestamped later. Now subsequent updates to the stream will be made on top of the second, published update. Every observer will accept these updates as valid since they have not seen the first update. However if the user later publishes the data of the earlier update, the stream will fork back to this update and all of the other updates made to the stream will be invalidated.
 
-Additionally, note that late publishing may also be used as a deterrent to selling user identities. An identity or account buyer can’t know that the seller is not keeping secret events that they will publish after the identity was sold.
+Additionally, note that late publishing may also be used as a deterrent to selling user identities. An identity or account buyer can't know that the seller is not keeping secret events that they will publish after the identity was sold.

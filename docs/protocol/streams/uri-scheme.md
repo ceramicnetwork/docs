@@ -6,30 +6,37 @@
 
 ---
 
-Each stream in Ceramic has a unique URL. This url is comprised of a protocol identifier for Ceramic and the StreamID as defined below.
+Each stream in Ceramic is identified by a unique URL. This URL is comprised of a protocol identifier for Ceramic and a StreamId as defined below.
 
-When encoded as a string the StreamID is prepended with the protocol handler and StreamID is typically encoded using `base36`. This fully describes which stream and its location, in this case it can be found on the Ceramic Network. 
+When encoded as a string the StreamID is prepended with the protocol handler and StreamID is typically encoded using `base36`. This fully describes which stream and where it is located, in this case it can be found on the Ceramic Network.
 
-`ceramic://<StreamID>`
 
-For example, a StreamID may look as follows:
+```html
+ceramic://<StreamId>
+```
 
-`ceramic://kjzl6fddub9hxf2q312a5qjt9ra3oyzb7lthsrtwhne0wu54iuvj852bw9wxfvs`
+For example, a StreamId may look as follows:
 
-EventIDs can also be encoded in the same way. 
+```html
+ceramic://kjzl6fddub9hxf2q312a5qjt9ra3oyzb7lthsrtwhne0wu54iuvj852bw9wxfvs
+```
 
-`ceramic://<EventID>`
+EventIds can also be encoded in the same way. 
 
-## StreamID
+```html
+ceramic://<EventId>
+```
+
+## StreamId
 
 ---
 
-A StreamID is composed of a StreamID code, a stream type, and a CID and is used to reference a specific and unique event stream. StreamIDs are similar to CIDs in IPLD, and use multiformats, but they provide additional information specific to Ceramic event streams and allow them to be distinguished from CIDs. The *init event* of an event stream is used to create the StreamID. 
+A StreamId is composed of a StreamId code, a stream type, and a CID. It is used to reference a specific and unique event stream. StreamIds are similar to CIDs in IPLD, and use multiformats, but they provide additional information specific to Ceramic event streams. This also allows them to be distinguished from CIDs. The *init event* of an event stream is used to create the StreamId. 
 
-StreamIDs are defined as:
+StreamIds are defined as:
 
 ```html
-<streamid> ::= <multibase-prefix><multicodec-streamid><stream-type><genesis-cid-bytes>
+<streamid> ::= <multibase-prefix><multicodec-streamid><stream-type><init-cid-bytes>
 
 # e.g. using CIDv1
 <streamid> ::= <multibase-prefix><multicodec-streamid><stream-type><multicodec-cidv1><multicodec-content-type><multihash-content-address>
@@ -37,12 +44,12 @@ StreamIDs are defined as:
 
 Where:
 
-- `<multibase-prefix>` is a [multibase](https://github.com/multiformats/multibase) code (1 or 2 bytes), to ease encoding StreamIDs into various bases. **NOTE:** Binary (not text-based) protocols and formats may omit the multibase prefix when the encoding is unambiguous.
-- `<multicodec-streamid>` `0xce` is a [multicodec](https://github.com/multiformats/multicodec) used to indicate that it's a [StreamID](https://github.com/multiformats/multicodec/blob/master/table.csv#L78), encoded as a varint
+- `<multibase-prefix>` is a [multibase](https://github.com/multiformats/multibase) code (1 or 2 bytes), to ease encoding StreamIds into various bases. **NOTE:** Binary (not text-based) protocols and formats may omit the multibase prefix when the encoding is unambiguous.
+- `<multicodec-streamid>` `0xce` is a [multicodec](https://github.com/multiformats/multicodec) used to indicate that it's a [StreamId](https://github.com/multiformats/multicodec/blob/master/table.csv#L78), encoded as a varint
 - `<stream-type>` is a [varint](https://github.com/multiformats/unsigned-varint) representing the stream type of the stream.
-- `<genesis-cid-bytes>` is the bytes from the [CID](https://github.com/multiformats/cid) of the `genesis record`,  stripped of the multibase prefix.
+- `<init-cid-bytes>` is the bytes from the [CID](https://github.com/multiformats/cid) of the `init event`,  stripped of the multibase prefix.
 
-The multicodec for StreamID is `[0xce](https://github.com/multiformats/multicodec/blob/master/table.csv#L78)`. For compatibility with browser urls it's recommended to encode the StreamID using [[`base36`]](https://github.com/multiformats/multibase).
+The multicodec for StreamID is `[0xce](https://github.com/multiformats/multicodec/blob/master/table.csv#L78)`. For compatibility with browser urls it's recommended to encode the StreamId using [[`base36`]](https://github.com/multiformats/multibase).
 
 The stream type value does not currently have any functionality at the protocol level. Rather, it is used by applications building on top of Ceramic (e.g. ComposeDB) to distinguish between different logic that is applied when processing events. Stream Type values have to be registered in the table of [CIP-59](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-59/CIP-59.md#registered-values). 
 
@@ -50,9 +57,9 @@ The stream type value does not currently have any functionality at the protocol 
 
 ---
 
-EventIDs extend StreamIDs to reference a specific event in a specific stream. Additional bytes are added to the end of a StreamId. If it represents the genesis event the zero byte is added (`0x00`) otherwise the CID that represents the event is added.
+EventIds extend StreamIds to reference a specific event in a specific stream. Additional bytes are added to the end of a StreamId. If it represents the genesis event the zero byte is added (`0x00`) otherwise the CID that represents the event is added.
 
-EventIDs are defined as
+EventIds are defined as
 
 ```html
 <streamid> ::= <multibase-prefix><multicodec-streamid><stream-type>
@@ -77,4 +84,4 @@ Where:
 
 ### Stream Versions
 
-Each EventID can also be considered a reference to a specific version of a stream. At any EventID, a stream can be loaded up until that event and the resulting set of events are considered the version of that stream.
+Each EventId can also be considered a reference to a specific version of a stream. At any EventId, a stream can be loaded up until that event and the resulting set of events are considered the version of that stream.
