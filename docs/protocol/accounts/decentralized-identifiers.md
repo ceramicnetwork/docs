@@ -1,10 +1,6 @@
 # Identifiers
 
-## Introduction
-
----
-
-Ceramic streams rely on an account model to authenticate and authorize updates to a stream. A fully realized vision of user owned data includes the use of public key cryptography and the ability to sign data with a public-private key-pair owned by a user. But key pairs alone are often not user friendly nor sufficient and don’t fully represent the range of real world scenarios. 
+Ceramic streams rely on an account model to authenticate and authorize updates to a stream. A fully realized vision of user owned data includes the use of public key cryptography and the ability to sign data with a public-private key-pair owned by a user. But key pairs alone are often not user friendly nor sufficient and don't fully represent the range of real world scenarios. 
 
 ## Decentralized Identifiers (DIDs)
 
@@ -12,7 +8,7 @@ Ceramic streams rely on an account model to authenticate and authorize updates t
 
 Ceramic uses [Decentralized Identifiers (DIDs)](https://w3c.github.io/did-core/) to represent accounts. DIDs are identifiers that enable verifiable, decentralized digital identities. They require no centralized party or registry and are extremely extensible, allowing a variety of implementations and account models to exist. 
 
-DID methods are specific implementations of the DID standard that define an identifier namespace along with how to resolve its DID document, which typically stores public keys for signing and encryption.
+DID methods are specific implementations of the DID standard that define an identifier namespace along with how to resolve its DID document, which typically stores public keys for signing and encryption. The ability to resolve public keys from identifiers allows anyone to verify a signature for a DID. 
 
 ## Supported Methods
 
@@ -38,7 +34,7 @@ did:key:z6MkhaXgBZDvotDkL5257faiztiGiC2QtKLGpbnnEGta2doK
 
 ### 3ID DID
 
-**3ID DID Method**: A DID method that uses Ceramic's Tile Document StreamType to represent a mutable DID document. 3ID can be controlled with any number of blockchain accounts.
+**3ID DID Method**: A DID method that uses Ceramic's Tile Document StreamType to represent a mutable DID document. 3ID can be controlled with any number of blockchain accounts. [did:3id Method Specification](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-79/CIP-79.md)
 
 ```html
 did:3:kjzl6cwe1jw149tlplc4bgnpn1v4uwk9rg9jkvijx0u0zmfa97t69dnqibqa2as

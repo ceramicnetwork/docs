@@ -1,10 +1,6 @@
 # Object Capabilities
 
-## Introduction
-
----
-
-Ceramic streams support [CACAO](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-74.md), allowing a basic but powerful capability-based authorization system to exist. CACAO, or “chain agnostic object capabilities,” are composable, transferable and verifiable containers for authorizations and encoded in IPLD.  For the full CACAO specification and more examples, reference [CAIP-74: CACAO - Chain Agnostic CApability Object](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-74.md).
+Ceramic streams support [CACAO](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-74.md), allowing a basic but powerful capability-based authorization system to exist. CACAO, or "chain agnostic object capabilities", are composable, transferable and verifiable containers for authorizations and encoded in IPLD.  For the full CACAO specification and more examples, reference [CAIP-74: CACAO - Chain Agnostic CApability Object](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-74.md).
 
 ## Approach
 
@@ -18,19 +14,19 @@ Contrast this to popular authorization models like access controls lists (ACLs),
 
 ---
 
-CACAO enables the ability for one account to authorize another account to construct signatures over limited data on their behalf, or in this case write to a Ceramic Stream. 
+CACAO enables the ability for one account to authorize another account to construct signatures over limited data on their behalf, or in this case write to a Ceramic stream. 
 
 ### Using blockchain accounts
 
-When combined with ["Sign-in with X”](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-122.md), CACAO unlocks the ability for blockchain accounts to authorize Ceramic accounts (DIDs) to sign data on their behalf. 
+When combined with ["Sign-in with X"](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-122.md), CACAO unlocks the ability for blockchain accounts to authorize Ceramic accounts (DIDs) to sign data on their behalf. 
 
 This frequently used pattern in Ceramic greatly increases the the usability of user-owned data and public-key cryptography. Thanks to the adoption of blockchain based systems, many users now have the ability to easily sign data in web-based environments using their wallet and blockchain account. 
 
 ### Authorizing sessions
 
-Data-centric systems like Ceramic often have more frequent writes than a blockchain system, so it can be impractical to sign every Ceramic stream event in a blockchain wallet. Instead with the use of CACAO and "Sign-in with X” many writes can be made by way of a temporary key and DID authorized with a CACAO. Allowing a user to only sign once with a blockchain based account and wallet, then continue to sign many payloads for an authorized amount of time (session).
+Data-centric systems like Ceramic often have more frequent writes than a blockchain system, so it can be impractical to sign every Ceramic stream event in a blockchain wallet. Instead with the use of CACAO and "Sign-in with X" many writes can be made by way of a temporary key and DID authorized with a CACAO. Allowing a user to only sign once with a blockchain based account and wallet, then continue to sign many payloads for an authorized amount of time (session).
 
-> 📙 In the future, we expect the ability to model the permissions and authorizations for more complex environments and structures including full organizations.
+> In the future, we expect the ability to model the permissions and authorizations for more complex environments and structures including full organizations.
 
 
 ## Specification
@@ -41,7 +37,7 @@ Support for object capabilities in the core Ceramic protocol is described below.
 
 ### JWS with CACAO
 
-JWS CACAO support includes adding a `cap` parameter to the JWS Protected Header and specifying the correct `kid` parameter string. Here’s an example protected JWS header with CACAO:
+JWS CACAO support includes adding a `cap` parameter to the JWS Protected Header and specifying the correct `kid` parameter string. Here is an example protected JWS header with CACAO:
 
 ```tsx
 { 
@@ -53,14 +49,14 @@ JWS CACAO support includes adding a `cap` parameter to the JWS Protected Header 
 
 Where:
 
-- **`alg`** – identifies the cryptographic algorithm used to secure the JWS
+- **`alg`** - identifies the cryptographic algorithm used to secure the JWS
 - **`cap`** - maps to a URI string, expected to be an IPLD CID resolvable to a CACAO object
 - **`kid`** - references the key used to secure the JWS. In the scope here this is expected to be a DID with reference to any key in the DID verification methods. The parameter MUST match the `aud` target of the CACAO object for both the CACAO and corresponding signature to be valid together.
 
 
->❕ Since `cap` is currently not a registered header parameter name in the IANA "JSON Web Signature and Encryption Header Parameters" registry, we treat this as a “Private Header Parameter Name” for now with additional meaning provided by the CACAO for implementations that choose to use this specification.
+> Since `cap` is currently not a registered header parameter name in the IANA "JSON Web Signature and Encryption Header Parameters" registry, we treat this as a "Private Header Parameter Name" for now with additional meaning provided by the CACAO for implementations that choose to use this specification.
 
->This means that ignoring the `cap` header during validation will still result in a valid JWS payload by the key defined in the ‘kid’. It just has no additional meaning by what is defined in the CACAO. The `cap` header parameter could also have support added as an extension by using the `crit` (Critical) Header Parameter in the JWS, but there is little reason to invalidate the JWS based on a consumer not understanding the `cap` header given it is still valid.
+>This means that ignoring the `cap` header during validation will still result in a valid JWS payload by the key defined in the `kid`. It just has no additional meaning by what is defined in the CACAO. The `cap` header parameter could also have support added as an extension by using the `crit` (Critical) Header Parameter in the JWS, but there is little reason to invalidate the JWS based on a consumer not understanding the `cap` header given it is still valid.
 
 ### DagJWS with CACAO
 

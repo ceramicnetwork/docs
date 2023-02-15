@@ -2,13 +2,13 @@
 
 User owned Ceramic accounts
 
-## Overview
+### Overview
 
 ---
 
 User owned data requires an account model that is both core to the protocol and general enough to support the wide diversity of possible account models and real world scenarios. Accounts are identified by Decentralized Identifiers, a general and extensible method to represent unique account strings, resolve public keys, and other account info or key material. Object-Capabilities are used to permission and authorize stream writes from one account to another, this may include session keys, applications and managing organization access. 
 
-## Decentralized Identifiers
+### Decentralized Identifiers
 
 ---
 
@@ -16,7 +16,7 @@ Decentralized Identifiers (DIDs) are used to represent accounts. DIDs are identi
 
 [Identifiers](decentralized-identifiers.md)
 
-## Permissions
+### Permissions
 
 ---
 
@@ -24,7 +24,7 @@ Permissions allow one account to delegate stream access to another account. Whil
 
 [Permissions](permissions.md)
 
-## Object-capabilities
+### Object-capabilities
 
 ---
 

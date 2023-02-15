@@ -1,16 +1,12 @@
 # Permissions
 
-## Introduction
-
----
-
-Permission is the act of delegating access to a stream to an account that is different than its owner. As a best practice, when granting permissions to another account you want to follow the rule of least privilege and only authorize that delegate’s temporary key to write the minimally needed data to Ceramic. 
+Permission is the act of delegating access to a stream to an account that is different than its owner. As a best practice, when granting permissions to another account you want to follow the rule of least privilege and only authorize that delegate's temporary key to write the minimally needed data to Ceramic. 
 
 ## Scopes
 
 ---
 
-CACAO and Ceramic support a basic way to describe the resources and actions an authorization includes. The resource parameter is an array of strings. In Ceramic those strings are vanilla StreamIDs or model StreamIDs. The implied action is write access, as read access is not permissioned in any way at the protocol level.
+CACAO and Ceramic support a basic way to describe the resources and actions an authorization includes. The resource parameter is an array of strings. In Ceramic those strings are StreamIDs or model StreamIDs. The implied action is write access, as read access is not permissioned in any way at the protocol level. Read access would require an encryption protocol, as streams are public, and is out of scope for now. 
 
 !!! note
     In the future, we expect the ability to specify more granular permissions based on actions (write, delete, create, update etc) and resources.
@@ -25,7 +21,7 @@ For example, to authorize an account to write to only two specific streams, you 
 
 ### Models
 
-The mostly commonly used pattern is to specify permissions by model streamIds. ‘model’ is a property that can be defined in a streams genesis commit. When specified and used with CACAO it allows a DID and key the ability to write to all streams with this specific model value for that user. 
+The mostly commonly used pattern is to specify permissions by model streamIds. `model` is a property that can be defined in a streams init event. When specified and used with CACAO it allows a DID and key the ability to write to all streams with this specific model value for that user. 
 
 !!! note
     Ceramic will likely support other keys and values in streams beyond `model` for permissions in the future.
