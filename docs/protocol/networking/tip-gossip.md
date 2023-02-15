@@ -1,10 +1,5 @@
 # Tip Gossip
 
-Add introduction. Also is `Tip Gossip` the right title (and framing for this page). Couldn’t it be called event propogation or distribution or something?
-
-## Overview
----
-
 When a stream is updated, the latest event (tip) is gossiped and propagated out to all the nodes in a network that are interested in that particular stream. Additionally, listening for all tips, allows a node to learn about streams it did not know about. This allows all interested nodes in the network to quickly get the latest update and state for a stream.
 
 ## Protocol
@@ -12,7 +7,7 @@ When a stream is updated, the latest event (tip) is gossiped and propagated out 
 
 ### Publishing Updates
 
-When an event is created and appended to a stream, the node will publish an update message to the network. All messages are broadcast on the  [libp2p pubsub](https://github.com/libp2p/specs/tree/master/pubsub) topic for the [network](networks.md) this node is configured for. Any other node listening on this network will receive the update and then can decide to take any further action or discard. 
+When an event is created and appended to a stream, the node will publish an update message to the network. All messages are broadcast on the [libp2p pubsub](https://github.com/libp2p/specs/tree/master/pubsub) topic for the [network](networks.md) this node is configured for. Any other node listening on this network will receive the update and then can decide to take any further action or discard. 
 
 ### Update Messages
 
@@ -26,9 +21,9 @@ type UpdateMessage = {
 
 Where:
 
-- `typ` – the message is an update message, enum `0`
-- `stream` – streamId of the stream which this update is for
-- `tip` – CID of the latest event (tip) of the stream, the update
+- **`typ`** - the message is an update message, enum `0`
+- **`stream`** - streamId of the stream which this update is for
+- **`tip`** - CID of the latest event (tip) of the stream, the update
 
 ### Replicating Updates
 

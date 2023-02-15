@@ -1,6 +1,6 @@
 # Identifiers
 
-Ceramic streams rely on an account model to authenticate and authorize updates to a stream. A fully realized vision of user owned data includes the use of public key cryptography and the ability to sign data with a public-private key-pair owned by a user. But key pairs alone are often not user friendly nor sufficient and don't fully represent the range of real world scenarios. 
+Ceramic streams rely on an account model to authenticate and authorize updates to a stream. A fully realized vision of user owned data includes the use of public key cryptography and the ability to sign data with a public-private key-pair controlled by a user. But key pairs alone are often not user friendly nor sufficient and don't fully represent the range of real world scenarios. 
 
 ## Decentralized Identifiers (DIDs)
 

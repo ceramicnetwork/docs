@@ -12,7 +12,7 @@ Ceramic streams and nodes are grouped into independent networks. These networks 
 
 ---
 
-Networks are collections of Ceramic [nodes](../nodes/index.md) that share specific configurations and communicate over dedicated [libp2p](https://libp2p.io/) pubsub topics. They are easily identified by a path string, for example `/ceramic/mainnet` .
+Networks are collections of Ceramic [nodes](../nodes/index.md) that share specific configurations and communicate over dedicated [libp2p](https://libp2p.io/) pubsub topics. They are easily identified by a path string, for example `/ceramic/mainnet` .
 
 [Networks](networks.md)
 
@@ -28,7 +28,7 @@ When a stream is updated, the latest event (tip) is gossiped and propagated out 
 
 ---
 
-Nodes in a network with a specific StreamID can query for the most recent event (tip) of that given stream. Queries enable a node that know about a stream to find the latest event (tip). 
+Nodes in a network with a specific StreamId can query for the most recent event (tip) of that given stream. Queries enable a node that know about a stream to find the latest event (tip). 
 
 [Tip Queries](tip-queries.md)
 
