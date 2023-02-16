@@ -6,6 +6,9 @@ Discover various explorers for the Ceramic Network.
 
 [**Cerscan**](https://cerscan.com/) is a community-contributed explorer indexing streams in real-time since June 12, 2022. It includes information on the app and schema of recent streams too. Cur
 
+## **UserScan**
+
+[**UserScan**](https://scan.s3.xyz/) is an [open sourced](https://github.com/us3r-network/userscan) community-contributed explorer.
 
 ## **Tiles**
 
