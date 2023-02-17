@@ -16,13 +16,13 @@ Decentralized Identifiers (DIDs) are used to represent accounts. DIDs are identi
 
 [Identifiers](decentralized-identifiers.md)
 
-### Permissions
+### Authorizations
 
 ---
 
-Permissions allow one account to delegate stream access to another account. While the current model is simple and minimal, it is descriptive enough to follow the rule of least privilege and limit the access that is delegated to another account. 
+Authorizations allow one account to delegate stream access to another account. While the current model is simple and minimal, it is descriptive enough to follow the rule of least privilege and limit the access that is delegated to another account. 
 
-[Permissions](permissions.md)
+[Authorizations](authorizations.md)
 
 ### Object-capabilities
 

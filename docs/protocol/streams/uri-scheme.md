@@ -44,12 +44,12 @@ StreamIds are defined as:
 
 Where:
 
-- `<multibase-prefix>` is a [multibase](https://github.com/multiformats/multibase) code (1 or 2 bytes), to ease encoding StreamIds into various bases. **NOTE:** Binary (not text-based) protocols and formats may omit the multibase prefix when the encoding is unambiguous.
-- `<multicodec-streamid>` `0xce` is a [multicodec](https://github.com/multiformats/multicodec) used to indicate that it's a [StreamId](https://github.com/multiformats/multicodec/blob/master/table.csv#L78), encoded as a varint
-- `<stream-type>` is a [varint](https://github.com/multiformats/unsigned-varint) representing the stream type of the stream.
-- `<init-cid-bytes>` is the bytes from the [CID](https://github.com/multiformats/cid) of the `init event`,  stripped of the multibase prefix.
+- **`<multibase-prefix>`** is a [multibase](https://github.com/multiformats/multibase) code (1 or 2 bytes), to ease encoding StreamIds into various bases. **NOTE:** Binary (not text-based) protocols and formats may omit the multibase prefix when the encoding is unambiguous.
+- **`<multicodec-streamid>`** `0xce` is a [multicodec](https://github.com/multiformats/multicodec) used to indicate that it's a [StreamId](https://github.com/multiformats/multicodec/blob/master/table.csv#L78), encoded as a varint
+- **`<stream-type>`** is a [varint](https://github.com/multiformats/unsigned-varint) representing the stream type of the stream.
+- **`<init-cid-bytes>`** is the bytes from the [CID](https://github.com/multiformats/cid) of the `init event`,  stripped of the multibase prefix.
 
-The multicodec for StreamID is `[0xce](https://github.com/multiformats/multicodec/blob/master/table.csv#L78)`. For compatibility with browser urls it's recommended to encode the StreamId using [[`base36`]](https://github.com/multiformats/multibase).
+The multicodec for StreamID is [`0xce`](https://github.com/multiformats/multicodec/blob/master/table.csv#L78). For compatibility with browser urls it's recommended to encode the StreamId using [[`base36`]](https://github.com/multiformats/multibase).
 
 The stream type value does not currently have any functionality at the protocol level. Rather, it is used by applications building on top of Ceramic (e.g. ComposeDB) to distinguish between different logic that is applied when processing events. Stream Type values have to be registered in the table of [CIP-59](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-59/CIP-59.md#registered-values). 
 
@@ -80,7 +80,7 @@ EventIds are defined as
 
 Where:
 
-- `<event-reference>` is either the zero byte (`0x00`) or [CID](https://github.com/multiformats/cid) bytes.
+- **`<event-reference>`** is either the zero byte (`0x00`) or [CID](https://github.com/multiformats/cid) bytes.
 
 ### Stream Versions
 

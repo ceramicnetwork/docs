@@ -34,7 +34,7 @@ The following services are typically provided to a Ceramic node by a connected I
 
 ---
 
-Timestamping nodes support a small but important subset of the Ceramic protocol. Timestamping is entirely described by [CAIP-168 IPLD Timestamp Proof](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-168.md) and [Ceramic Time Events](../streams/event-log.md).  Timestamp services aggregate events from streams to be timestamped, construct Merkle proofs, publish transactions and publish timestamp events to the Ceramic Network. Ceramic mainnet currently supports `f(bytes32)`  timestamp transaction types on Ethereum mainnet. This transaction type is entirely described by the [`eip155` namespace](https://github.com/ChainAgnostic/namespaces/blob/main/eip155/caip168.md) for CAIP-168. 
+Timestamping nodes support a small but important subset of the Ceramic protocol. Timestamping is entirely described by [CAIP-168 IPLD Timestamp Proof](https://chainagnostic.org/CAIPs/caip-168) and [Ceramic Time Events](../streams/event-log.md).  Timestamp services aggregate events from streams to be timestamped, construct Merkle proofs, publish transactions and publish timestamp events to the Ceramic Network. Ceramic mainnet currently supports `f(bytes32)`  timestamp transaction types on Ethereum mainnet. This transaction type is entirely described by the [`eip155` namespace](https://github.com/ChainAgnostic/namespaces/blob/main/eip155/caip168.md) for CAIP-168. 
 
 ## Implementations
 

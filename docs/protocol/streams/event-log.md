@@ -48,8 +48,8 @@ type InitEvent InitPayload | InitJWS
 
 **Parameters defined as follows:**
 
-- `controllers` - an array of DID strings that defines which DIDs can write events to the log, when using CACAO, the DID is expected to be the issuer of the CACAO. Note that currently only a single DID is supported.
-- `data` - data is anything, if defined the Init Event must match the InitJWS struct or envelope and be encoded in DAG-JOSE, otherwise the InitPayload would be a valid init event alone and encoded in DAG-CBOR
+- **`controllers`** - an array of DID strings that defines which DIDs can write events to the log, when using CACAO, the DID is expected to be the issuer of the CACAO. Note that currently only a single DID is supported.
+- **`data`** - data is anything, if defined the Init Event must match the InitJWS struct or envelope and be encoded in DAG-JOSE, otherwise the InitPayload would be a valid init event alone and encoded in DAG-CBOR
 
 ### Data Event
 
@@ -78,9 +78,9 @@ type DataEvent struct { // This is a DagJWS
 
 Additional parameters defined as follows, controllers and data defined same as above.
 
-- `id` -  CID (Link) to the init event of the log
-- `prev` -  CID (Link) to prior event in log
-- `header` -  Optional header, included here only if changing header parameter value (controllers) from prior event. Other header values may be included outside this specification.
+- **`id`** - CID (Link) to the init event of the log
+- **`prev`** - CID (Link) to prior event in log
+- **`header`** - Optional header, included here only if changing header parameter value (controllers) from prior event. Other header values may be included outside this specification.
 
 This being a minimally defined log on IPLD, later specifications or protocols can add additional parameters to both init and data events and their headers as needed. 
 
@@ -132,8 +132,8 @@ type EventJWS struct {
 
 Where:
 
-- `link` - CID (Link) to the event for which this signature is over. Provided for easy application access and IPLD traversal, expected to match CID encoded in payload
-- `payload` - base64url encoded CID link to the event (JWS payload) for which this signature is over
-- `protected` - base64 encoded JWS protected header
-- `header` - base64 encoded JWS header
-- `signature` - base64 encoded JWS signature
+- **`link`** - CID (Link) to the event for which this signature is over. Provided for easy application access and IPLD traversal, expected to match CID encoded in payload
+- **`payload`** - base64url encoded CID link to the event (JWS payload) for which this signature is over
+- **`protected`** - base64 encoded JWS protected header
+- **`header`** - base64 encoded JWS header
+- **`signature`** - base64 encoded JWS signature

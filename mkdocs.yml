@@ -149,7 +149,7 @@ nav:
       - Accounts: 
          - Accounts: protocol/accounts/index.md 
          - Decentralized IDs: protocol/accounts/decentralized-identifiers.md 
-         - Persmissions: protocol/accounts/permissions.md 
+         - Authorizations: protocol/accounts/authorizations.md 
          - Object-Capabilities: protocol/accounts/object-capabilities.md 
       - Networking: 
          - Networking: protocol/networking/index.md 
