@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+---
+
 # **Ceramic Docs**
 
 ---
