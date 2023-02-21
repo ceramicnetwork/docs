@@ -1,4 +1,4 @@
-# **The Ceramic network**
+# **Ceramic Docs**
 
 ---
 
@@ -10,29 +10,33 @@ Ceramic makes building applications with composable Web3 data as easy as browsin
 
 ![](../images/image-ceramic-opengraph.png)
 
-## **Getting started**
+## **Build Applications**
 
 ---
 
-### **Try ComposeDB on Ceramic**
+### [**ComposeDB: Graph DB for Web3 Apps →**](https://composedb.js.org/)
 
-ComposeDB is a decentralized graph database that is currently in developer preview. It is not suitable for mainnet applications until early 2023, however the developer preview is ready for you to design, build and test your application with advanced relations between data, GraphQL, and reusable data models. Learn more in this [**blog post**](https://blog.ceramic.network/composedb-using-ceramic-as-a-graph-database/) or check out the developer [**getting started guide here**](https://composedb.js.org/).
+ComposeDB is a decentralized graph database powered by Ceramic that enables you to build powerful Web3 applications using composable data, GraphQL, and reusable models.
 
-### **Build applications with Ceramic**
 
-Connect your app to Ceramic using a [**development framework**](../build/frameworks/index.md) or [**client library**](../build/clients/index.md).
+## **Run a Ceramic node**
 
-> Frameworks provide a great way to get started quickly, while clients provide greater flexibility but require a lower-level understanding of how the network functions.
+---
 
-!!! warning ""
+Provide storage, compute, and bandwidth to the network by running a node. Today there are no tokenized incentives for running a Ceramic node, but by running a node you can ensure the data for your app remains available while helping contribute to the network's decentralization.
 
-    Don't know what to build with composable data? Check out these [data models](../docs/advanced/standards/data-models/index.md) to get your creativity flowing.
+### [**Running Ceramic in the cloud →**](../run/nodes/nodes.md)
 
-### **Operate the Ceramic network**
+### [**Running Ceramic locally →**](../build/cli/installation.md)
 
-Provide storage, compute, and bandwidth to the network by [**running a node**](../run/index.md).
+## **Go Deeper**
 
-> Today there are no tokenized incentives for running a Ceramic node, but by running a node you can ensure the data for your app remains available while helping contribute to the network's decentralization.
+---
+
+- Learn how Ceramic works by jumping into the [**Protocol Documentation**](../protocol/index.md)
+
+- Build Ceramic-powered Web3 services (e.g. databases) using a low-level [**Ceramic client**](../build/clients/index.md)
+
 
 ## **Join the community**
 
