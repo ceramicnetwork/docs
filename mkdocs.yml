@@ -26,9 +26,10 @@ theme:
     - navigation.tabs
     - navigation.indexes
     - content.code.annotate
+    - navigation.path
 
 nav:
-  - Learn the basics:
+  - Docs:
       - Introduction: learn/welcome.md
       - Why Ceramic?: learn/features.md
       - How it works: learn/how-it-works.md
