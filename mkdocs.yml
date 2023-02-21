@@ -33,6 +33,7 @@ nav:
       - Introduction: learn/welcome.md
       - Why Ceramic?: learn/features.md
       - How it works: learn/how-it-works.md
+      - Comparisons: learn/comparisons.md
       - Roadmap: learn/roadmap.md
       - Highlighted projects: learn/highlighted-projects.md
       - Advanced:
