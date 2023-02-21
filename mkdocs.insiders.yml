@@ -56,3 +56,4 @@ theme:
     - content.code.annotate
     # Insiders only
     - content.tabs.link
+    - navigation.path
