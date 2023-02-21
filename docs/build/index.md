@@ -1,39 +1,37 @@
-# **Build applications**
+# **Build Applications**
 
 ---
 
-Ceramic provides a decentralized network for building Web3 applications with composable data. Ceramic's APIs enable applications to store, modify, and retrieve data from a scalable decentralized data network, while maintaining composability of data across applications.
+To build applications on Ceramic, use a Ceramic-powered database.
 
-## **Get Started**
-
----
-
-### [**ComposeDB →**](https://composedb.js.org/)
-
-ComposeDB is the latest and greatest way to build apps on Ceramic's data layer. It is a decentralized, verifiable graph DB and supports both Javascript and GraphQL.
-
-### [**IDX & Self.ID SDK →**](../reference/self-id/index.md)
-
-A legacy alternative to ComposeDB is IDX, a key-value store DB, also built on Ceramic.
-
-Self.ID is a framework for building applications for IDX on Ceramic. In addition to including a full Ceramic setup for a variety of development environments, The Self.ID SDK allows users to authenticate with their existing blockchain wallets and also includes some of the most popular data models giving you out of the box composability with a rich set of data on the network to bootstrap your application.
-
-## **Go deeper with clients**
+## **Featured Databases**
 
 ---
 
-Clients are a lower-level way to connect your application to the Ceramic network. They come without much pre-configuration, so you'll need to put at least a few different pieces together yourself.
+### [**ComposeDB: A Graph DB for Web3 Apps →**](https://composedb.js.org/)
 
-### [**JavaScript HTTP client →**](../reference/core-clients/ceramic-http.md)
+ComposeDB is the latest and greatest way to build apps with composable data on Ceramic's data layer. It is a decentralized, verifiable graph database that supports both Javascript and GraphQL.
 
-The Ceramic JS HTTP client is a Ceramic client that can be used in browsers and Node.js environments to connect your application to a Ceramic node. This is the recommended Ceramic client to build with for most applications, if you're not using a framework.
-
-## **System requirements**
+## **Legacy Databases**
 
 ---
 
-Ceramic clients and tools using them are designed for environments supporting [ECMAScript 11th edition](https://262.ecma-international.org/11.0/), commonly referred to as ES2020.
+### [**IDX & Self.ID →**](../reference/self-id/index.md)
 
-Most packages are exposed as ECMAScript Modules (ESM), which are supported by most modern browsers and recent versions of Node.
+IDX, a key-value store DB, is a legacy alternative to ComposeDB. Self.ID is a framework that made it easier to use IDX. These used to be recommended databases for building apps on Ceramic, but they have since been replaced by ComposeDB.
 
-When using Node, we recommend version 16 (LTS), as it is the version used for tests in most Ceramic packages.
+## **Build a new Database**
+
+---
+
+If the database solutions above don't suit your needs, you can always build a new database powered by Ceramic by using the [**Ceramic client**](../reference/core-clients/ceramic-http.md). Clients are a lower-level way to connect to the Ceramic network; they come without much pre-configuration, so you'll need to put at least a few different pieces together yourself.
+
+## **Additional Notes**
+
+---
+
+### System Requirements
+
+- Ceramic clients and tools using them are designed for environments supporting [ECMAScript 11th edition](https://262.ecma-international.org/11.0/), commonly referred to as ES2020.
+- Most packages are exposed as ECMAScript Modules (ESM), which are supported by most modern browsers and recent versions of Node.
+- We recommend Node v16 (LTS), as it is the version used for tests in most Ceramic packages.
