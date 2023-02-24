@@ -186,7 +186,7 @@ nav:
   #- Wallets: index.md 
   - Reference:
       - Reference: reference/index.md
-      - Ceramic HTTP API: build/http/api.md
+      #- Ceramic HTTP API: build/http/api.md
       - Ceramic JS packages and API references: reference/javascript/packages.md
   - Forum: "https://forum.ceramic.network"
 markdown_extensions:
