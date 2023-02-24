@@ -96,19 +96,48 @@ nav:
           - Configurations: tools/self-id/configuration.md
           - Utilities: tools/self-id/utilities.md
           - Samples: tools/self-id/sample-applications.md
+          - Reference: 
+              - Framework: reference/self-id/modules/framework.md
+              - React:
+                  - React module: reference/self-id/modules/react.md
+                  - ReactClient class: reference/self-id/classes/react.ReactClient.md
+                  - RequestClient class: reference/self-id/classes/react.RequestClient.md
+              - Web:
+                  - Web module: reference/self-id/modules/web.md
+                  - WebClient class: reference/self-id/classes/web.WebClient.md
+                  - SelfID class: reference/self-id/classes/web.SelfID.md
+              - Core:
+                  - Core module: reference/self-id/modules/core.md
+                  - Core class: reference/self-id/classes/core.Core.md
+                  - PublicID class: reference/self-id/classes/core.PublicID.md
+              - Utilities: reference/self-id/modules/image_utils.md
       - Glaze Suite:
           #- Middleware: build/middleware/index.md
           #- Overview: tools/overview.md
           - Glaze Suite: reference/glaze/index.md
               #- Overview: tools/glaze/overview.md
               #- Glossary: tools/glaze/glossary.md
-          - Key-Value Database: tools/glaze/did-datastore.md
+          - IDX Database: tools/glaze/did-datastore.md
           - Data Models:
               - Registry: docs/advanced/standards/data-models/data-model-universe.md
               - Deploying from JS: tools/glaze/development.md
               - Deploying from CLI: tools/glaze/deploy-from-cli.md
               - Aliasing: tools/glaze/datamodel.md
           - Data Caching: tools/glaze/tile-loader.md
+          - Reference:
+              - DID DataStore:
+                  - DID DataStore module: reference/glaze/modules/did_datastore.md
+                  - DIDDataStore class: reference/glaze/classes/did_datastore.DIDDataStore.md
+              - DataModel:
+                  - DataModel module: reference/glaze/modules/datamodel.md
+                  - DataModel class: reference/glaze/classes/datamodel.DataModel.md
+              - DevTools:
+                  - DevTools module: reference/glaze/modules/devtools.md
+                  - ModelManager class: reference/glaze/classes/devtools.ModelManager.md
+              - TileLoader:
+                  - Tile loader module: reference/glaze/modules/tile_loader.md
+                  - TileLoader class: reference/glaze/classes/tile_loader.TileLoader.md
+              - Shared types: reference/glaze/modules/types.md
           # - docs/advanced/standards/application-protocols/index.md
       #   - Data model standards:
       #       - CIP-11 Identity Index: docs/advanced/standards/data-models/cip-11.md
@@ -160,40 +189,8 @@ nav:
           - DID Session: reference/accounts/did-session.md
           #- NFT DID: reference/accounts/nft-did.md
           #- Safe DID: reference/accounts/safe-did.md
-      - Glaze suite:
-          - Modules and APIs:
-              - DID DataStore:
-                  - DID DataStore module: reference/glaze/modules/did_datastore.md
-                  - DIDDataStore class: reference/glaze/classes/did_datastore.DIDDataStore.md
-              - DevTools:
-                  - DevTools module: reference/glaze/modules/devtools.md
-                  - ModelManager class: reference/glaze/classes/devtools.ModelManager.md
-              - DataModel:
-                  - DataModel module: reference/glaze/modules/datamodel.md
-                  - DataModel class: reference/glaze/classes/datamodel.DataModel.md
-              - Tile loader:
-                  - Tile loader module: reference/glaze/modules/tile_loader.md
-                  - TileLoader class: reference/glaze/classes/tile_loader.TileLoader.md
-              - Shared types: reference/glaze/modules/types.md
-      - Self.ID SDK:
-          - Framework: reference/self-id/modules/framework.md
-          - React:
-              - React module: reference/self-id/modules/react.md
-              - ReactClient class: reference/self-id/classes/react.ReactClient.md
-              - RequestClient class: reference/self-id/classes/react.RequestClient.md
-          - Web:
-              - Web module: reference/self-id/modules/web.md
-              - WebClient class: reference/self-id/classes/web.WebClient.md
-              - SelfID class: reference/self-id/classes/web.SelfID.md
-          - Core:
-              - Core module: reference/self-id/modules/core.md
-              - Core class: reference/self-id/classes/core.Core.md
-              - PublicID class: reference/self-id/classes/core.PublicID.md
-          - Utilities:
-              - Image utilities: reference/self-id/modules/image_utils.md
-              #- 3Box utilities: reference/self-id/modules/3box_legacy.md
       - Ceramic JS packages and API references: reference/javascript/packages.md
-      - Glossary: learn/glossary.md
+      #- Glossary: learn/glossary.md
   - Forum: "https://forum.ceramic.network"
 markdown_extensions:
   - meta
@@ -294,4 +291,5 @@ plugins:
         'build/cli/api.md': 'build/cli/quick-start.md'
         'learn/networks.md': 'protocol/networking/networks.md'
         'tools/glaze/example.md': 'docs/introduction/next-steps.md'
+        'learn/glossary.md': 'protocol/overview.md'
   - search
