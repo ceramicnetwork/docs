@@ -1,10 +1,10 @@
-# Event Log
+# **Event Log**
 
 ---
 
 The core data structure in the Ceramic protocol is a self-certifying event log. It combines IPLD for hash linked data and cryptographic proofs to create an authenticated and immutable log. This event log can be used to model mutable databases and other data structures on top.
 
-## Introduction
+## **Introduction**
 
 ---
 
@@ -14,7 +14,7 @@ Append-only logs are frequently used as an underlying immutable data structure i
 - **Low cost decentralization** - Providing a common database layer for users and applications besides more expensive on-chain data or centralized and siloed databases
 - **Interoperability, flexibility, composability** - A minimally defined log structure allows a base level of interoperability while allowing diverse implementations of mutable databases and data structures on top. Base levels of interoperability include log transport, update syncing, consensus, etc.
 
-## Events
+## **Events**
 
 ---
 
@@ -22,7 +22,7 @@ Logs are made up of events. An init event originates a new log and is used to re
 
 Data events (and often Init Events) are signed DAGJWS and encoded in IPLD using the [DAG-JOSE codec](https://ipld.io/specs/codecs/dag-jose/spec/). Event payloads are typically encoded as DAG-CBOR, but could be encoded with any codec supported by a node or the network. Formats and types are described using [IPLD schema language](https://ipld.io/docs/schemas/) and event encoding is further described below. 
 
-### Init Event
+### **Init Event**
 
 A log is initialized with an init event. The CID of this event is used to reference or name this log in a [StreamId](uri-scheme.md#streamid). An init event may be signed or unsigned.
 
@@ -51,7 +51,7 @@ type InitEvent InitPayload | InitJWS
 - **`controllers`** - an array of DID strings that defines which DIDs can write events to the log, when using CACAO, the DID is expected to be the issuer of the CACAO. Note that currently only a single DID is supported.
 - **`data`** - data is anything, if defined the Init Event must match the InitJWS struct or envelope and be encoded in DAG-JOSE, otherwise the InitPayload would be a valid init event alone and encoded in DAG-CBOR
 
-### Data Event
+### **Data Event**
 
 Log updates are data events. Data events are appended in the log to an init event, prior data events or a time event. A data event MUST be signed. 
 
@@ -84,7 +84,7 @@ Additional parameters defined as follows, controllers and data defined same as a
 
 This being a minimally defined log on IPLD, later specifications or protocols can add additional parameters to both init and data events and their headers as needed. 
 
-### Time Event
+### **Time Event**
 
 Time events can be appended to init events, and 1 or more data events. Reference [CAIP-168 IPLD Timestamp Proof](https://chainagnostic.org/CAIPs/caip-168) specification for more details on creating and verifying time events. Time Events are a simple extension of the IPLD Timestamp Proof specification, where `prev` points to the prior event in the log and is expected to be the data for which the timestamp proof is for. A timestamp event is unsigned.
 
@@ -97,17 +97,17 @@ type TimeEvent struct {
 }
 ```
 
-## Verification
+## **Verification**
 
 ---
 
 A valid log is one that includes data events as defined above and traversing the log resolves to an originating init event as defined above. Each event is valid when it includes the required parameters above and the DAGJWS signature is valid for the given event `controller` DID and valid as defined below. Time events are defined as valid by CAIP-168. There will likely be additional verification steps specific to any protocol or application level definition.
 
-## Encoding
+## **Encoding**
 
 ---
 
-### JWS & DAG-JOSE
+### **JWS & DAG-JOSE**
 
 All signed events are encoded in IPLD using [DAG-JOSE](https://ipld.io/specs/codecs/dag-jose/spec/). DAG-JOSE is a codec and standard for encoding JOSE objects in IPLD. JOSE includes both[JWS](https://datatracker.ietf.org/doc/rfc7515/?include_text=1) for signed JSON objects and [JWE](https://datatracker.ietf.org/doc/rfc7516/?include_text=1) for encrypted JSON objects. JWS is used for events here and is commonly used standard for signed data payloads. Some parameters are further defined for streams. The original DAG-JOSE specification can be found [here](https://ipld.io/specs/codecs/dag-jose/spec/).
 
