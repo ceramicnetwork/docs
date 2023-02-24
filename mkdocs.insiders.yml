@@ -57,3 +57,4 @@ theme:
     # Insiders only
     - content.tabs.link
     - navigation.path
+    - navigation.sections
