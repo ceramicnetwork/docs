@@ -62,7 +62,7 @@ nav:
       - Ecosystem:
           - Community: docs/ecosystem/community.md
           - Projects: "https://threebox.notion.site/Ceramic-Ecosystem-a3a7a58f81544d33ad3feb84368775d4"
-          - Roadmap: learn/roadmap.md
+          # - Roadmap: learn/roadmap.md
       #- Advanced:
           #- Tech overview: learn/advanced/overview.md
           #- Data availability: learn/advanced/data-availability.md
