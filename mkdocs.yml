@@ -75,12 +75,8 @@ nav:
       - Running locally: build/cli/installation.md
       - Running in the cloud: run/nodes/nodes.md
       - Anchor service: run/cas/community-cas.md
-          #- Hosting a CAS: run/cas/cas.md
   - Legacy Tools:
-      - Build apps: build/index.md
-      #- The Ceramic stack: build/the-ceramic-stack.md
       - Self.ID SDK:
-          #- Frameworks: build/frameworks/index.md
           - Self.ID SDK: reference/self-id/index.md
               #- Overview: tools/self-id/overview.md
               - React: tools/self-id/framework.md
