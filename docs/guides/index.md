@@ -1,26 +1,24 @@
 # **Ceramic Development Guides**
 
+Guides that support development on Ceramic.
+
+## **Ceramic Nodes**
 ---
 
-A collection of helpful development guides created by the community. Want to add your guide? Submit a pull request.
+-  [Running Locally](../../build/cli/installation.md)
+-  [Running in the Cloud](../../run/nodes/nodes.md)
+-  [Community Nodes](../../run/nodes/available.md)
 
-## **The Ceramic blog**
-
+## **Ceramic Clients**
 ---
 
-The Ceramic blog contains many useful resources that can help when building applications with Ceramic. To check out those resources, head over to [**the Ceramic blog →**](https://blog.ceramic.network){:target="\_blank"}.
+-  [JavaScript Client](../../reference/core-clients/ceramic-http.md)
+-  [Authentication](../../reference/core-clients/did-jsonrpc.md)
+-  [Stream APIs](../../reference/stream-programs/tile-document.md)
 
-## **Application development guides**
 
+## **Additional Resources**
 ---
 
-- [Getting started with the Ceramic CLI](../build/cli/quick-start.md)
-- [Using the Ceramic HTTP Client](../build/javascript/quick-start.md)
-- [Retrieving data from Ceramic](../build/javascript/queries.md)
-- [Build a note-taking application with Glaze suite](../tools/glaze/example.md)
-
-## **Protocol development guides**
-
----
-
-- [How to authenticate with an unsupported blockchain account type](../reference/javascript/blockchain.md)
+- [**Ceramic Forum**](https://forum.ceramic.network)
+- [**Ceramic Blog**](https://blog.ceramic.network){:target="\_blank"}
