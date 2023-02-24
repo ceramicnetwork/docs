@@ -297,6 +297,6 @@ plugins:
         'tools/glaze/overview.md': 'reference/glaze/index.md'
         'tools/idx/overview.md': 'docs/advanced/standards/application-protocols/identity-index.md'
         'tools/self-id/overview.md': 'reference/self-id/index.md'
-        'build/the-ceramic-stack.md': 'docs/protocol/overview.md'
+        'build/the-ceramic-stack.md': 'protocol/overview.md'
         'build/frameworks/index.md': 'docs/introduction/next-steps.md'
   - search
