@@ -68,6 +68,14 @@ nav:
           #- Consensus: learn/advanced/consensus.md
           #- Security: learn/advanced/security.md
           #- Privacy: learn/advanced/privacy.md
+  - Run nodes:
+      - Run nodes: run/index.md
+      #- Networks: learn/networks.md
+      - Available nodes: run/nodes/available.md
+      - Running locally: build/cli/installation.md
+      - Running in the cloud: run/nodes/nodes.md
+      - Anchor service: run/cas/community-cas.md
+          #- Hosting a CAS: run/cas/cas.md
   - Build apps:
       - Build apps: build/index.md
       - The Ceramic stack: build/the-ceramic-stack.md
@@ -136,15 +144,6 @@ nav:
         #        - HTTP Client: build/javascript/http.md
         #    - Authentication: build/javascript/authentication.md
         #    - Writes: build/javascript/writes.md
-  - Run nodes:
-      - Run nodes: run/index.md
-      - Networks: learn/networks.md
-      - Available nodes: run/nodes/available.md
-      - Running in development: build/cli/installation.md
-      - Running in production: run/nodes/nodes.md
-      - Anchor service:
-          - Community CAS: run/cas/community-cas.md
-          - Hosting a CAS: run/cas/cas.md
   - Guides:
       - Guides: guides/index.md
       - Application development:
@@ -154,8 +153,8 @@ nav:
               - Using the Ceramic HTTP client: build/javascript/quick-start.md
               - Retrieving data from Ceramic: build/javascript/queries.md
               - Pinning data on Ceramic: build/javascript/pinning.md
-          - Building with Glaze suite:
-              - Build a note-taking app with Glaze: tools/glaze/example.md
+          #- Building with Glaze suite:
+              #- Build a note-taking app with Glaze: tools/glaze/example.md
   #- Ecosystem:
   #- Use cases: learn/use-cases.md
   #- Projects: explore/projects.md
