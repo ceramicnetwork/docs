@@ -20,7 +20,7 @@ theme:
   logo: images/ceramic-no-shadow.png
   icon:
     repo: fontawesome/brands/github-alt
-  favicon: images/favicon.png
+  favicon: images/favicon-ceramic.png
   features:
     - navigation.instant
     - navigation.tabs
