@@ -20,11 +20,11 @@ Ceramic is a decentralized data network that powers an ecosystem of interoperabl
 
 - Try the [**ComposeDB Quickstart**](https://composedb.js.org/docs/0.4.x/getting-started) to try the newest Ceramic-powered graph database
 
-- Try the [**Ceramic Quickstart**](../build/cli/quick-start.md) to learn about the lower-level Ceramic API
+- Try the [**Ceramic Quickstart**](../build/cli/quick-start.md) to learn about lower-level Ceramic functionality
 
 - Go deeper by reading the [**Ceramic Protocol**](../protocol/overview.md) specification
 
-- Learn about use cases and projects [built on Ceramic](https://threebox.notion.site/Ceramic-Ecosystem-a3a7a58f81544d33ad3feb84368775d4)
+- Explore use cases and projects [**built on Ceramic**](https://threebox.notion.site/Ceramic-Ecosystem-a3a7a58f81544d33ad3feb84368775d4)
 
 ## **Build Applications**
 
@@ -34,7 +34,7 @@ Ceramic is a decentralized data network that powers an ecosystem of interoperabl
 
 ComposeDB is a decentralized graph database powered by Ceramic that enables you to build powerful Web3 applications using composable data, GraphQL, and reusable models. ComposeDB is the newest and most popular database built on Ceramic.
 
-## **Run a Ceramic node**
+## **Run a Ceramic Node**
 
 ---
 
@@ -45,7 +45,7 @@ Run a Ceramic node to provide data storage, compute, and bandwidth for your Cera
 - [**Run Ceramic locally →**](../build/cli/installation.md)
 
 
-## **Join the community**
+## **Join the Community**
 
 ---
 
