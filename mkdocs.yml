@@ -68,13 +68,22 @@ nav:
           #- Consensus: learn/advanced/consensus.md
           #- Security: learn/advanced/security.md
           #- Privacy: learn/advanced/privacy.md
-  - Run nodes:
-      - Run nodes: run/index.md
-      #- Networks: learn/networks.md
-      - Available nodes: run/nodes/available.md
-      - Running locally: build/cli/installation.md
-      - Running in the cloud: run/nodes/nodes.md
-      - Anchor service: run/cas/community-cas.md
+  - Guides:
+      - Guides: guides/index.md
+      - Ceramic Nodes:
+          - Running Locally: build/cli/installation.md
+          - Running in the Cloud: run/nodes/nodes.md
+          - Community Nodes: run/nodes/available.md
+          - Anchor Service: run/cas/community-cas.md
+      - Ceramic Clients:
+          - JavaScript: reference/core-clients/ceramic-http.md
+              - Queries: build/javascript/queries.md
+              - Pinning: build/javascript/pinning.md
+              - Additional Usage: build/javascript/quick-start.md
+          - Authentication: reference/core-clients/did-jsonrpc.md
+          - Stream Interactions:
+              - Using Tile Documents: reference/stream-programs/tile-document.md
+              - Using CAIP-10 Links: reference/stream-programs/caip10-link.md
   - Legacy Tools:
       - Self.ID SDK:
           - Self.ID SDK: reference/self-id/index.md
@@ -132,17 +141,6 @@ nav:
         #        - HTTP Client: build/javascript/http.md
         #    - Authentication: build/javascript/authentication.md
         #    - Writes: build/javascript/writes.md
-  - Guides:
-      - Guides: guides/index.md
-      - Application development:
-          #- Using the command line:
-              #- Using the CLI: build/cli/api.md
-          - Building with Ceramic clients:
-              - Using the Ceramic HTTP client: build/javascript/quick-start.md
-              - Retrieving data from Ceramic: build/javascript/queries.md
-              - Pinning data on Ceramic: build/javascript/pinning.md
-          #- Building with Glaze suite:
-              #- Build a note-taking app with Glaze: tools/glaze/example.md
   #- Ecosystem:
   #- Use cases: learn/use-cases.md
   #- Projects: explore/projects.md
@@ -155,20 +153,12 @@ nav:
   - Reference:
       - Reference: reference/index.md
       - Ceramic HTTP API: build/http/api.md
-      - Ceramic clients:
-          - JavaScript clients:
-              #- Choose a client: build/javascript/installation.md
-              - Ceramic HTTP client: reference/core-clients/ceramic-http.md
-              - DID JSON-RPC client: reference/core-clients/did-jsonrpc.md
       - Accounts:
           - 3ID DID: reference/accounts/3id-did.md
           - Key DID: reference/accounts/key-did.md
           - DID Session: reference/accounts/did-session.md
           #- NFT DID: reference/accounts/nft-did.md
           #- Safe DID: reference/accounts/safe-did.md
-      - Streams:
-          - Tile Document: reference/stream-programs/tile-document.md
-          - CAIP-10 Link: reference/stream-programs/caip10-link.md
       - Glaze suite:
           - Modules and APIs:
               - DID DataStore:
@@ -300,4 +290,6 @@ plugins:
         'build/the-ceramic-stack.md': 'protocol/overview.md'
         'build/frameworks/index.md': 'docs/introduction/next-steps.md'
         'build/cli/api.md': 'build/cli/quick-start.md'
+        'learn/networks.md': 'protocol/networking/networks.md'
+        'tools/glaze/example.md': 'docs/introduction/next-steps.md'
   - search
