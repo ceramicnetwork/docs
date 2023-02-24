@@ -1,37 +1,25 @@
-# Protocol
+# **Ceramic Protocol**
 
 Ceramic is a decentralized event streaming protocol that enables developers to build decentralized databases, distributed compute pipelines, and authenticated data feeds, etc. Ceramic nodes can subscribe to subsets of streams forgoing the need of a global network state. This makes Ceramic an eventually consistent system (as opposed to strongly consistent like L1 blockchains), enabling web scale applications to be built reliably.
 
 The protocol doesn't prescribe how to interpret events found within streams; this is left to the applications consuming the streams. One example of this type of application is ComposeDB.
 
-## Components
+## **Core Components**
 
 ---
 
-The Ceramic protocol is made out of the following components:
+The Ceramic protocol consists of the following components:
 
-- [Streams](./streams/index.md)
-- [Accounts](./accounts/index.md)
-- [Networking](./networking/index.md)
-- [API](./api/index.md)
-- [Nodes](./nodes/index.md)
+- [**Streams →**](./streams/index.md)
+- [**Accounts →**](./accounts/index.md)
+- [**Networking →**](./networking/index.md)
+- [**Ceramic API →**](./api/index.md)
+- [**Ceramic Nodes →**](./nodes/index.md)
 
 
-## Spec Status
+## **Specification Status**
 
 ---
-
-### Legend
-
-| Spec state | Label |
-| --- | --- |
-| Unlikely to change in the foreseeable future. |  **<span style="color:rgba(51, 126, 169, 1)">Stable</span>** |
-| All content is correct. Important details are covered. | **<span style="color:rgba(68, 131, 97, 1)">Reliable</span>** |
-| All content is correct. Details are being worked on. | **<span style="color:rgba(203, 145, 47, 1)">Draft/WIP</span>** |
-| Do not follow. Important things have changed. | **<span style="color:rgba(217, 115, 13, 1)">Incorrect</span>** |
-| No work has been done yet. | **<span style="color:rgba(212, 76, 71, 1)">Missing</span>** |
-
-### Status by Section
 
 | Section | State |
 | --- | --- |
@@ -52,7 +40,18 @@ The Ceramic protocol is made out of the following components:
 | [4. API](./api/index.md) | **[<span style="color:rgba(212, 76, 71, 1)">Missing</span>](./api/index.md)** |
 | [5. Nodes](./nodes/index.md) | **[<span style="color:rgba(203, 145, 47, 1)">Draft/WIP</span>](./nodes/index.md)** |
 
-## Next Steps
+### **Legend**
+
+| Spec state | Label |
+| --- | --- |
+| Unlikely to change in the foreseeable future. |  **<span style="color:rgba(51, 126, 169, 1)">Stable</span>** |
+| All content is correct. Important details are covered. | **<span style="color:rgba(68, 131, 97, 1)">Reliable</span>** |
+| All content is correct. Details are being worked on. | **<span style="color:rgba(203, 145, 47, 1)">Draft/WIP</span>** |
+| Do not follow. Important things have changed. | **<span style="color:rgba(217, 115, 13, 1)">Incorrect</span>** |
+| No work has been done yet. | **<span style="color:rgba(212, 76, 71, 1)">Missing</span>** |
+
+
+## **Next Steps**
 
 ---
 
