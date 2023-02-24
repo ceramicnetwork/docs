@@ -82,6 +82,9 @@ nav:
               - Pinning: build/javascript/pinning.md
               - Additional Guides: build/javascript/quick-start.md
           - Authentication: reference/core-clients/did-jsonrpc.md
+              - Key DID: reference/accounts/key-did.md
+              - 3ID DID: reference/accounts/3id-did.md
+              - DID Session: reference/accounts/did-session.md
           - Stream Interactions:
               - Using Tile Documents: reference/stream-programs/tile-document.md
               - Using CAIP-10 Links: reference/stream-programs/caip10-link.md
@@ -183,14 +186,7 @@ nav:
   - Reference:
       - Reference: reference/index.md
       - Ceramic HTTP API: build/http/api.md
-      - Accounts:
-          - 3ID DID: reference/accounts/3id-did.md
-          - Key DID: reference/accounts/key-did.md
-          - DID Session: reference/accounts/did-session.md
-          #- NFT DID: reference/accounts/nft-did.md
-          #- Safe DID: reference/accounts/safe-did.md
       - Ceramic JS packages and API references: reference/javascript/packages.md
-      #- Glossary: learn/glossary.md
   - Forum: "https://forum.ceramic.network"
 markdown_extensions:
   - meta
@@ -292,4 +288,6 @@ plugins:
         'learn/networks.md': 'protocol/networking/networks.md'
         'tools/glaze/example.md': 'docs/introduction/next-steps.md'
         'learn/glossary.md': 'protocol/overview.md'
+        'reference/accounts/safe-did.md': 'protocol/accounts/decentralized-identifiers.md'
+        'reference/accounts/nft-did.md': 'protocol/accounts/decentralized-identifiers.md'
   - search
