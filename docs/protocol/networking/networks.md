@@ -5,7 +5,7 @@ Information about the default Ceramic networks
 ## Overview
 ---
 
-Networks are collections of Ceramic [nodes](../nodes/index.md) that share specific configurations and communicate over dedicated [libp2p](https://libp2p.io/) pubsub topics. Networks are disjoint from one another; streamsthat exist on one network are **not** discoverable or usable on another.
+Networks are collections of Ceramic [nodes](../nodes.md) that share specific configurations and communicate over dedicated [libp2p](https://libp2p.io/) pubsub topics. Networks are disjoint from one another; streamsthat exist on one network are **not** discoverable or usable on another.
 
 These pubsub topics are used to relay all messages for the defined networking sub protocols, including [Tip Gossip](tip-gossip.md) and [Tip Queries](tip-queries.md). 
 
