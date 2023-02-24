@@ -44,7 +44,7 @@ The following table includes active node implementations:
 
 | Node | Name | Language | Description | Status | Maintainer |
 | --- | --- | --- | --- | --- | --- |
-| Ceramic | [js-ceramic](https://github.com/ceramicnetwork/js-ceramic/) | JavaScript | Complete Ceramic implementation. Runs all Ceramic core services, and connects to an IPFS node for all IPFS, libp2p, IPLD services needed.  | Production | 3Box Labs |
+| Ceramic | [js-ceramic](https://github.com/ceramicnetwork/js-ceramic/) | JavaScript | Complete Ceramic implementation. Runs all Ceramic core services, and connects to an IPFS node for all IPFS, libp2p, IPLD services needed. View [all subpackages](../reference/javascript/packages.md). | Production | 3Box Labs |
 | Timestamp | [ceramic-anchor-service](https://github.com/ceramicnetwork/ceramic-anchor-service) | JavaScript | Complete timestamp services. Supports f(bytes32) and raw transaction types for EVM (EIP-155) blockchains.  | Production | 3Box Labs |
 
 Longterm Ceramic is targeting multiple implementations of the protocol to support general resilience, robustness and security. Want to work on a node implementation in a new language like Rust or Go? Get in touch on the Forum!
