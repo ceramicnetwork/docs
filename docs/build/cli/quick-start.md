@@ -1,42 +1,49 @@
-# Quickstart
+# **Ceramic Quickstart**
 
-Learn the basics by setting up and interacting with the [Ceramic CLI](./installation.md). This tutorial serves as a simple introduction to Ceramic concepts.
+A simple introduction to Ceramic concepts. Learn the basics by using the Ceramic CLI.
+
+## **Setup**
+---
+
+### **Prerequisites**
+Ceramic requires [Node.js](https://nodejs.org/en/){:target="\_blank"} v16 and [npm](https://www.npmjs.com/get-npm){:target="\_blank"} v6.
 
 !!! warning ""
 
-    **Want an even faster way to try Ceramic?** Visit the [Playground demo app](https://playground.ceramic.dev){:target="_blank"} to test the full stack of Ceramic components in the browser.
+    While npm v7 is not officially supported, you may still be able to get it to work. You will need to install the `node-pre-gyp` package globally. This is required until `node-webrtc` which IPFS depends on [is upgraded](https://github.com/node-webrtc/node-webrtc/pull/694){:target="_blank"}.
 
-## **1. Install the CLIs**
+    ```bash
+    npm install -g node-pre-gyp
+    ```
+
+### **Install Ceramic**
+
+Open your console and install the CLIs using npm:
 
 ```sh
 npm install --global @ceramicnetwork/cli @glazed/cli
 ```
 
-The Ceramic CLI is then accessible as `ceramic` and the Glaze CLI as `glaze`.
+- The Ceramic CLI will now be accessible as `ceramic` and the Glaze CLI as `glaze`.
+- Run `ceramic help` and `glaze help` to list the available commands.
 
-Run `ceramic help` and `glaze help` to list the available commands.
+### **Launch Ceramic**
 
-## **2. Start the Ceramic daemon**
-
-Run the `daemon` command of the Ceramic CLI to start a local Ceramic node:
+Start a local Ceramic node connected to the Clay Testnet at `https://localhost:7007`:
 
 ```sh
 ceramic daemon
 ```
 
-Visit the [Ceramic CLI](./installation.md) page for more informations about the Ceramic daemon.
+### **Create an account**
 
-## **3. Create a Ceramic account**
-
-Signing transactions to send on a Ceramic node requires a Ceramic account provided by a [DID](../../learn/glossary.md#dids).
-
-The Glaze CLI can be used to create a key DID, generating a 32-byte random seed:
+Ceramic transactions must be signed by an account ([DID](../../learn/glossary.md#dids)). The Glaze CLI can create a DID for you, after generating a 32-byte random seed:
 
 ```sh
 glaze did:create
 ```
 
-The expected output will be similar to the following, with `...` used as placeholder for brevity:
+Your output should look something like this, with `...` used for brevity:
 
 ```sh
 ✔ Created DID did:key:z6Mk... with seed ab...f0
@@ -49,11 +56,17 @@ glaze [command] --key=ab...f0
 DID_KEY=ab...f0 glaze [command]
 ```
 
-**Note:** when entering your --key here, it refers to the encoded seed generated for the private key, not the did:key itself.
+**Note:** when entering --key, it should be your encoded seed, not the did:key itself.
 
-## **4. Create a stream**
 
-Use the `tile:create` command to create a new [stream](../../learn/glossary.md#streams). In the example below we create a stream that uses the [TileDocument StreamType](../../docs/advanced/standards/stream-programs/tile-document.md). Note that _TileDocument_ is the only [StreamType](../../learn/glossary.md#streamtypes) that can currently be created by the Ceramic CLI.
+## **Streams**
+---
+
+Ceramic usage depends on the particular types of streams you are interacting with, as they each have their own APIs. For this example the Glaze CLI interacts with tile documents, streams that store mutable JSON.
+
+### **Create**
+
+Create a new tile document using your account:
 
 === "Command"
 
@@ -72,16 +85,16 @@ Use the `tile:create` command to create a new [stream](../../learn/glossary.md#s
     ```
 
     !!! quote ""
-        Part pf the output is the [StreamID](../../learn/glossary.md#streamid), which is the persistent identifier of our newly created stream. This StreamID will be different for you, since you created it with your DID. Below the StreamID is the current content of the stream.
+        The [StreamID](../../learn/glossary.md#streamid) is the unique ID of our stream. Your StreamID will be different since you created it with your account.
 
 ??? info "More options"
 
     - `--metadata`: set the *metadata* of the stream
     - Run `glaze tile:create -h` to see all available options
 
-## **5. Query a stream**
+### **Query**
 
-Use the `tile:show` command to query the current [state](../../learn/glossary.md#state) of a stream. You will need to provide its _StreamID_.
+Load the _current state_ of a tile document using `tile:show` with a StreamID:
 
 === "Command"
 
@@ -99,7 +112,7 @@ Use the `tile:show` command to query the current [state](../../learn/glossary.md
     { Foo: 'Bar' }
     ```
 
-Use the `stream:state` command to query the entire state of a stream.
+Load the _entire state_ of a stream using `stream:state` with a StreamID:
 
 === "Command"
 
@@ -181,9 +194,9 @@ Use the `stream:state` command to query the entire state of a stream.
     !!! quote ""
         This output was seen after the anchor has been created. The stream state has now shifted *anchorStatus* to `ANCHORED`. You can also see that the log contains one more entry.
 
-## **6. Update a stream**
+### **Update**
 
-Use the `tile:update` command to update a stream. Your [DID](../../learn/glossary.md#dids) must be the [controller](../../learn/glossary.md#controllers) of the stream in order to update it. Note that _TileDocument_ is the only StreamType that can currently be updated by the CLI.
+Use `tile:update` to update a tile document. Note that your [DID](../../learn/glossary.md#dids) must be assigned as the controller (author) of the stream to have permission to update it.
 
 === "Command"
 
@@ -210,9 +223,15 @@ Use the `tile:update` command to update a stream. Your [DID](../../learn/glossar
 
     You can change _content_ and _metadata_ using the CLI. Run `glaze tile:update -h` for more information.
 
-## **7. Create a schema**
 
-TileDocuments can enforce that their contents adhere to a specified schema. The schemas themselves are TileDocuments where the content is a [json-schema](https://json-schema.org/){:target="\_blank"}. For example we can create a schema that requires a TileDocument to have a _title_ and _message_.
+## **Schemas**
+---
+
+### **Creating a Schema**
+
+Tile documents can enforce that their content adheres to a schema. The schemas themselves are actually also stored in tile documents where the content is [json-schema](https://json-schema.org/){:target="\_blank"}. 
+
+Let's create a schema that requires a `title` and `message`:
 
 === "Command"
 
@@ -248,9 +267,9 @@ TileDocuments can enforce that their contents adhere to a specified schema. The 
     }
     ```
 
-## **8. Create a TileDocument stream that uses a schema**
+### **Selecting a Version**
 
-First, use the `stream:commits` command to list the [commitIDs](../../learn/glossary.md#commitid) contained in the schema stream. When creating a TileDocument that uses this schema, we need to use a commitID instead of the StreamID to enforce that we are using a specific version of the schema since the schema stream is mutable and can be updated.
+First, use the `stream:commits` command to list the commits contained in the schema stream. Find the specific commit (version) that you want to use.
 
 === "Command"
 
@@ -272,7 +291,9 @@ First, use the `stream:commits` command to list the [commitIDs](../../learn/glos
 
 If a stream contains multiple commits and you're not sure which one you want, use the `tile:show` command to show the content of the stream at the given commit.
 
-Once you retrieve the desired commit, you can now create a TileDocument that is enforced to conform to this version of the schema. Use the `tile:create` command and pass the `--metadata` option along with your commitID.
+### **Using the Schema**
+
+When creating a tile document that uses this schema, we need to use the commitID instead of the StreamID to enforce that we are using a specific version of the schema, since the schema stream is mutable and can be updated. To create a stream that conforms to your schema, use the `tile:create` command and pass the `--metadata` option along with your commitID:
 
 === "Command"
 
@@ -296,9 +317,10 @@ Once you retrieve the desired commit, you can now create a TileDocument that is 
     }
     ```
 
-## **9. Query the stream you created**
 
-Use the `stream:state` command to query the state of the TileDocument we just created. We can see that the schema is set to the correct commitID.
+### **Confirmation**
+
+Let's view the tile document we just created using the `stream:state` command from above. We will see that the schema is correctly set in the metadata.
 
 === "Command"
 
@@ -338,6 +360,6 @@ Use the `stream:state` command to query the state of the TileDocument we just cr
     }
     ```
 
-# **That's it!**
-
-Congratulations on completing this tutorial! You're well on your way to becoming a Ceramic developer. Now let's [install Ceramic in your project →](../javascript/installation.md)
+## **Next Steps**
+---
+Congratulations on completing the quickstart tutorial! Visit [**Next Steps →**](../../docs/introduction/next-steps.md).
