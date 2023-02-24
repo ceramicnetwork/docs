@@ -40,7 +40,7 @@ The Ceramic protocol consists of the following components:
 | [4. API](./api/index.md) | **[<span style="color:rgba(212, 76, 71, 1)">Missing</span>](./api/index.md)** |
 | [5. Nodes](./nodes/index.md) | **[<span style="color:rgba(203, 145, 47, 1)">Draft/WIP</span>](./nodes/index.md)** |
 
-### **Legend**
+#### **Legend**
 
 | Spec state | Label |
 | --- | --- |
