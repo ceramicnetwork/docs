@@ -78,39 +78,32 @@ nav:
           #- Hosting a CAS: run/cas/cas.md
   - Legacy Tools:
       - Build apps: build/index.md
-      - The Ceramic stack: build/the-ceramic-stack.md
-      - Frameworks:
-          - Frameworks: build/frameworks/index.md
-          - Self.ID SDK:
-              - Self.ID SDK: reference/self-id/index.md
+      #- The Ceramic stack: build/the-ceramic-stack.md
+      - Self.ID SDK:
+          #- Frameworks: build/frameworks/index.md
+          - Self.ID SDK: reference/self-id/index.md
               #- Overview: tools/self-id/overview.md
-              - Build with React:
-                  - Using the framework module: tools/self-id/framework.md
-              - Build with JavaScript:
-                  - Using the web module: tools/self-id/write.md
-                  - Using the core module: tools/self-id/read.md
+              - React: tools/self-id/framework.md
+              - JavaScript:
+                  - Read/Write: tools/self-id/write.md
+                  - Read-Only: tools/self-id/read.md
               - Configurations: tools/self-id/configuration.md
               - Utilities: tools/self-id/utilities.md
               - Samples: tools/self-id/sample-applications.md
-      - Middleware:
-          - Middleware: build/middleware/index.md
+      - Glaze Suite:
+          #- Middleware: build/middleware/index.md
           #- Overview: tools/overview.md
-          - Glaze suite:
-              - Glaze suite: reference/glaze/index.md
+          - Glaze Suite: reference/glaze/index.md
               #- Overview: tools/glaze/overview.md
               #- Glossary: tools/glaze/glossary.md
-              - Managing data models:
-                  - Deploying from JS: tools/glaze/development.md
-                  - Deploying from CLI: tools/glaze/deploy-from-cli.md
-                  - Aliasing models: tools/glaze/datamodel.md
-              - User-centric storage:
-                  - DID DataStore: tools/glaze/did-datastore.md
-              - Client-side caching:
-                  - Tile Loader: tools/glaze/tile-loader.md
-      - Data models:
-          - Data models: docs/advanced/standards/data-models/index.md
+          - Key-Value Database: tools/glaze/did-datastore.md
+          - Data Models:
+              - Registry: docs/advanced/standards/data-models/data-model-universe.md
+              - Deploying from JS: tools/glaze/development.md
+              - Deploying from CLI: tools/glaze/deploy-from-cli.md
+              - Aliasing: tools/glaze/datamodel.md
+          - Data Caching: tools/glaze/tile-loader.md
           # - docs/advanced/standards/application-protocols/index.md
-          - Data Model Registry: docs/advanced/standards/data-models/data-model-universe.md
       #   - Data model standards:
       #       - CIP-11 Identity Index: docs/advanced/standards/data-models/cip-11.md
       #       - CIP-19 Basic Profile: docs/advanced/standards/data-models/cip-19.md
@@ -308,4 +301,6 @@ plugins:
         'tools/glaze/overview.md': 'reference/glaze/index.md'
         'tools/idx/overview.md': 'docs/advanced/standards/application-protocols/identity-index.md'
         'tools/self-id/overview.md': 'reference/self-id/index.md'
+        'build/the-ceramic-stack.md': 'docs/protocol/overview.md'
+        'build/frameworks/index.md': 'docs/introduction/next-steps.md'
   - search
