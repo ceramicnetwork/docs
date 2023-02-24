@@ -27,21 +27,47 @@ theme:
     - navigation.indexes
     - content.code.annotate
     - navigation.path
+    - navigation.sections
 
 nav:
   - Docs:
-      - Introduction: learn/welcome.md
-      - Why Ceramic?: learn/features.md
-      - How it works: learn/how-it-works.md
-      - Comparisons: learn/comparisons.md
-      - Roadmap: learn/roadmap.md
-      - Highlighted projects: learn/highlighted-projects.md
-      - Advanced:
-          - Tech overview: learn/advanced/overview.md
-          - Data availability: learn/advanced/data-availability.md
-          - Consensus: learn/advanced/consensus.md
-          - Security: learn/advanced/security.md
-          - Privacy: learn/advanced/privacy.md
+      - Introduction: 
+          - Welcome to Ceramic: learn/welcome.md
+          - Why Ceramic?: learn/features.md
+          #- How it works: learn/how-it-works.md
+          #- Comparisons: learn/comparisons.md
+          - Quick Start: build/cli/quick-start.md
+          - Next Steps: docs/introduction/next-steps.md
+      - Protocol:
+          - Protocol: protocol/index.md
+          - Streams:
+              - Streams: protocol/streams/index.md
+              - Event Log: protocol/streams/event-log.md
+              - URI Scheme: protocol/streams/uri-scheme.md
+              - Consensus: protocol/streams/consensus.md
+              - Lifecycle: protocol/streams/lifecycle.md
+          - Accounts: 
+              - Accounts: protocol/accounts/index.md 
+              - Decentralized IDs: protocol/accounts/decentralized-identifiers.md 
+              - Authorizations: protocol/accounts/authorizations.md 
+              - Object-Capabilities: protocol/accounts/object-capabilities.md 
+          - Networking: 
+              - Networking: protocol/networking/index.md 
+              - Networks: protocol/networking/networks.md 
+              - Tip Gossip: protocol/networking/tip-gossip.md 
+              - Tip Queries: protocol/networking/tip-queries.md 
+              - Event Fetching: protocol/networking/event-fetching.md
+          - API: protocol/api/index.md
+          - Nodes: protocol/nodes/index.md
+      - Ecosystem:
+          - Roadmap: learn/roadmap.md
+          - Highlighted projects: learn/highlighted-projects.md
+      #- Advanced:
+          #- Tech overview: learn/advanced/overview.md
+          #- Data availability: learn/advanced/data-availability.md
+          #- Consensus: learn/advanced/consensus.md
+          #- Security: learn/advanced/security.md
+          #- Privacy: learn/advanced/privacy.md
   - Build apps:
       - Build apps: build/index.md
       - The Ceramic stack: build/the-ceramic-stack.md
@@ -123,7 +149,6 @@ nav:
       - Guides: guides/index.md
       - Application development:
           - Using the command line:
-              - Getting started with the CLI: build/cli/quick-start.md
               - Using the CLI: build/cli/api.md
           - Building with Ceramic clients:
               - Using the Ceramic HTTP client: build/javascript/quick-start.md
@@ -139,28 +164,7 @@ nav:
   #- DAOs and governance: index.md
   #- NFTs and gaming: index.md
   #- Network explorers: explore/explorers.md
-  #- Wallets: index.md
-  - Protocol:
-      - Protocol: protocol/index.md
-      - Streams:
-         - Streams: protocol/streams/index.md
-         - Event Log: protocol/streams/event-log.md
-         - URI Scheme: protocol/streams/uri-scheme.md
-         - Consensus: protocol/streams/consensus.md
-         - Lifecycle: protocol/streams/lifecycle.md
-      - Accounts: 
-         - Accounts: protocol/accounts/index.md 
-         - Decentralized IDs: protocol/accounts/decentralized-identifiers.md 
-         - Authorizations: protocol/accounts/authorizations.md 
-         - Object-Capabilities: protocol/accounts/object-capabilities.md 
-      - Networking: 
-         - Networking: protocol/networking/index.md 
-         - Networks: protocol/networking/networks.md 
-         - Tip Gossip: protocol/networking/tip-gossip.md 
-         - Tip Queries: protocol/networking/tip-queries.md 
-         - Event Fetching: protocol/networking/event-fetching.md
-      - API: protocol/api/index.md
-      - Nodes: protocol/nodes/index.md 
+  #- Wallets: index.md 
   - Reference:
       - Reference: reference/index.md
       - Ceramic clients:
