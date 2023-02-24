@@ -57,8 +57,8 @@ nav:
               - Tip Gossip: protocol/networking/tip-gossip.md 
               - Tip Queries: protocol/networking/tip-queries.md 
               - Event Fetching: protocol/networking/event-fetching.md
-          - API: protocol/api.md
-          - Nodes: protocol/nodes.md
+          - Ceramic API: protocol/api.md
+          - Ceramic Nodes: protocol/nodes.md
       - Ecosystem:
           - Roadmap: learn/roadmap.md
           - Highlighted projects: learn/highlighted-projects.md
