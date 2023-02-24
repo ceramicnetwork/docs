@@ -13,8 +13,8 @@ The Ceramic protocol consists of the following components:
 - [**Streams →**](./streams/index.md)
 - [**Accounts →**](./accounts/index.md)
 - [**Networking →**](./networking/index.md)
-- [**Ceramic API →**](./api/index.md)
-- [**Ceramic Nodes →**](./nodes/index.md)
+- [**Ceramic API →**](./api.md)
+- [**Ceramic Nodes →**](./nodes.md)
 
 
 ## **Specification Status**
@@ -37,8 +37,8 @@ The Ceramic protocol consists of the following components:
 | [3.2. Tip Queries](./networking/tip-queries.md) | **[<span style="color:rgba(68, 131, 97, 1)">Reliable</span>](./networking/tip-queries.md)** |
 | [3.3. Event Fetching](./networking/event-fetching.md) | **[<span style="color:rgba(68, 131, 97, 1)">Reliable</span>](./networking/event-fetching.md)** |
 | [3.4. Network Identifiers](./networking/networks.md) | **[<span style="color:rgba(68, 131, 97, 1)">Reliable</span>](./networking/networks.md)** |
-| [4. API](./api/index.md) | **[<span style="color:rgba(212, 76, 71, 1)">Missing</span>](./api/index.md)** |
-| [5. Nodes](./nodes/index.md) | **[<span style="color:rgba(203, 145, 47, 1)">Draft/WIP</span>](./nodes/index.md)** |
+| [4. API](./api.md) | **[<span style="color:rgba(212, 76, 71, 1)">Missing</span>](./api.md)** |
+| [5. Nodes](./nodes.md) | **[<span style="color:rgba(203, 145, 47, 1)">Draft/WIP</span>](./nodes.md)** |
 
 #### **Legend**
 
