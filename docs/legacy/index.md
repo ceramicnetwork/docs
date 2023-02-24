@@ -1,4 +1,5 @@
 # **Legacy Ceramic Tools**
+---
 
 We recommend building your app with the most current developer tooling available. Build with [**ComposeDB: A Decentralized Graph Database for Web3 Apps →**](https://composedb.js.org).
 
