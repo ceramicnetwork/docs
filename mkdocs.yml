@@ -76,7 +76,7 @@ nav:
       - Running in the cloud: run/nodes/nodes.md
       - Anchor service: run/cas/community-cas.md
           #- Hosting a CAS: run/cas/cas.md
-  - Build apps:
+  - Legacy Tools:
       - Build apps: build/index.md
       - The Ceramic stack: build/the-ceramic-stack.md
       - Frameworks:
@@ -117,28 +117,27 @@ nav:
       #       - CIP-21 Crypto Accounts: docs/advanced/standards/data-models/cip-21.md
       #       - CIP-23 Also Known As: docs/advanced/standards/data-models/cip-23.md
       #       - CIP-20 3ID Keychain: docs/advanced/standards/data-models/cip-20.md
-      - Application standards:
-          - Account-based index (CIP-11): docs/advanced/standards/application-protocols/identity-index.md
-      - Streams:
-          - Streams: docs/advanced/standards/stream-programs/index.md
-          - Tile Document (CIP-8): docs/advanced/standards/stream-programs/tile-document.md
-          - CAIP-10 Link (CIP-7): docs/advanced/standards/stream-programs/caip10-link.md
+      #- Application standards:
+      #    - Account-based index (CIP-11): docs/advanced/standards/application-protocols/identity-index.md
+      #- Streams:
+      #    - Streams: docs/advanced/standards/stream-programs/index.md
+      #    - Tile Document (CIP-8): docs/advanced/standards/stream-programs/tile-document.md
+      #    - CAIP-10 Link (CIP-7): docs/advanced/standards/stream-programs/caip10-link.md
       # - Standards:
       # TODO: v2 index contents
       # - docs/advanced/standards/index.md
-      - Accounts:
+      #- Accounts:
           # TODO: v2 index contents
-          - Accounts: docs/advanced/standards/accounts/index.md
-          - 3ID DID (CIP-79): docs/advanced/standards/accounts/3id-did.md
+      #    - Accounts: docs/advanced/standards/accounts/index.md
+      #    - 3ID DID (CIP-79): docs/advanced/standards/accounts/3id-did.md
           # TODO: v2 contents for PKH DID
           # - PKH DID: docs/advanced/standards/accounts/pkh-did.md
-          - Key DID: docs/advanced/standards/accounts/key-did.md
-          - NFT DID (CIP-94): docs/advanced/standards/accounts/nft-did.md
-          - Safe DID (CIP-101): docs/advanced/standards/accounts/safe-did.md
-      - Clients:
-          - Clients: build/clients/index.md
-      - Network APIs:
-          - Ceramic HTTP API: build/http/api.md
+      #    - Key DID: docs/advanced/standards/accounts/key-did.md
+      #    - NFT DID (CIP-94): docs/advanced/standards/accounts/nft-did.md
+      #    - Safe DID (CIP-101): docs/advanced/standards/accounts/safe-did.md
+      #- Clients:
+      #    - Clients: build/clients/index.md
+      #- Network APIs:
         # - JavaScript:
         #    - Installation:
         #        - HTTP Client: build/javascript/http.md
@@ -166,6 +165,7 @@ nav:
   #- Wallets: index.md 
   - Reference:
       - Reference: reference/index.md
+      - Ceramic HTTP API: build/http/api.md
       - Ceramic clients:
           - JavaScript clients:
               #- Choose a client: build/javascript/installation.md
