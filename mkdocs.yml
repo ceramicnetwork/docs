@@ -90,6 +90,7 @@ nav:
               - Using Tile Documents: reference/stream-programs/tile-document.md
               - Using CAIP-10 Links: reference/stream-programs/caip10-link.md
   - Legacy Tools:
+      - Legacy Tools: legacy/index.md
       - Self.ID SDK:
           - Self.ID SDK: reference/self-id/index.md
           #- Overview: tools/self-id/overview.md
