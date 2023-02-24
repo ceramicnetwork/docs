@@ -135,8 +135,8 @@ nav:
   - Guides:
       - Guides: guides/index.md
       - Application development:
-          - Using the command line:
-              - Using the CLI: build/cli/api.md
+          #- Using the command line:
+              #- Using the CLI: build/cli/api.md
           - Building with Ceramic clients:
               - Using the Ceramic HTTP client: build/javascript/quick-start.md
               - Retrieving data from Ceramic: build/javascript/queries.md
@@ -299,4 +299,5 @@ plugins:
         'tools/self-id/overview.md': 'reference/self-id/index.md'
         'build/the-ceramic-stack.md': 'protocol/overview.md'
         'build/frameworks/index.md': 'docs/introduction/next-steps.md'
+        'build/cli/api.md': 'build/cli/quick-start.md'
   - search
