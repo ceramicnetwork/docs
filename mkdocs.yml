@@ -194,6 +194,7 @@ nav:
               #- 3Box utilities: reference/self-id/modules/3box_legacy.md
       - Ceramic JS packages and API references: reference/javascript/packages.md
       - Glossary: learn/glossary.md
+  - Forum: "https://forum.ceramic.network"
 markdown_extensions:
   - meta
   - pymdownx.tabbed:
