@@ -1,5 +1,5 @@
-# **Legacy Tools**
+# **Legacy Ceramic Tools**
 
-This section contains various legacy Ceramic developer tools that are no longer actively maintained by the community. Without being maintained, we cannot recommend them. However, some applications are still using these tools and find the docs useful.
+We recommend building your app with the most current developer tooling available. Build with [**ComposeDB: A Decentralized Graph Database for Web3 Apps →**](https://composedb.js.org).
 
-To build your application with the most current Ceramic developer tooling available, build with [ComposeDB: A Decentralized Graph Database for Web3 Apps](https://composedb.js.org).
+This section contains docs for various legacy Ceramic developer tools that are no longer actively maintained. Some apps are still using these tools and need the docs, otherwise they would be deleted. The tools in this section make use of the IDX Database, a legacy and far less powerful DB alternative to ComposeDB.
