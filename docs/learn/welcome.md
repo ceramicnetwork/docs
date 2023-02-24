@@ -38,7 +38,7 @@ Provide storage, compute, and bandwidth to the network by running a node. Today 
 
 ---
 
-- Learn how Ceramic works by jumping into the [**Protocol Documentation**](../protocol/index.md)
+- Learn how Ceramic works by jumping into the [**Protocol Documentation**](../protocol/overview.md)
 
 - Build Ceramic-powered Web3 services (e.g. databases) using a low-level [**Ceramic client**](../build/clients/index.md)
 
