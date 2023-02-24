@@ -1,8 +1,9 @@
-# Authorizations
+# **Authorizations**
+---
 
 Authorization is the act of delegating access to a stream to an account that is different than its owner. As a best practice, when granting authorizations to another account you want to follow the rule of least privilege and only authorize that delegate's temporary key to write the minimally needed data to Ceramic. 
 
-## Scopes
+## **Scopes**
 
 ---
 
@@ -11,7 +12,7 @@ CACAO and Ceramic support a basic way to describe the resources and actions an a
 !!! note
     In the future, we expect the ability to specify more granular authorizations based on actions (write, delete, create, update etc) and resources.
 
-### Streams
+### **Streams**
 
 For example, to authorize an account to write to only two specific streams, you would specify the streamIds as resources in the CACAO as follows:
 
@@ -19,7 +20,7 @@ For example, to authorize an account to write to only two specific streams, you 
 [ "ceramic://kjzl6cwe1jw14bby1eybtqjr1w5l8xysitwmd34i8huccr7lk8g6xrt2l1c1ngn", "ceramic://kjzl6cwe1jw1476bbp2a0lg8gcmk9zj1xjanpg6dooc3golyb2fnmwmg0p6ane3"]
 ```
 
-### Models
+### **Models**
 
 The mostly commonly used pattern is to specify authorizations by model streamIds. `model` is a property that can be defined in a streams init event. When specified and used with CACAO it allows a DID and key the ability to write to all streams with this specific model value for that user. 
 
@@ -37,7 +38,7 @@ Resources defined by model streamID are formatted as `ceramic://*?model=<StreamI
 [ "ceramic://*?model=kjzl6hvfrbw6c7keo17n66rxyo21nqqaa9lh491jz16od43nokz7ksfcvzi6bwc", "ceramic://*?model=kjzl6hvfrbw6c99mdfpjx1z3fue7sesgua6gsl1vu97229lq56344zu9bawnf96"]
 ```
 
-### Wildcard
+### **Wildcard**
 
 Lastly a wildcard for all resources is supported. For security reasons, wildcard will be deprecated in the future and is only included here for completeness. 
 
