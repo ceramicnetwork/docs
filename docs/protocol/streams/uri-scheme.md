@@ -1,8 +1,8 @@
-# URI Scheme
+# **URI Scheme**
 
 ---
 
-## Stream URL
+## **Stream URL**
 
 ---
 
@@ -27,7 +27,7 @@ EventIds can also be encoded in the same way.
 ceramic://<EventId>
 ```
 
-## StreamId
+## **StreamId**
 
 ---
 
@@ -53,7 +53,7 @@ The multicodec for StreamID is [`0xce`](https://github.com/multiformats/multicod
 
 The stream type value does not currently have any functionality at the protocol level. Rather, it is used by applications building on top of Ceramic (e.g. ComposeDB) to distinguish between different logic that is applied when processing events. Stream Type values have to be registered in the table of [CIP-59](https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-59/CIP-59.md#registered-values). 
 
-## EventId
+## **EventId**
 
 ---
 
@@ -82,6 +82,6 @@ Where:
 
 - **`<event-reference>`** is either the zero byte (`0x00`) or [CID](https://github.com/multiformats/cid) bytes.
 
-### Stream Versions
+### **Stream Versions**
 
 Each EventId can also be considered a reference to a specific version of a stream. At any EventId, a stream can be loaded up until that event and the resulting set of events are considered the version of that stream.
