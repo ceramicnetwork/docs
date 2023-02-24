@@ -24,6 +24,8 @@ Ceramic is a decentralized data network that powers an ecosystem of interoperabl
 
 - Go deeper by reading the [**Ceramic Protocol**](../protocol/overview.md) specification
 
+- Learn about use cases and projects [built on Ceramic](https://threebox.notion.site/Ceramic-Ecosystem-a3a7a58f81544d33ad3feb84368775d4)
+
 ## **Build Applications**
 
 ---
