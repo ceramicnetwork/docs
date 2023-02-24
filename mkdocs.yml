@@ -76,10 +76,11 @@ nav:
           - Community Nodes: run/nodes/available.md
           - Anchor Service: run/cas/community-cas.md
       - Ceramic Clients:
-          - JavaScript: reference/core-clients/ceramic-http.md
+          - JavaScript: 
+              - Basic Usage: reference/core-clients/ceramic-http.md
               - Queries: build/javascript/queries.md
               - Pinning: build/javascript/pinning.md
-              - Additional Usage: build/javascript/quick-start.md
+              - Additional Guides: build/javascript/quick-start.md
           - Authentication: reference/core-clients/did-jsonrpc.md
           - Stream Interactions:
               - Using Tile Documents: reference/stream-programs/tile-document.md
