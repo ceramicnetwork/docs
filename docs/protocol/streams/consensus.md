@@ -1,6 +1,6 @@
-# Consensus
+# **Consensus**
 
-## Consensus Model
+## **Consensus Model**
 
 ---
 
@@ -8,7 +8,7 @@ Event streams rely on a limited conflict resolution or consensus model. Global c
 
 The underlying log structure of an event stream allows multiple parallel histories, or branches, to be created resulting in a tree structure. A log or valid event stream is a single tree path from a known "latest" event to the Init Event. Latest events are also referred to as stream "tips". Logs can have multiple tips when there are branches in the log, and the "tip" selection for the canonical log of a stream becomes a consensus problem. 
 
-### Single stream consensus
+### **Single stream consensus**
 
 A tip and canonical log for a stream are selected by the following pseudo algorithm and rules: 
 
@@ -22,17 +22,17 @@ A tip and canonical log for a stream are selected by the following pseudo algori
 5. If no paths include timestamp proofs, select the path with the greatest number of events from the last timestamp proof till tip. If single path selected, exit with path and tip selected, otherwise continue.
 6. If number of events is equal, chooses the event and path which has the smallest CID in binary format (an arbitrary but deterministic choice)
 
-### Cross stream ordering
+### **Cross stream ordering**
 
 It is assumed all timestamp events in a network are committed to the same blockchain, as specified by the `chainId` in the timestamp event. The main Ceramic network commits timestamp proofs to the Ethereum blockchain. 
 
 The addition of timestamp events in streams gives some notion of relative global time for all events time-stamped on the same blockchain. This allows events across different streams to be globally ordered if a higher-level protocol requires it. Ceramic events can also be ordered against transactions and state on the blockchain in which it is timestamped. On most secure blockchains you can also reference wall clock time within some reasonable bounds and order events both in and out of the system based on that. 
 
-## Risks
+## **Risks**
 
 ---
 
-### Late Publishing
+### **Late Publishing**
 
 Without any global consensus guarantees, all streams and their potential tips are not known by all participants at any point in time. There may be partitions in the networks, existence of local networks, or individual participants may choose to intentionally withhold some events while publishing others. Selective publishing like this may or may not be malicious depending on the context in which the stream is consumed.
 
