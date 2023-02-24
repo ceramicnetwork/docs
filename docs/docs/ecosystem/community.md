@@ -30,7 +30,7 @@ Discover updates and educational content for developers
 ---
 We will be resuming community calls and reopening the community calendar in the coming weeks. In the meantime, you can find us at lots of Web3 events such as ETHDenver 2023.
 
-## Ways to Contribute
+## **Ways to Contribute**
 ---
 
 ### [**Ecosystem Grants**](https://discord.gg/pRwUGeEC2C)
