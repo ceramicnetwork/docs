@@ -75,7 +75,6 @@ nav:
           - Running Locally: build/cli/installation.md
           - Running in the Cloud: run/nodes/nodes.md
           - Community Nodes: run/nodes/available.md
-          - Anchor Service: run/cas/community-cas.md
       - Ceramic Clients:
           - JavaScript Client: 
               - Basic Usage: reference/core-clients/ceramic-http.md
@@ -294,4 +293,5 @@ plugins:
         'reference/accounts/safe-did.md': 'protocol/accounts/decentralized-identifiers.md'
         'reference/accounts/nft-did.md': 'protocol/accounts/decentralized-identifiers.md'
         'reference/index.md': 'learn/welcome.md'
+        'run/cas/community-cas.md': 'run/nodes/available.md'
   - search
