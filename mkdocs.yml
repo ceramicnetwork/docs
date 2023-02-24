@@ -60,6 +60,7 @@ nav:
           - Ceramic API: protocol/api.md
           - Ceramic Nodes: protocol/nodes.md
       - Ecosystem:
+          - Community: docs/ecosystem/community.md
           - Projects: "https://threebox.notion.site/Ceramic-Ecosystem-a3a7a58f81544d33ad3feb84368775d4"
           - Roadmap: learn/roadmap.md
       #- Advanced:
