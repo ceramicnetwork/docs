@@ -362,4 +362,7 @@ Let's view the tile document we just created using the `stream:state` command fr
 
 ## **Next Steps**
 ---
-Congratulations on completing the quickstart tutorial! Visit [**Next Steps →**](../../docs/introduction/next-steps.md).
+Congratulations on completing the Ceramic Quickstart tutorial! 
+
+- Complete the [**ComposeDB Quickstart**](https://composedb.js.org/docs/0.4.x/getting-started) to try a Ceramic-powered graph database
+- Visit [**Next Steps **](../../docs/introduction/next-steps.md) for more options
