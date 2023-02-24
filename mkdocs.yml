@@ -78,14 +78,14 @@ nav:
   - Legacy Tools:
       - Self.ID SDK:
           - Self.ID SDK: reference/self-id/index.md
-              #- Overview: tools/self-id/overview.md
-              - React: tools/self-id/framework.md
-              - JavaScript:
-                  - Read/Write: tools/self-id/write.md
-                  - Read-Only: tools/self-id/read.md
-              - Configurations: tools/self-id/configuration.md
-              - Utilities: tools/self-id/utilities.md
-              - Samples: tools/self-id/sample-applications.md
+          #- Overview: tools/self-id/overview.md
+          - React: tools/self-id/framework.md
+          - JavaScript:
+              - Read/Write: tools/self-id/write.md
+              - Read-Only: tools/self-id/read.md
+          - Configurations: tools/self-id/configuration.md
+          - Utilities: tools/self-id/utilities.md
+          - Samples: tools/self-id/sample-applications.md
       - Glaze Suite:
           #- Middleware: build/middleware/index.md
           #- Overview: tools/overview.md
