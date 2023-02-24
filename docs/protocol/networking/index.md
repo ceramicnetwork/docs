@@ -18,6 +18,6 @@ When a stream is updated, the latest event (tip) is gossiped and propagated out 
 
 Nodes in a network with a specific StreamId can query for the most recent event (tip) of that given stream. Queries enable a node that know about a stream to find the latest event (tip). 
 
-## [Event Fetching](event-fetching.md)
+### [Event Fetching](event-fetching.md)
 
 Nodes that have the tip (latest event) of a stream, can use the tip to fetch all prior events in that stream.  Fetching enables a node that knows a tip to sync the entire event set for a stream and learn its latest state. 
