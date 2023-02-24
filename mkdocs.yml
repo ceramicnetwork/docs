@@ -39,7 +39,7 @@ nav:
           - Quick Start: build/cli/quick-start.md
           - Next Steps: docs/introduction/next-steps.md
       - Protocol:
-          - Protocol: protocol/index.md
+          - Overview: protocol/overview.md
           - Streams:
               - Streams: protocol/streams/index.md
               - Event Log: protocol/streams/event-log.md
@@ -57,8 +57,8 @@ nav:
               - Tip Gossip: protocol/networking/tip-gossip.md 
               - Tip Queries: protocol/networking/tip-queries.md 
               - Event Fetching: protocol/networking/event-fetching.md
-          - API: protocol/api/index.md
-          - Nodes: protocol/nodes/index.md
+          - API: protocol/api.md
+          - Nodes: protocol/nodes.md
       - Ecosystem:
           - Roadmap: learn/roadmap.md
           - Highlighted projects: learn/highlighted-projects.md
