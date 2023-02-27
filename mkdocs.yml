@@ -297,4 +297,5 @@ plugins:
         'reference/accounts/nft-did.md': 'protocol/accounts/decentralized-identifiers.md'
         'reference/index.md': 'learn/welcome.md'
         'run/cas/community-cas.md': 'run/nodes/available.md'
+        'protocol/index.md': 'protocol/overview.md'
   - search
