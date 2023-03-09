@@ -25,3 +25,23 @@ The network can be queried to discover the latest tips for any stream by StreamI
 ### **Sync**
 
 Streams can be synced and loaded by knowing both the StreamId and the latest event (tip). Given the latest tip you can traverse the stream event log from event to event in order until the Init Event is reached. Each event is loaded from peers in the network, any peer with a tip is expected to have the entirety of the event stream log. The current sync protocol is described further [here](../networking/event-fetching.md) 
+
+## **Durability**
+
+---
+
+### **Maintenance**
+A stream is a set of Events.
+These Events are stored in IPFS nodes.
+As long as the events are pined and advertised on the IPFS DHT the
+stream will be retrievable.
+If your application depends on a stream remaining available it is
+your application's responsibility to maintain these Events.
+This can be done by running your own IPFS nodes or use of a pinning service.
+
+Just because the Events are not available at any given time is not
+a guarantee that the stream has been deleted. A node with a copy of those event
+may be temporarily offline and return at some future time.
+
+Foreign nodes could pin events from your or anyone's streams.
+This means that if you suffer data loss some other MAY have preserved your data.
