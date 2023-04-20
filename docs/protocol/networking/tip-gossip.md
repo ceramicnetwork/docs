@@ -15,7 +15,8 @@ When an event is created and appended to a stream, the node will publish an upda
 type UpdateMessage = {
   typ: MsgType.UPDATE //0
   stream: StreamID
-  tip: CID  
+  tip: CID
+  model?: StreamID
 }
 ```
 
@@ -24,6 +25,7 @@ Where:
 - **`typ`** - the message is an update message, enum `0`
 - **`stream`** - streamId of the stream which this update is for
 - **`tip`** - CID of the latest event (tip) of the stream, the update
+- **`model`** - streamId of the ComposeDB data model that the stream being updated belongs to (optional)
 
 ### Replicating Updates
 
