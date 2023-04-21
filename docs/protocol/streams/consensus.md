@@ -13,14 +13,10 @@ The underlying log structure of an event stream allows multiple parallel histori
 A tip and canonical log for a stream are selected by the following pseudo algorithm and rules: 
 
 1. Given a set of tips, traverse each tree path from tip till a commonly shared timestamp event or the Init Event. 
-2. From the shared event, traverse each path in the opposite direction (towards tip) until a timestamp event is found. This set of events are considered conflicting events.
-3. Given each timestamp event, determine the blockheight for the transaction included in the timestamp proof. Select the path with lowest blockheight. If a single event is selected, exit with path and tip selected, otherwise continue. Most cases will terminate here, it will be rare to have the same blockheight.
-4. If multiple tips have the same blockheight, continue traversing path (towards tip) until timestamp event is found on each or tips are reached again.
-    1. If only single path includes timestamp proof, exit with path and tip selected
-    2. If multiple paths include timestamp events, return to step 3 with new set of events
-    3. Otherwise continue
-5. If no paths include timestamp proofs, select the path with the greatest number of events from the last timestamp proof till tip. If single path selected, exit with path and tip selected, otherwise continue.
-6. If number of events is equal, chooses the event and path which has the smallest CID in binary format (an arbitrary but deterministic choice)
+2. From the shared event, traverse each path in the opposite direction (towards tip) until a timestamp event is found (or the end of the log is reached). This set of events are considered conflicting events.
+3. Given each timestamp event, determine the blockheight for the transaction included in the timestamp proof. Select the path with lowest blockheight. If a single path is selected, exit with path and tip selected, otherwise continue. Most cases will terminate here, it will be rare to have the same blockheight.
+4. If multiple tips have the same blockheight, select the path with the greatest number of events from the last timestamp proof till tip. If single path selected, exit with path and tip selected, otherwise continue.
+5. If number of events is equal, chooses the event and path which has the smallest CID in binary format (an arbitrary but deterministic choice)
 
 ### **Cross stream ordering**
 
