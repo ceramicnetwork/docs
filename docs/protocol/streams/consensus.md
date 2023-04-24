@@ -12,9 +12,9 @@ The underlying log structure of an event stream allows multiple parallel histori
 
 A tip and canonical log for a stream are selected by the following pseudo algorithm and rules: 
 
-1. Given a set of tips, traverse each tree path from tip till a commonly shared timestamp event or the Init Event. 
-2. From the shared event, traverse each path in the opposite direction (towards tip) until a timestamp event is found (or the end of the log is reached). This set of events are considered conflicting events.
-3. Given each timestamp event, determine the blockheight for the transaction included in the timestamp proof. Select the path with lowest blockheight. If a single path is selected, exit with path and tip selected, otherwise continue. Most cases will terminate here, it will be rare to have the same blockheight.
+1. Given a set of tips, traverse each tree path from tip till a commonly shared Time Event or the Init Event. 
+2. From the shared event, traverse each path in the opposite direction (towards tip) until a Time Event is found (or the end of the log is reached). This set of events are considered conflicting events.
+3. Given each Time Event, determine the blockheight for the transaction included in the timestamp proof. Select the path with lowest blockheight. If a single path is selected, exit with path and tip selected, otherwise continue. Most cases will terminate here, it will be rare to have the same blockheight.
 4. If multiple tips have the same blockheight, select the path with the greatest number of events from the last timestamp proof till tip. If single path selected, exit with path and tip selected, otherwise continue.
 5. If number of events is equal, chooses the event and path which has the smallest CID in binary format (an arbitrary but deterministic choice)
 
