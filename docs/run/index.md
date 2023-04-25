@@ -10,7 +10,7 @@ The guides below describe how to run a daemonized Ceramic node that can be used 
 
 ---
 
-> When running a node it is best to start by connecting to the [Clay testnet](https://developers.ceramic.network/learn/networks/#clay-testnet). When you are ready to move to mainnet, reach out to the 3Box Labs team on Discord: [https://discord.gg/tsQXsG8Sde](https://discord.gg/tsQXsG8Sde).
+> When running a node it is best to start by connecting to the [Clay testnet](https://developers.ceramic.network/learn/networks/#clay-testnet). When you are ready to move to mainnet, follow the steps here to authenticate to [access mainnet](https://composedb.js.org/docs/0.4.x/guides/composedb-server/access-mainnet).
 
 ### [**Run Ceramic in development →**](../build/cli/installation.md)
 
