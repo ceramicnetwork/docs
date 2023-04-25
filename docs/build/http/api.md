@@ -1,4 +1,4 @@
-# **Ceramic HTTP API**
+# Ceramic HTTP API
 
 ---
 
@@ -6,17 +6,13 @@ The Ceramic HTTP API is the standard lowest-level communication protocol between
 
 If you are building an application, you will usually interact with Ceramic using a client API, such as the [JS HTTP Client](../javascript/installation.md#js-http-client), or a framework such as the [Self.ID SDK](../frameworks/index.md), which includes the JS HTTP client by default.
 
-## **When to use the HTTP API**
+## When to use the HTTP API
 
 ---
 
 The HTTP API is useful if you have a special use case where you directly want to make manual HTTP requests, or you want to implement an HTTP client in a new language.
 
-!!! warning "Gateway mode"
-
-    Some HTTP API methods will not be available if the Ceramic node you are using runs in *gateway mode*. This option disables writes, which is useful when exposing your node to the internet. **API methods that are disabled when running in gateway mode will be clearly marked.**
-
-## **Streams API**
+## Streams API
 
 The `stream` endpoint is used to create new streams and load streams from the node using a StreamID or genesis content.
 
@@ -73,9 +69,7 @@ The response body contains the following fields:
     }
     ```
 
-### Creating stream
-
-**:octicons-alert-16: Disabled in gateway mode**
+### Creating a Stream
 
 Create a new stream, or load a stream from its genesis content. The genesis content may be signed (e.g. DagJWS for the [TileDocument StreamType](../../docs/advanced/standards/stream-programs/tile-document.md)), or unsigned in some cases.
 
@@ -377,8 +371,6 @@ By calling GET on the _commits_ endpoint along with a StreamID gives you access 
 
 ### Applying a new commit to stream
 
-**:octicons-alert-16: Disabled in gateway mode**
-
 In order to modify a stream we apply a commit to its log. This commit usually contains a signature over a _json-patch_ diff describing a modification to the stream contents. The commit also needs to contain pointers to the previous commit and other metadata. You can read more about this in the [Ceramic Specification](https://github.com/ceramicnetwork/ceramic/blob/master/SPECIFICATION.md#document-records){:target="\_blank"}. Different stream types may have different formats for their commits. If you want to see an example implementation for how to construct a commit you can have a look at the implementation of the TileDocument.
 
 === "Request"
@@ -470,8 +462,6 @@ The `pins` api endpoint can be used to manipulate the pinset. The pinset is all 
 
 ### Adding to pinset
 
-**:octicons-alert-16: Disabled in gateway mode**
-
 This method adds the stream with the given StreamID to the pinset.
 
 === "Request"
@@ -505,8 +495,6 @@ This method adds the stream with the given StreamID to the pinset.
     ```
 
 ### Removing from pinset
-
-**:octicons-alert-16: Disabled in gateway mode**
 
 This method removes the stream with the given StreamID from the pinset.
 
