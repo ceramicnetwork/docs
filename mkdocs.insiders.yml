@@ -58,8 +58,3 @@ theme:
     - content.tabs.link
     - navigation.path
     - navigation.sections
-
-plugins:
-  - privacy:
-      external_links_attr_map:
-        target: _blank
