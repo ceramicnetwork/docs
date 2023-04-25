@@ -6,13 +6,13 @@ The Ceramic HTTP API is the standard lowest-level communication protocol between
 
 If you are building an application, you will usually interact with Ceramic using a client API, such as the [JS HTTP Client](../javascript/installation.md#js-http-client), or a framework such as the [Self.ID SDK](../frameworks/index.md), which includes the JS HTTP client by default.
 
-## When to use the HTTP API
+## **When to use the HTTP API**
 
 ---
 
 The HTTP API is useful if you have a special use case where you directly want to make manual HTTP requests, or you want to implement an HTTP client in a new language.
 
-## Streams API
+## **Streams API**
 
 The `stream` endpoint is used to create new streams and load streams from the node using a StreamID or genesis content.
 
@@ -92,7 +92,7 @@ Create a new stream, or load a stream from its genesis content. The genesis cont
     - `streamId` - the StreamID of the requested stream as string
     - `state` - the state of the requested stream as [StreamState](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.streamstate-1.html){:target="_blank"}
 
-#### Example
+#### **Example**
 
 This example creates a `TileDocument` from an unsigned genesis commit. Note that if the content is defined for a `TileDocument` genesis commit, it needs to be signed.
 
