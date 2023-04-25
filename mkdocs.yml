@@ -229,9 +229,6 @@ extra_css:
   - stylesheets/extra.css
 
 plugins:
-  - privacy:
-      external_links_attr_map:
-        target: _blank
   - redirects:
       redirect_maps:
         'index.md': 'learn/welcome.md'
