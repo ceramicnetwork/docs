@@ -74,7 +74,6 @@ nav:
       - Ceramic Nodes:
           - Running Locally: build/cli/installation.md
           - Running in the Cloud: run/nodes/nodes.md
-          - Community Nodes: run/nodes/available.md
       - Ceramic Clients:
           - JavaScript Client: 
               - Basic Usage: reference/core-clients/ceramic-http.md
@@ -298,4 +297,6 @@ plugins:
         'reference/index.md': 'learn/welcome.md'
         'run/cas/community-cas.md': 'run/nodes/available.md'
         'protocol/index.md': 'protocol/overview.md'
+        # other
+        'run/nodes/community-nodes.md': 'run/nodes/nodes.md'
   - search

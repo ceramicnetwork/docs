@@ -28,7 +28,6 @@ const API_URL = 'https://yourceramicnode.com'
 
 Available options for your node setup:
 
-- [Free community nodes](../../run/nodes/community-nodes.md): Discover free HTTP endpoints
 - [Commercial node providers](../../run/nodes/node-providers.md): Discover paid node providers
 - [Host your own node](../../run/nodes/nodes.md): Learn how to setup and host your own node
 - _localhost_: You may want to use the JS HTTP Client with a Ceramic node running on your local machine for development and testing. To achieve this, first start a local daemon by [installing the CLI](../cli/installation.md). Once the CLI is installed, you can pass `https://localhost:7007` to the HTTP client. This setup will allow you to read streams from other nodes connected on the Ceramic network as well as to publish writes from your local node to the rest of the network.
