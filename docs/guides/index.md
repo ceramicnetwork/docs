@@ -12,7 +12,6 @@ Guides that support development on Ceramic.
 
 -  [**Running Locally**](../build/cli/installation.md)
 -  [**Running in the Cloud**](../run/nodes/nodes.md)
--  [**Community Nodes**](../run/nodes/available.md)
 
 ### **Ceramic Clients**
 
