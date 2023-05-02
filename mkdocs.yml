@@ -299,4 +299,6 @@ plugins:
         'protocol/index.md': 'protocol/overview.md'
         # other
         'run/nodes/community-nodes.md': 'run/nodes/nodes.md'
+        'run/nodes/available.md': 'run/nodes/nodes.md'
+        'run/nodes/node-providers.md':  'run/nodes/nodes.md'
   - search
