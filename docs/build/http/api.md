@@ -2,15 +2,24 @@
 
 ---
 
-The Ceramic HTTP API is the standard lowest-level communication protocol between clients and nodes on the Ceramic network. It allows client applications to manually make REST HTTP requests to a remote Ceramic node to send transactons, retrieve data, and "pin" data to make it available.
+The Ceramic HTTP API is the standard lowest-level communication protocol between
+clients and nodes on the Ceramic network. It allows client applications to
+manually make REST HTTP requests to a remote Ceramic node to send transactons,
+retrieve data, and "pin" data to make it available.
 
-If you are building an application, you will usually interact with Ceramic using a client API, such as the [JS HTTP Client](../javascript/installation.md#js-http-client), or a framework such as the [Self.ID SDK](../frameworks/index.md), which includes the JS HTTP client by default.
+If you are building an application, you will usually interact with Ceramic using
+a client API, such as the
+[JS HTTP Client](../javascript/installation.md#js-http-client), or a framework
+such as the [Self.ID SDK](../frameworks/index.md), which includes the JS HTTP
+client by default.
 
 ## **When to use the HTTP API**
 
 ---
 
-The HTTP API is useful if you have a special use case where you directly want to make manual HTTP requests, or you want to implement an HTTP client in a new language.
+The HTTP API is useful if you have a special use case where you directly want to
+make manual HTTP requests, or you want to implement an HTTP client in a new
+language.
 
 !!! warning "Gateway mode"
 
@@ -18,7 +27,8 @@ The HTTP API is useful if you have a special use case where you directly want to
 
 ## **Streams API**
 
-The `stream` endpoint is used to create new streams and load streams from the node using a StreamID or genesis content.
+The `stream` endpoint is used to create new streams and load streams from the
+node using a StreamID or genesis content.
 
 ### Loading a stream
 
@@ -32,8 +42,7 @@ Load the state of a stream given its StreamID.
 
     Here, `:streamid` should be replaced by the StreamID of the stream that is being requested.
 
-=== "Response"
-The response body contains the following fields:
+=== "Response" The response body contains the following fields:
 
     - `streamId` - the StreamID of the requested stream as string
     - `state` - the state of the requested stream as [StreamState](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.streamstate-1.html){:target="_blank"}
@@ -77,7 +86,10 @@ The response body contains the following fields:
 
 **:octicons-alert-16: Disabled in gateway mode**
 
-Create a new stream, or load a stream from its genesis content. The genesis content may be signed (e.g. DagJWS for the [TileDocument StreamType](../../docs/advanced/standards/stream-programs/tile-document.md)), or unsigned in some cases.
+Create a new stream, or load a stream from its genesis content. The genesis
+content may be signed (e.g. DagJWS for the
+[TileDocument StreamType](../../docs/advanced/standards/stream-programs/tile-document.md)),
+or unsigned in some cases.
 
 === "Request"
 
@@ -100,7 +112,9 @@ Create a new stream, or load a stream from its genesis content. The genesis cont
 
 #### **Example**
 
-This example creates a `TileDocument` from an unsigned genesis commit. Note that if the content is defined for a `TileDocument` genesis commit, it needs to be signed.
+This example creates a `TileDocument` from an unsigned genesis commit. Note that
+if the content is defined for a `TileDocument` genesis commit, it needs to be
+signed.
 
 === "Request"
 
@@ -145,11 +159,15 @@ This example creates a `TileDocument` from an unsigned genesis commit. Note that
 
 ## **Multiqueries API**
 
-The `multiqueries` endpoint enables querying multiple streams at once, as well as querying streams which are linked.
+The `multiqueries` endpoint enables querying multiple streams at once, as well
+as querying streams which are linked.
 
 ### Querying multiple streams
 
-This endpoint allows you to query multiple StreamIDs. Along with each StreamID an array of paths can be passed. If any of the paths within the stream structure contains a Ceramic StreamID url (`ceramic://<StreamID>`), this linked stream will also be returned as part of the response.
+This endpoint allows you to query multiple StreamIDs. Along with each StreamID
+an array of paths can be passed. If any of the paths within the stream structure
+contains a Ceramic StreamID url (`ceramic://<StreamID>`), this linked stream
+will also be returned as part of the response.
 
 === "Request"
 
@@ -306,11 +324,16 @@ Now let's query them though the multiqueries endpoint:
 
 ## **Commits API**
 
-The `commits` endpoint provides lower level access to the data structure of a Ceramic stream. It is also the enpoint that is used in order to update a stream, by adding a new commit.
+The `commits` endpoint provides lower level access to the data structure of a
+Ceramic stream. It is also the enpoint that is used in order to update a stream,
+by adding a new commit.
 
 ### Getting all commits in a stream
 
-By calling GET on the _commits_ endpoint along with a StreamID gives you access to all of the commits of the given stream. This is useful if you want to inspect the stream history, or apply all of the commits to a Ceramic node that is not connected to the network.
+By calling GET on the _commits_ endpoint along with a StreamID gives you access
+to all of the commits of the given stream. This is useful if you want to inspect
+the stream history, or apply all of the commits to a Ceramic node that is not
+connected to the network.
 
 === "Request"
 
@@ -379,7 +402,14 @@ By calling GET on the _commits_ endpoint along with a StreamID gives you access 
 
 **:octicons-alert-16: Disabled in gateway mode**
 
-In order to modify a stream we apply a commit to its log. This commit usually contains a signature over a _json-patch_ diff describing a modification to the stream contents. The commit also needs to contain pointers to the previous commit and other metadata. You can read more about this in the [Ceramic Specification](https://github.com/ceramicnetwork/ceramic/blob/master/SPECIFICATION.md#document-records){:target="\_blank"}. Different stream types may have different formats for their commits. If you want to see an example implementation for how to construct a commit you can have a look at the implementation of the TileDocument.
+In order to modify a stream we apply a commit to its log. This commit usually
+contains a signature over a _json-patch_ diff describing a modification to the
+stream contents. The commit also needs to contain pointers to the previous
+commit and other metadata. You can read more about this in the
+[Ceramic Specification](https://github.com/ceramicnetwork/ceramic/blob/master/SPECIFICATION.md#document-records){:target="\_blank"}.
+Different stream types may have different formats for their commits. If you want
+to see an example implementation for how to construct a commit you can have a
+look at the implementation of the TileDocument.
 
 === "Request"
 
@@ -466,7 +496,9 @@ In order to modify a stream we apply a commit to its log. This commit usually co
 
 ## **Pins API**
 
-The `pins` api endpoint can be used to manipulate the pinset. The pinset is all of the streams that a node maintains the state of. Any stream opened by the node that is not pinned will eventually be garbage collected from the node.
+The `pins` api endpoint can be used to manipulate the pinset. The pinset is all
+of the streams that a node maintains the state of. Any stream opened by the node
+that is not pinned will eventually be garbage collected from the node.
 
 ### Adding to pinset
 
@@ -542,7 +574,8 @@ This method removes the stream with the given StreamID from the pinset.
 
 ### Listing streams in pinset
 
-Calling this method allows you to list all of the streams that are in the pinset on this node.
+Calling this method allows you to list all of the streams that are in the pinset
+on this node.
 
 === "Request"
 
@@ -609,11 +642,14 @@ This method is used to check if a particular stream is in the pinset.
 
 ## **Node Info APIs**
 
-The methods under the `/node` path provides more information about this particular node.
+The methods under the `/node` path provides more information about this
+particular node.
 
 ### Supported blockchains for anchoring
 
-Get all of the [CAIP-2](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-2.md) _chainIds_ supported by this node.
+Get all of the
+[CAIP-2](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-2.md)
+_chainIds_ supported by this node.
 
 === "Request"
 
@@ -645,7 +681,8 @@ Get all of the [CAIP-2](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs
 
 ### Health check
 
-Check the health of the node and the machine it's running on. Run `ceramic daemon -h` for more details on how this can be configured.
+Check the health of the node and the machine it's running on. Run
+`ceramic daemon -h` for more details on how this can be configured.
 
 === "Request"
 
@@ -669,4 +706,57 @@ Check the health of the node and the machine it's running on. Run `ceramic daemo
 
     ```bash
     Alive!
+    ```
+
+### Node status
+
+The node status endpoint exposes information about the node's status.
+
+**:octicons-alert-16: Admin DID required**
+
+Access to this endpoint is restricted to admin DIDs, the request headers need to
+contain a signature for the request. The recommended way to interact with this
+endpoint is using the CLI with the `ceramic status` command.
+
+=== "Request"
+
+    ```bash
+    GET /api/v0/admin/status
+    ```
+
+=== "Response"
+
+    Either a `200` response with the JSON payload, or a server error.
+
+#### Example
+
+=== "Command"
+
+    ```bash
+    ceramic status
+    ```
+
+=== "Response"
+
+    ```json
+    {
+      "runId": "7647439f-44fa-4aff-b3c8-b7e16015c52e",
+      "uptimeMs": 27638,
+      "network": "inmemory",
+      "anchor": {
+        "anchorServiceUrl": "<inmemory>",
+        "ethereumRpcEndpoint": null,
+        "chainId": "inmemory:12345"
+      },
+      "ipfs": {
+        "peerId": "12D3KooWRzv8fM4oV6jRj8nsg8kxo3Z9u26vVXLaUKiLbuoV3Vtp",
+        "addresses": [
+          "/ip4/127.0.0.1/tcp/4011/p2p/12D3KooWRzv8fM4oV6jRj8nsg8kxo3Z9u26vVXLaUKiLbuoV3Vtp",
+          "/ip4/192.168.0.101/tcp/4011/p2p/12D3KooWRzv8fM4oV6jRj8nsg8kxo3Z9u26vVXLaUKiLbuoV3Vtp"
+        ]
+      },
+      "composeDB": {
+        "indexedModels": []
+      }
+    }
     ```

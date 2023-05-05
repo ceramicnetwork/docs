@@ -31,7 +31,7 @@ theme:
 
 nav:
   - Docs:
-      - Introduction: 
+      - Introduction:
           - Welcome to Ceramic: learn/welcome.md
           - Why Ceramic?: learn/features.md
           #- How it works: learn/how-it-works.md
@@ -46,41 +46,41 @@ nav:
               - URI Scheme: protocol/streams/uri-scheme.md
               - Consensus: protocol/streams/consensus.md
               - Lifecycle: protocol/streams/lifecycle.md
-          - Accounts: 
-              - Accounts: protocol/accounts/index.md 
-              - Decentralized IDs: protocol/accounts/decentralized-identifiers.md 
-              - Authorizations: protocol/accounts/authorizations.md 
-              - Object-Capabilities: protocol/accounts/object-capabilities.md 
-          - Networking: 
-              - Networking: protocol/networking/index.md 
-              - Networks: protocol/networking/networks.md 
-              - Tip Gossip: protocol/networking/tip-gossip.md 
-              - Tip Queries: protocol/networking/tip-queries.md 
+          - Accounts:
+              - Accounts: protocol/accounts/index.md
+              - Decentralized IDs: protocol/accounts/decentralized-identifiers.md
+              - Authorizations: protocol/accounts/authorizations.md
+              - Object-Capabilities: protocol/accounts/object-capabilities.md
+          - Networking:
+              - Networking: protocol/networking/index.md
+              - Networks: protocol/networking/networks.md
+              - Tip Gossip: protocol/networking/tip-gossip.md
+              - Tip Queries: protocol/networking/tip-queries.md
               - Event Fetching: protocol/networking/event-fetching.md
           - Ceramic API: protocol/api.md
           - Ceramic Nodes: protocol/nodes.md
       - Ecosystem:
           - Community: docs/ecosystem/community.md
-          - Built on Ceramic: "https://threebox.notion.site/Ceramic-Ecosystem-a3a7a58f81544d33ad3feb84368775d4"
+          - Built on Ceramic: 'https://threebox.notion.site/Ceramic-Ecosystem-a3a7a58f81544d33ad3feb84368775d4'
           # - Roadmap: learn/roadmap.md
       #- Advanced:
-          #- Tech overview: learn/advanced/overview.md
-          #- Data availability: learn/advanced/data-availability.md
-          #- Consensus: learn/advanced/consensus.md
-          #- Security: learn/advanced/security.md
-          #- Privacy: learn/advanced/privacy.md
+      #- Tech overview: learn/advanced/overview.md
+      #- Data availability: learn/advanced/data-availability.md
+      #- Consensus: learn/advanced/consensus.md
+      #- Security: learn/advanced/security.md
+      #- Privacy: learn/advanced/privacy.md
   - Guides:
       - Guides: guides/index.md
       - Ceramic Nodes:
           - Running Locally: build/cli/installation.md
           - Running in the Cloud: run/nodes/nodes.md
       - Ceramic Clients:
-          - JavaScript Client: 
+          - JavaScript Client:
               - Basic Usage: reference/core-clients/ceramic-http.md
               - Queries: build/javascript/queries.md
               - Pinning: build/javascript/pinning.md
               - Additional Guides: build/javascript/quick-start.md
-          - Authentication: 
+          - Authentication:
               - Basic Usage: reference/core-clients/did-jsonrpc.md
               - Key DID: reference/accounts/key-did.md
               - 3ID DID: reference/accounts/3id-did.md
@@ -100,7 +100,7 @@ nav:
           - Configurations: tools/self-id/configuration.md
           - Utilities: tools/self-id/utilities.md
           - Samples: tools/self-id/sample-applications.md
-          - Reference: 
+          - Reference:
               - Framework: reference/self-id/modules/framework.md
               - React:
                   - React module: reference/self-id/modules/react.md
@@ -119,8 +119,8 @@ nav:
           #- Middleware: build/middleware/index.md
           #- Overview: tools/overview.md
           - Glaze Suite: reference/glaze/index.md
-              #- Overview: tools/glaze/overview.md
-              #- Glossary: tools/glaze/glossary.md
+            #- Overview: tools/glaze/overview.md
+            #- Glossary: tools/glaze/glossary.md
           - IDX Database: tools/glaze/did-datastore.md
           - Data Models:
               - Registry: docs/advanced/standards/data-models/data-model-universe.md
@@ -159,22 +159,22 @@ nav:
       # TODO: v2 index contents
       # - docs/advanced/standards/index.md
       #- Accounts:
-          # TODO: v2 index contents
+      # TODO: v2 index contents
       #    - Accounts: docs/advanced/standards/accounts/index.md
       #    - 3ID DID (CIP-79): docs/advanced/standards/accounts/3id-did.md
-          # TODO: v2 contents for PKH DID
-          # - PKH DID: docs/advanced/standards/accounts/pkh-did.md
+      # TODO: v2 contents for PKH DID
+      # - PKH DID: docs/advanced/standards/accounts/pkh-did.md
       #    - Key DID: docs/advanced/standards/accounts/key-did.md
       #    - NFT DID (CIP-94): docs/advanced/standards/accounts/nft-did.md
       #    - Safe DID (CIP-101): docs/advanced/standards/accounts/safe-did.md
       #- Clients:
       #    - Clients: build/clients/index.md
       #- Network APIs:
-        # - JavaScript:
-        #    - Installation:
-        #        - HTTP Client: build/javascript/http.md
-        #    - Authentication: build/javascript/authentication.md
-        #    - Writes: build/javascript/writes.md
+      # - JavaScript:
+      #    - Installation:
+      #        - HTTP Client: build/javascript/http.md
+      #    - Authentication: build/javascript/authentication.md
+      #    - Writes: build/javascript/writes.md
   #- Ecosystem:
   #- Use cases: learn/use-cases.md
   #- Projects: explore/projects.md
@@ -183,12 +183,12 @@ nav:
   #- DAOs and governance: index.md
   #- NFTs and gaming: index.md
   #- Network explorers: explore/explorers.md
-  #- Wallets: index.md 
+  #- Wallets: index.md
   #- Reference:
-      #- Reference: reference/index.md
-      #- Ceramic HTTP API: build/http/api.md
-      #- Ceramic JS packages and API references: reference/javascript/packages.md
-  - Forum: "https://forum.ceramic.network"
+  #- Reference: reference/index.md
+  #- Ceramic HTTP API: build/http/api.md
+  #- Ceramic JS packages and API references: reference/javascript/packages.md
+  - Forum: 'https://forum.ceramic.network'
 markdown_extensions:
   - meta
   - pymdownx.tabbed:
@@ -229,7 +229,7 @@ extra_css:
 
 plugins:
   - privacy:
-      external_links_attr_map:
+      links_attr_map:
         target: _blank
   - redirects:
       redirect_maps:
