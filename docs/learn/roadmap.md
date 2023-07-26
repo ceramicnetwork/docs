@@ -1,7 +1,12 @@
-# **Roadmap**
+# **Ceramic Roadmap**
 ---
-We strive to be transparent with our developer community regarding where the project is heading. Sharing our product roadmap is our way to keep our community up-to-date with what things the core Ceramic team is currently working on, and what things we are planning for the future.
+The core Ceramic team remains committed to making ongoing improvements
+to both ComposeDB and the underlying Ceramic protocol. Concurrently, we seek to involve the Ceramic developer
+community in shaping Ceramic's future. We value your active participation in helping us prioritize the features 
+and improvements that matter most to our developer base.
 
-You can find the Ceramic roadmap [here](https://threebox.notion.site/Ceramic-Roadmap-98c5414dbba245a3835cf7ea98b883d3).
+**All curent and future projects are outlined in the [Ceramic roadmap](https://github.com/orgs/ceramicstudio/projects/2).**
 
-We do our best to keep this roadmap up-to-date and inform the community about the status of specific projects.
+We welcome your feedback and insights on our roadmap priorities. You can show your support or express your concerns
+about projects on the roadmap by upvoting or downvoting them. Additionally, we encourage you to leave more detailed 
+comments, making suggestions or indicating relevant feature requests.
