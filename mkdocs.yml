@@ -37,6 +37,7 @@ nav:
           #- How it works: learn/how-it-works.md
           #- Comparisons: learn/comparisons.md
           - Quick Start: build/cli/quick-start.md
+          - Ceramic Roadmap: learn/roadmap.md
           - Next Steps: docs/introduction/next-steps.md
       - Protocol:
           - Overview: protocol/overview.md
