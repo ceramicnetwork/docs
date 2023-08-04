@@ -14,7 +14,7 @@ To run your application on `mainnet` you'll need to run your own production-read
 
 ---
 
-**Ceramic networks** – There are currently three Ceramic networks: `mainnet`, `testnet-clay`, and `dev-unstable`. Learn more about each network [here](https://developers.ceramic.network/learn/networks/). By default, Ceramic will connect to `testnet-clay` and a [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service) running on Ethereum Ropsten. When you are ready to get on Ceramic `mainnet`, reach out on the [Ceramic Discord →](https://chat.ceramic.network) to get access to our `mainnet` anchor service.
+**Ceramic networks** – There are currently three Ceramic networks: `mainnet`, `testnet-clay`, and `dev-unstable`. Learn more about each network [here](https://developers.ceramic.network/learn/networks/). By default, Ceramic will connect to `testnet-clay` and a [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service) running on Gnosis. When you are ready to get on Ceramic `mainnet`, check out [this guide](https://composedb.js.org/docs/0.4.x/guides/composedb-server/access-mainnet) to get access to our `mainnet` anchor service.
 
 **Running IPFS** – Ceramic relies on a system called [IPFS](https://docs.ipfs.io/) to connect to and share data in Ceramic networks. IPFS runs as a separate process from the Ceramic node itself, with each Ceramic node connected to a dedicated IPFS node over HTTP. The Ceramic Daemon can launch an IPFS process automatically (referred to as running IPFS in "bundled" mode in the Ceramic config file), which is designed for testing and local development only. For production deployments you should run your own IPFS process manually and point your Ceramic node at it (referred to as running ipfs in "remote" mode in the Ceramic config file). This allows for more configuration options for your IPFS node allowing for more controlled resource allocation, as well as improved maintenance, debugging and observability. Note that Ceramic only supports `go-ipfs` version 0.12 or later.
 
@@ -49,7 +49,7 @@ The 3Box Labs team has written a [Terraform module](https://github.com/ceramicne
 
 The [js-ceramic](https://github.com/ceramicnetwork/js-ceramic) node is run as a daemon using Node.js or Docker.
 
-By default, the Ceramic daemon runs bundled with a [go-ipfs](https://github.com/ipfs/go-ipfs) node and connects to the Clay testnet and an Ethereum Ropsten [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service). In production, you should change these defaults to secure your data and accommodate your infrastructure setup.
+By default, the Ceramic daemon runs bundled with a [go-ipfs](https://github.com/ipfs/go-ipfs) node and connects to the Clay testnet and Gnosis [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service). In production, you should change these defaults to secure your data and accommodate your infrastructure setup.
 
 The Ceramic daemon can be configured with a JSON file which is created on start and located at `$HOME/.ceramic/daemon.config.json` by default (you can also point to a custom location for the config file using the `--config` flag when starting the Ceramic Daemon). See [example daemon.config.json](#example-daemonconfigjson) below. Configuration options can be viewed in the [reference documentation for the DaemonConfig class](https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_cli.daemonconfig-1.html).
 
