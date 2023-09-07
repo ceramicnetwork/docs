@@ -1,5 +1,11 @@
 # **3ID DID Accounts**
 
+---
+⚠️ ⚠️ ⚠️ The 3ID DID Method has been deprecated. Please use DID PKH using [DID Session](https://did.js.org/docs/authorization)! ⚠️ ⚠️ ⚠️
+
+---
+
+
 The 3ID DID Method (CIP-79) is a Ceramic-native account which can be used to authenticate to Ceramic to perform transactions on streams. 
 
 
