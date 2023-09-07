@@ -29,9 +29,9 @@ The `DID` class provides the interface on top of underlying account libraries. T
 
 Choosing an account type can significantly impact your users' identity and data interoperability.  For example, some account types are fixed to a single public key (Key DID, PHK DID), so the data is siloed to that key.  In contrast, others (3ID DID) have mutable key management schemes that can support multiple authorized signing keys and works cross-chain with blockchain wallets. Visit each account to learn more about its capabilities.
 
-### [3ID DID](../../docs/advanced/standards/accounts/3id-did.md)
+### [PKH DID](../../docs/advanced/standards/accounts/pkh-did.md)
 
-Supports multi-account, cross-chain (MACC) identities. Mutability and key rotations. Good for users + most popular. Relies on Ceramic for account storage.
+Based on Sign-in with Ethereum, or similar standards in other blockchain ecosystems. Good for users + most popular. Relies on existing wallet infrastructure.
 
 ### [Key DID](../../docs/advanced/standards/accounts/key-did.md)
 
