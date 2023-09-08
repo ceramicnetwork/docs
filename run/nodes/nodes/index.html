@@ -1,0 +1,4840 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PFSSCZB');</script>
+  <!-- End Google Tag Manager -->
+
+    
+      
+        <title>Running in the Cloud - Ceramic Developers</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.dc5b59cc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.6932e648.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-426ZZLPJPW"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-426ZZLPJPW",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-426ZZLPJPW",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  
+  
+    
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Running in the Cloud | Ceramic Developers" />
+  <meta property="og:description" content="Specs, docs, guides, and APIs for the Ceramic Network." />
+  <meta property="og:url" content="https://developers.ceramic.network/run/nodes/nodes/" />
+  <meta property="og:image" content="https://developers.ceramic.network/images/image-ceramic-opengraph.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ceramicnetwork" />
+  <meta name="twitter:creator" content="@ceramicnetwork" />
+  <meta name="twitter:title" content="Running in the Cloud | Ceramic Developers" />
+  <meta name="twitter:description" content="Specs, docs, guides, and APIs for the Ceramic Network." />
+  <meta name="twitter:image" content="https://developers.ceramic.network/images/image-ceramic-opengraph.png" />
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#running-ceramic-in-production" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  <strong>ComposeDB</strong> is a graph database for Web3 apps powered by Ceramic.
+  <a href="https://composedb.js.org" target="_blank" rel="noopener"> 
+    <strong>Get started →</strong>
+  </a>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFSSCZB"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Ceramic Developers" class="md-header__button md-logo" aria-label="Ceramic Developers" data-md-component="logo">
+      
+  <img src="../../../images/ceramic-no-shadow.png" alt="logo" />
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ceramic Developers
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Running in the Cloud
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ceramicnetwork/js-ceramic" title="Go to repository" class="md-source" data-md-component="source" target="_blank" rel="noopener">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ceramicnetwork/js-ceramic
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../learn/welcome/" class="md-tabs__link">
+          
+  
+    
+  
+  Docs
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guides/" class="md-tabs__link md-tabs__link--active">
+          
+  
+    
+  
+  Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../legacy/" class="md-tabs__link">
+          
+  
+    
+  
+  Legacy Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://forum.ceramic.network" class="md-tabs__link" target="_blank" rel="noopener">
+        
+  
+    
+  
+  Forum
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Ceramic Developers" class="md-nav__button md-logo" aria-label="Ceramic Developers" data-md-component="logo">
+      
+  <img src="../../../images/ceramic-no-shadow.png" alt="logo" />
+
+    </a>
+    Ceramic Developers
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ceramicnetwork/js-ceramic" title="Go to repository" class="md-source" data-md-component="source" target="_blank" rel="noopener">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ceramicnetwork/js-ceramic
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Docs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Docs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
+        
+          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learn/welcome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to Ceramic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learn/features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Ceramic?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../build/cli/quick-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learn/roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceramic Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docs/introduction/next-steps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Next Steps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocol
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Protocol
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../protocol/streams/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Streams
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_1_2_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Streams
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/streams/event-log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Event Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/streams/uri-scheme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    URI Scheme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/streams/consensus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Consensus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/streams/lifecycle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../protocol/accounts/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Accounts
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_1_2_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Accounts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/accounts/decentralized-identifiers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Decentralized IDs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/accounts/authorizations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorizations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/accounts/object-capabilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Capabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../protocol/networking/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_1_2_4">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/networking/networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/networking/tip-gossip/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Tip Gossip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/networking/tip-queries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Tip Queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/networking/event-fetching/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Event Fetching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceramic API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceramic Nodes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docs/ecosystem/community/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Community
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://threebox.notion.site/Ceramic-Ecosystem-a3a7a58f81544d33ad3feb84368775d4" class="md-nav__link" target="_blank" rel="noopener">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Built on Ceramic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../guides/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceramic Nodes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ceramic Nodes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../build/cli/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Running Locally
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    Running in the Cloud
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Running in the Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#who-should-run-a-ceramic-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who should run a Ceramic node?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#things-to-know" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Things to know
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#required-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-ceramic-on-aws-ecs-with-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run Ceramic on AWS ECS with Terraform →
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-daemon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the daemon
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running the daemon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-with-docker-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run with Docker containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-outside-of-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run outside of containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Persistence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-with-docker-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example with Docker containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-without-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example without containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-daemonconfigjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example daemon.config.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-aws-s3-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example AWS S3 Policies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-connected-to-the-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get connected to the network
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Get connected to the network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connecting-to-ceramic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connecting to Ceramic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#staying-connected-to-ipfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Staying connected to IPFS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-to-the-mainnnet-anchor-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connect to the mainnnet anchor service
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceramic Clients
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ceramic Clients
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript Client
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    JavaScript Client
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/core-clients/ceramic-http/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../build/javascript/queries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../build/javascript/pinning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Pinning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../build/javascript/quick-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Additional Guides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Authentication
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/core-clients/did-jsonrpc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/accounts/key-did/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Key DID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/accounts/3id-did/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    3ID DID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/accounts/did-session/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    DID Session
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
+        
+          <label class="md-nav__link" for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Stream APIs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stream APIs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/stream-programs/tile-document/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Tile Documents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/stream-programs/caip10-link/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Using CAIP-10 Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../legacy/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy Tools
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legacy Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../reference/self-id/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Self.ID SDK
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_3_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Self.ID SDK
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/self-id/framework/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    React
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    JavaScript
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/self-id/write/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Read/Write
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/self-id/read/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Read-Only
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/self-id/configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Configurations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/self-id/utilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/self-id/sample-applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Samples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7" >
+        
+          <label class="md-nav__link" for="__nav_3_2_7" id="__nav_3_2_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/modules/framework/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2_7_2" id="__nav_3_2_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    React
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    React
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/modules/react/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    React module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/classes/react.ReactClient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    ReactClient class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/classes/react.RequestClient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    RequestClient class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7_3" >
+        
+          <label class="md-nav__link" for="__nav_3_2_7_3" id="__nav_3_2_7_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Web
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Web
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/modules/web/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Web module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/classes/web.WebClient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    WebClient class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/classes/web.SelfID/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SelfID class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7_4" >
+        
+          <label class="md-nav__link" for="__nav_3_2_7_4" id="__nav_3_2_7_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Core
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/modules/core/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Core module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/classes/core.Core/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Core class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/classes/core.PublicID/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    PublicID class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/modules/image_utils/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../reference/glaze/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Glaze Suite
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_3_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Glaze Suite
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/glaze/did-datastore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    IDX Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
+        
+          <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docs/advanced/standards/data-models/data-model-universe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/glaze/development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploying from JS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/glaze/deploy-from-cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploying from CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/glaze/datamodel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Aliasing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/glaze/tile-loader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Caching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5" >
+        
+          <label class="md-nav__link" for="__nav_3_3_5" id="__nav_3_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5_1" >
+        
+          <label class="md-nav__link" for="__nav_3_3_5_1" id="__nav_3_3_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    DID DataStore
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DID DataStore
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glaze/modules/did_datastore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    DID DataStore module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glaze/classes/did_datastore.DIDDataStore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    DIDDataStore class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5_2" >
+        
+          <label class="md-nav__link" for="__nav_3_3_5_2" id="__nav_3_3_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    DataModel
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DataModel
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glaze/modules/datamodel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    DataModel module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glaze/classes/datamodel.DataModel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    DataModel class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5_3" >
+        
+          <label class="md-nav__link" for="__nav_3_3_5_3" id="__nav_3_3_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    DevTools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DevTools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glaze/modules/devtools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    DevTools module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glaze/classes/devtools.ModelManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    ModelManager class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5_4" >
+        
+          <label class="md-nav__link" for="__nav_3_3_5_4" id="__nav_3_3_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    TileLoader
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TileLoader
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glaze/modules/tile_loader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Tile loader module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glaze/classes/tile_loader.TileLoader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    TileLoader class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glaze/modules/types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://forum.ceramic.network" class="md-nav__link" target="_blank" rel="noopener">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Forum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#who-should-run-a-ceramic-node" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Who should run a Ceramic node?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#things-to-know" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Things to know
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#required-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick start
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick start">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-ceramic-on-aws-ecs-with-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run Ceramic on AWS ECS with Terraform →
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#running-the-daemon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the daemon
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Running the daemon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-with-docker-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run with Docker containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-outside-of-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Run outside of containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-persistence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Persistence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-with-docker-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example with Docker containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-without-containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example without containers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-daemonconfigjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example daemon.config.json
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-aws-s3-policies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example AWS S3 Policies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-connected-to-the-network" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get connected to the network
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Get connected to the network">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#connecting-to-ceramic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connecting to Ceramic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#staying-connected-to-ipfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Staying connected to IPFS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-to-the-mainnnet-anchor-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connect to the mainnnet anchor service
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#observability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Observability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../guides/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Guides
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../build/cli/installation/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Ceramic Nodes
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="running-ceramic-in-production"><strong>Running Ceramic in production</strong><a class="headerlink" href="#running-ceramic-in-production" title="Permanent link">&para;</a></h1>
+<hr />
+<p>This guide provides complete instructions and various tools for launching a well-connected, production-ready Ceramic node.</p>
+<h2 id="who-should-run-a-ceramic-node"><strong>Who should run a Ceramic node?</strong><a class="headerlink" href="#who-should-run-a-ceramic-node" title="Permanent link">&para;</a></h2>
+<hr />
+<p>To run your application on <code>mainnet</code> you'll need to run your own production-ready node or to use a community provider like <a href="https://hirenodes.io/" target="_blank" rel="noopener">hirenodes</a>.</p>
+<h2 id="things-to-know"><strong>Things to know</strong><a class="headerlink" href="#things-to-know" title="Permanent link">&para;</a></h2>
+<hr />
+<p><strong>Ceramic networks</strong> – There are currently three Ceramic networks: <code>mainnet</code>, <code>testnet-clay</code>, and <code>dev-unstable</code>. Learn more about each network <a href="https://developers.ceramic.network/learn/networks/" target="_blank" rel="noopener">here</a>. By default, Ceramic will connect to <code>testnet-clay</code> and a <a href="https://github.com/ceramicnetwork/ceramic-anchor-service" target="_blank" rel="noopener">Ceramic Anchor Service</a> running on Gnosis. When you are ready to get on Ceramic <code>mainnet</code>, check out <a href="https://composedb.js.org/docs/0.4.x/guides/composedb-server/access-mainnet" target="_blank" rel="noopener">this guide</a> to get access to our <code>mainnet</code> anchor service.</p>
+<p><strong>Running IPFS</strong> – Ceramic relies on a system called <a href="https://docs.ipfs.io/" target="_blank" rel="noopener">IPFS</a> to connect to and share data in Ceramic networks. IPFS runs as a separate process from the Ceramic node itself, with each Ceramic node connected to a dedicated IPFS node over HTTP. The Ceramic Daemon can launch an IPFS process automatically (referred to as running IPFS in "bundled" mode in the Ceramic config file), which is designed for testing and local development only. For production deployments you should run your own IPFS process manually and point your Ceramic node at it (referred to as running ipfs in "remote" mode in the Ceramic config file). This allows for more configuration options for your IPFS node allowing for more controlled resource allocation, as well as improved maintenance, debugging and observability. Note that Ceramic only supports <code>go-ipfs</code> version 0.12 or later.</p>
+<p>The rest of this guide assumes you are running Ceramic with IPFS in "remote" mode.</p>
+<p><strong>Process management, restarts and data persistence</strong> – Ceramic and IPFS will not automatically restart if they crash. You should configure your own restart mechanism, and you must ensure data persistence between restarts.</p>
+<h2 id="required-steps"><strong>Required steps</strong><a class="headerlink" href="#required-steps" title="Permanent link">&para;</a></h2>
+<hr />
+<p>Below are the steps required for running a Ceramic node in production. This guide will teach you how to:</p>
+<ol>
+<li><a href="#running-the-daemon">Install and run the Ceramic daemon</a></li>
+<li><a href="#data-persistence">Configure data persistence</a></li>
+<li><a href="#get-connected-to-the-network">Get connected to the network</a></li>
+<li><a href="#observability">Get observability data from your node (optional)</a></li>
+</ol>
+<h2 id="quick-start"><strong>Quick start</strong><a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="run-ceramic-on-aws-ecs-with-terraform"><a href="https://github.com/ceramicnetwork/terraform-aws-ceramic" target="_blank" rel="noopener"><strong>Run Ceramic on AWS ECS with Terraform →</strong></a><a class="headerlink" href="#run-ceramic-on-aws-ecs-with-terraform" title="Permanent link">&para;</a></h3>
+<p>The 3Box Labs team has written a <a href="https://github.com/ceramicnetwork/terraform-aws-ceramic" target="_blank" rel="noopener">Terraform module</a> that configures Ceramic and IPFS in AWS ECS using Fargate. Using this module is a fast and reliable way to run Ceramic in the cloud because it is set up for data persistence and auto-restarts. The module currently requires some common AWS resources to be pre-configured as well as Cloudflare. See an <a href="https://github.com/ceramicnetwork/terraform-aws-ceramic/blob/main/examples/ecs/main.tf" target="_blank" rel="noopener">example of the module in use</a>.</p>
+<blockquote>
+<p>We highly encourage the community to create Terraform modules or other templates for different infrastructure providers to further decentralize the Ceramic network.</p>
+</blockquote>
+<h2 id="running-the-daemon"><strong>Running the daemon</strong><a class="headerlink" href="#running-the-daemon" title="Permanent link">&para;</a></h2>
+<hr />
+<p>The <a href="https://github.com/ceramicnetwork/js-ceramic" target="_blank" rel="noopener">js-ceramic</a> node is run as a daemon using Node.js or Docker.</p>
+<p>By default, the Ceramic daemon runs bundled with a <a href="https://github.com/ipfs/go-ipfs" target="_blank" rel="noopener">go-ipfs</a> node and connects to the Clay testnet and Gnosis <a href="https://github.com/ceramicnetwork/ceramic-anchor-service" target="_blank" rel="noopener">Ceramic Anchor Service</a>. In production, you should change these defaults to secure your data and accommodate your infrastructure setup.</p>
+<p>The Ceramic daemon can be configured with a JSON file which is created on start and located at <code>$HOME/.ceramic/daemon.config.json</code> by default (you can also point to a custom location for the config file using the <code>--config</code> flag when starting the Ceramic Daemon). See <a href="#example-daemonconfigjson">example daemon.config.json</a> below. Configuration options can be viewed in the <a href="https://developers.ceramic.network/reference/typescript/classes/_ceramicnetwork_cli.daemonconfig-1.html" target="_blank" rel="noopener">reference documentation for the DaemonConfig class</a>.</p>
+<h3 id="run-with-docker-containers"><strong>Run with Docker containers</strong><a class="headerlink" href="#run-with-docker-containers" title="Permanent link">&para;</a></h3>
+<p>Docker images to run Ceramic and IPFS are built from the source code of the <a href="https://github.com/ceramicnetwork/js-ceramic" target="_blank" rel="noopener">js-ceramic</a> and <a href="https://github.com/ceramicnetwork/go-ipfs-daemon" target="_blank" rel="noopener">go-ipfs-daemon</a> repositories respectively. Images built from the main branches are tagged with <code>latest</code> and the git commit hash from which the image was built. You can view the image builds of <a href="https://hub.docker.com/r/ceramicnetwork/js-ceramic" target="_blank" rel="noopener">js-ceramic on DockerHub</a>. The Docker image for <code>go-ipfs-daemon</code> pre-configures IPFS with plugins that make it easy to run on cloud infrastructure. You can view the image builds for <a href="https://hub.docker.com/r/ceramicnetwork/go-ipfs-daemon" target="_blank" rel="noopener">go-ipfs-daemon on DockerHub</a>.</p>
+<h3 id="run-outside-of-containers"><strong>Run outside of containers</strong><a class="headerlink" href="#run-outside-of-containers" title="Permanent link">&para;</a></h3>
+<p>If you would like to run Ceramic and IPFS outside of containers or on bare metal, start by installing <a href="https://github.com/ipfs/go-ipfs" target="_blank" rel="noopener">go-ipfs</a> (<strong>version 0.12 or later</strong>). Depending on your infrastructure setup you may consider building <code>go-ipfs</code> with the <a href="https://github.com/ceramicnetwork/go-ipfs-healthcheck" target="_blank" rel="noopener">healthcheck plugin</a> and <a href="https://github.com/3box/go-ds-s3" target="_blank" rel="noopener">S3 datastore plugin</a>. Once IPFS is installed, configure it to use pubsub, which Ceramic relies on for message passing. This can be done by running the IPFS daemon with the <code>--enable-pubsub-experiment</code> flag or modifying the configuration by running <code>ipfs config --json Pubsub.Enabled true</code> (learn more in the <a href="https://github.com/ipfs/go-ipfs/blob/master/docs/experimental-features.md#ipfs-pubsub" target="_blank" rel="noopener">IPFS docs</a>). Next you can run IPFS and install the Ceramic daemon with the <a href="https://www.npmjs.com/package/@ceramicnetwork/cli" target="_blank" rel="noopener">js-ceramic CLI</a>, which is available as a public NPM module. It is currently compatible with <strong>Node.js versions 14 and 16.</strong></p>
+<h2 id="data-persistence"><strong>Data Persistence</strong><a class="headerlink" href="#data-persistence" title="Permanent link">&para;</a></h2>
+<p>To run a Ceramic node in production, it is critical to persist the <a href="https://developers.ceramic.network/run/nodes/nodes/#ceramic-state-store" target="_blank" rel="noopener">Ceramic state store</a> and the <a href="https://github.com/ipfs/go-ipfs/blob/master/docs/config.md#datastorespec" target="_blank" rel="noopener">IPFS datastore</a>. The form of storage you choose should also be configured for disaster recovery with data redundancy, and some form of snapshotting and/or backups.</p>
+<p><strong>Loss of this data can result in permanent loss of Ceramic streams and will cause your node to be in a corrupt state.</strong></p>
+<p>The Ceramic state store and IPFS datastore are stored on your machine's filesystem by default. The Ceramic state store defaults to <code>$HOME/.ceramic/statestore</code>. The IPFS datastore defaults to <code>ipfs/blocks</code> located wherever you run IPFS.</p>
+<p>The fastest way to ensure data persistence is by mounting a persistent volume to your instances and configuring the Ceramic and IPFS nodes to write to the mount location. The mounted volume should be configured such that the data persists if the instance shuts down.</p>
+<p>You can also use AWS S3 for data storage which is supported for both Ceramic and IPFS. Examples of the configuration for both storage options are listed below.</p>
+<h4 id="ipfs-datastore">IPFS Datastore<a class="headerlink" href="#ipfs-datastore" title="Permanent link">&para;</a></h4>
+<p>The IPFS datastore stores the raw IPFS blocks that make up Ceramic streams. To prevent data corruption, use environment variables written to your profile file, or otherwise injected into your environment on start so that the datastore location does not change between reboots.</p>
+<p>Note: Switching between data storage locations is an advanced feature and should be avoided. Depending on the sharding implementation you may need to do a data migration first. See <a href="https://github.com/ipfs/go-ipfs/blob/master/docs/config.md#datastorespec" target="_blank" rel="noopener">https://github.com/ipfs/go-ipfs/blob/master/docs/config.md#datastorespec</a> for more information.</p>
+<h4 id="ceramic-state-store">Ceramic State Store<a class="headerlink" href="#ceramic-state-store" title="Permanent link">&para;</a></h4>
+<p>The Ceramic state store holds state for pinned streams and the acts as a cache for the Ceramic streams that your node creates or loads. To ensure that the data you create with your Ceramic node does not get lost you must pin streams you care about and you must ensure that the state store does not get deleted.</p>
+<h2 id="examples"><strong>Examples</strong><a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="example-with-docker-containers">Example with Docker containers<a class="headerlink" href="#example-with-docker-containers" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>ceramicnetwork/go-ipfs-daemon:latest
+
+<span class="c1"># Use this snippet to keep the datastore in the volume</span>
+docker<span class="w"> </span>run<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="m">5001</span>:5001<span class="w"> </span><span class="se">\ </span><span class="c1"># API port</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="m">8011</span>:8011<span class="w"> </span><span class="se">\ </span><span class="c1"># Healthcheck port</span>
+<span class="w">  </span>-v<span class="w"> </span>/path_on_volume_for_ipfs_repo:/data/ipfs<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span>ipfs<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>go-ipfs-daemon
+
+<span class="c1"># Use this snippet to keep the datastore in S3</span>
+docker<span class="w"> </span>run<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="m">5001</span>:5001<span class="w"> </span><span class="se">\ </span><span class="c1"># API port</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="m">8011</span>:8011<span class="w"> </span><span class="se">\ </span><span class="c1"># Healthcheck port</span>
+<span class="w">  </span>-v<span class="w"> </span>/path_on_volume_for_ipfs_repo:/data/ipfs<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">IPFS_ENABLE_S3</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">IPFS_S3_REGION</span><span class="o">=</span>region<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">IPFS_S3_BUCKET_NAME</span><span class="o">=</span>bucket_name<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">IPFS_S3_ROOT_DIRECTORY</span><span class="o">=</span>root_directory<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">IPFS_S3_ACCESS_KEY_ID</span><span class="o">=</span>aws_access_key_id<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">IPFS_S3_SECRET_ACCESS_KEY</span><span class="o">=</span>aws_secret_access_key<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">IPFS_S3_KEY_TRANSFORM</span><span class="o">=</span>next-to-last/2<span class="w"> </span><span class="se">\ </span><span class="c1"># Sharding method</span>
+<span class="w">  </span>--name<span class="w"> </span>ipfs<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>go-ipfs-daemon
+
+<span class="c1"># Get the IP address</span>
+docker<span class="w"> </span>inspect<span class="w"> </span>-f<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>ipfs
+</code></pre></div>
+<p>Before running the Ceramic daemon, configure it to use IPFS in "remote" mode. See <a href="#example-daemonconfigjson">example daemon.config.json</a> below.</p>
+<div class="highlight"><pre><span></span><code>docker<span class="w"> </span>pull<span class="w"> </span>ceramicnetwork/js-ceramic:latest
+
+<span class="c1"># Use this snippet to keep the statestore in a volume</span>
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="m">7007</span>:7007<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>/path_on_volume_for_daemon_config:/root/.ceramic/daemon.config.json<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>/path_on_volume_for_ceramic_logs:/root/.ceramic/logs<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>/path_on_volume_for_ceramic_statestore:/root/.ceramic/statestore<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">NODE_ENV</span><span class="o">=</span>production<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span>js-ceramic<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>ceramicnetwork/js-ceramic:latest
+
+<span class="c1"># Use this snippet to keep the statestore in S3</span>
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-p<span class="w"> </span><span class="m">7007</span>:7007<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>/path_for_daemon_config:/root/.ceramic/daemon.config.json<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>/path_for_ceramic_logs:/root/.ceramic/logs<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">NODE_ENV</span><span class="o">=</span>production<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>s3_access_key_id<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-e<span class="w"> </span><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>s3_secret_access_key<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--name<span class="w"> </span>js-ceramic<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>ceramicnetwork/js-ceramic:latest
+</code></pre></div>
+<h3 id="example-without-containers">Example without containers<a class="headerlink" href="#example-without-containers" title="Permanent link">&para;</a></h3>
+<p>After installation, both daemons can be run from the command line</p>
+<div class="highlight"><pre><span></span><code>ipfs<span class="w"> </span>init
+ipfs<span class="w"> </span>daemon
+</code></pre></div>
+<p>Before running the Ceramic daemon, configure it to use IPFS in "remote" mode. See <a href="#example-daemonconfigjson">example daemon.config.json</a> below.</p>
+<div class="highlight"><pre><span></span><code>ceramic<span class="w"> </span>daemon
+</code></pre></div>
+<h3 id="example-daemonconfigjson"><strong>Example daemon.config.json</strong><a class="headerlink" href="#example-daemonconfigjson" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;anchor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;ethereum-rpc-url&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://eg_infura_endpoint&quot;</span><span class="w"> </span><span class="c1">// Replace with an Ethereum RPC endpoint to avoid rate limiting</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;http-api&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;cors-allowed-origins&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;.*&quot;</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;ipfs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;remote&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://ipfs_ip_address:5001&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;logger&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;log-level&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="c1">// 0 is most verbose</span>
+<span class="w">        </span><span class="nt">&quot;log-to-files&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;network&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;mainnet&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Connect to mainnet, testnet-clay, or dev-unstable</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;node&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">    </span><span class="nt">&quot;state-store&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;s3&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;s3-bucket&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bucket_name&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>To use volume storage for the statestore instead of S3</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;state-store&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fs&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;local-directory&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/path_for_ceramic_statestore&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Defaults to $HOME/.ceramic/statestore</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="example-aws-s3-policies">Example AWS S3 Policies<a class="headerlink" href="#example-aws-s3-policies" title="Permanent link">&para;</a></h3>
+<p>IPFS AWS S3 policy for the access key</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;s3:ListBucket&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;s3:PutObject&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;s3:DeleteObject&quot;</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ipfs_bucket_arn&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;ipfs_bucket_arn/*&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition info">
+<p>The <a href="https://github.com/3box/go-ds-s3" target="_blank" rel="noopener">S3 datastore</a> is not available out-of-the-box in vanilla <code>go-ipfs</code>. In order to use it with minimal configuration, use the 3Box Labs <a href="https://github.com/ceramicnetwork/go-ipfs-daemon" target="_blank" rel="noopener">go-ipfs-daemon</a>.</p>
+</div>
+<p>Ceramic state store AWS S3 policy for the access key</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;Version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2012-10-17&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;Statement&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;Action&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;s3:ListBucket&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;s3:PutObject&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;s3:DeleteObject&quot;</span>
+<span class="w">      </span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;Effect&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;Resource&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;state_store_bucket_arn&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;state_store_bucket_arn/*&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="get-connected-to-the-network"><strong>Get connected to the network</strong><a class="headerlink" href="#get-connected-to-the-network" title="Permanent link">&para;</a></h2>
+<hr />
+<h3 id="connecting-to-ceramic"><strong>Connecting to Ceramic</strong><a class="headerlink" href="#connecting-to-ceramic" title="Permanent link">&para;</a></h3>
+<p>The Ceramic daemon serves an HTTP API that clients use to interact with your Ceramic node. The default API port is <code>7007</code>. Make sure this port is available to all clients you plan to use for your application.</p>
+<div class="admonition warning">
+<p>Healthchecks can be run against the API endpoint <code>/api/v0/node/healthcheck</code>.</p>
+</div>
+<h3 id="staying-connected-to-ipfs"><strong>Staying connected to IPFS</strong><a class="headerlink" href="#staying-connected-to-ipfs" title="Permanent link">&para;</a></h3>
+<p>Ceramic nodes rely on IPFS for networking. IPFS nodes connect to each other using a Libp2p module called "switch" (aka "swarm"). This module operates over a websocket, on port <code>4011</code> by default. The websocket port must be accessible to the internet so your Ceramic node can be connected to the network.</p>
+<div class="admonition warning">
+<p>Healthchecks can be run against the <code>HEALTHCHECK_PORT</code> (port <code>8011</code> by default) when <code>HEALTHCHECK_ENABLED</code> is <code>true</code>.</p>
+</div>
+<p>Additionally, when running IPFS the IPFS API port must be accessible by the Ceramic node. The default API port is <code>5001</code>. The IPFS node address will then be passed to Ceramic with the <code>ipfs.host</code> option in the Ceramic daemon config file.</p>
+<h3 id="connect-to-the-mainnnet-anchor-service"><strong>Connect to the mainnnet anchor service</strong><a class="headerlink" href="#connect-to-the-mainnnet-anchor-service" title="Permanent link">&para;</a></h3>
+<p>For nodes that wish to connect to Ceramic mainnet, the node's IP address will have to be added to the allowlist for the Ceramic Anchor Service node operated by 3BoxLabs. Once you have fully configured your Ceramic node with this guide and have a way to persist its configuration and state, open an issue in the <a href="https://github.com/3box/ceramic-anchor-allowlist" target="_blank" rel="noopener">Ceramic Anchor Allowlist Repo</a> with the public, static <em>egress</em> IP address for your Ceramic node, and a brief description of the data persistence setup for the multiaddress, Ceramic State Store, and IPFS Repo. Once your issue is closed, you will be connected to the Ceramic network and the <a href="https://github.com/ceramicnetwork/ceramic-anchor-service" target="_blank" rel="noopener">Ceramic Anchor Service</a>.</p>
+<p>Nodes that wish to connect to other Ceramic networks, such as the clay testnet, do not need to do anything special to gain access to the Ceramic Anchor Service.  The Anchor Service for the <code>testnet-clay</code> network is open to everyone and does not have an IP allowlist like the mainnet service does.</p>
+<div class="admonition warning">
+<p>Mainnet nodes will not run immediately after start up until your pull request is reviewed and your IP address is added to the allow list for the 3Box Labs hosted anchor service.</p>
+</div>
+<h2 id="observability"><strong>Observability</strong><a class="headerlink" href="#observability" title="Permanent link">&para;</a></h2>
+<hr />
+<p>Ceramic has a debug mode that you can enable using the <code>--debug</code> flag. This will allow you to see all logs printed to your console, including debug logs, API requests, events, and errors.</p>
+<p>For observability, it is best to have these logs written to files to debug any issues and to generate metrics. Logging to files can be enabled with the <code>logger.log-to-files</code> config file option. The default location for logs is <code>~/.ceramic/logs</code> but this path can be configured with the <code>logger.log-directory</code> config file option. Even without debug mode enabled you will still get critical logs and metrics written to files.</p>
+<p>Request and event logs are written in <a href="https://brandur.org/logfmt" target="_blank" rel="noopener">logfmt</a>. This makes them easy to import into <a href="https://grafana.com/" target="_blank" rel="noopener">Grafana</a> dashboards using a log scraping agent like <a href="https://grafana.com/docs/loki/latest/clients/promtail/" target="_blank" rel="noopener">Promtail</a> and a log aggregator like <a href="https://grafana.com/docs/loki/latest/" target="_blank" rel="noopener">Loki</a>, which can be used as a data source for Grafana. An example of such a setup can be found <a href="https://github.com/3box/ceramic-stats" target="_blank" rel="noopener">here</a>.</p>
+<h2 id="next-steps"><strong>Next steps</strong><a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<hr />
+<p>Congratulations! You have now set up a well-connected Ceramic node in the cloud which can receive HTTP requests from the local environment, the <a href="../../../build/javascript/installation/#js-http-client">JS HTTP Client</a>, or to simply serve as another node to replicate and pin streams. Please report any bugs as issues on the <a href="https://github.com/ceramicnetwork/js-ceramic" target="_blank" rel="noopener">JS Ceramic GitHub</a>.</p>
+
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by using our  <a href="https://docs.google.com/forms/d/e/1FAIpQLScSf4k6CYDp8yN1tGW8IMtb_g_6p3OLcE60Avabe0zXkpBo8g/viewform?usp=pp_url&amp;entry.1288700168=/run/nodes/nodes/" target="_blank" rel="noopener"> feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  <div class="md-copyright__highlight">
+    Ceramic is open sourced under MIT and Apache 2
+    | <a href="/pages/3boxlabs-terms-conditions/">Terms and Conditions</a>
+    | <a href="/pages/3boxlabs-privacy-policy/">Privacy Policy</a>
+  </div>  
+</div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/ceramicnetwork/ceramic" target="_blank" class="md-footer-social__link fa fa-" rel="noopener"></a>
+    
+      <a href="https://twitter.com/ceramicnetwork" target="_blank" class="md-footer-social__link fa fa-" rel="noopener"></a>
+    
+      <a href="http://github.com/ceramicnetwork/ceramic" class="md-footer-social__link fa" target="_blank" rel="noopener">
+        <img src="../../../images/icon-github-white.svg" style="margin-left:10px" width="20px">
+      </a>
+      <a href="http://chat.ceramic.network" class="md-footer-social__link fa" target="_blank" rel="noopener">
+        <img src="../../../images/icon-discord-white.svg" style="margin-left:10px" width="17px">
+      </a>
+      <a href="http://twitter.com/ceramicnetwork" class="md-footer-social__link fa" target="_blank" rel="noopener">
+        <img src="../../../images/icon-twitter-white.svg" style="margin-left:10px" width="20px">
+      </a>
+      <a href="http://www.youtube.com/channel/UCgCLq5dx7sX-yUrrEbtYqVw" class="md-footer-social__link fa" target="_blank" rel="noopener">
+        <img src="../../../images/icon-youtube-white.svg" style="margin-left:10px" width="22px">
+      </a>
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+  
+    
+  
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for, in accordance to our <a href="/pages/3boxlabs-terms-conditions/">Terms and Conditions</a> and <a href="/pages/3boxlabs-privacy-policy/">Privacy Policy</a>. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.indexes", "content.code.annotate", "content.tabs.link", "navigation.path", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.6c7302c4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.734a6fd4.min.js"></script>
+      
+        <script src="../../../assets/external/cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+      
+    
+  </body>
+</html>

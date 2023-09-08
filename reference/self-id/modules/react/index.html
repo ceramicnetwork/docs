@@ -1,0 +1,5503 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PFSSCZB');</script>
+  <!-- End Google Tag Manager -->
+
+    
+      
+        <title>React module - Ceramic Developers</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.dc5b59cc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.6932e648.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-426ZZLPJPW"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-426ZZLPJPW",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-426ZZLPJPW",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  
+  
+    
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="React module | Ceramic Developers" />
+  <meta property="og:description" content="Specs, docs, guides, and APIs for the Ceramic Network." />
+  <meta property="og:url" content="https://developers.ceramic.network/reference/self-id/modules/react/" />
+  <meta property="og:image" content="https://developers.ceramic.network/images/image-ceramic-opengraph.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ceramicnetwork" />
+  <meta name="twitter:creator" content="@ceramicnetwork" />
+  <meta name="twitter:title" content="React module | Ceramic Developers" />
+  <meta name="twitter:description" content="Specs, docs, guides, and APIs for the Ceramic Network." />
+  <meta name="twitter:image" content="https://developers.ceramic.network/images/image-ceramic-opengraph.png" />
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-react" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  <strong>ComposeDB</strong> is a graph database for Web3 apps powered by Ceramic.
+  <a href="https://composedb.js.org" target="_blank" rel="noopener"> 
+    <strong>Get started →</strong>
+  </a>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFSSCZB"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Ceramic Developers" class="md-header__button md-logo" aria-label="Ceramic Developers" data-md-component="logo">
+      
+  <img src="../../../../images/ceramic-no-shadow.png" alt="logo" />
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ceramic Developers
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              React module
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ceramicnetwork/js-ceramic" title="Go to repository" class="md-source" data-md-component="source" target="_blank" rel="noopener">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ceramicnetwork/js-ceramic
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../learn/welcome/" class="md-tabs__link">
+          
+  
+    
+  
+  Docs
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../guides/" class="md-tabs__link">
+          
+  
+    
+  
+  Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../legacy/" class="md-tabs__link md-tabs__link--active">
+          
+  
+    
+  
+  Legacy Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://forum.ceramic.network" class="md-tabs__link" target="_blank" rel="noopener">
+        
+  
+    
+  
+  Forum
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Ceramic Developers" class="md-nav__button md-logo" aria-label="Ceramic Developers" data-md-component="logo">
+      
+  <img src="../../../../images/ceramic-no-shadow.png" alt="logo" />
+
+    </a>
+    Ceramic Developers
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ceramicnetwork/js-ceramic" title="Go to repository" class="md-source" data-md-component="source" target="_blank" rel="noopener">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ceramicnetwork/js-ceramic
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Docs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Docs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
+        
+          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../learn/welcome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to Ceramic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../learn/features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Ceramic?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build/cli/quick-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../learn/roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceramic Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/introduction/next-steps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Next Steps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocol
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Protocol
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../protocol/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../protocol/streams/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Streams
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_1_2_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Streams
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../protocol/streams/event-log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Event Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../protocol/streams/uri-scheme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    URI Scheme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../protocol/streams/consensus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Consensus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../protocol/streams/lifecycle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../protocol/accounts/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Accounts
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_1_2_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Accounts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../protocol/accounts/decentralized-identifiers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Decentralized IDs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../protocol/accounts/authorizations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorizations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../protocol/accounts/object-capabilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Capabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../protocol/networking/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_1_2_4">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../protocol/networking/networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../protocol/networking/tip-gossip/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Tip Gossip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../protocol/networking/tip-queries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Tip Queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../protocol/networking/event-fetching/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Event Fetching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../protocol/api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceramic API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../protocol/nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceramic Nodes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/ecosystem/community/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Community
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://threebox.notion.site/Ceramic-Ecosystem-a3a7a58f81544d33ad3feb84368775d4" class="md-nav__link" target="_blank" rel="noopener">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Built on Ceramic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../guides/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceramic Nodes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ceramic Nodes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build/cli/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Running Locally
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../run/nodes/nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Running in the Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceramic Clients
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ceramic Clients
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript Client
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    JavaScript Client
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core-clients/ceramic-http/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build/javascript/queries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build/javascript/pinning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Pinning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../build/javascript/quick-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Additional Guides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Authentication
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../core-clients/did-jsonrpc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../accounts/key-did/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Key DID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../accounts/3id-did/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    3ID DID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../accounts/did-session/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    DID Session
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
+        
+          <label class="md-nav__link" for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Stream APIs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stream APIs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stream-programs/tile-document/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Tile Documents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stream-programs/caip10-link/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Using CAIP-10 Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../legacy/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy Tools
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legacy Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Self.ID SDK
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_3_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Self.ID SDK
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tools/self-id/framework/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    React
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    JavaScript
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tools/self-id/write/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Read/Write
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tools/self-id/read/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Read-Only
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tools/self-id/configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Configurations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tools/self-id/utilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tools/self-id/sample-applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Samples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7" checked>
+        
+          <label class="md-nav__link" for="__nav_3_2_7" id="__nav_3_2_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../framework/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7_2" checked>
+        
+          <label class="md-nav__link" for="__nav_3_2_7_2" id="__nav_3_2_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    React
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_7_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    React
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    
+  
+    React module
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    React module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common use-cases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common use-cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure the Provider
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authenticate-the-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authenticate the user
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auth-session-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auth Session Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-a-viewer-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read a viewer record
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-a-public-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read a public record
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upgrading-from-03x-to-04x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrading from 0.3.x to 0.4.x
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-side-prefetching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Server-side prefetching
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type aliases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type aliases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#providerprops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ProviderProps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publicrecord" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PublicRecord
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requestclientparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RequestClientParams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requeststate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RequestState
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewerconnectedcontainerprops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ViewerConnectedContainerProps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewerconnectionstate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ViewerConnectionState
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewerid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ViewerID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewerrecord" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ViewerRecord
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provider
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewerconnectedcontainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ViewerConnectedContainer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcookieviewerid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getCookieViewerID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        useClient
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usepublicrecord" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        usePublicRecord
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useviewerconnection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        useViewerConnection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useviewerid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        useViewerID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useviewerrecord" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        useViewerRecord
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../classes/react.ReactClient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    ReactClient class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../classes/react.RequestClient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    RequestClient class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7_3" >
+        
+          <label class="md-nav__link" for="__nav_3_2_7_3" id="__nav_3_2_7_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Web
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Web
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../web/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Web module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../classes/web.WebClient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    WebClient class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../classes/web.SelfID/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SelfID class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7_4" >
+        
+          <label class="md-nav__link" for="__nav_3_2_7_4" id="__nav_3_2_7_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Core
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../core/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Core module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../classes/core.Core/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Core class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../classes/core.PublicID/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    PublicID class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../image_utils/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../glaze/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Glaze Suite
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_3_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Glaze Suite
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tools/glaze/did-datastore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    IDX Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
+        
+          <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../docs/advanced/standards/data-models/data-model-universe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tools/glaze/development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploying from JS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tools/glaze/deploy-from-cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploying from CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tools/glaze/datamodel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Aliasing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tools/glaze/tile-loader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Caching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5" >
+        
+          <label class="md-nav__link" for="__nav_3_3_5" id="__nav_3_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5_1" >
+        
+          <label class="md-nav__link" for="__nav_3_3_5_1" id="__nav_3_3_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    DID DataStore
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DID DataStore
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glaze/modules/did_datastore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    DID DataStore module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glaze/classes/did_datastore.DIDDataStore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    DIDDataStore class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5_2" >
+        
+          <label class="md-nav__link" for="__nav_3_3_5_2" id="__nav_3_3_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    DataModel
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DataModel
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glaze/modules/datamodel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    DataModel module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glaze/classes/datamodel.DataModel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    DataModel class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5_3" >
+        
+          <label class="md-nav__link" for="__nav_3_3_5_3" id="__nav_3_3_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    DevTools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DevTools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glaze/modules/devtools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    DevTools module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glaze/classes/devtools.ModelManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    ModelManager class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5_4" >
+        
+          <label class="md-nav__link" for="__nav_3_3_5_4" id="__nav_3_3_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    TileLoader
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TileLoader
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glaze/modules/tile_loader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Tile loader module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glaze/classes/tile_loader.TileLoader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    TileLoader class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../glaze/modules/types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://forum.ceramic.network" class="md-nav__link" target="_blank" rel="noopener">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Forum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-use-cases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common use-cases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common use-cases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure the Provider
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authenticate-the-user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authenticate the user
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#auth-session-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auth Session Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-a-viewer-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read a viewer record
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-a-public-record" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read a public record
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upgrading-from-03x-to-04x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upgrading from 0.3.x to 0.4.x
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-side-prefetching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Server-side prefetching
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#classes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type aliases
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Type aliases">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#providerprops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ProviderProps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publicrecord" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PublicRecord
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requestclientparams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RequestClientParams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requeststate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RequestState
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewerconnectedcontainerprops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ViewerConnectedContainerProps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewerconnectionstate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ViewerConnectionState
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewerid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ViewerID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewerrecord" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ViewerRecord
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Provider
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewerconnectedcontainer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ViewerConnectedContainer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcookieviewerid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        getCookieViewerID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        useClient
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usepublicrecord" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        usePublicRecord
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useviewerconnection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        useViewerConnection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useviewerid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        useViewerID
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#useviewerrecord" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        useViewerRecord
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../../../legacy/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Legacy Tools
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Self.ID SDK
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../framework/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Reference
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+    
+    
+      <li class="md-path__item">
+        <a href="./" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    React
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="module-react">Module: react<a class="headerlink" href="#module-react" title="Permanent link">&para;</a></h1>
+<p>React hooks and utilities for authentication and records interactions.</p>
+<h2 id="purpose">Purpose<a class="headerlink" href="#purpose" title="Permanent link">&para;</a></h2>
+<p>The <code>react</code> module provides React components, hooks and related utility functions to help manage
+authentication and interactions with records, similar to the <a href="../web/"><code>web</code></a> module but designed
+specifically to be used with React.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>@self.id/react
+</code></pre></div>
+<h2 id="common-use-cases">Common use-cases<a class="headerlink" href="#common-use-cases" title="Permanent link">&para;</a></h2>
+<h3 id="configure-the-provider">Configure the Provider<a class="headerlink" href="#configure-the-provider" title="Permanent link">&para;</a></h3>
+<p>The <a href="./#provider"><code>Provider</code></a> component must be added at the root of the
+application tree in order to use the hooks described below. It can be used to provide a custom
+configuration for the Self.ID clients and queries, as well as initial state.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Provider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@self.id/react&#39;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">({</span><span class="w"> </span><span class="nx">children</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Provider</span><span class="w"> </span><span class="nx">client</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="nx">ceramic</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;testnet-clay&#39;</span><span class="w"> </span><span class="p">}}</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">children</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/Provider&gt;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="authenticate-the-user">Authenticate the user<a class="headerlink" href="#authenticate-the-user" title="Permanent link">&para;</a></h3>
+<p>The module provides a React hook to easily initiate an authentication flow for the Viewer
+(the "current user" of the app) using an <code>EthereumAuthProvider</code> instance, notably exported by
+the <a href="../web/"><code>web</code></a> module. Once authenticated, the Viewer's cookie is set to the authenticated
+DID and writing records associated to the Viewer becomes possible.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useViewerConnection</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@self.id/react&#39;</span>
+<span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">EthereumAuthProvider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@self.id/web&#39;</span>
+
+<span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">createAuthProvider</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="c1">// The following assumes there is an injected `window.ethereum` provider</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">addresses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">ethereum</span><span class="p">.</span><span class="nx">request</span><span class="p">({</span><span class="w"> </span><span class="nx">method</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;eth_requestAccounts&#39;</span><span class="w"> </span><span class="p">})</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">EthereumAuthProvider</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">ethereum</span><span class="p">,</span><span class="w"> </span><span class="nx">addresses</span><span class="p">[</span><span class="mf">0</span><span class="p">])</span>
+<span class="p">}</span>
+
+<span class="c1">// A simple button to initiate the connection flow. A Provider must be present at a higher level</span>
+<span class="c1">// in the component tree for the `useViewerConnection()` hook to work.</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">ConnectButton</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">connection</span><span class="p">,</span><span class="w"> </span><span class="nx">connect</span><span class="p">,</span><span class="w"> </span><span class="nx">disconnect</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useViewerConnection</span><span class="p">()</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">connection</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;connected&#39;</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span>
+<span class="w">      </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">disconnect</span><span class="p">()</span>
+<span class="w">      </span><span class="p">}}</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="nx">Disconnect</span><span class="w"> </span><span class="p">({</span><span class="nx">connection</span><span class="p">.</span><span class="nx">selfID</span><span class="p">.</span><span class="nx">id</span><span class="p">})</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;ethereum&#39;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nb">window</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">button</span>
+<span class="w">      </span><span class="nx">disabled</span><span class="o">=</span><span class="p">{</span><span class="nx">connection</span><span class="p">.</span><span class="nx">status</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;connecting&#39;</span><span class="p">}</span>
+<span class="w">      </span><span class="nx">onClick</span><span class="o">=</span><span class="p">{()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">createAuthProvider</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="nx">connect</span><span class="p">)</span>
+<span class="w">      </span><span class="p">}}</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="nx">Connect</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">/button&gt;</span>
+<span class="w">  </span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="nx">An</span><span class="w"> </span><span class="nx">injected</span><span class="w"> </span><span class="nx">Ethereum</span><span class="w"> </span><span class="nx">provider</span><span class="w"> </span><span class="nx">such</span><span class="w"> </span><span class="kr">as</span><span class="p">{</span><span class="s1">&#39; &#39;</span><span class="p">}</span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">a</span><span class="w"> </span><span class="nx">href</span><span class="o">=</span><span class="s2">&quot;https://metamask.io/&quot;</span><span class="o">&gt;</span><span class="nx">MetaMask</span><span class="o">&lt;</span><span class="err">/a&gt; is needed to authenticate.</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="auth-session-management"><strong>Auth Session Management</strong><a class="headerlink" href="#auth-session-management" title="Permanent link">&para;</a></h3>
+<p>Reference <a href="../../../accounts/did-session/">did-session</a> for more examples of managing the session for a user. Following code expands on example above. </p>
+<div class="highlight"><pre><span></span><code><span class="c1">// ...</span>
+<span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">connection</span><span class="p">,</span><span class="w"> </span><span class="nx">connect</span><span class="p">,</span><span class="w"> </span><span class="nx">disconnect</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useViewerConnection</span><span class="p">()</span>
+<span class="c1">// ...</span>
+<span class="c1">// get session string you serialized and stored before, check if still valid (or how much longer)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">sessionStr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">selfid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">connect</span><span class="p">(</span><span class="ow">new</span><span class="w"> </span><span class="nx">EthereumAuthProvider</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">ethereum</span><span class="p">,</span><span class="w"> </span><span class="nx">accounts</span><span class="p">[</span><span class="mf">0</span><span class="p">]),</span><span class="w"> </span><span class="nx">sessionStr</span><span class="p">)</span>
+<span class="c1">// ...</span>
+<span class="c1">// get session to serialize and store </span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">session</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">selfid</span><span class="p">.</span><span class="nx">client</span><span class="p">.</span><span class="nx">session</span><span class="w"> </span><span class="c1">//or connection.selfID.client.session</span>
+<span class="nx">session</span><span class="p">.</span><span class="nx">serialize</span><span class="p">()</span>
+<span class="c1">// ...</span>
+</code></pre></div>
+<h3 id="read-a-viewer-record">Read a viewer record<a class="headerlink" href="#read-a-viewer-record" title="Permanent link">&para;</a></h3>
+<p>The <a href="./#useviewerrecord"><code>useViewerRecord</code></a> hook loads the record for a given
+definition in the index of the current viewer, with the following variants:</p>
+<ul>
+<li>If no viewer is set, no record can be loaded</li>
+<li>If the viewer is not authenticated, the record gets loaded but cannot be mutated</li>
+<li>If the viewer is authenticated, the record gets loaded and be mutated</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">useViewerRecord</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@self.id/react&#39;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">ShowViewerName</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">record</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">useViewerRecord</span><span class="p">(</span><span class="s1">&#39;basicProfile&#39;</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">record</span><span class="p">.</span><span class="nx">isLoading</span>
+<span class="w">    </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;Loading...&#39;</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="nx">record</span><span class="p">.</span><span class="nx">content</span>
+<span class="w">    </span><span class="o">?</span><span class="w"> </span><span class="sb">`Hello </span><span class="si">${</span><span class="nx">record</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;stranger&#39;</span><span class="si">}</span><span class="sb">`</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;No profile to load&#39;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">text</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="read-a-public-record">Read a public record<a class="headerlink" href="#read-a-public-record" title="Permanent link">&para;</a></h3>
+<p>The <a href="./#usepublicrecord"><code>usePublicRecord</code></a> hook is similar to the
+<code>useViewerRecord</code> hook described above, but reading from the index of an explicitly provided
+account rather than the viewer. Public records are read-only, <code>useViewerRecord</code> must be used in
+ case mutations are needed.</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">usePublicRecord</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@self.id/react&#39;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">ShowProfileName</span><span class="p">({</span><span class="w"> </span><span class="nx">did</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">record</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">usePublicRecord</span><span class="p">(</span><span class="s1">&#39;basicProfile&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">did</span><span class="p">)</span>
+
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">record</span><span class="p">.</span><span class="nx">isLoading</span>
+<span class="w">    </span><span class="o">?</span><span class="w"> </span><span class="s1">&#39;Loading...&#39;</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="nx">record</span><span class="p">.</span><span class="nx">content</span>
+<span class="w">    </span><span class="o">?</span><span class="w"> </span><span class="sb">`Hello </span><span class="si">${</span><span class="nx">record</span><span class="p">.</span><span class="nx">content</span><span class="p">.</span><span class="nx">name</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="s1">&#39;stranger&#39;</span><span class="si">}</span><span class="sb">`</span>
+<span class="w">    </span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;No profile to load&#39;</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">text</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/p&gt;</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="upgrading-from-03x-to-04x"><strong>Upgrading from 0.3.x to 0.4.x</strong><a class="headerlink" href="#upgrading-from-03x-to-04x" title="Permanent link">&para;</a></h3>
+<p>Version <code>0.4.x</code> switched the default authentication method and libray from <a href="../../../accounts/3id-did/">3id-connect</a> with <a href="../../../../docs/advanced/standards/accounts/3id-did/">3ID DIDs</a> to <a href="../../../accounts/did-session/">did-session</a> with <a href="../../../../docs/advanced/standards/accounts/pkh-did/">PKH DIDs</a>. If you wish to upgrade and still use 3id-connect you can pass a flag and configure your provider as follows. There are no other changes in <code>v0.4.x</code>, making upgrading not required at the moment if you dont wish too change auth methods, but PKH DIDs will be the recommended account going forward. </p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Provider</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@self.id/framework&#39;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">App</span><span class="p">({</span><span class="w"> </span><span class="nx">children</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="o">&lt;</span><span class="nx">Provider</span><span class="w"> </span><span class="nx">client</span><span class="o">=</span><span class="p">{{</span><span class="w"> </span><span class="nx">ceramic</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;testnet-clay&#39;</span><span class="w"> </span><span class="p">}}</span><span class="w"> </span><span class="nx">threeidConnect</span><span class="o">=</span><span class="p">{</span><span class="kc">true</span><span class="p">}</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">children</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/Provider&gt;</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="admonition warning">
+<p>**Switching authentication methods with out consideration will change DIDs for users and result in any prior data not being resolved. **</p>
+</div>
+<h3 id="server-side-prefetching">Server-side prefetching<a class="headerlink" href="#server-side-prefetching" title="Permanent link">&para;</a></h3>
+<p>Server-side rendering can be used to improve the user experience for the first load of an app or
+page. The module exports a <a href="../../classes/react.RequestClient/"><code>RequestClient</code></a> class that can be used
+to fetch wanted records on the server in order to have them immediately available by the
+<code>usePublicRecord</code> and <code>useViewerRecord</code> hooks.</p>
+<p>The following example shows how this can be used in a <a href="https://nextjs.org/" target="_blank" rel="noopener">Next.js</a> page, using
+the <code>ShowViewerName</code> component created in the previous example:</p>
+<div class="highlight"><pre><span></span><code><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Provider</span><span class="p">,</span><span class="w"> </span><span class="nx">RequestClient</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">&#39;@self.id/react&#39;</span>
+
+<span class="k">export</span><span class="w"> </span><span class="kd">const</span><span class="w"> </span><span class="nx">getServerSideProps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="kd">const</span><span class="w"> </span><span class="nx">client</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">RequestClient</span><span class="p">({</span>
+<span class="w">    </span><span class="nx">ceramic</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;testnet-clay&#39;</span><span class="p">,</span>
+<span class="w">    </span><span class="c1">// Inject the cookie from the request headers to parse the viewerID</span>
+<span class="w">    </span><span class="nx">cookie</span><span class="o">:</span><span class="w"> </span><span class="kt">ctx.req.headers.cookie</span><span class="p">,</span>
+<span class="w">  </span><span class="p">})</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">client</span><span class="p">.</span><span class="nx">viewerID</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// If the viewerID is set, fetch its profile</span>
+<span class="w">    </span><span class="k">await</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">prefetch</span><span class="p">(</span><span class="s1">&#39;basicProfile&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">client</span><span class="p">.</span><span class="nx">viewerID</span><span class="p">)</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">props</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">state</span><span class="o">:</span><span class="w"> </span><span class="kt">client.getState</span><span class="p">()</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Use the state prop injected by the server</span>
+<span class="k">export</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">Home</span><span class="p">({</span><span class="w"> </span><span class="nx">state</span><span class="w"> </span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="nx">Provider</span><span class="w"> </span><span class="nx">state</span><span class="o">=</span><span class="p">{</span><span class="nx">state</span><span class="p">}</span><span class="o">&gt;</span>
+<span class="w">      </span><span class="o">&lt;</span><span class="nx">ShowViewerName</span><span class="w"> </span><span class="o">/&gt;</span>
+<span class="w">    </span><span class="o">&lt;</span><span class="err">/Provider&gt;</span>
+<span class="w">  </span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../classes/react.ReactClient/">ReactClient</a></li>
+<li><a href="../../classes/react.RequestClient/">RequestClient</a></li>
+</ul>
+<h2 id="type-aliases">Type aliases<a class="headerlink" href="#type-aliases" title="Permanent link">&para;</a></h2>
+<h3 id="providerprops">ProviderProps<a class="headerlink" href="#providerprops" title="Permanent link">&para;</a></h3>
+<p>Ƭ <strong>ProviderProps</strong>&lt;<code>ModelTypes</code>&gt;: <code>Object</code></p>
+<h4 id="type-parameters">Type parameters<a class="headerlink" href="#type-parameters" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ModelTypes</code></td>
+<td style="text-align: left;">extends <code>ModelTypeAliases</code> = <code>CoreModelTypes</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="type-declaration">Type declaration<a class="headerlink" href="#type-declaration" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>children</code></td>
+<td style="text-align: left;"><code>ReactNode</code></td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>client?</code></td>
+<td style="text-align: left;"><a href="../../classes/react.ReactClient/"><code>ReactClient</code></a>&lt;<code>ModelTypes</code>&gt; | <code>WebClientParams</code>&lt;<code>ModelTypes</code>&gt;</td>
+<td style="text-align: left;">An instance of <a href="../../classes/react.ReactClient/"><code>ReactClient</code></a> or <a href="../web/#webclientparams"><code>client configuration parameters</code></a>.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>queryOptions?</code></td>
+<td style="text-align: left;"><code>QueryObserverOptions</code></td>
+<td style="text-align: left;">Custom options for the internal <a href="https://react-query.tanstack.com/" target="_blank" rel="noopener">react-query</a> configuration.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>state?</code></td>
+<td style="text-align: left;"><a href="./#requeststate"><code>RequestState</code></a></td>
+<td style="text-align: left;"><a href="./#requeststate"><code>RequestState</code></a> emitted by a <a href="../../classes/react.RequestClient/"><code>RequestClient</code></a> instance.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="publicrecord">PublicRecord<a class="headerlink" href="#publicrecord" title="Permanent link">&para;</a></h3>
+<p>Ƭ <strong>PublicRecord</strong>&lt;<code>ContentType</code>&gt;: <code>Object</code></p>
+<p>A PublicRecord provides an interface for interacting with record stored on Ceramic, associated
+to a given DID string.</p>
+<h4 id="type-parameters_1">Type parameters<a class="headerlink" href="#type-parameters_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ContentType</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="type-declaration_1">Type declaration<a class="headerlink" href="#type-declaration_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>content?</code></td>
+<td style="text-align: left;"><code>ContentType</code></td>
+<td style="text-align: left;">Record contents, if loaded.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>error?</code></td>
+<td style="text-align: left;"><code>unknown</code></td>
+<td style="text-align: left;">Possible error raised when attempting to load the record.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>isError</code></td>
+<td style="text-align: left;"><code>boolean</code></td>
+<td style="text-align: left;"><code>true</code> when the record failed to load, <code>false</code> otherwise.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>isLoading</code></td>
+<td style="text-align: left;"><code>boolean</code></td>
+<td style="text-align: left;"><code>true</code> when the record is being loaded, <code>false</code> otherwise.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="requestclientparams">RequestClientParams<a class="headerlink" href="#requestclientparams" title="Permanent link">&para;</a></h3>
+<p>Ƭ <strong>RequestClientParams</strong>&lt;<code>ModelTypes</code>&gt;: <code>CoreParams</code>&lt;<code>ModelTypes</code>&gt; &amp; { <code>cookie?</code>: <code>string</code>  }</p>
+<h4 id="type-parameters_2">Type parameters<a class="headerlink" href="#type-parameters_2" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ModelTypes</code></td>
+<td style="text-align: left;">extends <code>ModelTypeAliases</code> = <code>CoreModelTypes</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="requeststate">RequestState<a class="headerlink" href="#requeststate" title="Permanent link">&para;</a></h3>
+<p>Ƭ <strong>RequestState</strong>: <code>Object</code></p>
+<h4 id="type-declaration_2">Type declaration<a class="headerlink" href="#type-declaration_2" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>hydrate?</code></td>
+<td style="text-align: left;"><code>DehydratedState</code></td>
+<td style="text-align: left;">Serialized records to hydrate.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>viewerID?</code></td>
+<td style="text-align: left;"><code>string</code> | <code>null</code></td>
+<td style="text-align: left;">Viewer ID extracted from cookie value.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="viewerconnectedcontainerprops">ViewerConnectedContainerProps<a class="headerlink" href="#viewerconnectedcontainerprops" title="Permanent link">&para;</a></h3>
+<p>Ƭ <strong>ViewerConnectedContainerProps</strong>: <code>Object</code></p>
+<h4 id="type-declaration_3">Type declaration<a class="headerlink" href="#type-declaration_3" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>children</code></td>
+<td style="text-align: left;"><code>ReactNode</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>renderFallback?</code></td>
+<td style="text-align: left;">(<code>connectionState</code>: <a href="./#viewerconnectionstate"><code>ViewerConnectionState</code></a>&lt;<code>ModelTypes</code>&gt;) =&gt; <code>null</code> | <code>Element</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="viewerconnectionstate">ViewerConnectionState<a class="headerlink" href="#viewerconnectionstate" title="Permanent link">&para;</a></h3>
+<p>Ƭ <strong>ViewerConnectionState</strong>&lt;<code>ModelTypes</code>&gt;: { <code>status</code>: <code>"idle"</code>  } | { <code>promise</code>: <code>Abortable</code>&lt;<code>SelfID</code>&lt;<code>ModelTypes</code>&gt; | <code>null</code>&gt; ; <code>provider</code>: <code>EthereumAuthProvider</code> ; <code>status</code>: <code>"connecting"</code>  } | { <code>selfID</code>: <code>SelfID</code>&lt;<code>ModelTypes</code>&gt; ; <code>status</code>: <code>"connected"</code>  } | { <code>error</code>: <code>Error</code> ; <code>status</code>: <code>"failed"</code>  }</p>
+<p>The viewer connection can be in one of the following states, identified by <code>status</code>:</p>
+<ul>
+<li><code>idle</code>: no connection has been attempted.</li>
+<li><code>connecting</code>: attempting to connect using the attached <code>provider</code>. The attached <code>promise</code> can
+be used to track the connection attempt.</li>
+<li><code>connected</code>: successfully connected with the attached <a href="../../classes/web.SelfID/"><code>selfID</code></a>.</li>
+<li><code>failed</code>: connection attempted failed with the attached <code>error</code>.</li>
+</ul>
+<h4 id="type-parameters_3">Type parameters<a class="headerlink" href="#type-parameters_3" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ModelTypes</code></td>
+<td style="text-align: left;">extends <code>ModelTypeAliases</code> = <code>CoreModelTypes</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="viewerid">ViewerID<a class="headerlink" href="#viewerid" title="Permanent link">&para;</a></h3>
+<p>Ƭ <strong>ViewerID</strong>&lt;<code>ModelTypes</code>&gt;: <code>PublicID</code>&lt;<code>ModelTypes</code>&gt; | <code>SelfID</code>&lt;<code>ModelTypes</code>&gt;</p>
+<p>A ViewerID can be either a <a href="../../classes/web.SelfID/"><code>SelfID</code></a> or <a href="../../classes/core.PublicID/"><code>PublicID</code></a>
+instance depending on the current <a href="./#viewerconnectionstate"><code>ViewerConnectionState</code></a>.</p>
+<h4 id="type-parameters_4">Type parameters<a class="headerlink" href="#type-parameters_4" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ModelTypes</code></td>
+<td style="text-align: left;">extends <code>ModelTypeAliases</code></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="viewerrecord">ViewerRecord<a class="headerlink" href="#viewerrecord" title="Permanent link">&para;</a></h3>
+<p>Ƭ <strong>ViewerRecord</strong>&lt;<code>ContentType</code>&gt;: { <code>content?</code>: <code>never</code> ; <code>error?</code>: <code>never</code> ; <code>isError</code>: <code>false</code> ; <code>isLoadable</code>: <code>false</code> ; <code>isLoading</code>: <code>false</code> ; <code>isMutable</code>: <code>false</code> ; <code>isMutating</code>: <code>false</code> ; <code>merge?</code>: <code>never</code> ; <code>set?</code>: <code>never</code>  } | { <code>content?</code>: <code>ContentType</code> ; <code>error?</code>: <code>unknown</code> ; <code>isError</code>: <code>boolean</code> ; <code>isLoadable</code>: <code>true</code> ; <code>isLoading</code>: <code>boolean</code> ; <code>isMutable</code>: <code>boolean</code> ; <code>isMutating</code>: <code>boolean</code> ; <code>merge</code>: (<code>content</code>: <code>ContentType</code>) =&gt; <code>Promise</code>&lt;<code>void</code>&gt; ; <code>set</code>: (<code>content</code>: <code>ContentType</code>) =&gt; <code>Promise</code>&lt;<code>void</code>&gt;  }</p>
+<p>A ViewerRecord provides an interface for interacting with record stored on Ceramic, depending on
+the current <a href="./#viewerid-1"><code>ViewerID</code></a> value:</p>
+<ul>
+<li>If <code>null</code>, no interaction is possible with the record.</li>
+<li>If it is an instance of <a href="../../classes/core.PublicID/"><code>PublicID</code></a>, only reads are possible.</li>
+<li>If it is an instance of <a href="../../classes/web.SelfID/"><code>SelfID</code></a>, all interactions (reads and mutations)
+are possible.</li>
+</ul>
+<p>The ViewerRecord object contains the following properties:</p>
+<ul>
+<li><code>isLoadable</code>: <code>false</code> if the viewer ID is <code>null</code>, <code>true</code> otherwise.</li>
+<li><code>isLoading</code>: <code>true</code> when the record is being loaded, <code>false</code> otherwise.</li>
+<li><code>content</code>: the record contents, if loaded.</li>
+<li><code>isError</code>: <code>true</code> when the record failed to load, <code>false</code> otherwise.</li>
+<li><code>error</code>: possible error raised when attempting to load the record.</li>
+<li><code>isMutable</code>: <code>true</code> if the viewer ID is an instance of <a href="../../classes/web.SelfID/"><code>SelfID</code></a>,
+<code>false</code> otherwise.</li>
+<li><code>isMutating</code>: <code>true</code> when the record is being mutated as the result of calling the
+ViewerRecord object <code>merge</code> or <code>set</code> function, <code>false</code> otherwise.</li>
+<li><code>set</code>: function used to replace the record contents using the <a href="../../classes/web.SelfID/#set"><code>set</code></a>
+method, only available if <code>isMutating</code> is <code>true</code>.</li>
+<li><code>merge</code>: function used to merge the record contents using the
+<a href="../../classes/web.SelfID/#merge"><code>merge</code></a> method, only available if <code>isMutating</code> is <code>true</code>.</li>
+</ul>
+<h4 id="type-parameters_5">Type parameters<a class="headerlink" href="#type-parameters_5" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ContentType</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">&para;</a></h2>
+<h3 id="provider">Provider<a class="headerlink" href="#provider" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>Provider</strong>&lt;<code>ModelTypes</code>&gt;(<code>props</code>): <code>JSX.Element</code></p>
+<p>Top-level provider component for using Self.ID's React APIs.</p>
+<h4 id="type-parameters_6">Type parameters<a class="headerlink" href="#type-parameters_6" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ModelTypes</code></td>
+<td style="text-align: left;">extends <code>ModelTypeAliases</code>&lt;<code>Record</code>&lt;<code>string</code>, <code>any</code>&gt;, <code>Record</code>&lt;<code>string</code>, <code>string</code>&gt;, <code>Record</code>&lt;<code>string</code>, <code>string</code>&gt;&gt; = <code>ModelTypes</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>props</code></td>
+<td style="text-align: left;"><a href="./#providerprops"><code>ProviderProps</code></a>&lt;<code>ModelTypes</code>&gt;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns">Returns<a class="headerlink" href="#returns" title="Permanent link">&para;</a></h4>
+<p><code>JSX.Element</code></p>
+<hr />
+<h3 id="viewerconnectedcontainer">ViewerConnectedContainer<a class="headerlink" href="#viewerconnectedcontainer" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>ViewerConnectedContainer</strong>(<code>props</code>): <code>JSX.Element</code> | <code>null</code></p>
+<p>Container component for only rendering <code>children</code> when the viewer is connected.</p>
+<p>A <code>renderFallback</code> function can be provided to render elements when the viewer is not connected.
+The current <a href="./#viewerconnectionstate"><code>ViewerConnectionState</code></a> is injected as function argument.</p>
+<h4 id="parameters_1">Parameters<a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>props</code></td>
+<td style="text-align: left;"><a href="./#viewerconnectedcontainerprops"><code>ViewerConnectedContainerProps</code></a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_1">Returns<a class="headerlink" href="#returns_1" title="Permanent link">&para;</a></h4>
+<p><code>JSX.Element</code> | <code>null</code></p>
+<hr />
+<h3 id="getcookieviewerid">getCookieViewerID<a class="headerlink" href="#getcookieviewerid" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>getCookieViewerID</strong>(<code>cookie?</code>): <code>string</code> | <code>null</code></p>
+<p>Extract the possible viewer ID value from the given cookie string value.</p>
+<h4 id="parameters_2">Parameters<a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>cookie?</code></td>
+<td style="text-align: left;"><code>string</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_2">Returns<a class="headerlink" href="#returns_2" title="Permanent link">&para;</a></h4>
+<p><code>string</code> | <code>null</code></p>
+<hr />
+<h3 id="useclient">useClient<a class="headerlink" href="#useclient" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>useClient</strong>&lt;<code>ModelTypes</code>&gt;(): <a href="../../classes/react.ReactClient/"><code>ReactClient</code></a>&lt;<code>ModelTypes</code>&gt;</p>
+<h4 id="type-parameters_7">Type parameters<a class="headerlink" href="#type-parameters_7" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ModelTypes</code></td>
+<td style="text-align: left;">extends <code>ModelTypeAliases</code>&lt;<code>Record</code>&lt;<code>string</code>, <code>any</code>&gt;, <code>Record</code>&lt;<code>string</code>, <code>string</code>&gt;, <code>Record</code>&lt;<code>string</code>, <code>string</code>&gt;&gt; = <code>ModelTypes</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_3">Returns<a class="headerlink" href="#returns_3" title="Permanent link">&para;</a></h4>
+<p><a href="../../classes/react.ReactClient/"><code>ReactClient</code></a>&lt;<code>ModelTypes</code>&gt;</p>
+<hr />
+<h3 id="usepublicrecord">usePublicRecord<a class="headerlink" href="#usepublicrecord" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>usePublicRecord</strong>&lt;<code>ModelTypes</code>, <code>Alias</code>, <code>ContentType</code>&gt;(<code>alias</code>, <code>id</code>): <a href="./#publicrecord"><code>PublicRecord</code></a>&lt;<code>ContentType</code> | <code>null</code>&gt;</p>
+<p>Hook for accessing the <a href="./#publicrecord"><code>PublicRecord</code></a> for a given alias and account (DID or CAIP-10).</p>
+<h4 id="type-parameters_8">Type parameters<a class="headerlink" href="#type-parameters_8" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ModelTypes</code></td>
+<td style="text-align: left;">extends <code>ModelTypeAliases</code>&lt;<code>Record</code>&lt;<code>string</code>, <code>any</code>&gt;, <code>Record</code>&lt;<code>string</code>, <code>string</code>&gt;, <code>Record</code>&lt;<code>string</code>, <code>string</code>&gt;&gt; = <code>ModelTypes</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Alias</code></td>
+<td style="text-align: left;">extends <code>string</code> | <code>number</code> | <code>symbol</code> = keyof <code>ModelTypes</code>[<code>"definitions"</code>]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ContentType</code></td>
+<td style="text-align: left;"><code>DefinitionContentType</code>&lt;<code>ModelTypes</code>, <code>Alias</code>&gt;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="parameters_3">Parameters<a class="headerlink" href="#parameters_3" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>alias</code></td>
+<td style="text-align: left;"><code>Alias</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>id</code></td>
+<td style="text-align: left;"><code>string</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_4">Returns<a class="headerlink" href="#returns_4" title="Permanent link">&para;</a></h4>
+<p><a href="./#publicrecord"><code>PublicRecord</code></a>&lt;<code>ContentType</code> | <code>null</code>&gt;</p>
+<hr />
+<h3 id="useviewerconnection">useViewerConnection<a class="headerlink" href="#useviewerconnection" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>useViewerConnection</strong>&lt;<code>ModelTypes</code>&gt;(): [<a href="./#viewerconnectionstate"><code>ViewerConnectionState</code></a>&lt;<code>ModelTypes</code>&gt;, (<code>provider</code>: <code>EthereumAuthProvider</code>) =&gt; <code>Promise</code>&lt;<code>SelfID</code>&lt;<code>ModelTypes</code>&gt; | <code>null</code>&gt;, () =&gt; <code>void</code>]</p>
+<p>Hook for handling the viewer's connection lifecycle, returning the following elements:</p>
+<ol>
+<li>The current <a href="./#viewerconnectionstate"><code>ViewerConnectionState</code></a> object.</li>
+<li>A connection attempt function, taking an <code>EthereumAuthProvider</code> argument.</li>
+<li>A reset function, clearing the current <a href="./#viewerid-1"><code>ViewerID</code></a>.</li>
+</ol>
+<h4 id="type-parameters_9">Type parameters<a class="headerlink" href="#type-parameters_9" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ModelTypes</code></td>
+<td style="text-align: left;">extends <code>ModelTypeAliases</code>&lt;<code>Record</code>&lt;<code>string</code>, <code>any</code>&gt;, <code>Record</code>&lt;<code>string</code>, <code>string</code>&gt;, <code>Record</code>&lt;<code>string</code>, <code>string</code>&gt;&gt; = <code>ModelTypes</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_5">Returns<a class="headerlink" href="#returns_5" title="Permanent link">&para;</a></h4>
+<p>[<a href="./#viewerconnectionstate"><code>ViewerConnectionState</code></a>&lt;<code>ModelTypes</code>&gt;, (<code>provider</code>: <code>EthereumAuthProvider</code>) =&gt; <code>Promise</code>&lt;<code>SelfID</code>&lt;<code>ModelTypes</code>&gt; | <code>null</code>&gt;, () =&gt; <code>void</code>]</p>
+<hr />
+<h3 id="useviewerid">useViewerID<a class="headerlink" href="#useviewerid" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>useViewerID</strong>&lt;<code>ModelTypes</code>&gt;(): <a href="./#viewerid-1"><code>ViewerID</code></a>&lt;<code>ModelTypes</code>&gt; | <code>null</code></p>
+<h4 id="type-parameters_10">Type parameters<a class="headerlink" href="#type-parameters_10" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ModelTypes</code></td>
+<td style="text-align: left;">extends <code>ModelTypeAliases</code>&lt;<code>Record</code>&lt;<code>string</code>, <code>any</code>&gt;, <code>Record</code>&lt;<code>string</code>, <code>string</code>&gt;, <code>Record</code>&lt;<code>string</code>, <code>string</code>&gt;&gt; = <code>ModelTypes</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_6">Returns<a class="headerlink" href="#returns_6" title="Permanent link">&para;</a></h4>
+<p><a href="./#viewerid-1"><code>ViewerID</code></a>&lt;<code>ModelTypes</code>&gt; | <code>null</code></p>
+<hr />
+<h3 id="useviewerrecord">useViewerRecord<a class="headerlink" href="#useviewerrecord" title="Permanent link">&para;</a></h3>
+<p>▸ <strong>useViewerRecord</strong>&lt;<code>ModelTypes</code>, <code>Alias</code>, <code>ContentType</code>&gt;(<code>alias</code>): <a href="./#viewerrecord"><code>ViewerRecord</code></a>&lt;<code>ContentType</code> | <code>null</code>&gt;</p>
+<p>Hook for accessing the <a href="./#viewerrecord"><code>ViewerRecord</code></a> for a given alias.</p>
+<h4 id="type-parameters_11">Type parameters<a class="headerlink" href="#type-parameters_11" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>ModelTypes</code></td>
+<td style="text-align: left;">extends <code>ModelTypeAliases</code>&lt;<code>Record</code>&lt;<code>string</code>, <code>any</code>&gt;, <code>Record</code>&lt;<code>string</code>, <code>string</code>&gt;, <code>Record</code>&lt;<code>string</code>, <code>string</code>&gt;&gt; = <code>ModelTypes</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>Alias</code></td>
+<td style="text-align: left;">extends <code>string</code> | <code>number</code> | <code>symbol</code> = keyof <code>ModelTypes</code>[<code>"definitions"</code>]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>ContentType</code></td>
+<td style="text-align: left;"><code>DefinitionContentType</code>&lt;<code>ModelTypes</code>, <code>Alias</code>&gt;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="parameters_4">Parameters<a class="headerlink" href="#parameters_4" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>alias</code></td>
+<td style="text-align: left;"><code>Alias</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="returns_7">Returns<a class="headerlink" href="#returns_7" title="Permanent link">&para;</a></h4>
+<p><a href="./#viewerrecord"><code>ViewerRecord</code></a>&lt;<code>ContentType</code> | <code>null</code>&gt;</p>
+
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by using our  <a href="https://docs.google.com/forms/d/e/1FAIpQLScSf4k6CYDp8yN1tGW8IMtb_g_6p3OLcE60Avabe0zXkpBo8g/viewform?usp=pp_url&amp;entry.1288700168=/reference/self-id/modules/react/" target="_blank" rel="noopener"> feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  <div class="md-copyright__highlight">
+    Ceramic is open sourced under MIT and Apache 2
+    | <a href="/pages/3boxlabs-terms-conditions/">Terms and Conditions</a>
+    | <a href="/pages/3boxlabs-privacy-policy/">Privacy Policy</a>
+  </div>  
+</div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/ceramicnetwork/ceramic" target="_blank" class="md-footer-social__link fa fa-" rel="noopener"></a>
+    
+      <a href="https://twitter.com/ceramicnetwork" target="_blank" class="md-footer-social__link fa fa-" rel="noopener"></a>
+    
+      <a href="http://github.com/ceramicnetwork/ceramic" class="md-footer-social__link fa" target="_blank" rel="noopener">
+        <img src="../../../../images/icon-github-white.svg" style="margin-left:10px" width="20px">
+      </a>
+      <a href="http://chat.ceramic.network" class="md-footer-social__link fa" target="_blank" rel="noopener">
+        <img src="../../../../images/icon-discord-white.svg" style="margin-left:10px" width="17px">
+      </a>
+      <a href="http://twitter.com/ceramicnetwork" class="md-footer-social__link fa" target="_blank" rel="noopener">
+        <img src="../../../../images/icon-twitter-white.svg" style="margin-left:10px" width="20px">
+      </a>
+      <a href="http://www.youtube.com/channel/UCgCLq5dx7sX-yUrrEbtYqVw" class="md-footer-social__link fa" target="_blank" rel="noopener">
+        <img src="../../../../images/icon-youtube-white.svg" style="margin-left:10px" width="22px">
+      </a>
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+  
+    
+  
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for, in accordance to our <a href="/pages/3boxlabs-terms-conditions/">Terms and Conditions</a> and <a href="/pages/3boxlabs-privacy-policy/">Privacy Policy</a>. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.indexes", "content.code.annotate", "content.tabs.link", "navigation.path", "navigation.sections"], "search": "../../../../assets/javascripts/workers/search.6c7302c4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.734a6fd4.min.js"></script>
+      
+        <script src="../../../../assets/external/cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,12 @@
+:root, [data-md-color-scheme="default"] {
+  --md-primary-fg-color: #f87236;
+  --md-accent-fg-color: #ff4f00;
+}
+
+article.md-content__inner {
+  padding-bottom: 90px;
+}
+
+h1 {
+  color: #111;
+}

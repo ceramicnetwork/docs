@@ -1,0 +1,4988 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PFSSCZB');</script>
+  <!-- End Google Tag Manager -->
+
+    
+      
+        <title>Ceramic HTTP API - Ceramic Developers</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.dc5b59cc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.6932e648.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="../../../assets/external/fonts.googleapis.com/css.49ea35f2.css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-426ZZLPJPW"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-426ZZLPJPW",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-426ZZLPJPW",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>var consent;"undefined"==typeof __md_analytics||(consent=__md_get("__consent"))&&consent.analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  
+  
+    
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ceramic HTTP API | Ceramic Developers" />
+  <meta property="og:description" content="Specs, docs, guides, and APIs for the Ceramic Network." />
+  <meta property="og:url" content="https://developers.ceramic.network/build/http/api/" />
+  <meta property="og:image" content="https://developers.ceramic.network/images/image-ceramic-opengraph.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ceramicnetwork" />
+  <meta name="twitter:creator" content="@ceramicnetwork" />
+  <meta name="twitter:title" content="Ceramic HTTP API | Ceramic Developers" />
+  <meta name="twitter:description" content="Specs, docs, guides, and APIs for the Ceramic Network." />
+  <meta name="twitter:image" content="https://developers.ceramic.network/images/image-ceramic-opengraph.png" />
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ceramic-http-api" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  <strong>ComposeDB</strong> is a graph database for Web3 apps powered by Ceramic.
+  <a href="https://composedb.js.org" target="_blank" rel="noopener"> 
+    <strong>Get started →</strong>
+  </a>
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+    
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFSSCZB"
+                    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Ceramic Developers" class="md-header__button md-logo" aria-label="Ceramic Developers" data-md-component="logo">
+      
+  <img src="../../../images/ceramic-no-shadow.png" alt="logo" />
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Ceramic Developers
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ceramic HTTP API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ceramicnetwork/js-ceramic" title="Go to repository" class="md-source" data-md-component="source" target="_blank" rel="noopener">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ceramicnetwork/js-ceramic
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../learn/welcome/" class="md-tabs__link">
+          
+  
+    
+  
+  Docs
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../guides/" class="md-tabs__link">
+          
+  
+    
+  
+  Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../legacy/" class="md-tabs__link">
+          
+  
+    
+  
+  Legacy Tools
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://forum.ceramic.network" class="md-tabs__link" target="_blank" rel="noopener">
+        
+  
+    
+  
+  Forum
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Ceramic Developers" class="md-nav__button md-logo" aria-label="Ceramic Developers" data-md-component="logo">
+      
+  <img src="../../../images/ceramic-no-shadow.png" alt="logo" />
+
+    </a>
+    Ceramic Developers
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ceramicnetwork/js-ceramic" title="Go to repository" class="md-source" data-md-component="source" target="_blank" rel="noopener">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    ceramicnetwork/js-ceramic
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Docs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Docs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_1" >
+        
+          <label class="md-nav__link" for="__nav_1_1" id="__nav_1_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduction
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learn/welcome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to Ceramic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learn/features/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Why Ceramic?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/quick-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../learn/roadmap/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceramic Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docs/introduction/next-steps/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Next Steps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2" >
+        
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocol
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Protocol
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/overview/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../protocol/streams/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Streams
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_1_2_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Streams
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/streams/event-log/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Event Log
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/streams/uri-scheme/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    URI Scheme
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/streams/consensus/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Consensus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/streams/lifecycle/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../protocol/accounts/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Accounts
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_1_2_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Accounts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/accounts/decentralized-identifiers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Decentralized IDs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/accounts/authorizations/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Authorizations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/accounts/object-capabilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Object-Capabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_2_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../protocol/networking/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_1_2_4">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/networking/networks/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/networking/tip-gossip/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Tip Gossip
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/networking/tip-queries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Tip Queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/networking/event-fetching/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Event Fetching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/api/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceramic API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../protocol/nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceramic Nodes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ecosystem
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docs/ecosystem/community/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Community
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://threebox.notion.site/Ceramic-Ecosystem-a3a7a58f81544d33ad3feb84368775d4" class="md-nav__link" target="_blank" rel="noopener">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Built on Ceramic
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../guides/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceramic Nodes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ceramic Nodes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Running Locally
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../run/nodes/nodes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Running in the Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Ceramic Clients
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Ceramic Clients
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+        
+          <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript Client
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    JavaScript Client
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/core-clients/ceramic-http/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/queries/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Queries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/pinning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Pinning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../javascript/quick-start/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Additional Guides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+        
+          <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Authentication
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/core-clients/did-jsonrpc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/accounts/key-did/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Key DID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/accounts/3id-did/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    3ID DID
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/accounts/did-session/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    DID Session
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_3" >
+        
+          <label class="md-nav__link" for="__nav_2_3_3" id="__nav_2_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Stream APIs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stream APIs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/stream-programs/tile-document/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Using Tile Documents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/stream-programs/caip10-link/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Using CAIP-10 Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../legacy/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Legacy Tools
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Legacy Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../reference/self-id/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Self.ID SDK
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_3_2">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Self.ID SDK
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/self-id/framework/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    React
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_3" >
+        
+          <label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    JavaScript
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    JavaScript
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/self-id/write/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Read/Write
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/self-id/read/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Read-Only
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/self-id/configuration/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Configurations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/self-id/utilities/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/self-id/sample-applications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Samples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7" >
+        
+          <label class="md-nav__link" for="__nav_3_2_7" id="__nav_3_2_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/modules/framework/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Framework
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7_2" >
+        
+          <label class="md-nav__link" for="__nav_3_2_7_2" id="__nav_3_2_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    React
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    React
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/modules/react/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    React module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/classes/react.ReactClient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    ReactClient class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/classes/react.RequestClient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    RequestClient class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7_3" >
+        
+          <label class="md-nav__link" for="__nav_3_2_7_3" id="__nav_3_2_7_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Web
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Web
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/modules/web/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Web module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/classes/web.WebClient/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    WebClient class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/classes/web.SelfID/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    SelfID class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_7_4" >
+        
+          <label class="md-nav__link" for="__nav_3_2_7_4" id="__nav_3_2_7_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Core
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_2_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/modules/core/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Core module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/classes/core.Core/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Core class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/classes/core.PublicID/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    PublicID class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/self-id/modules/image_utils/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Utilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../reference/glaze/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    
+  
+    Glaze Suite
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              <label class="md-nav__link " for="__nav_3_3">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Glaze Suite
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/glaze/did-datastore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    IDX Database
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
+        
+          <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Models
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../docs/advanced/standards/data-models/data-model-universe/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Registry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/glaze/development/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploying from JS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/glaze/deploy-from-cli/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Deploying from CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/glaze/datamodel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Aliasing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tools/glaze/tile-loader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Caching
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5" >
+        
+          <label class="md-nav__link" for="__nav_3_3_5" id="__nav_3_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5_1" >
+        
+          <label class="md-nav__link" for="__nav_3_3_5_1" id="__nav_3_3_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    DID DataStore
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DID DataStore
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glaze/modules/did_datastore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    DID DataStore module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glaze/classes/did_datastore.DIDDataStore/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    DIDDataStore class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5_2" >
+        
+          <label class="md-nav__link" for="__nav_3_3_5_2" id="__nav_3_3_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    DataModel
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DataModel
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glaze/modules/datamodel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    DataModel module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glaze/classes/datamodel.DataModel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    DataModel class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5_3" >
+        
+          <label class="md-nav__link" for="__nav_3_3_5_3" id="__nav_3_3_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    DevTools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DevTools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glaze/modules/devtools/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    DevTools module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glaze/classes/devtools.ModelManager/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    ModelManager class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5_4" >
+        
+          <label class="md-nav__link" for="__nav_3_3_5_4" id="__nav_3_3_5_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    
+  
+    TileLoader
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TileLoader
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glaze/modules/tile_loader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Tile loader module
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glaze/classes/tile_loader.TileLoader/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    TileLoader class
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../reference/glaze/modules/types/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Shared types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://forum.ceramic.network" class="md-nav__link" target="_blank" rel="noopener">
+        
+  
+  <span class="md-ellipsis">
+    
+  
+    Forum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#when-to-use-the-http-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When to use the HTTP API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#streams-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Streams API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Streams API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loading-a-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading a stream
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a Stream
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiqueries-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiqueries API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multiqueries API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#querying-multiple-streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Querying multiple streams
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commits-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commits API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Commits API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getting-all-commits-in-a-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting all commits in a stream
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applying-a-new-commit-to-stream" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Applying a new commit to stream
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pins-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pins API
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pins API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-to-pinset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adding to pinset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-from-pinset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Removing from pinset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#listing-streams-in-pinset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Listing streams in pinset
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-inclusion-in-pinset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking inclusion in pinset
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-info-apis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node Info APIs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Node Info APIs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#supported-blockchains-for-anchoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported blockchains for anchoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#health-check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Health check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#node-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Node status
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="ceramic-http-api">Ceramic HTTP API<a class="headerlink" href="#ceramic-http-api" title="Permanent link">&para;</a></h1>
+<hr />
+<p>The Ceramic HTTP API is the standard lowest-level communication protocol between
+clients and nodes on the Ceramic network. It allows client applications to
+manually make REST HTTP requests to a remote Ceramic node to send transactons,
+retrieve data, and "pin" data to make it available.</p>
+<p>If you are building an application, you will usually interact with Ceramic using
+a client API, such as the
+<a href="../../javascript/installation/#js-http-client">JS HTTP Client</a>, or a framework
+such as the <a href="../../frameworks/">Self.ID SDK</a>, which includes the JS HTTP
+client by default.</p>
+<h2 id="when-to-use-the-http-api"><strong>When to use the HTTP API</strong><a class="headerlink" href="#when-to-use-the-http-api" title="Permanent link">&para;</a></h2>
+<hr />
+<p>The HTTP API is useful if you have a special use case where you directly want to
+make manual HTTP requests, or you want to implement an HTTP client in a new
+language.</p>
+<div class="admonition warning">
+<p class="admonition-title">Gateway mode</p>
+<p>Some HTTP API methods will not be available if the Ceramic node you are using runs in <em>gateway mode</em>. This option disables writes, which is useful when exposing your node to the internet. <strong>API methods that are disabled when running in gateway mode will be clearly marked.</strong></p>
+</div>
+<h2 id="streams-api"><strong>Streams API</strong><a class="headerlink" href="#streams-api" title="Permanent link">&para;</a></h2>
+<p>The <code>stream</code> endpoint is used to create new streams and load streams from the
+node using a StreamID or genesis content.</p>
+<h3 id="loading-a-stream">Loading a stream<a class="headerlink" href="#loading-a-stream" title="Permanent link">&para;</a></h3>
+<p>Load the state of a stream given its StreamID.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Request</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>GET /api/v0/streams/:streamid
+</code></pre></div>
+<p>Here, <code>:streamid</code> should be replaced by the StreamID of the stream that is being requested.</p>
+</div>
+</div>
+</div>
+<p>=== "Response" The response body contains the following fields:</p>
+<pre><code>- `streamId` - the StreamID of the requested stream as string
+- `state` - the state of the requested stream as [StreamState](https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.streamstate-1.html){:target="_blank"}
+</code></pre>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Request</label><label for="__tabbed_2_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://localhost:7007/api/v0/streams/kjzl6cwe1jw147r7878h32yazawcll6bxe5v92348cxitif6cota91qp68grbhm
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;streamId&quot;</span>:<span class="w"> </span><span class="s2">&quot;kjzl6cwe1jw147r7878h32yazawcll6bxe5v92348cxitif6cota91qp68grbhm&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;state&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">0</span>,
+<span class="w">    </span><span class="s2">&quot;content&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;Ceramic&quot;</span>:<span class="w"> </span><span class="s2">&quot;pottery&quot;</span>
+<span class="w">    </span><span class="o">}</span>,
+<span class="w">    </span><span class="s2">&quot;metadata&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;schema&quot;</span>:<span class="w"> </span>null,
+<span class="w">      </span><span class="s2">&quot;controllers&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">        </span><span class="s2">&quot;did:key:z6MkfZ6S4NVVTEuts8o5xFzRMR8eC6Y1bngoBQNnXiCvhH8H&quot;</span>
+<span class="w">      </span><span class="o">]</span>
+<span class="w">    </span><span class="o">}</span>,
+<span class="w">    </span><span class="s2">&quot;signature&quot;</span>:<span class="w"> </span><span class="m">2</span>,
+<span class="w">    </span><span class="s2">&quot;anchorStatus&quot;</span>:<span class="w"> </span><span class="s2">&quot;PENDING&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;log&quot;</span>:<span class="w"> </span><span class="o">[{</span>
+<span class="w">      </span><span class="s2">&quot;cid&quot;</span>:<span class="w"> </span><span class="s2">&quot;bagcqceramof2xi7kh6qblirzkbc7yulcjcticlcob6uvdrx3bexgks37ilva&quot;</span>,
+<span class="w">      </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">0</span>
+<span class="w">    </span><span class="o">}]</span>,
+<span class="w">    </span><span class="s2">&quot;anchorScheduledFor&quot;</span>:<span class="w"> </span><span class="s2">&quot;12/15/2020, 2:45:00 PM&quot;</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="creating-a-stream">Creating a Stream<a class="headerlink" href="#creating-a-stream" title="Permanent link">&para;</a></h3>
+<p><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg></span> Disabled in gateway mode</strong></p>
+<p>Create a new stream, or load a stream from its genesis content. The genesis
+content may be signed (e.g. DagJWS for the
+<a href="../../../docs/advanced/standards/stream-programs/tile-document/">TileDocument StreamType</a>),
+or unsigned in some cases.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Request</label><label for="__tabbed_3_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>POST<span class="w"> </span>/api/v0/streams
+</code></pre></div>
+<h4 id="request-body-fields">Request body fields:<a class="headerlink" href="#request-body-fields" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>type</code> - the type code of the StreamType to use (e.g. <code>0</code> for TileDocuments). Type codes for the supported stream types can be found <a href="https://github.com/ceramicnetwork/CIP/blob/main/CIPs/CIP-59/tables/streamtypes.csv" target="_blank" rel="noopener">in this table</a>.</li>
+<li><code>genesis</code> - the genesis content of the stream (will differ per StreamType)</li>
+<li><code>opts</code> - options for the stream creation, <a href="https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.createopts-1.html" target="_blank" rel="noopener">CreateOpts</a> (optional)</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>The response body contains the following fields:</p>
+<ul>
+<li><code>streamId</code> - the StreamID of the requested stream as string</li>
+<li><code>state</code> - the state of the requested stream as <a href="https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.streamstate-1.html" target="_blank" rel="noopener">StreamState</a></li>
+</ul>
+</div>
+</div>
+</div>
+<h4 id="example_1"><strong>Example</strong><a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h4>
+<p>This example creates a <code>TileDocument</code> from an unsigned genesis commit. Note that
+if the content is defined for a <code>TileDocument</code> genesis commit, it needs to be
+signed.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Request</label><label for="__tabbed_4_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://localhost:7007/api/v0/streams<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;type&quot;: 0,</span>
+<span class="s1">    &quot;genesis&quot;: {</span>
+<span class="s1">      &quot;header&quot;: {</span>
+<span class="s1">        &quot;family&quot;: &quot;test&quot;,</span>
+<span class="s1">        &quot;controllers&quot;: [&quot;did:key:z6MkfZ6S4NVVTEuts8o5xFzRMR8eC6Y1bngoBQNnXiCvhH8H&quot;]</span>
+<span class="s1">      }</span>
+<span class="s1">    }</span>
+<span class="s1">  }&#39;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;streamId&quot;</span>:<span class="w"> </span><span class="s2">&quot;k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;state&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">0</span>,
+<span class="w">    </span><span class="s2">&quot;content&quot;</span>:<span class="w"> </span><span class="o">{}</span>,
+<span class="w">    </span><span class="s2">&quot;metadata&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;family&quot;</span>:<span class="w"> </span><span class="s2">&quot;test&quot;</span>,
+<span class="w">      </span><span class="s2">&quot;controllers&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">        </span><span class="s2">&quot;did:key:z6MkfZ6S4NVVTEuts8o5xFzRMR8eC6Y1bngoBQNnXiCvhH8H&quot;</span>
+<span class="w">      </span><span class="o">]</span>
+<span class="w">    </span><span class="o">}</span>,
+<span class="w">    </span><span class="s2">&quot;signature&quot;</span>:<span class="w"> </span><span class="m">0</span>,
+<span class="w">    </span><span class="s2">&quot;anchorStatus&quot;</span>:<span class="w"> </span><span class="s2">&quot;PENDING&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;log&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">      </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;cid&quot;</span>:<span class="w"> </span><span class="s2">&quot;bafyreihtdxfb6cpcvomm2c2elm3re2onqaix6frq4nbg45eaqszh5mifre&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">0</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">    </span><span class="o">]</span>,
+<span class="w">    </span><span class="s2">&quot;anchorScheduledFor&quot;</span>:<span class="w"> </span><span class="s2">&quot;12/15/2020, 3:00:00 PM&quot;</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="multiqueries-api"><strong>Multiqueries API</strong><a class="headerlink" href="#multiqueries-api" title="Permanent link">&para;</a></h2>
+<p>The <code>multiqueries</code> endpoint enables querying multiple streams at once, as well
+as querying streams which are linked.</p>
+<h3 id="querying-multiple-streams">Querying multiple streams<a class="headerlink" href="#querying-multiple-streams" title="Permanent link">&para;</a></h3>
+<p>This endpoint allows you to query multiple StreamIDs. Along with each StreamID
+an array of paths can be passed. If any of the paths within the stream structure
+contains a Ceramic StreamID url (<code>ceramic://&lt;StreamID&gt;</code>), this linked stream
+will also be returned as part of the response.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Request</label><label for="__tabbed_5_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>POST<span class="w"> </span>/api/v0/multiqueries
+</code></pre></div>
+<h4 id="request-body-fields_1">Request body fields:<a class="headerlink" href="#request-body-fields_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>queries</code> - an array of <a href="https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.multiquery-1.html" target="_blank" rel="noopener">MultiQuery</a> objects</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<p>The response body contains a map from StreamID strings to <a href="https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.streamstate-1.html" target="_blank" rel="noopener">StreamState</a> objects.</p>
+</div>
+</div>
+</div>
+<h4 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h4>
+<p>First let's create three streams to query using the ceramic cli:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:6"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><input id="__tabbed_6_3" name="__tabbed_6" type="radio" /><input id="__tabbed_6_4" name="__tabbed_6" type="radio" /><input id="__tabbed_6_5" name="__tabbed_6" type="radio" /><input id="__tabbed_6_6" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Request1</label><label for="__tabbed_6_2">Response1</label><label for="__tabbed_6_3">Request2</label><label for="__tabbed_6_4">Response2</label><label for="__tabbed_6_5">Request3</label><label for="__tabbed_6_6">Response3</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>ceramic<span class="w"> </span>create<span class="w"> </span>tile<span class="w"> </span>--content<span class="w"> </span><span class="s1">&#39;{ &quot;Document&quot;: &quot;A&quot; }&#39;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>StreamID<span class="o">(</span>kjzl6cwe1jw149rledowj0zi0icd7epi9y1m5tx4pardt1w6dzcxvr6bohi8ejc<span class="o">)</span>
+<span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;Document&quot;</span>:<span class="w"> </span><span class="s2">&quot;A&quot;</span>
+<span class="o">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>ceramic<span class="w"> </span>create<span class="w"> </span>tile<span class="w"> </span>--content<span class="w"> </span><span class="s1">&#39;{ &quot;Document&quot;: &quot;B&quot; }&#39;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>StreamID<span class="o">(</span>kjzl6cwe1jw147w3xz3xrcd37chh2rz4dfra3imtnsni385rfyqa3hbx42qwal0<span class="o">)</span>
+<span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;Document&quot;</span>:<span class="w"> </span><span class="s2">&quot;B&quot;</span>
+<span class="o">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>ceramic<span class="w"> </span>create<span class="w"> </span>tile<span class="w"> </span>--content<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;Document&quot;: &quot;C&quot;,</span>
+<span class="s1">    &quot;link&quot;: &quot;ceramic://kjzl6cwe1jw149rledowj0zi0icd7epi9y1m5tx4pardt1w6dzcxvr6bohi8ejc&quot;</span>
+<span class="s1">}&#39;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>StreamID<span class="o">(</span>kjzl6cwe1jw14b54pb10voc4bqh73qyu8o6cfu66hoi3feidbbj81i5rohh7kgl<span class="o">)</span>
+<span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;link&quot;</span>:<span class="w"> </span><span class="s2">&quot;ceramic://kjzl6cwe1jw149rledowj0zi0icd7epi9y1m5tx4pardt1w6dzcxvr6bohi8ejc&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;Document&quot;</span>:<span class="w"> </span><span class="s2">&quot;C&quot;</span>
+<span class="o">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<p>Now let's query them though the multiqueries endpoint:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Request</label><label for="__tabbed_7_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://localhost:7007/api/v0/multiqueries<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">  &quot;queries&quot;: [{</span>
+<span class="s1">    &quot;streamId&quot;: &quot;kjzl6cwe1jw14b54pb10voc4bqh73qyu8o6cfu66hoi3feidbbj81i5rohh7kgl&quot;,</span>
+<span class="s1">    &quot;paths&quot;: [&quot;link&quot;]</span>
+<span class="s1">  }, {</span>
+<span class="s1">    &quot;streamId&quot;: &quot;kjzl6cwe1jw147w3xz3xrcd37chh2rz4dfra3imtnsni385rfyqa3hbx42qwal0&quot;,</span>
+<span class="s1">    &quot;paths&quot;: []</span>
+<span class="s1">  }]</span>
+<span class="s1">}&#39;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;kjzl6cwe1jw14b54pb10voc4bqh73qyu8o6cfu66hoi3feidbbj81i5rohh7kgl&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">0</span>,
+<span class="w">    </span><span class="s2">&quot;content&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;link&quot;</span>:<span class="w"> </span><span class="s2">&quot;ceramic://kjzl6cwe1jw149rledowj0zi0icd7epi9y1m5tx4pardt1w6dzcxvr6bohi8ejc&quot;</span>,
+<span class="w">      </span><span class="s2">&quot;Document&quot;</span>:<span class="w"> </span><span class="s2">&quot;C&quot;</span>
+<span class="w">    </span><span class="o">}</span>,
+<span class="w">    </span><span class="s2">&quot;metadata&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;schema&quot;</span>:<span class="w"> </span>null,
+<span class="w">      </span><span class="s2">&quot;controllers&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">        </span><span class="s2">&quot;did:key:z6MkfZ6S4NVVTEuts8o5xFzRMR8eC6Y1bngoBQNnXiCvhH8H&quot;</span>
+<span class="w">      </span><span class="o">]</span>
+<span class="w">    </span><span class="o">}</span>,
+<span class="w">    </span><span class="s2">&quot;signature&quot;</span>:<span class="w"> </span><span class="m">2</span>,
+<span class="w">    </span><span class="s2">&quot;anchorStatus&quot;</span>:<span class="w"> </span><span class="s2">&quot;PENDING&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;log&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">      </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;cid&quot;</span>:<span class="w"> </span><span class="s2">&quot;bagcqcera5nx45nccxvjjyxsq3so5po77kpqzbfsydy6yflnkt6p5tnjvhbkq&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">0</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">    </span><span class="o">]</span>,
+<span class="w">    </span><span class="s2">&quot;anchorScheduledFor&quot;</span>:<span class="w"> </span><span class="s2">&quot;12/30/2020, 1:45:00 PM&quot;</span>
+<span class="w">  </span><span class="o">}</span>,
+<span class="w">  </span><span class="s2">&quot;kjzl6cwe1jw149rledowj0zi0icd7epi9y1m5tx4pardt1w6dzcxvr6bohi8ejc&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">0</span>,
+<span class="w">    </span><span class="s2">&quot;content&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;Document&quot;</span>:<span class="w"> </span><span class="s2">&quot;A&quot;</span>
+<span class="w">    </span><span class="o">}</span>,
+<span class="w">    </span><span class="s2">&quot;metadata&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;schema&quot;</span>:<span class="w"> </span>null,
+<span class="w">      </span><span class="s2">&quot;controllers&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">        </span><span class="s2">&quot;did:key:z6MkfZ6S4NVVTEuts8o5xFzRMR8eC6Y1bngoBQNnXiCvhH8H&quot;</span>
+<span class="w">      </span><span class="o">]</span>
+<span class="w">    </span><span class="o">}</span>,
+<span class="w">    </span><span class="s2">&quot;signature&quot;</span>:<span class="w"> </span><span class="m">2</span>,
+<span class="w">    </span><span class="s2">&quot;anchorStatus&quot;</span>:<span class="w"> </span><span class="s2">&quot;PENDING&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;log&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">      </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;cid&quot;</span>:<span class="w"> </span><span class="s2">&quot;bagcqcerawq5h7otlkdwuai7vhogqhs2aeaauwbu2aqclrh4iyu5h54qqogma&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">0</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">    </span><span class="o">]</span>,
+<span class="w">    </span><span class="s2">&quot;anchorScheduledFor&quot;</span>:<span class="w"> </span><span class="s2">&quot;12/30/2020, 1:45:00 PM&quot;</span>
+<span class="w">  </span><span class="o">}</span>,
+<span class="w">  </span><span class="s2">&quot;kjzl6cwe1jw147w3xz3xrcd37chh2rz4dfra3imtnsni385rfyqa3hbx42qwal0&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">0</span>,
+<span class="w">    </span><span class="s2">&quot;content&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;Document&quot;</span>:<span class="w"> </span><span class="s2">&quot;B&quot;</span>
+<span class="w">    </span><span class="o">}</span>,
+<span class="w">    </span><span class="s2">&quot;metadata&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;schema&quot;</span>:<span class="w"> </span>null,
+<span class="w">      </span><span class="s2">&quot;controllers&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">        </span><span class="s2">&quot;did:key:z6MkfZ6S4NVVTEuts8o5xFzRMR8eC6Y1bngoBQNnXiCvhH8H&quot;</span>
+<span class="w">      </span><span class="o">]</span>
+<span class="w">    </span><span class="o">}</span>,
+<span class="w">    </span><span class="s2">&quot;signature&quot;</span>:<span class="w"> </span><span class="m">2</span>,
+<span class="w">    </span><span class="s2">&quot;anchorStatus&quot;</span>:<span class="w"> </span><span class="s2">&quot;PENDING&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;log&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">      </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;cid&quot;</span>:<span class="w"> </span><span class="s2">&quot;bagcqceranecdjzw4xheudgkr2amjkntpktci2xv44d7v4hbft3ndpptid6ka&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">0</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">    </span><span class="o">]</span>,
+<span class="w">    </span><span class="s2">&quot;anchorScheduledFor&quot;</span>:<span class="w"> </span><span class="s2">&quot;12/30/2020, 1:45:00 PM&quot;</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="commits-api"><strong>Commits API</strong><a class="headerlink" href="#commits-api" title="Permanent link">&para;</a></h2>
+<p>The <code>commits</code> endpoint provides lower level access to the data structure of a
+Ceramic stream. It is also the enpoint that is used in order to update a stream,
+by adding a new commit.</p>
+<h3 id="getting-all-commits-in-a-stream">Getting all commits in a stream<a class="headerlink" href="#getting-all-commits-in-a-stream" title="Permanent link">&para;</a></h3>
+<p>By calling GET on the <em>commits</em> endpoint along with a StreamID gives you access
+to all of the commits of the given stream. This is useful if you want to inspect
+the stream history, or apply all of the commits to a Ceramic node that is not
+connected to the network.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Request</label><label for="__tabbed_8_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>GET<span class="w"> </span>/api/v0/commits/:streamid
+</code></pre></div>
+<p>Here, <code>:streamid</code> should be replaced by the string representation of the StreamID of the stream that is being requested.</p>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><code>streamId</code> - the StreamID of the requested stream, string</li>
+<li><code>commits</code> - an array of commit objects</li>
+</ul>
+</div>
+</div>
+</div>
+<h4 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">&para;</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Request</label><label for="__tabbed_9_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://localhost:7007/api/v0/commits/kjzl6cwe1jw14ahmwunhk9yjwawac12tb52j1uj3b9a57eohmhycec8778p3syv
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;streamId&quot;</span>:<span class="w"> </span><span class="s2">&quot;kjzl6cwe1jw14ahmwunhk9yjwawac12tb52j1uj3b9a57eohmhycec8778p3syv&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;commits&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">    </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;cid&quot;</span>:<span class="w"> </span><span class="s2">&quot;bagcqcera2faj5vik2giftqxftbngfndkci7x4z5vp3psrf4flcptgkz5xztq&quot;</span>,
+<span class="w">      </span><span class="s2">&quot;value&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;jws&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">          </span><span class="s2">&quot;payload&quot;</span>:<span class="w"> </span><span class="s2">&quot;AXESIAsUBpZMnue1yQ0BgXsjOFyN0cHq6AgspXnI7qGB54ux&quot;</span>,
+<span class="w">          </span><span class="s2">&quot;signatures&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">            </span><span class="o">{</span>
+<span class="w">              </span><span class="s2">&quot;signature&quot;</span>:<span class="w"> </span><span class="s2">&quot;16tBnfkXQU0yo-RZvfjWhm7pP-hIxJ5m-FIMHlCrRkpjbleoEcaC80Xt7qs_WZOlOCexznjow9aX4aZe51cYCQ&quot;</span>,
+<span class="w">              </span><span class="s2">&quot;protected&quot;</span>:<span class="w"> </span><span class="s2">&quot;eyJhbGciOiJFZERTQSIsImtpZCI6ImRpZDprZXk6ejZNa2ZaNlM0TlZWVEV1dHM4bzV4RnpSTVI4ZUM2WTFibmdvQlFOblhpQ3ZoSDhII3o2TWtmWjZTNE5WVlRFdXRzOG81eEZ6Uk1SOGVDNlkxYm5nb0JRTm5YaUN2aEg4SCJ9&quot;</span>
+<span class="w">            </span><span class="o">}</span>
+<span class="w">          </span><span class="o">]</span>,
+<span class="w">          </span><span class="s2">&quot;link&quot;</span>:<span class="w"> </span><span class="s2">&quot;bafyreialcqdjmte64624sdibqf5sgoc4rxi4d2xibawkk6oi52qydz4lwe&quot;</span>
+<span class="w">        </span><span class="o">}</span>,
+<span class="w">        </span><span class="s2">&quot;linkedBlock&quot;</span>:<span class="w"> </span><span class="s2">&quot;o2RkYXRhoWV0aXRsZXFNeSBmaXJzdCBEb2N1bWVudGZoZWFkZXKiZnNjaGVtYfZrY29udHJvbGxlcnOBeDhkaWQ6a2V5Ono2TWtmWjZTNE5WVlRFdXRzOG81eEZ6Uk1SOGVDNlkxYm5nb0JRTm5YaUN2aEg4SGZ1bmlxdWVwenh0b1A5blphdVgxcEE0OQ&quot;</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>,
+<span class="w">    </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;cid&quot;</span>:<span class="w"> </span><span class="s2">&quot;bagcqcera3fkje7je4lvctkam4fvi675avtcuqgrv7dn6aoqljd5lebpl7rfq&quot;</span>,
+<span class="w">      </span><span class="s2">&quot;value&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;jws&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">          </span><span class="s2">&quot;payload&quot;</span>:<span class="w"> </span><span class="s2">&quot;AXESINm6lI30m3j5H2ausx-ulXj-L9CmFlOTZBZvJ2O734Zt&quot;</span>,
+<span class="w">          </span><span class="s2">&quot;signatures&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">            </span><span class="o">{</span>
+<span class="w">              </span><span class="s2">&quot;signature&quot;</span>:<span class="w"> </span><span class="s2">&quot;zsLJbBSU5xZTQkYlXwEH9xj_t_8frvSFCYs0SlVMPXOnw8zOJOsKnJDQlUOvPJxjt8Bdc_7xoBdmcRG1J1tpCw&quot;</span>,
+<span class="w">              </span><span class="s2">&quot;protected&quot;</span>:<span class="w"> </span><span class="s2">&quot;eyJhbGciOiJFZERTQSIsImtpZCI6ImRpZDprZXk6ejZNa2ZaNlM0TlZWVEV1dHM4bzV4RnpSTVI4ZUM2WTFibmdvQlFOblhpQ3ZoSDhII3o2TWtmWjZTNE5WVlRFdXRzOG81eEZ6Uk1SOGVDNlkxYm5nb0JRTm5YaUN2aEg4SCJ9&quot;</span>
+<span class="w">            </span><span class="o">}</span>
+<span class="w">          </span><span class="o">]</span>,
+<span class="w">          </span><span class="s2">&quot;link&quot;</span>:<span class="w"> </span><span class="s2">&quot;bafyreigzxkki35e3pd4r6zvowmp25fly7yx5bjqwkojwiftpe5r3xx4gnu&quot;</span>
+<span class="w">        </span><span class="o">}</span>,
+<span class="w">        </span><span class="s2">&quot;linkedBlock&quot;</span>:<span class="w"> </span><span class="s2">&quot;pGJpZNgqWCYAAYUBEiDRQJ7VCtGQWcLlmFpitGoSP35ntX7fKJeFWJ8zKz2+Z2RkYXRhgaNib3BjYWRkZHBhdGhlL21vcmVldmFsdWUY6mRwcmV22CpYJgABhQESINFAntUK0ZBZwuWYWmK0ahI/fme1ft8ol4VYnzMrPb5nZmhlYWRlcqFrY29udHJvbGxlcnOA&quot;</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="applying-a-new-commit-to-stream">Applying a new commit to stream<a class="headerlink" href="#applying-a-new-commit-to-stream" title="Permanent link">&para;</a></h3>
+<p><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg></span> Disabled in gateway mode</strong></p>
+<p>In order to modify a stream we apply a commit to its log. This commit usually
+contains a signature over a <em>json-patch</em> diff describing a modification to the
+stream contents. The commit also needs to contain pointers to the previous
+commit and other metadata. You can read more about this in the
+<a href="https://github.com/ceramicnetwork/ceramic/blob/master/SPECIFICATION.md#document-records" target="_blank" rel="noopener">Ceramic Specification</a>.
+Different stream types may have different formats for their commits. If you want
+to see an example implementation for how to construct a commit you can have a
+look at the implementation of the TileDocument.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Request</label><label for="__tabbed_10_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>POST<span class="w"> </span>/api/v0/commits
+</code></pre></div>
+<h4 id="request-body-fields_2">Request body fields:<a class="headerlink" href="#request-body-fields_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>streamId</code> - the StreamID of the stream to apply the commit to, string</li>
+<li><code>commit</code> - the content of the commit to apply (will differ per streamtype)</li>
+<li><code>opts</code> - options for the stream update <a href="https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.updateopts-1.html" target="_blank" rel="noopener">UpdateOpts</a> (optional)</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><code>streamId</code> - the StreamID of the stream that was modified</li>
+<li><code>state</code> - the new state of the stream that was modified, <a href="https://developers.ceramic.network/reference/typescript/interfaces/_ceramicnetwork_common.streamstate-1.html" target="_blank" rel="noopener">StreamState</a></li>
+</ul>
+</div>
+</div>
+</div>
+<h4 id="example_4">Example<a class="headerlink" href="#example_4" title="Permanent link">&para;</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Request</label><label for="__tabbed_11_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://localhost:7007/api/v0/commits<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">  &quot;streamId&quot;: &quot;kjzl6cwe1jw14ahmwunhk9yjwawac12tb52j1uj3b9a57eohmhycec8778p3syv&quot;,</span>
+<span class="s1">  &quot;commit&quot;: {</span>
+<span class="s1">    &quot;jws&quot;: {</span>
+<span class="s1">      &quot;payload&quot;: &quot;AXESINm6lI30m3j5H2ausx-ulXj-L9CmFlOTZBZvJ2O734Zt&quot;,</span>
+<span class="s1">      &quot;signatures&quot;: [</span>
+<span class="s1">        {</span>
+<span class="s1">          &quot;signature&quot;: &quot;zsLJbBSU5xZTQkYlXwEH9xj_t_8frvSFCYs0SlVMPXOnw8zOJOsKnJDQlUOvPJxjt8Bdc_7xoBdmcRG1J1tpCw&quot;,</span>
+<span class="s1">          &quot;protected&quot;: &quot;eyJhbGciOiJFZERTQSIsImtpZCI6ImRpZDprZXk6ejZNa2ZaNlM0TlZWVEV1dHM4bzV4RnpSTVI4ZUM2WTFibmdvQlFOblhpQ3ZoSDhII3o2TWtmWjZTNE5WVlRFdXRzOG81eEZ6Uk1SOGVDNlkxYm5nb0JRTm5YaUN2aEg4SCJ9&quot;</span>
+<span class="s1">        }</span>
+<span class="s1">      ],</span>
+<span class="s1">      &quot;link&quot;: &quot;bafyreigzxkki35e3pd4r6zvowmp25fly7yx5bjqwkojwiftpe5r3xx4gnu&quot;</span>
+<span class="s1">    },</span>
+<span class="s1">    &quot;linkedBlock&quot;: &quot;pGJpZNgqWCYAAYUBEiDRQJ7VCtGQWcLlmFpitGoSP35ntX7fKJeFWJ8zKz2+Z2RkYXRhgaNib3BjYWRkZHBhdGhlL21vcmVldmFsdWUY6mRwcmV22CpYJgABhQESINFAntUK0ZBZwuWYWmK0ahI/fme1ft8ol4VYnzMrPb5nZmhlYWRlcqFrY29udHJvbGxlcnOA&quot;</span>
+<span class="s1">  }</span>
+<span class="s1">}&#39;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;streamId&quot;</span>:<span class="w"> </span><span class="s2">&quot;kjzl6cwe1jw14ahmwunhk9yjwawac12tb52j1uj3b9a57eohmhycec8778p3syv&quot;</span>,
+<span class="w">  </span><span class="s2">&quot;state&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">0</span>,
+<span class="w">    </span><span class="s2">&quot;content&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;title&quot;</span>:<span class="w"> </span><span class="s2">&quot;My first Document&quot;</span>
+<span class="w">    </span><span class="o">}</span>,
+<span class="w">    </span><span class="s2">&quot;metadata&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;schema&quot;</span>:<span class="w"> </span>null,
+<span class="w">      </span><span class="s2">&quot;controllers&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">        </span><span class="s2">&quot;did:key:z6MkfZ6S4NVVTEuts8o5xFzRMR8eC6Y1bngoBQNnXiCvhH8H&quot;</span>
+<span class="w">      </span><span class="o">]</span>
+<span class="w">    </span><span class="o">}</span>,
+<span class="w">    </span><span class="s2">&quot;signature&quot;</span>:<span class="w"> </span><span class="m">2</span>,
+<span class="w">    </span><span class="s2">&quot;anchorStatus&quot;</span>:<span class="w"> </span><span class="s2">&quot;PENDING&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;log&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">      </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;cid&quot;</span>:<span class="w"> </span><span class="s2">&quot;bagcqcera2faj5vik2giftqxftbngfndkci7x4z5vp3psrf4flcptgkz5xztq&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">0</span>
+<span class="w">      </span><span class="o">}</span>,
+<span class="w">      </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;cid&quot;</span>:<span class="w"> </span><span class="s2">&quot;bagcqcera3fkje7je4lvctkam4fvi675avtcuqgrv7dn6aoqljd5lebpl7rfq&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;type&quot;</span>:<span class="w"> </span><span class="m">1</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">    </span><span class="o">]</span>,
+<span class="w">    </span><span class="s2">&quot;anchorScheduledFor&quot;</span>:<span class="w"> </span><span class="s2">&quot;12/30/2020, 1:15:00 PM&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;next&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">      </span><span class="s2">&quot;content&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;title&quot;</span>:<span class="w"> </span><span class="s2">&quot;My first Document&quot;</span>,
+<span class="w">        </span><span class="s2">&quot;more&quot;</span>:<span class="w"> </span><span class="m">234</span>
+<span class="w">      </span><span class="o">}</span>,
+<span class="w">      </span><span class="s2">&quot;metadata&quot;</span>:<span class="w"> </span><span class="o">{</span>
+<span class="w">        </span><span class="s2">&quot;schema&quot;</span>:<span class="w"> </span>null,
+<span class="w">        </span><span class="s2">&quot;controllers&quot;</span>:<span class="w"> </span><span class="o">[]</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="pins-api"><strong>Pins API</strong><a class="headerlink" href="#pins-api" title="Permanent link">&para;</a></h2>
+<p>The <code>pins</code> api endpoint can be used to manipulate the pinset. The pinset is all
+of the streams that a node maintains the state of. Any stream opened by the node
+that is not pinned will eventually be garbage collected from the node.</p>
+<h3 id="adding-to-pinset">Adding to pinset<a class="headerlink" href="#adding-to-pinset" title="Permanent link">&para;</a></h3>
+<p><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg></span> Disabled in gateway mode</strong></p>
+<p>This method adds the stream with the given StreamID to the pinset.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Request</label><label for="__tabbed_12_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>POST<span class="w"> </span>/api/v0/pins/:streamid
+</code></pre></div>
+<p>Here, <code>:streamid</code> should be replaced by the string representation of the StreamID of the stream that is being requested.</p>
+</div>
+<div class="tabbed-block">
+<p>If the operation was sucessful the response will be a 200 OK.</p>
+<ul>
+<li><code>streamId</code> - the StreamID of the stream which was pinned, string</li>
+</ul>
+</div>
+</div>
+</div>
+<h4 id="example_5">Example<a class="headerlink" href="#example_5" title="Permanent link">&para;</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:2"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">Request</label><label for="__tabbed_13_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://localhost:7007/api/v0/pins/k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl<span class="w"> </span>-X<span class="w"> </span>POST
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;streamId&quot;</span>:<span class="w"> </span><span class="s2">&quot;k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl&quot;</span>
+<span class="o">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="removing-from-pinset">Removing from pinset<a class="headerlink" href="#removing-from-pinset" title="Permanent link">&para;</a></h3>
+<p><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg></span> Disabled in gateway mode</strong></p>
+<p>This method removes the stream with the given StreamID from the pinset.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:2"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">Request</label><label for="__tabbed_14_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>DELETE<span class="w"> </span>/api/v0/pins/:streamid
+</code></pre></div>
+<p>Here, <code>:streamid</code> should be replaced by the string representation of the StreamID of the stream that is being requested.</p>
+</div>
+<div class="tabbed-block">
+<p>If the operation was sucessful the response will be a 200 OK.</p>
+<ul>
+<li><code>streamId</code> - the StreamID of the stream which was unpinned, string</li>
+</ul>
+</div>
+</div>
+</div>
+<h4 id="example_6">Example<a class="headerlink" href="#example_6" title="Permanent link">&para;</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="15:2"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">Request</label><label for="__tabbed_15_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://localhost:7007/api/v0/pins/k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl<span class="w"> </span>-X<span class="w"> </span>DELETE
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;streamId&quot;</span>:<span class="w"> </span><span class="s2">&quot;k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl&quot;</span>
+<span class="o">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="listing-streams-in-pinset">Listing streams in pinset<a class="headerlink" href="#listing-streams-in-pinset" title="Permanent link">&para;</a></h3>
+<p>Calling this method allows you to list all of the streams that are in the pinset
+on this node.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="16:2"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><input id="__tabbed_16_2" name="__tabbed_16" type="radio" /><div class="tabbed-labels"><label for="__tabbed_16_1">Request</label><label for="__tabbed_16_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>GET<span class="w"> </span>/api/v0/pins
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><code>pinnedStreamIds</code> - an array of StreamID strings that are in the pinset</li>
+</ul>
+</div>
+</div>
+</div>
+<h4 id="example_7">Example<a class="headerlink" href="#example_7" title="Permanent link">&para;</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="17:2"><input checked="checked" id="__tabbed_17_1" name="__tabbed_17" type="radio" /><input id="__tabbed_17_2" name="__tabbed_17" type="radio" /><div class="tabbed-labels"><label for="__tabbed_17_1">Request</label><label for="__tabbed_17_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://localhost:7007/api/v0/pins
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;pinnedStreamIds&quot;</span>:<span class="w"> </span><span class="o">[</span>
+<span class="w">    </span><span class="s2">&quot;k2t6wyfsu4pfwqaju0w9nmi53zo6f5bcier7vc951x4b9rydv6t8q4pvzd5w3l&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;k2t6wyfsu4pfxon8reod8xcyka9bujeg7acpz8hgh0jsyc7p2b334izdyzsdp7&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;k2t6wyfsu4pfxqseec01fnqywmn8l93p4g2chzyx3sod3hpyovurye9hskcegs&quot;</span>,
+<span class="w">    </span><span class="s2">&quot;k2t6wyfsu4pfya9y0ega1vnokf0g5qaus69basy52oxg50y3l35vm9rqbb88t3&quot;</span>
+<span class="w">  </span><span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="checking-inclusion-in-pinset">Checking inclusion in pinset<a class="headerlink" href="#checking-inclusion-in-pinset" title="Permanent link">&para;</a></h3>
+<p>This method is used to check if a particular stream is in the pinset.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="18:2"><input checked="checked" id="__tabbed_18_1" name="__tabbed_18" type="radio" /><input id="__tabbed_18_2" name="__tabbed_18" type="radio" /><div class="tabbed-labels"><label for="__tabbed_18_1">Request</label><label for="__tabbed_18_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>GET<span class="w"> </span>/api/v0/pins/:streamid
+</code></pre></div>
+<p>Here, <code>:streamid</code> should be replaced by the string representation of the StreamID of the stream that is being requested.</p>
+</div>
+<div class="tabbed-block">
+<ul>
+<li><code>pinnedStreamIds</code> - an array containing the specified StreamID string if that stream is pinned, or an empty array if that stream is not pinned</li>
+</ul>
+</div>
+</div>
+</div>
+<h4 id="example_8">Example<a class="headerlink" href="#example_8" title="Permanent link">&para;</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="19:2"><input checked="checked" id="__tabbed_19_1" name="__tabbed_19" type="radio" /><input id="__tabbed_19_2" name="__tabbed_19" type="radio" /><div class="tabbed-labels"><label for="__tabbed_19_1">Request</label><label for="__tabbed_19_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://localhost:7007/api/v0/pins/k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;pinnedStreamIds&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;k2t6wyfsu4pg2qvoorchoj23e8hf3eiis4w7bucllxkmlk91sjgluuag5syphl&quot;</span><span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="node-info-apis"><strong>Node Info APIs</strong><a class="headerlink" href="#node-info-apis" title="Permanent link">&para;</a></h2>
+<p>The methods under the <code>/node</code> path provides more information about this
+particular node.</p>
+<h3 id="supported-blockchains-for-anchoring">Supported blockchains for anchoring<a class="headerlink" href="#supported-blockchains-for-anchoring" title="Permanent link">&para;</a></h3>
+<p>Get all of the
+<a href="https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-2.md" target="_blank" rel="noopener">CAIP-2</a>
+<em>chainIds</em> supported by this node.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="20:2"><input checked="checked" id="__tabbed_20_1" name="__tabbed_20" type="radio" /><input id="__tabbed_20_2" name="__tabbed_20" type="radio" /><div class="tabbed-labels"><label for="__tabbed_20_1">Request</label><label for="__tabbed_20_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>GET<span class="w"> </span>/api/v0/node/chains
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>The response body contains the following fields:</p>
+<ul>
+<li><code>supportedChains</code> - and array with <a href="https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-2.md" target="_blank" rel="noopener">CAIP-2</a> formatted chainIds</li>
+</ul>
+</div>
+</div>
+</div>
+<h4 id="example_9">Example<a class="headerlink" href="#example_9" title="Permanent link">&para;</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="21:2"><input checked="checked" id="__tabbed_21_1" name="__tabbed_21" type="radio" /><input id="__tabbed_21_2" name="__tabbed_21" type="radio" /><div class="tabbed-labels"><label for="__tabbed_21_1">Request</label><label for="__tabbed_21_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://localhost:7007/api/v0/node/chains
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="o">{</span>
+<span class="w">  </span><span class="s2">&quot;supportedChains&quot;</span>:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;eip155:3&quot;</span><span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="health-check">Health check<a class="headerlink" href="#health-check" title="Permanent link">&para;</a></h3>
+<p>Check the health of the node and the machine it's running on. Run
+<code>ceramic daemon -h</code> for more details on how this can be configured.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="22:2"><input checked="checked" id="__tabbed_22_1" name="__tabbed_22" type="radio" /><input id="__tabbed_22_2" name="__tabbed_22" type="radio" /><div class="tabbed-labels"><label for="__tabbed_22_1">Request</label><label for="__tabbed_22_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>GET<span class="w"> </span>/api/v0/node/healthcheck
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Either a <code>200</code> response with the text <code>Alive!</code>, or a <code>503</code> with the text <code>Insufficient resources</code>.</p>
+</div>
+</div>
+</div>
+<h4 id="example_10">Example<a class="headerlink" href="#example_10" title="Permanent link">&para;</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="23:2"><input checked="checked" id="__tabbed_23_1" name="__tabbed_23" type="radio" /><input id="__tabbed_23_2" name="__tabbed_23" type="radio" /><div class="tabbed-labels"><label for="__tabbed_23_1">Request</label><label for="__tabbed_23_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>http://localhost:7007/api/v0/node/healthcheck
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>Alive!
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="node-status">Node status<a class="headerlink" href="#node-status" title="Permanent link">&para;</a></h3>
+<p>The node status endpoint exposes information about the node's status.</p>
+<p><strong><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg></span> Admin DID required</strong></p>
+<p>Access to this endpoint is restricted to admin DIDs, the request headers need to
+contain a signature for the request. The recommended way to interact with this
+endpoint is using the CLI with the <code>ceramic status</code> command.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="24:2"><input checked="checked" id="__tabbed_24_1" name="__tabbed_24" type="radio" /><input id="__tabbed_24_2" name="__tabbed_24" type="radio" /><div class="tabbed-labels"><label for="__tabbed_24_1">Request</label><label for="__tabbed_24_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>GET<span class="w"> </span>/api/v0/admin/status
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<p>Either a <code>200</code> response with the JSON payload, or a server error.</p>
+</div>
+</div>
+</div>
+<h4 id="example_11">Example<a class="headerlink" href="#example_11" title="Permanent link">&para;</a></h4>
+<div class="tabbed-set tabbed-alternate" data-tabs="25:2"><input checked="checked" id="__tabbed_25_1" name="__tabbed_25" type="radio" /><input id="__tabbed_25_2" name="__tabbed_25" type="radio" /><div class="tabbed-labels"><label for="__tabbed_25_1">Command</label><label for="__tabbed_25_2">Response</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>ceramic<span class="w"> </span>status
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;runId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7647439f-44fa-4aff-b3c8-b7e16015c52e&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;uptimeMs&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">27638</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;network&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inmemory&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;anchor&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;anchorServiceUrl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;inmemory&gt;&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;ethereumRpcEndpoint&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;chainId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;inmemory:12345&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;ipfs&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;peerId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12D3KooWRzv8fM4oV6jRj8nsg8kxo3Z9u26vVXLaUKiLbuoV3Vtp&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;addresses&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="s2">&quot;/ip4/127.0.0.1/tcp/4011/p2p/12D3KooWRzv8fM4oV6jRj8nsg8kxo3Z9u26vVXLaUKiLbuoV3Vtp&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="s2">&quot;/ip4/192.168.0.101/tcp/4011/p2p/12D3KooWRzv8fM4oV6jRj8nsg8kxo3Z9u26vVXLaUKiLbuoV3Vtp&quot;</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;composeDB&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;indexedModels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by using our  <a href="https://docs.google.com/forms/d/e/1FAIpQLScSf4k6CYDp8yN1tGW8IMtb_g_6p3OLcE60Avabe0zXkpBo8g/viewform?usp=pp_url&amp;entry.1288700168=/build/http/api/" target="_blank" rel="noopener"> feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  <div class="md-copyright__highlight">
+    Ceramic is open sourced under MIT and Apache 2
+    | <a href="/pages/3boxlabs-terms-conditions/">Terms and Conditions</a>
+    | <a href="/pages/3boxlabs-privacy-policy/">Privacy Policy</a>
+  </div>  
+</div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/ceramicnetwork/ceramic" target="_blank" class="md-footer-social__link fa fa-" rel="noopener"></a>
+    
+      <a href="https://twitter.com/ceramicnetwork" target="_blank" class="md-footer-social__link fa fa-" rel="noopener"></a>
+    
+      <a href="http://github.com/ceramicnetwork/ceramic" class="md-footer-social__link fa" target="_blank" rel="noopener">
+        <img src="../../../images/icon-github-white.svg" style="margin-left:10px" width="20px">
+      </a>
+      <a href="http://chat.ceramic.network" class="md-footer-social__link fa" target="_blank" rel="noopener">
+        <img src="../../../images/icon-discord-white.svg" style="margin-left:10px" width="17px">
+      </a>
+      <a href="http://twitter.com/ceramicnetwork" class="md-footer-social__link fa" target="_blank" rel="noopener">
+        <img src="../../../images/icon-twitter-white.svg" style="margin-left:10px" width="20px">
+      </a>
+      <a href="http://www.youtube.com/channel/UCgCLq5dx7sX-yUrrEbtYqVw" class="md-footer-social__link fa" target="_blank" rel="noopener">
+        <img src="../../../images/icon-youtube-white.svg" style="margin-left:10px" width="22px">
+      </a>
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+  
+    
+  
+
+
+  
+    
+  
+
+
+
+  
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for, in accordance to our <a href="/pages/3boxlabs-terms-conditions/">Terms and Conditions</a> and <a href="/pages/3boxlabs-privacy-policy/">Privacy Policy</a>. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="analytics" checked>
+          <span class="task-list-indicator"></span>
+          Google Analytics
+        </label>
+      </li>
+    
+      
+      
+        
+        
+      
+      <li class="task-list-item">
+        <label class="task-list-control">
+          <input type="checkbox" name="github" checked>
+          <span class="task-list-indicator"></span>
+          GitHub
+        </label>
+      </li>
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout(function(){document.querySelector("[data-md-component=consent]").hidden=!1},250);var action,form=document.forms.consent;for(action of["submit","reset"])form.addEventListener(action,function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map(function(e){return[e,!0]}))),location.hash="",location.reload()})</script>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tabs", "navigation.indexes", "content.code.annotate", "content.tabs.link", "navigation.path", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.6c7302c4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.734a6fd4.min.js"></script>
+      
+        <script src="../../../assets/external/cdnjs.cloudflare.com/ajax/libs/tablesort/5.2.1/tablesort.min.js"></script>
+      
+    
+  </body>
+</html>
