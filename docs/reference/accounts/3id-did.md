@@ -1,6 +1,10 @@
 # **3ID DID libraries**
 
 ---
+⚠️ ⚠️ ⚠️ The 3ID DID Method has been deprecated. Please use DID PKH using [DID Session](https://did.js.org/docs/authorization)! ⚠️ ⚠️ ⚠️
+
+---
+
 
 The 3ID DID libraries provide support for the `did:3` method as a Ceramic account, which notably uses Ceramic to store DID documents as Ceramic streams, enabling features such as supporting multiple authentication keys and rotating these keys.
 
