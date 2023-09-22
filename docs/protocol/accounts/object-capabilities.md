@@ -21,7 +21,7 @@ CACAO enables the ability for one account to authorize another account to constr
 
 When combined with ["Sign-in with X"](https://chainagnostic.org/CAIPs/caip-122), CACAO unlocks the ability for blockchain accounts to authorize Ceramic accounts (DIDs) to sign data on their behalf. 
 
-This frequently used pattern in Ceramic greatly increases the the usability of user-owned data and public-key cryptography. Thanks to the adoption of blockchain based systems, many users now have the ability to easily sign data in web-based environments using their wallet and blockchain account. 
+This frequently used pattern in Ceramic greatly increases the usability of user-owned data and public-key cryptography. Thanks to the adoption of blockchain based systems, many users now have the ability to easily sign data in web-based environments using their wallet and blockchain account. 
 
 ### **Authorizing sessions**
 
