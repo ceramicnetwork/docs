@@ -14,7 +14,7 @@ A StreamID is an immutable identifier for a [stream](#stream). StreamIDs enable 
 
 ### StreamTypes
 
-StreamTypes are functions used for processing updates to [streams](#streams). StreamTypes handle everything from defining the data structure of the stream, to what can be stored in its [commits](#commits), its state transitition function, [authentication](#authentication) requirements, and [conflict resolution strategy](#conflict-resolution-strategy). Every stream must specify a StreamType; and StreamTypes run on Ceramic [nodes](#nodes). Ceramic comes [pre-installed with various StreamTypes](../docs/advanced/standards/stream-programs/index.md), or you can code your own.
+StreamTypes are functions used for processing updates to [streams](#streams). StreamTypes handle everything from defining the data structure of the stream, to what can be stored in its [commits](#commits), its state transition function, [authentication](#authentication) requirements, and [conflict resolution strategy](#conflict-resolution-strategy). Every stream must specify a StreamType; and StreamTypes run on Ceramic [nodes](#nodes). Ceramic comes [pre-installed with various StreamTypes](../docs/advanced/standards/stream-programs/index.md), or you can code your own.
 
 ### Commits
 
