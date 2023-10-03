@@ -272,7 +272,7 @@ Ceramic nodes rely on IPFS for networking. IPFS nodes connect to each other usin
 
 Additionally, when running IPFS the IPFS API port must be accessible by the Ceramic node. The default API port is `5001`. The IPFS node address will then be passed to Ceramic with the `ipfs.host` option in the Ceramic daemon config file.
 
-### **Connect to the mainnnet anchor service**
+### **Connect to the mainnet anchor service**
 
 For nodes that wish to connect to Ceramic mainnet, the node's IP address will have to be added to the allowlist for the Ceramic Anchor Service node operated by 3BoxLabs. Once you have fully configured your Ceramic node with this guide and have a way to persist its configuration and state, open an issue in the [Ceramic Anchor Allowlist Repo](https://github.com/3box/ceramic-anchor-allowlist) with the public, static *egress* IP address for your Ceramic node, and a brief description of the data persistence setup for the multiaddress, Ceramic State Store, and IPFS Repo. Once your issue is closed, you will be connected to the Ceramic network and the [Ceramic Anchor Service](https://github.com/ceramicnetwork/ceramic-anchor-service).
 
