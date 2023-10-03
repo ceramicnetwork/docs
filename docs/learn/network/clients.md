@@ -69,7 +69,7 @@ Should this be its own category, or should this live elsewhere?
 The primary responsibility of an anchor service is to generate anchor records by committing signed records into a blockchain. All of the responsibilities below are in service of this primary responsibility.
 
 #### Merkle tree construction
-Constructs a merkle tree of all signed records that eill be simultaneously committed to a blockchain in a single hash, called a merkle root.
+Constructs a merkle tree of all signed records that will be simultaneously committed to a blockchain in a single hash, called a merkle root.
 
 #### Anchor metadata
 Bloom filter, helps with indexing services.
