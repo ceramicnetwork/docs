@@ -42,7 +42,7 @@ async function load(id) {
 
 In order to create a document, an authenticated DID needs to be attached to the Ceramic client instance to enable transactions (signing commits).
 
-The following example uses the [ed25519 Key DID provider](../accounts/key-did.md#ed25519) for simplicity, but creating documents can be done using any supported DID provider.
+The following example uses the [ed25519 Key DID provider](../accounts/key-did.md#ed25519) for simplicity, but creating documents can be done using any [supported DID provider](https://developers.ceramic.network/protocol/accounts/decentralized-identifiers/#supported-methods).
 
 ```ts
 import { CeramicClient } from '@ceramicnetwork/http-client'
@@ -77,7 +77,7 @@ In addition to the stream `content`, the following `metadata` can be set
 
 In order to update a document, an authenticated DID needs to be attached to the Ceramic client instance to enable transactions (signing commits).
 
-The following example uses the [ed25519 Key DID provider](../accounts/key-did.md#ed25519) for simplicity, but creating documents can be done using any supported DID provider.
+The following example uses the [ed25519 Key DID provider](../accounts/key-did.md#ed25519) for simplicity, but creating documents can be done using any [supported DID provider](https://developers.ceramic.network/protocol/accounts/decentralized-identifiers/#supported-methods).
 
 ```ts
 import { CeramicClient } from '@ceramicnetwork/http-client'
