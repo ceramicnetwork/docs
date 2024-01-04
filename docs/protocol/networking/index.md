@@ -4,7 +4,7 @@ Networking sub-protocols for Ceramic
 
 ### Overview
 
-Ceramic streams and nodes are grouped into independent networks. These networks can be either for public use or for use by a specific community. There are currently a few commonly shared and default networks. When a stream is published in a network, other nodes in the same network are able to query and discover the stream, receive the latest stream events (tips), and sync the entire event set for a stream. Each of the these network functions are defined by a sub protocol listed below.
+Ceramic streams and nodes are grouped into independent networks. These networks can be either for public use or for use by a specific community. There are currently a few commonly shared and default networks. When a stream is published in a network, other nodes in the same network are able to query and discover the stream, receive the latest stream events (tips), and sync the entire event set for a stream. Each of these network functions are defined by a sub protocol listed below.
 
 ### [Networks](networks.md)
 
