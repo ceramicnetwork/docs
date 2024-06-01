@@ -22,7 +22,7 @@ For example, to authorize an account to write to only two specific streams, you 
 
 ### **Models**
 
-The mostly commonly used pattern is to specify authorizations by model streamIds. `model` is a property that can be defined in a streams init event. When specified and used with CACAO it allows a DID and key the ability to write to all streams with this specific model value for that user. 
+The most commonly used pattern is to specify authorizations by model streamIds. `model` is a property that can be defined in a streams init event. When specified and used with CACAO it allows a DID and key the ability to write to all streams with this specific model value for that user. 
 
 !!! note
     Ceramic will likely support other keys and values in streams beyond `model` for authorizations in the future.

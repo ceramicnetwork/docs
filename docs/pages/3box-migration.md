@@ -8,7 +8,7 @@ Any additional data in 3Box may or may not be migrated by the applications thems
 
 ## **Migration Difficulties**
 
-Most users will be able to migrate without difficulty, but there is a number of known instances where we can not easily migrate your 3ID. In theses cases we will create a new 3ID for you and partially migrate any data that we can. You will be able to re-add any profile data and social links that fail to migrate in the future.
+Most users will be able to migrate without difficulty, but there is a number of known instances where we can not easily migrate your 3ID. In these cases we will create a new 3ID for you and partially migrate any data that we can. You will be able to re-add any profile data and social links that fail to migrate in the future.
 
 **Very Early 3Box Users**
 

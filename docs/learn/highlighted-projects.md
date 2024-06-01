@@ -33,7 +33,7 @@ Decentralized universal profiles available for use throughout the web3 metaverse
 |[Titter](https://twitter.com/dabit3/status/1515698468949573634)|Titter is a prototype of a web3-native social application, using Ceramic for editable, self-sovereign user profiles.|[Demo](https://twitter.com/dabit3/status/1515698468949573634)|[Github](https://github.com/dabit3/titter)|
 
 ### Reputation
-This includes any publicly veriable attestations for skills, credentials, and contribution scores.
+This includes any publicly verifiable attestations for skills, credentials, and contribution scores.
 
 |Project    |Description    |Demo   |Code Repo|
 |-|----|-----|--|

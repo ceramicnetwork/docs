@@ -16,7 +16,7 @@ The following services are typically provided to a Ceramic node by a connected I
 | --- | --- |
 | Gossipsub | Several layers of the libp2p stack are used including GossipSub to query streams and broadcast stream updates in the network. |
 | Kademlia DHT | A distributed hash table for content and peer lookup and discovery. The same DHT table is used as the primary IPFS network.  |
-| Bitswap | Exchange and sync blocks with peers. Allows an event stream to be sycned from one node to another. |
+| Bitswap | Exchange and sync blocks with peers. Allows an event stream to be synced from one node to another. |
 
 ### **Ceramic Services**
 
