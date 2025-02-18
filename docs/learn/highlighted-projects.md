@@ -28,12 +28,12 @@ Decentralized universal profiles available for use throughout the web3 metaverse
 
 |Project    |Description    |Demo   |Code Repo|
 |-----|----|-----|--|
-|[DAOHaus](https://daohaus.club/)|  To help DAOs better understand who is participating in thier communities, DAOhaus is using Ceramic to create rich and robust member profiles.|[Blog Post](https://blog.ceramic.network/daohaus-adds-rich-dao-member-profiles/)|[Github](https://github.com/HausDAO/daohaus-app)|
+|[DAOHaus](https://daohaus.club/)|  To help DAOs better understand who is participating in their communities, DAOhaus is using Ceramic to create rich and robust member profiles.|[Blog Post](https://blog.ceramic.network/daohaus-adds-rich-dao-member-profiles/)|[Github](https://github.com/HausDAO/daohaus-app)|
 |[DNS.xyz](https://beta.dns.xyz/)|DNS.xyz uses Ceramic to allow users to create and manage a universal profile.|||
 |[Titter](https://twitter.com/dabit3/status/1515698468949573634)|Titter is a prototype of a web3-native social application, using Ceramic for editable, self-sovereign user profiles.|[Demo](https://twitter.com/dabit3/status/1515698468949573634)|[Github](https://github.com/dabit3/titter)|
 
 ### Reputation
-This includes any publicly veriable attestations for skills, credentials, and contribution scores.
+This includes any publicly variable attestations for skills, credentials, and contribution scores.
 
 |Project    |Description    |Demo   |Code Repo|
 |-|----|-----|--|
