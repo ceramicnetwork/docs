@@ -16,7 +16,7 @@ The [**Ceramic Blog**](https://blog.ceramic.network){:target="\_blank"} contains
 
 ## Featured videos
 
-[**Learn how to manage user data in a Web3 app with IDX**](https://blog.ceramic.network/learn-how-to-manage-user-data-in-a-web3-app-with-idx/){:target="\_blank"}: Learn how to manage user data for your Web3 application with IDX. This talk is a workshop from tthe ETHDenver 2021 hackathon.
+[**Learn how to manage user data in a Web3 app with IDX**](https://blog.ceramic.network/learn-how-to-manage-user-data-in-a-web3-app-with-idx/){:target="\_blank"}: Learn how to manage user data for your Web3 application with IDX. This talk is a workshop from the ETHDenver 2021 hackathon.
 
 [**Standards for encrypted and mutable data on IPFS**](https://blog.ceramic.network/standards-for-encrypted-and-mutable-data-on-ipfs/){:target="\_blank"}: Joel talks about new standards for signed, encrypted, mutable data on IPFS. This is a talk from the ETHDenver 2021 hackathon.
 
